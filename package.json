@@ -1,0 +1,24 @@
+{
+  "name": "lgs1920-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@awesome.me/webawesome": "^3.5.0",
+    "@fortawesome/fontawesome-svg-core": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-brands-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/free-brands-svg-icons",
+    "@fortawesome/pro-regular-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-regular-svg-icons",
+    "@fortawesome/pro-solid-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-solid-svg-icons"
+  }
+}

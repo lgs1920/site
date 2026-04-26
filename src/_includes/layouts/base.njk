@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="wa-theme-shoelace wa-brand-yellow wa-dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or 'LGS1920 Studio' }}</title>
+    <meta name="description" content="{{ description or 'LGS1920 Studio, a local-first geospatial editor for journeys, tracks, POIs, camera workflows, and media capture.' }}">
+    <script>
+        (() => {
+            const mode = localStorage.getItem('lgs1920-site-theme') || 'dark'
+            const effectiveMode = mode === 'system'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : mode
+            document.documentElement.classList.remove('wa-light', 'wa-dark')
+            document.documentElement.classList.add(effectiveMode === 'dark' ? 'wa-dark' : 'wa-light')
+            document.documentElement.dataset.themeMode = mode
+        })()
+    </script>
+    <link rel="stylesheet" href="/vendor/webawesome/styles/webawesome.css">
+    <link rel="stylesheet" href="/vendor/webawesome/styles/themes/shoelace.css">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script type="module" src="/vendor/webawesome/webawesome.loader.js"></script>
+    <script type="module" src="/assets/theme.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header shell">
+        <div class="brand-lockup">
+            <span class="brand-kicker">Replay the World Outdoors</span>
+            <a class="brand-name" href="/">LGS1920 Studio</a>
+        </div>
+
+        <div class="site-tools">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="#vision">Vision</a>
+                <a href="#features">Features</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <label class="theme-select-wrap">
+                <span>Theme</span>
+                <wa-select value="dark" size="small" data-theme-selector>
+                    <wa-option value="dark">Dark</wa-option>
+                    <wa-option value="light">Light</wa-option>
+                    <wa-option value="system">System</wa-option>
+                </wa-select>
+            </label>
+        </div>
+    </header>
+
+    <main id="content">
+        {{ content | safe }}
+    </main>
+
+    <footer class="site-footer shell">
+        <p>LGS1920 Studio is distributed under the PolyForm Noncommercial license.</p>
+        <p><a href="mailto:contact@lgs1920.fr">contact@lgs1920.fr</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "site",
+      "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-brands-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/free-brands-svg-icons",
+        "@fortawesome/pro-regular-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-regular-svg-icons",
+        "@fortawesome/pro-solid-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-solid-svg-icons",
+      },
+    },
+  },
+  "packages": {
+    "@fortawesome/fontawesome-common-types": ["@fortawesome/fontawesome-common-types@7.2.0", "", {}, "sha512-IpR0bER9FY25p+e7BmFH25MZKEwFHTfRAfhOyJubgiDnoJNsSvJ7nigLraHtp4VOG/cy8D7uiV0dLkHOne5Fhw=="],
+
+    "@fortawesome/fontawesome-svg-core": ["@fortawesome/fontawesome-svg-core@file:../studio/node_modules/@fortawesome/fontawesome-svg-core", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }],
+
+    "@fortawesome/free-brands-svg-icons": ["@fortawesome/free-brands-svg-icons@file:../studio/node_modules/@fortawesome/free-brands-svg-icons", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }],
+
+    "@fortawesome/pro-regular-svg-icons": ["@fortawesome/pro-regular-svg-icons@file:../studio/node_modules/@fortawesome/pro-regular-svg-icons", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }],
+
+    "@fortawesome/pro-solid-svg-icons": ["@fortawesome/pro-solid-svg-icons@file:../studio/node_modules/@fortawesome/pro-solid-svg-icons", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }],
+  }
+}

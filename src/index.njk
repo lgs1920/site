@@ -1,0 +1,234 @@
+---
+layout: layouts/base.njk
+title: LGS1920 Studio
+description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, and media capture.
+---
+
+<section class="hero shell">
+    <div class="hero-copy">
+        <wa-badge variant="brand" appearance="filled" pill>Local-first geospatial storytelling</wa-badge>
+        <h1>Build cinematic map journeys with live camera control and export-ready overlays.</h1>
+        <p class="hero-lead">
+            LGS1920 Studio is a browser-based geospatial editor for loading, shaping, and presenting journeys, tracks,
+            and points of interest inside a Cesium scene with persistent camera workflows and capture tools.
+        </p>
+
+        <div class="hero-actions">
+            <wa-button href="#features" variant="brand">
+                {% fa "route", "regular" %}
+                Explore features
+            </wa-button>
+            <wa-button href="https://github.com/lgs1920/studio" target="_blank" rel="noreferrer" appearance="outlined">
+                {% fa "github", "brands" %}
+                View repository
+            </wa-button>
+        </div>
+
+        <ul class="hero-tags" aria-label="Product highlights">
+            <li>{% fa "route", "regular" %} Journeys, tracks, and POIs</li>
+            <li>{% fa "cube", "regular" %} 2D, 3D, and Columbus views</li>
+            <li>{% fa "photoFilm", "regular" %} Snapshot and video output</li>
+        </ul>
+    </div>
+
+    <wa-card class="hero-panel">
+        <div class="panel-stack">
+            <div class="panel-topline">
+                <span class="panel-eyebrow">Current product surface</span>
+                <span class="panel-live"><span class="status-dot" aria-hidden="true"></span> Active development</span>
+            </div>
+
+            <div class="metric-grid">
+                <article>
+                    {% fa "mapLocationDot", "regular" %}
+                    <strong>Import pipeline</strong>
+                    <span>GeoJSON, GPX, KML</span>
+                </article>
+                <article>
+                    {% fa "arrowsRotate", "regular" %}
+                    <strong>Live camera</strong>
+                    <span>Focus, orbit, panorama</span>
+                </article>
+                <article>
+                    {% fa "chartLineUp", "regular" %}
+                    <strong>Terrain metrics</strong>
+                    <span>Profile, slope, distance</span>
+                </article>
+                <article>
+                    {% fa "layerGroup", "regular" %}
+                    <strong>Widget overlays</strong>
+                    <span>Persistent and export-aware</span>
+                </article>
+            </div>
+
+            <wa-divider></wa-divider>
+
+            <p class="panel-note">
+                Designed for teams that need a single workspace for editing data, directing the scene, and shipping
+                visuals without leaving the browser.
+            </p>
+        </div>
+    </wa-card>
+</section>
+
+<section id="vision" class="section shell">
+    <div class="section-heading">
+        <p class="section-kicker">Vision</p>
+        <h2>A map editor that behaves more like a camera desk than a data form.</h2>
+    </div>
+
+    <div class="vision-grid">
+        <wa-card class="vision-card accent-a">
+            <p class="card-icon">{% fa "compassDrafting", "regular" %}</p>
+            <h3>Shape the journey</h3>
+            <p>Curate tracks, style paths, manage POIs, and preserve the editorial state with local persistence.</p>
+        </wa-card>
+
+        <wa-card class="vision-card accent-b">
+            <p class="card-icon">{% fa "camera", "regular" %}</p>
+            <h3>Direct the camera</h3>
+            <p>Switch scene modes, target precise viewpoints, and tune orbit rotation or panorama controls in real time.</p>
+        </wa-card>
+
+        <wa-card class="vision-card accent-c">
+            <p class="card-icon">{% fa "clapperboardPlay", "regular" %}</p>
+            <h3>Compose the output</h3>
+            <p>Layer widgets, metrics, and overlays so screenshots and videos already carry the narrative structure.</p>
+        </wa-card>
+    </div>
+</section>
+
+<section id="features" class="section shell">
+    <div class="section-heading">
+        <p class="section-kicker">Features</p>
+        <h2>The core workflows already covered by the project.</h2>
+    </div>
+
+    <div class="feature-grid">
+        <wa-card class="feature-card">
+            {% fa "route", "regular" %}
+            <h3>Journey and track editing</h3>
+            <p>Load multiple journeys, edit metadata, tune visibility, and manage track presentation as a coherent story.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            {% fa "locationCrosshairs", "regular" %}
+            <h3>POI workflows</h3>
+            <p>Create, focus, rotate, and persist point-centric views across both POIs and journey-level targets.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            {% fa "earthEurope", "regular" %}
+            <h3>Cesium scene control</h3>
+            <p>Move between 2D, 3D, and Columbus, track the active camera target, and keep navigation legible.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            {% fa "arrowsRotate", "regular" %}
+            <h3>Orbit and panorama</h3>
+            <p>Adjust speed, direction, height offset, and pitch live while the camera stays in motion.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            {% fa "chartLineUp", "regular" %}
+            <h3>Metrics and widgets</h3>
+            <p>Use elevation profiles, journey stats, text, credits, and other UI elements as reusable scene overlays.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            {% fa "photoFilm", "regular" %}
+            <h3>Media export</h3>
+            <p>Capture snapshots, define crop zones, and record video with the same visible overlays used in the editor.</p>
+        </wa-card>
+    </div>
+</section>
+
+<section id="workflow" class="section shell workflow-section">
+    <div class="section-heading">
+        <p class="section-kicker">Workflow</p>
+        <h2>From raw path data to polished map output.</h2>
+    </div>
+
+    <ol class="workflow-list">
+        <li>
+            <span>01</span>
+            <div>
+                <h3>Load source data</h3>
+                <p>Bring in GeoJSON, GPX, or KML files and rebuild a working journey context in the browser.</p>
+            </div>
+        </li>
+        <li>
+            <span>02</span>
+            <div>
+                <h3>Stage the experience</h3>
+                <p>Refine visibility, focus behavior, widgets, camera targets, rotation presets, and panorama settings.</p>
+            </div>
+        </li>
+        <li>
+            <span>03</span>
+            <div>
+                <h3>Capture and deliver</h3>
+                <p>Export images or video with the same scene framing, overlays, and metrics used during editing.</p>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section class="section shell stack-section">
+    <div class="section-heading">
+        <p class="section-kicker">Stack</p>
+        <h2>Cesium, React, Bun, Valtio, Web Awesome, Eleventy, and a local-first browser database.</h2>
+    </div>
+
+    <div class="stack-band">
+        <span>{% fa "globe", "regular" %} Cesium scene engine</span>
+        <span>{% fa "layerGroup", "regular" %} Widget system</span>
+        <span>{% fa "database", "regular" %} IndexedDB persistence</span>
+        <span>{% fa "video", "regular" %} Media pipeline</span>
+    </div>
+</section>
+
+<section class="section shell repo-section">
+    <wa-card class="repo-card">
+        <div class="repo-copy">
+            <p class="section-kicker">Repository split</p>
+            <h2>This site stays static and lightweight. The editor lives in the main Studio repository.</h2>
+            <p>
+                The application code remains in the main product repo, while this 11ty site provides a fast, low-friction
+                front door for showcasing the project and its positioning.
+            </p>
+        </div>
+
+        <div class="repo-actions">
+            <wa-button href="https://github.com/lgs1920/studio" target="_blank" rel="noreferrer" variant="brand">
+                {% fa "github", "brands" %}
+                Main repository
+            </wa-button>
+            <wa-button href="mailto:contact@lgs1920.fr" appearance="outlined">
+                {% fa "envelope", "regular" %}
+                Contact
+            </wa-button>
+        </div>
+    </wa-card>
+</section>
+
+<section id="faq" class="section shell faq-section">
+    <div class="section-heading">
+        <p class="section-kicker">FAQ</p>
+        <h2>Useful context around the project.</h2>
+    </div>
+
+    <div class="faq-list">
+        <wa-details summary="Is this site static?">
+            Yes. Eleventy generates the pages and assets, while Web Awesome provides the component layer in the browser.
+        </wa-details>
+
+        <wa-details summary="Who is the product for?">
+            Teams and creators working on map-based storytelling, route editing, camera choreography, and export-ready visuals.
+        </wa-details>
+
+        <wa-details summary="What is the public license?">
+            The main repository is published under the PolyForm Noncommercial license, with separate commercial licensing available.
+        </wa-details>
+    </div>
+</section>
