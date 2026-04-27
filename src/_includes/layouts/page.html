@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.html
 ---
-<wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle>
+<wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
     <span slot="skip-to-content">Skip to content</span>
 
     <header slot="header" class="topbar">
@@ -21,29 +21,46 @@ layout: layouts/base.html
                 </wa-button>
             {% endfor %}
 
-            <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
-                <wa-button slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
-                    <wa-icon data-theme-icon="light" variant="solid" name="sun-bright" hidden></wa-icon>
-                    <wa-icon data-theme-icon="dark" variant="solid" name="moon-stars" hidden></wa-icon>
-                </wa-button>
+            <div class="theme-controls">
+                <wa-dropdown class="brand-menu" placement="bottom-end" data-brand-dropdown>
+                    <wa-button slot="trigger" class="brand-trigger" appearance="plain" size="small" aria-label="Choose brand color">
+                        <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
+                    </wa-button>
 
-                <wa-dropdown-item value="light" data-theme-option="light">
-                    <wa-icon slot="icon" variant="solid" name="sun-bright"></wa-icon>
-                    Light
-                </wa-dropdown-item>
+                    {% for option in site.brandOptions %}
+                        <wa-dropdown-item value="{{ option.value }}" data-brand-option="{{ option.value }}" data-swatch="{{ option.swatch }}">
+                            <span class="brand-option">
+                                <span class="brand-color-swatch" style="--swatch-color: {{ option.swatch }}"></span>
+                                <span>{{ option.label }}</span>
+                            </span>
+                        </wa-dropdown-item>
+                    {% endfor %}
+                </wa-dropdown>
 
-                <wa-dropdown-item value="dark" data-theme-option="dark">
-                    <wa-icon slot="icon" variant="solid" name="moon-stars"></wa-icon>
-                    Dark
-                </wa-dropdown-item>
+                <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
+                    <wa-button slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
+                        <wa-icon data-theme-icon="light" variant="regular" name="sun-bright" hidden></wa-icon>
+                        <wa-icon data-theme-icon="dark" variant="regular" name="moon-stars" hidden></wa-icon>
+                    </wa-button>
 
-                <wa-divider></wa-divider>
+                    <wa-dropdown-item value="light" data-theme-option="light">
+                        <wa-icon slot="icon" variant="regular" name="sun-bright"></wa-icon>
+                        Light
+                    </wa-dropdown-item>
 
-                <wa-dropdown-item value="system" data-theme-option="system">
-                    <wa-icon slot="icon" variant="solid" name="laptop"></wa-icon>
-                    System
-                </wa-dropdown-item>
-            </wa-dropdown>
+                    <wa-dropdown-item value="dark" data-theme-option="dark">
+                        <wa-icon slot="icon" variant="regular" name="moon-stars"></wa-icon>
+                        Dark
+                    </wa-dropdown-item>
+
+                    <wa-divider></wa-divider>
+
+                    <wa-dropdown-item value="system" data-theme-option="system">
+                        <wa-icon slot="icon" variant="regular" name="cog"></wa-icon>
+                        System
+                    </wa-dropdown-item>
+                </wa-dropdown>
+            </div>
         </div>
     </header>
 
@@ -172,7 +189,7 @@ layout: layouts/base.html
         </div>
     </section>
 
-    <main id="content" class="page-content">
+    <main id="content" class="page-content{% if pageClass %} {{ pageClass }}{% endif %}">
         {{ content }}
     </main>
 
@@ -204,7 +221,26 @@ layout: layouts/base.html
     {% endif %}
 
     <footer slot="footer" class="site-footer">
-        <p>{{ site.footerNote }}</p>
+        <div class="site-footer-copy">
+            <p class="site-footer-note">
+                <wa-icon family="regular" variant="solid" name="copyright"></wa-icon>
+                <span>{{ site.footerNote }}</span>
+                {% if site.buildLink %}
+                    <span class="site-footer-separator">-</span>
+                    <a class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
+                        <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
+                        <span>{{ site.buildLink.label }}</span>
+                    </a>
+                {% endif %}
+            </p>
+            {% if site.legalLinks and site.legalLinks.size > 0 %}
+                <nav class="site-footer-links" aria-label="Legal pages">
+                    {% for link in site.legalLinks %}
+                        <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
+                    {% endfor %}
+                </nav>
+            {% endif %}
+        </div>
         <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
     </footer>
 </wa-page>

@@ -1,30 +1,101 @@
 import desktopVideo from './media/trekking-hero-desktop.mp4'
 import mobileVideo from './media/trekking-hero-mobile.mp4'
 
-const STORAGE_KEY = 'theme'
+const THEME_STORAGE_KEY = 'theme'
+const BRAND_COLOR_STORAGE_KEY = 'brandColor'
+const ROOT_THEME_CLASS = 'wa-theme-lgs1920'
+const DEFAULT_BRAND_COLOR = 'yellow'
+const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'gray']
+const BRAND_SWATCHES = {
+    yellow:'var(--wa-color-yellow)',
+    orange:'var(--wa-color-orange)',
+    red:   'var(--wa-color-red-40)',
+    pink:  'var(--wa-color-pink-70)',
+    purple:'var(--wa-color-purple)',
+    blue:  'var(--wa-color-blue)',
+    green: 'var(--wa-color-green-90)',
+    gray:  'var(--wa-color-gray)',
+}
+const LEGACY_ROOT_THEME_PREFIXES = ['sl-theme-', 'wa-brand-', 'wa-palette-', 'wa-neutral-', 'wa-success-', 'wa-warning-', 'wa-danger-']
+const LEGACY_ROOT_THEME_CLASSES = new Set(['wa-theme-premium'])
 const root = document.documentElement
 const media = window.matchMedia('(prefers-color-scheme: dark)')
 const heroViewport = window.matchMedia('(max-width: 767px)')
 
-const applyTheme = (mode) => {
-    const effectiveMode = mode === 'system'
-                          ? (media.matches ? 'dark' : 'light')
-                          : mode
+const resolveBrandColor = (brandColor = null) => {
+    const fallbackColor = localStorage.getItem(BRAND_COLOR_STORAGE_KEY) || DEFAULT_BRAND_COLOR
+    const resolvedColor = brandColor || fallbackColor
 
-    root.classList.toggle('wa-dark', effectiveMode === 'dark')
-    root.classList.toggle('wa-light', effectiveMode !== 'dark')
-    root.dataset.themeMode = mode
+    return BRAND_COLORS.includes(resolvedColor) ? resolvedColor : DEFAULT_BRAND_COLOR
+}
 
+const normalizeDocumentThemeClasses = (target = root) => {
+    if (!target) {
+        return
+    }
+
+    const toRemove = Array.from(target.classList).filter((className) => {
+        if (LEGACY_ROOT_THEME_CLASSES.has(className)) {
+            return true
+        }
+
+        if (className.startsWith('wa-theme-') && className !== ROOT_THEME_CLASS) {
+            return true
+        }
+
+        return LEGACY_ROOT_THEME_PREFIXES.some(prefix => className.startsWith(prefix))
+    })
+
+    if (toRemove.length > 0) {
+        target.classList.remove(...toRemove)
+    }
+}
+
+const syncThemeIcons = (effectiveMode) => {
     document.querySelectorAll('[data-theme-icon]').forEach((icon) => {
         icon.hidden = icon.dataset.themeIcon !== effectiveMode
     })
+}
 
+const syncThemeOptions = (mode) => {
     document.querySelectorAll('[data-theme-option]').forEach((item) => {
         item.toggleAttribute('selected', item.getAttribute('value') === mode)
     })
 }
 
-const getInitialMode = () => localStorage.getItem(STORAGE_KEY) || 'system'
+const syncBrandOptions = (brandColor) => {
+    document.querySelectorAll('[data-brand-option]').forEach((item) => {
+        item.toggleAttribute('selected', item.getAttribute('value') === brandColor)
+    })
+}
+
+const syncBrandSwatches = (brandColor) => {
+    const swatchColor = BRAND_SWATCHES[brandColor] || BRAND_SWATCHES[DEFAULT_BRAND_COLOR]
+
+    document.querySelectorAll('[data-brand-swatch]').forEach((swatch) => {
+        swatch.style.setProperty('--swatch-color', swatchColor)
+    })
+}
+
+const applyTheme = (mode, brandColor = null) => {
+    const effectiveMode = mode === 'system'
+                          ? (media.matches ? 'dark' : 'light')
+                          : mode
+    const resolvedBrandColor = resolveBrandColor(brandColor)
+
+    normalizeDocumentThemeClasses(root)
+    root.classList.add(ROOT_THEME_CLASS, `wa-brand-${resolvedBrandColor}`)
+    root.classList.toggle('wa-dark', effectiveMode === 'dark')
+    root.classList.toggle('wa-light', effectiveMode !== 'dark')
+    root.dataset.themeMode = mode
+    root.dataset.brandColor = resolvedBrandColor
+    syncThemeIcons(effectiveMode)
+    syncThemeOptions(mode)
+    syncBrandOptions(resolvedBrandColor)
+    syncBrandSwatches(resolvedBrandColor)
+}
+
+const getInitialMode = () => localStorage.getItem(THEME_STORAGE_KEY) || 'system'
 
 const isDesktopView = (page) => page?.getAttribute('view') === 'desktop'
 
@@ -52,7 +123,7 @@ const setupPageNavigation = () => {
         updateToggleLabel()
     }
 
-    applyDesktopNavState(false)
+    applyDesktopNavState(page.dataset.navCollapsed === 'true')
 
     toggle.addEventListener('click', () => {
         if (isDesktopView(page)) {
@@ -105,7 +176,9 @@ const setupHeroVideo = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const initialMode = getInitialMode()
-    applyTheme(initialMode)
+    const initialBrandColor = resolveBrandColor()
+
+    applyTheme(initialMode, initialBrandColor)
 
     const dropdown = document.querySelector('[data-theme-dropdown]')
     dropdown?.addEventListener('wa-select', (event) => {
@@ -115,8 +188,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return
         }
 
-        localStorage.setItem(STORAGE_KEY, mode)
-        applyTheme(mode)
+        const brandColor = resolveBrandColor(root.dataset.brandColor)
+
+        localStorage.setItem(THEME_STORAGE_KEY, mode)
+        applyTheme(mode, brandColor)
+    })
+
+    const brandDropdown = document.querySelector('[data-brand-dropdown]')
+    brandDropdown?.addEventListener('wa-select', (event) => {
+        const brandColor = resolveBrandColor(event.detail.item?.getAttribute('value') || event.detail.item?.value)
+        const mode = root.dataset.themeMode || getInitialMode()
+
+        localStorage.setItem(BRAND_COLOR_STORAGE_KEY, brandColor)
+        applyTheme(mode, brandColor)
     })
 
     setupHeroVideo()
@@ -124,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 media.addEventListener('change', () => {
-    const mode = localStorage.getItem(STORAGE_KEY) || 'system'
+    const mode = localStorage.getItem(THEME_STORAGE_KEY) || 'system'
     if (mode === 'system') {
-        applyTheme('system')
+        applyTheme('system', resolveBrandColor(root.dataset.brandColor))
     }
 })

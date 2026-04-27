@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}" class="wa-theme-shoelace wa-brand-yellow" data-fa-kit-code="eb5c406148">
+<html lang="{{ site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-yellow" data-fa-kit-code="eb5c406148">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,35 @@
     <meta name="description" content="{{ description | default: site.description | escape }}">
     <script>
         (() => {
+            const root = document.documentElement
             const mode = localStorage.getItem('theme') || 'system'
+            const storedBrandColor = localStorage.getItem('brandColor') || 'yellow'
+            const allowedBrandColors = new Set(['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'gray'])
+            const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'yellow'
+            const prefixesToReset = ['sl-theme-', 'wa-brand-', 'wa-palette-', 'wa-neutral-', 'wa-success-', 'wa-warning-', 'wa-danger-']
             const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
             const isDark = mode === 'dark' || (mode === 'system' && mediaQuery.matches)
+            const classesToRemove = Array.from(root.classList).filter((className) => {
+                if (className === 'wa-theme-premium') {
+                    return true
+                }
 
-            document.documentElement.classList.toggle('wa-dark', isDark)
-            document.documentElement.classList.toggle('wa-light', !isDark)
-            document.documentElement.dataset.themeMode = mode
+                if (className.startsWith('wa-theme-') && className !== 'wa-theme-lgs1920') {
+                    return true
+                }
+
+                return prefixesToReset.some(prefix => className.startsWith(prefix))
+            })
+
+            if (classesToRemove.length > 0) {
+                root.classList.remove(...classesToRemove)
+            }
+
+            root.classList.add('wa-theme-lgs1920', `wa-brand-${brandColor}`)
+            root.classList.toggle('wa-dark', isDark)
+            root.classList.toggle('wa-light', !isDark)
+            root.dataset.themeMode = mode
+            root.dataset.brandColor = brandColor
         })()
     </script>
     <script type="module" src="/src/assets/app.js"></script>

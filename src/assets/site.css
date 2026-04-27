@@ -1,18 +1,14 @@
 :root {
     --shell-width: min(1240px, calc(100vw - 2rem));
-    --hero-glow-a: rgba(255, 198, 0, 0.26);
-    --hero-glow-b: rgba(255, 143, 0, 0.18);
-    --hero-glow-c: rgba(255, 244, 199, 0.12);
-    --wa-font-family-body: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
-    --wa-font-family-heading: var(--wa-font-family-body);
-    --wa-border-radius-s: 0.3rem;
-    --wa-border-radius-m: 0.45rem;
-    --wa-border-radius-l: 0.7rem;
+    --hero-glow-a: color-mix(in oklab, var(--wa-color-brand-60) 28%, transparent);
+    --hero-glow-b: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
+    --hero-glow-c: color-mix(in oklab, var(--wa-color-brand-95) 14%, transparent);
+    --grid-line-color: color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent);
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
     --wa-panel-border-radius: var(--wa-border-radius-l);
     --hero-ink: #fbf6e8;
-    --hero-muted: rgba(251, 246, 232, 0.76);
+    --hero-muted: color-mix(in oklab, var(--hero-ink) 76%, transparent);
 }
 
 html,
@@ -26,59 +22,67 @@ html {
     scroll-behavior: smooth;
 }
 
-html.wa-brand-yellow {
-    --wa-color-brand-95: #fff7d1;
-    --wa-color-brand-90: #ffefad;
-    --wa-color-brand-80: #ffe173;
-    --wa-color-brand-70: #ffd449;
-    --wa-color-brand-60: #ffc31c;
-    --wa-color-brand-50: #f2ae00;
-    --wa-color-brand-40: #c98900;
-    --wa-color-brand-30: #9c6700;
-    --wa-color-brand-20: #694500;
-    --wa-color-brand-10: #362400;
-    --wa-color-brand-05: #1f1400;
-    --wa-color-brand: #f2ae00;
-    --wa-color-brand-on: #1f1600;
-}
-
 html.wa-dark body {
-    --page-bg: #0b0d10;
-    --page-ink: #f8f0cb;
-    --page-muted: #b9b39f;
-    --panel-bg: linear-gradient(180deg, rgba(30, 31, 38, 0.9), rgba(20, 20, 26, 0.94));
-    --panel-stroke: rgba(255, 214, 88, 0.12);
-    --surface-soft: rgba(255, 255, 255, 0.04);
-    --surface-strong: rgba(255, 196, 0, 0.08);
-    --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
-    --header-bg: rgba(7, 9, 12, 0.56);
-    --header-stroke: rgba(255, 240, 195, 0.16);
-    --header-ink: #fff6de;
-    --hero-card-bg: linear-gradient(180deg, rgba(14, 16, 21, 0.62), rgba(8, 10, 13, 0.82));
+    --page-bg: color-mix(in oklab, var(--wa-color-neutral-10) 90%, black 10%);
+    --page-ink: var(--wa-color-neutral-95);
+    --page-muted: var(--wa-color-neutral-80);
+    --panel-bg: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--wa-color-surface-raised) 88%, transparent),
+        color-mix(in oklab, var(--wa-color-surface-default) 94%, black 6%)
+    );
+    --panel-stroke: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
+    --surface-soft: color-mix(in oklab, var(--wa-color-surface-raised) 48%, transparent);
+    --surface-strong: color-mix(in oklab, var(--wa-color-brand-60) 14%, transparent);
+    --shadow-soft: 0 24px 80px color-mix(in oklab, black 72%, var(--wa-color-brand-10) 28%);
+    --header-bg: color-mix(in oklab, var(--wa-color-surface-default) 56%, transparent);
+    --header-stroke: color-mix(in oklab, var(--wa-color-brand-80) 24%, transparent);
+    --header-ink: var(--wa-color-neutral-95);
+    --hero-card-bg: linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--wa-color-surface-raised) 54%, transparent),
+        color-mix(in oklab, var(--wa-color-surface-default) 80%, black 20%)
+    );
     background:
         radial-gradient(circle at 10% 10%, var(--hero-glow-a), transparent 24rem),
         radial-gradient(circle at 90% 10%, var(--hero-glow-b), transparent 26rem),
         radial-gradient(circle at 50% 100%, var(--hero-glow-c), transparent 30rem),
-        linear-gradient(180deg, #0f1015 0%, #090a0d 100%);
+        linear-gradient(
+            180deg,
+            color-mix(in oklab, var(--wa-color-neutral-20) 84%, black 16%) 0%,
+            color-mix(in oklab, var(--wa-color-neutral-10) 92%, black 8%) 100%
+        );
 }
 
 html.wa-light body {
-    --page-bg: #f6f1de;
-    --page-ink: #21170b;
-    --page-muted: #695d4b;
-    --panel-bg: linear-gradient(180deg, rgba(255, 252, 242, 0.95), rgba(255, 247, 220, 0.88));
-    --panel-stroke: rgba(162, 112, 0, 0.12);
-    --surface-soft: rgba(0, 0, 0, 0.03);
-    --surface-strong: rgba(242, 174, 0, 0.12);
-    --shadow-soft: 0 24px 60px rgba(80, 57, 12, 0.12);
-    --header-bg: rgba(18, 20, 25, 0.58);
-    --header-stroke: rgba(255, 243, 211, 0.2);
-    --header-ink: #fff7e5;
+    --page-bg: color-mix(in oklab, white 82%, var(--wa-color-brand-95) 18%);
+    --page-ink: var(--wa-color-neutral-10);
+    --page-muted: var(--wa-color-neutral-40);
+    --panel-bg: linear-gradient(
+        180deg,
+        color-mix(in oklab, white 86%, var(--wa-color-brand-95) 14%),
+        color-mix(in oklab, var(--wa-color-surface-raised) 74%, var(--wa-color-brand-95) 26%)
+    );
+    --panel-stroke: color-mix(in oklab, var(--wa-color-brand-60) 24%, transparent);
+    --surface-soft: color-mix(in oklab, var(--wa-color-surface-default) 70%, transparent);
+    --surface-strong: color-mix(in oklab, var(--wa-color-brand-50) 14%, transparent);
+    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-brand-30) 14%, transparent);
+    --header-bg: linear-gradient(
+        180deg,
+        color-mix(in oklab, white 78%, var(--wa-color-brand-95) 22%),
+        color-mix(in oklab, white 62%, var(--wa-color-brand-90) 38%)
+    );
+    --header-stroke: color-mix(in oklab, var(--wa-color-brand-60) 28%, transparent);
+    --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 88%, var(--wa-color-brand-20) 12%);
     --hero-card-bg: linear-gradient(180deg, rgba(18, 21, 26, 0.56), rgba(9, 11, 14, 0.78));
     background:
-        radial-gradient(circle at 10% 10%, rgba(255, 211, 71, 0.34), transparent 22rem),
-        radial-gradient(circle at 90% 0%, rgba(255, 166, 0, 0.18), transparent 24rem),
-        linear-gradient(180deg, #fffaf0 0%, #f5edd6 100%);
+        radial-gradient(circle at 10% 10%, var(--hero-glow-a), transparent 22rem),
+        radial-gradient(circle at 90% 0%, var(--hero-glow-b), transparent 24rem),
+        linear-gradient(
+            180deg,
+            color-mix(in oklab, white 86%, var(--wa-color-brand-95) 14%) 0%,
+            color-mix(in oklab, white 70%, var(--wa-color-brand-95) 30%) 100%
+        );
 }
 
 * {
@@ -99,8 +103,8 @@ body::before {
     inset: 0;
     z-index: -1;
     background-image:
-        linear-gradient(rgba(255, 196, 0, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 196, 0, 0.06) 1px, transparent 1px);
+        linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
     background-size: 2.5rem 2.5rem;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
 }
@@ -176,7 +180,7 @@ wa-badge::part(base) {
     gap: 1rem;
     padding: 0.95rem 1rem;
     border: 1px solid var(--header-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: 0;
     color: var(--header-ink);
     background: var(--header-bg);
     backdrop-filter: blur(20px);
@@ -203,7 +207,7 @@ wa-badge::part(base) {
 }
 
 .brand-kicker {
-    color: rgba(255, 247, 229, 0.7);
+    color: color-mix(in oklab, var(--header-ink) 68%, transparent);
 }
 
 .brand-name {
@@ -220,6 +224,7 @@ wa-badge::part(base) {
 }
 
 .icon-link-button::part(base),
+.brand-trigger::part(base),
 .theme-trigger::part(base),
 .nav-toggle::part(base) {
     width: 3rem;
@@ -243,6 +248,7 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
 }
 
 .icon-link-button:hover::part(base),
+.brand-trigger:hover::part(base),
 .theme-trigger:hover::part(base),
 .nav-toggle:hover::part(base) {
     background: rgba(255, 255, 255, 0.12);
@@ -255,12 +261,41 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
     font-size: 1.05rem;
 }
 
-.theme-menu wa-dropdown-item wa-icon {
-    color: var(--wa-color-brand-60);
+.theme-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
 }
 
-.theme-menu wa-dropdown-item[selected]::part(base) {
+.brand-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.brand-color-swatch {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 1px solid color-mix(in oklab, var(--swatch-color) 65%, white 35%);
+    border-radius: 0.24rem;
+    background: var(--swatch-color);
+}
+
+.brand-trigger .brand-color-swatch {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+.theme-menu wa-dropdown-item[selected]::part(base),
+.brand-menu wa-dropdown-item[selected]::part(base) {
     background: var(--surface-strong);
+}
+
+.brand-menu wa-dropdown-item wa-icon,
+.theme-menu wa-dropdown-item wa-icon {
+    color: var(--wa-color-brand-60);
 }
 
 .drawer-panel {
@@ -388,7 +423,7 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
     z-index: 1;
     background:
         linear-gradient(180deg, rgba(4, 5, 8, 0.2) 0%, rgba(5, 6, 9, 0.48) 44%, rgba(5, 6, 8, 0.86) 100%),
-        radial-gradient(circle at 20% 16%, rgba(255, 199, 73, 0.16), transparent 25rem),
+        radial-gradient(circle at 20% 16%, color-mix(in oklab, var(--wa-color-brand-70) 18%, transparent), transparent 25rem),
         linear-gradient(120deg, rgba(3, 6, 10, 0.26), rgba(10, 12, 16, 0.16) 45%, rgba(5, 8, 10, 0.58));
 }
 
@@ -476,10 +511,10 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
 }
 
 .hero-button-primary::part(base) {
-    color: #251800;
-    background: linear-gradient(135deg, #ffd449, #f2ae00);
+    color: var(--wa-color-brand-on-loud);
+    background: linear-gradient(135deg, var(--wa-color-brand-60), var(--wa-color-brand-40));
     border-color: transparent;
-    box-shadow: 0 18px 40px rgba(242, 174, 0, 0.24);
+    box-shadow: 0 18px 40px color-mix(in oklab, var(--wa-color-brand-50) 26%, transparent);
 }
 
 .hero-button-secondary::part(base) {
@@ -569,9 +604,118 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
     display: grid;
 }
 
+.page-content.legal-page {
+    gap: 0;
+}
+
 .content-section {
     padding: 3rem 0;
     scroll-margin-top: 8rem;
+}
+
+.legal-section {
+    max-width: 62rem;
+}
+
+.legal-meta {
+    display: grid;
+    gap: 0.85rem;
+    max-width: 52rem;
+    margin-bottom: 1.75rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--surface-soft);
+}
+
+.legal-meta p {
+    margin: 0;
+    color: var(--page-muted);
+    line-height: 1.7;
+}
+
+.legal-source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: fit-content;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.legal-doc {
+    max-width: 58rem;
+}
+
+.legal-doc > :first-child {
+    margin-top: 0;
+}
+
+.legal-doc h2,
+.legal-doc h3,
+.legal-doc h4 {
+    margin-bottom: 0.75rem;
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.legal-doc h2 {
+    margin-top: 2.2rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.legal-doc h3 {
+    margin-top: 1.65rem;
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+}
+
+.legal-doc h4 {
+    margin-top: 1.25rem;
+    font-size: 1.05rem;
+}
+
+.legal-doc p,
+.legal-doc li {
+    line-height: 1.8;
+}
+
+.legal-doc p,
+.legal-doc ul,
+.legal-doc ol,
+.legal-doc blockquote,
+.legal-doc pre {
+    margin: 0 0 1rem;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+    padding-left: 1.35rem;
+}
+
+.legal-doc li + li {
+    margin-top: 0.55rem;
+}
+
+.legal-doc blockquote {
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--wa-color-brand-50);
+    border-radius: 0 var(--wa-border-radius-m) var(--wa-border-radius-m) 0;
+    background: var(--surface-soft);
+}
+
+.legal-doc blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-doc code {
+    padding: 0.12rem 0.35rem;
+    border-radius: var(--wa-border-radius-s);
+    background: var(--surface-soft);
+}
+
+.legal-doc a {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
 }
 
 .section-heading {
@@ -634,19 +778,19 @@ wa-card.feature-card::part(body) {
 
 wa-card.accent-a::part(base) {
     background:
-        linear-gradient(180deg, transparent, rgba(255, 196, 0, 0.08)),
+        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-60) 10%, transparent)),
         var(--panel-bg);
 }
 
 wa-card.accent-b::part(base) {
     background:
-        linear-gradient(180deg, transparent, rgba(255, 133, 26, 0.08)),
+        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-70) 8%, transparent)),
         var(--panel-bg);
 }
 
 wa-card.accent-c::part(base) {
     background:
-        linear-gradient(180deg, transparent, rgba(255, 238, 186, 0.07)),
+        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-95) 20%, transparent)),
         var(--panel-bg);
 }
 
@@ -752,8 +896,51 @@ wa-card.page-cta-card::part(body) {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.8rem 0 1.5rem;
+    padding: 0.8rem 1rem 2rem;
     border-top: 1px solid var(--panel-stroke);
+}
+
+.site-footer-copy {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.site-footer-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.site-footer-separator {
+    color: var(--page-muted);
+}
+
+.site-build-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    line-height: 1;
+}
+
+.site-build-link span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.site-footer-note > wa-icon,
+.site-build-link wa-icon {
+    display: block;
+    flex: none;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.site-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.9rem;
 }
 
 .site-footer a {
@@ -826,6 +1013,10 @@ wa-card.page-cta-card::part(body) {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .site-footer-separator {
+        display: none;
+    }
 }
 
 @media (max-width: 640px) {
@@ -839,11 +1030,16 @@ wa-card.page-cta-card::part(body) {
     }
 
     .icon-link-button::part(base),
+    .brand-trigger::part(base),
     .theme-trigger::part(base),
     .nav-toggle::part(base) {
         width: 2.5rem;
         min-width: 2.5rem;
         height: 2.5rem;
+    }
+
+    .theme-controls {
+        gap: 0.35rem;
     }
 
     .icon-link-button wa-icon,
@@ -887,6 +1083,26 @@ wa-card.page-cta-card::part(body) {
     .topbar-actions {
         gap: 0.25rem;
         justify-content: flex-end;
+    }
+
+    .icon-link-button::part(base),
+    .brand-trigger::part(base),
+    .theme-trigger::part(base),
+    .nav-toggle::part(base) {
+        width: 2.25rem;
+        min-width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .icon-link-button wa-icon,
+    .theme-trigger wa-icon,
+    .nav-toggle wa-icon {
+        font-size: 0.9rem;
+    }
+
+    .brand-trigger .brand-color-swatch {
+        width: 0.8rem;
+        height: 0.8rem;
     }
 
     .hero-highlights {
