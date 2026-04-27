@@ -2,28 +2,55 @@
 layout: layouts/base.html
 ---
 <wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
+    <script>
+        (() => {
+            const page = document.currentScript.closest('wa-page')
+            const storedState = localStorage.getItem('pageNavigationState')
+            const isMobileView = window.matchMedia('(max-width: 959px)').matches
+
+            if (!page || !storedState) {
+                return
+            }
+
+            if (storedState === 'open') {
+                page.dataset.navCollapsed = 'false'
+
+                if (isMobileView) {
+                    page.setAttribute('nav-open', '')
+                }
+
+                return
+            }
+
+            page.dataset.navCollapsed = 'true'
+            page.removeAttribute('nav-open')
+        })()
+    </script>
     <span slot="skip-to-content">Skip to content</span>
 
     <header slot="header" class="topbar">
         <div class="brand-lockup">
             <p class="brand-kicker">{{ site.tagline }}</p>
-            <a class="brand-name" href="/">{{ site.name }}</a>
+            <a id="site-home-link" class="brand-name" href="/">{{ site.name }}</a>
         </div>
+        <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">Home</wa-tooltip>
 
         <div class="topbar-actions">
-            <wa-button class="nav-toggle" data-page-nav-toggle data-toggle-nav appearance="plain" aria-label="Hide navigation">
+            <wa-button id="page-nav-toggle" class="nav-toggle" data-page-nav-toggle data-toggle-nav appearance="plain" aria-label="Hide navigation">
                 <wa-icon variant="solid" name="bars"></wa-icon>
             </wa-button>
+            <wa-tooltip class="control-tooltip" for="page-nav-toggle" placement="bottom" data-nav-toggle-tooltip>Hide navigation</wa-tooltip>
 
             {% for link in site.headerLinks %}
-                <wa-button class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% endif %} name="{{ link.icon }}"></wa-icon>
                 </wa-button>
+                <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
             {% endfor %}
 
             <div class="theme-controls">
                 <wa-dropdown class="brand-menu" placement="bottom-end" data-brand-dropdown>
-                    <wa-button slot="trigger" class="brand-trigger" appearance="plain" size="small" aria-label="Choose brand color">
+                    <wa-button id="brand-trigger" slot="trigger" class="brand-trigger" appearance="plain" size="small" aria-label="Choose brand color">
                         <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
                     </wa-button>
 
@@ -36,9 +63,10 @@ layout: layouts/base.html
                         </wa-dropdown-item>
                     {% endfor %}
                 </wa-dropdown>
+                <wa-tooltip class="control-tooltip" for="brand-trigger" placement="bottom">Choose brand color</wa-tooltip>
 
                 <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
-                    <wa-button slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
+                    <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
                         <wa-icon data-theme-icon="light" variant="regular" name="sun-bright" hidden></wa-icon>
                         <wa-icon data-theme-icon="dark" variant="regular" name="moon-stars" hidden></wa-icon>
                     </wa-button>
@@ -60,6 +88,7 @@ layout: layouts/base.html
                         System
                     </wa-dropdown-item>
                 </wa-dropdown>
+                <wa-tooltip class="control-tooltip" for="theme-trigger" placement="bottom">Choose color mode</wa-tooltip>
             </div>
         </div>
     </header>
@@ -227,20 +256,23 @@ layout: layouts/base.html
                 <span>{{ site.footerNote }}</span>
                 {% if site.buildLink %}
                     <span class="site-footer-separator">-</span>
-                    <a class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
+                    <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
                         <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
                         <span>{{ site.buildLink.label }}</span>
                     </a>
+                    <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
                 {% endif %}
             </p>
             {% if site.legalLinks and site.legalLinks.size > 0 %}
                 <nav class="site-footer-links" aria-label="Legal pages">
                     {% for link in site.legalLinks %}
-                        <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
+                        <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
+                        <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
                     {% endfor %}
                 </nav>
             {% endif %}
         </div>
-        <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+        <a id="site-contact-link" href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+        <wa-tooltip class="control-tooltip" for="site-contact-link">{{ site.contactEmail }}</wa-tooltip>
     </footer>
 </wa-page>

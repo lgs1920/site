@@ -4,6 +4,9 @@
     --hero-glow-b: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
     --hero-glow-c: color-mix(in oklab, var(--wa-color-brand-95) 14%, transparent);
     --grid-line-color: color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent);
+    --lgs-button-plain-color: var(--wa-color-brand);
+    --lgs-button-plain-hover-color: var(--wa-color-brand);
+    --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
     --wa-panel-border-radius: var(--wa-border-radius-l);
@@ -140,9 +143,14 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true']::part(menu) {
     display: none !important;
 }
 
-wa-card::part(base),
-wa-details::part(base) {
+wa-card::part(base) {
     border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--panel-bg);
+}
+
+wa-details::part(base) {
+    border: none;
     border-radius: var(--wa-border-radius-l);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
@@ -179,7 +187,7 @@ wa-badge::part(base) {
     justify-content: space-between;
     gap: 1rem;
     padding: 0.95rem 1rem;
-    border: 1px solid var(--header-stroke);
+    border: none;
     border-radius: 0;
     color: var(--header-ink);
     background: var(--header-bg);
@@ -223,6 +231,15 @@ wa-badge::part(base) {
     gap: 0.45rem;
 }
 
+.control-tooltip {
+    position: fixed;
+    inset: auto;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 .icon-link-button::part(base),
 .brand-trigger::part(base),
 .theme-trigger::part(base),
@@ -231,33 +248,35 @@ wa-badge::part(base) {
     min-width: 3rem;
     height: 3rem;
     padding: 0;
-    border: 1px solid var(--header-stroke);
+    border: 1px solid transparent;
     border-radius: var(--wa-border-radius-m);
-    color: var(--header-ink);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.nav-toggle::part(base) {
-    border-color: transparent;
-    background: transparent;
+    color: var(--lgs-button-plain-color);
+    background: transparent !important;
     box-shadow: none;
 }
 
-wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part(base) {
-    background: rgba(255, 255, 255, 0.12);
+.icon-link-button::part(label),
+.brand-trigger::part(label),
+.theme-trigger::part(label),
+.nav-toggle::part(label) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-link-button:hover::part(base),
 .brand-trigger:hover::part(base),
 .theme-trigger:hover::part(base),
 .nav-toggle:hover::part(base) {
-    background: rgba(255, 255, 255, 0.12);
+    color: var(--lgs-button-plain-hover-color);
+    border-color: transparent;
+    background: var(--lgs-button-plain-bg-hover-color) !important;
 }
 
 .icon-link-button wa-icon,
 .theme-trigger wa-icon,
 .nav-toggle wa-icon {
-    color: var(--wa-color-brand-70);
+    color: currentColor;
     font-size: 1.05rem;
 }
 
@@ -284,6 +303,7 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
 }
 
 .brand-trigger .brand-color-swatch {
+    margin: 0 auto;
     width: 0.95rem;
     height: 0.95rem;
 }
@@ -744,10 +764,14 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true'] .nav-toggle::part
 }
 
 wa-card.vision-card::part(body),
-wa-card.feature-card::part(body) {
+wa-card.feature-card::part(body),
+wa-card.page-cta-card::part(body) {
     display: grid;
     gap: 1rem;
+    height: 100%;
     padding: 1.45rem;
+    border-radius: calc(var(--wa-border-radius-l) - 1px);
+    box-shadow: var(--shadow-soft) !important;
 }
 
 .card-heading {
@@ -897,7 +921,7 @@ wa-card.page-cta-card::part(body) {
     justify-content: space-between;
     gap: 1rem;
     padding: 0.8rem 1rem 2rem;
-    border-top: 1px solid var(--panel-stroke);
+    border-top: none;
 }
 
 .site-footer-copy {
@@ -975,7 +999,7 @@ wa-card.page-cta-card::part(body) {
         top: 0;
         z-index: 60;
         padding: 0;
-        border-bottom: 1px solid var(--header-stroke);
+        border-bottom: none;
         background: var(--header-bg);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);

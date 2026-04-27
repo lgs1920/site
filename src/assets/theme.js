@@ -3,6 +3,7 @@ import mobileVideo from './media/trekking-hero-mobile.mp4'
 
 const THEME_STORAGE_KEY = 'theme'
 const BRAND_COLOR_STORAGE_KEY = 'brandColor'
+const NAVIGATION_STORAGE_KEY = 'pageNavigationState'
 const ROOT_THEME_CLASS = 'wa-theme-lgs1920'
 const DEFAULT_BRAND_COLOR = 'yellow'
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'gray']
@@ -96,6 +97,23 @@ const applyTheme = (mode, brandColor = null) => {
 }
 
 const getInitialMode = () => localStorage.getItem(THEME_STORAGE_KEY) || 'system'
+const getStoredNavigationState = () => {
+    const value = localStorage.getItem(NAVIGATION_STORAGE_KEY)
+
+    if (value === 'open') {
+        return true
+    }
+
+    if (value === 'closed') {
+        return false
+    }
+
+    return null
+}
+
+const persistNavigationState = (isOpen) => {
+    localStorage.setItem(NAVIGATION_STORAGE_KEY, isOpen ? 'open' : 'closed')
+}
 
 const isDesktopView = (page) => page?.getAttribute('view') === 'desktop'
 
@@ -107,23 +125,61 @@ const setupPageNavigation = () => {
         return
     }
 
-    const updateToggleLabel = () => {
-        const collapsed = page.dataset.navCollapsed === 'true'
+    const applyStoredNavigationState = () => {
+        const storedState = getStoredNavigationState()
 
-        toggle.setAttribute(
-            'aria-label',
-            isDesktopView(page)
-                ? (collapsed ? 'Open navigation' : 'Hide navigation')
-                : (page.navOpen ? 'Close navigation' : 'Open navigation')
-        )
+        if (storedState === null) {
+            page.navOpen = false
+            return
+        }
+
+        page.dataset.navCollapsed = storedState ? 'false' : 'true'
+
+        if (isDesktopView(page)) {
+            page.navOpen = false
+            return
+        }
+
+        page.navOpen = storedState
     }
 
-    const applyDesktopNavState = (collapsed) => {
+    const updateToggleLabel = () => {
+        const collapsed = page.dataset.navCollapsed === 'true'
+        const label = isDesktopView(page)
+            ? (collapsed ? 'Open navigation' : 'Hide navigation')
+            : (page.navOpen ? 'Close navigation' : 'Open navigation')
+
+        toggle.setAttribute('aria-label', label)
+
+        const tooltip = document.querySelector('[data-nav-toggle-tooltip]')
+        if (tooltip) {
+            tooltip.textContent = label
+        }
+    }
+
+    const applyDesktopNavState = (collapsed, { persist = true } = {}) => {
         page.dataset.navCollapsed = collapsed ? 'true' : 'false'
+        page.navOpen = false
+
+        if (persist) {
+            persistNavigationState(!collapsed)
+        }
+
         updateToggleLabel()
     }
 
-    applyDesktopNavState(page.dataset.navCollapsed === 'true')
+    applyStoredNavigationState()
+    if (isDesktopView(page)) {
+        applyDesktopNavState(page.dataset.navCollapsed === 'true', { persist: false })
+    }
+    else {
+        updateToggleLabel()
+    }
+
+    requestAnimationFrame(() => {
+        applyStoredNavigationState()
+        updateToggleLabel()
+    })
 
     toggle.addEventListener('click', () => {
         if (isDesktopView(page)) {
@@ -133,10 +189,22 @@ const setupPageNavigation = () => {
         }
     })
 
-    const observer = new MutationObserver(() => {
+    const observer = new MutationObserver((mutations) => {
+        const viewChanged = mutations.some((mutation) => mutation.attributeName === 'view')
+
+        if (viewChanged) {
+            applyStoredNavigationState()
+        }
+
         if (isDesktopView(page)) {
-            applyDesktopNavState(page.dataset.navCollapsed === 'true')
+            updateToggleLabel()
             return
+        }
+
+        const navStateChanged = mutations.some((mutation) => mutation.attributeName === 'nav-open')
+
+        if (navStateChanged) {
+            persistNavigationState(page.navOpen)
         }
 
         updateToggleLabel()
