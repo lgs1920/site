@@ -3,11 +3,6 @@
     --hero-glow-a: rgba(255, 198, 0, 0.26);
     --hero-glow-b: rgba(255, 143, 0, 0.18);
     --hero-glow-c: rgba(255, 244, 199, 0.12);
-    --wa-font-family-body: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
-    --wa-font-family-heading: var(--wa-font-family-body);
-    --wa-border-radius-s: 0.3rem;
-    --wa-border-radius-m: 0.45rem;
-    --wa-border-radius-l: 0.7rem;
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
     --wa-panel-border-radius: var(--wa-border-radius-l);
@@ -24,22 +19,6 @@ body {
 
 html {
     scroll-behavior: smooth;
-}
-
-html.wa-brand-yellow {
-    --wa-color-brand-95: #fff7d1;
-    --wa-color-brand-90: #ffefad;
-    --wa-color-brand-80: #ffe173;
-    --wa-color-brand-70: #ffd449;
-    --wa-color-brand-60: #ffc31c;
-    --wa-color-brand-50: #f2ae00;
-    --wa-color-brand-40: #c98900;
-    --wa-color-brand-30: #9c6700;
-    --wa-color-brand-20: #694500;
-    --wa-color-brand-10: #362400;
-    --wa-color-brand-05: #1f1400;
-    --wa-color-brand: #f2ae00;
-    --wa-color-brand-on: #1f1600;
 }
 
 html.wa-dark body {
@@ -71,9 +50,9 @@ html.wa-light body {
     --surface-soft: rgba(0, 0, 0, 0.03);
     --surface-strong: rgba(242, 174, 0, 0.12);
     --shadow-soft: 0 24px 60px rgba(80, 57, 12, 0.12);
-    --header-bg: rgba(18, 20, 25, 0.58);
-    --header-stroke: rgba(255, 243, 211, 0.2);
-    --header-ink: #fff7e5;
+    --header-bg: linear-gradient(180deg, rgba(255, 249, 231, 0.92), rgba(255, 241, 196, 0.84));
+    --header-stroke: rgba(201, 151, 23, 0.24);
+    --header-ink: #4b3205;
     --hero-card-bg: linear-gradient(180deg, rgba(18, 21, 26, 0.56), rgba(9, 11, 14, 0.78));
     background:
         radial-gradient(circle at 10% 10%, rgba(255, 211, 71, 0.34), transparent 22rem),

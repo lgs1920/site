@@ -12,6 +12,7 @@ export default function(eleventyConfig) {
             resolve: {
                 alias: {
                     '/src': path.resolve('.', 'src'),
+                    '@studio-wa-theme': path.resolve('..', 'studio', 'src', 'assets', 'css', 'themes', 'webawesome'),
                 },
             },
         },

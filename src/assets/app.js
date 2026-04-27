@@ -1,5 +1,6 @@
 import '@awesome.me/webawesome/dist/styles/webawesome.css'
-import '@awesome.me/webawesome/dist/styles/themes/shoelace.css'
+import '@studio-wa-theme/wa-color-vogue.css'
+import '@studio-wa-theme/wa-theme-lgs1920-base.css'
 import '@awesome.me/webawesome/dist/components/badge/badge.js'
 import '@awesome.me/webawesome/dist/components/button/button.js'
 import '@awesome.me/webawesome/dist/components/card/card.js'
