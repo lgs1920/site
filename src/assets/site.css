@@ -118,12 +118,12 @@ a {
 
 wa-page.site-layout {
     --menu-width: clamp(16rem, 18vw, 18.5rem);
+    --navigation-scrollbar-size: 0.7rem;
+    --navigation-scrollbar-track: color-mix(in oklab, var(--surface-soft) 84%, transparent);
+    --navigation-scrollbar-thumb: color-mix(in oklab, var(--wa-color-brand-60) 78%, var(--wa-color-shadow) 22%);
+    --navigation-scrollbar-thumb-hover: color-mix(in oklab, var(--wa-color-brand-50) 82%, var(--wa-color-shadow) 18%);
     width: 100%;
     min-height: 100vh;
-}
-
-wa-page.site-layout[view='desktop'] [data-page-nav-toggle] {
-    display: inline-flex !important;
 }
 
 wa-page[view='mobile'] {
@@ -219,10 +219,74 @@ wa-badge::part(base) {
 }
 
 .brand-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 0;
     color: var(--header-ink);
     text-decoration: none;
-    font-size: clamp(1.35rem, 1.9vw, 1.95rem);
+}
+
+.brand-logo-mark {
+    flex: none;
+    width: clamp(3.15rem, 5vw, 3.85rem);
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.brand-logo-image {
+    display: block;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.22));
+    transition: transform 0.18s ease;
+}
+
+.brand-name-text {
+    display: grid;
+    align-content: center;
+    gap: 0.18rem;
+    min-width: 0;
+    line-height: 1;
+}
+
+.brand-title {
+    display: block;
+    font-size: clamp(1.22rem, 1.85vw, 1.82rem);
     font-family: var(--wa-font-family-heading);
+    letter-spacing: 0;
+}
+
+.brand-version-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.28rem 0.6rem;
+    min-width: 0;
+}
+
+.brand-version-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.28rem;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.brand-version-item strong {
+    color: color-mix(in oklab, var(--header-ink) 62%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.54rem;
+    font-weight: 700;
+}
+
+.brand-version-item span {
+    color: var(--wa-color-brand-70);
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.brand-name:hover .brand-logo-image {
+    transform: translateY(-1px);
 }
 
 .topbar-actions {
@@ -243,7 +307,8 @@ wa-badge::part(base) {
 .icon-link-button::part(base),
 .brand-trigger::part(base),
 .theme-trigger::part(base),
-.nav-toggle::part(base) {
+.nav-toggle::part(base),
+.nav-fab::part(base) {
     width: 3rem;
     min-width: 3rem;
     height: 3rem;
@@ -258,7 +323,8 @@ wa-badge::part(base) {
 .icon-link-button::part(label),
 .brand-trigger::part(label),
 .theme-trigger::part(label),
-.nav-toggle::part(label) {
+.nav-toggle::part(label),
+.nav-fab::part(label) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,7 +333,8 @@ wa-badge::part(base) {
 .icon-link-button:hover::part(base),
 .brand-trigger:hover::part(base),
 .theme-trigger:hover::part(base),
-.nav-toggle:hover::part(base) {
+.nav-toggle:hover::part(base),
+.nav-fab:hover::part(base) {
     color: var(--lgs-button-plain-hover-color);
     border-color: transparent;
     background: var(--lgs-button-plain-bg-hover-color) !important;
@@ -275,9 +342,17 @@ wa-badge::part(base) {
 
 .icon-link-button wa-icon,
 .theme-trigger wa-icon,
-.nav-toggle wa-icon {
+.nav-toggle wa-icon,
+.nav-fab wa-icon {
     color: currentColor;
     font-size: 1.05rem;
+}
+
+.nav-fab {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 70;
 }
 
 .theme-controls {
@@ -403,6 +478,165 @@ wa-badge::part(base) {
 .drawer-link.is-current {
     border-color: var(--panel-stroke);
     background: var(--surface-strong);
+}
+
+.logo-option-grid,
+.logo-note-grid {
+    display: grid;
+    gap: 1.25rem;
+    position: relative;
+    isolation: isolate;
+}
+
+.logo-option-grid,
+.logo-note-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vision-grid,
+.feature-grid {
+    position: relative;
+    isolation: isolate;
+}
+
+.vision-grid > *,
+.feature-grid > *,
+.logo-option-grid > *,
+.logo-note-grid > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.logo-option-card,
+.logo-note-card {
+    display: block;
+}
+
+.logo-option-card::part(base),
+.logo-note-card::part(base) {
+    height: 100%;
+}
+
+.logo-option-heading {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+}
+
+.logo-option-heading h3,
+.logo-note-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.12rem;
+}
+
+.logo-option-heading p,
+.logo-note-card p,
+.logo-active-band p {
+    margin: 0;
+    color: var(--page-muted);
+    line-height: 1.65;
+}
+
+.logo-option-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: 0.72rem;
+    color: var(--wa-color-brand-70);
+    background: var(--surface-soft);
+    font-weight: 700;
+}
+
+.logo-preview-grid {
+    display: grid;
+    gap: 0.95rem;
+}
+
+.logo-preview {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin: 0;
+    border: 1px solid color-mix(in oklab, var(--wa-color-brand-70) 18%, transparent);
+    border-radius: var(--wa-border-radius-l);
+    background:
+        radial-gradient(circle at top right, color-mix(in oklab, var(--wa-color-brand-70) 12%, transparent), transparent 12rem),
+        linear-gradient(180deg, rgba(12, 17, 24, 0.96), rgba(10, 14, 20, 0.92));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.logo-preview-label {
+    color: var(--hero-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+}
+
+.logo-lockup {
+    display: flex;
+    align-items: center;
+    color: var(--hero-ink);
+}
+
+.logo-lockup.stacked {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    min-height: 13rem;
+    text-align: center;
+}
+
+.logo-lockup.inline {
+    gap: 1rem;
+    min-height: 8.5rem;
+}
+
+.logo-lockup.is-active {
+    justify-content: center;
+}
+
+.logo-mark-figure {
+    width: 4.75rem;
+    height: 4.75rem;
+    flex: none;
+}
+
+.logo-wordmark {
+    display: grid;
+    gap: 0.18rem;
+}
+
+.logo-wordmark strong {
+    display: block;
+    font-family: var(--wa-font-family-heading);
+    font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.logo-wordmark span {
+    display: block;
+    color: color-mix(in oklab, var(--hero-ink) 70%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+}
+
+.logo-active-band {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
 }
 
 .page-hero {
@@ -738,6 +972,97 @@ wa-badge::part(base) {
     text-underline-offset: 0.18em;
 }
 
+.changelog-list {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.changelog-entry {
+    display: grid;
+    gap: 1.15rem;
+    padding: 1.3rem;
+    border-radius: var(--wa-border-radius-l);
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
+}
+
+.changelog-entry-header,
+.changelog-entry-copy,
+.changelog-meta-links {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.changelog-entry h2 {
+    margin: 0;
+    line-height: 1.05;
+    font-size: clamp(1.55rem, 2.8vw, 2.25rem);
+}
+
+.changelog-entry h2 a {
+    text-decoration: none;
+}
+
+.changelog-entry-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    color: var(--page-muted);
+    font-weight: 600;
+}
+
+.changelog-entry-date wa-icon {
+    color: var(--wa-color-brand-60);
+}
+
+.changelog-entry-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+}
+
+.changelog-doc > :last-child {
+    margin-bottom: 0;
+}
+
+.changelog-inline-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.changelog-inline-link {
+    display: grid;
+    gap: 0.22rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--wa-border-radius-l);
+    text-decoration: none;
+    background: var(--surface-soft);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.changelog-inline-link:hover {
+    transform: translateY(-1px);
+    background: var(--surface-strong);
+}
+
+.changelog-inline-link[data-direction='older'] {
+    text-align: right;
+}
+
+.changelog-inline-label {
+    color: var(--page-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+}
+
+.changelog-inline-link strong {
+    font-size: 1.02rem;
+}
+
 .section-heading {
     display: grid;
     gap: 0.75rem;
@@ -875,6 +1200,10 @@ wa-card.accent-c::part(base) {
     gap: 0.85rem;
 }
 
+.stack-actions {
+    margin-top: 1.2rem;
+}
+
 .stack-band span {
     border: 1px solid var(--panel-stroke);
     background: var(--surface-soft);
@@ -972,9 +1301,33 @@ wa-card.page-cta-card::part(body) {
     text-decoration: none;
 }
 
+@media (min-width: 961px) {
+    .topbar {
+        padding-left: 4.75rem;
+    }
+
+    .nav-toggle-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 1121px) {
+    .vision-grid > *:nth-child(3n + 2),
+    .feature-grid > *:nth-child(3n + 2),
+    .logo-option-grid > *:nth-child(3n + 2),
+    .logo-note-grid > *:nth-child(3n + 2) {
+        z-index: 2;
+    }
+}
+
 @media (max-width: 1120px) {
     .vision-grid,
     .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .logo-option-grid,
+    .logo-note-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -984,6 +1337,10 @@ wa-card.page-cta-card::part(body) {
 }
 
 @media (max-width: 960px) {
+    .nav-fab {
+        display: none;
+    }
+
     .hero-shell {
         grid-template-columns: 1fr;
     }
@@ -1033,6 +1390,18 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
 
+    .logo-option-grid,
+    .logo-note-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-lockup.inline,
+    .logo-lockup.is-active {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
     .site-footer {
         flex-direction: column;
         align-items: flex-start;
@@ -1041,11 +1410,35 @@ wa-card.page-cta-card::part(body) {
     .site-footer-separator {
         display: none;
     }
+
+    .changelog-inline-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .changelog-inline-link[data-direction='older'] {
+        text-align: left;
+    }
 }
 
 @media (max-width: 640px) {
-    .brand-name {
-        font-size: clamp(1.1rem, 5vw, 1.35rem);
+    .brand-logo-mark {
+        width: clamp(2.8rem, 14vw, 3.25rem);
+    }
+
+    .brand-title {
+        font-size: clamp(1rem, 4.6vw, 1.18rem);
+    }
+
+    .brand-version-row {
+        gap: 0.2rem 0.45rem;
+    }
+
+    .brand-version-item strong {
+        font-size: 0.48rem;
+    }
+
+    .brand-version-item span {
+        font-size: 0.64rem;
     }
 
     .brand-kicker {
@@ -1056,7 +1449,8 @@ wa-card.page-cta-card::part(body) {
     .icon-link-button::part(base),
     .brand-trigger::part(base),
     .theme-trigger::part(base),
-    .nav-toggle::part(base) {
+    .nav-toggle::part(base),
+    .nav-fab::part(base) {
         width: 2.5rem;
         min-width: 2.5rem;
         height: 2.5rem;
@@ -1068,7 +1462,8 @@ wa-card.page-cta-card::part(body) {
 
     .icon-link-button wa-icon,
     .theme-trigger wa-icon,
-    .nav-toggle wa-icon {
+    .nav-toggle wa-icon,
+    .nav-fab wa-icon {
         font-size: 0.95rem;
     }
 
@@ -1100,8 +1495,28 @@ wa-card.page-cta-card::part(body) {
         padding: 0.65rem 0.75rem;
     }
 
+    .brand-name {
+        gap: 0.45rem;
+    }
+
     .brand-kicker {
         display: none;
+    }
+
+    .brand-version-row {
+        gap: 0.16rem 0.38rem;
+    }
+
+    .brand-version-item {
+        gap: 0.22rem;
+    }
+
+    .brand-version-item strong {
+        font-size: 0.46rem;
+    }
+
+    .brand-version-item span {
+        font-size: 0.61rem;
     }
 
     .topbar-actions {
@@ -1112,7 +1527,8 @@ wa-card.page-cta-card::part(body) {
     .icon-link-button::part(base),
     .brand-trigger::part(base),
     .theme-trigger::part(base),
-    .nav-toggle::part(base) {
+    .nav-toggle::part(base),
+    .nav-fab::part(base) {
         width: 2.25rem;
         min-width: 2.25rem;
         height: 2.25rem;
@@ -1120,7 +1536,8 @@ wa-card.page-cta-card::part(body) {
 
     .icon-link-button wa-icon,
     .theme-trigger wa-icon,
-    .nav-toggle wa-icon {
+    .nav-toggle wa-icon,
+    .nav-fab wa-icon {
         font-size: 0.9rem;
     }
 

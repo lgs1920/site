@@ -11,6 +11,11 @@ const markdown = new MarkdownIt({
 })
 
 const sourceConfig = {
+    dependencies: {
+        maxNavLevel: 3,
+        sourceFile:  'README_DEPENDENCIES.md',
+        sourceLabel: 'studio/README_DEPENDENCIES.md',
+    },
     licensing: {
         maxNavLevel: 2,
         sourceFile:  'LICENSES.md',
@@ -29,6 +34,7 @@ const sourceConfig = {
 }
 
 const internalLinkMap = new Map([
+    ['README_DEPENDENCIES.md', '/dependencies/'],
     ['LICENSES.md', '/licensing/'],
     ['LICENSE.md', '/license/'],
     ['CONTRIBUTOR_LICENSE_AGREEMENT.md', '/contributor-license-agreement/'],

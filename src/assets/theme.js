@@ -97,7 +97,7 @@ const applyTheme = (mode, brandColor = null) => {
 }
 
 const getInitialMode = () => localStorage.getItem(THEME_STORAGE_KEY) || 'system'
-const getStoredNavigationState = () => {
+const getStoredDesktopNavigationState = () => {
     const value = localStorage.getItem(NAVIGATION_STORAGE_KEY)
 
     if (value === 'open') {
@@ -111,36 +111,126 @@ const getStoredNavigationState = () => {
     return null
 }
 
-const persistNavigationState = (isOpen) => {
+const persistDesktopNavigationState = (isOpen) => {
     localStorage.setItem(NAVIGATION_STORAGE_KEY, isOpen ? 'open' : 'closed')
 }
 
 const isDesktopView = (page) => page?.getAttribute('view') === 'desktop'
+const injectScrollbarStyles = (rootNode, styleId, cssText) => {
+    if (!rootNode || rootNode.getElementById(styleId)) {
+        return
+    }
+
+    const style = document.createElement('style')
+
+    style.id = styleId
+    style.textContent = cssText
+    rootNode.append(style)
+}
+
+const setupNavigationScrollbars = (page) => {
+    if (!page?.shadowRoot) {
+        return
+    }
+
+    injectScrollbarStyles(page.shadowRoot, 'site-navigation-scrollbars', `
+        [part~='menu'] {
+            scrollbar-width: thin;
+            scrollbar-color: var(--navigation-scrollbar-thumb) var(--navigation-scrollbar-track);
+        }
+
+        [part~='menu']::-webkit-scrollbar {
+            width: var(--navigation-scrollbar-size);
+            height: var(--navigation-scrollbar-size);
+        }
+
+        [part~='menu']::-webkit-scrollbar-button {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        [part~='menu']::-webkit-scrollbar-track {
+            background: var(--navigation-scrollbar-track);
+            border-radius: 999px;
+        }
+
+        [part~='menu']::-webkit-scrollbar-thumb {
+            border: 2px solid transparent;
+            border-radius: 999px;
+            background: var(--navigation-scrollbar-thumb);
+            background-clip: padding-box;
+        }
+
+        [part~='menu']::-webkit-scrollbar-thumb:hover {
+            background: var(--navigation-scrollbar-thumb-hover);
+            background-clip: padding-box;
+        }
+    `)
+
+    const drawer = page.shadowRoot.querySelector('[part~="drawer"]')
+
+    if (!drawer?.shadowRoot) {
+        requestAnimationFrame(() => setupNavigationScrollbars(page))
+        return
+    }
+
+    injectScrollbarStyles(drawer.shadowRoot, 'site-drawer-scrollbars', `
+        [part~='body'] {
+            scrollbar-width: thin;
+            scrollbar-color: var(--navigation-scrollbar-thumb) var(--navigation-scrollbar-track);
+        }
+
+        [part~='body']::-webkit-scrollbar {
+            width: var(--navigation-scrollbar-size);
+            height: var(--navigation-scrollbar-size);
+        }
+
+        [part~='body']::-webkit-scrollbar-button {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        [part~='body']::-webkit-scrollbar-track {
+            background: var(--navigation-scrollbar-track);
+            border-radius: 999px;
+        }
+
+        [part~='body']::-webkit-scrollbar-thumb {
+            border: 2px solid transparent;
+            border-radius: 999px;
+            background: var(--navigation-scrollbar-thumb);
+            background-clip: padding-box;
+        }
+
+        [part~='body']::-webkit-scrollbar-thumb:hover {
+            background: var(--navigation-scrollbar-thumb-hover);
+            background-clip: padding-box;
+        }
+    `)
+}
 
 const setupPageNavigation = () => {
     const page = document.querySelector('.site-layout')
-    const toggle = document.querySelector('[data-page-nav-toggle]')
+    const toggles = Array.from(document.querySelectorAll('[data-page-nav-toggle]'))
+    const navigation = document.querySelector('.drawer-nav')
 
-    if (!page || !toggle) {
+    if (!page || toggles.length === 0) {
         return
     }
 
     const applyStoredNavigationState = () => {
-        const storedState = getStoredNavigationState()
+        const storedState = getStoredDesktopNavigationState()
 
         if (storedState === null) {
+            page.dataset.navCollapsed = 'true'
             page.navOpen = false
             return
         }
 
         page.dataset.navCollapsed = storedState ? 'false' : 'true'
-
-        if (isDesktopView(page)) {
-            page.navOpen = false
-            return
-        }
-
-        page.navOpen = storedState
+        page.navOpen = false
     }
 
     const updateToggleLabel = () => {
@@ -149,12 +239,13 @@ const setupPageNavigation = () => {
             ? (collapsed ? 'Open navigation' : 'Hide navigation')
             : (page.navOpen ? 'Close navigation' : 'Open navigation')
 
-        toggle.setAttribute('aria-label', label)
+        toggles.forEach((toggle) => {
+            toggle.setAttribute('aria-label', label)
+        })
 
-        const tooltip = document.querySelector('[data-nav-toggle-tooltip]')
-        if (tooltip) {
+        document.querySelectorAll('[data-nav-toggle-tooltip]').forEach((tooltip) => {
             tooltip.textContent = label
-        }
+        })
     }
 
     const applyDesktopNavState = (collapsed, { persist = true } = {}) => {
@@ -162,7 +253,7 @@ const setupPageNavigation = () => {
         page.navOpen = false
 
         if (persist) {
-            persistNavigationState(!collapsed)
+            persistDesktopNavigationState(!collapsed)
         }
 
         updateToggleLabel()
@@ -181,12 +272,24 @@ const setupPageNavigation = () => {
         updateToggleLabel()
     })
 
-    toggle.addEventListener('click', () => {
-        if (isDesktopView(page)) {
-            const nextState = page.dataset.navCollapsed !== 'true'
+    toggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            if (isDesktopView(page)) {
+                const nextState = page.dataset.navCollapsed !== 'true'
 
-            applyDesktopNavState(nextState)
+                applyDesktopNavState(nextState)
+            }
+        })
+    })
+
+    navigation?.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]')
+
+        if (!link || isDesktopView(page)) {
+            return
         }
+
+        page.navOpen = false
     })
 
     const observer = new MutationObserver((mutations) => {
@@ -199,12 +302,6 @@ const setupPageNavigation = () => {
         if (isDesktopView(page)) {
             updateToggleLabel()
             return
-        }
-
-        const navStateChanged = mutations.some((mutation) => mutation.attributeName === 'nav-open')
-
-        if (navStateChanged) {
-            persistNavigationState(page.navOpen)
         }
 
         updateToggleLabel()
@@ -245,6 +342,7 @@ const setupHeroVideo = () => {
 document.addEventListener('DOMContentLoaded', () => {
     const initialMode = getInitialMode()
     const initialBrandColor = resolveBrandColor()
+    const page = document.querySelector('.site-layout')
 
     applyTheme(initialMode, initialBrandColor)
 
@@ -272,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     setupHeroVideo()
+    setupNavigationScrollbars(page)
     setupPageNavigation()
 })
 
