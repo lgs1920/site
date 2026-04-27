@@ -4,12 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy",
-    "clean": "rm -rf _site"
+    "build": "rm -rf .11ty-vite _site && eleventy",
+    "deploy": "bun deploy.js",
+    "clean": "rm -rf .11ty-vite _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
-    "@types/bun": "latest"
+    "@11ty/eleventy-plugin-vite": "^7.1.1",
+    "@types/bun": "latest",
+    "vite": "^8.0.10"
   },
   "peerDependencies": {
     "typescript": "^5"

@@ -1,0 +1,236 @@
+---
+layout: layouts/page.html
+title: LGS1920 Studio
+description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, and media capture.
+hero:
+  badge: Outdoor journeys, edited locally
+  kicker: Replay the World Outdoors
+  title: Turn trekking routes into launch-ready map stories.
+  lead: Local-first editing for routes, POIs, camera motion, and export-ready visuals.
+  actions:
+    - label: Discover the vision
+      href: "#vision"
+      appearance: outlined
+      variant: neutral
+      className: hero-button-secondary
+      icon:
+        name: arrow-down
+        variant: solid
+    - label: Launch Studio
+      href: https://studio.lgs1920.fr
+      variant: brand
+      className: hero-button-primary
+      external: true
+      icon:
+        name: arrow-up-right-from-square
+        variant: solid
+  highlights:
+    - label: Journeys, tracks, and POIs
+      icon: route
+    - label: 2D, 3D, and Columbus views
+      icon: box
+    - label: Snapshot and video export
+      icon: video
+  panel:
+    eyebrow: Core workflow
+    title: One workspace, three outputs.
+    items:
+      - title: Source
+        text: GeoJSON, GPX, and KML
+        icon: map-location-dot
+      - title: Camera
+        text: Focus, orbit, panorama
+        icon: arrows-rotate
+      - title: Delivery
+        text: Widgets, snapshots, video
+        icon: chart-line
+sectionNav:
+  - id: vision
+    label: Vision
+    summary: The product point of view
+  - id: features
+    label: Features
+    summary: The covered workflows
+  - id: workflow
+    label: Workflow
+    summary: From data to final output
+  - id: stack
+    label: Stack
+    summary: The technical building blocks
+  - id: faq
+    label: FAQ
+    summary: Project context and answers
+pageCta:
+  eyebrow: Repository split
+  title: This site stays static and lightweight. The editor lives in the main Studio repository.
+  body: The application code remains in the main product repository, while this Eleventy site stays focused on positioning, navigation, and a fast front door for the project.
+  actions:
+    - label: Main repository
+      href: https://github.com/lgs1920/studio
+      variant: brand
+      external: true
+      icon:
+        family: brands
+        name: github
+    - label: Contact
+      href: mailto:contact@lgs1920.fr
+      appearance: outlined
+      icon:
+        name: envelope
+        variant: solid
+---
+<section id="vision" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">Vision</p>
+        <h2>A map editor that behaves more like a camera desk than a data form.</h2>
+    </div>
+
+    <div class="vision-grid">
+        <wa-card class="vision-card accent-a">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="route"></wa-icon>
+                <h3>Shape the journey</h3>
+            </div>
+            <p>Curate tracks, style paths, manage POIs, and preserve the editorial state with local persistence.</p>
+        </wa-card>
+
+        <wa-card class="vision-card accent-b">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="camera"></wa-icon>
+                <h3>Direct the camera</h3>
+            </div>
+            <p>Switch scene modes, target precise viewpoints, and tune orbit rotation or panorama controls in real time.</p>
+        </wa-card>
+
+        <wa-card class="vision-card accent-c">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="clapperboard-play"></wa-icon>
+                <h3>Compose the output</h3>
+            </div>
+            <p>Layer widgets, metrics, and overlays so screenshots and videos already carry the narrative structure.</p>
+        </wa-card>
+    </div>
+</section>
+
+<section id="features" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">Features</p>
+        <h2>The core workflows already covered by the project.</h2>
+    </div>
+
+    <div class="feature-grid">
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="route"></wa-icon>
+                <h3>Journey and track editing</h3>
+            </div>
+            <p>Load multiple journeys, edit metadata, tune visibility, and manage track presentation as a coherent story.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="map-location-dot"></wa-icon>
+                <h3>POI workflows</h3>
+            </div>
+            <p>Create, focus, rotate, and persist point-centric views across both POIs and journey-level targets.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="globe-pointer"></wa-icon>
+                <h3>Cesium scene control</h3>
+            </div>
+            <p>Move between 2D, 3D, and Columbus, track the active camera target, and keep navigation legible.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="arrows-rotate"></wa-icon>
+                <h3>Orbit and panorama</h3>
+            </div>
+            <p>Adjust speed, direction, height offset, and pitch live while the camera stays in motion.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="chart-line"></wa-icon>
+                <h3>Metrics and widgets</h3>
+            </div>
+            <p>Use elevation profiles, journey stats, text, credits, and other UI elements as reusable scene overlays.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="solid" name="clapperboard-play"></wa-icon>
+                <h3>Media export</h3>
+            </div>
+            <p>Capture snapshots, define crop zones, and record video with the same visible overlays used in the editor.</p>
+        </wa-card>
+    </div>
+</section>
+
+<section id="workflow" class="content-section workflow-section">
+    <div class="section-heading">
+        <p class="section-kicker">Workflow</p>
+        <h2>From raw path data to polished map output.</h2>
+    </div>
+
+    <ol class="workflow-list">
+        <li>
+            <span>01</span>
+            <div>
+                <h3>Load source data</h3>
+                <p>Bring in GeoJSON, GPX, or KML files and rebuild a working journey context in the browser.</p>
+            </div>
+        </li>
+        <li>
+            <span>02</span>
+            <div>
+                <h3>Stage the experience</h3>
+                <p>Refine visibility, focus behavior, widgets, camera targets, rotation presets, and panorama settings.</p>
+            </div>
+        </li>
+        <li>
+            <span>03</span>
+            <div>
+                <h3>Capture and deliver</h3>
+                <p>Export images or video with the same scene framing, overlays, and metrics used during editing.</p>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section id="stack" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">Stack</p>
+        <h2>Cesium, React, Bun, Valtio, Web Awesome, Eleventy, and a local-first browser database.</h2>
+    </div>
+
+    <div class="stack-band">
+        <span><wa-icon variant="solid" name="globe-pointer"></wa-icon> Cesium scene engine</span>
+        <span><wa-icon variant="solid" name="box"></wa-icon> Widget system</span>
+        <span><wa-icon variant="solid" name="database"></wa-icon> IndexedDB persistence</span>
+        <span><wa-icon variant="solid" name="video"></wa-icon> Media pipeline</span>
+    </div>
+</section>
+
+<section id="faq" class="content-section faq-section">
+    <div class="section-heading">
+        <p class="section-kicker">FAQ</p>
+        <h2>Useful context around the project.</h2>
+    </div>
+
+    <div class="faq-list">
+        <wa-details summary="Is this site static?">
+            Yes. Eleventy generates the pages and assets, while Web Awesome provides the component layer in the browser.
+        </wa-details>
+
+        <wa-details summary="Who is the product for?">
+            Teams and creators working on map-based storytelling, route editing, camera choreography, and export-ready visuals.
+        </wa-details>
+
+        <wa-details summary="What is the public license?">
+            The main repository is published under the PolyForm Noncommercial license, with separate commercial licensing available.
+        </wa-details>
+    </div>
+</section>

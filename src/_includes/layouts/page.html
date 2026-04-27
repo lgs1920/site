@@ -1,0 +1,210 @@
+---
+layout: layouts/base.html
+---
+<wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle>
+    <span slot="skip-to-content">Skip to content</span>
+
+    <header slot="header" class="topbar">
+        <div class="brand-lockup">
+            <p class="brand-kicker">{{ site.tagline }}</p>
+            <a class="brand-name" href="/">{{ site.name }}</a>
+        </div>
+
+        <div class="topbar-actions">
+            <wa-button class="nav-toggle" data-page-nav-toggle appearance="plain" aria-label="Hide navigation">
+                <wa-icon variant="solid" name="bars"></wa-icon>
+            </wa-button>
+
+            {% for link in site.headerLinks %}
+                <wa-button class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                    <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% endif %} name="{{ link.icon }}"></wa-icon>
+                </wa-button>
+            {% endfor %}
+
+            <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
+                <wa-button slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
+                    <wa-icon data-theme-icon="light" variant="solid" name="sun-bright" hidden></wa-icon>
+                    <wa-icon data-theme-icon="dark" variant="solid" name="moon-stars" hidden></wa-icon>
+                </wa-button>
+
+                <wa-dropdown-item value="light" data-theme-option="light">
+                    <wa-icon slot="icon" variant="solid" name="sun-bright"></wa-icon>
+                    Light
+                </wa-dropdown-item>
+
+                <wa-dropdown-item value="dark" data-theme-option="dark">
+                    <wa-icon slot="icon" variant="solid" name="moon-stars"></wa-icon>
+                    Dark
+                </wa-dropdown-item>
+
+                <wa-divider></wa-divider>
+
+                <wa-dropdown-item value="system" data-theme-option="system">
+                    <wa-icon slot="icon" variant="solid" name="laptop"></wa-icon>
+                    System
+                </wa-dropdown-item>
+            </wa-dropdown>
+        </div>
+    </header>
+
+    <section slot="navigation-header" class="drawer-panel drawer-panel-header">
+        <p class="drawer-eyebrow">Site map</p>
+        <h2>{{ title | default: site.name }}</h2>
+        <p>{{ description | default: site.description }}</p>
+    </section>
+
+    <nav slot="navigation" class="drawer-nav" aria-label="Primary navigation">
+        {% if site.navigation and site.navigation.size > 0 %}
+            <section class="drawer-group">
+                <p class="drawer-label">Pages</p>
+                {% for item in site.navigation %}
+                    {% assign is_current = false %}
+                    {% if item.url == page.url %}
+                        {% assign is_current = true %}
+                    {% endif %}
+                    <a class="drawer-link{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}{% if item.external %} target="_blank" rel="noreferrer"{% endif %}>
+                        <span>{{ item.label }}</span>
+                        {% if item.external %}
+                            <wa-icon variant="solid" name="arrow-up-right-from-square"></wa-icon>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        {% if sectionNav and sectionNav.size > 0 %}
+            <section class="drawer-group">
+                <p class="drawer-label">On this page</p>
+                {% for item in sectionNav %}
+                    <a class="drawer-link drawer-link-muted" href="#{{ item.id }}">
+                        <span>{{ item.label }}</span>
+                        {% if item.summary %}
+                            <small>{{ item.summary }}</small>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </section>
+        {% endif %}
+    </nav>
+
+    <section slot="main-header" class="page-hero">
+        <div class="hero-media" aria-hidden="true">
+            {% unless hero.video == false %}
+                <video class="hero-video"
+                       data-hero-video
+                       muted
+                       loop
+                       playsinline
+                       autoplay
+                       preload="metadata"
+                       disablepictureinpicture></video>
+            {% endunless %}
+        </div>
+
+        <div class="hero-backdrop" aria-hidden="true"></div>
+
+        <div class="hero-shell">
+            <div class="hero-copy">
+                {% if hero.badge %}
+                    <wa-badge variant="brand" appearance="filled">{{ hero.badge }}</wa-badge>
+                {% endif %}
+
+                {% if hero.kicker %}
+                    <p class="hero-kicker">{{ hero.kicker }}</p>
+                {% endif %}
+
+                <h1>{{ hero.title }}</h1>
+
+                {% if hero.lead %}
+                    <p class="hero-lead">{{ hero.lead }}</p>
+                {% endif %}
+
+                {% if hero.actions and hero.actions.size > 0 %}
+                    <div class="hero-actions">
+                        {% for action in hero.actions %}
+                            <wa-button class="hero-button{% if action.className %} {{ action.className }}{% endif %}" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                                {% if action.icon %}
+                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                                {% endif %}
+                                {{ action.label }}
+                            </wa-button>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if hero.highlights and hero.highlights.size > 0 %}
+                    <ul class="hero-highlights" aria-label="Product highlights">
+                        {% for item in hero.highlights %}
+                            <li>
+                                <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.variant %} variant="{{ item.variant }}"{% else %} variant="solid"{% endif %} name="{{ item.icon }}"></wa-icon>
+                                <span>{{ item.label }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            {% if hero.panel %}
+                <aside class="hero-panel">
+                    {% if hero.panel.eyebrow %}
+                        <p class="panel-eyebrow">{{ hero.panel.eyebrow }}</p>
+                    {% endif %}
+
+                    {% if hero.panel.title %}
+                        <h2 class="hero-panel-title">{{ hero.panel.title }}</h2>
+                    {% endif %}
+
+                    {% if hero.panel.items and hero.panel.items.size > 0 %}
+                        <div class="hero-metric-list">
+                            {% for item in hero.panel.items %}
+                                <article>
+                                    <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="solid"{% endif %} name="{{ item.icon }}"></wa-icon>
+                                    <div>
+                                        <strong>{{ item.title }}</strong>
+                                        <span>{{ item.text }}</span>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </aside>
+            {% endif %}
+        </div>
+    </section>
+
+    <main id="content" class="page-content">
+        {{ content }}
+    </main>
+
+    {% if pageCta %}
+        <section slot="main-footer" class="page-cta">
+            <wa-card class="page-cta-card">
+                <div class="page-cta-copy">
+                    {% if pageCta.eyebrow %}
+                        <p class="section-kicker">{{ pageCta.eyebrow }}</p>
+                    {% endif %}
+                    <h2>{{ pageCta.title }}</h2>
+                    <p>{{ pageCta.body }}</p>
+                </div>
+
+                {% if pageCta.actions and pageCta.actions.size > 0 %}
+                    <div class="page-cta-actions">
+                        {% for action in pageCta.actions %}
+                            <wa-button class="cta-button" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                                {% if action.icon %}
+                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                                {% endif %}
+                                {{ action.label }}
+                            </wa-button>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </wa-card>
+        </section>
+    {% endif %}
+
+    <footer slot="footer" class="site-footer">
+        <p>{{ site.footerNote }}</p>
+        <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+    </footer>
+</wa-page>

@@ -1,76 +1,20 @@
-import { icon } from '@fortawesome/fontawesome-svg-core'
-import {
-    faArrowsRotate,
-    faBullseye,
-    faCamera,
-    faChartLineUp,
-    faClapperboardPlay,
-    faCompassDrafting,
-    faCube,
-    faDatabase,
-    faEarthEurope,
-    faEnvelope,
-    faGlobe,
-    faLayerGroup,
-    faLocationCrosshairs,
-    faMapLocationDot,
-    faMountains,
-    faPhotoFilm,
-    faRoute,
-    faVideo,
-} from '@fortawesome/pro-regular-svg-icons'
-import { faArrowRight } from '@fortawesome/pro-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import EleventyVitePlugin from '@11ty/eleventy-plugin-vite'
+import crypto from 'node:crypto'
+import path from 'node:path'
 
-const ICONS = {
-    brands: {
-        github: faGithub,
-    },
-    regular: {
-        arrowsRotate:      faArrowsRotate,
-        bullseye:          faBullseye,
-        camera:            faCamera,
-        chartLineUp:       faChartLineUp,
-        clapperboardPlay:  faClapperboardPlay,
-        compassDrafting:   faCompassDrafting,
-        cube:              faCube,
-        database:          faDatabase,
-        earthEurope:       faEarthEurope,
-        envelope:          faEnvelope,
-        globe:             faGlobe,
-        layerGroup:        faLayerGroup,
-        locationCrosshairs:faLocationCrosshairs,
-        mapLocationDot:    faMapLocationDot,
-        mountains:         faMountains,
-        photoFilm:         faPhotoFilm,
-        route:             faRoute,
-        video:             faVideo,
-    },
-    solid: {
-        arrowRight: faArrowRight,
-    },
+if (typeof crypto.hash !== 'function') {
+    crypto.hash = (algorithm, data, outputEncoding) => crypto.createHash(algorithm).update(data).digest(outputEncoding)
 }
 
 export default function(eleventyConfig) {
-    eleventyConfig.addPassthroughCopy({
-        'src/assets': 'assets',
-    })
-
-    eleventyConfig.addPassthroughCopy({
-        'node_modules/@awesome.me/webawesome/dist-cdn': 'vendor/webawesome',
-    })
-
-    eleventyConfig.addNunjucksShortcode('fa', (name, style = 'regular', label = '') => {
-        const definition = ICONS[style]?.[name]
-
-        if (!definition) {
-            return ''
-        }
-
-        const svg = icon(definition, label ? {title: label} : {}).html.join('')
-        const hidden = label ? 'false' : 'true'
-
-        return svg.replace('<svg', `<svg class="fa-svg fa-${style} fa-${name}" aria-hidden="${hidden}"`)
+    eleventyConfig.addPlugin(EleventyVitePlugin, {
+        viteOptions: {
+            resolve: {
+                alias: {
+                    '/src': path.resolve('.', 'src'),
+                },
+            },
+        },
     })
 
     return {
@@ -79,7 +23,7 @@ export default function(eleventyConfig) {
             includes:'_includes',
             output:  '_site',
         },
-        htmlTemplateEngine:     'njk',
-        markdownTemplateEngine: 'njk',
+        htmlTemplateEngine:     'liquid',
+        markdownTemplateEngine: 'liquid',
     }
 }
