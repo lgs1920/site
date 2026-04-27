@@ -2,7 +2,6 @@ import desktopVideo from './media/trekking-hero-desktop.mp4'
 import mobileVideo from './media/trekking-hero-mobile.mp4'
 
 const STORAGE_KEY = 'theme'
-const NAV_STORAGE_KEY = 'site-nav-collapsed'
 const root = document.documentElement
 const media = window.matchMedia('(prefers-color-scheme: dark)')
 const heroViewport = window.matchMedia('(max-width: 767px)')
@@ -37,8 +36,6 @@ const setupPageNavigation = () => {
         return
     }
 
-    const readCollapsedState = () => localStorage.getItem(NAV_STORAGE_KEY) === 'true'
-
     const updateToggleLabel = () => {
         const collapsed = page.dataset.navCollapsed === 'true'
 
@@ -55,23 +52,19 @@ const setupPageNavigation = () => {
         updateToggleLabel()
     }
 
-    applyDesktopNavState(readCollapsedState())
+    applyDesktopNavState(false)
 
     toggle.addEventListener('click', () => {
         if (isDesktopView(page)) {
             const nextState = page.dataset.navCollapsed !== 'true'
 
-            localStorage.setItem(NAV_STORAGE_KEY, String(nextState))
             applyDesktopNavState(nextState)
-            return
         }
-
-        page.toggleNavigation?.()
     })
 
     const observer = new MutationObserver(() => {
         if (isDesktopView(page)) {
-            applyDesktopNavState(readCollapsedState())
+            applyDesktopNavState(page.dataset.navCollapsed === 'true')
             return
         }
 
