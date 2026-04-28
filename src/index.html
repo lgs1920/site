@@ -3,48 +3,31 @@ layout: layouts/page.html
 title: LGS1920 Studio
 description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, and media capture.
 hero:
-  badge: Outdoor journeys, edited locally
-  kicker: Replay the World Outdoors
-  title: Turn trekking routes into launch-ready map stories.
+  className: intro-hero
+  title: Turn outdoors moments into ready map stories.
   lead: Local-first editing for routes, POIs, camera motion, and export-ready visuals.
   actions:
-    - label: Discover the vision
-      href: "#vision"
-      appearance: outlined
-      variant: neutral
-      className: hero-button-secondary
-      icon:
-        name: arrow-down
-        variant: solid
-    - label: Launch Studio
+    - label: Launch
       href: https://studio.lgs1920.fr
+      appearance: filled
       variant: brand
-      className: hero-button-primary
+      className: hero-button-launch
       external: true
       icon:
-        name: arrow-up-right-from-square
-        variant: solid
-  highlights:
-    - label: Journeys, tracks, and POIs
-      icon: route
-    - label: 2D, 3D, and Columbus views
-      icon: box
-    - label: Snapshot and video export
-      icon: video
-  panel:
-    eyebrow: Core workflow
-    title: One workspace, three outputs.
-    items:
-      - title: Source
-        text: GeoJSON, GPX, and KML
-        icon: map-location-dot
-      - title: Camera
-        text: Focus, orbit, panorama
-        icon: arrows-rotate
-      - title: Delivery
-        text: Widgets, snapshots, video
-        icon: chart-line
+        name: clapperboard-play
+        variant: regular
+    - label: Discover
+      href: "#overview"
+      appearance: outlined
+      variant: brand
+      className: hero-button-discover
+      icon:
+        name: arrow-down
+        variant: regular
 sectionNav:
+  - id: overview
+    label: Overview
+    summary: Product cues and core workflow
   - id: vision
     label: Vision
     summary: The product point of view
@@ -67,6 +50,7 @@ pageCta:
   actions:
     - label: Main repository
       href: https://github.com/lgs1920/studio
+      appearance: filled
       variant: brand
       external: true
       icon:
@@ -75,10 +59,75 @@ pageCta:
     - label: Contact
       href: mailto:contact@lgs1920.fr
       appearance: outlined
+      variant: brand
       icon:
         name: envelope
-        variant: solid
+        variant: regular
 ---
+<section id="overview" class="content-section intro-details-section">
+    <div class="section-heading">
+        <p class="section-kicker">Overview</p>
+        <h2>The essential cues before opening the Studio.</h2>
+    </div>
+
+    <div class="intro-details-grid">
+        <div class="intro-indication-grid" aria-label="Product highlights">
+            <article class="intro-indication">
+                <wa-icon variant="regular" name="route"></wa-icon>
+                <div>
+                    <h3>Journeys, tracks, and POIs</h3>
+                    <p>Curate route data and points of interest inside one local workspace.</p>
+                </div>
+            </article>
+
+            <article class="intro-indication">
+                <wa-icon variant="regular" name="box"></wa-icon>
+                <div>
+                    <h3>2D, 3D, and Columbus views</h3>
+                    <p>Choose the scene mode that best supports the route story.</p>
+                </div>
+            </article>
+
+            <article class="intro-indication">
+                <wa-icon variant="regular" name="video"></wa-icon>
+                <div>
+                    <h3>Snapshot and video export</h3>
+                    <p>Capture export-ready media with the same overlays visible in the editor.</p>
+                </div>
+            </article>
+        </div>
+
+        <wa-card class="workflow-card">
+            <p class="panel-eyebrow">Core workflow</p>
+            <h3>One workspace, three outputs.</h3>
+
+            <div class="hero-metric-list">
+                <article>
+                    <wa-icon variant="regular" name="map-location-dot"></wa-icon>
+                    <div>
+                        <strong>Source</strong>
+                        <span>GeoJSON, GPX, and KML</span>
+                    </div>
+                </article>
+                <article>
+                    <wa-icon variant="regular" name="arrows-rotate"></wa-icon>
+                    <div>
+                        <strong>Camera</strong>
+                        <span>Focus, orbit, panorama</span>
+                    </div>
+                </article>
+                <article>
+                    <wa-icon variant="regular" name="chart-line"></wa-icon>
+                    <div>
+                        <strong>Delivery</strong>
+                        <span>Widgets, snapshots, video</span>
+                    </div>
+                </article>
+            </div>
+        </wa-card>
+    </div>
+</section>
+
 <section id="vision" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">Vision</p>
@@ -88,7 +137,7 @@ pageCta:
     <div class="vision-grid">
         <wa-card class="vision-card accent-a">
             <div class="card-heading">
-                <wa-icon variant="solid" name="route"></wa-icon>
+                <wa-icon variant="regular" name="route"></wa-icon>
                 <h3>Shape the journey</h3>
             </div>
             <p>Curate tracks, style paths, manage POIs, and preserve the editorial state with local persistence.</p>
@@ -96,7 +145,7 @@ pageCta:
 
         <wa-card class="vision-card accent-b">
             <div class="card-heading">
-                <wa-icon variant="solid" name="camera"></wa-icon>
+                <wa-icon variant="regular" name="camera"></wa-icon>
                 <h3>Direct the camera</h3>
             </div>
             <p>Switch scene modes, target precise viewpoints, and tune orbit rotation or panorama controls in real time.</p>
@@ -104,7 +153,7 @@ pageCta:
 
         <wa-card class="vision-card accent-c">
             <div class="card-heading">
-                <wa-icon variant="solid" name="clapperboard-play"></wa-icon>
+                <wa-icon variant="regular" name="clapperboard-play"></wa-icon>
                 <h3>Compose the output</h3>
             </div>
             <p>Layer widgets, metrics, and overlays so screenshots and videos already carry the narrative structure.</p>
@@ -121,7 +170,7 @@ pageCta:
     <div class="feature-grid">
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="route"></wa-icon>
+                <wa-icon variant="regular" name="route"></wa-icon>
                 <h3>Journey and track editing</h3>
             </div>
             <p>Load multiple journeys, edit metadata, tune visibility, and manage track presentation as a coherent story.</p>
@@ -129,7 +178,7 @@ pageCta:
 
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="map-location-dot"></wa-icon>
+                <wa-icon variant="regular" name="map-location-dot"></wa-icon>
                 <h3>POI workflows</h3>
             </div>
             <p>Create, focus, rotate, and persist point-centric views across both POIs and journey-level targets.</p>
@@ -137,7 +186,7 @@ pageCta:
 
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="globe-pointer"></wa-icon>
+                <wa-icon variant="regular" name="globe-pointer"></wa-icon>
                 <h3>Cesium scene control</h3>
             </div>
             <p>Move between 2D, 3D, and Columbus, track the active camera target, and keep navigation legible.</p>
@@ -145,7 +194,7 @@ pageCta:
 
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="arrows-rotate"></wa-icon>
+                <wa-icon variant="regular" name="arrows-rotate"></wa-icon>
                 <h3>Orbit and panorama</h3>
             </div>
             <p>Adjust speed, direction, height offset, and pitch live while the camera stays in motion.</p>
@@ -153,7 +202,7 @@ pageCta:
 
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="chart-line"></wa-icon>
+                <wa-icon variant="regular" name="chart-line"></wa-icon>
                 <h3>Metrics and widgets</h3>
             </div>
             <p>Use elevation profiles, journey stats, text, credits, and other UI elements as reusable scene overlays.</p>
@@ -161,7 +210,7 @@ pageCta:
 
         <wa-card class="feature-card">
             <div class="card-heading">
-                <wa-icon variant="solid" name="clapperboard-play"></wa-icon>
+                <wa-icon variant="regular" name="clapperboard-play"></wa-icon>
                 <h3>Media export</h3>
             </div>
             <p>Capture snapshots, define crop zones, and record video with the same visible overlays used in the editor.</p>
@@ -207,15 +256,15 @@ pageCta:
     </div>
 
     <div class="stack-band">
-        <span><wa-icon variant="solid" name="globe-pointer"></wa-icon> Cesium scene engine</span>
-        <span><wa-icon variant="solid" name="box"></wa-icon> Widget system</span>
-        <span><wa-icon variant="solid" name="database"></wa-icon> IndexedDB persistence</span>
-        <span><wa-icon variant="solid" name="video"></wa-icon> Media pipeline</span>
+        <span><wa-icon variant="regular" name="globe-pointer"></wa-icon> Cesium scene engine</span>
+        <span><wa-icon variant="regular" name="box"></wa-icon> Widget system</span>
+        <span><wa-icon variant="regular" name="database"></wa-icon> IndexedDB persistence</span>
+        <span><wa-icon variant="regular" name="video"></wa-icon> Media pipeline</span>
     </div>
 
     <div class="stack-actions">
         <wa-button href="/dependencies/" appearance="outlined" variant="neutral">
-            <wa-icon slot="start" variant="solid" name="file-lines"></wa-icon>
+            <wa-icon slot="start" variant="regular" name="file-lines"></wa-icon>
             Open the Studio dependency inventory
         </wa-button>
     </div>

@@ -1,29 +1,8 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
 const copyrightYears = currentYear > copyrightStartYear
     ? `${copyrightStartYear}-${currentYear}`
     : `${copyrightStartYear}`
-
-const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const backendRoot = path.resolve(process.cwd(), '..', 'backend')
-
-const readJsonFile = (filePath) => {
-    if (!fs.existsSync(filePath)) {
-        return {}
-    }
-
-    try {
-        return JSON.parse(fs.readFileSync(filePath, 'utf8'))
-    } catch {
-        return {}
-    }
-}
-
-const studioVersion = readJsonFile(path.join(studioRoot, 'public', 'version.json')).studio || 'N/A'
-const backendVersion = readJsonFile(path.join(backendRoot, 'version.json')).backend || 'N/A'
 
 export default {
     name:        'LGS1920 Studio',
@@ -42,16 +21,6 @@ export default {
         family:  'brands',
         external:true,
     },
-    versionInfo: [
-        {
-            label:'Studio',
-            value:studioVersion,
-        },
-        {
-            label:'Backend',
-            value:backendVersion,
-        },
-    ],
     brandOptions: [
         {
             value: 'yellow',
@@ -61,12 +30,12 @@ export default {
         {
             value: 'orange',
             label: 'Orange',
-            swatch:'var(--wa-color-orange)',
+            swatch:'var(--wa-color-orange-70)',
         },
         {
             value: 'red',
             label: 'Red',
-            swatch:'var(--wa-color-red-40)',
+            swatch:'var(--wa-color-red-60)',
         },
         {
             value: 'pink',
@@ -120,8 +89,8 @@ export default {
         {
             label:   'Open Studio',
             url:     'https://studio.lgs1920.fr',
-            icon:    'arrow-up-right-from-square',
-            variant: 'solid',
+            icon:    'clapperboard-play',
+            variant: 'regular',
             external:true,
         },
         {
@@ -136,8 +105,8 @@ export default {
         {
             label:   'Launch Studio',
             url:     'https://studio.lgs1920.fr',
-            icon:    'arrow-up-right-from-square',
-            variant: 'solid',
+            icon:    'clapperboard-play',
+            variant: 'regular',
             external:true,
         },
         {
@@ -151,7 +120,7 @@ export default {
             label:   'Contact',
             url:     'mailto:contact@lgs1920.fr',
             icon:    'envelope',
-            variant: 'solid',
+            variant: 'regular',
         },
     ],
     legalLinks: [

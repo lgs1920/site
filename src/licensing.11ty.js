@@ -18,17 +18,17 @@ export default class {
                     {
                         label:  'PolyForm Noncommercial 1.0.0',
                         icon:   'scale-balanced',
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         label:  'Commercial licensing available',
                         icon:   'briefcase',
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         label:  'Canonical wording sourced from studio',
                         icon:   'file-lines',
-                        variant:'solid',
+                        variant:'regular',
                     },
                 ],
             },
@@ -44,7 +44,7 @@ export default class {
                         variant:'brand',
                         icon:  {
                             name:   'envelope',
-                            variant:'solid',
+                            variant:'regular',
                         },
                     },
                     {

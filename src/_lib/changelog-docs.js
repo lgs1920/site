@@ -11,6 +11,10 @@ const markdown = new MarkdownIt({
     linkify:   true,
     typographer:true,
 })
+const versionCollator = new Intl.Collator('en', {
+    numeric:    true,
+    sensitivity:'base',
+})
 
 const stripMarkdown = (value) => value
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -119,7 +123,23 @@ const getChangelogFiles = () => {
 
     return fs.readdirSync(changelogDirectory)
         .filter(fileName => fileName.endsWith('.md'))
-        .sort((left, right) => right.localeCompare(left))
+}
+
+const compareReleaseEntries = (left, right) => {
+    // Changelog navigation should start from the highest published version.
+    const versionOrder = versionCollator.compare(right.version, left.version)
+
+    if (versionOrder !== 0) {
+        return versionOrder
+    }
+
+    const dateOrder = right.dateKey.localeCompare(left.dateKey)
+
+    if (dateOrder !== 0) {
+        return dateOrder
+    }
+
+    return right.slug.localeCompare(left.slug)
 }
 
 const buildEntries = () => getChangelogFiles().map((fileName) => {
@@ -155,7 +175,7 @@ const buildEntries = () => getChangelogFiles().map((fileName) => {
         version:   match.groups.version,
         html:      document.html,
     }
-})
+}).sort(compareReleaseEntries)
 
 const entries = buildEntries().map((entry, index, allEntries) => ({
     ...entry,
@@ -193,7 +213,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
     <div class="legal-meta">
         <p>The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.</p>
         <a class="legal-source-link" href="${directory.sourceUrl}" target="_blank" rel="noreferrer">
-            <wa-icon variant="solid" name="file-lines"></wa-icon>
+            <wa-icon variant="regular" name="file-lines"></wa-icon>
             <span>Source directory: ${directory.sourceLabel}</span>
         </a>
     </div>
@@ -206,14 +226,14 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
                         <p class="section-kicker">Version ${escapeHtml(entry.version)}</p>
                         <h2>${escapeHtml(entry.title)}</h2>
                         <p class="changelog-entry-date">
-                            <wa-icon variant="solid" name="calendar-days"></wa-icon>
+                            <wa-icon variant="regular" name="calendar-days"></wa-icon>
                             <time datetime="${entry.isoDate}">${escapeHtml(entry.dateLabel)}</time>
                         </p>
                     </div>
 
                     <div class="changelog-entry-actions">
                         <a class="legal-source-link" href="${entry.sourceUrl}" target="_blank" rel="noreferrer">
-                            <wa-icon variant="solid" name="file-lines"></wa-icon>
+                            <wa-icon variant="regular" name="file-lines"></wa-icon>
                             <span>Source: ${escapeHtml(entry.sourceLabel)}</span>
                         </a>
                     </div>

@@ -14,17 +14,17 @@ export default class {
                     {
                         icon:   'file-lines',
                         label:  `${changelog.count} release notes files`,
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         icon:   'calendar-days',
                         label:  `Latest entry: ${changelog.latest?.version || 'n/a'}`,
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         icon:   'database',
                         label:  'Generated at build time from studio',
-                        variant:'solid',
+                        variant:'regular',
                     },
                 ],
             },

@@ -1,0 +1,40 @@
+<svg width="720" height="260" viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LGS1920 logo preview">
+  <style>
+    .quiet { fill: #F3E5B5; }
+    .brand { fill: #D99A16; }
+    .loud { fill: #2A1B00; }
+    .text { font-family: Inter, Arial, sans-serif; font-weight: 850; letter-spacing: .02em; }
+    .slogan { font-family: Inter, Arial, sans-serif; font-weight: 700; letter-spacing: .12em; font-size: 15px; }
+  </style>
+
+  <rect width="720" height="260" rx="18" fill="#fffdf7"/>
+
+  <g transform="translate(34 32)">
+    <rect class="quiet" width="96" height="96" rx="24"/>
+    <path class="brand" d="M18 69L39 38L51 55L61 43L78 69H18Z"/>
+    <path class="loud" d="M30 69L43 52L51 60L61 47L72 69H30Z" opacity=".28"/>
+    <rect class="loud" x="57" y="24" width="24" height="19" rx="6"/>
+    <rect class="loud" x="62" y="18" width="10" height="7" rx="2"/>
+    <circle class="quiet" cx="69" cy="34" r="5.5"/>
+    <circle class="loud" cx="25" cy="69" r="4.5"/>
+  </g>
+
+  <g transform="translate(154 49)">
+    <text class="text loud" x="0" y="34" font-size="44">LGS1920</text>
+    <text class="slogan brand" x="2" y="64">REPLAY THE WORLD OUTDOORS</text>
+  </g>
+
+  <g transform="translate(480 20)">
+    <rect class="quiet" x="42" width="96" height="96" rx="24"/>
+    <path class="brand" d="M60 69L81 38L93 55L103 43L120 69H60Z"/>
+    <path class="loud" d="M72 69L85 52L93 60L103 47L114 69H72Z" opacity=".28"/>
+    <rect class="loud" x="99" y="24" width="24" height="19" rx="6"/>
+    <rect class="loud" x="104" y="18" width="10" height="7" rx="2"/>
+    <circle class="quiet" cx="111" cy="34" r="5.5"/>
+    <circle class="loud" cx="67" cy="69" r="4.5"/>
+
+    <text class="text loud" x="90" y="146" font-size="36" text-anchor="middle">LGS1920</text>
+    <text class="slogan brand" x="90" y="176" text-anchor="middle">REPLAY THE WORLD</text>
+    <text class="slogan brand" x="90" y="196" text-anchor="middle">OUTDOORS</text>
+  </g>
+</svg>

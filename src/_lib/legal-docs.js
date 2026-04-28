@@ -132,7 +132,7 @@ export const renderLegalSection = ({ document, intro }) => `
     <div class="legal-meta">
         <p>${intro}</p>
         <a class="legal-source-link" href="${document.sourceUrl}" target="_blank" rel="noreferrer">
-            <wa-icon variant="solid" name="file-lines"></wa-icon>
+            <wa-icon variant="regular" name="file-lines"></wa-icon>
             <span>Source: ${document.sourceLabel}</span>
         </a>
     </div>

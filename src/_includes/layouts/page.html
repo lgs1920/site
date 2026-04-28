@@ -28,16 +28,6 @@ layout: layouts/base.html
                 <img class="brand-logo-mark brand-logo-image" src="/src/assets/brand/mark-waypoint.svg" alt="" width="96" height="96">
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
-                    {% if site.versionInfo and site.versionInfo.size > 0 %}
-                        <span class="brand-version-row" aria-label="Studio and backend versions">
-                            {% for item in site.versionInfo %}
-                                <span class="brand-version-item">
-                                    <strong>{{ item.label }}</strong>
-                                    <span>{{ item.value }}</span>
-                                </span>
-                            {% endfor %}
-                        </span>
-                    {% endif %}
                 </span>
             </a>
         </div>
@@ -45,13 +35,13 @@ layout: layouts/base.html
 
         <div class="topbar-actions">
             <wa-button id="page-nav-toggle-mobile" class="nav-toggle nav-toggle-mobile" data-page-nav-toggle data-page-nav-toggle-mobile data-toggle-nav appearance="plain" aria-label="Open navigation" aria-controls="site-navigation">
-                <wa-icon variant="solid" name="bars"></wa-icon>
+                <wa-icon variant="regular" name="bars"></wa-icon>
             </wa-button>
             <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>Open navigation</wa-tooltip>
 
             {% for link in site.headerLinks %}
                 <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
-                    <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% endif %} name="{{ link.icon }}"></wa-icon>
+                    <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
                 </wa-button>
                 <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
             {% endfor %}
@@ -77,6 +67,7 @@ layout: layouts/base.html
                     <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
                         <wa-icon data-theme-icon="light" variant="regular" name="sun-bright" hidden></wa-icon>
                         <wa-icon data-theme-icon="dark" variant="regular" name="moon-stars" hidden></wa-icon>
+                        <wa-icon data-theme-icon="system" data-system-theme-icon variant="regular" name="desktop" hidden></wa-icon>
                     </wa-button>
 
                     <wa-dropdown-item value="light" data-theme-option="light">
@@ -92,7 +83,7 @@ layout: layouts/base.html
                     <wa-divider></wa-divider>
 
                     <wa-dropdown-item value="system" data-theme-option="system">
-                        <wa-icon slot="icon" variant="regular" name="cog"></wa-icon>
+                        <wa-icon slot="icon" data-system-theme-icon variant="regular" name="desktop"></wa-icon>
                         System
                     </wa-dropdown-item>
                 </wa-dropdown>
@@ -118,7 +109,7 @@ layout: layouts/base.html
                     <a class="drawer-link{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}{% if item.external %} target="_blank" rel="noreferrer"{% endif %}>
                         <span>{{ item.label }}</span>
                         {% if item.external %}
-                            <wa-icon variant="solid" name="arrow-up-right-from-square"></wa-icon>
+                            <wa-icon variant="regular" name="arrow-up-right-from-square"></wa-icon>
                         {% endif %}
                     </a>
                 {% endfor %}
@@ -140,7 +131,7 @@ layout: layouts/base.html
         {% endif %}
     </nav>
 
-    <section slot="main-header" class="page-hero">
+    <section slot="main-header" class="page-hero{% unless hero.video == false %} hero-has-video{% else %} hero-no-video{% endunless %}{% if hero.className %} {{ hero.className }}{% endif %}">
         <div class="hero-media" aria-hidden="true">
             {% unless hero.video == false %}
                 <video class="hero-video"
@@ -177,7 +168,7 @@ layout: layouts/base.html
                         {% for action in hero.actions %}
                             <wa-button class="hero-button{% if action.className %} {{ action.className }}{% endif %}" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
                                 {% if action.icon %}
-                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
                                 {% endif %}
                                 {{ action.label }}
                             </wa-button>
@@ -189,7 +180,7 @@ layout: layouts/base.html
                     <ul class="hero-highlights" aria-label="Product highlights">
                         {% for item in hero.highlights %}
                             <li>
-                                <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.variant %} variant="{{ item.variant }}"{% else %} variant="solid"{% endif %} name="{{ item.icon }}"></wa-icon>
+                                <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.variant %} variant="{{ item.variant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
                                 <span>{{ item.label }}</span>
                             </li>
                         {% endfor %}
@@ -211,7 +202,7 @@ layout: layouts/base.html
                         <div class="hero-metric-list">
                             {% for item in hero.panel.items %}
                                 <article>
-                                    <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="solid"{% endif %} name="{{ item.icon }}"></wa-icon>
+                                    <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
                                     <div>
                                         <strong>{{ item.title }}</strong>
                                         <span>{{ item.text }}</span>
@@ -245,7 +236,7 @@ layout: layouts/base.html
                         {% for action in pageCta.actions %}
                             <wa-button class="cta-button" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
                                 {% if action.icon %}
-                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                                    <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
                                 {% endif %}
                                 {{ action.label }}
                             </wa-button>
@@ -259,12 +250,12 @@ layout: layouts/base.html
     <footer slot="footer" class="site-footer">
         <div class="site-footer-copy">
             <p class="site-footer-note">
-                <wa-icon family="regular" variant="solid" name="copyright"></wa-icon>
+                <wa-icon variant="regular" name="copyright"></wa-icon>
                 <span>{{ site.footerNote }}</span>
                 {% if site.buildLink %}
                     <span class="site-footer-separator">-</span>
                     <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
-                        <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
+                        <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% else %} variant="regular"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
                         <span>{{ site.buildLink.label }}</span>
                     </a>
                     <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
@@ -285,6 +276,6 @@ layout: layouts/base.html
 </wa-page>
 
 <wa-button id="page-nav-toggle-desktop" class="nav-fab" data-page-nav-toggle data-page-nav-toggle-desktop appearance="plain" aria-label="Open navigation" aria-controls="site-navigation">
-    <wa-icon variant="solid" name="bars"></wa-icon>
+    <wa-icon variant="regular" name="bars"></wa-icon>
 </wa-button>
 <wa-tooltip class="control-tooltip" for="page-nav-toggle-desktop" placement="right" data-nav-toggle-tooltip>Open navigation</wa-tooltip>

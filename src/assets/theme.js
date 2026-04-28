@@ -9,8 +9,8 @@ const DEFAULT_BRAND_COLOR = 'yellow'
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'gray']
 const BRAND_SWATCHES = {
     yellow:'var(--wa-color-yellow)',
-    orange:'var(--wa-color-orange)',
-    red:   'var(--wa-color-red-40)',
+    orange:'var(--wa-color-orange-70)',
+    red:   'var(--wa-color-red-60)',
     pink:  'var(--wa-color-pink-70)',
     purple:'var(--wa-color-purple)',
     blue:  'var(--wa-color-blue)',
@@ -22,6 +22,29 @@ const LEGACY_ROOT_THEME_CLASSES = new Set(['wa-theme-premium'])
 const root = document.documentElement
 const media = window.matchMedia('(prefers-color-scheme: dark)')
 const heroViewport = window.matchMedia('(max-width: 767px)')
+const mobileDeviceViewport = window.matchMedia('(max-width: 767px)')
+const tabletDeviceViewport = window.matchMedia('(min-width: 768px) and (max-width: 1024px) and (pointer: coarse)')
+const systemDeviceQueries = [mobileDeviceViewport, tabletDeviceViewport]
+
+const resolveSystemDeviceIcon = () => {
+    const userAgent = navigator.userAgent || ''
+    const platform = navigator.platform || ''
+    const touchPoints = navigator.maxTouchPoints || 0
+    const isIpad = /iPad/i.test(userAgent) || (platform === 'MacIntel' && touchPoints > 1)
+    const isAndroidTablet = /Android/i.test(userAgent) && !/Mobile/i.test(userAgent)
+    const isTablet = isIpad || isAndroidTablet || /Tablet|PlayBook|Silk/i.test(userAgent)
+    const isMobile = /Mobi|iPhone|iPod|Windows Phone/i.test(userAgent) || /Android.*Mobile/i.test(userAgent)
+
+    if (isMobile || (mobileDeviceViewport.matches && touchPoints > 0)) {
+        return 'mobile-screen'
+    }
+
+    if (isTablet || tabletDeviceViewport.matches) {
+        return 'tablet-screen'
+    }
+
+    return 'desktop'
+}
 
 const resolveBrandColor = (brandColor = null) => {
     const fallbackColor = localStorage.getItem(BRAND_COLOR_STORAGE_KEY) || DEFAULT_BRAND_COLOR
@@ -52,9 +75,19 @@ const normalizeDocumentThemeClasses = (target = root) => {
     }
 }
 
-const syncThemeIcons = (effectiveMode) => {
+const syncSystemThemeIcons = () => {
+    const iconName = resolveSystemDeviceIcon()
+
+    document.querySelectorAll('[data-system-theme-icon]').forEach((icon) => {
+        icon.name = iconName
+    })
+}
+
+const syncThemeIcons = (mode) => {
+    syncSystemThemeIcons()
+
     document.querySelectorAll('[data-theme-icon]').forEach((icon) => {
-        icon.hidden = icon.dataset.themeIcon !== effectiveMode
+        icon.hidden = icon.dataset.themeIcon !== mode
     })
 }
 
@@ -90,7 +123,7 @@ const applyTheme = (mode, brandColor = null) => {
     root.classList.toggle('wa-light', effectiveMode !== 'dark')
     root.dataset.themeMode = mode
     root.dataset.brandColor = resolvedBrandColor
-    syncThemeIcons(effectiveMode)
+    syncThemeIcons(mode)
     syncThemeOptions(mode)
     syncBrandOptions(resolvedBrandColor)
     syncBrandSwatches(resolvedBrandColor)
@@ -379,4 +412,17 @@ media.addEventListener('change', () => {
     if (mode === 'system') {
         applyTheme('system', resolveBrandColor(root.dataset.brandColor))
     }
+})
+
+systemDeviceQueries.forEach((query) => {
+    query.addEventListener('change', () => {
+        const mode = root.dataset.themeMode || getInitialMode()
+
+        if (mode === 'system') {
+            applyTheme('system', resolveBrandColor(root.dataset.brandColor))
+            return
+        }
+
+        syncSystemThemeIcons()
+    })
 })

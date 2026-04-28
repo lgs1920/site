@@ -18,17 +18,17 @@ export default class {
                     {
                         label:  'Runtime packages',
                         icon:   'box-open-full',
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         label:  'Build and quality tooling',
                         icon:   'screwdriver-wrench',
-                        variant:'solid',
+                        variant:'regular',
                     },
                     {
                         label:  'Canonical source from studio',
                         icon:   'file-lines',
-                        variant:'solid',
+                        variant:'regular',
                     },
                 ],
             },
@@ -55,7 +55,7 @@ export default class {
                         external:  true,
                         icon:      {
                             name:   'arrow-up-right-from-square',
-                            variant:'solid',
+                            variant:'regular',
                         },
                     },
                 ],

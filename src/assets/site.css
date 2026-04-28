@@ -1,5 +1,6 @@
 :root {
     --shell-width: min(1240px, calc(100vw - 2rem));
+    --site-inline-edge: max(10px, calc((100vw - var(--shell-width)) / 2));
     --hero-glow-a: color-mix(in oklab, var(--wa-color-brand-60) 28%, transparent);
     --hero-glow-b: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
     --hero-glow-c: color-mix(in oklab, var(--wa-color-brand-95) 14%, transparent);
@@ -7,11 +8,14 @@
     --lgs-button-plain-color: var(--wa-color-brand);
     --lgs-button-plain-hover-color: var(--wa-color-brand);
     --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
+    --lgs-accent-color: var(--wa-color-brand-60);
+    --lgs-accent-strong-color: var(--wa-color-brand-70);
+    --lgs-accent-border-color: var(--wa-color-brand-50);
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
     --wa-panel-border-radius: var(--wa-border-radius-l);
-    --hero-ink: #fbf6e8;
-    --hero-muted: color-mix(in oklab, var(--hero-ink) 76%, transparent);
+    --hero-ink: #fff;
+    --hero-muted: #fff;
 }
 
 html,
@@ -38,14 +42,11 @@ html.wa-dark body {
     --surface-soft: color-mix(in oklab, var(--wa-color-surface-raised) 48%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-brand-60) 14%, transparent);
     --shadow-soft: 0 24px 80px color-mix(in oklab, black 72%, var(--wa-color-brand-10) 28%);
+    --shadow-lift: 0 30px 96px color-mix(in oklab, black 78%, var(--wa-color-brand-20) 22%);
     --header-bg: color-mix(in oklab, var(--wa-color-surface-default) 56%, transparent);
     --header-stroke: color-mix(in oklab, var(--wa-color-brand-80) 24%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--wa-color-surface-raised) 54%, transparent),
-        color-mix(in oklab, var(--wa-color-surface-default) 80%, black 20%)
-    );
+    --hero-card-bg: color-mix(in oklab, var(--wa-color-surface-default) 82%, transparent);
     background:
         radial-gradient(circle at 10% 10%, var(--hero-glow-a), transparent 24rem),
         radial-gradient(circle at 90% 10%, var(--hero-glow-b), transparent 26rem),
@@ -61,6 +62,11 @@ html.wa-light body {
     --page-bg: color-mix(in oklab, white 82%, var(--wa-color-brand-95) 18%);
     --page-ink: var(--wa-color-neutral-10);
     --page-muted: var(--wa-color-neutral-40);
+    --hero-ink: #fff;
+    --hero-muted: #fff;
+    --lgs-accent-color: var(--lgs-button-plain-color);
+    --lgs-accent-strong-color: var(--lgs-button-plain-color);
+    --lgs-accent-border-color: var(--lgs-button-plain-color);
     --panel-bg: linear-gradient(
         180deg,
         color-mix(in oklab, white 86%, var(--wa-color-brand-95) 14%),
@@ -70,14 +76,11 @@ html.wa-light body {
     --surface-soft: color-mix(in oklab, var(--wa-color-surface-default) 70%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-brand-50) 14%, transparent);
     --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-brand-30) 14%, transparent);
-    --header-bg: linear-gradient(
-        180deg,
-        color-mix(in oklab, white 78%, var(--wa-color-brand-95) 22%),
-        color-mix(in oklab, white 62%, var(--wa-color-brand-90) 38%)
-    );
+    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-brand-30) 20%, transparent);
+    --header-bg: rgb(255 255 255 / 0.56);
     --header-stroke: color-mix(in oklab, var(--wa-color-brand-60) 28%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 88%, var(--wa-color-brand-20) 12%);
-    --hero-card-bg: linear-gradient(180deg, rgba(18, 21, 26, 0.56), rgba(9, 11, 14, 0.78));
+    --hero-card-bg: color-mix(in oklab, white 76%, var(--wa-color-brand-95) 24%);
     background:
         radial-gradient(circle at 10% 10%, var(--hero-glow-a), transparent 22rem),
         radial-gradient(circle at 90% 0%, var(--hero-glow-b), transparent 24rem),
@@ -124,6 +127,14 @@ wa-page.site-layout {
     --navigation-scrollbar-thumb-hover: color-mix(in oklab, var(--wa-color-brand-50) 82%, var(--wa-color-shadow) 18%);
     width: 100%;
     min-height: 100vh;
+    background: transparent;
+    background-color: transparent;
+}
+
+wa-page.site-layout::part(base),
+wa-page.site-layout::part(header) {
+    background: transparent;
+    background-color: transparent;
 }
 
 wa-page[view='mobile'] {
@@ -143,10 +154,17 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true']::part(menu) {
     display: none !important;
 }
 
-wa-card::part(base) {
+wa-card {
     border: 1px solid var(--panel-stroke);
     border-radius: var(--wa-border-radius-l);
     background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+wa-details {
+    display: block;
+    transition: transform 0.2s ease;
 }
 
 wa-details::part(base) {
@@ -154,22 +172,33 @@ wa-details::part(base) {
     border-radius: var(--wa-border-radius-l);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 wa-card.vision-card,
 wa-card.feature-card,
+wa-card.workflow-card,
 wa-card.page-cta-card {
     display: block;
 }
 
-wa-card.vision-card::part(base),
-wa-card.feature-card::part(base),
-wa-card.page-cta-card::part(base) {
+wa-card.vision-card,
+wa-card.feature-card,
+wa-card.workflow-card,
+wa-card.page-cta-card {
     height: 100%;
 }
 
 wa-badge::part(base) {
     border-radius: var(--wa-border-radius-m);
+}
+
+wa-button::part(base) {
+    box-shadow: none;
+}
+
+wa-button[variant='brand'][appearance='outlined']::part(base) {
+    border-color: var(--wa-color-brand);
 }
 
 .topbar,
@@ -185,13 +214,15 @@ wa-badge::part(base) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 0.95rem 1rem;
+    gap: 0.75rem;
+    padding: 10px var(--site-inline-edge);
     border: none;
     border-radius: 0;
     color: var(--header-ink);
-    background: var(--header-bg);
+    background: var(--header-bg) !important;
+    background-color: var(--header-bg) !important;
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
 }
 
@@ -215,13 +246,14 @@ wa-badge::part(base) {
 }
 
 .brand-kicker {
+    display: none;
     color: color-mix(in oklab, var(--header-ink) 68%, transparent);
 }
 
 .brand-name {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.55rem;
     min-width: 0;
     color: var(--header-ink);
     text-decoration: none;
@@ -229,7 +261,7 @@ wa-badge::part(base) {
 
 .brand-logo-mark {
     flex: none;
-    width: clamp(3.15rem, 5vw, 3.85rem);
+    width: 2.5rem;
     height: auto;
     aspect-ratio: 1;
 }
@@ -250,39 +282,9 @@ wa-badge::part(base) {
 
 .brand-title {
     display: block;
-    font-size: clamp(1.22rem, 1.85vw, 1.82rem);
+    font-size: clamp(1rem, 1.35vw, 1.3rem);
     font-family: var(--wa-font-family-heading);
     letter-spacing: 0;
-}
-
-.brand-version-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.28rem 0.6rem;
-    min-width: 0;
-}
-
-.brand-version-item {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.28rem;
-    min-width: 0;
-    white-space: nowrap;
-}
-
-.brand-version-item strong {
-    color: color-mix(in oklab, var(--header-ink) 62%, transparent);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.54rem;
-    font-weight: 700;
-}
-
-.brand-version-item span {
-    color: var(--wa-color-brand-70);
-    font-size: 0.72rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
 }
 
 .brand-name:hover .brand-logo-image {
@@ -309,9 +311,9 @@ wa-badge::part(base) {
 .theme-trigger::part(base),
 .nav-toggle::part(base),
 .nav-fab::part(base) {
-    width: 3rem;
-    min-width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
     padding: 0;
     border: 1px solid transparent;
     border-radius: var(--wa-border-radius-m);
@@ -350,8 +352,8 @@ wa-badge::part(base) {
 
 .nav-fab {
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    top: 10px;
+    left: var(--site-inline-edge);
     z-index: 70;
 }
 
@@ -390,7 +392,7 @@ wa-badge::part(base) {
 
 .brand-menu wa-dropdown-item wa-icon,
 .theme-menu wa-dropdown-item wa-icon {
-    color: var(--wa-color-brand-60);
+    color: var(--lgs-accent-color);
 }
 
 .drawer-panel {
@@ -440,6 +442,10 @@ wa-badge::part(base) {
     color: var(--page-muted);
 }
 
+.page-hero .hero-kicker {
+    color: var(--hero-ink);
+}
+
 .drawer-link {
     display: grid;
     gap: 0.2rem;
@@ -468,7 +474,7 @@ wa-badge::part(base) {
 
 .drawer-link wa-icon {
     justify-self: end;
-    color: var(--wa-color-brand-60);
+    color: var(--lgs-accent-color);
 }
 
 .drawer-link-muted {
@@ -548,7 +554,7 @@ wa-badge::part(base) {
     height: 2.2rem;
     border: 1px solid var(--panel-stroke);
     border-radius: 0.72rem;
-    color: var(--wa-color-brand-70);
+    color: var(--lgs-accent-strong-color);
     background: var(--surface-soft);
     font-weight: 700;
 }
@@ -644,6 +650,7 @@ wa-badge::part(base) {
     isolation: isolate;
     display: flex;
     align-items: flex-end;
+    width: 100%;
     padding: 0 !important;
     margin-top: calc(var(--header-height, 0px) * -1);
     min-height: min(82svh, 52rem);
@@ -667,29 +674,36 @@ wa-badge::part(base) {
 }
 
 .hero-video {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: saturate(0.95) contrast(1.05) brightness(0.72);
+    object-position: center bottom;
 }
 
 .hero-backdrop {
+    display: block;
     z-index: 1;
     background:
-        linear-gradient(180deg, rgba(4, 5, 8, 0.2) 0%, rgba(5, 6, 9, 0.48) 44%, rgba(5, 6, 8, 0.86) 100%),
-        radial-gradient(circle at 20% 16%, color-mix(in oklab, var(--wa-color-brand-70) 18%, transparent), transparent 25rem),
-        linear-gradient(120deg, rgba(3, 6, 10, 0.26), rgba(10, 12, 16, 0.16) 45%, rgba(5, 8, 10, 0.58));
+        linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.24) 46%, rgba(0, 0, 0, 0.04) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.14) 48%, rgba(0, 0, 0, 0.54));
+    pointer-events: none;
 }
 
-.page-hero::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 34%;
-    z-index: 1;
-    background: linear-gradient(180deg, transparent, rgba(5, 6, 8, 0.92));
+html.wa-light .hero-media {
+    background: color-mix(in oklab, white 88%, var(--wa-color-brand-95) 12%);
+}
+
+html.wa-light .page-hero {
+    border-color: color-mix(in oklab, var(--wa-color-brand-80) 36%, transparent);
+    background: color-mix(in oklab, white 86%, var(--wa-color-brand-95) 14%);
+    box-shadow: var(--shadow-soft);
+}
+
+html.wa-light .hero-backdrop {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.16) 46%, rgba(255, 255, 255, 0.06) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.04) 48%, rgba(0, 0, 0, 0.2));
 }
 
 .hero-shell {
@@ -704,16 +718,68 @@ wa-badge::part(base) {
     padding: clamp(5.5rem, 10vh, 7rem) 1rem 2.2rem;
 }
 
+.intro-hero {
+    --hero-cta-x-offset: clamp(1rem, 3vw, 2.5rem);
+    --hero-cta-y-offset: 16.666svh;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: none;
+    border-inline: 0;
+    border-radius: 0;
+}
+
+.intro-hero .hero-shell {
+    grid-template-columns: 1fr;
+    align-items: center;
+    height: 100%;
+    padding: clamp(5rem, 11svh, 7rem) 1rem clamp(1.6rem, 5svh, 2.8rem);
+}
+
 .hero-copy {
     display: grid;
     gap: 1.15rem;
     max-width: 38rem;
 }
 
+.intro-hero .hero-copy {
+    position: relative;
+    isolation: isolate;
+    grid-template-columns: minmax(0, 2fr) minmax(12rem, 1fr);
+    column-gap: clamp(1.25rem, 4vw, 3rem);
+    align-items: center;
+    max-width: none;
+}
+
+.intro-hero .hero-copy::before {
+    display: none;
+}
+
+.intro-hero .hero-copy > * {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-hero .hero-copy > :not(.hero-actions) {
+    grid-column: 1;
+}
+
+.intro-hero .hero-actions {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    justify-self: center;
+    flex-direction: row;
+    width: max-content;
+    max-width: 100%;
+    transform: translate(calc(var(--hero-cta-x-offset) * -1), var(--hero-cta-y-offset));
+}
+
 .page-hero h1,
 .section-heading h2,
 .vision-card h3,
 .feature-card h3,
+.intro-indication h3,
+.workflow-card h3,
 .workflow-list h3,
 .page-cta-card h2,
 .hero-panel-title {
@@ -745,10 +811,10 @@ wa-badge::part(base) {
 
 .hero-button::part(base),
 .cta-button::part(base) {
-    padding: 1rem 1.2rem;
+    padding: 0.9rem 1rem;
     border-radius: var(--wa-border-radius-m);
     font-weight: 700;
-    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    transition: background 0.18s ease, border-color 0.18s ease;
 }
 
 .hero-button::part(label),
@@ -760,22 +826,40 @@ wa-badge::part(base) {
 
 .hero-button:hover::part(base),
 .cta-button:hover::part(base) {
-    transform: translateY(-1px);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+    transform: none;
 }
 
-.hero-button-primary::part(base) {
-    color: var(--wa-color-brand-on-loud);
-    background: linear-gradient(135deg, var(--wa-color-brand-60), var(--wa-color-brand-40));
+.hero-button-primary::part(base),
+.hero-button-launch::part(base) {
+    color: var(--wa-color-brand-on);
+    background: var(--wa-color-brand) !important;
     border-color: transparent;
-    box-shadow: 0 18px 40px color-mix(in oklab, var(--wa-color-brand-50) 26%, transparent);
 }
 
-.hero-button-secondary::part(base) {
-    border-color: rgba(255, 255, 255, 0.24);
-    color: var(--hero-ink);
-    background: rgba(9, 11, 14, 0.28);
-    backdrop-filter: blur(14px);
+.hero-button-primary:hover::part(base),
+.hero-button-launch:hover::part(base) {
+    background: var(--wa-color-brand-70) !important;
+}
+
+.hero-button-secondary::part(base),
+.hero-button-discover::part(base) {
+    border-color: var(--wa-color-brand);
+    color: var(--wa-color-brand-on-quiet);
+    background: transparent !important;
+}
+
+.hero-button-discover::part(base) {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.hero-button-secondary:hover::part(base),
+.hero-button-discover:hover::part(base) {
+    background: color-mix(in oklab, var(--wa-color-brand-fill-normal) 84%, transparent) !important;
+}
+
+.intro-hero .hero-button::part(base) {
+    min-width: 7.75rem;
 }
 
 .hero-highlights {
@@ -799,15 +883,16 @@ wa-badge::part(base) {
 .hero-highlights li {
     border: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(9, 11, 14, 0.24);
-    backdrop-filter: blur(12px);
 }
 
 .hero-highlights wa-icon,
 .stack-band wa-icon,
 .card-heading wa-icon,
+.intro-indication wa-icon,
+.workflow-card wa-icon,
 .hero-panel wa-icon,
 .page-cta-actions wa-icon {
-    color: var(--wa-color-brand-60);
+    color: var(--lgs-accent-color);
 }
 
 .hero-panel {
@@ -816,7 +901,6 @@ wa-badge::part(base) {
     border-radius: var(--wa-border-radius-l);
     background: var(--hero-card-bg);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(18px);
 }
 
 .hero-panel-title {
@@ -865,6 +949,52 @@ wa-badge::part(base) {
 .content-section {
     padding: 3rem 0;
     scroll-margin-top: 8rem;
+}
+
+.intro-details-section {
+    padding-top: 2.35rem;
+}
+
+.intro-details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.74fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.intro-indication-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.intro-indication {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.95rem;
+    align-items: start;
+    min-height: 100%;
+    padding: 1.15rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.intro-indication wa-icon {
+    margin-top: 0.12rem;
+}
+
+.intro-indication h3,
+.workflow-card h3 {
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.08;
+}
+
+.intro-indication p,
+.workflow-card p {
+    margin: 0;
+    color: var(--page-muted);
+    line-height: 1.65;
 }
 
 .legal-section {
@@ -952,7 +1082,7 @@ wa-badge::part(base) {
 
 .legal-doc blockquote {
     padding: 1rem 1.1rem;
-    border-left: 3px solid var(--wa-color-brand-50);
+    border-left: 3px solid var(--lgs-accent-border-color);
     border-radius: 0 var(--wa-border-radius-m) var(--wa-border-radius-m) 0;
     background: var(--surface-soft);
 }
@@ -1013,7 +1143,7 @@ wa-badge::part(base) {
 }
 
 .changelog-entry-date wa-icon {
-    color: var(--wa-color-brand-60);
+    color: var(--lgs-accent-color);
 }
 
 .changelog-entry-actions {
@@ -1090,13 +1220,39 @@ wa-badge::part(base) {
 
 wa-card.vision-card::part(body),
 wa-card.feature-card::part(body),
+wa-card.workflow-card::part(body),
 wa-card.page-cta-card::part(body) {
     display: grid;
     gap: 1rem;
     height: 100%;
     padding: 1.45rem;
     border-radius: calc(var(--wa-border-radius-l) - 1px);
-    box-shadow: var(--shadow-soft) !important;
+}
+
+.logo-active-band,
+.changelog-entry,
+.legal-meta,
+.intro-indication,
+.hero-panel {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+wa-card:hover,
+.logo-active-band:hover,
+.changelog-entry:hover,
+.legal-meta:hover,
+.intro-indication:hover,
+.hero-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+}
+
+wa-details:hover {
+    transform: translateY(-2px);
+}
+
+wa-details:hover::part(base) {
+    box-shadow: var(--shadow-lift);
 }
 
 .card-heading {
@@ -1154,7 +1310,7 @@ wa-card.accent-c::part(base) {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--panel-stroke), transparent);
+    background: var(--panel-stroke);
 }
 
 .workflow-section::before {
@@ -1189,9 +1345,9 @@ wa-card.accent-c::part(base) {
     height: 3rem;
     border-radius: var(--wa-border-radius-m);
     font-weight: 700;
-    color: var(--wa-color-brand-on-loud);
-    background: linear-gradient(135deg, var(--wa-color-brand-60), var(--wa-color-brand-40));
-    box-shadow: 0 12px 24px rgba(242, 174, 0, 0.22);
+    color: var(--wa-color-brand-on);
+    background: var(--wa-color-brand);
+    box-shadow: 0 12px 24px color-mix(in oklab, var(--wa-color-brand) 22%, transparent);
 }
 
 .stack-band {
@@ -1242,6 +1398,30 @@ wa-card.page-cta-card::part(body) {
 .cta-button::part(base) {
     padding: 1rem 1.15rem;
     border-radius: var(--wa-border-radius-m);
+}
+
+.page-cta-actions .cta-button[variant='brand']::part(base) {
+    color: var(--wa-color-brand-on);
+    border-color: transparent;
+    background: var(--wa-color-brand) !important;
+}
+
+.page-cta-actions .cta-button[variant='brand']:not([appearance='outlined']):hover::part(base) {
+    background: var(--wa-color-brand-70) !important;
+}
+
+.page-cta-actions .cta-button[variant='brand'][appearance='outlined']::part(base) {
+    color: var(--wa-color-brand-on-quiet);
+    border-color: var(--wa-color-brand);
+    background: transparent !important;
+}
+
+.page-cta-actions .cta-button[variant='brand'][appearance='outlined']:hover::part(base) {
+    background: var(--wa-color-brand-fill-quiet) !important;
+}
+
+.page-cta-actions .cta-button wa-icon {
+    color: currentColor;
 }
 
 .site-footer {
@@ -1303,7 +1483,7 @@ wa-card.page-cta-card::part(body) {
 
 @media (min-width: 961px) {
     .topbar {
-        padding-left: 4.75rem;
+        padding-left: calc(var(--site-inline-edge) + 2.5rem + 10px);
     }
 
     .nav-toggle-mobile {
@@ -1326,6 +1506,14 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .intro-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-indication-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .logo-option-grid,
     .logo-note-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1343,6 +1531,29 @@ wa-card.page-cta-card::part(body) {
 
     .hero-shell {
         grid-template-columns: 1fr;
+    }
+
+    .intro-hero {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .intro-hero .hero-copy {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-hero .hero-copy > :not(.hero-actions),
+    .intro-hero .hero-actions {
+        grid-column: 1;
+    }
+
+    .intro-hero .hero-actions {
+        grid-row: auto;
+        justify-self: start;
+        align-self: start;
+        flex-direction: row;
+        width: auto;
+        transform: none;
     }
 
     .page-hero h1 {
@@ -1366,7 +1577,7 @@ wa-card.page-cta-card::part(body) {
     .topbar {
         flex-wrap: nowrap;
         gap: 0.75rem;
-        padding: 0.75rem 0.85rem;
+        padding: 10px var(--site-inline-edge);
         border: none;
         border-radius: 0;
         background: transparent;
@@ -1386,7 +1597,8 @@ wa-card.page-cta-card::part(body) {
     }
 
     .vision-grid,
-    .feature-grid {
+    .feature-grid,
+    .intro-indication-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1422,23 +1634,11 @@ wa-card.page-cta-card::part(body) {
 
 @media (max-width: 640px) {
     .brand-logo-mark {
-        width: clamp(2.8rem, 14vw, 3.25rem);
+        width: 2.5rem;
     }
 
     .brand-title {
         font-size: clamp(1rem, 4.6vw, 1.18rem);
-    }
-
-    .brand-version-row {
-        gap: 0.2rem 0.45rem;
-    }
-
-    .brand-version-item strong {
-        font-size: 0.48rem;
-    }
-
-    .brand-version-item span {
-        font-size: 0.64rem;
     }
 
     .brand-kicker {
@@ -1468,12 +1668,22 @@ wa-card.page-cta-card::part(body) {
     }
 
     .page-hero {
-        min-height: auto;
+        min-height: 100svh;
+    }
+
+    .intro-hero {
+        height: 100svh;
+        min-height: 100svh;
     }
 
     .hero-shell {
         padding-top: 4.5rem;
         padding-bottom: 1.5rem;
+    }
+
+    .intro-hero .hero-actions {
+        width: auto;
+        flex-direction: row;
     }
 
     .page-hero h1 {
@@ -1488,11 +1698,15 @@ wa-card.page-cta-card::part(body) {
     .page-cta-actions wa-button {
         width: 100%;
     }
+
+    .intro-hero .hero-actions wa-button {
+        width: auto;
+    }
 }
 
 @media (max-width: 520px) {
     .topbar {
-        padding: 0.65rem 0.75rem;
+        padding: 10px var(--site-inline-edge);
     }
 
     .brand-name {
@@ -1501,22 +1715,6 @@ wa-card.page-cta-card::part(body) {
 
     .brand-kicker {
         display: none;
-    }
-
-    .brand-version-row {
-        gap: 0.16rem 0.38rem;
-    }
-
-    .brand-version-item {
-        gap: 0.22rem;
-    }
-
-    .brand-version-item strong {
-        font-size: 0.46rem;
-    }
-
-    .brand-version-item span {
-        font-size: 0.61rem;
     }
 
     .topbar-actions {
