@@ -28,16 +28,6 @@ layout: layouts/base.html
                 <img class="brand-logo-mark brand-logo-image" src="/src/assets/brand/mark-waypoint.svg" alt="" width="96" height="96">
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
-                    {% if site.versionInfo and site.versionInfo.size > 0 %}
-                        <span class="brand-version-row" aria-label="Studio and backend versions">
-                            {% for item in site.versionInfo %}
-                                <span class="brand-version-item">
-                                    <strong>{{ item.label }}</strong>
-                                    <span>{{ item.value }}</span>
-                                </span>
-                            {% endfor %}
-                        </span>
-                    {% endif %}
                 </span>
             </a>
         </div>

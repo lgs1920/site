@@ -11,6 +11,10 @@ const markdown = new MarkdownIt({
     linkify:   true,
     typographer:true,
 })
+const versionCollator = new Intl.Collator('en', {
+    numeric:    true,
+    sensitivity:'base',
+})
 
 const stripMarkdown = (value) => value
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -119,7 +123,23 @@ const getChangelogFiles = () => {
 
     return fs.readdirSync(changelogDirectory)
         .filter(fileName => fileName.endsWith('.md'))
-        .sort((left, right) => right.localeCompare(left))
+}
+
+const compareReleaseEntries = (left, right) => {
+    // Changelog navigation should start from the highest published version.
+    const versionOrder = versionCollator.compare(right.version, left.version)
+
+    if (versionOrder !== 0) {
+        return versionOrder
+    }
+
+    const dateOrder = right.dateKey.localeCompare(left.dateKey)
+
+    if (dateOrder !== 0) {
+        return dateOrder
+    }
+
+    return right.slug.localeCompare(left.slug)
 }
 
 const buildEntries = () => getChangelogFiles().map((fileName) => {
@@ -155,7 +175,7 @@ const buildEntries = () => getChangelogFiles().map((fileName) => {
         version:   match.groups.version,
         html:      document.html,
     }
-})
+}).sort(compareReleaseEntries)
 
 const entries = buildEntries().map((entry, index, allEntries) => ({
     ...entry,

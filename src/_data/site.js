@@ -1,29 +1,8 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
 const copyrightYears = currentYear > copyrightStartYear
     ? `${copyrightStartYear}-${currentYear}`
     : `${copyrightStartYear}`
-
-const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const backendRoot = path.resolve(process.cwd(), '..', 'backend')
-
-const readJsonFile = (filePath) => {
-    if (!fs.existsSync(filePath)) {
-        return {}
-    }
-
-    try {
-        return JSON.parse(fs.readFileSync(filePath, 'utf8'))
-    } catch {
-        return {}
-    }
-}
-
-const studioVersion = readJsonFile(path.join(studioRoot, 'public', 'version.json')).studio || 'N/A'
-const backendVersion = readJsonFile(path.join(backendRoot, 'version.json')).backend || 'N/A'
 
 export default {
     name:        'LGS1920 Studio',
@@ -42,16 +21,6 @@ export default {
         family:  'brands',
         external:true,
     },
-    versionInfo: [
-        {
-            label:'Studio',
-            value:studioVersion,
-        },
-        {
-            label:'Backend',
-            value:backendVersion,
-        },
-    ],
     brandOptions: [
         {
             value: 'yellow',

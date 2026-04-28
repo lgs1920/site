@@ -38,6 +38,7 @@ html.wa-dark body {
     --surface-soft: color-mix(in oklab, var(--wa-color-surface-raised) 48%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-brand-60) 14%, transparent);
     --shadow-soft: 0 24px 80px color-mix(in oklab, black 72%, var(--wa-color-brand-10) 28%);
+    --shadow-lift: 0 30px 96px color-mix(in oklab, black 78%, var(--wa-color-brand-20) 22%);
     --header-bg: color-mix(in oklab, var(--wa-color-surface-default) 56%, transparent);
     --header-stroke: color-mix(in oklab, var(--wa-color-brand-80) 24%, transparent);
     --header-ink: var(--wa-color-neutral-95);
@@ -70,6 +71,7 @@ html.wa-light body {
     --surface-soft: color-mix(in oklab, var(--wa-color-surface-default) 70%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-brand-50) 14%, transparent);
     --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-brand-30) 14%, transparent);
+    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-brand-30) 20%, transparent);
     --header-bg: linear-gradient(
         180deg,
         color-mix(in oklab, white 78%, var(--wa-color-brand-95) 22%),
@@ -143,10 +145,17 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true']::part(menu) {
     display: none !important;
 }
 
-wa-card::part(base) {
+wa-card {
     border: 1px solid var(--panel-stroke);
     border-radius: var(--wa-border-radius-l);
     background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+wa-details {
+    display: block;
+    transition: transform 0.2s ease;
 }
 
 wa-details::part(base) {
@@ -154,6 +163,7 @@ wa-details::part(base) {
     border-radius: var(--wa-border-radius-l);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 wa-card.vision-card,
@@ -162,9 +172,9 @@ wa-card.page-cta-card {
     display: block;
 }
 
-wa-card.vision-card::part(base),
-wa-card.feature-card::part(base),
-wa-card.page-cta-card::part(base) {
+wa-card.vision-card,
+wa-card.feature-card,
+wa-card.page-cta-card {
     height: 100%;
 }
 
@@ -253,36 +263,6 @@ wa-badge::part(base) {
     font-size: clamp(1.22rem, 1.85vw, 1.82rem);
     font-family: var(--wa-font-family-heading);
     letter-spacing: 0;
-}
-
-.brand-version-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.28rem 0.6rem;
-    min-width: 0;
-}
-
-.brand-version-item {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.28rem;
-    min-width: 0;
-    white-space: nowrap;
-}
-
-.brand-version-item strong {
-    color: color-mix(in oklab, var(--header-ink) 62%, transparent);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.54rem;
-    font-weight: 700;
-}
-
-.brand-version-item span {
-    color: var(--wa-color-brand-70);
-    font-size: 0.72rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
 }
 
 .brand-name:hover .brand-logo-image {
@@ -1096,7 +1076,30 @@ wa-card.page-cta-card::part(body) {
     height: 100%;
     padding: 1.45rem;
     border-radius: calc(var(--wa-border-radius-l) - 1px);
-    box-shadow: var(--shadow-soft) !important;
+}
+
+.logo-active-band,
+.changelog-entry,
+.legal-meta,
+.hero-panel {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+wa-card:hover,
+.logo-active-band:hover,
+.changelog-entry:hover,
+.legal-meta:hover,
+.hero-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+}
+
+wa-details:hover {
+    transform: translateY(-2px);
+}
+
+wa-details:hover::part(base) {
+    box-shadow: var(--shadow-lift);
 }
 
 .card-heading {
@@ -1429,18 +1432,6 @@ wa-card.page-cta-card::part(body) {
         font-size: clamp(1rem, 4.6vw, 1.18rem);
     }
 
-    .brand-version-row {
-        gap: 0.2rem 0.45rem;
-    }
-
-    .brand-version-item strong {
-        font-size: 0.48rem;
-    }
-
-    .brand-version-item span {
-        font-size: 0.64rem;
-    }
-
     .brand-kicker {
         font-size: 0.63rem;
         letter-spacing: 0.12em;
@@ -1501,22 +1492,6 @@ wa-card.page-cta-card::part(body) {
 
     .brand-kicker {
         display: none;
-    }
-
-    .brand-version-row {
-        gap: 0.16rem 0.38rem;
-    }
-
-    .brand-version-item {
-        gap: 0.22rem;
-    }
-
-    .brand-version-item strong {
-        font-size: 0.46rem;
-    }
-
-    .brand-version-item span {
-        font-size: 0.61rem;
     }
 
     .topbar-actions {
