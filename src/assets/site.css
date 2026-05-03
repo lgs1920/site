@@ -571,6 +571,33 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     background: transparent;
 }
 
+.drawer-guide-section {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.drawer-guide-section + .drawer-guide-section {
+    margin-top: 0.45rem;
+}
+
+.drawer-guide-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    color: var(--page-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.drawer-guide-section-label wa-icon {
+    color: var(--lgs-accent-color);
+}
+
+.drawer-guide-link {
+    padding: 0.68rem 0.75rem;
+}
+
 .logo-option-grid,
 .logo-note-grid {
     display: grid;
@@ -1501,6 +1528,28 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     max-width: 62rem;
 }
 
+.guide-breadcrumb-shell,
+.guide-pagination {
+    max-width: 74rem;
+}
+
+.guide-breadcrumb-shell {
+    margin: 0 0 1.55rem;
+}
+
+.guide-breadcrumb-shell wa-breadcrumb::part(base) {
+    color: var(--page-muted);
+}
+
+.guide-breadcrumb-shell wa-breadcrumb-item::part(label) {
+    font-weight: 650;
+}
+
+.guide-breadcrumb-shell wa-icon {
+    margin: 0;
+    color: var(--lgs-accent-color);
+}
+
 .guide-page > h2,
 .guide-page > h3,
 .guide-page > h4 {
@@ -1697,6 +1746,141 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 .guide-screenshot-placeholder span {
     max-width: 32rem;
     line-height: 1.55;
+}
+
+.guide-pagination {
+    display: grid;
+    gap: 1rem;
+    margin: 3rem 0 0;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--panel-stroke);
+}
+
+.guide-rubric-pages {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--surface-soft);
+}
+
+.guide-rubric-heading {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.guide-rubric-heading span,
+.guide-adjacent-direction {
+    color: var(--page-muted);
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.guide-rubric-heading strong {
+    font-family: var(--wa-font-family-heading);
+    font-size: 1.2rem;
+}
+
+.guide-rubric-heading small,
+.guide-rubric-link small,
+.guide-adjacent-link small {
+    color: var(--page-muted);
+    line-height: 1.45;
+}
+
+.guide-rubric-link-list,
+.guide-adjacent-pagination {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.guide-rubric-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-rubric-link,
+.guide-adjacent-link {
+    color: var(--page-ink);
+    text-decoration: none;
+    background: color-mix(in oklab, var(--surface-soft) 72%, transparent);
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.guide-rubric-link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.8rem;
+    border: 1px solid transparent;
+    border-radius: var(--wa-border-radius-m);
+}
+
+.guide-rubric-link:hover,
+.guide-adjacent-link:hover {
+    transform: translateY(-1px);
+    border-color: var(--lgs-accent-border-color);
+    background: var(--surface-strong);
+}
+
+.guide-rubric-link.is-current {
+    border-color: var(--lgs-accent-border-color);
+    background: var(--surface-strong);
+}
+
+.guide-rubric-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-s);
+    color: var(--lgs-accent-strong-color);
+    font-weight: 800;
+    background: var(--surface-soft);
+}
+
+.guide-rubric-copy {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.guide-adjacent-pagination {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-adjacent-link {
+    display: grid;
+    gap: 0.35rem;
+    min-height: 7rem;
+    padding: 1rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+}
+
+.guide-adjacent-link-next {
+    text-align: right;
+}
+
+.guide-adjacent-link-next:first-child {
+    grid-column: 2;
+}
+
+.guide-adjacent-direction {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.guide-adjacent-link-next .guide-adjacent-direction {
+    justify-self: end;
+}
+
+.guide-adjacent-direction wa-icon {
+    margin: 0;
 }
 
 .drawer-link:hover {
@@ -1962,6 +2146,15 @@ wa-card.page-cta-card::part(body) {
 
     .guide-link-grid {
         grid-template-columns: 1fr;
+    }
+
+    .guide-rubric-link-list,
+    .guide-adjacent-pagination {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-adjacent-link-next:first-child {
+        grid-column: auto;
     }
 }
 

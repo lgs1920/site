@@ -175,20 +175,30 @@ layout: layouts/base.html
         {% endif %}
 
         {% assign guide_prefix = page.url | slice: 0, 12 %}
-        {% if guide_prefix == '/user-guide/' and site.userGuideNavigation and site.userGuideNavigation.size > 0 %}
+        {% if guide_prefix == '/user-guide/' and site.userGuideSections and site.userGuideSections.size > 0 %}
             <section class="drawer-group">
                 <p class="drawer-label">User guide</p>
-                {% for item in site.userGuideNavigation %}
-                    {% assign is_current = false %}
-                    {% if item.url == page.url %}
-                        {% assign is_current = true %}
-                    {% endif %}
-                    <a class="drawer-link drawer-link-muted{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}>
-                        <span>{{ item.label }}</span>
-                        {% if item.summary %}
-                            <small>{{ item.summary }}</small>
-                        {% endif %}
-                    </a>
+                {% for section in site.userGuideSections %}
+                    <div class="drawer-guide-section">
+                        <p class="drawer-guide-section-label">
+                            {% if section.icon %}
+                                <wa-icon variant="regular" name="{{ section.icon }}"></wa-icon>
+                            {% endif %}
+                            <span>{{ section.label }}</span>
+                        </p>
+                        {% for item in section.items %}
+                            {% assign is_current = false %}
+                            {% if item.url == page.url %}
+                                {% assign is_current = true %}
+                            {% endif %}
+                            <a class="drawer-link drawer-link-muted drawer-guide-link{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                                <span>{{ item.label }}</span>
+                                {% if item.summary %}
+                                    <small>{{ item.summary }}</small>
+                                {% endif %}
+                            </a>
+                        {% endfor %}
+                    </div>
                 {% endfor %}
             </section>
         {% endif %}
@@ -294,7 +304,81 @@ layout: layouts/base.html
     </section>
 
     <main id="content" class="page-content{% if pageClass %} {{ pageClass }}{% endif %}">
+        {% if guideContext %}
+            <nav class="guide-breadcrumb-shell" aria-label="Breadcrumb">
+                <wa-breadcrumb label="User guide breadcrumb">
+                    <wa-breadcrumb-item href="/">
+                        <wa-icon slot="start" variant="regular" name="house"></wa-icon>
+                        Home
+                    </wa-breadcrumb-item>
+                    {% for crumb in guideContext.breadcrumbs %}
+                        <wa-breadcrumb-item{% if crumb.url %} href="{{ crumb.url }}"{% elsif forloop.last %} aria-current="page"{% endif %}>
+                            {% if crumb.icon %}
+                                <wa-icon slot="start" variant="regular" name="{{ crumb.icon }}"></wa-icon>
+                            {% endif %}
+                            {{ crumb.label }}
+                        </wa-breadcrumb-item>
+                    {% endfor %}
+                </wa-breadcrumb>
+            </nav>
+        {% endif %}
+
         {{ content }}
+
+        {% if guideContext %}
+            <nav class="guide-pagination" aria-label="User guide pagination">
+                {% if guideContext.sectionItems and guideContext.sectionItems.size > 1 %}
+                    <div class="guide-rubric-pages">
+                        <div class="guide-rubric-heading">
+                            <span>Section</span>
+                            <strong>{{ guideContext.section.label }}</strong>
+                            {% if guideContext.section.summary %}
+                                <small>{{ guideContext.section.summary }}</small>
+                            {% endif %}
+                        </div>
+                        <div class="guide-rubric-link-list">
+                            {% for item in guideContext.sectionItems %}
+                                <a class="guide-rubric-link{% if item.isCurrent %} is-current{% endif %}" href="{{ item.url }}"{% if item.isCurrent %} aria-current="page"{% endif %}>
+                                    <span class="guide-rubric-index">{{ forloop.index }}</span>
+                                    <span class="guide-rubric-copy">
+                                        <strong>{{ item.label }}</strong>
+                                        {% if item.summary %}
+                                            <small>{{ item.summary }}</small>
+                                        {% endif %}
+                                    </span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if guideContext.pagination.previous or guideContext.pagination.next %}
+                    <div class="guide-adjacent-pagination">
+                        {% if guideContext.pagination.previous %}
+                            <a class="guide-adjacent-link guide-adjacent-link-previous" href="{{ guideContext.pagination.previous.url }}">
+                                <span class="guide-adjacent-direction">
+                                    <wa-icon variant="regular" name="arrow-left"></wa-icon>
+                                    Previous
+                                </span>
+                                <strong>{{ guideContext.pagination.previous.label }}</strong>
+                                <small>{{ guideContext.pagination.previous.sectionLabel }}</small>
+                            </a>
+                        {% endif %}
+
+                        {% if guideContext.pagination.next %}
+                            <a class="guide-adjacent-link guide-adjacent-link-next" href="{{ guideContext.pagination.next.url }}">
+                                <span class="guide-adjacent-direction">
+                                    Next
+                                    <wa-icon variant="regular" name="arrow-right"></wa-icon>
+                                </span>
+                                <strong>{{ guideContext.pagination.next.label }}</strong>
+                                <small>{{ guideContext.pagination.next.sectionLabel }}</small>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </nav>
+        {% endif %}
     </main>
 
     {% if pageCta %}

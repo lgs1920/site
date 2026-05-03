@@ -4,6 +4,102 @@ const copyrightYears = currentYear > copyrightStartYear
     ? `${copyrightStartYear}-${currentYear}`
     : `${copyrightStartYear}`
 
+const userGuideSections = [
+    {
+        label:  'Presentation',
+        icon:   'book-open',
+        summary:'General overview and quick access',
+        items:  [
+            {
+                label:  'Overview',
+                url:    '/user-guide/',
+                summary:'Presentation and quick access',
+                icon:   'book-open',
+            },
+        ],
+    },
+    {
+        label:  'Getting started',
+        icon:   'circle-play',
+        summary:'Open the Studio and import source data',
+        items:  [
+            {
+                label:  'First steps',
+                url:    '/user-guide/getting-started/first-steps/',
+                summary:'Open and read the workspace',
+                icon:   'circle-play',
+            },
+            {
+                label:  'Import source data',
+                url:    '/user-guide/getting-started/import-source-data/',
+                summary:'Load GeoJSON, GPX, or KML',
+                icon:   'file-import',
+            },
+        ],
+    },
+    {
+        label:  'Workflows',
+        icon:   'route',
+        summary:'Prepare, compose, and capture a map story',
+        items:  [
+            {
+                label:  'Journeys and tracks',
+                url:    '/user-guide/workflows/journeys-and-tracks/',
+                summary:'Edit route presentation',
+                icon:   'route',
+            },
+            {
+                label:  'Points of interest',
+                url:    '/user-guide/workflows/points-of-interest/',
+                summary:'Manage markers and places',
+                icon:   'map-location-dot',
+            },
+            {
+                label:  'Scene and camera',
+                url:    '/user-guide/workflows/scene-and-camera/',
+                summary:'Focus, orbit, and panorama',
+                icon:   'camera',
+            },
+            {
+                label:  'Widgets and overlays',
+                url:    '/user-guide/workflows/widgets-and-overlays/',
+                summary:'Compose visible context',
+                icon:   'box',
+            },
+            {
+                label:  'Snapshots and video',
+                url:    '/user-guide/workflows/snapshots-and-video/',
+                summary:'Capture final output',
+                icon:   'video',
+            },
+        ],
+    },
+    {
+        label:  'Reference',
+        icon:   'diagram-project',
+        summary:'Objects and actions available to final users',
+        items:  [
+            {
+                label:  'Objects',
+                url:    '/user-guide/reference/objects/',
+                summary:'Journey, track, POI, widget',
+                icon:   'diagram-project',
+            },
+            {
+                label:  'Actions',
+                url:    '/user-guide/reference/actions/',
+                summary:'Commands and outcomes',
+                icon:   'list-check',
+            },
+        ],
+    },
+]
+
+const userGuideNavigation = userGuideSections.flatMap((section) => section.items.map((item) => ({
+    ...item,
+    sectionLabel: section.label,
+})))
+
 export default {
     name:        'LGS1920 Studio',
     lang:        'en',
@@ -123,58 +219,8 @@ export default {
             external:true,
         },
     ],
-    userGuideNavigation: [
-        {
-            label:  'Overview',
-            url:    '/user-guide/',
-            summary:'Presentation and quick access',
-        },
-        {
-            label:  'First steps',
-            url:    '/user-guide/getting-started/first-steps/',
-            summary:'Open and read the workspace',
-        },
-        {
-            label:  'Import source data',
-            url:    '/user-guide/getting-started/import-source-data/',
-            summary:'Load GeoJSON, GPX, or KML',
-        },
-        {
-            label:  'Journeys and tracks',
-            url:    '/user-guide/workflows/journeys-and-tracks/',
-            summary:'Edit route presentation',
-        },
-        {
-            label:  'Points of interest',
-            url:    '/user-guide/workflows/points-of-interest/',
-            summary:'Manage markers and places',
-        },
-        {
-            label:  'Scene and camera',
-            url:    '/user-guide/workflows/scene-and-camera/',
-            summary:'Focus, orbit, and panorama',
-        },
-        {
-            label:  'Widgets and overlays',
-            url:    '/user-guide/workflows/widgets-and-overlays/',
-            summary:'Compose visible context',
-        },
-        {
-            label:  'Snapshots and video',
-            url:    '/user-guide/workflows/snapshots-and-video/',
-            summary:'Capture final output',
-        },
-        {
-            label:  'Objects',
-            url:    '/user-guide/reference/objects/',
-            summary:'Journey, track, POI, widget',
-        },
-        {
-            label:  'Actions',
-            url:    '/user-guide/reference/actions/',
-            summary:'Commands and outcomes',
-        },
-    ],
+    userGuideSections,
+    userGuideNavigation,
     asideLinks: [
         {
             label:   'Launch Studio',
