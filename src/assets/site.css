@@ -458,6 +458,18 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
+.drawer-link-primary {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.75rem;
+}
+
+.drawer-link-copy {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
 .drawer-link:hover {
     transform: translateY(-1px);
     border-color: var(--panel-stroke);
@@ -472,9 +484,20 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     line-height: 1.45;
 }
 
-.drawer-link wa-icon {
-    justify-self: end;
+.drawer-link-icon,
+.drawer-link-external,
+.drawer-disclosure-summary wa-icon {
     color: var(--lgs-accent-color);
+}
+
+.drawer-link-icon {
+    justify-self: center;
+    width: 1.1rem;
+    font-size: 1rem;
+}
+
+.drawer-link-external {
+    justify-self: end;
 }
 
 .drawer-link-muted {
@@ -484,6 +507,68 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .drawer-link.is-current {
     border-color: var(--panel-stroke);
     background: var(--surface-strong);
+}
+
+.drawer-disclosure {
+    --spacing: 0;
+    display: block;
+}
+
+.drawer-disclosure::part(base) {
+    border: 1px solid transparent;
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+    box-shadow: none;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.drawer-disclosure:hover::part(base) {
+    transform: translateY(-1px);
+    border-color: var(--panel-stroke);
+}
+
+.drawer-disclosure.is-current::part(base) {
+    border-color: var(--panel-stroke);
+    background: var(--surface-strong);
+}
+
+.drawer-disclosure::part(header) {
+    padding: 0.85rem 0.95rem;
+    color: var(--page-ink);
+}
+
+.drawer-disclosure::part(summary) {
+    min-width: 0;
+}
+
+.drawer-disclosure::part(icon) {
+    color: var(--lgs-accent-color);
+}
+
+.drawer-disclosure::part(content) {
+    padding: 0 0.65rem 0.65rem;
+}
+
+.drawer-disclosure-summary {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+    font-weight: 700;
+}
+
+.drawer-subnav {
+    display: grid;
+    gap: 0.35rem;
+    padding-left: 1.85rem;
+}
+
+.drawer-sub-link {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 0.65rem 0.7rem;
+    background: transparent;
 }
 
 .logo-option-grid,

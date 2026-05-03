@@ -67,26 +67,38 @@ export default {
         {
             label:'Home',
             url:  '/',
+            icon: 'house',
         },
         {
-            label:'User guide',
-            url:  '/user-guide/',
+            label:  'User guide',
+            url:    '/user-guide/',
+            icon:   'book-open',
+            variant:'regular',
         },
         {
-            label:'Changelog',
-            url:  '/changelog/',
+            label:  'Changelog',
+            url:    '/changelog/',
+            icon:   'arrows-turn-to-dots',
+            variant:'regular',
         },
         {
-            label:'Licensing',
-            url:  '/licensing/',
-        },
-        {
-            label:'Full license',
-            url:  '/license/',
-        },
-        {
-            label:'CLA',
-            url:  '/contributor-license-agreement/',
+            label:  'License',
+            icon:   'scale-balanced',
+            variant:'regular',
+            children: [
+                {
+                    label:'Licensing',
+                    url:  '/licensing/',
+                },
+                {
+                    label:'Full License',
+                    url:  '/license/',
+                },
+                {
+                    label:'CLA',
+                    url:  '/contributor-license-agreement/',
+                },
+            ],
         },
     ],
     headerLinks: [
