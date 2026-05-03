@@ -25,7 +25,7 @@ layout: layouts/base.html
         <div class="brand-lockup">
             <p class="brand-kicker">{{ site.tagline }}</p>
             <a id="site-home-link" class="brand-name" href="/" aria-label="{{ site.name }}">
-                <img class="brand-logo-mark brand-logo-image" src="/src/assets/brand/mark-waypoint.svg" alt="" width="96" height="96">
+                <img class="brand-logo-mark brand-logo-image" src="/assets/brand/mark-waypoint.svg" alt="" width="96" height="96">
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
                 </span>
@@ -110,6 +110,25 @@ layout: layouts/base.html
                         <span>{{ item.label }}</span>
                         {% if item.external %}
                             <wa-icon variant="regular" name="arrow-up-right-from-square"></wa-icon>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        {% assign guide_prefix = page.url | slice: 0, 12 %}
+        {% if guide_prefix == '/user-guide/' and site.userGuideNavigation and site.userGuideNavigation.size > 0 %}
+            <section class="drawer-group">
+                <p class="drawer-label">User guide</p>
+                {% for item in site.userGuideNavigation %}
+                    {% assign is_current = false %}
+                    {% if item.url == page.url %}
+                        {% assign is_current = true %}
+                    {% endif %}
+                    <a class="drawer-link drawer-link-muted{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                        <span>{{ item.label }}</span>
+                        {% if item.summary %}
+                            <small>{{ item.summary }}</small>
                         {% endif %}
                     </a>
                 {% endfor %}
@@ -262,7 +281,7 @@ layout: layouts/base.html
                 {% endif %}
             </p>
             {% if site.legalLinks and site.legalLinks.size > 0 %}
-                <nav class="site-footer-links" aria-label="Legal pages">
+                <nav class="site-footer-links" aria-label="Footer navigation">
                     {% for link in site.legalLinks %}
                         <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
                         <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>

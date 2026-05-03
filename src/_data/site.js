@@ -69,6 +69,10 @@ export default {
             url:  '/',
         },
         {
+            label:'User guide',
+            url:  '/user-guide/',
+        },
+        {
             label:'Changelog',
             url:  '/changelog/',
         },
@@ -94,11 +98,69 @@ export default {
             external:true,
         },
         {
+            label:  'User guide',
+            url:    '/user-guide/',
+            icon:   'book-open',
+            variant:'regular',
+        },
+        {
             label:   'Open GitHub repository',
             url:     'https://github.com/lgs1920/studio',
             icon:    'github',
             family:  'brands',
             external:true,
+        },
+    ],
+    userGuideNavigation: [
+        {
+            label:  'Overview',
+            url:    '/user-guide/',
+            summary:'Presentation and quick access',
+        },
+        {
+            label:  'First steps',
+            url:    '/user-guide/getting-started/first-steps/',
+            summary:'Open and read the workspace',
+        },
+        {
+            label:  'Import source data',
+            url:    '/user-guide/getting-started/import-source-data/',
+            summary:'Load GeoJSON, GPX, or KML',
+        },
+        {
+            label:  'Journeys and tracks',
+            url:    '/user-guide/workflows/journeys-and-tracks/',
+            summary:'Edit route presentation',
+        },
+        {
+            label:  'Points of interest',
+            url:    '/user-guide/workflows/points-of-interest/',
+            summary:'Manage markers and places',
+        },
+        {
+            label:  'Scene and camera',
+            url:    '/user-guide/workflows/scene-and-camera/',
+            summary:'Focus, orbit, and panorama',
+        },
+        {
+            label:  'Widgets and overlays',
+            url:    '/user-guide/workflows/widgets-and-overlays/',
+            summary:'Compose visible context',
+        },
+        {
+            label:  'Snapshots and video',
+            url:    '/user-guide/workflows/snapshots-and-video/',
+            summary:'Capture final output',
+        },
+        {
+            label:  'Objects',
+            url:    '/user-guide/reference/objects/',
+            summary:'Journey, track, POI, widget',
+        },
+        {
+            label:  'Actions',
+            url:    '/user-guide/reference/actions/',
+            summary:'Commands and outcomes',
         },
     ],
     asideLinks: [
@@ -124,6 +186,10 @@ export default {
         },
     ],
     legalLinks: [
+        {
+            label:'User guide',
+            url:  '/user-guide/',
+        },
         {
             label:'Changelog',
             url:  '/changelog/',

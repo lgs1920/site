@@ -738,6 +738,7 @@ html.wa-light .hero-backdrop {
 .hero-copy {
     display: grid;
     gap: 1.15rem;
+    min-width: 0;
     max-width: 38rem;
 }
 
@@ -796,10 +797,20 @@ html.wa-light .hero-backdrop {
 
 .hero-lead {
     margin: 0;
-    max-width: 34rem;
+    max-width: min(34rem, 100%);
     color: var(--hero-muted);
     font-size: clamp(1rem, 1.5vw, 1.18rem);
     line-height: 1.7;
+}
+
+.page-hero wa-badge {
+    width: fit-content;
+    max-width: 100%;
+}
+
+.page-hero wa-badge::part(base) {
+    width: fit-content;
+    max-width: 100%;
 }
 
 .hero-actions,
@@ -1374,6 +1385,235 @@ wa-card.accent-c::part(base) {
     font-weight: 600;
 }
 
+.guide-hero.hero-no-video .hero-media {
+    background:
+        linear-gradient(135deg, rgba(10, 15, 22, 0.9), rgba(37, 44, 40, 0.86)),
+        color-mix(in oklab, var(--wa-color-neutral-10) 74%, var(--wa-color-brand-40) 26%);
+}
+
+.guide-hero.hero-no-video .hero-backdrop,
+html.wa-light .guide-hero.hero-no-video .hero-backdrop {
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.04)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.44));
+}
+
+html.wa-light .guide-hero.hero-no-video .hero-media {
+    background:
+        linear-gradient(135deg, rgba(17, 24, 35, 0.88), rgba(61, 68, 57, 0.84)),
+        color-mix(in oklab, var(--wa-color-neutral-20) 76%, var(--wa-color-brand-60) 24%);
+}
+
+.page-content.guide-page {
+    width: min(100%, var(--shell-width));
+    max-width: 74rem;
+    gap: 0;
+    margin: 0 auto;
+    padding: 3rem 1rem 4rem;
+}
+
+.guide-page > * {
+    max-width: 62rem;
+}
+
+.guide-page > h2,
+.guide-page > h3,
+.guide-page > h4 {
+    line-height: 1.1;
+    font-family: var(--wa-font-family-heading);
+    text-wrap: balance;
+}
+
+.guide-page > h2 {
+    margin: 3rem 0 1rem;
+    font-size: clamp(2rem, 3.4vw, 3.3rem);
+}
+
+.guide-page > h2:first-child {
+    margin-top: 0;
+}
+
+.guide-page > h3 {
+    margin: 2rem 0 0.75rem;
+    font-size: clamp(1.35rem, 2.1vw, 1.8rem);
+}
+
+.guide-page > h4 {
+    margin: 1.4rem 0 0.55rem;
+    font-size: 1.05rem;
+}
+
+.guide-page p,
+.guide-page li,
+.guide-page th,
+.guide-page td {
+    line-height: 1.75;
+}
+
+.guide-page p,
+.guide-page ul,
+.guide-page ol,
+.guide-page blockquote,
+.guide-page pre,
+.guide-page table,
+.guide-screenshot-placeholder {
+    margin: 0 0 1.1rem;
+}
+
+.guide-page ul,
+.guide-page ol {
+    padding-left: 1.35rem;
+}
+
+.guide-page li + li {
+    margin-top: 0.5rem;
+}
+
+.guide-page a {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.guide-link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 74rem;
+    margin: 0 0 1.1rem;
+}
+
+.guide-link-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.28rem 0.75rem;
+    align-items: start;
+    min-height: 100%;
+    padding: 1rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    color: var(--page-ink);
+    text-decoration: none;
+    background: var(--surface-soft);
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.guide-link-card:hover {
+    transform: translateY(-1px);
+    border-color: var(--lgs-accent-border-color);
+    background: var(--surface-strong);
+}
+
+.guide-link-card wa-icon {
+    grid-row: span 2;
+    margin: 0.14rem 0 0;
+    font-size: 1.15rem;
+}
+
+.guide-link-card strong {
+    line-height: 1.2;
+}
+
+.guide-link-card span {
+    color: var(--page-muted);
+    line-height: 1.55;
+}
+
+.guide-page wa-icon {
+    margin-right: 0.35rem;
+    color: var(--lgs-accent-color);
+    vertical-align: -0.12em;
+}
+
+.guide-page blockquote {
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--lgs-accent-border-color);
+    border-radius: 0 var(--wa-border-radius-m) var(--wa-border-radius-m) 0;
+    background: var(--surface-soft);
+}
+
+.guide-page blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-page table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    border-spacing: 0;
+    background: var(--surface-soft);
+}
+
+.guide-page th,
+.guide-page td {
+    min-width: 12rem;
+    padding: 0.82rem 0.95rem;
+    border-bottom: 1px solid var(--panel-stroke);
+    text-align: left;
+    vertical-align: top;
+}
+
+.guide-page th {
+    color: var(--page-ink);
+    font-weight: 700;
+    background: var(--surface-strong);
+}
+
+.guide-page tr:last-child td {
+    border-bottom: none;
+}
+
+.guide-page code {
+    padding: 0.12rem 0.35rem;
+    border-radius: var(--wa-border-radius-s);
+    background: var(--surface-soft);
+}
+
+.guide-page pre {
+    max-width: 62rem;
+    overflow-x: auto;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: color-mix(in oklab, var(--surface-soft) 82%, black 18%);
+}
+
+.guide-page pre code {
+    padding: 0;
+    background: transparent;
+}
+
+.guide-screenshot-placeholder {
+    display: grid;
+    place-items: center;
+    gap: 0.55rem;
+    min-height: 16rem;
+    padding: 1.5rem;
+    border: 1px dashed color-mix(in oklab, var(--wa-color-brand-60) 46%, transparent);
+    border-radius: var(--wa-border-radius-l);
+    color: var(--page-muted);
+    text-align: center;
+    background:
+        linear-gradient(135deg, color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent), transparent 44%),
+        var(--surface-soft);
+}
+
+.guide-screenshot-placeholder wa-icon {
+    margin: 0;
+    font-size: 2.1rem;
+}
+
+.guide-screenshot-placeholder strong {
+    color: var(--page-ink);
+    font-size: 1.05rem;
+}
+
+.guide-screenshot-placeholder span {
+    max-width: 32rem;
+    line-height: 1.55;
+}
+
 .drawer-link:hover {
     background: var(--surface-strong);
 }
@@ -1522,6 +1762,10 @@ wa-card.page-cta-card::part(body) {
     wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
+
+    .guide-link-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 960px) {
@@ -1630,6 +1874,10 @@ wa-card.page-cta-card::part(body) {
     .changelog-inline-link[data-direction='older'] {
         text-align: left;
     }
+
+    .guide-link-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1684,6 +1932,31 @@ wa-card.page-cta-card::part(body) {
     .intro-hero .hero-actions {
         width: auto;
         flex-direction: row;
+    }
+
+    .guide-hero .hero-shell {
+        width: 100vw;
+        max-width: 100vw;
+        margin-inline: 0;
+        padding-inline: 1.5rem;
+    }
+
+    .guide-hero .hero-copy,
+    .guide-hero .hero-lead,
+    .guide-hero .hero-highlights {
+        width: calc(100vw - 3rem);
+        min-width: 0;
+        max-width: calc(100vw - 3rem);
+        white-space: normal;
+    }
+
+    .guide-hero .hero-highlights li {
+        min-width: 0;
+    }
+
+    .guide-hero .hero-highlights span {
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
 
     .page-hero h1 {
