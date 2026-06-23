@@ -1,7 +1,7 @@
 ---
 permalink: /user-guide/index.html
 title: User Guide
-description: Practical user guide for LGS1920 Studio journeys, tracks, POIs, camera tools, widgets, snapshots, and video exports.
+description: Practical user guide for LGS1920 Studio journeys, tracks, POIs, camera tools, widgets, reports, snapshots, and video exports.
 hero:
   video: false
   className: guide-hero
@@ -18,6 +18,9 @@ hero:
       variant: regular
     - icon: clapperboard-play
       label: Snapshot and video output
+      variant: regular
+    - icon: file-pdf
+      label: Journey reports
       variant: regular
 sectionNav:
   - id: general-presentation
@@ -36,7 +39,7 @@ sectionNav:
 
 ## General Presentation
 
-LGS1920 Studio is a local-first map story editor. It helps you load route files, review journeys and tracks, place points of interest, direct the camera, add visual overlays, and capture the final result as screenshots or video.
+LGS1920 Studio is a local-first map story editor. It helps you load route files, review journeys and tracks, place points of interest, direct the camera, add visual overlays, and export the final result as reports, screenshots, or video.
 
 The guide is organized around everyday Studio tasks. Each page answers a practical question: where to start, what object to select, what control to use, and what to check before export.
 
@@ -79,6 +82,11 @@ The guide is organized around everyday Studio tasks. Each page answers a practic
         <strong>Widgets and overlays</strong>
         <span>Add text, credits, compass, elevation profile, statistics, and other visible overlays.</span>
     </a>
+    <a class="guide-link-card" href="/user-guide/workflows/journey-reports/">
+        <wa-icon variant="regular" name="file-pdf"></wa-icon>
+        <strong>Journey reports</strong>
+        <span>Generate PDF reports or ZIP-packaged HTML reports with maps, POIs, statistics, and altitude data.</span>
+    </a>
     <a class="guide-link-card" href="/user-guide/workflows/snapshots-and-video/">
         <wa-icon variant="regular" name="video"></wa-icon>
         <strong>Snapshots and video</strong>
@@ -104,8 +112,9 @@ The guide is organized around everyday Studio tasks. Each page answers a practic
 4. Add or edit points of interest.
 5. Focus the camera and choose the scene mode.
 6. Add widgets and overlays that should appear in the final output.
-7. Check the capture area.
-8. Export a screenshot or record a video.
+7. Generate a journey report when the output needs a document package.
+8. Check the capture area.
+9. Export a screenshot or record a video.
 
 ## Screenshots
 

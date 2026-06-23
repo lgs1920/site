@@ -1,7 +1,7 @@
 ---
 permalink: /user-guide/workflows/journeys-and-tracks/index.html
 title: Journeys And Tracks
-description: Edit journey-level information, track styling, visibility, and route presentation in LGS1920 Studio.
+description: Edit journey-level information, track styling, visibility, reporting context, and route presentation in LGS1920 Studio.
 hero:
   video: false
   className: guide-hero
@@ -29,6 +29,9 @@ sectionNav:
   - id: edit-tracks
     label: Edit tracks
     summary: Path styling and data
+  - id: report-readiness
+    label: Report readiness
+    summary: Metadata, statistics, and POIs
 ---
 
 ## Journey Vs Track
@@ -46,7 +49,8 @@ Use journey controls to:
 3. Review description, activity, location, country, and visibility.
 4. Toggle the visibility of journey-level POIs.
 5. Focus the journey to check the camera framing.
-6. Keep the camera and movement settings only when they support the final story.
+6. Check dates, statistics, coordinates, and altitude data when the journey will be used in a report.
+7. Keep the camera and movement settings only when they support the final story.
 
 <div class="guide-screenshot-placeholder" role="img" aria-label="Screenshot placeholder for journey editing">
     <wa-icon variant="regular" name="image"></wa-icon>
@@ -64,3 +68,9 @@ Use track controls to:
 4. Review track points if the path does not look right.
 5. Focus the track to validate the route extent.
 6. Repeat for every track that should be visible in the output.
+
+## Report Readiness
+
+Journey reports reuse the route information already prepared in the editor. Before generating a report, review the journey title, description, activity, location, dates, statistics, POIs, coordinates, and altitude data.
+
+For reports that include map captures, make sure start and end markers, POI badges, walking direction markers, and the route line are readable in both the 2D overview and the 3D scene captures.

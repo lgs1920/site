@@ -8,7 +8,7 @@ hero:
   badge: Workflow
   kicker: Capture
   title: Export the composed scene.
-  lead: Capture a still image or record video after checking framing, overlays, and movement.
+  lead: Capture a still image or record video after checking framing, overlays, movement, and output quality.
   highlights:
     - icon: camera
       label: Snapshot
@@ -35,6 +35,8 @@ sectionNav:
 
 Use snapshots when you need a still image of the current map composition. The snapshot should include the visible scene and the overlays that are part of the final output.
 
+When the output needs journey metadata, statistics, POI tables, coordinates, altitude data, and multiple map captures, use the journey report workflow instead of a single snapshot.
+
 ## Video Workflow
 
 Use video when camera movement, orbit, panorama, or timed visual progression matters. Check crop ratio, output quality, and frame rate before recording.
@@ -53,5 +55,6 @@ Before capture:
 2. Confirm the capture area and aspect ratio.
 3. Check that widgets are inside the safe visual area.
 4. Run camera movement once before recording.
-5. Keep the browser tab active while recording.
-6. Review the exported media before changing the scene.
+5. Confirm export settings before starting the recorder.
+6. Keep the browser tab active while recording.
+7. Review the exported media before changing the scene.

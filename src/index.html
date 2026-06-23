@@ -1,11 +1,11 @@
 ---
 layout: layouts/page.html
 title: LGS1920 Studio
-description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, and media capture.
+description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, reports, and media capture.
 hero:
   className: intro-hero
   title: Turn outdoors moments into ready map stories.
-  lead: Local-first editing for routes, POIs, camera motion, and export-ready visuals.
+  lead: Local-first editing for routes, POIs, camera motion, reports, and export-ready visuals.
   actions:
     - label: Studio
       href: https://studio.lgs1920.fr
@@ -89,10 +89,10 @@ pageCta:
             </article>
 
             <article class="intro-indication">
-                <wa-icon variant="regular" name="video"></wa-icon>
+                <wa-icon variant="regular" name="file-pdf"></wa-icon>
                 <div>
-                    <h3>Snapshot and video export</h3>
-                    <p>Capture export-ready media with the same overlays visible in the editor.</p>
+                    <h3>Media and reports</h3>
+                    <p>Export snapshots, video, PDF reports, or packaged HTML reports from the same journey.</p>
                 </div>
             </article>
         </div>
@@ -120,7 +120,7 @@ pageCta:
                     <wa-icon variant="regular" name="chart-line"></wa-icon>
                     <div>
                         <strong>Delivery</strong>
-                        <span>Widgets, snapshots, video</span>
+                        <span>Reports, snapshots, video</span>
                     </div>
                 </article>
             </div>
@@ -156,7 +156,7 @@ pageCta:
                 <wa-icon variant="regular" name="clapperboard-play"></wa-icon>
                 <h3>Compose the output</h3>
             </div>
-            <p>Layer widgets, metrics, and overlays so screenshots and videos already carry the narrative structure.</p>
+            <p>Layer widgets, metrics, and overlays so screenshots, videos, and reports carry the narrative structure.</p>
         </wa-card>
     </div>
 </section>
@@ -205,7 +205,23 @@ pageCta:
                 <wa-icon variant="regular" name="chart-line"></wa-icon>
                 <h3>Metrics and widgets</h3>
             </div>
-            <p>Use elevation profiles, journey stats, text, credits, and other UI elements as reusable scene overlays.</p>
+            <p>Use elevation profiles, journey stats, dates, text, credits, and other UI elements as reusable scene overlays.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="regular" name="file-pdf"></wa-icon>
+                <h3>Journey reports</h3>
+            </div>
+            <p>Generate PDF reports or ZIP-packaged HTML reports with metadata, statistics, POIs, coordinates, altitude data, and map captures.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="regular" name="location-crosshairs"></wa-icon>
+                <h3>Geocoding and coordinates</h3>
+            </div>
+            <p>Use coordinate utilities and geocoding tools to place, inspect, and focus route context more precisely.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -243,7 +259,7 @@ pageCta:
             <span>03</span>
             <div>
                 <h3>Capture and deliver</h3>
-                <p>Export images or video with the same scene framing, overlays, and metrics used during editing.</p>
+                <p>Export images, video, or reports with the same scene framing, overlays, and metrics used during editing.</p>
             </div>
         </li>
     </ol>
@@ -252,14 +268,16 @@ pageCta:
 <section id="stack" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">Stack</p>
-        <h2>Cesium, React, Bun, Valtio, MediaBunny, Web Awesome, Eleventy, and a local-first browser database.</h2>
+        <h2>Cesium, React, Bun, Valtio, Mediabunny, Web Awesome, Eleventy, and a local-first browser database.</h2>
     </div>
 
     <div class="stack-band">
         <span><wa-icon variant="regular" name="globe-pointer"></wa-icon> Cesium scene engine</span>
         <span><wa-icon variant="regular" name="box"></wa-icon> Widget system</span>
         <span><wa-icon variant="regular" name="database"></wa-icon> IndexedDB persistence</span>
+        <span><wa-icon variant="regular" name="file-pdf"></wa-icon> PDF and HTML reports</span>
         <span><wa-icon variant="regular" name="video"></wa-icon> Media pipeline</span>
+        <span><wa-icon variant="regular" name="cloud-arrow-down"></wa-icon> PWA caching</span>
     </div>
 
     <div class="stack-actions">
@@ -283,6 +301,10 @@ pageCta:
 
         <wa-details summary="Who is the product for?">
             Teams and creators working on map-based storytelling, route editing, camera choreography, and export-ready visuals.
+        </wa-details>
+
+        <wa-details summary="Can the Studio generate journey reports?">
+            Yes. A journey can be exported as a PDF report or as an HTML report packaged in a ZIP archive, with metadata, statistics, POIs, elevation data, coordinates, and map captures.
         </wa-details>
 
         <wa-details summary="What is the public license?">

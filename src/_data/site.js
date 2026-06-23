@@ -40,7 +40,7 @@ const userGuideSections = [
     {
         label:  'Workflows',
         icon:   'route',
-        summary:'Prepare, compose, and capture a map story',
+        summary:'Prepare, compose, report, and capture a map story',
         items:  [
             {
                 label:  'Journeys and tracks',
@@ -65,6 +65,12 @@ const userGuideSections = [
                 url:    '/user-guide/workflows/widgets-and-overlays/',
                 summary:'Compose visible context',
                 icon:   'box',
+            },
+            {
+                label:  'Journey reports',
+                url:    '/user-guide/workflows/journey-reports/',
+                summary:'Export PDF and HTML reports',
+                icon:   'file-pdf',
             },
             {
                 label:  'Snapshots and video',
@@ -104,7 +110,7 @@ export default {
     name:        'LGS1920 Studio',
     lang:        'en',
     tagline:     'Replay the World Outdoors',
-    description: 'Local-first geospatial editing for journeys, tracks, POIs, camera workflows, and media capture.',
+    description: 'Local-first geospatial editing for journeys, tracks, POIs, camera workflows, reports, and media capture.',
     appUrl:      'https://studio.lgs1920.fr',
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'contact@lgs1920.fr',

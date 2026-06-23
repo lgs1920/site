@@ -100,8 +100,8 @@ export default {
     },
     pageCta:   {
         eyebrow:'Use the Studio',
-        title:  'Keep the guide open while you prepare a journey, tune the scene, and capture the output.',
-        body:   'The guide follows the same order as a typical user session: start, import, edit, compose, and export.',
+        title:  'Keep the guide open while you prepare a journey, tune the scene, and export the output.',
+        body:   'The guide follows the same order as a typical user session: start, import, edit, compose, report, and capture.',
         actions:[
             {
                 label:     'Launch Studio',
