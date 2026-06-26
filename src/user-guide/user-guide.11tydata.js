@@ -101,10 +101,10 @@ export default {
     pageCta:   {
         eyebrow:'Use the Studio',
         title:  'Keep the guide open while you prepare a journey, tune the scene, and export the output.',
-        body:   'The guide follows the same order as a typical user session: start, import, edit, compose, report, and capture.',
+        body:   'The guide follows the same order as a typical session: open, import, edit, compose, report, and capture.',
         actions:[
             {
-                label:     'Launch Studio',
+                label:     'Open Studio',
                 href:      'https://studio.lgs1920.fr',
                 appearance:'filled',
                 variant:   'brand',

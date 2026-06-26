@@ -22,7 +22,7 @@ hero:
 sectionNav:
   - id: choose-scene-mode
     label: Scene mode
-    summary: 2D, 3D, Columbus
+    summary: 2D and 3D
   - id: focus-the-target
     label: Focus target
     summary: Journey, track, POI, coordinate
@@ -36,8 +36,7 @@ sectionNav:
 Use the scene mode that best supports the output:
 
 - 2D for flat map readability.
-- 3D for terrain, depth, and cinematic route views.
-- Columbus view for an intermediate perspective when full 3D is too strong.
+- 3D for terrain, depth, and route views with more spatial context.
 
 ## Focus The Target
 

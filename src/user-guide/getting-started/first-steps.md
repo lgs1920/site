@@ -8,7 +8,7 @@ hero:
   badge: Getting started
   kicker: User guide
   title: Start with the workspace.
-  lead: Open the Studio, identify the main areas, and prepare the first editing session.
+  lead: Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.
   highlights:
     - icon: circle-play
       label: First launch
@@ -33,11 +33,11 @@ sectionNav:
 
 ## Open The Studio
 
-Use the launch button from the site header or open the hosted Studio URL directly. The Studio runs in the browser and keeps working state locally, so use the browser profile where you want to keep your session data.
+Use the launch button from the site header or open the hosted Studio URL directly. The Studio runs in the browser, keeps working state local by default, and can sync in real time when your browser setup supports it.
 
 ## Identify The Workspace
 
-The map scene is the central work area. It displays journeys, tracks, points of interest, camera movement, and visible overlays. The header tools open common actions such as navigation, theme selection, the hosted Studio, and the guide.
+The map scene is the central area. It displays journeys, tracks, points of interest, camera movement, and visible overlays. The header tools open common actions such as navigation, theme selection, the hosted Studio, and the guide.
 
 Side panels are used to inspect or edit the selected content. They are where you usually manage journeys, track settings, POIs, widgets, and capture controls.
 

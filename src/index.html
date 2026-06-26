@@ -1,11 +1,12 @@
 ---
 layout: layouts/page.html
 title: LGS1920 Studio
-description: Local-first geospatial editing for journeys, tracks, POIs, camera choreography, widgets, reports, and media capture.
+description: Local-first route editing for journeys, tracks, POIs, camera views, widgets, reports, and media capture.
 hero:
   className: intro-hero
-  title: Turn outdoors moments into ready map stories.
-  lead: Local-first editing for routes, POIs, camera motion, reports, and export-ready visuals.
+  title: Turn outdoors moments into shared stories.
+  lead: Walk or ride, then import, edit, and share videos of your journeys without leaving your browser*
+  note: "* Your data remains private and syncs in real time when available."
   actions:
     - label: Studio
       href: https://studio.lgs1920.fr
@@ -27,64 +28,67 @@ hero:
 sectionNav:
   - id: overview
     label: Overview
-    summary: Product cues and core workflow
+    summary: Privacy-first journeys in the browser
   - id: vision
     label: Vision
-    summary: The product point of view
+    summary: The user point of view
   - id: features
     label: Features
-    summary: The covered workflows
+    summary: The workflows the Studio covers
   - id: workflow
     label: Workflow
-    summary: From data to final output
+    summary: From source data to final output
   - id: stack
     label: Stack
-    summary: The technical building blocks
+    summary: The main technical building blocks
   - id: faq
     label: FAQ
-    summary: Project context and answers
+    summary: Practical project context and answers
 pageCta:
-  eyebrow: Repository split
-  title: This site stays static and lightweight. The editor lives in the main Studio repository.
-  body: The application code remains in the main product repository, while this Eleventy site stays focused on positioning, navigation, and a fast front door for the project.
+  eyebrow: Studio links
+  title: Open the Studio or browse the source.
+  body: Use the hosted Studio for editing and the GitHub repository for the code and release history. Journey data stays local unless your browser setup is explicitly synced.
   actions:
-    - label: Main repository
-      href: https://github.com/lgs1920/studio
+    - label: Open Studio
+      href: https://studio.lgs1920.fr
       appearance: filled
+      variant: brand
+      external: true
+      icon:
+        name: clapperboard-play
+        variant: regular
+    - label: GitHub repository
+      href: https://github.com/lgs1920/studio
+      appearance: outlined
       variant: brand
       external: true
       icon:
         family: brands
         name: github
-    - label: Contact
-      href: mailto:contact@lgs1920.fr
-      appearance: outlined
-      variant: brand
-      icon:
-        name: envelope
-        variant: regular
 ---
 <section id="overview" class="content-section intro-details-section">
     <div class="section-heading">
         <p class="section-kicker">Overview</p>
-        <h2>The essential cues before opening the Studio.</h2>
+        <h2>Privacy first: keep journey data local, private, or synced in real time.</h2>
     </div>
 
+    <p class="section-intro">We use journey on purpose: it is both a physical path and a personal one, tied to nature, people, and places, not just a line on a map.</p>
+    <p class="section-intro">It was also a journey through code, with a lot of discovery and learning across different domains.</p>
     <div class="intro-details-grid">
         <div class="intro-indication-grid" aria-label="Product highlights">
             <article class="intro-indication">
                 <wa-icon variant="regular" name="route"></wa-icon>
                 <div>
-                    <h3>Journeys, tracks, and POIs</h3>
-                    <p>Curate route data and points of interest inside one local workspace.</p>
+                    <h3>Local journey flow</h3>
+                    <p>Import, review, and export journeys and tracks while keeping data in the browser.</p>
                 </div>
             </article>
 
             <article class="intro-indication">
                 <wa-icon variant="regular" name="box"></wa-icon>
                 <div>
-                    <h3>2D, 3D, and Columbus views</h3>
-                    <p>Choose the scene mode that best supports the route story.</p>
+                    <h3>2D and 3D views</h3>
+                    <p>Choose the scene mode that fits the journey you are editing.</p>
                 </div>
             </article>
 
@@ -92,28 +96,36 @@ pageCta:
                 <wa-icon variant="regular" name="file-pdf"></wa-icon>
                 <div>
                     <h3>Media and reports</h3>
-                    <p>Export snapshots, video, PDF reports, or packaged HTML reports from the same journey.</p>
+                    <p>Export screenshots, video, PDF reports, or packaged HTML reports from the same journey.</p>
+                </div>
+            </article>
+
+            <article class="intro-indication">
+                <wa-icon variant="regular" name="share-nodes"></wa-icon>
+                <div>
+                    <h3>Share to social networks</h3>
+                    <p>Use the browser share menu to send exported links and videos to your social networks when the device supports it.</p>
                 </div>
             </article>
         </div>
 
         <wa-card class="workflow-card">
             <p class="panel-eyebrow">Core workflow</p>
-            <h3>One workspace, three outputs.</h3>
+            <h3>One workspace, private by default.</h3>
 
             <div class="hero-metric-list">
                 <article>
                     <wa-icon variant="regular" name="map-location-dot"></wa-icon>
                     <div>
-                        <strong>Source</strong>
+                        <strong>Storage</strong>
                         <span>GeoJSON, GPX, and KML</span>
                     </div>
                 </article>
                 <article>
                     <wa-icon variant="regular" name="arrows-rotate"></wa-icon>
                     <div>
-                        <strong>Camera</strong>
-                        <span>Focus, orbit, panorama</span>
+                        <strong>Privacy</strong>
+                        <span>Local, private, sync-ready</span>
                     </div>
                 </article>
                 <article>
@@ -131,16 +143,16 @@ pageCta:
 <section id="vision" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">Vision</p>
-        <h2>A map editor that behaves more like a camera desk than a data form.</h2>
+        <h2>A map editor built around privacy and browser-local journeys.</h2>
     </div>
 
     <div class="vision-grid">
         <wa-card class="vision-card accent-a">
             <div class="card-heading">
                 <wa-icon variant="regular" name="route"></wa-icon>
-                <h3>Shape the journey</h3>
+                <h3>Keep data local</h3>
             </div>
-            <p>Curate tracks, style paths, manage POIs, and preserve the editorial state with local persistence.</p>
+            <p>Review tracks, style paths, manage POIs, and keep your editing state in local storage.</p>
         </wa-card>
 
         <wa-card class="vision-card accent-b">
@@ -148,15 +160,23 @@ pageCta:
                 <wa-icon variant="regular" name="camera"></wa-icon>
                 <h3>Direct the camera</h3>
             </div>
-            <p>Switch scene modes, target precise viewpoints, and tune orbit rotation or panorama controls in real time.</p>
+            <p>Switch scene modes, target precise viewpoints, and tune orbit or panorama controls as needed.</p>
         </wa-card>
 
         <wa-card class="vision-card accent-c">
             <div class="card-heading">
                 <wa-icon variant="regular" name="clapperboard-play"></wa-icon>
-                <h3>Compose the output</h3>
+                <h3>Export from private journeys</h3>
             </div>
-            <p>Layer widgets, metrics, and overlays so screenshots, videos, and reports carry the narrative structure.</p>
+            <p>Layer widgets, metrics, and overlays so screenshots, videos, and reports keep the right context without moving data out of the browser.</p>
+        </wa-card>
+
+        <wa-card class="vision-card accent-b">
+            <div class="card-heading">
+                <wa-icon variant="regular" name="share-nodes"></wa-icon>
+                <h3>Share</h3>
+            </div>
+            <p>Send your stories out with the browser share sheet, straight to the apps people already use.</p>
         </wa-card>
     </div>
 </section>
@@ -164,7 +184,7 @@ pageCta:
 <section id="features" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">Features</p>
-        <h2>The core workflows already covered by the project.</h2>
+        <h2>The workflows the Studio already supports.</h2>
     </div>
 
     <div class="feature-grid">
@@ -173,7 +193,7 @@ pageCta:
                 <wa-icon variant="regular" name="route"></wa-icon>
                 <h3>Journey and track editing</h3>
             </div>
-            <p>Load multiple journeys, edit metadata, tune visibility, and manage track presentation as a coherent story.</p>
+            <p>Load journeys, edit metadata, tune visibility, and manage track presentation in a consistent way.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -181,7 +201,7 @@ pageCta:
                 <wa-icon variant="regular" name="map-location-dot"></wa-icon>
                 <h3>POI workflows</h3>
             </div>
-            <p>Create, focus, rotate, and persist point-centric views across both POIs and journey-level targets.</p>
+            <p>Create, focus, rotate, and keep point-centric views across both POIs and journey-level targets.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -189,7 +209,7 @@ pageCta:
                 <wa-icon variant="regular" name="globe-pointer"></wa-icon>
                 <h3>Cesium scene control</h3>
             </div>
-            <p>Move between 2D, 3D, and Columbus, track the active camera target, and keep navigation legible.</p>
+            <p>Move between 2D and 3D, track the active camera target, and keep navigation clear.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -197,7 +217,7 @@ pageCta:
                 <wa-icon variant="regular" name="arrows-rotate"></wa-icon>
                 <h3>Orbit and panorama</h3>
             </div>
-            <p>Adjust speed, direction, height offset, and pitch live while the camera stays in motion.</p>
+            <p>Adjust speed, direction, height offset, and pitch while the camera moves.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -205,7 +225,7 @@ pageCta:
                 <wa-icon variant="regular" name="chart-line"></wa-icon>
                 <h3>Metrics and widgets</h3>
             </div>
-            <p>Use elevation profiles, journey stats, dates, text, credits, and other UI elements as reusable scene overlays.</p>
+            <p>Use elevation profiles, journey stats, dates, text, credits, and other overlays when they help the scene.</p>
         </wa-card>
 
         <wa-card class="feature-card">
@@ -229,7 +249,15 @@ pageCta:
                 <wa-icon variant="regular" name="clapperboard-play"></wa-icon>
                 <h3>Media export</h3>
             </div>
-            <p>Capture snapshots, define crop zones, and record video with the same visible overlays used in the editor.</p>
+            <p>Capture screenshots, define crop zones, and record video with the same visible overlays used in the editor.</p>
+        </wa-card>
+
+        <wa-card class="feature-card">
+            <div class="card-heading">
+                <wa-icon variant="regular" name="share-nodes"></wa-icon>
+                <h3>Social sharing</h3>
+            </div>
+            <p>Share exported URLs and media through the browser share menu so they can move directly into social networks.</p>
         </wa-card>
     </div>
 </section>
@@ -237,7 +265,7 @@ pageCta:
 <section id="workflow" class="content-section workflow-section">
     <div class="section-heading">
         <p class="section-kicker">Workflow</p>
-        <h2>From raw path data to polished map output.</h2>
+        <h2>From source data to final output.</h2>
     </div>
 
     <ol class="workflow-list">
@@ -260,6 +288,13 @@ pageCta:
             <div>
                 <h3>Capture and deliver</h3>
                 <p>Export images, video, or reports with the same scene framing, overlays, and metrics used during editing.</p>
+            </div>
+        </li>
+        <li>
+            <span>04</span>
+            <div>
+                <h3>Share outward</h3>
+                <p>Use the browser share menu to send exported links or videos to social networks when the device supports native sharing.</p>
             </div>
         </li>
     </ol>
@@ -295,12 +330,8 @@ pageCta:
     </div>
 
     <div class="faq-list">
-        <wa-details summary="Is this site static?">
-            Yes. Eleventy generates the pages and assets, while Web Awesome provides the component layer in the browser.
-        </wa-details>
-
-        <wa-details summary="Who is the product for?">
-            Teams and creators working on map-based storytelling, route editing, camera choreography, and export-ready visuals.
+        <wa-details summary="Who is the Studio for?">
+            People working with journeys who need to review, present, and export map scenes, reports, screenshots, or video.
         </wa-details>
 
         <wa-details summary="Can the Studio generate journey reports?">
@@ -308,7 +339,7 @@ pageCta:
         </wa-details>
 
         <wa-details summary="What is the public license?">
-            The main repository is published under the PolyForm Noncommercial 1.0.0 license, with separate commercial licensing available. See the <a href="/licensing/">licensing summary</a>, the <a href="/license/">full license text</a>, and the <a href="/contributor-license-agreement/">Contributor License Agreement</a>.
+            The main repository is published under the PolyForm Noncommercial 1.0.0 license. See the <a href="/licensing/">licensing summary</a>, the <a href="/license/">full license text</a>, and the <a href="/contributor-license-agreement/">Contributor License Agreement</a>.
         </wa-details>
     </div>
 </section>

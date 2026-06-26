@@ -25,7 +25,7 @@ layout: layouts/base.html
         <div class="brand-lockup">
             <p class="brand-kicker">{{ site.tagline }}</p>
             <a id="site-home-link" class="brand-name" href="/" aria-label="{{ site.name }}">
-                <img class="brand-logo-mark brand-logo-image" src="/assets/brand/mark-waypoint.svg" alt="" width="96" height="96">
+                <span class="brand-logo-mark brand-logo-image" aria-hidden="true"></span>
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
                 </span>
@@ -47,45 +47,53 @@ layout: layouts/base.html
             {% endfor %}
 
             <div class="theme-controls">
-                <wa-dropdown class="brand-menu" placement="bottom-end" data-brand-dropdown>
-                    <wa-button id="brand-trigger" slot="trigger" class="brand-trigger" appearance="plain" size="small" aria-label="Choose brand color">
-                        <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
+                <wa-dropdown class="theme-palette-menu" placement="bottom-end" data-theme-palette-dropdown>
+                    <wa-button id="theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="Choose brand color and season theme">
+                        <span class="theme-palette-trigger-swatches">
+                            <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
+                            <span class="theme-color-swatch" data-season-swatch style="--swatch-color: var(--wa-color-green-60)"></span>
+                        </span>
                     </wa-button>
 
+                    <h3>Brand color</h3>
                     {% for option in site.brandOptions %}
-                        <wa-dropdown-item value="{{ option.value }}" data-brand-option="{{ option.value }}" data-swatch="{{ option.swatch }}">
-                            <span class="brand-option">
+                        <wa-dropdown-item value="{{ option.value }}" data-brand-option="{{ option.value }}" data-theme-group="brand">
+                            <span class="theme-option">
                                 <span class="brand-color-swatch" style="--swatch-color: {{ option.swatch }}"></span>
                                 <span>{{ option.label }}</span>
                             </span>
                         </wa-dropdown-item>
                     {% endfor %}
+
+                    <wa-divider></wa-divider>
+
+                    <h3>Season theme</h3>
+                    {% for option in site.seasonOptions %}
+                        <wa-dropdown-item value="{{ option.value }}" data-season-option="{{ option.value }}" data-theme-group="season">
+                            <span class="theme-option">
+                                <span class="theme-color-swatch" style="--swatch-color: {{ option.swatch }}"></span>
+                                <span>{{ option.label }}</span>
+                            </span>
+                        </wa-dropdown-item>
+                    {% endfor %}
                 </wa-dropdown>
-                <wa-tooltip class="control-tooltip" for="brand-trigger" placement="bottom">Choose brand color</wa-tooltip>
+                <wa-tooltip class="control-tooltip" for="theme-palette-trigger" placement="bottom">Choose brand color and season theme</wa-tooltip>
 
                 <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
-                    <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle theme menu">
+                    <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle color mode menu">
                         <wa-icon data-theme-icon="light" variant="regular" name="sun-bright" hidden></wa-icon>
                         <wa-icon data-theme-icon="dark" variant="regular" name="moon-stars" hidden></wa-icon>
                         <wa-icon data-theme-icon="system" data-system-theme-icon variant="regular" name="desktop" hidden></wa-icon>
                     </wa-button>
 
-                    <wa-dropdown-item value="light" data-theme-option="light">
-                        <wa-icon slot="icon" variant="regular" name="sun-bright"></wa-icon>
-                        Light
-                    </wa-dropdown-item>
-
-                    <wa-dropdown-item value="dark" data-theme-option="dark">
-                        <wa-icon slot="icon" variant="regular" name="moon-stars"></wa-icon>
-                        Dark
-                    </wa-dropdown-item>
-
-                    <wa-divider></wa-divider>
-
-                    <wa-dropdown-item value="system" data-theme-option="system">
-                        <wa-icon slot="icon" data-system-theme-icon variant="regular" name="desktop"></wa-icon>
-                        System
-                    </wa-dropdown-item>
+                    {% for option in site.modeOptions %}
+                        <wa-dropdown-item value="{{ option.value }}" data-theme-option="{{ option.value }}">
+                            <span class="theme-option">
+                                <wa-icon variant="regular" name="{{ option.icon }}"></wa-icon>
+                                <span>{{ option.label }}</span>
+                            </span>
+                        </wa-dropdown-item>
+                    {% endfor %}
                 </wa-dropdown>
                 <wa-tooltip class="control-tooltip" for="theme-trigger" placement="bottom">Choose color mode</wa-tooltip>
             </div>
@@ -248,6 +256,9 @@ layout: layouts/base.html
 
                 {% if hero.lead %}
                     <p class="hero-lead">{{ hero.lead }}</p>
+                {% endif %}
+                {% if hero.note %}
+                    <p class="hero-note">{{ hero.note }}</p>
                 {% endif %}
 
                 {% if hero.actions and hero.actions.size > 0 %}

@@ -6,13 +6,13 @@ export default class {
             layout:      'layouts/page.html',
             permalink:   '/licensing/index.html',
             title:       'Licensing',
-            description: 'Public license, commercial licensing path, and legal references for LGS1920 Studio.',
+            description: 'Public license and legal references for LGS1920 Studio.',
             pageClass:   'legal-page',
             hero:        {
                 video:      false,
                 badge:      'Legal',
                 kicker:     'Licensing',
-                title:      'Understand the public and commercial licensing model.',
+                title:      'Understand the public license and legal references.',
                 lead:       'This page mirrors the licensing summary maintained in the main Studio repository.',
                 highlights: [
                     {
@@ -34,9 +34,9 @@ export default class {
             },
             sectionNav:  legalDocs.licensing.sectionNav,
             pageCta:     {
-                eyebrow:'Commercial use',
-                title:  'Need to remove the Noncommercial restriction?',
-                body:   'Commercial licensing requests and contribution questions are handled directly by LGS1920.',
+                eyebrow:'Usage terms',
+                title:  'Need other usage terms?',
+                body:   'Usage-term questions and contribution questions are handled directly by LGS1920.',
                 actions:[
                     {
                         label: 'Contact',
@@ -65,7 +65,7 @@ export default class {
     render() {
         return renderLegalSection({
             document: legalDocs.licensing,
-            intro:    'The legal summary below is pulled at build time from the main studio repository so the public site stays aligned with the source documentation.',
+            intro:    'The legal summary below is pulled at build time from the main Studio repository so the public site stays aligned with the source documentation.',
         })
     }
 }

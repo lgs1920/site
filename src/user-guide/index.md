@@ -1,14 +1,14 @@
 ---
 permalink: /user-guide/index.html
 title: User Guide
-description: Practical user guide for LGS1920 Studio journeys, tracks, POIs, camera tools, widgets, reports, snapshots, and video exports.
+description: Practical user guide for LGS1920 Studio journeys, tracks, POIs, camera tools, widgets, reports, screenshots, and video exports with privacy-first browser storage.
 hero:
   video: false
   className: guide-hero
   badge: User guide
   kicker: Documentation
-  title: Use LGS1920 Studio with confidence.
-  lead: A practical guide organized around the way final users prepare, edit, compose, and export map stories.
+  title: Use LGS1920 Studio day to day.
+  lead: A practical guide organized around the way you prepare, edit, compose, and export route scenes while keeping data local or synced in the browser.
   highlights:
     - icon: circle-play
       label: Start and import
@@ -39,7 +39,7 @@ sectionNav:
 
 ## General Presentation
 
-LGS1920 Studio is a local-first map story editor. It helps you load route files, review journeys and tracks, place points of interest, direct the camera, add visual overlays, and export the final result as reports, screenshots, or video.
+LGS1920 Studio is a privacy-first route editor. It helps you load route files, review journeys and tracks, place points of interest, direct the camera, add visual overlays, and export the final result as reports, screenshots, or video while keeping data local or browser-synced.
 
 The guide is organized around everyday Studio tasks. Each page answers a practical question: where to start, what object to select, what control to use, and what to check before export.
 
@@ -65,12 +65,12 @@ The guide is organized around everyday Studio tasks. Each page answers a practic
     <a class="guide-link-card" href="/user-guide/workflows/journeys-and-tracks/">
         <wa-icon variant="regular" name="route"></wa-icon>
         <strong>Journeys and tracks</strong>
-        <span>Edit story-level information, visibility, style, and track presentation.</span>
+        <span>Edit journey-level information, visibility, style, and track presentation.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/points-of-interest/">
         <wa-icon variant="regular" name="map-location-dot"></wa-icon>
         <strong>Points of interest</strong>
-        <span>Use markers for places, starts, stops, viewpoints, and narrative moments.</span>
+        <span>Use markers for places, starts, stops, viewpoints, and useful context.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/scene-and-camera/">
         <wa-icon variant="regular" name="camera"></wa-icon>

@@ -34,9 +34,9 @@ export default class {
             },
             sectionNav:  legalDocs.dependencies.sectionNav,
             pageCta:     {
-                eyebrow:'Authoritative source',
+                eyebrow:'Source of truth',
                 title:  'The dependency inventory is generated from the main Studio repository.',
-                body:   'This site page stays readable, but the authoritative source remains the Studio package manifest and its companion dependency document.',
+                body:   'This site page stays readable, but the source of truth remains the Studio package manifest and its companion dependency document.',
                 actions:[
                     {
                         label: 'Open Studio repo',
@@ -66,7 +66,7 @@ export default class {
     render() {
         return renderLegalSection({
             document: legalDocs.dependencies,
-            intro:    'The dependency inventory below is pulled at build time from the main studio repository so the public site reflects the same dependency snapshot.',
+            intro:    'The dependency inventory below is pulled at build time from the main Studio repository so the public site reflects the same dependency snapshot.',
         })
     }
 }

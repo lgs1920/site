@@ -21,12 +21,12 @@ const userGuideSections = [
     {
         label:  'Getting started',
         icon:   'circle-play',
-        summary:'Open the Studio and import source data',
+        summary:'Open the Studio and load route data',
         items:  [
             {
                 label:  'First steps',
                 url:    '/user-guide/getting-started/first-steps/',
-                summary:'Open and read the workspace',
+                summary:'Open the workspace and orient yourself',
                 icon:   'circle-play',
             },
             {
@@ -40,7 +40,7 @@ const userGuideSections = [
     {
         label:  'Workflows',
         icon:   'route',
-        summary:'Prepare, compose, report, and capture a map story',
+        summary:'Prepare, edit, and export a route story',
         items:  [
             {
                 label:  'Journeys and tracks',
@@ -83,7 +83,7 @@ const userGuideSections = [
     {
         label:  'Reference',
         icon:   'diagram-project',
-        summary:'Objects and actions available to final users',
+        summary:'Objects and actions used in the Studio',
         items:  [
             {
                 label:  'Objects',
@@ -109,8 +109,8 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
 export default {
     name:        'LGS1920 Studio',
     lang:        'en',
-    tagline:     'Replay the World Outdoors',
-    description: 'Local-first geospatial editing for journeys, tracks, POIs, camera workflows, reports, and media capture.',
+    tagline:     'Shape route data in the browser',
+    description: 'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
     appUrl:      'https://studio.lgs1920.fr',
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'contact@lgs1920.fr',
@@ -157,12 +157,56 @@ export default {
         {
             value: 'green',
             label: 'Green',
-            swatch:'var(--wa-color-green-90)',
+            swatch:'var(--wa-color-green-70)',
+        },
+        {
+            value: 'brown',
+            label: 'Brown',
+            swatch:'color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%)',
         },
         {
             value: 'gray',
             label: 'Gray',
             swatch:'var(--wa-color-gray)',
+        },
+    ],
+    seasonOptions: [
+        {
+            value: 'spring',
+            label: 'Spring',
+            swatch:'#7bf1a8',
+        },
+        {
+            value: 'summer',
+            label: 'Summer',
+            swatch:'var(--wa-color-green-60)',
+        },
+        {
+            value: 'fall',
+            label: 'Fall',
+            swatch:'#c56e12',
+        },
+        {
+            value: 'winter',
+            label: 'Winter',
+            swatch:'#dbeafe',
+        },
+    ],
+    modeOptions: [
+        {
+            value: 'light',
+            label: 'Light',
+            icon:  'sun-bright',
+        },
+        {
+            value: 'dark',
+            label: 'Dark',
+            icon:  'moon-stars',
+        },
+        {
+            value: 'system',
+            label: 'System',
+            icon:  'desktop',
         },
     ],
     navigation: [
@@ -229,7 +273,7 @@ export default {
     userGuideNavigation,
     asideLinks: [
         {
-            label:   'Launch Studio',
+            label:   'Open Studio',
             url:     'https://studio.lgs1920.fr',
             icon:    'clapperboard-play',
             variant: 'regular',

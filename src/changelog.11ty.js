@@ -8,7 +8,7 @@ export default class {
                 video:  false,
                 badge:  'Release notes',
                 kicker: 'Changelog',
-                title:  'Browse the full release history of LGS1920 Studio.',
+                title:  'Browse the release history of LGS1920 Studio.',
                 lead:   'This page concatenates the Markdown changelog files published in the main Studio repository into one readable timeline.',
                 highlights: [
                     {

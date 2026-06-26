@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-yellow" data-fa-kit-code="eb5c406148">
+<html lang="{{ site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-brown" data-fa-kit-code="eb5c406148">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,13 +8,23 @@
     <script>
         (() => {
             const root = document.documentElement
-            const mode = localStorage.getItem('theme') || 'system'
-            const storedBrandColor = localStorage.getItem('brandColor') || 'yellow'
-            const allowedBrandColors = new Set(['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'gray'])
-            const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'yellow'
+            const theme = localStorage.getItem('theme')
+            const seasonTheme = localStorage.getItem('seasonTheme')
+            const storedBrandColor = localStorage.getItem('brandColor') || 'brown'
+            const allowedBrandColors = new Set(['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray'])
+            const allowedThemes = new Set(['light', 'dark', 'system'])
+            const allowedSeasonThemes = new Set(['spring', 'summer', 'fall', 'winter'])
+            const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'brown'
+            const selectedTheme = allowedThemes.has(theme)
+                ? theme
+                : (allowedSeasonThemes.has(theme) ? 'system' : 'system')
+            const selectedSeasonTheme = allowedSeasonThemes.has(seasonTheme)
+                ? seasonTheme
+                : (allowedSeasonThemes.has(theme) ? theme : 'summer')
+            const effectiveMode = selectedTheme === 'system'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : (selectedTheme === 'dark' ? 'dark' : 'light')
             const prefixesToReset = ['sl-theme-', 'wa-brand-', 'wa-palette-', 'wa-neutral-', 'wa-success-', 'wa-warning-', 'wa-danger-']
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-            const isDark = mode === 'dark' || (mode === 'system' && mediaQuery.matches)
             const classesToRemove = Array.from(root.classList).filter((className) => {
                 if (className === 'wa-theme-premium') {
                     return true
@@ -32,9 +42,11 @@
             }
 
             root.classList.add('wa-theme-lgs1920', `wa-brand-${brandColor}`)
-            root.classList.toggle('wa-dark', isDark)
-            root.classList.toggle('wa-light', !isDark)
-            root.dataset.themeMode = mode
+            root.classList.toggle('wa-dark', effectiveMode === 'dark')
+            root.classList.toggle('wa-light', effectiveMode !== 'dark')
+            root.dataset.themeMode = effectiveMode
+            root.dataset.themeSelection = selectedTheme
+            root.dataset.seasonTheme = selectedSeasonTheme
             root.dataset.brandColor = brandColor
         })()
     </script>
