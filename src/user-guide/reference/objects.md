@@ -1,6 +1,6 @@
 ---
 permalink: /user-guide/reference/objects/index.html
-title: Object Reference
+title: Objects
 description: User-facing reference for journeys, tracks, POIs, widgets, camera targets, journey reports, and capture areas.
 hero:
   video: false

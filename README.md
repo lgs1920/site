@@ -20,6 +20,7 @@ LGS1920 Studio is organized around common journey-editing tasks:
 - focus the camera on a journey, a track, a POI, or a coordinate
 - create orbit and panorama movement when the scene needs motion
 - add visible widgets such as text, credits, compass, elevation profile, and journey statistics
+- inspect the main scene buttons, drawers, dialogs, and widget surfaces through the user guide
 - check distance, elevation, duration, speed, slope, date, time, coordinate, and altitude context while editing
 - export PDF reports or ZIP-packaged HTML reports with route metadata, statistics, POIs, and map captures
 - capture screenshots and record video with the same overlays used in the editor
@@ -44,16 +45,17 @@ LGS1920 Studio is organized around common journey-editing tasks:
 The user guide is organized around the same tasks you perform in the Studio:
 
 - [Overview](/user-guide/)
-- [First steps](/user-guide/getting-started/first-steps/)
-- [Import source data](/user-guide/getting-started/import-source-data/)
-- [Journeys and tracks](/user-guide/workflows/journeys-and-tracks/)
-- [Points of interest](/user-guide/workflows/points-of-interest/)
-- [Scene and camera](/user-guide/workflows/scene-and-camera/)
-- [Widgets and overlays](/user-guide/workflows/widgets-and-overlays/)
-- [Journey reports](/user-guide/workflows/journey-reports/)
-- [Snapshots and video](/user-guide/workflows/snapshots-and-video/)
-- [Object reference](/user-guide/reference/objects/)
-- [Action reference](/user-guide/reference/actions/)
+- [Start a session](/user-guide/getting-started/first-steps/)
+- [Import a route](/user-guide/getting-started/import-source-data/)
+- [Use map layers](/user-guide/workflows/use-map-layers/)
+- [Edit journeys and tracks](/user-guide/workflows/journeys-and-tracks/)
+- [Use POIs](/user-guide/workflows/points-of-interest/)
+- [Change colors and appearance](/user-guide/workflows/appearance/)
+- [Set camera and scene](/user-guide/workflows/scene-and-camera/)
+- [Use widgets](/user-guide/workflows/widgets-and-overlays/)
+- [Export](/user-guide/workflows/export/)
+- [Fix common problems](/user-guide/workflows/common-problems/)
+- [Shortcuts](/user-guide/workflows/shortcuts/)
 
 ## Main Objects
 

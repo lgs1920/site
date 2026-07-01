@@ -1,13 +1,13 @@
 ---
 permalink: /user-guide/getting-started/first-steps/index.html
-title: First Steps
+title: Start A Session
 description: "First user steps in LGS1920 Studio: open the workspace, identify the scene, panels, and primary controls."
 hero:
   video: false
   className: guide-hero
-  badge: Getting started
+  badge: Main step
   kicker: User guide
-  title: Start with the workspace.
+  title: Start a Studio session.
   lead: Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.
   highlights:
     - icon: circle-play

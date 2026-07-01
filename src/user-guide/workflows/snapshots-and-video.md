@@ -1,6 +1,6 @@
 ---
 permalink: /user-guide/workflows/snapshots-and-video/index.html
-title: Snapshots And Video
+title: Export Snapshots And Video
 description: Prepare crop area, overlays, camera movement, and output settings before image or video capture.
 hero:
   video: false

@@ -1,0 +1,23 @@
+---
+permalink: /user-guide/reference/studio-interface/dialogs/support/
+title: Support dialog
+description: Help dialog that exposes the Studio support information.
+ui:
+  backUrl: /user-guide/reference/studio-interface/#dialogs
+  backLabel: Dialogs
+  overview: >
+    The Support dialog provides help text without changing the scene. Use it when the user needs guidance or a support entry point while staying inside the Studio.
+  controls:
+    - label: Help content
+      icon: message-question
+      type: Read-only panel
+      description: Shows the support information, links, or usage notes.
+    - label: Close
+      icon: xmark
+      type: Button
+      description: Closes the dialog and returns to the workspace.
+  notes:
+    - This is a help surface, not an editing surface.
+---
+
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

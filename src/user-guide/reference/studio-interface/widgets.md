@@ -1,0 +1,37 @@
+---
+permalink: /user-guide/reference/studio-interface/widgets/
+title: Widgets
+description: Reference for the visible overlays that stay attached to the Studio scene or export board.
+ui:
+  backUrl: /user-guide/reference/studio-interface/#widgets
+  backLabel: Use the Studio
+  overview: >
+    Widgets are the live overlays that sit on top of the scene or the export board. They show context, status, or summary data while the map stays visible underneath.
+  controls:
+    - label: Compass
+      icon: compass
+      type: Widget
+      description: Shows heading and orientation so you can confirm how the scene is turned.
+    - label: Credits
+      icon: user
+      type: Widget
+      description: Shows map and source credits. Keep it visible when the output must keep attribution in frame.
+    - label: Elevation Profile
+      icon: chart-fft
+      type: Widget
+      description: Shows the route elevation shape and helps you check profile readability in the capture area.
+    - label: Text
+      icon: text
+      type: Widget
+      description: Adds a custom label, note, or callout to the scene or journey board.
+    - label: Journey Stats
+      icon: route
+      type: Widget
+      description: Shows distance, elevation, duration, and summary data for the active journey.
+  notes:
+    - Widgets can be moved, resized, rotated, or hidden depending on their capabilities.
+    - Use the widget editor drawer when you need to change the configuration of a selected widget.
+    - Check the final capture size, not just the editing zoom, before exporting.
+---
+
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

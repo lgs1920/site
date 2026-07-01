@@ -506,6 +506,79 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     gap: 0.45rem;
 }
 
+.locale-dropdown {
+    display: inline-flex;
+}
+
+.locale-trigger::part(base) {
+    display: inline-flex;
+    align-items: center;
+    min-width: 3.75rem;
+}
+
+.locale-trigger-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.locale-menu-panel {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 12rem;
+    padding: 0.35rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-l);
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
+}
+
+.locale-menu-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 0.7rem;
+    border-radius: var(--wa-border-radius-m);
+    color: var(--page-ink);
+    text-decoration: none;
+}
+
+.locale-menu-link:hover {
+    background: var(--surface-strong);
+}
+
+.locale-menu-link.is-current {
+    background: color-mix(in oklab, var(--wa-color-brand) 18%, transparent);
+}
+
+.locale-menu-copy {
+    display: grid;
+    line-height: 1.1;
+}
+
+.locale-menu-copy strong,
+.locale-menu-copy small {
+    color: inherit;
+}
+
+.locale-trigger-copy span,
+.locale-menu-copy small {
+    font-size: 0.82rem;
+}
+
+.locale-menu-copy strong {
+    font-size: 0.92rem;
+}
+
+.locale-flag {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--wa-color-brand-60) 22%, transparent);
+}
+
 .control-tooltip {
     position: fixed;
     inset: auto;
@@ -1956,10 +2029,41 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     vertical-align: top;
 }
 
+.guide-icon-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.35em;
+    block-size: 2.35em;
+    margin-right: 0.45rem;
+    border: 1px solid var(--wa-color-brand);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--wa-color-brand);
+    vertical-align: middle;
+    line-height: 1;
+    overflow: hidden;
+    text-align: center;
+    color: var(--wa-color-neutral-10) !important;
+}
+
+.guide-icon-chip wa-icon {
+    font-size: 0.95rem;
+    color: inherit;
+    line-height: 1;
+    display: block;
+    flex: none;
+    margin: 0 !important;
+}
+
 .guide-page th {
     color: var(--page-ink);
     font-weight: 700;
     background: var(--surface-strong);
+}
+
+.guide-page td,
+.guide-page th {
+    color: var(--page-ink);
 }
 
 .guide-page tr:last-child td {

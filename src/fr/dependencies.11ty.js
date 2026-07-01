@@ -1,0 +1,75 @@
+import { legalDocs, renderLegalSection } from '../_lib/legal-docs.js'
+
+export default class {
+    data() {
+        return {
+            layout:      'layouts/page.html',
+            permalink:   '/fr/dependencies/index.html',
+            title:       'Inventaire Des Dépendances',
+            description: 'Vue lisible des dépendances générée depuis le dépôt principal LGS1920 Studio.',
+            pageClass:   'legal-page',
+            hero:        {
+                video:      false,
+                badge:      'Stack',
+                kicker:     'Dépendances',
+                title:      'Parcourir l\'inventaire courant des dépendances de LGS1920 Studio.',
+                lead:       'Cette page reflète l\'instantané des dépendances maintenu dans le dépôt principal Studio et généré au build.',
+                highlights: [
+                    {
+                        label:  'Packages runtime',
+                        icon:   'box-open-full',
+                        variant:'regular',
+                    },
+                    {
+                        label:  'Outils build et qualité',
+                        icon:   'screwdriver-wrench',
+                        variant:'regular',
+                    },
+                    {
+                        label:  'Source canonique depuis studio',
+                        icon:   'file-lines',
+                        variant:'regular',
+                    },
+                ],
+            },
+            sectionNav:  legalDocs.dependencies.sectionNav,
+            pageCta:     {
+                eyebrow:'Source de vérité',
+                title:  'L\'inventaire des dépendances est généré depuis le dépôt principal Studio.',
+                body:   'Cette page reste lisible, mais la source de vérité demeure le manifest du package Studio et son document de dépendances compagnon.',
+                actions:[
+                    {
+                        label: 'Ouvrir le dépôt Studio',
+                        href:  'https://github.com/lgs1920/studio',
+                        variant:'brand',
+                        external:true,
+                        icon:  {
+                            family:'brands',
+                            name:  'github',
+                        },
+                    },
+                    {
+                        label:     'Ouvrir Studio',
+                        href:      'https://studio.lgs1920.fr',
+                        appearance:'outlined',
+                        external:  true,
+                        icon:      {
+                            name:   'arrow-up-right-from-square',
+                            variant:'regular',
+                        },
+                    },
+                ],
+            },
+        }
+    }
+
+    render() {
+        return renderLegalSection({
+            document: legalDocs.dependencies,
+            intro:    'L\'inventaire des dépendances ci-dessous est récupéré au build depuis le dépôt principal Studio afin que le site public reflète le même instantané.',
+            labels:   {
+                sourceLabel:'Source',
+            },
+        })
+    }
+}

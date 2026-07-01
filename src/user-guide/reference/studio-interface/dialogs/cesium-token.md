@@ -1,0 +1,27 @@
+---
+permalink: /user-guide/reference/studio-interface/dialogs/cesium-token/
+title: Cesium token prompt
+description: Token prompt shown when Cesium access is missing or invalid.
+ui:
+  backUrl: /user-guide/reference/studio-interface/#dialogs
+  backLabel: Dialogs
+  overview: >
+    The Cesium token prompt appears when the Studio needs a valid Cesium Ion token. It blocks the flow until the user provides access or closes the prompt.
+  controls:
+    - label: Token field
+      icon: key
+      type: Text field
+      description: Accepts the Cesium Ion token to be validated.
+    - label: Validate
+      icon: circle-check
+      type: Button
+      description: Checks the token and stores it when it is valid.
+    - label: Cancel
+      icon: xmark
+      type: Button
+      description: Closes the prompt without saving anything.
+  notes:
+    - The prompt appears only when the scene cannot continue without Cesium access.
+---
+
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

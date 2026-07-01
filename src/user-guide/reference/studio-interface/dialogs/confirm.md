@@ -1,0 +1,27 @@
+---
+permalink: /user-guide/reference/studio-interface/dialogs/confirm/
+title: Confirm dialog
+description: Final confirmation dialog for actions that cannot be undone easily.
+ui:
+  backUrl: /user-guide/reference/studio-interface/#dialogs
+  backLabel: Dialogs
+  overview: >
+    The Confirm dialog is the final checkpoint before a destructive or high-impact action runs. It keeps the user in control of the last decision.
+  controls:
+    - label: Confirmation text
+      icon: circle-question
+      type: Read-only panel
+      description: Explains what the action will do before it runs.
+    - label: Confirm
+      icon: circle-check
+      type: Button
+      description: Proceeds with the action.
+    - label: Cancel
+      icon: xmark
+      type: Button
+      description: Stops the action and closes the dialog.
+  notes:
+    - Use the confirm dialog for destructive or irreversible actions.
+---
+
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

@@ -1,6 +1,6 @@
 ---
 permalink: /user-guide/reference/actions/index.html
-title: Action Reference
+title: Actions
 description: User-facing reference for common LGS1920 Studio actions and their visible effect.
 hero:
   video: false

@@ -1,11 +1,11 @@
 ---
 permalink: /user-guide/workflows/points-of-interest/index.html
-title: Points Of Interest
+title: Use POIs
 description: Add, edit, focus, and organize POIs for places, starts, stops, viewpoints, and route story moments.
 hero:
   video: false
   className: guide-hero
-  badge: Workflow
+  badge: Main step
   kicker: POIs
   title: Mark the important places.
   lead: Use points of interest for locations, starts, stops, viewpoints, and narrative markers.

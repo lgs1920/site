@@ -1,13 +1,13 @@
 ---
 permalink: /user-guide/getting-started/import-source-data/index.html
-title: Import Source Data
+title: Import A Route
 description: Load GeoJSON, GPX, or KML route data into LGS1920 Studio and verify the imported journey.
 hero:
   video: false
   className: guide-hero
-  badge: Getting started
+  badge: Main step
   kicker: Import
-  title: Bring route data into the Studio.
+  title: Import a route into the Studio.
   lead: Load GeoJSON, GPX, or KML files and confirm that the journey is ready to edit.
   highlights:
     - icon: file-import
@@ -33,7 +33,7 @@ sectionNav:
 
 ## Supported Files
 
-Use the file loader to import route content. The Studio supports GeoJSON, GPX, and KML sources. Imported content becomes editable in the current browser session and can be combined with camera state, POIs, widgets, and capture settings.
+Start from the import button or first-session import prompt. The Studio supports GeoJSON, GPX, and KML sources. Imported content becomes editable in the current browser session and can be combined with camera state, POIs, widgets, and capture settings.
 
 ## Import Checklist
 
@@ -53,4 +53,4 @@ After import, check that:
 
 ## After Import
 
-Continue with [Journeys and tracks](/user-guide/workflows/journeys-and-tracks/) to refine the route presentation, or go directly to [Points of interest](/user-guide/workflows/points-of-interest/) if the imported content already has the track style you need.
+Continue with [Edit journeys and tracks](/user-guide/workflows/journeys-and-tracks/) to refine the route presentation, or go directly to [Use POIs](/user-guide/workflows/points-of-interest/) if the imported content already has the track style you need.

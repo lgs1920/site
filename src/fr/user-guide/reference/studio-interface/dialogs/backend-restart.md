@@ -1,0 +1,24 @@
+---
+permalink: /fr/user-guide/reference/studio-interface/dialogs/backend-restart/
+title: Dialog Backend restart
+description: Dialog d'état affiché pendant le redémarrage du backend.
+ui:
+  backUrl: /fr/user-guide/reference/studio-interface/#dialogs
+  backLabel: Dialogs
+  overview: >
+    Le dialog Backend restart apparaît quand le backend redémarre ou se reconnecte.
+  controls:
+    - label: Status text
+      icon: server
+      type: Read-only panel
+      description: Explique que le backend redémarre ou est temporairement indisponible.
+    - label: Retry
+      icon: arrow-rotate-right
+      type: Button
+      description: Vérifie à nouveau la disponibilité du backend.
+    - label: Close
+      icon: xmark
+      type: Button
+      description: Ferme le dialog si le workflow le permet.
+---
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

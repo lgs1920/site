@@ -1,0 +1,20 @@
+---
+permalink: /fr/user-guide/reference/studio-interface/dialogs/support/
+title: Dialog Support
+description: Dialog d'aide qui expose les informations de support de Studio.
+ui:
+  backUrl: /fr/user-guide/reference/studio-interface/#dialogs
+  backLabel: Dialogs
+  overview: >
+    Le dialog Support fournit de l'aide sans changer la scène.
+  controls:
+    - label: Help content
+      icon: message-question
+      type: Read-only panel
+      description: Affiche les informations de support, liens ou notes d'usage.
+    - label: Close
+      icon: xmark
+      type: Button
+      description: Ferme le dialog et revient à l'espace de travail.
+---
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

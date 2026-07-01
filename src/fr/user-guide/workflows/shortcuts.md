@@ -1,0 +1,30 @@
+---
+permalink: /fr/user-guide/workflows/shortcuts/index.html
+title: Raccourcis
+description: Raccourcis clavier et pointeur pour travailler plus vite dans Studio.
+hero:
+  video: false
+  className: guide-hero
+  badge: Annexe
+  kicker: Raccourcis
+  title: Aller plus vite avec les raccourcis.
+  lead: Utilisez ces raccourcis une fois le flux principal de Studio compris.
+sectionNav:
+  - id: raccourcis-de-lapplication
+    label: Application
+    summary: Commandes globales
+  - id: raccourcis-du-widget-selectionne
+    label: Widget sélectionné
+    summary: Widget actif
+  - id: actions-du-pointeur
+    label: Pointeur
+    summary: Souris et tactile
+  - id: rotation-et-panorama
+    label: Rotation et panorama
+    summary: Mouvement caméra
+  - id: navigation-cesium
+    label: Navigation Cesium
+    summary: Contrôles de carte
+---
+
+{% include "user-guide/reference/studio-interface/shortcuts.fr.md" %}

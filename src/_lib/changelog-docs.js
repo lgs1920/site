@@ -47,13 +47,13 @@ const createHeadingId = (text, seenIds, prefix = '') => {
     return count === 0 ? baseId : `${baseId}-${count + 1}`
 }
 
-const formatReleaseDate = (dateKey) => {
+const formatReleaseDate = (dateKey, locale = 'en') => {
     const year = Number(dateKey.slice(0, 4))
     const month = Number(dateKey.slice(4, 6))
     const day = Number(dateKey.slice(6, 8))
     const date = new Date(Date.UTC(year, month - 1, day))
 
-    return new Intl.DateTimeFormat('en', {
+    return new Intl.DateTimeFormat(locale, {
         day:  'numeric',
         month:'long',
         year: 'numeric',
@@ -142,7 +142,7 @@ const compareReleaseEntries = (left, right) => {
     return right.slug.localeCompare(left.slug)
 }
 
-const buildEntries = () => getChangelogFiles().map((fileName) => {
+const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
     const match = fileName.match(/^(?<date>\d{8})-(?<version>.+)\.md$/)
 
     if (!match?.groups) {
@@ -152,7 +152,7 @@ const buildEntries = () => getChangelogFiles().map((fileName) => {
     const slug = fileName.slice(0, -3)
     const anchorId = `release-${slugify(slug)}`
     const isoDate = `${match.groups.date.slice(0, 4)}-${match.groups.date.slice(4, 6)}-${match.groups.date.slice(6, 8)}`
-    const dateLabel = formatReleaseDate(match.groups.date)
+    const dateLabel = formatReleaseDate(match.groups.date, locale)
     const sourcePath = path.join(changelogDirectory, fileName)
     const rawMarkdown = fs.readFileSync(sourcePath, 'utf8')
     const document = renderMarkdownDocument({
@@ -177,7 +177,8 @@ const buildEntries = () => getChangelogFiles().map((fileName) => {
     }
 }).sort(compareReleaseEntries)
 
-const entries = buildEntries().map((entry, index, allEntries) => ({
+const createChangelog = (locale = 'en') => {
+    const entries = buildEntries(locale).map((entry, index, allEntries) => ({
     ...entry,
     newer:index > 0
         ? {
@@ -193,28 +194,31 @@ const entries = buildEntries().map((entry, index, allEntries) => ({
             version:  allEntries[index + 1].version,
         }
         : null,
-}))
+    }))
 
-export const changelog = {
-    count: entries.length,
-    entries,
-    latest: entries[0] || null,
-    sectionNav: entries.map((entry) => ({
-        id:     entry.anchorId,
-        label:  entry.version,
-        summary:entry.dateLabel,
-    })),
-    sourceLabel:'studio/public/assets/changelog/',
-    sourceUrl:  studioRepoTreeUrl,
+    return {
+        count: entries.length,
+        entries,
+        latest: entries[0] || null,
+        sectionNav: entries.map((entry) => ({
+            id:     entry.anchorId,
+            label:  entry.version,
+            summary:entry.dateLabel,
+        })),
+        sourceLabel:'studio/public/assets/changelog/',
+        sourceUrl:  studioRepoTreeUrl,
+    }
 }
 
-export const renderChangelogIndex = ({ directory, entries: changelogEntries }) => `
+export const changelog = createChangelog('en')
+
+export const renderChangelogIndex = ({ directory, entries: changelogEntries, labels = {} }) => `
 <section class="content-section legal-section changelog-section">
     <div class="legal-meta">
-        <p>The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.</p>
+        <p>${labels.intro || 'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.'}</p>
         <a class="legal-source-link" href="${directory.sourceUrl}" target="_blank" rel="noreferrer">
             <wa-icon variant="regular" name="file-lines"></wa-icon>
-            <span>Source directory: ${directory.sourceLabel}</span>
+            <span>${labels.sourceDirectory || 'Source directory'}: ${directory.sourceLabel}</span>
         </a>
     </div>
 
@@ -223,7 +227,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
             <article id="${entry.anchorId}" class="changelog-entry">
                 <header class="changelog-entry-header">
                     <div class="changelog-entry-copy">
-                        <p class="section-kicker">Version ${escapeHtml(entry.version)}</p>
+                        <p class="section-kicker">${labels.version || 'Version'} ${escapeHtml(entry.version)}</p>
                         <h2>${escapeHtml(entry.title)}</h2>
                         <p class="changelog-entry-date">
                             <wa-icon variant="regular" name="calendar-days"></wa-icon>
@@ -234,7 +238,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
                     <div class="changelog-entry-actions">
                         <a class="legal-source-link" href="${entry.sourceUrl}" target="_blank" rel="noreferrer">
                             <wa-icon variant="regular" name="file-lines"></wa-icon>
-                            <span>Source: ${escapeHtml(entry.sourceLabel)}</span>
+                            <span>${labels.source || 'Source'}: ${escapeHtml(entry.sourceLabel)}</span>
                         </a>
                     </div>
                 </header>
@@ -244,17 +248,17 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
                 </div>
 
                 ${(entry.newer || entry.older) ? `
-                    <nav class="changelog-inline-nav" aria-label="Release navigation">
+                    <nav class="changelog-inline-nav" aria-label="${labels.releaseNavigation || 'Release navigation'}">
                         ${entry.newer ? `
                             <a class="changelog-inline-link" href="#${entry.newer.anchorId}">
-                                <span class="changelog-inline-label">Newer</span>
+                                <span class="changelog-inline-label">${labels.newer || 'Newer'}</span>
                                 <strong>${escapeHtml(entry.newer.version)}</strong>
                             </a>
                         ` : '<span></span>'}
 
                         ${entry.older ? `
                             <a class="changelog-inline-link" href="#${entry.older.anchorId}" data-direction="older">
-                                <span class="changelog-inline-label">Older</span>
+                                <span class="changelog-inline-label">${labels.older || 'Older'}</span>
                                 <strong>${escapeHtml(entry.older.version)}</strong>
                             </a>
                         ` : '<span></span>'}
@@ -265,5 +269,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries }) =
     </div>
 </section>
 `
+
+export const getChangelog = (locale = 'en') => createChangelog(locale)
 
 export default changelog

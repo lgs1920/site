@@ -1,6 +1,11 @@
 ---
 layout: layouts/base.html
 ---
+{% assign chrome_navigation = localizedNavigation | default: site.navigation %}
+{% assign chrome_header_links = localizedHeaderLinks | default: site.headerLinks %}
+{% assign chrome_legal_links = localizedLegalLinks | default: site.legalLinks %}
+{% assign chrome_guide_sections = localizedUserGuideSections | default: site.userGuideSections %}
+{% assign labels = uiLabels | default: site.ui %}
 <wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
     <script>
         (() => {
@@ -19,7 +24,7 @@ layout: layouts/base.html
             page.dataset.navCollapsed = 'true'
         })()
     </script>
-    <span slot="skip-to-content">Skip to content</span>
+    <span slot="skip-to-content">{{ labels.skipToContent }}</span>
 
     <header slot="header" class="topbar">
         <div class="brand-lockup">
@@ -31,31 +36,63 @@ layout: layouts/base.html
                 </span>
             </a>
         </div>
-        <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">Home</wa-tooltip>
+        <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">{{ labels.home }}</wa-tooltip>
 
         <div class="topbar-actions">
-            <wa-button id="page-nav-toggle-mobile" class="nav-toggle nav-toggle-mobile" data-page-nav-toggle data-page-nav-toggle-mobile data-toggle-nav appearance="plain" aria-label="Open navigation" aria-controls="site-navigation">
+            <wa-button id="page-nav-toggle-mobile" class="nav-toggle nav-toggle-mobile" data-page-nav-toggle data-page-nav-toggle-mobile data-toggle-nav appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
                 <wa-icon variant="regular" name="bars"></wa-icon>
             </wa-button>
-            <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>Open navigation</wa-tooltip>
+            <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
 
-            {% for link in site.headerLinks %}
+            {% for link in chrome_header_links %}
                 <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
                 </wa-button>
                 <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
             {% endfor %}
 
+            {% if alternateLocales and localeOptions %}
+                {% assign current_locale_code = locale | default: 'en' %}
+                {% assign current_locale_option = null %}
+                {% for option in localeOptions %}
+                    {% if option.code == current_locale_code %}
+                        {% assign current_locale_option = option %}
+                    {% endif %}
+                {% endfor %}
+                <wa-dropdown class="locale-dropdown" placement="bottom-end">
+                    <wa-button id="locale-trigger" slot="trigger" class="locale-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseLanguage }}">
+                        <span class="locale-trigger-copy">
+                            <img class="locale-flag" src="{{ current_locale_option.flagUrl }}" alt="{{ current_locale_option.label }}" width="18" height="18">
+                            <span>{{ current_locale_option.short }}</span>
+                        </span>
+                    </wa-button>
+
+                    <div class="locale-menu-panel" role="menu" aria-label="{{ labels.language }}">
+                        {% for option in localeOptions %}
+                            {% assign is_current_locale = option.code == current_locale_code %}
+                            <a class="locale-menu-link{% if is_current_locale %} is-current{% endif %}" href="{{ alternateLocales[option.code] }}" role="menuitem"{% if is_current_locale %} aria-current="true"{% endif %} data-site-locale="{{ option.code }}">
+                                <img class="locale-flag" src="{{ option.flagUrl }}" alt="{{ option.label }}" width="18" height="18">
+                                <span class="locale-menu-copy">
+                                    <strong>{{ option.label }}</strong>
+                                    <small>{{ option.short }}</small>
+                                </span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </wa-dropdown>
+                <wa-tooltip class="control-tooltip" for="locale-trigger" placement="bottom">{{ labels.chooseLanguage }}</wa-tooltip>
+            {% endif %}
+
             <div class="theme-controls">
                 <wa-dropdown class="theme-palette-menu" placement="bottom-end" data-theme-palette-dropdown>
-                    <wa-button id="theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="Choose brand color and season theme">
+                    <wa-button id="theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseBrandAndSeason }}">
                         <span class="theme-palette-trigger-swatches">
                             <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
                             <span class="theme-color-swatch" data-season-swatch style="--swatch-color: var(--wa-color-green-60)"></span>
                         </span>
                     </wa-button>
 
-                    <h3>Brand color</h3>
+                    <h3>{{ labels.brandColor }}</h3>
                     {% for option in site.brandOptions %}
                         <wa-dropdown-item value="{{ option.value }}" data-brand-option="{{ option.value }}" data-theme-group="brand">
                             <span class="theme-option">
@@ -67,7 +104,7 @@ layout: layouts/base.html
 
                     <wa-divider></wa-divider>
 
-                    <h3>Season theme</h3>
+                    <h3>{{ labels.seasonTheme }}</h3>
                     {% for option in site.seasonOptions %}
                         <wa-dropdown-item value="{{ option.value }}" data-season-option="{{ option.value }}" data-theme-group="season">
                             <span class="theme-option">
@@ -77,10 +114,10 @@ layout: layouts/base.html
                         </wa-dropdown-item>
                     {% endfor %}
                 </wa-dropdown>
-                <wa-tooltip class="control-tooltip" for="theme-palette-trigger" placement="bottom">Choose brand color and season theme</wa-tooltip>
+                <wa-tooltip class="control-tooltip" for="theme-palette-trigger" placement="bottom">{{ labels.chooseBrandAndSeason }}</wa-tooltip>
 
                 <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
-                    <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="Toggle color mode menu">
+                    <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="{{ labels.toggleColorModeMenu }}">
                         <wa-icon data-theme-icon="light" variant="regular" name="sun-bright" hidden></wa-icon>
                         <wa-icon data-theme-icon="dark" variant="regular" name="moon-stars" hidden></wa-icon>
                         <wa-icon data-theme-icon="system" data-system-theme-icon variant="regular" name="desktop" hidden></wa-icon>
@@ -95,16 +132,16 @@ layout: layouts/base.html
                         </wa-dropdown-item>
                     {% endfor %}
                 </wa-dropdown>
-                <wa-tooltip class="control-tooltip" for="theme-trigger" placement="bottom">Choose color mode</wa-tooltip>
+                <wa-tooltip class="control-tooltip" for="theme-trigger" placement="bottom">{{ labels.chooseColorMode }}</wa-tooltip>
             </div>
         </div>
     </header>
 
-    <nav id="site-navigation" slot="navigation" class="drawer-nav" aria-label="Primary navigation">
-        {% if site.navigation and site.navigation.size > 0 %}
+    <nav id="site-navigation" slot="navigation" class="drawer-nav" aria-label="{{ labels.primaryNavigation }}">
+        {% if chrome_navigation and chrome_navigation.size > 0 %}
             <section class="drawer-group">
-                <p class="drawer-label">Pages</p>
-                {% for item in site.navigation %}
+                <p class="drawer-label">{{ labels.pages }}</p>
+                {% for item in chrome_navigation %}
                     {% assign is_current = false %}
                     {% if item.url %}
                         {% if item.url == page.url %}
@@ -182,11 +219,10 @@ layout: layouts/base.html
             </section>
         {% endif %}
 
-        {% assign guide_prefix = page.url | slice: 0, 12 %}
-        {% if guide_prefix == '/user-guide/' and site.userGuideSections and site.userGuideSections.size > 0 %}
+        {% if guidePage and chrome_guide_sections and chrome_guide_sections.size > 0 %}
             <section class="drawer-group">
-                <p class="drawer-label">User guide</p>
-                {% for section in site.userGuideSections %}
+                <p class="drawer-label">{{ labels.userGuide }}</p>
+                {% for section in chrome_guide_sections %}
                     <div class="drawer-guide-section">
                         <p class="drawer-guide-section-label">
                             {% if section.icon %}
@@ -213,7 +249,7 @@ layout: layouts/base.html
 
         {% if sectionNav and sectionNav.size > 0 %}
             <section class="drawer-group">
-                <p class="drawer-label">On this page</p>
+                <p class="drawer-label">{{ labels.onThisPage }}</p>
                 {% for item in sectionNav %}
                     <a class="drawer-link drawer-link-muted" href="#{{ item.id }}">
                         <span>{{ item.label }}</span>
@@ -316,11 +352,11 @@ layout: layouts/base.html
 
     <main id="content" class="page-content{% if pageClass %} {{ pageClass }}{% endif %}">
         {% if guideContext %}
-            <nav class="guide-breadcrumb-shell" aria-label="Breadcrumb">
-                <wa-breadcrumb label="User guide breadcrumb">
+            <nav class="guide-breadcrumb-shell" aria-label="{{ labels.breadcrumb }}">
+                <wa-breadcrumb label="{{ labels.userGuideBreadcrumb }}">
                     <wa-breadcrumb-item href="/">
                         <wa-icon slot="start" variant="regular" name="house"></wa-icon>
-                        Home
+                        {{ labels.home }}
                     </wa-breadcrumb-item>
                     {% for crumb in guideContext.breadcrumbs %}
                         <wa-breadcrumb-item{% if crumb.url %} href="{{ crumb.url }}"{% elsif forloop.last %} aria-current="page"{% endif %}>
@@ -337,11 +373,11 @@ layout: layouts/base.html
         {{ content }}
 
         {% if guideContext %}
-            <nav class="guide-pagination" aria-label="User guide pagination">
+            <nav class="guide-pagination" aria-label="{{ labels.userGuidePagination }}">
                 {% if guideContext.sectionItems and guideContext.sectionItems.size > 1 %}
                     <div class="guide-rubric-pages">
                         <div class="guide-rubric-heading">
-                            <span>Section</span>
+                            <span>{{ labels.section }}</span>
                             <strong>{{ guideContext.section.label }}</strong>
                             {% if guideContext.section.summary %}
                                 <small>{{ guideContext.section.summary }}</small>
@@ -369,7 +405,7 @@ layout: layouts/base.html
                             <a class="guide-adjacent-link guide-adjacent-link-previous" href="{{ guideContext.pagination.previous.url }}">
                                 <span class="guide-adjacent-direction">
                                     <wa-icon variant="regular" name="arrow-left"></wa-icon>
-                                    Previous
+                                    {{ labels.previous }}
                                 </span>
                                 <strong>{{ guideContext.pagination.previous.label }}</strong>
                                 <small>{{ guideContext.pagination.previous.sectionLabel }}</small>
@@ -379,7 +415,7 @@ layout: layouts/base.html
                         {% if guideContext.pagination.next %}
                             <a class="guide-adjacent-link guide-adjacent-link-next" href="{{ guideContext.pagination.next.url }}">
                                 <span class="guide-adjacent-direction">
-                                    Next
+                                    {{ labels.next }}
                                     <wa-icon variant="regular" name="arrow-right"></wa-icon>
                                 </span>
                                 <strong>{{ guideContext.pagination.next.label }}</strong>
@@ -433,9 +469,9 @@ layout: layouts/base.html
                     <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
                 {% endif %}
             </p>
-            {% if site.legalLinks and site.legalLinks.size > 0 %}
-                <nav class="site-footer-links" aria-label="Footer navigation">
-                    {% for link in site.legalLinks %}
+            {% if chrome_legal_links and chrome_legal_links.size > 0 %}
+                <nav class="site-footer-links" aria-label="{{ labels.footerNavigation }}">
+                    {% for link in chrome_legal_links %}
                         <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
                         <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
                     {% endfor %}
@@ -447,7 +483,19 @@ layout: layouts/base.html
     </footer>
 </wa-page>
 
-<wa-button id="page-nav-toggle-desktop" class="nav-fab" data-page-nav-toggle data-page-nav-toggle-desktop appearance="plain" aria-label="Open navigation" aria-controls="site-navigation">
+<wa-button id="page-nav-toggle-desktop" class="nav-fab" data-page-nav-toggle data-page-nav-toggle-desktop appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
     <wa-icon variant="regular" name="bars"></wa-icon>
 </wa-button>
-<wa-tooltip class="control-tooltip" for="page-nav-toggle-desktop" placement="right" data-nav-toggle-tooltip>Open navigation</wa-tooltip>
+<wa-tooltip class="control-tooltip" for="page-nav-toggle-desktop" placement="right" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
+
+{% if alternateLocales %}
+    <script>
+        (() => {
+            for (const link of document.querySelectorAll('[data-site-locale]')) {
+                link.addEventListener('click', () => {
+                    localStorage.setItem('preferredLocale', link.dataset.siteLocale)
+                })
+            }
+        })()
+    </script>
+{% endif %}

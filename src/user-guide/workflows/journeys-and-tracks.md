@@ -1,13 +1,13 @@
 ---
 permalink: /user-guide/workflows/journeys-and-tracks/index.html
-title: Journeys And Tracks
+title: Edit Journeys And Tracks
 description: Edit journey-level information, track styling, visibility, reporting context, and route presentation in LGS1920 Studio.
 hero:
   video: false
   className: guide-hero
-  badge: Workflow
+  badge: Main step
   kicker: Journeys
-  title: Shape the route story.
+  title: Edit the route story.
   lead: Use journeys for story-level settings and tracks for line-level presentation.
   highlights:
     - icon: route
@@ -39,6 +39,19 @@ sectionNav:
 A journey is the story-level container. It groups route metadata, tracks, POIs, camera state, rotation settings, panorama settings, and export behavior.
 
 A track is the visible path geometry inside a journey. Track controls are used for line color, thickness, visibility, data review, and path-level presentation.
+
+## Open The Track Editor
+
+There is no separate top-level track editor button. The flow starts from the `Journey` button in the main scene.
+
+1. Open the `Journey` button in the main bar.
+2. Choose the edit action.
+3. The [journey editor drawer](/user-guide/reference/studio-interface/drawers/journey-editor/) opens.
+4. Select the track you want to change inside that drawer.
+5. Adjust track visibility, style, and related fields.
+6. Close the drawer when the scene matches the desired presentation.
+
+This is the same path you use when you need to go from the button to the drawer and then to the track-specific controls.
 
 ## Edit The Journey
 

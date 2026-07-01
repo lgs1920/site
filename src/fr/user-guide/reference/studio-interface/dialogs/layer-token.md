@@ -1,0 +1,24 @@
+---
+permalink: /fr/user-guide/reference/studio-interface/dialogs/layer-token/
+title: Modal Layer token
+description: Prompt de jeton d'accès pour les couches ou terrains protégés.
+ui:
+  backUrl: /fr/user-guide/reference/studio-interface/drawers/layers/
+  backLabel: Drawer Layers
+  overview: >
+    Le modal Layer token apparaît quand une couche ou une source de terrain protégée demande un jeton d'accès.
+  controls:
+    - label: Token field
+      icon: key
+      type: Text field
+      description: Reçoit le jeton d'accès pour la source sélectionnée.
+    - label: Validate
+      icon: circle-check
+      type: Button
+      description: Vérifie le jeton et déverrouille la source s'il est valide.
+    - label: Cancel
+      icon: xmark
+      type: Button
+      description: Ferme le modal sans enregistrer de jeton.
+---
+{% include "user-guide/reference/studio-interface/ui-detail.md" %}

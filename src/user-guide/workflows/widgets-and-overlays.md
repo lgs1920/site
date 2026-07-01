@@ -1,11 +1,11 @@
 ---
 permalink: /user-guide/workflows/widgets-and-overlays/index.html
-title: Widgets And Overlays
+title: Use Widgets
 description: Add, place, and review visual overlays such as text, credits, compass, profile, and journey statistics.
 hero:
   video: false
   className: guide-hero
-  badge: Workflow
+  badge: Main step
   kicker: Widgets
   title: Compose the visible story layer.
   lead: Add overlays that explain the route without hiding the map.

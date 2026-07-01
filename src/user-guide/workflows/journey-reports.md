@@ -1,6 +1,6 @@
 ---
 permalink: /user-guide/workflows/journey-reports/index.html
-title: Journey Reports
+title: Export Journey Reports
 description: Export journey reports as PDF documents or ZIP-packaged HTML reports with metadata, statistics, POIs, and map captures.
 hero:
   video: false

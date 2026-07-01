@@ -20,15 +20,15 @@ hero:
       label: Snapshot and video output
       variant: regular
     - icon: file-pdf
-      label: Journey reports
+      label: Export output
       variant: regular
 sectionNav:
   - id: general-presentation
     label: General presentation
     summary: What the Studio is for
-  - id: quick-access
-    label: Quick access
-    summary: Jump to the right guide page
+  - id: main-steps
+    label: Main steps
+    summary: What to do next
   - id: typical-session
     label: Typical session
     summary: The expected user flow
@@ -41,7 +41,7 @@ sectionNav:
 
 LGS1920 Studio is a privacy-first route editor. It helps you load route files, review journeys and tracks, place points of interest, direct the camera, add visual overlays, and export the final result as reports, screenshots, or video while keeping data local or browser-synced.
 
-The guide is organized around everyday Studio tasks. Each page answers a practical question: where to start, what object to select, what control to use, and what to check before export.
+The guide is organized around what you want to do: import a route, change the map, edit the journey, change colors, add widgets, export, or fix a problem.
 
 <div class="guide-screenshot-placeholder" role="img" aria-label="Screenshot placeholder for the full Studio workspace">
     <wa-icon variant="regular" name="image"></wa-icon>
@@ -49,58 +49,65 @@ The guide is organized around everyday Studio tasks. Each page answers a practic
     <span>Full Studio workspace with the map scene, header tools, side panels, and active object controls.</span>
 </div>
 
-## Quick Access
+## Main Steps
+
+Follow the steps in the same order as a normal Studio session.
 
 <div class="guide-link-grid">
     <a class="guide-link-card" href="/user-guide/getting-started/first-steps/">
         <wa-icon variant="regular" name="circle-play"></wa-icon>
-        <strong>First steps</strong>
-        <span>Open the Studio, understand the workspace, and follow the first actions.</span>
+        <strong>Start a session</strong>
+        <span>Open the Studio and check that the workspace is ready.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/getting-started/import-source-data/">
         <wa-icon variant="regular" name="file-import"></wa-icon>
-        <strong>Import source data</strong>
-        <span>Load GeoJSON, GPX, or KML files and check the imported journey.</span>
+        <strong>Import a route</strong>
+        <span>Load GeoJSON, GPX, or KML and check that the route appears.</span>
+    </a>
+    <a class="guide-link-card" href="/user-guide/workflows/use-map-layers/">
+        <wa-icon variant="regular" name="layer-group"></wa-icon>
+        <strong>Use map layers</strong>
+        <span>Change the map background, terrain, visibility, disclaimers, and tokens.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/journeys-and-tracks/">
         <wa-icon variant="regular" name="route"></wa-icon>
-        <strong>Journeys and tracks</strong>
-        <span>Edit journey-level information, visibility, style, and track presentation.</span>
+        <strong>Edit journeys and tracks</strong>
+        <span>Change title, description, route line color, thickness, and visibility.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/points-of-interest/">
         <wa-icon variant="regular" name="map-location-dot"></wa-icon>
-        <strong>Points of interest</strong>
-        <span>Use markers for places, starts, stops, viewpoints, and useful context.</span>
+        <strong>Use POIs</strong>
+        <span>Add and edit markers for places, starts, stops, and viewpoints.</span>
+    </a>
+    <a class="guide-link-card" href="/user-guide/workflows/appearance/">
+        <wa-icon variant="regular" name="palette"></wa-icon>
+        <strong>Change colors and appearance</strong>
+        <span>Change theme mode, brand color, seasonal palette, and UI preferences.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/scene-and-camera/">
         <wa-icon variant="regular" name="camera"></wa-icon>
-        <strong>Scene and camera</strong>
-        <span>Choose the scene mode, focus objects, orbit targets, and tune panorama movement.</span>
+        <strong>Set camera and scene</strong>
+        <span>Choose scene mode, focus objects, orbit, and panorama.</span>
     </a>
     <a class="guide-link-card" href="/user-guide/workflows/widgets-and-overlays/">
         <wa-icon variant="regular" name="box"></wa-icon>
-        <strong>Widgets and overlays</strong>
-        <span>Add text, credits, compass, elevation profile, statistics, and other visible overlays.</span>
+        <strong>Use widgets</strong>
+        <span>Add text, credits, compass, elevation profile, and journey statistics.</span>
     </a>
-    <a class="guide-link-card" href="/user-guide/workflows/journey-reports/">
-        <wa-icon variant="regular" name="file-pdf"></wa-icon>
-        <strong>Journey reports</strong>
-        <span>Generate PDF reports or ZIP-packaged HTML reports with maps, POIs, statistics, and altitude data.</span>
-    </a>
-    <a class="guide-link-card" href="/user-guide/workflows/snapshots-and-video/">
+    <a class="guide-link-card" href="/user-guide/workflows/export/">
         <wa-icon variant="regular" name="video"></wa-icon>
-        <strong>Snapshots and video</strong>
-        <span>Prepare the capture area, review overlays, and export final media.</span>
+        <strong>Export</strong>
+        <span>Create a snapshot, video, PDF report, or HTML ZIP report.</span>
     </a>
-    <a class="guide-link-card" href="/user-guide/reference/objects/">
-        <wa-icon variant="regular" name="diagram-project"></wa-icon>
-        <strong>Object reference</strong>
-        <span>Understand journeys, tracks, POIs, widgets, camera targets, and capture areas.</span>
+    <a class="guide-link-card" href="/user-guide/workflows/common-problems/">
+        <wa-icon variant="regular" name="triangle-exclamation"></wa-icon>
+        <strong>Fix common problems</strong>
+        <span>Handle missing tokens, protected layers, import issues, widget errors, and startup problems.</span>
     </a>
-    <a class="guide-link-card" href="/user-guide/reference/actions/">
-        <wa-icon variant="regular" name="list-check"></wa-icon>
-        <strong>Action reference</strong>
-        <span>Match common commands with their effect in the Studio.</span>
+    <a class="guide-link-card" href="/user-guide/workflows/shortcuts/">
+        <wa-icon variant="regular" name="keyboard"></wa-icon>
+        <strong>Shortcuts</strong>
+        <span>Use keyboard, pointer, widget, and camera shortcuts.</span>
     </a>
 </div>
 
@@ -108,13 +115,13 @@ The guide is organized around everyday Studio tasks. Each page answers a practic
 
 1. Open the Studio and confirm the workspace is ready.
 2. Import a source file.
-3. Select the active journey and inspect its tracks.
-4. Add or edit points of interest.
-5. Focus the camera and choose the scene mode.
-6. Add widgets and overlays that should appear in the final output.
-7. Generate a journey report when the output needs a document package.
-8. Check the capture area.
-9. Export a screenshot or record a video.
+3. Choose map layers and terrain.
+4. Edit the journey and its tracks.
+5. Add or edit points of interest.
+6. Change colors and appearance if the route needs a different visual setup.
+7. Focus the camera and choose the scene mode.
+8. Add widgets that should appear in the final output.
+9. Export a snapshot, video, PDF report, or HTML ZIP report.
 
 ## Screenshots
 
