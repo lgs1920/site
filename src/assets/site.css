@@ -511,33 +511,32 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 }
 
 .locale-trigger::part(base) {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    min-width: 3.75rem;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
 }
 
 .locale-trigger-copy {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0;
 }
 
 .locale-menu-panel {
     display: grid;
-    gap: 0.25rem;
-    min-width: 12rem;
-    padding: 0.35rem;
-    border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
-    background: var(--panel-bg);
-    box-shadow: var(--shadow-soft);
+    gap: 0.14rem;
+    min-width: 11rem;
+    padding: 0.1rem;
 }
 
 .locale-menu-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.6rem 0.7rem;
+    gap: 0.42rem;
+    padding: 0.36rem 0.45rem;
     border-radius: var(--wa-border-radius-m);
     color: var(--page-ink);
     text-decoration: none;
@@ -561,20 +560,19 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     color: inherit;
 }
 
-.locale-trigger-copy span,
 .locale-menu-copy small {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
 }
 
 .locale-menu-copy strong {
-    font-size: 0.92rem;
+    font-size: 0.76rem;
 }
 
 .locale-flag {
     display: block;
-    width: 1.1rem;
-    height: 1.1rem;
-    border-radius: 999px;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 0.1rem;
     object-fit: cover;
     box-shadow: 0 0 0 1px color-mix(in oklab, var(--wa-color-brand-60) 22%, transparent);
 }
@@ -591,6 +589,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .icon-link-button::part(base),
 .theme-palette-trigger::part(base),
 .theme-trigger::part(base),
+.locale-trigger::part(base),
 .nav-toggle::part(base),
 .nav-fab::part(base) {
     width: 2.5rem;
@@ -617,6 +616,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .icon-link-button:hover::part(base),
 .theme-palette-trigger:hover::part(base),
 .theme-trigger:hover::part(base),
+.locale-trigger:hover::part(base),
 .nav-toggle:hover::part(base),
 .nav-fab:hover::part(base) {
     color: var(--lgs-button-plain-hover-color);
@@ -627,6 +627,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .icon-link-button wa-icon,
 .theme-palette-trigger wa-icon,
 .theme-trigger wa-icon,
+.locale-trigger wa-icon,
 .nav-toggle wa-icon,
 .nav-fab wa-icon {
     color: currentColor;
@@ -2264,6 +2265,8 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     position: relative;
     width: 100%;
     padding: 0.5rem var(--site-inline-edge) 0;
+    background: var(--header-bg) !important;
+    background-color: var(--header-bg) !important;
 }
 
 wa-card.page-cta-card::part(body) {
@@ -2316,6 +2319,8 @@ wa-card.page-cta-card::part(body) {
     width: 100%;
     padding: 0.8rem var(--site-inline-edge) 2rem;
     border-top: none;
+    background: var(--header-bg) !important;
+    background-color: var(--header-bg) !important;
 }
 
 .site-footer-copy {
