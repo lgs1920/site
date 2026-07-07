@@ -1,0 +1,143 @@
+{% assign home = localizedPage %}
+{% assign home_content = home.content %}
+
+<section id="overview" class="content-section intro-details-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.overview.kicker }}</p>
+        <h2>{{ home_content.overview.title }}</h2>
+    </div>
+
+    {% for paragraph in home_content.overview.intro %}
+        <p class="section-intro">{{ paragraph }}</p>
+    {% endfor %}
+
+    <div class="intro-details-grid">
+        <div class="intro-indication-grid" aria-label="{{ home_content.overview.highlightsLabel }}">
+            {% for item in home_content.overview.highlights %}
+                <article class="intro-indication">
+                    <wa-icon variant="regular" name="{{ item.icon }}"></wa-icon>
+                    <div>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.body }}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        <wa-card class="workflow-card">
+            <p class="panel-eyebrow">{{ home_content.overview.card.eyebrow }}</p>
+            <h3>{{ home_content.overview.card.title }}</h3>
+
+            <div class="hero-metric-list">
+                {% for item in home_content.overview.card.items %}
+                    <article>
+                        <wa-icon variant="regular" name="{{ item.icon }}"></wa-icon>
+                        <div>
+                            <strong>{{ item.title }}</strong>
+                            <span>{{ item.text }}</span>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </wa-card>
+    </div>
+</section>
+
+<section id="vision" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.vision.kicker }}</p>
+        <h2>{{ home_content.vision.title }}</h2>
+    </div>
+
+    <div class="vision-grid">
+        {% for card in home_content.vision.cards %}
+            <wa-card class="vision-card {{ card.className }}">
+                <div class="card-heading">
+                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
+                    <h3>{{ card.title }}</h3>
+                </div>
+                <p>{{ card.body }}</p>
+            </wa-card>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="features" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.features.kicker }}</p>
+        <h2>{{ home_content.features.title }}</h2>
+    </div>
+
+    <div class="feature-grid">
+        {% for card in home_content.features.cards %}
+            <wa-card class="feature-card">
+                <div class="card-heading">
+                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
+                    <h3>{{ card.title }}</h3>
+                </div>
+                <p>{{ card.body }}</p>
+            </wa-card>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="workflow" class="content-section workflow-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.workflow.kicker }}</p>
+        <h2>{{ home_content.workflow.title }}</h2>
+    </div>
+
+    <ol class="workflow-list">
+        {% for step in home_content.workflow.steps %}
+            <li>
+                <span>{{ step.index }}</span>
+                <div>
+                    <h3>{{ step.title }}</h3>
+                    <p>{{ step.body }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</section>
+
+<section id="stack" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.stack.kicker }}</p>
+        <h2>{{ home_content.stack.title }}</h2>
+    </div>
+
+    <div class="stack-band">
+        {% for item in home_content.stack.items %}
+            <span><wa-icon variant="regular" name="{{ item.icon }}"></wa-icon> {{ item.label }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="stack-actions">
+        <wa-button href="{{ home_content.stack.action.href }}" appearance="outlined" variant="neutral">
+            <wa-icon slot="start" variant="regular" name="file-lines"></wa-icon>
+            {{ home_content.stack.action.label }}
+        </wa-button>
+    </div>
+</section>
+
+<section id="faq" class="content-section faq-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.faq.kicker }}</p>
+        <h2>{{ home_content.faq.title }}</h2>
+    </div>
+
+    <div class="faq-list">
+        {% for item in home_content.faq.items %}
+            <wa-details summary="{{ item.summary }}">
+                <p>
+                    {{ item.body }}
+                    {% if item.links and item.links.size > 0 %}
+                        {% for link in item.links %}
+                            <a href="{{ link.href }}">{{ link.label }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}.
+                    {% endif %}
+                </p>
+            </wa-details>
+        {% endfor %}
+    </div>
+</section>

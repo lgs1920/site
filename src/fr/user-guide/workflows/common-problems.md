@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/workflows/common-problems/index.html
-title: Résoudre Les Problèmes Courants
-description: Résoudre les problèmes fréquents d'import, de jetons, de widgets et de démarrage.
-hero:
-  video: false
-  className: guide-hero
-  badge: Aide
-  kicker: Problèmes
-  title: Débloquer rapidement la situation.
-  lead: Utilisez cette page quand Studio demande un jeton, n'importe pas de données ou bloque un export.
-sectionNav:
-  - id: problemes-import
-    label: Problèmes d'import
-    summary: Fichiers de parcours
-  - id: problemes-jetons
-    label: Problèmes de jetons
-    summary: Cesium et couches
-  - id: problemes-export
-    label: Problèmes d'export
-    summary: Widgets et médias
----
 
 ## Problèmes D'import
 

@@ -1,4 +1,5 @@
 import i18n from './i18n.js'
+import pageTypes from './page-types.js'
 
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
@@ -18,6 +19,7 @@ export default {
     lang:        'en',
     tagline:     'Shape route data in the browser',
     description: 'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
+    url:         'https://lgs1920.fr',
     appUrl:      'https://studio.lgs1920.fr',
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'contact@lgs1920.fr',
@@ -144,4 +146,5 @@ export default {
     ],
     legalLinks: i18n.legalLinks.en,
     ui:         i18n.ui.en,
+    pageTypes,
 }

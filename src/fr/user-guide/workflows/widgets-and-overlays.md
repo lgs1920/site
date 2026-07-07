@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/workflows/widgets-and-overlays/index.html
-title: Utiliser Les Widgets
-description: Ajouter, placer et vérifier les overlays visuels.
-hero:
-  video: false
-  className: guide-hero
-  badge: Étape principale
-  kicker: Widgets
-  title: Composer la couche visuelle du récit.
-  lead: Ajoutez les overlays qui expliquent le parcours sans masquer la carte.
-sectionNav:
-  - id: choisir-les-widgets
-    label: Choisir les widgets
-    summary: Overlays utiles
-  - id: placer-les-widgets
-    label: Placer les widgets
-    summary: Position et taille
-  - id: verification-export
-    label: Vérification export
-    summary: Relecture finale
----
 
 ## Choisir Les Widgets
 

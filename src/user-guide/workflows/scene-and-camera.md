@@ -1,35 +1,3 @@
----
-permalink: /user-guide/workflows/scene-and-camera/index.html
-title: Set Camera And Scene
-description: Choose scene mode, focus objects, adjust camera framing, and use orbit or panorama movement.
-hero:
-  video: false
-  className: guide-hero
-  badge: Main step
-  kicker: Camera
-  title: Direct the map scene.
-  lead: Choose the scene mode, focus route objects, and tune camera movement before capture.
-  highlights:
-    - icon: globe-pointer
-      label: Scene mode
-      variant: regular
-    - icon: camera
-      label: Focus and framing
-      variant: regular
-    - icon: arrows-rotate
-      label: Orbit and panorama
-      variant: regular
-sectionNav:
-  - id: choose-scene-mode
-    label: Scene mode
-    summary: 2D and 3D
-  - id: focus-the-target
-    label: Focus target
-    summary: Journey, track, POI, coordinate
-  - id: movement-controls
-    label: Movement controls
-    summary: Orbit and panorama
----
 
 ## Choose Scene Mode
 

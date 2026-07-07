@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/workflows/journey-reports/index.html
-title: Exporter Des Rapports De Parcours
-description: Exporter des rapports de parcours en PDF ou HTML ZIP avec métadonnées, statistiques et cartes.
-hero:
-  video: false
-  className: guide-hero
-  badge: Workflow
-  kicker: Rapports
-  title: Conditionner un parcours sous forme de rapport.
-  lead: Générez des exports documentaires quand le parcours a besoin de métadonnées, statistiques, POI et captures de carte.
-sectionNav:
-  - id: sorties-de-rapport
-    label: Sorties
-    summary: PDF et HTML ZIP
-  - id: contenu-du-rapport
-    label: Contenu
-    summary: Métadonnées et données
-  - id: checklist-export
-    label: Checklist
-    summary: Avant génération
----
 
 ## Sorties De Rapport
 

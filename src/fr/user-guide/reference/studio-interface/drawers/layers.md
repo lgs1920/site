@@ -1,28 +1,3 @@
----
-permalink: /fr/user-guide/reference/studio-interface/drawers/layers/
-title: Drawer Layers
-description: Gestion des sources cartographiques et de terrain pour la scène Studio.
-ui:
-  backUrl: /fr/user-guide/reference/studio-interface/#drawers
-  backLabel: Drawers
-  overview: >
-    Le drawer Layers gère les sources de données qui définissent la carte et le terrain visibles.
-  controls:
-    - label: Layer disclaimer
-      icon: bell-exclamation
-      type: Button
-      description: Ouvre le modal d'information de couche pour lire les avertissements spécifiques à la source.
-    - label: Layers and terrains list
-      icon: layer-group
-      type: List
-      description: Affiche les fonds de carte et terrains disponibles avec leur état d'accès et de visibilité.
-    - label: Source visibility
-      icon: eye
-      type: Switch
-      description: Active ou désactive une couche ou une source de terrain dans la scène courante.
-  notes:
-    - Utilisez ce drawer quand l'utilisateur doit changer la base cartographique ou relire des notes d'accès aux données.
----
 {% include "user-guide/reference/studio-interface/ui-detail.md" %}
 
 ## Flow

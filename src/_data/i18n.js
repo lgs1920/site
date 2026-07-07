@@ -7,21 +7,34 @@ const localeOptions = [
         code:   'en',
         label:  'English',
         short:  'EN',
+        ogLocale:'en_US',
         flagUrl:'/assets/flags/gb.svg',
     },
     {
         code:   'fr',
         label:  'Français',
         short:  'FR',
+        ogLocale:'fr_FR',
         flagUrl:'/assets/flags/fr.svg',
     },
 ]
 
 const localeLabels = Object.fromEntries(localeOptions.map((option) => [option.code, option.short]))
+const localeMeta = Object.fromEntries(localeOptions.map((option) => [option.code, option]))
+
+const site = {
+    en: {
+        tagline:    'Shape route data in the browser',
+        description:'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
+    },
+    fr: {
+        tagline:    'Façonner les parcours dans le navigateur',
+        description:'Édition de parcours locale pour trajets, traces, POI, vues caméra, rapports et captures média.',
+    },
+}
 
 const translatedPaths = new Set([
     '/',
-    '/logo-lab/',
     '/changelog/',
     '/licensing/',
     '/license/',
@@ -313,7 +326,7 @@ const ui = {
 
 const localizedPath = (locale, path) => locale === 'fr' ? `/fr${path}` : path
 
-const getLocaleFromUrl = (url = '') => url.startsWith('/fr/') ? 'fr' : defaultLocale
+const getLocaleFromUrl = (url = '') => (url === '/fr' || url.startsWith('/fr/')) ? 'fr' : defaultLocale
 
 const getCanonicalGuidePath = (url = '') => {
     if (url.startsWith('/fr/user-guide/')) {
@@ -468,6 +481,8 @@ export default {
     localeOptions,
     translatedPaths,
     localeLabels,
+    localeMeta,
+    site,
     ui,
     getLocaleFromUrl,
     getCanonicalGuidePath,

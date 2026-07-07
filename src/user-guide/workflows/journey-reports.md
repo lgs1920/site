@@ -1,38 +1,3 @@
----
-permalink: /user-guide/workflows/journey-reports/index.html
-title: Export Journey Reports
-description: Export journey reports as PDF documents or ZIP-packaged HTML reports with metadata, statistics, POIs, and map captures.
-hero:
-  video: false
-  className: guide-hero
-  badge: Workflow
-  kicker: Reports
-  title: Package a journey as a report.
-  lead: Generate document exports when a journey needs metadata, statistics, POIs, altitude data, and map captures.
-  highlights:
-    - icon: file-pdf
-      label: PDF report
-      variant: regular
-    - icon: file-zipper
-      label: HTML ZIP
-      variant: regular
-    - icon: map
-      label: Map captures
-      variant: regular
-sectionNav:
-  - id: report-outputs
-    label: Report outputs
-    summary: PDF and HTML ZIP
-  - id: report-content
-    label: Report content
-    summary: Metadata and route data
-  - id: map-captures
-    label: Map captures
-    summary: 2D overview and 3D views
-  - id: export-checklist
-    label: Export checklist
-    summary: Before generating
----
 
 ## Report Outputs
 

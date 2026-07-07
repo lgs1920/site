@@ -1,26 +1,3 @@
----
-permalink: /fr/user-guide/getting-started/first-steps/index.html
-title: Démarrer Une Session
-description: "Premières étapes dans LGS1920 Studio: ouvrir l'espace de travail et repérer les contrôles principaux."
-hero:
-  video: false
-  className: guide-hero
-  badge: Étape principale
-  kicker: Guide utilisateur
-  title: Démarrer une session Studio.
-  lead: Ouvrir Studio, identifier les zones principales et préparer la première session d'édition.
-sectionNav:
-  - id: ouvrir-studio
-    label: Ouvrir Studio
-    summary: Accéder à l'éditeur
-  - id: reperer-les-zones
-    label: Repérer l'espace
-    summary: Scène, panneaux, contrôles
-  - id: premiers-controles
-    label: Premiers contrôles
-    summary: Avant l'import
----
-
 ## Ouvrir Studio
 
 Utilisez le bouton de lancement dans le header du site ou ouvrez directement l'URL de Studio. L'application fonctionne dans le navigateur, garde l'état local par défaut et peut aussi synchroniser selon votre configuration navigateur.

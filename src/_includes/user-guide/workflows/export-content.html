@@ -1,0 +1,91 @@
+{% assign export_page = localizedPage.content %}
+
+<section id="{{ export_page.chooseOutput.id }}" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ export_page.chooseOutput.kicker }}</p>
+        <h2>{{ export_page.chooseOutput.title }}</h2>
+    </div>
+
+    <div class="export-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ export_page.chooseOutput.tableHeaders.need }}</th>
+                    <th>{{ export_page.chooseOutput.tableHeaders.use }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in export_page.chooseOutput.table %}
+                    <tr>
+                        <td>{{ row.need }}</td>
+                        <td>{{ row.use }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="{{ export_page.snapshotVideo.id }}" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ export_page.snapshotVideo.kicker }}</p>
+        <h2>{{ export_page.snapshotVideo.title }}</h2>
+    </div>
+
+    <ol class="workflow-list">
+        {% for step in export_page.snapshotVideo.steps %}
+            <li>
+                <span>0{{ forloop.index }}</span>
+                <div>
+                    <p>{{ step }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+
+    <p class="guide-followup">
+        {{ export_page.snapshotVideo.followupLabel }}
+        <a href="{{ export_page.snapshotVideo.linkUrl }}">{{ export_page.snapshotVideo.linkLabel }}</a>
+    </p>
+</section>
+
+<section id="{{ export_page.report.id }}" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ export_page.report.kicker }}</p>
+        <h2>{{ export_page.report.title }}</h2>
+    </div>
+
+    <ol class="workflow-list">
+        {% for step in export_page.report.steps %}
+            <li>
+                <span>0{{ forloop.index }}</span>
+                <div>
+                    <p>{{ step }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+
+    <p class="guide-followup">
+        {{ export_page.report.followupLabel }}
+        <a href="{{ export_page.report.linkUrl }}">{{ export_page.report.linkLabel }}</a>
+    </p>
+</section>
+
+<section id="{{ export_page.finalChecks.id }}" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ export_page.finalChecks.kicker }}</p>
+        <h2>{{ export_page.finalChecks.title }}</h2>
+    </div>
+
+    <ol class="workflow-list">
+        {% for step in export_page.finalChecks.steps %}
+            <li>
+                <span>0{{ forloop.index }}</span>
+                <div>
+                    <p>{{ step }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</section>

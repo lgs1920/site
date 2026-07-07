@@ -1,35 +1,3 @@
----
-permalink: /user-guide/workflows/points-of-interest/index.html
-title: Use POIs
-description: Add, edit, focus, and organize POIs for places, starts, stops, viewpoints, and route story moments.
-hero:
-  video: false
-  className: guide-hero
-  badge: Main step
-  kicker: POIs
-  title: Mark the important places.
-  lead: Use points of interest for locations, starts, stops, viewpoints, and narrative markers.
-  highlights:
-    - icon: map-location-dot
-      label: Place markers
-      variant: regular
-    - icon: bullseye
-      label: Camera targets
-      variant: regular
-    - icon: tags
-      label: Categories
-      variant: regular
-sectionNav:
-  - id: when-to-use-pois
-    label: When to use POIs
-    summary: Place-based moments
-  - id: edit-a-poi
-    label: Edit a POI
-    summary: Fields to check
-  - id: use-pois-with-camera
-    label: POIs and camera
-    summary: Focus and movement
----
 
 ## When To Use POIs
 

@@ -1,38 +1,3 @@
----
-permalink: /user-guide/workflows/use-map-layers/index.html
-title: Use Map Layers
-description: Change the map background, terrain, layer visibility, disclaimers, and protected source tokens.
-hero:
-  video: false
-  className: guide-hero
-  badge: Main step
-  kicker: Layers
-  title: Choose what the map shows.
-  lead: Use layers to change the map background, terrain, overlays, and protected source access.
-  highlights:
-    - icon: layer-group
-      label: Map sources
-      variant: regular
-    - icon: eye
-      label: Visibility
-      variant: regular
-    - icon: key
-      label: Tokens
-      variant: regular
-sectionNav:
-  - id: open-layers
-    label: Open layers
-    summary: Start from the Layers button
-  - id: change-layer
-    label: Change a layer
-    summary: Visibility and source choice
-  - id: source-access
-    label: Source access
-    summary: Disclaimers and tokens
-  - id: checks
-    label: Checks
-    summary: Before export
----
 
 ## Open Layers
 

@@ -1,10 +1,39 @@
 <!doctype html>
 <html lang="{{ locale | default: site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-brown" data-fa-kit-code="eb5c406148">
 <head>
+    {% assign meta_title = pageMeta.title | default: title | default: site.name %}
+    {% assign meta_description = pageMeta.description | default: description | default: localizedSite.description | default: site.description %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title | default: site.name | escape }}</title>
-    <meta name="description" content="{{ description | default: site.description | escape }}">
+    <title>{{ meta_title | escape }}</title>
+    <meta name="description" content="{{ meta_description | escape }}">
+    {% if pageMeta.canonicalUrl %}
+        <link rel="canonical" href="{{ pageMeta.canonicalUrl }}">
+        <meta property="og:url" content="{{ pageMeta.canonicalUrl }}">
+    {% endif %}
+    {% if pageMeta.alternates and pageMeta.alternates.size > 0 %}
+        {% for alternate in pageMeta.alternates %}
+            <link rel="alternate" hreflang="{{ alternate.locale }}" href="{{ alternate.url }}">
+        {% endfor %}
+        {% if pageMeta.xDefault %}
+            <link rel="alternate" hreflang="x-default" href="{{ pageMeta.xDefault }}">
+        {% endif %}
+    {% endif %}
+    <meta property="og:site_name" content="{{ site.name | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ meta_title | escape }}">
+    <meta property="og:description" content="{{ meta_description | escape }}">
+    {% if pageMeta.ogLocale %}
+        <meta property="og:locale" content="{{ pageMeta.ogLocale }}">
+    {% endif %}
+    {% if pageMeta.alternateOgLocales and pageMeta.alternateOgLocales.size > 0 %}
+        {% for alternate_og_locale in pageMeta.alternateOgLocales %}
+            <meta property="og:locale:alternate" content="{{ alternate_og_locale }}">
+        {% endfor %}
+    {% endif %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ meta_title | escape }}">
+    <meta name="twitter:description" content="{{ meta_description | escape }}">
     <script>
         (() => {
             const root = document.documentElement
