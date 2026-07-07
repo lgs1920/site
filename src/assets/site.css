@@ -564,30 +564,27 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 }
 
 .locale-menu-copy {
-    display: grid;
+    display: flex;
+    align-items: center;
     line-height: 1.1;
 }
 
-.locale-menu-copy strong,
-.locale-menu-copy small {
+.locale-menu-copy strong {
     color: inherit;
 }
 
-.locale-menu-copy small {
-    font-size: 0.72rem;
-}
-
 .locale-menu-copy strong {
-    font-size: 0.76rem;
+    font-size: 0.8rem;
 }
 
 .locale-flag {
     display: block;
-    width: 0.95rem;
-    height: 0.95rem;
-    border-radius: 0.1rem;
+    width: auto;
+    height: 0.88rem;
+    aspect-ratio: 3 / 2;
+    border-radius: 0;
     object-fit: cover;
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--wa-color-brand-60) 22%, transparent);
+    box-shadow: none;
 }
 
 .control-tooltip {

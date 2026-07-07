@@ -58,6 +58,9 @@ markdownLibrary.renderer.rules.heading_open = (tokens, index, options, env, self
 
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
+    eleventyConfig.addPassthroughCopy({
+        'src/assets/flags': 'assets/flags',
+    })
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
         viteOptions: {

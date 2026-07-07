@@ -67,7 +67,6 @@ layout: layouts/base.html
                     <wa-button id="locale-trigger" slot="trigger" class="locale-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseLanguage }}">
                         <span class="locale-trigger-copy">
                             <img class="locale-flag" src="{{ current_locale_option.flagUrl }}" alt="{{ current_locale_option.label }}" width="18" height="18">
-                            <span>{{ current_locale_option.short }}</span>
                         </span>
                     </wa-button>
 
@@ -78,7 +77,6 @@ layout: layouts/base.html
                                 <img class="locale-flag" src="{{ option.flagUrl }}" alt="{{ option.label }}" width="18" height="18">
                                 <span class="locale-menu-copy">
                                     <strong>{{ option.label }}</strong>
-                                    <small>{{ option.short }}</small>
                                 </span>
                             </a>
                         {% endfor %}
