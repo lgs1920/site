@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ locale | default: site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-brown" data-fa-kit-code="eb5c406148">
+<html lang="{{ locale | default: site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-yellow" data-fa-kit-code="eb5c406148">
 <head>
     {% assign meta_title = pageMeta.title | default: title | default: site.name %}
     {% assign meta_description = pageMeta.description | default: description | default: localizedSite.description | default: site.description %}
@@ -39,11 +39,11 @@
             const root = document.documentElement
             const theme = localStorage.getItem('theme')
             const seasonTheme = localStorage.getItem('seasonTheme')
-            const storedBrandColor = localStorage.getItem('brandColor') || 'brown'
+            const storedBrandColor = localStorage.getItem('brandColor') || 'yellow'
             const allowedBrandColors = new Set(['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray'])
             const allowedThemes = new Set(['light', 'dark', 'system'])
             const allowedSeasonThemes = new Set(['spring', 'summer', 'fall', 'winter'])
-            const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'brown'
+            const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'yellow'
             const selectedTheme = allowedThemes.has(theme)
                 ? theme
                 : (allowedSeasonThemes.has(theme) ? 'system' : 'system')
