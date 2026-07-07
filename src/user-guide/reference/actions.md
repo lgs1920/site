@@ -1,32 +1,3 @@
----
-permalink: /user-guide/reference/actions/index.html
-title: Actions
-description: User-facing reference for common LGS1920 Studio actions and their visible effect.
-hero:
-  video: false
-  className: guide-hero
-  badge: Reference
-  kicker: Actions
-  title: Match actions to outcomes.
-  lead: Use this page when you know what you want to do but need the right command.
-  highlights:
-    - icon: list-check
-      label: Common commands
-      variant: regular
-    - icon: bullseye
-      label: Focus and movement
-      variant: regular
-    - icon: download
-      label: Capture and export
-      variant: regular
-sectionNav:
-  - id: action-table
-    label: Action table
-    summary: Command and result
-  - id: action-safety
-    label: Action checks
-    summary: Before major changes
----
 
 ## Action Table
 

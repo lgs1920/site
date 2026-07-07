@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/workflows/scene-and-camera/index.html
-title: Régler La Caméra Et La Scène
-description: Choisir le mode de scène, focaliser les objets et ajuster le cadrage caméra.
-hero:
-  video: false
-  className: guide-hero
-  badge: Étape principale
-  kicker: Caméra
-  title: Diriger la scène cartographique.
-  lead: Choisissez le mode de scène, focalisez les objets du parcours et réglez les mouvements de caméra avant la capture.
-sectionNav:
-  - id: choisir-le-mode
-    label: Mode de scène
-    summary: 2D et 3D
-  - id: focaliser-la-cible
-    label: Focaliser la cible
-    summary: Parcours, trace, POI
-  - id: controles-de-mouvement
-    label: Contrôles de mouvement
-    summary: Orbit et panorama
----
 
 ## Choisir Le Mode
 

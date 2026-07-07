@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/getting-started/import-source-data/index.html
-title: Importer Un Parcours
-description: Charger des données GeoJSON, GPX ou KML dans LGS1920 Studio et vérifier le résultat.
-hero:
-  video: false
-  className: guide-hero
-  badge: Étape principale
-  kicker: Import
-  title: Importer un parcours dans Studio.
-  lead: Chargez des fichiers GeoJSON, GPX ou KML et confirmez que le parcours est prêt à être modifié.
-sectionNav:
-  - id: fichiers-pris-en-charge
-    label: Fichiers pris en charge
-    summary: Formats source
-  - id: checklist-import
-    label: Checklist d'import
-    summary: Ce qu'il faut vérifier
-  - id: apres-import
-    label: Après l'import
-    summary: Actions suivantes
----
 
 ## Fichiers Pris En Charge
 

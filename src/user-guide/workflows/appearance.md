@@ -1,38 +1,3 @@
----
-permalink: /user-guide/workflows/appearance/index.html
-title: Change Colors And Appearance
-description: Change theme mode, brand color, seasonal palette, and interface preferences.
-hero:
-  video: false
-  className: guide-hero
-  badge: Main step
-  kicker: Appearance
-  title: Adjust the look of the workspace.
-  lead: Use appearance settings when the interface, brand color, or theme mode needs to match the current work.
-  highlights:
-    - icon: palette
-      label: Brand color
-      variant: regular
-    - icon: sun-bright
-      label: Theme mode
-      variant: regular
-    - icon: paintbrush-pencil
-      label: Interface settings
-      variant: regular
-sectionNav:
-  - id: open-settings
-    label: Open settings
-    summary: Start from the Settings button
-  - id: change-theme
-    label: Change theme
-    summary: Light, dark, system
-  - id: change-brand
-    label: Change brand
-    summary: Brand and seasonal color
-  - id: checks
-    label: Checks
-    summary: Readability and export
----
 
 ## Open Settings
 

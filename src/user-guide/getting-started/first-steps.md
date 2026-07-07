@@ -1,36 +1,3 @@
----
-permalink: /user-guide/getting-started/first-steps/index.html
-title: Start A Session
-description: "First user steps in LGS1920 Studio: open the workspace, identify the scene, panels, and primary controls."
-hero:
-  video: false
-  className: guide-hero
-  badge: Main step
-  kicker: User guide
-  title: Start a Studio session.
-  lead: Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.
-  highlights:
-    - icon: circle-play
-      label: First launch
-      variant: regular
-    - icon: table-layout
-      label: Workspace areas
-      variant: regular
-    - icon: bars
-      label: Side panels
-      variant: regular
-sectionNav:
-  - id: open-the-studio
-    label: Open the Studio
-    summary: Access the editor
-  - id: identify-the-workspace
-    label: Workspace areas
-    summary: Scene, panels, controls
-  - id: first-checks
-    label: First checks
-    summary: Before importing data
----
-
 ## Open The Studio
 
 Use the launch button from the site header or open the hosted Studio URL directly. The Studio runs in the browser, keeps working state local by default, and can sync in real time when your browser setup supports it.

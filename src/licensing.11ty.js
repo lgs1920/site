@@ -1,71 +1,21 @@
 import { legalDocs, renderLegalSection } from './_lib/legal-docs.js'
+import pageTypes, { getGeneratedPageData } from './_data/page-types.js'
+
+const locale = 'en'
+const pageContent = pageTypes.legal.licensing[locale]
 
 export default class {
     data() {
-        return {
-            layout:      'layouts/page.html',
-            permalink:   '/licensing/index.html',
-            title:       'Licensing',
-            description: 'Public license and legal references for LGS1920 Studio.',
-            pageClass:   'legal-page',
-            hero:        {
-                video:      false,
-                badge:      'Legal',
-                kicker:     'Licensing',
-                title:      'Understand the public license and legal references.',
-                lead:       'This page mirrors the licensing summary maintained in the main Studio repository.',
-                highlights: [
-                    {
-                        label:  'PolyForm Noncommercial 1.0.0',
-                        icon:   'scale-balanced',
-                        variant:'regular',
-                    },
-                    {
-                        label:  'Commercial licensing available',
-                        icon:   'briefcase',
-                        variant:'regular',
-                    },
-                    {
-                        label:  'Canonical wording sourced from studio',
-                        icon:   'file-lines',
-                        variant:'regular',
-                    },
-                ],
-            },
-            sectionNav:  legalDocs.licensing.sectionNav,
-            pageCta:     {
-                eyebrow:'Usage terms',
-                title:  'Need other usage terms?',
-                body:   'Usage-term questions and contribution questions are handled directly by LGS1920.',
-                actions:[
-                    {
-                        label: 'Contact',
-                        href:  'mailto:contact@lgs1920.fr',
-                        variant:'brand',
-                        icon:  {
-                            name:   'envelope',
-                            variant:'regular',
-                        },
-                    },
-                    {
-                        label:     'Open Studio repo',
-                        href:      'https://github.com/lgs1920/studio',
-                        appearance:'outlined',
-                        external:  true,
-                        icon:      {
-                            family:'brands',
-                            name:  'github',
-                        },
-                    },
-                ],
-            },
-        }
+        return getGeneratedPageData(pageTypes.legal.licensing, locale, {
+            sectionNav:legalDocs.licensing.sectionNav,
+        })
     }
 
     render() {
         return renderLegalSection({
             document: legalDocs.licensing,
-            intro:    'The legal summary below is pulled at build time from the main Studio repository so the public site stays aligned with the source documentation.',
+            intro:    pageContent.intro,
+            labels:   pageContent.renderLabels,
         })
     }
 }

@@ -1,22 +1,3 @@
----
-permalink: /fr/user-guide/reference/actions/index.html
-title: Actions
-description: Référence utilisateur des actions fréquentes de LGS1920 Studio et de leur effet visible.
-hero:
-  video: false
-  className: guide-hero
-  badge: Référence
-  kicker: Actions
-  title: Relier les actions à leurs résultats.
-  lead: Utilisez cette page quand vous savez ce que vous voulez faire mais qu'il vous manque la bonne commande.
-sectionNav:
-  - id: tableau-des-actions
-    label: Tableau des actions
-    summary: Commande et résultat
-  - id: verifications
-    label: Vérifications
-    summary: Avant un changement important
----
 
 ## Tableau Des Actions
 

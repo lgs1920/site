@@ -6,6 +6,10 @@ layout: layouts/base.html
 {% assign chrome_legal_links = localizedLegalLinks | default: site.legalLinks %}
 {% assign chrome_guide_sections = localizedUserGuideSections | default: site.userGuideSections %}
 {% assign labels = uiLabels | default: site.ui %}
+{% assign page_hero = localizedPage.hero | default: hero %}
+{% assign page_section_nav = localizedPage.sectionNav | default: sectionNav %}
+{% assign page_cta = localizedPage.pageCta | default: pageCta %}
+{% assign page_class_value = localizedPage.pageClass | default: pageClass %}
 <wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
     <script>
         (() => {
@@ -28,8 +32,8 @@ layout: layouts/base.html
 
     <header slot="header" class="topbar">
         <div class="brand-lockup">
-            <p class="brand-kicker">{{ site.tagline }}</p>
-            <a id="site-home-link" class="brand-name" href="/" aria-label="{{ site.name }}">
+            <p class="brand-kicker">{{ localizedSite.tagline | default: site.tagline }}</p>
+            <a id="site-home-link" class="brand-name" href="{{ localizedHomeUrl | default: '/' }}" aria-label="{{ site.name }}">
                 <span class="brand-logo-mark brand-logo-image" aria-hidden="true"></span>
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
@@ -247,10 +251,10 @@ layout: layouts/base.html
             </section>
         {% endif %}
 
-        {% if sectionNav and sectionNav.size > 0 %}
+        {% if page_section_nav and page_section_nav.size > 0 %}
             <section class="drawer-group">
                 <p class="drawer-label">{{ labels.onThisPage }}</p>
-                {% for item in sectionNav %}
+                {% for item in page_section_nav %}
                     <a class="drawer-link drawer-link-muted" href="#{{ item.id }}">
                         <span>{{ item.label }}</span>
                         {% if item.summary %}
@@ -262,9 +266,9 @@ layout: layouts/base.html
         {% endif %}
     </nav>
 
-    <section slot="main-header" class="page-hero{% unless hero.video == false %} hero-has-video{% else %} hero-no-video{% endunless %}{% if hero.className %} {{ hero.className }}{% endif %}">
+    <section slot="main-header" class="page-hero{% unless page_hero.video == false %} hero-has-video{% else %} hero-no-video{% endunless %}{% if page_hero.className %} {{ page_hero.className }}{% endif %}">
         <div class="hero-media" aria-hidden="true">
-            {% unless hero.video == false %}
+            {% unless page_hero.video == false %}
                 <video class="hero-video"
                        data-hero-video
                        muted
@@ -280,26 +284,26 @@ layout: layouts/base.html
 
         <div class="hero-shell">
             <div class="hero-copy">
-                {% if hero.badge %}
-                    <wa-badge variant="brand" appearance="filled">{{ hero.badge }}</wa-badge>
+                {% if page_hero.badge %}
+                    <wa-badge variant="brand" appearance="filled">{{ page_hero.badge }}</wa-badge>
                 {% endif %}
 
-                {% if hero.kicker %}
-                    <p class="hero-kicker">{{ hero.kicker }}</p>
+                {% if page_hero.kicker %}
+                    <p class="hero-kicker">{{ page_hero.kicker }}</p>
                 {% endif %}
 
-                <h1>{{ hero.title }}</h1>
+                <h1>{{ page_hero.title }}</h1>
 
-                {% if hero.lead %}
-                    <p class="hero-lead">{{ hero.lead }}</p>
+                {% if page_hero.lead %}
+                    <p class="hero-lead">{{ page_hero.lead }}</p>
                 {% endif %}
-                {% if hero.note %}
-                    <p class="hero-note">{{ hero.note }}</p>
+                {% if page_hero.note %}
+                    <p class="hero-note">{{ page_hero.note }}</p>
                 {% endif %}
 
-                {% if hero.actions and hero.actions.size > 0 %}
+                {% if page_hero.actions and page_hero.actions.size > 0 %}
                     <div class="hero-actions">
-                        {% for action in hero.actions %}
+                        {% for action in page_hero.actions %}
                             <wa-button class="hero-button{% if action.className %} {{ action.className }}{% endif %}" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
                                 {% if action.icon %}
                                     <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
@@ -310,9 +314,9 @@ layout: layouts/base.html
                     </div>
                 {% endif %}
 
-                {% if hero.highlights and hero.highlights.size > 0 %}
+                {% if page_hero.highlights and page_hero.highlights.size > 0 %}
                     <ul class="hero-highlights" aria-label="Product highlights">
-                        {% for item in hero.highlights %}
+                        {% for item in page_hero.highlights %}
                             <li>
                                 <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.variant %} variant="{{ item.variant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
                                 <span>{{ item.label }}</span>
@@ -322,19 +326,19 @@ layout: layouts/base.html
                 {% endif %}
             </div>
 
-            {% if hero.panel %}
+            {% if page_hero.panel %}
                 <aside class="hero-panel">
-                    {% if hero.panel.eyebrow %}
-                        <p class="panel-eyebrow">{{ hero.panel.eyebrow }}</p>
+                    {% if page_hero.panel.eyebrow %}
+                        <p class="panel-eyebrow">{{ page_hero.panel.eyebrow }}</p>
                     {% endif %}
 
-                    {% if hero.panel.title %}
-                        <h2 class="hero-panel-title">{{ hero.panel.title }}</h2>
+                    {% if page_hero.panel.title %}
+                        <h2 class="hero-panel-title">{{ page_hero.panel.title }}</h2>
                     {% endif %}
 
-                    {% if hero.panel.items and hero.panel.items.size > 0 %}
+                    {% if page_hero.panel.items and page_hero.panel.items.size > 0 %}
                         <div class="hero-metric-list">
-                            {% for item in hero.panel.items %}
+                            {% for item in page_hero.panel.items %}
                                 <article>
                                     <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
                                     <div>
@@ -350,11 +354,11 @@ layout: layouts/base.html
         </div>
     </section>
 
-    <main id="content" class="page-content{% if pageClass %} {{ pageClass }}{% endif %}">
+    <main id="content" class="page-content{% if page_class_value %} {{ page_class_value }}{% endif %}">
         {% if guideContext %}
             <nav class="guide-breadcrumb-shell" aria-label="{{ labels.breadcrumb }}">
                 <wa-breadcrumb label="{{ labels.userGuideBreadcrumb }}">
-                    <wa-breadcrumb-item href="/">
+                    <wa-breadcrumb-item href="{{ localizedHomeUrl | default: '/' }}">
                         <wa-icon slot="start" variant="regular" name="house"></wa-icon>
                         {{ labels.home }}
                     </wa-breadcrumb-item>
@@ -428,20 +432,20 @@ layout: layouts/base.html
         {% endif %}
     </main>
 
-    {% if pageCta %}
+    {% if page_cta %}
         <section slot="main-footer" class="page-cta">
             <wa-card class="page-cta-card">
                 <div class="page-cta-copy">
-                    {% if pageCta.eyebrow %}
-                        <p class="section-kicker">{{ pageCta.eyebrow }}</p>
+                    {% if page_cta.eyebrow %}
+                        <p class="section-kicker">{{ page_cta.eyebrow }}</p>
                     {% endif %}
-                    <h2>{{ pageCta.title }}</h2>
-                    <p>{{ pageCta.body }}</p>
+                    <h2>{{ page_cta.title }}</h2>
+                    <p>{{ page_cta.body }}</p>
                 </div>
 
-                {% if pageCta.actions and pageCta.actions.size > 0 %}
+                {% if page_cta.actions and page_cta.actions.size > 0 %}
                     <div class="page-cta-actions">
-                        {% for action in pageCta.actions %}
+                        {% for action in page_cta.actions %}
                             <wa-button class="cta-button" href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
                                 {% if action.icon %}
                                     <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>

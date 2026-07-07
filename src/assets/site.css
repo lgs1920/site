@@ -5,6 +5,10 @@
     --hero-glow-b: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
     --hero-glow-c: color-mix(in oklab, var(--wa-color-brand-95) 14%, transparent);
     --grid-line-color: color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent);
+    --theme-dark-tint: color-mix(in oklab, var(--wa-color-brand-95) 18%, var(--wa-color-brand-60) 82%);
+    --theme-dark-tint-strong: color-mix(in oklab, var(--wa-color-brand-95) 26%, var(--wa-color-brand-60) 74%);
+    --theme-dark-glow: color-mix(in oklab, var(--wa-color-brand-70) 22%, transparent);
+    --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-brand-95) 18%, transparent);
     --lgs-button-plain-color: var(--wa-color-brand);
     --lgs-button-plain-hover-color: var(--wa-color-brand);
     --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
@@ -13,7 +17,7 @@
     --lgs-accent-border-color: var(--wa-color-brand-50);
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
-    --wa-panel-border-radius: var(--wa-border-radius-l);
+    --wa-panel-border-radius: var(--wa-border-radius-m);
     --hero-ink: #fff;
     --hero-muted: #fff;
 }
@@ -47,31 +51,27 @@ html {
 }
 
 html.wa-dark body {
-    --page-bg: color-mix(in oklab, var(--wa-color-green-90) 14%, var(--wa-color-neutral-10) 86%);
+    --page-bg: color-mix(in oklab, var(--theme-dark-tint) 82%, var(--wa-color-neutral-10) 18%);
     --page-ink: var(--wa-color-neutral-95);
-    --page-muted: var(--wa-color-neutral-80);
-    --panel-bg: linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--wa-color-green-90) 11%, var(--wa-color-neutral-20) 89%),
-        color-mix(in oklab, var(--wa-color-green-80) 8%, var(--wa-color-neutral-10) 92%)
-    );
-    --panel-stroke: color-mix(in oklab, var(--wa-color-green-70) 14%, transparent);
-    --surface-soft: color-mix(in oklab, var(--wa-color-green-90) 20%, transparent);
-    --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 16%, transparent);
-    --shadow-soft: 0 24px 80px color-mix(in oklab, black 86%, var(--wa-color-green-80) 14%);
-    --shadow-lift: 0 30px 96px color-mix(in oklab, black 90%, var(--wa-color-green-70) 10%);
-    --header-bg: color-mix(in oklab, var(--wa-color-green-90) 18%, var(--wa-color-neutral-10) 82%);
-    --header-stroke: color-mix(in oklab, var(--wa-color-green-70) 16%, transparent);
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 36%, var(--theme-dark-tint) 64%);
+    --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 62%, var(--wa-color-neutral-20) 38%);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
+    --header-bg: color-mix(in oklab, var(--theme-dark-tint) 64%, var(--wa-color-neutral-10) 36%);
+    --header-stroke: color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: color-mix(in oklab, var(--wa-color-green-90) 16%, transparent);
+    --hero-card-bg: color-mix(in oklab, var(--theme-dark-tint) 54%, var(--wa-color-neutral-20) 46%);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--wa-color-green-70) 14%, transparent), transparent 24rem),
-        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--wa-color-green-60) 10%, transparent), transparent 26rem),
-        radial-gradient(circle at 50% 100%, color-mix(in oklab, var(--wa-color-green-40) 8%, transparent), transparent 30rem),
+        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--theme-dark-glow) 100%, transparent), transparent 24rem),
+        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--theme-dark-glow-soft) 100%, transparent), transparent 26rem),
+        radial-gradient(circle at 50% 100%, color-mix(in oklab, var(--theme-dark-tint-strong) 72%, transparent), transparent 30rem),
         linear-gradient(
             180deg,
-            color-mix(in oklab, var(--wa-color-green-90) 10%, var(--wa-color-neutral-20) 90%) 0%,
-            color-mix(in oklab, var(--wa-color-green-70) 7%, var(--wa-color-neutral-10) 93%) 100%
+            color-mix(in oklab, var(--theme-dark-tint) 72%, var(--wa-color-neutral-20) 28%) 0%,
+            color-mix(in oklab, var(--theme-dark-tint) 64%, var(--wa-color-neutral-10) 36%) 100%
         );
     --brand-logo-filter: brightness(0) saturate(100%) invert(58%) sepia(13%) saturate(780%) hue-rotate(353deg) brightness(109%) contrast(88%);
 }
@@ -85,27 +85,23 @@ html.wa-light body {
     --lgs-accent-color: var(--lgs-button-plain-color);
     --lgs-accent-strong-color: var(--lgs-button-plain-color);
     --lgs-accent-border-color: var(--lgs-button-plain-color);
-    --panel-bg: linear-gradient(
-        180deg,
-        color-mix(in oklab, white 82%, var(--wa-color-brand-95) 18%),
-        color-mix(in oklab, var(--wa-color-surface-raised) 70%, var(--wa-color-brand-95) 30%)
-    );
+    --panel-bg: color-mix(in oklab, white 98%, var(--wa-color-brand-95) 2%);
     --panel-stroke: color-mix(in oklab, var(--wa-color-brand-60) 18%, transparent);
-    --surface-soft: color-mix(in oklab, var(--wa-color-surface-default) 60%, transparent);
-    --surface-strong: color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent);
-    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
-    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-brand-30) 16%, transparent);
-    --header-bg: rgb(255 255 255 / 0.48);
+    --surface-soft: color-mix(in oklab, white 96%, var(--wa-color-brand-95) 4%);
+    --surface-strong: color-mix(in oklab, white 94%, var(--wa-color-brand-95) 6%);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-brand-30) 14%, transparent);
+    --header-bg: rgb(255 255 255 / 0.64);
     --header-stroke: color-mix(in oklab, var(--wa-color-brand-60) 20%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 88%, var(--wa-color-brand-20) 12%);
-    --hero-card-bg: color-mix(in oklab, white 76%, var(--wa-color-brand-95) 24%);
+    --hero-card-bg: color-mix(in oklab, white 96%, var(--wa-color-brand-95) 4%);
     background:
-        radial-gradient(circle at 10% 10%, var(--hero-glow-a), transparent 20rem),
-        radial-gradient(circle at 90% 0%, var(--hero-glow-b), transparent 22rem),
+        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--hero-glow-a) 72%, transparent), transparent 20rem),
+        radial-gradient(circle at 90% 0%, color-mix(in oklab, var(--hero-glow-b) 72%, transparent), transparent 22rem),
         linear-gradient(
             180deg,
-            color-mix(in oklab, white 80%, var(--wa-color-brand-95) 20%) 0%,
-            color-mix(in oklab, white 64%, var(--wa-color-brand-95) 36%) 100%
+            color-mix(in oklab, white 90%, var(--wa-color-brand-95) 10%) 0%,
+            color-mix(in oklab, white 84%, var(--wa-color-brand-95) 16%) 100%
         );
 }
 
@@ -116,8 +112,8 @@ html.wa-light[data-season-theme='spring'] body {
     --panel-stroke: color-mix(in oklab, #7bf1a8 38%, transparent);
     --surface-soft: color-mix(in oklab, #7bf1a8 40%, transparent);
     --surface-strong: color-mix(in oklab, #7bf1a8 30%, transparent);
-    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-green-30) 12%, transparent);
-    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-green-30) 20%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-green-30) 14%, transparent);
     --header-bg: color-mix(in oklab, white 46%, #7bf1a8 54%);
     --header-stroke: color-mix(in oklab, #7bf1a8 38%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-green-20) 16%);
@@ -133,26 +129,30 @@ html.wa-light[data-season-theme='spring'] body {
 }
 
 html.wa-dark[data-season-theme='spring'] body {
-    --page-bg: color-mix(in oklab, #7bf1a8 20%, var(--wa-color-neutral-10) 80%);
-    --page-muted: var(--wa-color-neutral-80);
-    --panel-bg: linear-gradient(180deg, color-mix(in oklab, #7bf1a8 18%, var(--wa-color-neutral-20) 82%), color-mix(in oklab, #7bf1a8 12%, var(--wa-color-neutral-10) 88%));
-    --panel-stroke: color-mix(in oklab, #7bf1a8 28%, transparent);
-    --surface-soft: color-mix(in oklab, #7bf1a8 30%, transparent);
-    --surface-strong: color-mix(in oklab, #7bf1a8 26%, transparent);
-    --shadow-soft: 0 24px 80px color-mix(in oklab, black 82%, #7bf1a8 18%);
-    --shadow-lift: 0 30px 96px color-mix(in oklab, black 86%, #7bf1a8 14%);
-    --header-bg: color-mix(in oklab, #7bf1a8 26%, var(--wa-color-neutral-10) 74%);
-    --header-stroke: color-mix(in oklab, #7bf1a8 30%, transparent);
+    --theme-dark-tint: color-mix(in oklab, #7bf1a8 78%, var(--wa-color-neutral-10) 22%);
+    --theme-dark-tint-strong: color-mix(in oklab, #7bf1a8 88%, var(--wa-color-neutral-10) 12%);
+    --theme-dark-glow: color-mix(in oklab, #7bf1a8 68%, transparent);
+    --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-yellow-60) 42%, transparent);
+    --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
+    --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --shadow-lift: 0 5px 15px color-mix(in oklab, var(--theme-dark-tint) 18%, transparent);
+    --header-bg: color-mix(in oklab, var(--theme-dark-tint) 44%, var(--wa-color-neutral-10) 56%);
+    --header-stroke: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: color-mix(in oklab, #7bf1a8 24%, transparent);
-    --hero-glow-a: color-mix(in oklab, #7bf1a8 28%, transparent);
-    --hero-glow-b: color-mix(in oklab, var(--wa-color-yellow-60) 18%, transparent);
-    --hero-glow-c: color-mix(in oklab, #7bf1a8 20%, transparent);
-    --grid-line-color: color-mix(in oklab, #7bf1a8 18%, transparent);
+    --hero-card-bg: color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-20) 76%);
+    --hero-glow-a: color-mix(in oklab, var(--theme-dark-tint) 42%, transparent);
+    --hero-glow-b: color-mix(in oklab, var(--wa-color-yellow-60) 24%, transparent);
+    --hero-glow-c: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --grid-line-color: color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, #7bf1a8 28%, transparent), transparent 24rem),
-        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--wa-color-yellow-60) 14%, transparent), transparent 26rem),
-        linear-gradient(180deg, color-mix(in oklab, #7bf1a8 18%, var(--wa-color-neutral-20) 82%) 0%, color-mix(in oklab, #7bf1a8 12%, var(--wa-color-neutral-10) 88%) 100%);
+        radial-gradient(circle at 10% 10%, var(--theme-dark-glow), transparent 24rem),
+        radial-gradient(circle at 90% 10%, var(--theme-dark-glow-soft), transparent 26rem),
+        linear-gradient(180deg, color-mix(in oklab, var(--theme-dark-tint) 34%, var(--wa-color-neutral-20) 66%) 0%, color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-10) 76%) 100%);
 }
 
 html.wa-light[data-season-theme='summer'] body {
@@ -162,8 +162,8 @@ html.wa-light[data-season-theme='summer'] body {
     --panel-stroke: color-mix(in oklab, var(--wa-color-green-60) 38%, transparent);
     --surface-soft: color-mix(in oklab, var(--wa-color-green-60) 38%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 28%, transparent);
-    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-green-30) 12%, transparent);
-    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-green-30) 18%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-green-30) 14%, transparent);
     --header-bg: color-mix(in oklab, white 44%, var(--wa-color-green-60) 56%);
     --header-stroke: color-mix(in oklab, var(--wa-color-green-60) 36%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-green-20) 16%);
@@ -179,26 +179,30 @@ html.wa-light[data-season-theme='summer'] body {
 }
 
 html.wa-dark[data-season-theme='summer'] body {
-    --page-bg: color-mix(in oklab, var(--wa-color-green-60) 18%, var(--wa-color-neutral-10) 82%);
-    --page-muted: var(--wa-color-neutral-80);
-    --panel-bg: linear-gradient(180deg, color-mix(in oklab, var(--wa-color-green-60) 16%, var(--wa-color-neutral-20) 84%), color-mix(in oklab, var(--wa-color-green-60) 10%, var(--wa-color-neutral-10) 90%));
-    --panel-stroke: color-mix(in oklab, var(--wa-color-green-60) 28%, transparent);
-    --surface-soft: color-mix(in oklab, var(--wa-color-green-60) 30%, transparent);
-    --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 24%, transparent);
-    --shadow-soft: 0 24px 80px color-mix(in oklab, black 82%, var(--wa-color-green-60) 18%);
-    --shadow-lift: 0 30px 96px color-mix(in oklab, black 86%, var(--wa-color-green-70) 14%);
-    --header-bg: color-mix(in oklab, var(--wa-color-green-60) 24%, var(--wa-color-neutral-10) 76%);
-    --header-stroke: color-mix(in oklab, var(--wa-color-green-60) 30%, transparent);
+    --theme-dark-tint: color-mix(in oklab, var(--wa-color-green-60) 78%, var(--wa-color-neutral-10) 22%);
+    --theme-dark-tint-strong: color-mix(in oklab, var(--wa-color-green-70) 88%, var(--wa-color-neutral-10) 12%);
+    --theme-dark-glow: color-mix(in oklab, var(--wa-color-green-60) 68%, transparent);
+    --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-yellow-60) 42%, transparent);
+    --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
+    --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--theme-dark-tint) 36%, transparent);
+    --header-bg: color-mix(in oklab, var(--theme-dark-tint) 44%, var(--wa-color-neutral-10) 56%);
+    --header-stroke: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: color-mix(in oklab, var(--wa-color-green-60) 22%, transparent);
-    --hero-glow-a: color-mix(in oklab, var(--wa-color-green-60) 26%, transparent);
-    --hero-glow-b: color-mix(in oklab, var(--wa-color-yellow-60) 16%, transparent);
-    --hero-glow-c: color-mix(in oklab, var(--wa-color-green-40) 14%, transparent);
-    --grid-line-color: color-mix(in oklab, var(--wa-color-green-60) 18%, transparent);
+    --hero-card-bg: color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-20) 76%);
+    --hero-glow-a: color-mix(in oklab, var(--theme-dark-tint) 42%, transparent);
+    --hero-glow-b: color-mix(in oklab, var(--wa-color-yellow-60) 24%, transparent);
+    --hero-glow-c: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --grid-line-color: color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--wa-color-green-60) 24%, transparent), transparent 24rem),
-        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--wa-color-yellow-60) 14%, transparent), transparent 26rem),
-        linear-gradient(180deg, color-mix(in oklab, var(--wa-color-green-60) 16%, var(--wa-color-neutral-20) 84%) 0%, color-mix(in oklab, var(--wa-color-green-60) 10%, var(--wa-color-neutral-10) 90%) 100%);
+        radial-gradient(circle at 10% 10%, var(--theme-dark-glow), transparent 24rem),
+        radial-gradient(circle at 90% 10%, var(--theme-dark-glow-soft), transparent 26rem),
+        linear-gradient(180deg, color-mix(in oklab, var(--theme-dark-tint) 34%, var(--wa-color-neutral-20) 66%) 0%, color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-10) 76%) 100%);
 }
 
 html.wa-light[data-season-theme='fall'] body {
@@ -208,8 +212,8 @@ html.wa-light[data-season-theme='fall'] body {
     --panel-stroke: color-mix(in oklab, #c56e12 38%, transparent);
     --surface-soft: color-mix(in oklab, #c56e12 38%, transparent);
     --surface-strong: color-mix(in oklab, #c56e12 30%, transparent);
-    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-orange-30) 12%, transparent);
-    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-orange-30) 18%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-orange-30) 10%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-orange-30) 14%, transparent);
     --header-bg: color-mix(in oklab, white 44%, #c56e12 56%);
     --header-stroke: color-mix(in oklab, #c56e12 36%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-orange-20) 16%);
@@ -225,26 +229,30 @@ html.wa-light[data-season-theme='fall'] body {
 }
 
 html.wa-dark[data-season-theme='fall'] body {
-    --page-bg: color-mix(in oklab, #c56e12 18%, var(--wa-color-neutral-10) 82%);
-    --page-muted: var(--wa-color-neutral-80);
-    --panel-bg: linear-gradient(180deg, color-mix(in oklab, #c56e12 16%, var(--wa-color-neutral-20) 84%), color-mix(in oklab, #c56e12 10%, var(--wa-color-neutral-10) 90%));
-    --panel-stroke: color-mix(in oklab, #c56e12 28%, transparent);
-    --surface-soft: color-mix(in oklab, #c56e12 30%, transparent);
-    --surface-strong: color-mix(in oklab, #c56e12 24%, transparent);
-    --shadow-soft: 0 24px 80px color-mix(in oklab, black 82%, #c56e12 18%);
-    --shadow-lift: 0 30px 96px color-mix(in oklab, black 86%, #c56e12 14%);
-    --header-bg: color-mix(in oklab, #c56e12 24%, var(--wa-color-neutral-10) 76%);
-    --header-stroke: color-mix(in oklab, #c56e12 30%, transparent);
+    --theme-dark-tint: color-mix(in oklab, #c56e12 78%, var(--wa-color-neutral-10) 22%);
+    --theme-dark-tint-strong: color-mix(in oklab, #c56e12 88%, var(--wa-color-neutral-10) 12%);
+    --theme-dark-glow: color-mix(in oklab, #c56e12 68%, transparent);
+    --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-red-60) 42%, transparent);
+    --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
+    --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--theme-dark-tint) 36%, transparent);
+    --header-bg: color-mix(in oklab, var(--theme-dark-tint) 44%, var(--wa-color-neutral-10) 56%);
+    --header-stroke: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: color-mix(in oklab, #c56e12 22%, transparent);
-    --hero-glow-a: color-mix(in oklab, #c56e12 26%, transparent);
-    --hero-glow-b: color-mix(in oklab, var(--wa-color-red-60) 18%, transparent);
-    --hero-glow-c: color-mix(in oklab, #c56e12 20%, transparent);
-    --grid-line-color: color-mix(in oklab, #c56e12 18%, transparent);
+    --hero-card-bg: color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-20) 76%);
+    --hero-glow-a: color-mix(in oklab, var(--theme-dark-tint) 42%, transparent);
+    --hero-glow-b: color-mix(in oklab, var(--wa-color-red-60) 24%, transparent);
+    --hero-glow-c: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --grid-line-color: color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, #c56e12 24%, transparent), transparent 24rem),
-        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--wa-color-red-60) 18%, transparent), transparent 26rem),
-        linear-gradient(180deg, color-mix(in oklab, #c56e12 16%, var(--wa-color-neutral-20) 84%) 0%, color-mix(in oklab, #c56e12 10%, var(--wa-color-neutral-10) 90%) 100%);
+        radial-gradient(circle at 10% 10%, var(--theme-dark-glow), transparent 24rem),
+        radial-gradient(circle at 90% 10%, var(--theme-dark-glow-soft), transparent 26rem),
+        linear-gradient(180deg, color-mix(in oklab, var(--theme-dark-tint) 34%, var(--wa-color-neutral-20) 66%) 0%, color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-10) 76%) 100%);
 }
 
 html.wa-light[data-season-theme='winter'] body {
@@ -254,8 +262,8 @@ html.wa-light[data-season-theme='winter'] body {
     --panel-stroke: color-mix(in oklab, #dbeafe 40%, transparent);
     --surface-soft: color-mix(in oklab, #dbeafe 40%, transparent);
     --surface-strong: color-mix(in oklab, #dbeafe 28%, transparent);
-    --shadow-soft: 0 24px 60px color-mix(in oklab, var(--wa-color-blue-30) 12%, transparent);
-    --shadow-lift: 0 28px 72px color-mix(in oklab, var(--wa-color-blue-30) 18%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-blue-30) 10%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-blue-30) 14%, transparent);
     --header-bg: color-mix(in oklab, white 46%, #dbeafe 54%);
     --header-stroke: color-mix(in oklab, #dbeafe 40%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-blue-20) 16%);
@@ -271,26 +279,30 @@ html.wa-light[data-season-theme='winter'] body {
 }
 
 html.wa-dark[data-season-theme='winter'] body {
-    --page-bg: color-mix(in oklab, #dbeafe 18%, var(--wa-color-neutral-10) 82%);
-    --page-muted: var(--wa-color-neutral-80);
-    --panel-bg: linear-gradient(180deg, color-mix(in oklab, #dbeafe 16%, var(--wa-color-neutral-20) 84%), color-mix(in oklab, #dbeafe 10%, var(--wa-color-neutral-10) 90%));
-    --panel-stroke: color-mix(in oklab, #dbeafe 28%, transparent);
-    --surface-soft: color-mix(in oklab, #dbeafe 30%, transparent);
-    --surface-strong: color-mix(in oklab, #dbeafe 24%, transparent);
-    --shadow-soft: 0 24px 80px color-mix(in oklab, black 82%, #dbeafe 18%);
-    --shadow-lift: 0 30px 96px color-mix(in oklab, black 86%, #dbeafe 14%);
-    --header-bg: color-mix(in oklab, #dbeafe 24%, var(--wa-color-neutral-10) 76%);
-    --header-stroke: color-mix(in oklab, #dbeafe 30%, transparent);
+    --theme-dark-tint: color-mix(in oklab, #dbeafe 78%, var(--wa-color-neutral-10) 22%);
+    --theme-dark-tint-strong: color-mix(in oklab, #dbeafe 88%, var(--wa-color-neutral-10) 12%);
+    --theme-dark-glow: color-mix(in oklab, #dbeafe 68%, transparent);
+    --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-blue-60) 42%, transparent);
+    --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
+    --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
+    --shadow-lift: 0 3px 10px color-mix(in oklab, var(--theme-dark-tint) 36%, transparent);
+    --header-bg: color-mix(in oklab, var(--theme-dark-tint) 44%, var(--wa-color-neutral-10) 56%);
+    --header-stroke: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
     --header-ink: var(--wa-color-neutral-95);
-    --hero-card-bg: color-mix(in oklab, #dbeafe 22%, transparent);
-    --hero-glow-a: color-mix(in oklab, #dbeafe 26%, transparent);
-    --hero-glow-b: color-mix(in oklab, var(--wa-color-blue-60) 16%, transparent);
-    --hero-glow-c: color-mix(in oklab, #dbeafe 20%, transparent);
-    --grid-line-color: color-mix(in oklab, #dbeafe 18%, transparent);
+    --hero-card-bg: color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-20) 76%);
+    --hero-glow-a: color-mix(in oklab, var(--theme-dark-tint) 42%, transparent);
+    --hero-glow-b: color-mix(in oklab, var(--wa-color-blue-60) 24%, transparent);
+    --hero-glow-c: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
+    --grid-line-color: color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, #dbeafe 24%, transparent), transparent 24rem),
-        radial-gradient(circle at 90% 10%, color-mix(in oklab, var(--wa-color-blue-60) 14%, transparent), transparent 26rem),
-        linear-gradient(180deg, color-mix(in oklab, #dbeafe 16%, var(--wa-color-neutral-20) 84%) 0%, color-mix(in oklab, #dbeafe 10%, var(--wa-color-neutral-10) 90%) 100%);
+        radial-gradient(circle at 10% 10%, var(--theme-dark-glow), transparent 24rem),
+        radial-gradient(circle at 90% 10%, var(--theme-dark-glow-soft), transparent 26rem),
+        linear-gradient(180deg, color-mix(in oklab, var(--theme-dark-tint) 34%, var(--wa-color-neutral-20) 66%) 0%, color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-10) 76%) 100%);
 }
 
 * {
@@ -359,7 +371,7 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true']::part(menu) {
 
 wa-card {
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -372,7 +384,7 @@ wa-details {
 
 wa-details::part(base) {
     border: none;
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
     transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -714,7 +726,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     gap: 0.65rem;
     padding: 1.15rem 1rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
 }
@@ -996,10 +1008,8 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     padding: 1rem;
     margin: 0;
     border: 1px solid color-mix(in oklab, var(--wa-color-brand-70) 18%, transparent);
-    border-radius: var(--wa-border-radius-l);
-    background:
-        radial-gradient(circle at top right, color-mix(in oklab, var(--wa-color-brand-70) 12%, transparent), transparent 12rem),
-        linear-gradient(180deg, rgba(12, 17, 24, 0.96), rgba(10, 14, 20, 0.92));
+    border-radius: var(--wa-border-radius-m);
+    background: color-mix(in oklab, var(--wa-color-neutral-10) 94%, var(--wa-color-brand-95) 6%);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -1066,7 +1076,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     gap: 1rem;
     padding: 1.25rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
 }
@@ -1329,7 +1339,7 @@ html.wa-light .hero-backdrop {
 
 .hero-highlights li {
     border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(9, 11, 14, 0.24);
+    background: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
 }
 
 .hero-highlights wa-icon,
@@ -1345,9 +1355,9 @@ html.wa-light .hero-backdrop {
 .hero-panel {
     padding: 1.35rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--hero-card-bg);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+    box-shadow: var(--shadow-soft);
 }
 
 .hero-panel-title {
@@ -1431,7 +1441,7 @@ html.wa-light .hero-backdrop {
     min-height: 100%;
     padding: 1.15rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--surface-soft);
     box-shadow: var(--shadow-soft);
 }
@@ -1466,7 +1476,7 @@ html.wa-light .hero-backdrop {
     margin-bottom: 1.75rem;
     padding: 1rem 1.15rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--surface-soft);
 }
 
@@ -1570,7 +1580,7 @@ html.wa-light .hero-backdrop {
     display: grid;
     gap: 1.15rem;
     padding: 1.3rem;
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--panel-bg);
     box-shadow: var(--shadow-soft);
 }
@@ -1626,7 +1636,7 @@ html.wa-light .hero-backdrop {
     display: grid;
     gap: 0.22rem;
     padding: 0.9rem 1rem;
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     text-decoration: none;
     background: var(--surface-soft);
     transition: transform 0.18s ease, background 0.18s ease;
@@ -1692,7 +1702,7 @@ wa-card.page-cta-card::part(body) {
     gap: 1rem;
     height: 100%;
     padding: 1.45rem;
-    border-radius: calc(var(--wa-border-radius-l) - 1px);
+    border-radius: calc(var(--wa-border-radius-m) - 1px);
 }
 
 .logo-active-band,
@@ -1709,12 +1719,12 @@ wa-card:hover,
 .legal-meta:hover,
 .intro-indication:hover,
 .hero-panel:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow-lift);
 }
 
 wa-details:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 wa-details:hover::part(base) {
@@ -1748,21 +1758,15 @@ wa-details:hover::part(base) {
 }
 
 wa-card.accent-a::part(base) {
-    background:
-        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-60) 10%, transparent)),
-        var(--panel-bg);
+    background: color-mix(in oklab, var(--panel-bg) 84%, var(--wa-color-brand-60) 16%);
 }
 
 wa-card.accent-b::part(base) {
-    background:
-        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-70) 8%, transparent)),
-        var(--panel-bg);
+    background: color-mix(in oklab, var(--panel-bg) 84%, var(--wa-color-brand-70) 16%);
 }
 
 wa-card.accent-c::part(base) {
-    background:
-        linear-gradient(180deg, transparent, color-mix(in oklab, var(--wa-color-brand-95) 20%, transparent)),
-        var(--panel-bg);
+    background: color-mix(in oklab, var(--panel-bg) 88%, var(--wa-color-brand-95) 12%);
 }
 
 .workflow-section {
@@ -1966,7 +1970,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     min-height: 100%;
     padding: 1rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     color: var(--page-ink);
     text-decoration: none;
     background: var(--surface-soft);
@@ -2016,7 +2020,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     width: 100%;
     overflow-x: auto;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     border-spacing: 0;
     background: var(--surface-soft);
 }
@@ -2083,8 +2087,8 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     overflow-x: auto;
     padding: 1rem 1.1rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
-    background: color-mix(in oklab, var(--surface-soft) 82%, black 18%);
+    border-radius: var(--wa-border-radius-m);
+    background: color-mix(in oklab, var(--surface-soft) 90%, black 10%);
 }
 
 .guide-page pre code {
@@ -2099,11 +2103,11 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     min-height: 16rem;
     padding: 1.5rem;
     border: 1px dashed color-mix(in oklab, var(--wa-color-brand-60) 46%, transparent);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     color: var(--page-muted);
     text-align: center;
     background:
-        linear-gradient(135deg, color-mix(in oklab, var(--wa-color-brand-50) 10%, transparent), transparent 44%),
+        linear-gradient(135deg, color-mix(in oklab, var(--wa-color-brand-50) 14%, transparent), transparent 44%),
         var(--surface-soft);
 }
 
@@ -2135,7 +2139,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     gap: 0.85rem;
     padding: 1rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
     background: var(--surface-soft);
 }
 
@@ -2232,7 +2236,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     min-height: 7rem;
     padding: 1rem;
     border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-l);
+    border-radius: var(--wa-border-radius-m);
 }
 
 .guide-adjacent-link-next {

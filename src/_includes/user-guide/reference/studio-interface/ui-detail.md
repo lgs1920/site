@@ -10,6 +10,17 @@
 
 {{ ui.overview }}
 
+{% if ui.screenshot %}
+## {% if is_french %}Capture d'écran{% else %}Screenshot{% endif %}
+
+<div class="guide-screenshot-placeholder" role="img" aria-label="{% if ui.screenshot.ariaLabel %}{{ ui.screenshot.ariaLabel }}{% elsif is_french %}Capture d'écran du composant{% else %}Screenshot of the component{% endif %}">
+    <wa-icon variant="regular" name="image"></wa-icon>
+    <strong>{% if is_french %}Capture d'écran{% else %}Screenshot{% endif %}</strong>
+    <span>{{ ui.screenshot.description }}</span>
+</div>
+
+{% endif %}
+
 ## {% if is_french %}Contrôles{% else %}Controls{% endif %}
 
 {% if is_french %}
@@ -23,6 +34,16 @@ The controls below are the parts of the UI that the user can act on directly.
 {% for item in ui.controls %}
 | {{ item.label }} | {% if item.icons %}{% for icon in item.icons %}<span class="guide-icon-chip"><wa-icon name="{{ icon }}" variant="{{ item.variant | default: 'regular' }}"></wa-icon></span>{% unless forloop.last %} {% endunless %}{% endfor %}{% else %}<span class="guide-icon-chip"><wa-icon name="{{ item.icon }}" variant="{{ item.variant | default: 'regular' }}"></wa-icon></span>{% endif %} | {{ item.type }} | {{ item.description }} |
 {% endfor %}
+
+{% if ui.steps and ui.steps.size > 0 %}
+## {% if is_french %}Comment l'utiliser{% else %}How to use{% endif %}
+
+<ol>
+{% for step in ui.steps %}
+<li>{% if step.icon %}<wa-icon variant="{{ step.variant | default: 'regular' }}" name="{{ step.icon }}"></wa-icon> {% endif %}{% if step.title %}<strong>{{ step.title }}</strong> {% endif %}{{ step.description }}</li>
+{% endfor %}
+</ol>
+{% endif %}
 
 {% if ui.notes and ui.notes.size > 0 %}
 ## Notes

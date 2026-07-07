@@ -1,25 +1,3 @@
----
-permalink: /fr/user-guide/workflows/points-of-interest/index.html
-title: Utiliser Les POI
-description: Ajouter, modifier et organiser les points d'intérêt.
-hero:
-  video: false
-  className: guide-hero
-  badge: Étape principale
-  kicker: POI
-  title: Marquer les lieux importants.
-  lead: Utilisez les points d'intérêt pour les lieux, départs, arrêts, points de vue et repères narratifs.
-sectionNav:
-  - id: quand-utiliser-les-poi
-    label: Quand utiliser les POI
-    summary: Moments liés aux lieux
-  - id: modifier-un-poi
-    label: Modifier un POI
-    summary: Champs à vérifier
-  - id: poi-et-camera
-    label: POI et caméra
-    summary: Focus et mouvement
----
 
 ## Quand Utiliser Les POI
 
