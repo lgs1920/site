@@ -55,7 +55,7 @@ html.wa-dark body {
     --page-ink: var(--wa-color-neutral-95);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 36%, var(--theme-dark-tint) 64%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 62%, var(--wa-color-neutral-20) 38%);
-    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
@@ -86,7 +86,7 @@ html.wa-light body {
     --lgs-accent-strong-color: var(--lgs-button-plain-color);
     --lgs-accent-border-color: var(--lgs-button-plain-color);
     --panel-bg: color-mix(in oklab, white 98%, var(--wa-color-brand-95) 2%);
-    --panel-stroke: color-mix(in oklab, var(--wa-color-brand-60) 18%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--wa-color-brand-60) 10%, transparent);
     --surface-soft: color-mix(in oklab, white 96%, var(--wa-color-brand-95) 4%);
     --surface-strong: color-mix(in oklab, white 94%, var(--wa-color-brand-95) 6%);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
@@ -109,7 +109,7 @@ html.wa-light[data-season-theme='spring'] body {
     --page-bg: color-mix(in oklab, white 42%, #7bf1a8 58%);
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, #7bf1a8 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, #7bf1a8 56%));
-    --panel-stroke: color-mix(in oklab, #7bf1a8 38%, transparent);
+    --panel-stroke: color-mix(in oklab, #7bf1a8 24%, transparent);
     --surface-soft: color-mix(in oklab, #7bf1a8 40%, transparent);
     --surface-strong: color-mix(in oklab, #7bf1a8 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
@@ -136,7 +136,7 @@ html.wa-dark[data-season-theme='spring'] body {
     --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
-    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -159,7 +159,7 @@ html.wa-light[data-season-theme='summer'] body {
     --page-bg: color-mix(in oklab, white 40%, var(--wa-color-green-60) 60%);
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 56%, var(--wa-color-green-60) 44%), color-mix(in oklab, var(--wa-color-surface-raised) 42%, var(--wa-color-green-60) 58%));
-    --panel-stroke: color-mix(in oklab, var(--wa-color-green-60) 38%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--wa-color-green-60) 24%, transparent);
     --surface-soft: color-mix(in oklab, var(--wa-color-green-60) 38%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
@@ -186,7 +186,7 @@ html.wa-dark[data-season-theme='summer'] body {
     --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
-    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -209,7 +209,7 @@ html.wa-light[data-season-theme='fall'] body {
     --page-bg: color-mix(in oklab, white 40%, #c56e12 60%);
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 56%, #c56e12 44%), color-mix(in oklab, var(--wa-color-surface-raised) 42%, #c56e12 58%));
-    --panel-stroke: color-mix(in oklab, #c56e12 38%, transparent);
+    --panel-stroke: color-mix(in oklab, #c56e12 24%, transparent);
     --surface-soft: color-mix(in oklab, #c56e12 38%, transparent);
     --surface-strong: color-mix(in oklab, #c56e12 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-orange-30) 10%, transparent);
@@ -236,7 +236,7 @@ html.wa-dark[data-season-theme='fall'] body {
     --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
-    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -259,7 +259,7 @@ html.wa-light[data-season-theme='winter'] body {
     --page-bg: color-mix(in oklab, white 42%, #dbeafe 58%);
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, #dbeafe 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, #dbeafe 56%));
-    --panel-stroke: color-mix(in oklab, #dbeafe 40%, transparent);
+    --panel-stroke: color-mix(in oklab, #dbeafe 24%, transparent);
     --surface-soft: color-mix(in oklab, #dbeafe 40%, transparent);
     --surface-strong: color-mix(in oklab, #dbeafe 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-blue-30) 10%, transparent);
@@ -286,7 +286,7 @@ html.wa-dark[data-season-theme='winter'] body {
     --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
-    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 34%, transparent);
+    --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -330,7 +330,8 @@ body::before {
 }
 
 a {
-    color: inherit;
+    color: var(--lgs-accent-color);
+    font-weight: 500;
 }
 
 wa-page.site-layout {
@@ -737,12 +738,15 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     line-height: 1.05;
 }
 
-.drawer-panel p,
-.drawer-panel a {
+.drawer-panel p {
     margin: 0;
     color: var(--page-muted);
     line-height: 1.65;
-    text-decoration: none;
+}
+
+.drawer-panel a {
+    margin: 0;
+    line-height: 1.65;
 }
 
 .drawer-panel-footer a {
@@ -2269,8 +2273,8 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     position: relative;
     width: 100%;
     padding: 0.5rem var(--site-inline-edge) 0;
-    background: var(--header-bg) !important;
-    background-color: var(--header-bg) !important;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 wa-card.page-cta-card::part(body) {
@@ -2323,8 +2327,8 @@ wa-card.page-cta-card::part(body) {
     width: 100%;
     padding: 0.8rem var(--site-inline-edge) 2rem;
     border-top: none;
-    background: var(--header-bg) !important;
-    background-color: var(--header-bg) !important;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .site-footer-copy {
@@ -2371,7 +2375,7 @@ wa-card.page-cta-card::part(body) {
 }
 
 .site-footer a {
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
 }
 
