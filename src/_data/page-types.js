@@ -13,8 +13,7 @@ const home = {
         hero:        {
             className:'intro-hero',
             title:    'Turn outdoors moments into shared stories.',
-            lead:     'Walk or ride, then import, edit, and share videos of your journeys without leaving your browser*',
-            note:     '* Your data remains private and syncs in real time when available.',
+            lead:     'Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.',
             actions:  [
                 {
                     label:     'Studio',
@@ -222,7 +221,6 @@ const home = {
             className:'intro-hero',
             title:    'Transformez les moments outdoor en récits à partager.',
             lead:     'Marchez ou roulez, puis importez, éditez et partagez des vidéos de vos parcours sans quitter votre navigateur*',
-            note:     '* Vos données restent privées et se synchronisent en temps réel quand c\'est disponible.',
             actions:  [
                 {
                     label:     'Studio',
