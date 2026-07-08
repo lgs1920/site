@@ -477,18 +477,8 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 
 .brand-logo-mark {
     flex: none;
-    width: clamp(4.25rem, 8vw, 6.75rem);
+    width: clamp(6.6rem, 15vw, 10rem);
     height: auto;
-    aspect-ratio: 300 / 103;
-    background-color: var(--wa-color-brand);
-    -webkit-mask-image: url('/assets/brand/logo-lgs1920-studio-s.png');
-    mask-image: url('/assets/brand/logo-lgs1920-studio-s.png');
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: contain;
-    mask-size: contain;
 }
 
 .brand-logo-image {

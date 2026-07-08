@@ -34,7 +34,7 @@ layout: layouts/base.html
         <div class="brand-lockup">
             <p class="brand-kicker">{{ localizedSite.tagline | default: site.tagline }}</p>
             <a id="site-home-link" class="brand-name" href="{{ localizedHomeUrl | default: '/' }}" aria-label="{{ site.name }}">
-                <span class="brand-logo-mark brand-logo-image" aria-hidden="true"></span>
+                {{ studioLogoHorizontalMarkup }}
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
                 </span>
