@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
     --shell-width: min(1240px, calc(100vw - 2rem));
     --site-inline-edge: max(10px, calc((100vw - var(--shell-width)) / 2));
@@ -334,10 +336,13 @@ a {
     font-weight: 500;
 }
 
+
 wa-page.site-layout {
     --menu-width: clamp(16rem, 18vw, 18.5rem);
     --main-width: 100%;
     --navigation-scrollbar-size: 0.7rem;
+    --wa-font-family-body: 'Open Sans', sans-serif;
+    --wa-font-family-heading: 'Noto Sans', sans-serif;
     --navigation-scrollbar-track: color-mix(in oklab, var(--surface-soft) 84%, transparent);
     --navigation-scrollbar-thumb: color-mix(in oklab, var(--wa-color-brand-60) 78%, var(--wa-color-shadow) 22%);
     --navigation-scrollbar-thumb-hover: color-mix(in oklab, var(--wa-color-brand-50) 82%, var(--wa-color-shadow) 18%);
