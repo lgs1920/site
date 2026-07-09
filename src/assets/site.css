@@ -996,6 +996,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .logo-preview-grid {
     display: grid;
     gap: 0.95rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .logo-preview {
@@ -1037,6 +1038,10 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 
 .logo-lockup.is-active {
     justify-content: center;
+}
+
+.logo-preview .logo-lockup {
+    min-height: 10rem;
 }
 
 .logo-mark-figure {
@@ -2489,7 +2494,8 @@ wa-card.page-cta-card::part(body) {
     }
 
     .logo-option-grid,
-    .logo-note-grid {
+    .logo-note-grid,
+    .logo-preview-grid {
         grid-template-columns: 1fr;
     }
 
