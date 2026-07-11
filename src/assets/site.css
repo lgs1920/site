@@ -11,12 +11,19 @@
     --theme-dark-tint-strong: color-mix(in oklab, var(--wa-color-brand-95) 26%, var(--wa-color-brand-60) 74%);
     --theme-dark-glow: color-mix(in oklab, var(--wa-color-brand-70) 22%, transparent);
     --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-brand-95) 18%, transparent);
+    --lgs-button-border-color: color-mix(in oklab, var(--wa-color-brand) 85%, black 12%);
+    --lgs-button-color: var(--wa-color-brand-on);
+    --lgs-button-bg-color: var(--wa-color-brand);
+    --lgs-button-border-hover-color: var(--wa-color-brand-50);
+    --lgs-button-hover-color: var(--wa-color-brand-on);
+    --lgs-button-bg-hover-color: var(--wa-color-brand-60);
     --lgs-button-plain-color: var(--wa-color-brand);
     --lgs-button-plain-hover-color: var(--wa-color-brand);
     --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
     --lgs-accent-color: var(--wa-color-brand-60);
     --lgs-accent-strong-color: var(--wa-color-brand-70);
     --lgs-accent-border-color: var(--wa-color-brand-50);
+    --shadow-card-lift: 0 2px 6px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
     --wa-border-radius-pill: var(--wa-border-radius-m);
     --wa-form-control-border-radius: var(--wa-border-radius-m);
     --wa-panel-border-radius: var(--wa-border-radius-m);
@@ -26,6 +33,8 @@
 
 html.wa-brand-brown {
     --wa-color-brand: color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%);
+    --wa-color-brand-05: color-mix(in oklab, var(--wa-color-orange-70) 6%, black 94%);
+    --wa-color-brand-10: color-mix(in oklab, var(--wa-color-orange-70) 12%, black 88%);
     --wa-color-brand-20: color-mix(in oklab, var(--wa-color-orange-70) 18%, black 82%);
     --wa-color-brand-30: color-mix(in oklab, var(--wa-color-orange-70) 28%, black 72%);
     --wa-color-brand-40: color-mix(in oklab, var(--wa-color-orange-70) 40%, black 60%);
@@ -33,6 +42,7 @@ html.wa-brand-brown {
     --wa-color-brand-60: color-mix(in oklab, var(--wa-color-orange-70) 64%, var(--wa-color-red-60) 36%);
     --wa-color-brand-70: color-mix(in oklab, var(--wa-color-orange-70) 72%, var(--wa-color-red-60) 28%);
     --wa-color-brand-80: color-mix(in oklab, var(--wa-color-orange-70) 82%, var(--wa-color-red-60) 18%);
+    --wa-color-brand-90: color-mix(in oklab, var(--wa-color-orange-70) 22%, white 78%);
     --wa-color-brand-95: color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%);
     --wa-color-brand-fill: var(--wa-color-brand-60);
     --wa-color-brand-fill-normal: color-mix(in oklab, var(--wa-color-orange-70) 26%, white 74%);
@@ -58,6 +68,7 @@ html.wa-dark body {
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 36%, var(--theme-dark-tint) 64%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 62%, var(--wa-color-neutral-20) 38%);
     --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, var(--wa-color-neutral-95) 18%);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 24%, transparent);
@@ -89,6 +100,7 @@ html.wa-light body {
     --lgs-accent-border-color: var(--lgs-button-plain-color);
     --panel-bg: color-mix(in oklab, white 98%, var(--wa-color-brand-95) 2%);
     --panel-stroke: color-mix(in oklab, var(--wa-color-brand-60) 10%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, white 18%);
     --surface-soft: color-mix(in oklab, white 96%, var(--wa-color-brand-95) 4%);
     --surface-strong: color-mix(in oklab, white 94%, var(--wa-color-brand-95) 6%);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
@@ -112,6 +124,7 @@ html.wa-light[data-season-theme='spring'] body {
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, rgb(175, 218, 188) 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, rgb(175, 218, 188) 56%));
     --panel-stroke: color-mix(in oklab, rgb(175, 218, 188) 24%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, white 18%);
     --surface-soft: color-mix(in oklab, rgb(175, 218, 188) 40%, transparent);
     --surface-strong: color-mix(in oklab, rgb(175, 218, 188) 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
@@ -139,6 +152,7 @@ html.wa-dark[data-season-theme='spring'] body {
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
     --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, var(--wa-color-neutral-95) 18%);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -162,6 +176,7 @@ html.wa-light[data-season-theme='summer'] body {
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 56%, var(--wa-color-green-60) 44%), color-mix(in oklab, var(--wa-color-surface-raised) 42%, var(--wa-color-green-60) 58%));
     --panel-stroke: color-mix(in oklab, var(--wa-color-green-60) 24%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, white 18%);
     --surface-soft: color-mix(in oklab, var(--wa-color-green-60) 38%, transparent);
     --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
@@ -189,6 +204,7 @@ html.wa-dark[data-season-theme='summer'] body {
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
     --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, var(--wa-color-neutral-95) 18%);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -212,6 +228,7 @@ html.wa-light[data-season-theme='fall'] body {
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 56%, #c56e12 44%), color-mix(in oklab, var(--wa-color-surface-raised) 42%, #c56e12 58%));
     --panel-stroke: color-mix(in oklab, #c56e12 24%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, white 18%);
     --surface-soft: color-mix(in oklab, #c56e12 38%, transparent);
     --surface-strong: color-mix(in oklab, #c56e12 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-orange-30) 10%, transparent);
@@ -239,6 +256,7 @@ html.wa-dark[data-season-theme='fall'] body {
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
     --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, var(--wa-color-neutral-95) 18%);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -262,6 +280,7 @@ html.wa-light[data-season-theme='winter'] body {
     --page-muted: var(--wa-color-neutral-40);
     --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, #dbeafe 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, #dbeafe 56%));
     --panel-stroke: color-mix(in oklab, #dbeafe 24%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, white 18%);
     --surface-soft: color-mix(in oklab, #dbeafe 40%, transparent);
     --surface-strong: color-mix(in oklab, #dbeafe 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-blue-30) 10%, transparent);
@@ -289,6 +308,7 @@ html.wa-dark[data-season-theme='winter'] body {
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);
     --panel-bg: color-mix(in oklab, var(--theme-dark-tint) 28%, var(--wa-color-neutral-20) 72%);
     --panel-stroke: color-mix(in oklab, var(--theme-dark-tint) 20%, transparent);
+    --panel-stroke-hover: color-mix(in oklab, var(--panel-stroke) 82%, var(--wa-color-neutral-95) 18%);
     --surface-soft: color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
     --surface-strong: color-mix(in oklab, var(--theme-dark-tint-strong) 24%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--theme-dark-tint) 30%, transparent);
@@ -378,22 +398,22 @@ wa-page.site-layout[view='desktop'][data-nav-collapsed='true']::part(menu) {
 wa-card {
     border: 1px solid var(--panel-stroke);
     border-radius: var(--wa-border-radius-m);
-    background: var(--panel-bg);
+    background: var(--surface-soft);
     box-shadow: var(--shadow-soft);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
 wa-details {
     display: block;
-    transition: transform 0.2s ease;
+    transition: transform 0.18s ease;
 }
 
 wa-details::part(base) {
-    border: none;
+    border: 1px solid var(--panel-stroke);
     border-radius: var(--wa-border-radius-m);
-    background: var(--panel-bg);
+    background: var(--surface-soft);
     box-shadow: var(--shadow-soft);
-    transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
 wa-card.vision-card,
@@ -416,6 +436,18 @@ wa-badge::part(base) {
 
 wa-button::part(base) {
     box-shadow: none;
+}
+
+wa-button[variant='brand']:not([appearance='plain']):not([appearance='Plain']):not([appearance='outlined']):not([appearance='Outlined'])::part(base) {
+    color: var(--lgs-button-color);
+    border-color: var(--lgs-button-border-color);
+    background-color: var(--lgs-button-bg-color) !important;
+}
+
+wa-button[variant='brand']:not([appearance='plain']):not([appearance='Plain']):not([appearance='outlined']):not([appearance='Outlined']):not([disabled]):hover::part(base) {
+    color: var(--lgs-button-hover-color);
+    border-color: var(--lgs-button-border-hover-color);
+    background-color: var(--lgs-button-bg-hover-color) !important;
 }
 
 wa-button[variant='brand'][appearance='outlined']::part(base) {
@@ -1271,7 +1303,6 @@ html.wa-light .hero-backdrop {
 .cta-button::part(base) {
     padding: 0.9rem 1rem;
     border-radius: var(--wa-border-radius-m);
-    font-weight: 700;
     transition: background 0.18s ease, border-color 0.18s ease;
 }
 
@@ -1722,14 +1753,20 @@ wa-card.page-cta-card::part(body) {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-wa-card:hover,
 .logo-active-band:hover,
 .changelog-entry:hover,
 .legal-meta:hover,
 .intro-indication:hover,
 .hero-panel:hover {
     transform: translateY(-1px);
-    box-shadow: var(--shadow-lift);
+    box-shadow: var(--shadow-card-lift);
+}
+
+wa-card:hover {
+    transform: translateY(-1px);
+    border-color: var(--panel-stroke-hover);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow-card-lift);
 }
 
 wa-details:hover {
@@ -1737,7 +1774,9 @@ wa-details:hover {
 }
 
 wa-details:hover::part(base) {
-    box-shadow: var(--shadow-lift);
+    border-color: var(--panel-stroke-hover);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow-card-lift);
 }
 
 .card-heading {
@@ -1988,7 +2027,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 
 .guide-link-card:hover {
     transform: translateY(-1px);
-    border-color: var(--lgs-accent-border-color);
+    border-color: var(--panel-stroke-hover);
     background: var(--surface-strong);
 }
 
@@ -2157,8 +2196,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     gap: 0.2rem;
 }
 
-.guide-rubric-heading span,
-.guide-adjacent-direction {
+.guide-rubric-heading span {
     color: var(--page-muted);
     text-transform: uppercase;
     font-size: 0.76rem;
@@ -2171,8 +2209,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 }
 
 .guide-rubric-heading small,
-.guide-rubric-link small,
-.guide-adjacent-link small {
+.guide-rubric-link small {
     color: var(--page-muted);
     line-height: 1.45;
 }
@@ -2187,8 +2224,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.guide-rubric-link,
-.guide-adjacent-link {
+.guide-rubric-link {
     color: var(--page-ink);
     text-decoration: none;
     background: color-mix(in oklab, var(--surface-soft) 72%, transparent);
@@ -2204,15 +2240,14 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     border-radius: var(--wa-border-radius-m);
 }
 
-.guide-rubric-link:hover,
-.guide-adjacent-link:hover {
+.guide-rubric-link:hover {
     transform: translateY(-1px);
-    border-color: var(--lgs-accent-border-color);
+    border-color: var(--panel-stroke-hover);
     background: var(--surface-strong);
 }
 
 .guide-rubric-link.is-current {
-    border-color: var(--lgs-accent-border-color);
+    border-color: var(--panel-stroke-hover);
     background: var(--surface-strong);
 }
 
@@ -2239,35 +2274,47 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.guide-adjacent-link {
-    display: grid;
-    gap: 0.35rem;
-    min-height: 7rem;
-    padding: 1rem;
-    border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-m);
+.guide-adjacent-slot {
+    display: flex;
+    min-width: 0;
 }
 
-.guide-adjacent-link-next {
-    text-align: right;
+.guide-adjacent-slot-previous {
+    justify-content: flex-start;
 }
 
-.guide-adjacent-link-next:first-child {
+.guide-adjacent-slot-next {
+    justify-content: flex-end;
+}
+
+.guide-adjacent-slot-next:first-child {
     grid-column: 2;
 }
 
-.guide-adjacent-direction {
+.guide-adjacent-slot wa-button {
+    max-width: 100%;
+}
+
+.guide-adjacent-slot wa-button wa-icon {
+    color: var(--lgs-button-color);
+    margin: 0;
+}
+
+.guide-adjacent-slot wa-button:hover wa-icon {
+    color: var(--lgs-button-hover-color);
+}
+
+.guide-adjacent-label {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.5rem;
+    min-width: 0;
+    max-width: 100%;
 }
 
-.guide-adjacent-link-next .guide-adjacent-direction {
-    justify-self: end;
-}
-
-.guide-adjacent-direction wa-icon {
-    margin: 0;
+.guide-adjacent-label span {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .drawer-link:hover {
@@ -2540,7 +2587,7 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
 
-    .guide-adjacent-link-next:first-child {
+    .guide-adjacent-slot-next:first-child {
         grid-column: auto;
     }
 }

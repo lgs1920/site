@@ -14,13 +14,13 @@
     <div class="intro-details-grid">
         <div class="intro-indication-grid" aria-label="{{ home_content.overview.highlightsLabel }}">
             {% for item in home_content.overview.highlights %}
-                <article class="intro-indication">
+                <wa-card class="intro-indication">
                     <wa-icon variant="regular" name="{{ item.icon }}"></wa-icon>
                     <div>
                         <h3>{{ item.title }}</h3>
                         <p>{{ item.body }}</p>
                     </div>
-                </article>
+                </wa-card>
             {% endfor %}
         </div>
 
