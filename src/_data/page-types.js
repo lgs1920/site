@@ -12,7 +12,7 @@ const home = {
         description: 'Local-first route editing for journeys, tracks, POIs, camera views, widgets, reports, and media capture.',
         hero:        {
             className:'intro-hero',
-            title:    'Turn outdoors moments into shared stories.',
+            title:    'Turn outdoors adventures into shared stories.',
             lead:     'Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.',
             actions:  [
                 {
@@ -41,42 +41,36 @@ const home = {
             ],
         },
         sectionNav: [
-            {id:'overview', label:'Overview', summary:'Privacy-first journeys in the browser'},
-            {id:'vision', label:'Vision', summary:'The user point of view'},
-            {id:'features', label:'Features', summary:'The workflows the Studio covers'},
+            {id:'overview', label:'Overview', summary:'Browser-local journeys and exports'},
+            {id:'features', label:'Features', summary:'The main workflows the Studio covers'},
             {id:'workflow', label:'Workflow', summary:'From source data to final output'},
-            {id:'stack', label:'Stack', summary:'The main technical building blocks'},
-            {id:'faq', label:'FAQ', summary:'Practical project context and answers'},
+            {id:'access', label:'Access & cost', summary:'What stays free and when Cesium is needed'},
+            {id:'faq', label:'FAQ', summary:'Common questions and answers'},
         ],
         content: {
             overview: {
                 kicker:        'Overview',
-                title:         'Privacy first: keep journey data local, private, or synced in real time.',
+                title:         'A browser workspace for journeys, camera control, capture, and reports.',
                 intro:         [
-                    'We use journey on purpose: it is both a physical path and a personal one, tied to nature, people, and places, not just a line on a map.',
-                    'It was also a journey through code, with a lot of discovery and learning across different domains.',
+                    'Import a route, inspect the scene, adjust the camera, and export what you need without leaving the browser.',
+                    'The Studio keeps working state local by default and only leans on external services when the workflow requires it.',
                 ],
-                highlightsLabel:'Product highlights',
+                highlightsLabel:'What Studio covers',
                 highlights:    [
                     {
                         icon: 'route',
-                        title:'Local journey flow',
-                        body: 'Import, review, and export journeys and tracks while keeping data in the browser.',
+                        title:'Import and review journeys',
+                        body: 'Bring in journeys and tracks, then keep the working state in the browser.',
                     },
                     {
-                        icon: 'box',
-                        title:'2D and 3D views',
-                        body: 'Choose the scene mode that fits the journey you are editing.',
+                        icon: 'camera',
+                        title:'Direct the scene',
+                        body: 'Switch between 2D and 3D, then focus the camera on the right route context.',
                     },
                     {
                         icon: 'file-pdf',
-                        title:'Media and reports',
-                        body: 'Export screenshots, video, PDF reports, or packaged HTML reports from the same journey.',
-                    },
-                    {
-                        icon: 'share-nodes',
-                        title:'Share to social networks',
-                        body: 'Use the browser share menu to send exported links and videos to your social networks when the device supports it.',
+                        title:'Export snapshots and reports',
+                        body: 'Produce screenshots, video, PDF reports, or packaged HTML reports from the same journey.',
                     },
                 ],
                 card: {
@@ -89,49 +83,16 @@ const home = {
                     ],
                 },
             },
-            vision: {
-                kicker:'Vision',
-                title: 'A map editor built around privacy and browser-local journeys.',
-                cards: [
-                    {
-                        className:'accent-a',
-                        icon:     'route',
-                        title:    'Keep data local',
-                        body:     'Review tracks, style paths, manage POIs, and keep your editing state in local storage.',
-                    },
-                    {
-                        className:'accent-b',
-                        icon:     'camera',
-                        title:    'Direct the camera',
-                        body:     'Switch scene modes, target precise viewpoints, and tune orbit or panorama controls as needed.',
-                    },
-                    {
-                        className:'accent-c',
-                        icon:     'clapperboard-play',
-                        title:    'Export from private journeys',
-                        body:     'Layer widgets, metrics, and overlays so screenshots, videos, and reports keep the right context without moving data out of the browser.',
-                    },
-                    {
-                        className:'accent-b',
-                        icon:     'share-nodes',
-                        title:    'Share',
-                        body:     'Send your stories out with the browser share sheet, straight to the apps people already use.',
-                    },
-                ],
-            },
             features: {
                 kicker:'Features',
-                title: 'The workflows the Studio already supports.',
+                title: 'The main workflows the Studio already covers.',
                 cards: [
                     {icon:'route', title:'Journey and track editing', body:'Load journeys, edit metadata, tune visibility, and manage track presentation in a consistent way.'},
                     {icon:'map-location-dot', title:'POI workflows', body:'Create, focus, rotate, and keep point-centric views across both POIs and journey-level targets.'},
                     {icon:'globe-pointer', title:'Cesium scene control', body:'Move between 2D and 3D, track the active camera target, and keep navigation clear.'},
-                    {icon:'arrows-rotate', title:'Orbit and panorama', body:'Adjust speed, direction, height offset, and pitch while the camera moves.'},
-                    {icon:'chart-line', title:'Metrics and widgets', body:'Use elevation profiles, journey stats, dates, text, credits, and other overlays when they help the scene.'},
-                    {icon:'file-pdf', title:'Journey reports', body:'Generate PDF reports or ZIP-packaged HTML reports with metadata, statistics, POIs, coordinates, altitude data, and map captures.'},
-                    {icon:'location-crosshairs', title:'Geocoding and coordinates', body:'Use coordinate utilities and geocoding tools to place, inspect, and focus route context more precisely.'},
+                    {icon:'box', title:'Widgets and overlays', body:'Compose visible context with metrics, labels, and supporting panels.'},
                     {icon:'clapperboard-play', title:'Media export', body:'Capture screenshots, define crop zones, and record video with the same visible overlays used in the editor.'},
-                    {icon:'share-nodes', title:'Social sharing', body:'Share exported URLs and media through the browser share menu so they can move directly into social networks.'},
+                    {icon:'file-pdf', title:'Journey reports', body:'Generate PDF reports or ZIP-packaged HTML reports with metadata, statistics, POIs, coordinates, altitude data, and map captures.'},
                 ],
             },
             workflow: {
@@ -139,47 +100,69 @@ const home = {
                 title: 'From source data to final output.',
                 steps: [
                     {index:'01', title:'Load source data', body:'Bring in GeoJSON, GPX, or KML files and rebuild a working journey context in the browser.'},
-                    {index:'02', title:'Stage the experience', body:'Refine visibility, focus behavior, widgets, camera targets, rotation presets, and panorama settings.'},
-                    {index:'03', title:'Capture and deliver', body:'Export images, video, or reports with the same scene framing, overlays, and metrics used during editing.'},
-                    {index:'04', title:'Share outward', body:'Use the browser share menu to send exported links or videos to social networks when the device supports native sharing.'},
+                    {index:'02', title:'Shape the scene', body:'Refine visibility, focus behavior, widgets, camera targets, and panorama settings.'},
+                    {index:'03', title:'Export and share', body:'Produce screenshots, video, or reports and hand them off through the browser share flow when needed.'},
                 ],
             },
-            stack: {
-                kicker:'Stack',
-                title: 'Cesium, React, Bun, Valtio, Mediabunny, Web Awesome, Eleventy, and a local-first browser database.',
-                items: [
-                    {icon:'globe-pointer', label:'Cesium scene engine'},
-                    {icon:'box', label:'Widget system'},
-                    {icon:'database', label:'IndexedDB persistence'},
-                    {icon:'file-pdf', label:'PDF and HTML reports'},
-                    {icon:'video', label:'Media pipeline'},
-                    {icon:'cloud-arrow-down', label:'PWA caching'},
+            access: {
+                kicker:'Access',
+                title: 'The Studio is free to use, and Cesium access is only needed when you use Cesium-backed data.',
+                note:   'You can open Studio and work on journeys without paying a license fee. A Cesium Ion account only becomes relevant when a scene or layer depends on Cesium services.',
+                cards:  [
+                    {
+                        icon:  'circle-check',
+                        title: 'Free Studio access',
+                        body:  'Open the hosted Studio, edit journeys, and export outputs without a paid subscription.',
+                    },
+                    {
+                        icon:  'key',
+                        title: 'Cesium Ion account',
+                        body:  'Create or sign in to a Cesium Ion account when you need Cesium-backed scenes, layers, or tokens.',
+                    },
                 ],
-                action:{
-                    href: '/dependencies/',
-                    label:'Open the Studio dependency inventory',
-                },
+                actions: [
+                    {
+                        label:     'Stack',
+                        href:      '/dependencies/',
+                        appearance:'outlined',
+                        variant:   'neutral',
+                        icon:      {
+                            name:   'screwdriver-wrench',
+                            variant:'regular',
+                        },
+                    },
+                ],
             },
             faq: {
                 kicker:'FAQ',
-                title: 'Useful context around the project.',
+                title: 'Common questions about Studio and the public site.',
                 items: [
                     {
-                        summary:'Who is the Studio for?',
-                        body:   'People working with journeys who need to review, present, and export map scenes, reports, screenshots, or video.',
+                        id:     'who-is-studio-for',
+                        summary:'Who is Studio for?',
+                        body:   'People who need to review, present, and export map scenes, reports, screenshots, or video.',
                     },
                     {
-                        summary:'Can the Studio generate journey reports?',
-                        body:   'Yes. A journey can be exported as a PDF report or as an HTML report packaged in a ZIP archive, with metadata, statistics, POIs, elevation data, coordinates, and map captures.',
+                        id:     'what-can-it-export',
+                        summary:'What can Studio export?',
+                        body:   'Snapshots, video, PDF reports, and ZIP-packaged HTML reports.',
                     },
                     {
-                        summary:'What is the public license?',
-                        body:   'The main repository is published under the PolyForm Noncommercial 1.0.0 license.',
-                        links:  [
-                            {href:'/licensing/', label:'licensing summary'},
-                            {href:'/license/', label:'full license text'},
-                            {href:'/contributor-license-agreement/', label:'Contributor License Agreement'},
-                        ],
+                        id:     'how-private-is-it',
+                        summary:'How private is it?',
+                        body:   'Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data.',
+                    },
+                ],
+                actions: [
+                    {
+                        label:     'Open FAQ page',
+                        href:      '/faq/',
+                        appearance:'outlined',
+                        variant:   'neutral',
+                        icon:      {
+                            name:   'circle-question',
+                            variant:'regular',
+                        },
                     },
                 ],
             },
@@ -219,8 +202,8 @@ const home = {
         description: 'Édition de parcours orientée local pour trajets, traces, POI, vues caméra, widgets, rapports et captures média.',
         hero:        {
             className:'intro-hero',
-            title:    'Transformez les moments outdoor en récits à partager.',
-            lead:     'Marchez ou roulez, puis importez, éditez et partagez des vidéos de vos parcours sans quitter votre navigateur*',
+            title:    'Transformez vos aventures outdoor en histoires à partager.',
+            lead:     'Marchez, courrez ou roulez, puis importez, éditez et partagez des vidéos de vos parcours sans quitter votre navigateur*',
             actions:  [
                 {
                     label:     'Studio',
@@ -248,46 +231,40 @@ const home = {
             ],
         },
         sectionNav: [
-            {id:'overview', label:'Vue d\'ensemble', summary:'Parcours privés dans le navigateur'},
-            {id:'vision', label:'Vision', summary:'Le point de vue utilisateur'},
-            {id:'features', label:'Fonctionnalités', summary:'Les workflows couverts par Studio'},
-            {id:'workflow', label:'Workflow', summary:'De la donnée source au rendu final'},
-            {id:'stack', label:'Stack', summary:'Les briques techniques principales'},
-            {id:'faq', label:'FAQ', summary:'Contexte pratique et réponses'},
+            {id:'overview', label:'Vue d\'ensemble', summary:'Parcours et exports dans le navigateur'},
+            {id:'features', label:'Fonctionnalités', summary:'Les workflows principaux couverts par Studio'},
+            {id:'workflow', label:'Workflow', summary:'De la donnée source à la sortie finale'},
+            {id:'access', label:'Accès et coût', summary:'Ce qui reste gratuit et quand Cesium est nécessaire'},
+            {id:'faq', label:'FAQ', summary:'Questions courantes et réponses'},
         ],
         content: {
             overview: {
                 kicker:        'Vue d\'ensemble',
-                title:         'La confidentialité d\'abord: gardez les données de parcours locales, privées ou synchronisées en temps réel.',
+                title:         'Un espace de travail dans le navigateur pour les parcours, la caméra, les captures et les rapports.',
                 intro:         [
-                    'Nous utilisons volontairement le mot parcours: c\'est à la fois un chemin physique et une trajectoire personnelle liée à la nature, aux personnes et aux lieux, pas seulement une ligne sur une carte.',
-                    'C\'était aussi un parcours dans le code, avec beaucoup de découverte et d\'apprentissage à travers différents domaines.',
+                    'Importez un parcours, inspectez la scène, ajustez la caméra et exportez ce qu’il faut sans quitter le navigateur.',
+                    'Studio garde l’état de travail en local par défaut et ne s’appuie sur des services externes que lorsque le workflow l’exige.',
                 ],
-                highlightsLabel:'Points forts du produit',
+                highlightsLabel:'Ce que couvre Studio',
                 highlights:    [
                     {
                         icon: 'route',
-                        title:'Flux local de parcours',
-                        body: 'Importer, relire et exporter des parcours et des traces tout en gardant les données dans le navigateur.',
+                        title:'Importer et revoir les parcours',
+                        body: 'Charger des parcours et traces tout en gardant l’état de travail dans le navigateur.',
                     },
                     {
-                        icon: 'box',
-                        title:'Vues 2D et 3D',
-                        body: 'Choisissez le mode de scène qui correspond au parcours en cours d\'édition.',
+                        icon: 'camera',
+                        title:'Diriger la scène',
+                        body: 'Passer en 2D ou 3D puis centrer la caméra sur le bon contexte de parcours.',
                     },
                     {
                         icon: 'file-pdf',
-                        title:'Médias et rapports',
-                        body: 'Exporter des captures, vidéos, rapports PDF ou rapports HTML packagés à partir du même parcours.',
-                    },
-                    {
-                        icon: 'share-nodes',
-                        title:'Partage vers les réseaux sociaux',
-                        body: 'Utilisez le menu de partage du navigateur pour envoyer liens exportés et vidéos vers vos réseaux sociaux quand l\'appareil le permet.',
+                        title:'Exporter captures et rapports',
+                        body: 'Produire des captures, de la vidéo, des PDF ou des rapports HTML empaquetés depuis le même parcours.',
                     },
                 ],
                 card: {
-                    eyebrow:'Workflow cœur',
+                    eyebrow:'Workflow de base',
                     title:  'Un espace unique, privé par défaut.',
                     items:  [
                         {icon:'map-location-dot', title:'Stockage', text:'GeoJSON, GPX et KML'},
@@ -296,97 +273,86 @@ const home = {
                     ],
                 },
             },
-            vision: {
-                kicker:'Vision',
-                title: 'Un éditeur cartographique construit autour de la confidentialité et des parcours locaux au navigateur.',
-                cards: [
-                    {
-                        className:'accent-a',
-                        icon:     'route',
-                        title:    'Garder les données en local',
-                        body:     'Relire les traces, styliser les chemins, gérer les POI et conserver l\'état d\'édition dans le stockage local.',
-                    },
-                    {
-                        className:'accent-b',
-                        icon:     'camera',
-                        title:    'Diriger la caméra',
-                        body:     'Basculer les modes de scène, cibler des points de vue précis et ajuster orbit ou panorama selon le besoin.',
-                    },
-                    {
-                        className:'accent-c',
-                        icon:     'clapperboard-play',
-                        title:    'Exporter depuis des parcours privés',
-                        body:     'Superposer widgets, métriques et overlays pour que captures, vidéos et rapports gardent le bon contexte sans sortir les données du navigateur.',
-                    },
-                    {
-                        className:'accent-b',
-                        icon:     'share-nodes',
-                        title:    'Partager',
-                        body:     'Diffusez vos récits via la feuille de partage du navigateur, directement vers les applications déjà utilisées.',
-                    },
-                ],
-            },
             features: {
                 kicker:'Fonctionnalités',
-                title: 'Les workflows que Studio couvre déjà.',
+                title: 'Les principaux workflows déjà pris en charge par Studio.',
                 cards: [
                     {icon:'route', title:'Édition des parcours et traces', body:'Charger des parcours, éditer les métadonnées, ajuster la visibilité et gérer la présentation des traces de manière cohérente.'},
                     {icon:'map-location-dot', title:'Workflow POI', body:'Créer, focaliser, faire pivoter et conserver des vues centrées sur les points à la fois pour les POI et les cibles de parcours.'},
                     {icon:'globe-pointer', title:'Contrôle de scène Cesium', body:'Passer de la 2D à la 3D, suivre la cible caméra active et garder une navigation claire.'},
-                    {icon:'arrows-rotate', title:'Orbit et panorama', body:'Ajuster la vitesse, la direction, le décalage de hauteur et le pitch pendant le mouvement de caméra.'},
-                    {icon:'chart-line', title:'Métriques et widgets', body:'Utiliser profils altimétriques, statistiques, dates, textes, crédits et autres overlays quand ils servent la scène.'},
-                    {icon:'file-pdf', title:'Rapports de parcours', body:'Générer des rapports PDF ou HTML ZIP avec métadonnées, statistiques, POI, coordonnées, altitudes et captures de carte.'},
-                    {icon:'location-crosshairs', title:'Géocodage et coordonnées', body:'Utiliser les outils de coordonnées et de géocodage pour placer, inspecter et focaliser le contexte plus précisément.'},
+                    {icon:'box', title:'Widgets et overlays', body:'Composer le contexte visible avec les métriques, libellés et panneaux utiles.'},
                     {icon:'clapperboard-play', title:'Export média', body:'Capturer des images, définir des zones de crop et enregistrer des vidéos avec les mêmes overlays que dans l\'éditeur.'},
-                    {icon:'share-nodes', title:'Partage social', body:'Partager URLs et médias exportés via le menu natif du navigateur afin de les envoyer directement vers les réseaux sociaux.'},
+                    {icon:'file-pdf', title:'Rapports de parcours', body:'Générer des rapports PDF ou HTML ZIP avec métadonnées, statistiques, POI, coordonnées, altitudes et captures de carte.'},
                 ],
             },
             workflow: {
                 kicker:'Workflow',
-                title: 'De la donnée source au rendu final.',
+                title: 'De la donnée source à la sortie finale.',
                 steps: [
                     {index:'01', title:'Charger les données source', body:'Importer des fichiers GeoJSON, GPX ou KML et reconstruire un contexte de parcours exploitable dans le navigateur.'},
-                    {index:'02', title:'Mettre en scène l\'expérience', body:'Affiner la visibilité, le focus, les widgets, les cibles caméra, les presets de rotation et les réglages panorama.'},
-                    {index:'03', title:'Capturer et livrer', body:'Exporter des images, vidéos ou rapports avec le même cadrage, les mêmes overlays et les mêmes métriques qu\'en édition.'},
-                    {index:'04', title:'Partager vers l\'extérieur', body:'Utiliser le menu de partage du navigateur pour envoyer liens ou vidéos exportés vers les réseaux sociaux quand l\'appareil le supporte.'},
+                    {index:'02', title:'Façonner la scène', body:'Régler la visibilité, le focus, les widgets, les cibles caméra et les réglages de panorama.'},
+                    {index:'03', title:'Exporter et partager', body:'Produire des captures, de la vidéo ou des rapports puis les transmettre via le flux de partage du navigateur si nécessaire.'},
                 ],
             },
-            stack: {
-                kicker:'Stack',
-                title: 'Cesium, React, Bun, Valtio, Mediabunny, Web Awesome, Eleventy et une base navigateur orientée local.',
-                items: [
-                    {icon:'globe-pointer', label:'Moteur de scène Cesium'},
-                    {icon:'box', label:'Système de widgets'},
-                    {icon:'database', label:'Persistance IndexedDB'},
-                    {icon:'file-pdf', label:'Rapports PDF et HTML'},
-                    {icon:'video', label:'Pipeline média'},
-                    {icon:'cloud-arrow-down', label:'Cache PWA'},
+            access: {
+                kicker:'Accès',
+                title: 'Studio est gratuit à l’usage, et l’accès Cesium n’est nécessaire que pour les données qui en dépendent.',
+                note:   'Vous pouvez ouvrir Studio et travailler sur vos parcours sans payer de licence. Un compte Cesium Ion devient utile seulement quand une scène ou une couche s’appuie sur les services Cesium.',
+                cards:  [
+                    {
+                        icon:  'circle-check',
+                        title: 'Accès Studio gratuit',
+                        body:  'Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant.',
+                    },
+                    {
+                        icon:  'key',
+                        title: 'Compte Cesium Ion',
+                        body:  'Créez ou utilisez un compte Cesium Ion quand vous avez besoin de scènes, couches ou jetons Cesium.',
+                    },
                 ],
-                action:{
-                    href: '/fr/dependencies/',
-                    label:'Ouvrir l\'inventaire des dépendances Studio',
-                },
+                actions: [
+                    {
+                        label:     'Stack',
+                        href:      '/fr/dependencies/',
+                        appearance:'outlined',
+                        variant:   'neutral',
+                        icon:      {
+                            name:   'screwdriver-wrench',
+                            variant:'regular',
+                        },
+                    },
+                ],
             },
             faq: {
                 kicker:'FAQ',
-                title: 'Contexte utile autour du projet.',
+                title: 'Questions courantes sur Studio et le site public.',
                 items: [
                     {
-                        summary:'À qui s\'adresse Studio ?',
-                        body:   'Aux personnes qui travaillent avec des parcours et ont besoin de relire, présenter et exporter des scènes cartographiques, des rapports, des captures ou de la vidéo.',
+                        id:     'pour-qui-est-studio',
+                        summary:'À qui s’adresse Studio ?',
+                        body:   'Aux personnes qui doivent relire, présenter et exporter des scènes cartographiques, des rapports, des captures ou de la vidéo.',
                     },
                     {
-                        summary:'Studio peut-il générer des rapports de parcours ?',
-                        body:   'Oui. Un parcours peut être exporté en rapport PDF ou en rapport HTML packagé dans une archive ZIP, avec métadonnées, statistiques, POI, données d\'altitude, coordonnées et captures de carte.',
+                        id:     'quexporte-studio',
+                        summary:'Qu’exporte Studio ?',
+                        body:   'Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP.',
                     },
                     {
-                        summary:'Quelle est la licence publique ?',
-                        body:   'Le dépôt principal est publié sous licence PolyForm Noncommercial 1.0.0.',
-                        links:  [
-                            {href:'/fr/licensing/', label:'résumé de licence'},
-                            {href:'/fr/license/', label:'texte complet'},
-                            {href:'/fr/contributor-license-agreement/', label:'Contributor License Agreement'},
-                        ],
+                        id:     'quel-niveau-de-vie-privee',
+                        summary:'Quel niveau de vie privée ?',
+                        body:   'Les données de travail restent dans le navigateur par défaut. Cesium Ion n’est nécessaire que pour les données dépendantes de Cesium.',
+                    },
+                ],
+                actions: [
+                    {
+                        label:     'Ouvrir la page FAQ',
+                        href:      '/fr/faq/',
+                        appearance:'outlined',
+                        variant:   'neutral',
+                        icon:      {
+                            name:   'circle-question',
+                            variant:'regular',
+                        },
                     },
                 ],
             },
@@ -416,6 +382,138 @@ const home = {
                     icon:      {
                         family:'brands',
                         name:  'github',
+                    },
+                },
+            ],
+        },
+    },
+}
+
+const faq = {
+    layout:   'layouts/page.html',
+    pageClass:'faq-page',
+    path:     '/faq/',
+    en:       {
+        title:       'FAQ',
+        description: 'Common questions about Studio and the public site.',
+        hero:        {
+            video:     false,
+            badge:     'Help',
+            kicker:    'FAQ',
+            title:     'Answers to common questions about Studio.',
+            lead:      'This page keeps the public-site and product questions in one place, with short answers that are easy to update.',
+            highlights:[
+                {label:'Local-first workflow', icon:'database', variant:'regular'},
+                {label:'Exports and reports', icon:'file-pdf', variant:'regular'},
+                {label:'Cesium when needed', icon:'key', variant:'regular'},
+            ],
+        },
+        sectionTitle: 'Common questions',
+        intro: 'Short answers to the questions people usually ask before opening Studio or reading the documentation.',
+        items: [
+            {
+                id:     'who-is-studio-for',
+                summary:'Who is Studio for?',
+                body:   'People who need to review, present, and export map scenes, reports, screenshots, or video.',
+            },
+            {
+                id:     'what-can-it-export',
+                summary:'What can Studio export?',
+                body:   'Snapshots, video, PDF reports, and ZIP-packaged HTML reports.',
+            },
+            {
+                id:     'how-private-is-it',
+                summary:'How private is it?',
+                body:   'Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data.',
+            },
+        ],
+        pageCta: {
+            eyebrow:'Next steps',
+            title:  'Open Studio or get in touch.',
+            body:   'Use Studio for editing, or contact LGS1920 if you need a different licensing or integration path.',
+            actions:[
+                {
+                    label:     'Open Studio',
+                    href:      studioUrl,
+                    appearance:'filled',
+                    variant:   'brand',
+                    external:  true,
+                    icon:      {
+                        name:   'clapperboard-play',
+                        variant:'regular',
+                    },
+                },
+                {
+                    label:     'Contact',
+                    href:      `mailto:${contactEmail}`,
+                    appearance:'outlined',
+                    variant:   'brand',
+                    icon:      {
+                        name:   'envelope',
+                        variant:'regular',
+                    },
+                },
+            ],
+        },
+    },
+    fr:       {
+        title:       'FAQ',
+        description: 'Questions courantes sur Studio et le site public.',
+        hero:        {
+            video:     false,
+            badge:     'Aide',
+            kicker:    'FAQ',
+            title:     'Réponses aux questions courantes sur Studio.',
+            lead:      'Cette page rassemble les questions sur le site public et le produit, avec des réponses courtes et faciles à mettre à jour.',
+            highlights:[
+                {label:'Workflow local-first', icon:'database', variant:'regular'},
+                {label:'Exports et rapports', icon:'file-pdf', variant:'regular'},
+                {label:'Cesium si nécessaire', icon:'key', variant:'regular'},
+            ],
+        },
+        sectionTitle: 'Questions courantes',
+        intro: 'Réponses courtes aux questions que l’on pose généralement avant d’ouvrir Studio ou de lire la documentation.',
+        items: [
+            {
+                id:     'pour-qui-est-studio',
+                summary:'À qui s’adresse Studio ?',
+                body:   'Aux personnes qui doivent relire, présenter et exporter des scènes cartographiques, des rapports, des captures ou de la vidéo.',
+            },
+            {
+                id:     'quexporte-studio',
+                summary:'Qu’exporte Studio ?',
+                body:   'Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP.',
+            },
+            {
+                id:     'quel-niveau-de-vie-privee',
+                summary:'Quel niveau de vie privée ?',
+                body:   'Les données de travail restent dans le navigateur par défaut. Cesium Ion n’est nécessaire que pour les données dépendantes de Cesium.',
+            },
+        ],
+        pageCta: {
+            eyebrow:'Et ensuite',
+            title:  'Ouvrir Studio ou nous contacter.',
+            body:   'Utilisez Studio pour l’édition, ou contactez LGS1920 si vous avez besoin d’un autre parcours de licence ou d’intégration.',
+            actions:[
+                {
+                    label:     'Ouvrir Studio',
+                    href:      studioUrl,
+                    appearance:'filled',
+                    variant:   'brand',
+                    external:  true,
+                    icon:      {
+                        name:   'clapperboard-play',
+                        variant:'regular',
+                    },
+                },
+                {
+                    label:     'Contact',
+                    href:      `mailto:${contactEmail}`,
+                    appearance:'outlined',
+                    variant:   'brand',
+                    icon:      {
+                        name:   'envelope',
+                        variant:'regular',
                     },
                 },
             ],
@@ -984,6 +1082,7 @@ const changelog = {
 
 const pageDefinitionsByPath = {
     '/':                              home,
+    '/faq/':                          faq,
     '/changelog/':                    changelog,
     '/licensing/':                    legal.licensing,
     '/license/':                      legal.license,
@@ -1027,6 +1126,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
 
 export default {
     home,
+    faq,
     userGuide,
     legal,
     changelog,

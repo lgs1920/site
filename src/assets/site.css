@@ -1670,6 +1670,14 @@ html.wa-light .hero-backdrop {
     margin-bottom: 1.5rem;
 }
 
+.section-intro {
+    max-width: 48rem;
+    margin: 0 0 1.1rem;
+    color: var(--page-muted);
+    line-height: 1.7;
+    font-size: 1.03rem;
+}
+
 .section-heading h2,
 .page-cta-card h2 {
     font-size: clamp(2.15rem, 3.9vw, 4.25rem);

@@ -40,6 +40,7 @@ const translatedPaths = new Set([
     '/license/',
     '/contributor-license-agreement/',
     '/dependencies/',
+    '/faq/',
     '/user-guide/',
     '/user-guide/getting-started/first-steps/',
     '/user-guide/getting-started/import-source-data/',

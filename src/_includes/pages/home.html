@@ -43,25 +43,6 @@
     </div>
 </section>
 
-<section id="vision" class="content-section">
-    <div class="section-heading">
-        <p class="section-kicker">{{ home_content.vision.kicker }}</p>
-        <h2>{{ home_content.vision.title }}</h2>
-    </div>
-
-    <div class="vision-grid">
-        {% for card in home_content.vision.cards %}
-            <wa-card class="vision-card {{ card.className }}">
-                <div class="card-heading">
-                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
-                    <h3>{{ card.title }}</h3>
-                </div>
-                <p>{{ card.body }}</p>
-            </wa-card>
-        {% endfor %}
-    </div>
-</section>
-
 <section id="features" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">{{ home_content.features.kicker }}</p>
@@ -100,24 +81,38 @@
     </ol>
 </section>
 
-<section id="stack" class="content-section">
+<section id="access" class="content-section">
     <div class="section-heading">
-        <p class="section-kicker">{{ home_content.stack.kicker }}</p>
-        <h2>{{ home_content.stack.title }}</h2>
+        <p class="section-kicker">{{ home_content.access.kicker }}</p>
+        <h2>{{ home_content.access.title }}</h2>
     </div>
 
-    <div class="stack-band">
-        {% for item in home_content.stack.items %}
-            <span><wa-icon variant="regular" name="{{ item.icon }}"></wa-icon> {{ item.label }}</span>
+    <p class="section-intro">{{ home_content.access.note }}</p>
+
+    <div class="feature-grid">
+        {% for card in home_content.access.cards %}
+            <wa-card class="feature-card">
+                <div class="card-heading">
+                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
+                    <h3>{{ card.title }}</h3>
+                </div>
+                <p>{{ card.body }}</p>
+            </wa-card>
         {% endfor %}
     </div>
 
-    <div class="stack-actions">
-        <wa-button href="{{ home_content.stack.action.href }}" appearance="outlined" variant="neutral">
-            <wa-icon slot="start" variant="regular" name="file-lines"></wa-icon>
-            {{ home_content.stack.action.label }}
-        </wa-button>
-    </div>
+    {% if home_content.access.actions and home_content.access.actions.size > 0 %}
+        <div class="page-cta-actions stack-actions">
+            {% for action in home_content.access.actions %}
+                <wa-button href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                    {% if action.icon %}
+                        <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                    {% endif %}
+                    {{ action.label }}
+                </wa-button>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>
 
 <section id="faq" class="content-section faq-section">
@@ -140,4 +135,17 @@
             </wa-details>
         {% endfor %}
     </div>
+
+    {% if home_content.faq.actions and home_content.faq.actions.size > 0 %}
+        <div class="page-cta-actions stack-actions">
+            {% for action in home_content.faq.actions %}
+                <wa-button href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                    {% if action.icon %}
+                        <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                    {% endif %}
+                    {{ action.label }}
+                </wa-button>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>
