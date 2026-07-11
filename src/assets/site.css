@@ -108,32 +108,32 @@ html.wa-light body {
 }
 
 html.wa-light[data-season-theme='spring'] body {
-    --page-bg: color-mix(in oklab, white 42%, #7bf1a8 58%);
+    --page-bg: color-mix(in oklab, white 42%, rgb(175, 218, 188) 58%);
     --page-muted: var(--wa-color-neutral-40);
-    --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, #7bf1a8 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, #7bf1a8 56%));
-    --panel-stroke: color-mix(in oklab, #7bf1a8 24%, transparent);
-    --surface-soft: color-mix(in oklab, #7bf1a8 40%, transparent);
-    --surface-strong: color-mix(in oklab, #7bf1a8 30%, transparent);
+    --panel-bg: linear-gradient(180deg, color-mix(in oklab, white 58%, rgb(175, 218, 188) 42%), color-mix(in oklab, var(--wa-color-surface-raised) 44%, rgb(175, 218, 188) 56%));
+    --panel-stroke: color-mix(in oklab, rgb(175, 218, 188) 24%, transparent);
+    --surface-soft: color-mix(in oklab, rgb(175, 218, 188) 40%, transparent);
+    --surface-strong: color-mix(in oklab, rgb(175, 218, 188) 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-green-30) 14%, transparent);
-    --header-bg: color-mix(in oklab, white 46%, #7bf1a8 54%);
-    --header-stroke: color-mix(in oklab, #7bf1a8 38%, transparent);
+    --header-bg: color-mix(in oklab, white 46%, rgb(175, 218, 188) 54%);
+    --header-stroke: color-mix(in oklab, rgb(175, 218, 188) 38%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-green-20) 16%);
-    --hero-card-bg: color-mix(in oklab, white 54%, #7bf1a8 46%);
-    --hero-glow-a: color-mix(in oklab, #7bf1a8 34%, transparent);
+    --hero-card-bg: color-mix(in oklab, white 54%, rgb(175, 218, 188) 46%);
+    --hero-glow-a: color-mix(in oklab, rgb(175, 218, 188) 34%, transparent);
     --hero-glow-b: color-mix(in oklab, var(--wa-color-yellow-60) 22%, transparent);
-    --hero-glow-c: color-mix(in oklab, #7bf1a8 28%, transparent);
-    --grid-line-color: color-mix(in oklab, #7bf1a8 24%, transparent);
+    --hero-glow-c: color-mix(in oklab, rgb(175, 218, 188) 28%, transparent);
+    --grid-line-color: color-mix(in oklab, rgb(175, 218, 188) 24%, transparent);
     background:
-        radial-gradient(circle at 10% 10%, color-mix(in oklab, #7bf1a8 34%, transparent), transparent 20rem),
+        radial-gradient(circle at 10% 10%, color-mix(in oklab, rgb(175, 218, 188) 34%, transparent), transparent 20rem),
         radial-gradient(circle at 90% 0%, color-mix(in oklab, var(--wa-color-yellow-60) 16%, transparent), transparent 22rem),
-        linear-gradient(180deg, color-mix(in oklab, white 54%, #7bf1a8 46%) 0%, color-mix(in oklab, white 38%, #7bf1a8 62%) 100%);
+        linear-gradient(180deg, color-mix(in oklab, white 54%, rgb(175, 218, 188) 46%) 0%, color-mix(in oklab, white 38%, rgb(175, 218, 188) 62%) 100%);
 }
 
 html.wa-dark[data-season-theme='spring'] body {
-    --theme-dark-tint: color-mix(in oklab, #7bf1a8 78%, var(--wa-color-neutral-10) 22%);
-    --theme-dark-tint-strong: color-mix(in oklab, #7bf1a8 88%, var(--wa-color-neutral-10) 12%);
-    --theme-dark-glow: color-mix(in oklab, #7bf1a8 68%, transparent);
+    --theme-dark-tint: color-mix(in oklab, rgb(175, 218, 188) 78%, var(--wa-color-neutral-10) 22%);
+    --theme-dark-tint-strong: color-mix(in oklab, rgb(175, 218, 188) 88%, var(--wa-color-neutral-10) 12%);
+    --theme-dark-glow: color-mix(in oklab, rgb(175, 218, 188) 68%, transparent);
     --theme-dark-glow-soft: color-mix(in oklab, var(--wa-color-yellow-60) 42%, transparent);
     --page-bg: color-mix(in oklab, var(--theme-dark-tint) 48%, var(--wa-color-neutral-10) 52%);
     --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 58%, var(--theme-dark-tint) 42%);

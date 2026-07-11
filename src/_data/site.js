@@ -83,7 +83,7 @@ export default {
         {
             value: 'spring',
             label: 'Spring',
-            swatch:'#7bf1a8',
+            swatch:'rgb(175, 218, 188)',
         },
         {
             value: 'summer',

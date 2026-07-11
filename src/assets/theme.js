@@ -24,7 +24,7 @@ const BRAND_SWATCHES = {
     gray:  'var(--wa-color-gray)',
 }
 const SEASON_SWATCHES = {
-    spring:'#7bf1a8',
+    spring:'rgb(175, 218, 188)',
     summer:'var(--wa-color-green-60)',
     fall:  '#c56e12',
     winter:'#dbeafe',
