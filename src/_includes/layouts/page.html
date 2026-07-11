@@ -401,25 +401,25 @@ layout: layouts/base.html
                 {% if guideContext.pagination.previous or guideContext.pagination.next %}
                     <div class="guide-adjacent-pagination">
                         {% if guideContext.pagination.previous %}
-                            <a class="guide-adjacent-link guide-adjacent-link-previous" href="{{ guideContext.pagination.previous.url }}">
-                                <span class="guide-adjacent-direction">
-                                    <wa-icon variant="regular" name="arrow-left"></wa-icon>
-                                    {{ labels.previous }}
-                                </span>
-                                <strong>{{ guideContext.pagination.previous.label }}</strong>
-                                <small>{{ guideContext.pagination.previous.sectionLabel }}</small>
-                            </a>
+                            <span class="guide-adjacent-slot guide-adjacent-slot-previous">
+                                <wa-button href="{{ guideContext.pagination.previous.url }}" appearance="filled" variant="brand" with-start>
+                                    <wa-icon slot="start" variant="solid" name="caret-left"></wa-icon>
+                                    <span class="guide-adjacent-label">
+                                        <span>{{ guideContext.pagination.previous.label }}</span>
+                                    </span>
+                                </wa-button>
+                            </span>
                         {% endif %}
 
                         {% if guideContext.pagination.next %}
-                            <a class="guide-adjacent-link guide-adjacent-link-next" href="{{ guideContext.pagination.next.url }}">
-                                <span class="guide-adjacent-direction">
-                                    {{ labels.next }}
-                                    <wa-icon variant="regular" name="arrow-right"></wa-icon>
-                                </span>
-                                <strong>{{ guideContext.pagination.next.label }}</strong>
-                                <small>{{ guideContext.pagination.next.sectionLabel }}</small>
-                            </a>
+                            <span class="guide-adjacent-slot guide-adjacent-slot-next">
+                                <wa-button href="{{ guideContext.pagination.next.url }}" appearance="filled" variant="brand" with-end>
+                                    <span class="guide-adjacent-label">
+                                        <span>{{ guideContext.pagination.next.label }}</span>
+                                    </span>
+                                    <wa-icon slot="end" variant="solid" name="caret-right"></wa-icon>
+                                </wa-button>
+                            </span>
                         {% endif %}
                     </div>
                 {% endif %}
