@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Eleventy Maintenance"
+  short_description: "Maintain Eleventy data, templates, layouts, and builds"
+  default_prompt: "Use for LGS1920 Eleventy page generation, data-model changes, template maintenance, build debugging, and generated-output checks."

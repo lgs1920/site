@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Multilingual Content"
+  short_description: "Synchronize and validate English and French site content"
+  default_prompt: "Use for translating or updating LGS1920 English and French pages, localized links, anchors, metadata, and translation status."

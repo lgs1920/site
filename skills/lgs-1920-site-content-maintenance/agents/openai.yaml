@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Site Content Maintenance"
+  short_description: "Maintain LGS1920 site content and editing workflows"
+  default_prompt: "Use for recurring LGS1920 site content updates, source-file discovery, safe edits, validation, and handoff."

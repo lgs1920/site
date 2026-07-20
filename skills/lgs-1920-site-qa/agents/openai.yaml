@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Site QA"
+  short_description: "Check LGS1920 pages, links, SEO, accessibility, and locales"
+  default_prompt: "Use for LGS1920 site QA across English and French routes, builds, links, hreflang, metadata, accessibility, and generated HTML."

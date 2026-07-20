@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Documentation Authoring"
+  short_description: "Create and update structured LGS1920 guide pages"
+  default_prompt: "Use for writing LGS1920 user-guide pages, section navigation, procedural content, reusable includes, and documentation structure."

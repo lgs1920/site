@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Site Release"
+  short_description: "Prepare and verify LGS1920 site releases"
+  default_prompt: "Use for LGS1920 site release preparation, Studio source synchronization, legal-document generation, builds, deployment checks, and release handoff."

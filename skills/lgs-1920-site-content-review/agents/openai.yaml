@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Content Review"
+  short_description: "Review LGS1920 documentation for clarity and consistency"
+  default_prompt: "Use for editorial review, terminology checks, translation quality, outdated instructions, and documentation improvement proposals."
