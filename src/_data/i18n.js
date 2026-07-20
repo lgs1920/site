@@ -1,3 +1,5 @@
+import {guidePages} from './guide-pages.generated.js'
+
 const defaultLocale = 'en'
 
 const supportedLocales = ['en', 'fr']
@@ -5,6 +7,7 @@ const supportedLocales = ['en', 'fr']
 const localeOptions = [
     {
         code:   'en',
+        prefix: '',
         label:  'English',
         short:  'EN',
         ogLocale:'en_US',
@@ -12,6 +15,7 @@ const localeOptions = [
     },
     {
         code:   'fr',
+        prefix: '/fr',
         label:  'Français',
         short:  'FR',
         ogLocale:'fr_FR',
@@ -33,7 +37,7 @@ const site = {
     },
 }
 
-const translatedPaths = new Set([
+const translatedSitePaths = [
     '/',
     '/changelog/',
     '/licensing/',
@@ -49,38 +53,11 @@ const translatedPaths = new Set([
     '/user-guide/workflows/points-of-interest/',
     '/user-guide/workflows/appearance/',
     '/user-guide/workflows/scene-and-camera/',
-    '/user-guide/workflows/widgets-and-overlays/',
-    '/user-guide/workflows/export/',
-    '/user-guide/workflows/common-problems/',
-    '/user-guide/workflows/shortcuts/',
-    '/user-guide/workflows/journey-reports/',
-    '/user-guide/workflows/snapshots-and-video/',
-    '/user-guide/reference/actions/',
-    '/user-guide/reference/objects/',
-    '/user-guide/reference/studio-interface/',
-    '/user-guide/reference/studio-interface/widgets/',
-    '/user-guide/reference/studio-interface/drawers/flythrough/',
-    '/user-guide/reference/studio-interface/drawers/information/',
-    '/user-guide/reference/studio-interface/drawers/journey-editor/',
-    '/user-guide/reference/studio-interface/drawers/journey-groups/',
-    '/user-guide/reference/studio-interface/drawers/layers/',
-    '/user-guide/reference/studio-interface/drawers/pois/',
-    '/user-guide/reference/studio-interface/drawers/settings/',
-    '/user-guide/reference/studio-interface/drawers/widget-management/',
-    '/user-guide/reference/studio-interface/drawers/widgets-editor/',
-    '/user-guide/reference/studio-interface/dialogs/backend-restart/',
-    '/user-guide/reference/studio-interface/dialogs/cesium-token/',
-    '/user-guide/reference/studio-interface/dialogs/confirm/',
-    '/user-guide/reference/studio-interface/dialogs/geocoding/',
-    '/user-guide/reference/studio-interface/dialogs/initial-error/',
-    '/user-guide/reference/studio-interface/dialogs/journey-loader/',
-    '/user-guide/reference/studio-interface/dialogs/layer-information/',
-    '/user-guide/reference/studio-interface/dialogs/layer-token/',
-    '/user-guide/reference/studio-interface/dialogs/profile-sync/',
-    '/user-guide/reference/studio-interface/dialogs/pwa-update/',
-    '/user-guide/reference/studio-interface/dialogs/support/',
-    '/user-guide/reference/studio-interface/dialogs/video-download/',
-    '/user-guide/reference/studio-interface/dialogs/widget-mount-error/',
+]
+
+const translatedPaths = new Set([
+    ...translatedSitePaths,
+    ...Object.keys(guidePages),
 ])
 
 const guideItemDefinitions = [
@@ -250,6 +227,8 @@ const ui = {
         pages:                 'Pages',
         userGuide:             'User guide',
         onThisPage:            'On this page',
+        moveGuideAsideLeft:    'Move guide navigation left',
+        moveGuideAsideRight:   'Move guide navigation right',
         chooseBrandAndSeason:  'Choose brand color and season theme',
         brandColor:            'Brand color',
         seasonTheme:           'Season theme',
@@ -290,6 +269,8 @@ const ui = {
         pages:                 'Pages',
         userGuide:             'Guide utilisateur',
         onThisPage:            'Sur cette page',
+        moveGuideAsideLeft:    'Déplacer la navigation du guide à gauche',
+        moveGuideAsideRight:   'Déplacer la navigation du guide à droite',
         chooseBrandAndSeason:  'Choisir la couleur de marque et le thème saisonnier',
         brandColor:            'Couleur de marque',
         seasonTheme:           'Thème saisonnier',
@@ -325,16 +306,21 @@ const ui = {
     },
 }
 
-const localizedPath = (locale, path) => locale === 'fr' ? `/fr${path}` : path
+const localizedPath = (locale, path) => `${localeMeta[locale]?.prefix ?? ''}${path}`
 
-const getLocaleFromUrl = (url = '') => (url === '/fr' || url.startsWith('/fr/')) ? 'fr' : defaultLocale
+const getLocaleFromUrl = (url = '') => {
+    const match = localeOptions
+        .filter((option) => option.prefix)
+        .sort((left, right) => right.prefix.length - left.prefix.length)
+        .find((option) => url === option.prefix || url.startsWith(`${option.prefix}/`))
+
+    return match?.code ?? defaultLocale
+}
 
 const getCanonicalGuidePath = (url = '') => {
-    if (url.startsWith('/fr/user-guide/')) {
-        return url.replace(/^\/fr/, '')
-    }
-
-    return url
+    const locale = getLocaleFromUrl(url)
+    const prefix = localeMeta[locale]?.prefix ?? ''
+    return prefix && url.startsWith(prefix) ? url.replace(prefix, '') : url
 }
 
 const normalizeUrl = (url = '') => {
@@ -350,11 +336,9 @@ const normalizeUrl = (url = '') => {
 const getCanonicalPath = (url = '') => {
     const normalizedUrl = normalizeUrl(url)
 
-    if (normalizedUrl.startsWith('/fr/')) {
-        return normalizedUrl.replace(/^\/fr/, '')
-    }
-
-    return normalizedUrl
+    const locale = getLocaleFromUrl(normalizedUrl)
+    const prefix = localeMeta[locale]?.prefix ?? ''
+    return prefix && normalizedUrl.startsWith(prefix) ? normalizedUrl.replace(prefix, '') : normalizedUrl
 }
 
 const getAlternateLocales = (url = '') => {

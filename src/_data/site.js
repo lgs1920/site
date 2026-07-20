@@ -23,7 +23,7 @@ export default {
     appUrl:      'https://studio.lgs1920.fr',
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'contact@lgs1920.fr',
-    footerNote:  `LGS1920 ${copyrightYears} - PolyForm Noncommercial 1.0.0`,
+    footerNote:  `LGS1920 ${copyrightYears} - GNU AGPL v3 or later`,
     buildLink:   {
         label:   'Built with Eleventy',
         short:   'Eleventy',

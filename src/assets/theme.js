@@ -5,13 +5,16 @@ const THEME_STORAGE_KEY = 'theme'
 const SEASON_STORAGE_KEY = 'seasonTheme'
 const BRAND_COLOR_STORAGE_KEY = 'brandColor'
 const NAVIGATION_STORAGE_KEY = 'pageNavigationState'
+const GUIDE_ASIDE_PLACEMENT_STORAGE_KEY = 'guideAsidePlacement'
 const ROOT_THEME_CLASS = 'wa-theme-lgs1920'
 const DEFAULT_BRAND_COLOR = 'yellow'
 const DEFAULT_THEME = 'system'
 const DEFAULT_SEASON = 'summer'
+const DEFAULT_GUIDE_ASIDE_PLACEMENT = 'right'
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray']
 const THEME_OPTIONS = ['light', 'dark', 'system']
 const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
+const GUIDE_ASIDE_PLACEMENTS = ['left', 'right']
 const BRAND_SWATCHES = {
     yellow:'var(--wa-color-yellow)',
     orange:'var(--wa-color-orange-70)',
@@ -77,6 +80,13 @@ const resolveSeasonTheme = (season = null) => {
     const resolvedSeason = season || fallbackSeason
 
     return SEASON_OPTIONS.includes(resolvedSeason) ? resolvedSeason : DEFAULT_SEASON
+}
+
+const resolveGuideAsidePlacement = (placement = null) => {
+    const fallbackPlacement = localStorage.getItem(GUIDE_ASIDE_PLACEMENT_STORAGE_KEY) || DEFAULT_GUIDE_ASIDE_PLACEMENT
+    const resolvedPlacement = placement || fallbackPlacement
+
+    return GUIDE_ASIDE_PLACEMENTS.includes(resolvedPlacement) ? resolvedPlacement : DEFAULT_GUIDE_ASIDE_PLACEMENT
 }
 
 const normalizeDocumentThemeClasses = (target = root) => {
@@ -166,10 +176,12 @@ const setBrownBrandScale = (target) => {
         '--wa-color-brand-80': 'color-mix(in oklab, var(--wa-color-orange-70) 82%, var(--wa-color-red-60) 18%)',
         '--wa-color-brand-90': 'color-mix(in oklab, var(--wa-color-orange-70) 22%, white 78%)',
         '--wa-color-brand-95': 'color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%)',
-        '--wa-color-brand-fill': 'var(--wa-color-brand-60)',
-        '--wa-color-brand-fill-normal': 'color-mix(in oklab, var(--wa-color-orange-70) 26%, white 74%)',
+        '--wa-color-brand-fill': 'var(--wa-color-brand)',
+        '--wa-color-brand-fill-normal': 'var(--wa-color-brand)',
         '--wa-color-brand-fill-quiet': 'color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%)',
+        '--wa-color-brand-border-normal': 'color-mix(in oklab, var(--wa-color-brand) 85%, black 12%)',
         '--wa-color-brand-on': '#fff',
+        '--wa-color-brand-on-normal': 'var(--wa-color-brand-on)',
         '--wa-color-brand-on-quiet': 'color-mix(in oklab, var(--wa-color-orange-70) 18%, white 82%)',
     }
 
@@ -455,6 +467,48 @@ const setupPageNavigation = () => {
     })
 }
 
+const setupGuideAsidePlacement = () => {
+    const page = document.querySelector('.site-layout.guide-layout')
+    const toggle = document.querySelector('[data-guide-aside-placement-toggle]')
+
+    if (!page || !toggle) {
+        return
+    }
+
+    const tooltip = document.querySelector('[data-guide-aside-placement-tooltip]')
+    const icon = toggle.querySelector('wa-icon')
+    const labels = {
+        left: toggle.dataset.moveLeftLabel || 'Move guide navigation left',
+        right:toggle.dataset.moveRightLabel || 'Move guide navigation right',
+    }
+
+    const actionForPlacement = (placement) => placement === 'left' ? 'right' : 'left'
+    const applyPlacement = (placement, {persist = true} = {}) => {
+        const resolvedPlacement = resolveGuideAsidePlacement(placement)
+        const nextPlacement = actionForPlacement(resolvedPlacement)
+        const label = labels[nextPlacement]
+
+        page.dataset.guideAsidePlacement = resolvedPlacement
+        toggle.setAttribute('aria-label', label)
+        tooltip && (tooltip.textContent = label)
+
+        if (icon) {
+            icon.setAttribute('label', label)
+        }
+
+        if (persist) {
+            localStorage.setItem(GUIDE_ASIDE_PLACEMENT_STORAGE_KEY, resolvedPlacement)
+        }
+    }
+
+    applyPlacement(resolveGuideAsidePlacement(), {persist: false})
+    toggle.addEventListener('click', () => {
+        const currentPlacement = resolveGuideAsidePlacement(page.dataset.guideAsidePlacement)
+
+        applyPlacement(actionForPlacement(currentPlacement))
+    })
+}
+
 const setupHeroVideo = () => {
     const video = document.querySelector('[data-hero-video]')
 
@@ -537,6 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHeroVideo()
     setupNavigationScrollbars(page)
     setupPageNavigation()
+    setupGuideAsidePlacement()
 })
 
 media.addEventListener('change', () => {

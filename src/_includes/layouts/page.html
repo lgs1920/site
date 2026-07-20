@@ -5,27 +5,35 @@ layout: layouts/base.html
 {% assign chrome_header_links = localizedHeaderLinks | default: site.headerLinks %}
 {% assign chrome_legal_links = localizedLegalLinks | default: site.legalLinks %}
 {% assign chrome_guide_sections = localizedUserGuideSections | default: site.userGuideSections %}
+{% if guideContext and guideContext.tocSections %}
+    {% assign chrome_guide_sections = guideContext.tocSections %}
+{% endif %}
 {% assign labels = uiLabels | default: site.ui %}
 {% assign page_hero = localizedPage.hero | default: hero %}
 {% assign page_section_nav = localizedPage.sectionNav | default: sectionNav %}
 {% assign page_cta = localizedPage.pageCta | default: pageCta %}
 {% assign page_class_value = localizedPage.pageClass | default: pageClass %}
-<wa-page class="site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
+<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right">
     <script>
         (() => {
             const page = document.currentScript.closest('wa-page')
             const storedState = localStorage.getItem('pageNavigationState')
 
-            if (!page || !storedState) {
+            if (!page) {
                 return
             }
 
             if (storedState === 'open') {
                 page.dataset.navCollapsed = 'false'
-                return
+            }
+            else if (storedState === 'closed') {
+                page.dataset.navCollapsed = 'true'
             }
 
-            page.dataset.navCollapsed = 'true'
+            const storedGuideAsidePlacement = localStorage.getItem('guideAsidePlacement')
+            if (storedGuideAsidePlacement === 'left' || storedGuideAsidePlacement === 'right') {
+                page.dataset.guideAsidePlacement = storedGuideAsidePlacement
+            }
         })()
     </script>
     <span slot="skip-to-content">{{ labels.skipToContent }}</span>
@@ -43,11 +51,6 @@ layout: layouts/base.html
         <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">{{ labels.home }}</wa-tooltip>
 
         <div class="topbar-actions">
-            <wa-button id="page-nav-toggle-mobile" class="nav-toggle nav-toggle-mobile" data-page-nav-toggle data-page-nav-toggle-mobile data-toggle-nav appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
-                <wa-icon variant="regular" name="bars"></wa-icon>
-            </wa-button>
-            <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
-
             {% for link in chrome_header_links %}
                 <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
@@ -136,6 +139,11 @@ layout: layouts/base.html
                 </wa-dropdown>
                 <wa-tooltip class="control-tooltip" for="theme-trigger" placement="bottom">{{ labels.chooseColorMode }}</wa-tooltip>
             </div>
+
+            <wa-button id="page-nav-toggle-mobile" class="nav-toggle nav-toggle-mobile" data-page-nav-toggle data-page-nav-toggle-mobile data-toggle-nav appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
+                <wa-icon variant="regular" name="bars"></wa-icon>
+            </wa-button>
+            <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
         </div>
     </header>
 
@@ -237,7 +245,7 @@ layout: layouts/base.html
                             {% if item.url == page.url %}
                                 {% assign is_current = true %}
                             {% endif %}
-                            <a class="drawer-link drawer-link-muted drawer-guide-link{% if is_current %} is-current{% endif %}" href="{{ item.url }}"{% if is_current %} aria-current="page"{% endif %}>
+                            <a class="drawer-link drawer-link-muted drawer-guide-link{% if is_current %} is-current{% endif %}" href="{{ item.contentUrl | default: item.url }}"{% if is_current %} aria-current="page"{% endif %}>
                                 <span>{{ item.label }}</span>
                                 {% if item.summary %}
                                     <small>{{ item.summary }}</small>
@@ -352,7 +360,7 @@ layout: layouts/base.html
     <main id="content" class="page-content{% if page_class_value %} {{ page_class_value }}{% endif %}">
         {% if guideContext %}
             <nav class="guide-breadcrumb-shell" aria-label="{{ labels.breadcrumb }}">
-                <wa-breadcrumb label="{{ labels.userGuideBreadcrumb }}">
+                <wa-breadcrumb>
                     <wa-breadcrumb-item href="{{ localizedHomeUrl | default: '/' }}">
                         <wa-icon slot="start" variant="regular" name="house"></wa-icon>
                         {{ labels.home }}
@@ -369,40 +377,76 @@ layout: layouts/base.html
             </nav>
         {% endif %}
 
-        {{ content }}
+        {% if guideContext and guideContext.tocSections and guideContext.tocSections.size > 0 %}
+            <div class="guide-content-layout">
+                <div id="guide-chapter" class="guide-content-body">
+                    {{ content }}
+                </div>
+
+                <aside class="guide-aside-shell" aria-label="{{ labels.userGuide }}">
+                    <nav class="guide-aside-nav" aria-label="{{ labels.userGuide }}">
+                        <div class="guide-aside-header">
+                            <span>{{ labels.userGuide }}</span>
+                            <wa-button
+                                id="guide-aside-placement-toggle"
+                                class="guide-aside-placement-toggle"
+                                variant="brand"
+                                appearance="filled"
+                                size="s"
+                                data-guide-aside-placement-toggle
+                                data-move-left-label="{{ labels.moveGuideAsideLeft }}"
+                                data-move-right-label="{{ labels.moveGuideAsideRight }}"
+                                aria-label="{{ labels.moveGuideAsideLeft }}">
+                                <wa-icon variant="regular" name="right-left" label="{{ labels.moveGuideAsideLeft }}"></wa-icon>
+                            </wa-button>
+                            <wa-tooltip class="control-tooltip" for="guide-aside-placement-toggle" placement="top" data-guide-aside-placement-tooltip>{{ labels.moveGuideAsideLeft }}</wa-tooltip>
+                        </div>
+                        {% for section in guideContext.tocSections %}
+                            <div class="drawer-guide-section guide-aside-section{% if section.isCurrent %} is-current{% endif %}">
+                                <p class="drawer-guide-section-label">
+                                    {% if section.icon %}
+                                        <wa-icon variant="regular" name="{{ section.icon }}"></wa-icon>
+                                    {% endif %}
+                                    <span>{{ section.label }}</span>
+                                </p>
+                                <div class="drawer-subnav guide-aside-subnav">
+                                    {% for item in section.items %}
+                                        <a class="drawer-link drawer-link-muted drawer-guide-link{% if item.isCurrent %} is-current{% endif %}" href="{{ item.contentUrl | default: item.url }}"{% if item.isCurrent %} aria-current="page"{% endif %}>
+                                            <span>{{ item.label }}</span>
+                                            {% if item.summary %}
+                                                <small>{{ item.summary }}</small>
+                                            {% endif %}
+                                        </a>
+                                        {% if item.isCurrent and page_section_nav and page_section_nav.size > 0 %}
+                                            <div class="guide-aside-page-anchors" aria-label="{{ labels.onThisPage }}">
+                                                {% for anchor in page_section_nav %}
+                                                    <a class="guide-aside-page-anchor" href="#{{ anchor.id }}">
+                                                        <span>{{ anchor.label }}</span>
+                                                        {% if anchor.summary %}
+                                                            <small>{{ anchor.summary }}</small>
+                                                        {% endif %}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </nav>
+                </aside>
+            </div>
+        {% else %}
+            {{ content }}
+        {% endif %}
 
         {% if guideContext %}
             <nav class="guide-pagination" aria-label="{{ labels.userGuidePagination }}">
-                {% if guideContext.sectionItems and guideContext.sectionItems.size > 1 %}
-                    <div class="guide-rubric-pages">
-                        <div class="guide-rubric-heading">
-                            <span>{{ labels.section }}</span>
-                            <strong>{{ guideContext.section.label }}</strong>
-                            {% if guideContext.section.summary %}
-                                <small>{{ guideContext.section.summary }}</small>
-                            {% endif %}
-                        </div>
-                        <div class="guide-rubric-link-list">
-                            {% for item in guideContext.sectionItems %}
-                                <a class="guide-rubric-link{% if item.isCurrent %} is-current{% endif %}" href="{{ item.url }}"{% if item.isCurrent %} aria-current="page"{% endif %}>
-                                    <span class="guide-rubric-index">{{ forloop.index }}</span>
-                                    <span class="guide-rubric-copy">
-                                        <strong>{{ item.label }}</strong>
-                                        {% if item.summary %}
-                                            <small>{{ item.summary }}</small>
-                                        {% endif %}
-                                    </span>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-
                 {% if guideContext.pagination.previous or guideContext.pagination.next %}
                     <div class="guide-adjacent-pagination">
                         {% if guideContext.pagination.previous %}
                             <span class="guide-adjacent-slot guide-adjacent-slot-previous">
-                                <wa-button href="{{ guideContext.pagination.previous.url }}" appearance="filled" variant="brand" with-start>
+                                <wa-button href="{{ guideContext.pagination.previous.contentUrl | default: guideContext.pagination.previous.url }}" appearance="filled" variant="brand" with-start>
                                     <wa-icon slot="start" variant="solid" name="caret-left"></wa-icon>
                                     <span class="guide-adjacent-label">
                                         <span>{{ guideContext.pagination.previous.label }}</span>
@@ -413,7 +457,7 @@ layout: layouts/base.html
 
                         {% if guideContext.pagination.next %}
                             <span class="guide-adjacent-slot guide-adjacent-slot-next">
-                                <wa-button href="{{ guideContext.pagination.next.url }}" appearance="filled" variant="brand" with-end>
+                                <wa-button href="{{ guideContext.pagination.next.contentUrl | default: guideContext.pagination.next.url }}" appearance="filled" variant="brand" with-end>
                                     <span class="guide-adjacent-label">
                                         <span>{{ guideContext.pagination.next.label }}</span>
                                     </span>

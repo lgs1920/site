@@ -1,9 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import MarkdownIt from 'markdown-it'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const studioRepoBaseUrl = 'https://github.com/lgs1920/studio/blob/main'
+const studioLicenseRef = '1.0.0-beta.3'
+const studioRepoBaseUrl = `https://github.com/lgs1920/studio/blob/${studioLicenseRef}`
 const markdown = new MarkdownIt({
     html:      true,
     linkify:   true,
@@ -13,18 +15,21 @@ const markdown = new MarkdownIt({
 const sourceConfig = {
     dependencies: {
         maxNavLevel: 3,
-        sourceFile:  'README_DEPENDENCIES.md',
-        sourceLabel: 'studio/README_DEPENDENCIES.md',
+        sourceFile:  'tech-doc/README_DEPENDENCIES.md',
+        sourceLabel: 'studio/tech-doc/README_DEPENDENCIES.md',
+        sourceRef:   studioLicenseRef,
     },
     licensing: {
         maxNavLevel: 2,
         sourceFile:  'LICENSES.md',
         sourceLabel: 'studio/LICENSES.md',
+        sourceRef:   studioLicenseRef,
     },
     license: {
         maxNavLevel: 2,
         sourceFile:  'LICENSE.md',
         sourceLabel: 'studio/LICENSE.md',
+        sourceRef:   studioLicenseRef,
     },
     cla: {
         maxNavLevel: 2,
@@ -69,15 +74,21 @@ const createHeadingId = (text, seenIds) => {
     return count === 0 ? baseId : `${baseId}-${count + 1}`
 }
 
-const renderDocument = ({ maxNavLevel, sourceFile, sourceLabel }) => {
+const renderDocument = ({ maxNavLevel, sourceFile, sourceLabel, sourceRef = 'main' }) => {
     const sourcePath = path.join(studioRoot, sourceFile)
+
+    if (!fs.existsSync(path.join(studioRoot, '.git'))) {
+        throw new Error(`Missing studio git repository: ${studioRoot}`)
+    }
 
     if (!fs.existsSync(sourcePath)) {
         throw new Error(`Missing legal source file: ${sourcePath}`)
     }
 
     const sourceUrl = `${studioRepoBaseUrl}/${sourceFile}`
-    const rawMarkdown = rewriteStudioLinks(fs.readFileSync(sourcePath, 'utf8'))
+    const rawMarkdown = rewriteStudioLinks(execFileSync('git', ['-C', studioRoot, 'show', `${sourceRef}:${sourceFile}`], {
+        encoding:'utf8',
+    }))
     const tokens = markdown.parse(rawMarkdown, {})
     const filteredTokens = []
     const sectionNav = []

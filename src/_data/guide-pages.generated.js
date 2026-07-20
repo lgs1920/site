@@ -1755,6 +1755,25 @@ const guidePages = {
           "backUrl": "/fr/user-guide/reference/studio-interface/#drawers",
           "backLabel": "Drawers",
           "overview": "Le drawer Layers gère les sources de données qui définissent la carte et le terrain visibles.\n",
+          "screenshot": {
+            "src": "/src/assets/media/user-guide/layers-drawer-en.svg",
+            "alt": "Illustration de type capture d'écran du drawer Layers dans Studio.",
+            "description": "La capture montre le drawer Layers ouvert avec la liste des couches, le terrain et le bouton de disclaimer.",
+            "annotations": [
+              {
+                "label": "Bouton disclaimer",
+                "description": "Ouvre l'information de couche avant d'utiliser une source protégée."
+              },
+              {
+                "label": "Liste des sources",
+                "description": "Présente les couches de base et les terrains disponibles."
+              },
+              {
+                "label": "Switch de visibilité",
+                "description": "Active ou désactive la source sélectionnée dans la scène."
+              }
+            ]
+          },
           "controls": [
             {
               "label": "Layer disclaimer",
@@ -1787,6 +1806,25 @@ const guidePages = {
           "backUrl": "/user-guide/reference/studio-interface/#drawers",
           "backLabel": "Drawers",
           "overview": "The Layers drawer manages the data sources that define the visible map and terrain. It is where you review what the scene is drawing and how the background data is sourced.\n",
+          "screenshot": {
+            "src": "/src/assets/media/user-guide/layers-drawer-en.svg",
+            "alt": "Screenshot-style illustration of the Layers drawer in Studio.",
+            "description": "The screenshot shows the Layers drawer open with the layer list, terrain source, and disclaimer button in view.",
+            "annotations": [
+              {
+                "label": "Disclaimer button",
+                "description": "Opens source notes before you use a protected layer."
+              },
+              {
+                "label": "Source list",
+                "description": "Shows the available base layers and terrain sources."
+              },
+              {
+                "label": "Visibility switch",
+                "description": "Turns the selected source on or off in the scene."
+              }
+            ]
+          },
           "controls": [
             {
               "label": "Layer disclaimer",

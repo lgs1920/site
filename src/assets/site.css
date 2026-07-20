@@ -20,6 +20,9 @@
     --lgs-button-plain-color: var(--wa-color-brand);
     --lgs-button-plain-hover-color: var(--wa-color-brand);
     --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
+    --wa-color-brand-fill-normal: var(--lgs-button-bg-color);
+    --wa-color-brand-border-normal: var(--lgs-button-border-color);
+    --wa-color-brand-on-normal: var(--lgs-button-color);
     --lgs-accent-color: var(--wa-color-brand-60);
     --lgs-accent-strong-color: var(--wa-color-brand-70);
     --lgs-accent-border-color: var(--wa-color-brand-50);
@@ -44,11 +47,13 @@ html.wa-brand-brown {
     --wa-color-brand-80: color-mix(in oklab, var(--wa-color-orange-70) 82%, var(--wa-color-red-60) 18%);
     --wa-color-brand-90: color-mix(in oklab, var(--wa-color-orange-70) 22%, white 78%);
     --wa-color-brand-95: color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%);
-    --wa-color-brand-fill: var(--wa-color-brand-60);
-    --wa-color-brand-fill-normal: color-mix(in oklab, var(--wa-color-orange-70) 26%, white 74%);
+    --wa-color-brand-fill: var(--wa-color-brand);
+    --wa-color-brand-fill-normal: var(--wa-color-brand);
     --wa-color-brand-fill-quiet: color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%);
     --wa-color-brand-on: #fff;
+    --wa-color-brand-on-normal: var(--wa-color-brand-on);
     --wa-color-brand-on-quiet: color-mix(in oklab, var(--wa-color-orange-70) 18%, white 82%);
+    --wa-color-brand-border-normal: color-mix(in oklab, var(--wa-color-brand) 85%, black 12%);
 }
 
 html,
@@ -436,18 +441,6 @@ wa-badge::part(base) {
 
 wa-button::part(base) {
     box-shadow: none;
-}
-
-wa-button[variant='brand']:not([appearance='plain']):not([appearance='Plain']):not([appearance='outlined']):not([appearance='Outlined'])::part(base) {
-    color: var(--lgs-button-color);
-    border-color: var(--lgs-button-border-color);
-    background-color: var(--lgs-button-bg-color) !important;
-}
-
-wa-button[variant='brand']:not([appearance='plain']):not([appearance='Plain']):not([appearance='outlined']):not([appearance='Outlined']):not([disabled]):hover::part(base) {
-    color: var(--lgs-button-hover-color);
-    border-color: var(--lgs-button-border-hover-color);
-    background-color: var(--lgs-button-bg-hover-color) !important;
 }
 
 wa-button[variant='brand'][appearance='outlined']::part(base) {
@@ -915,7 +908,6 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .drawer-subnav {
     display: grid;
     gap: 0.35rem;
-    padding-left: 1.85rem;
 }
 
 .drawer-sub-link {
@@ -1916,7 +1908,131 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
     padding-block: 3rem 4rem;
 }
 
-.guide-page > * {
+.guide-content-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 18.5rem);
+    align-items: start;
+    gap: clamp(1.25rem, 2.6vw, 2rem);
+    width: 100%;
+    max-width: none;
+}
+
+.guide-content-body {
+    grid-column: 1;
+    min-width: 0;
+    max-width: none;
+    scroll-margin-top: calc(var(--header-height, 0px) + 1rem);
+}
+
+.guide-content-body > [id] {
+    scroll-margin-top: calc(var(--header-height, 0px) + 1rem);
+}
+
+.guide-aside-shell {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: calc(var(--header-height, 0px) + 1rem);
+    align-self: start;
+    min-width: 0;
+}
+
+wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-content-layout {
+    grid-template-columns: minmax(15rem, 18.5rem) minmax(0, 1fr);
+}
+
+wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-content-body {
+    grid-column: 2;
+}
+
+wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside-shell {
+    grid-column: 1;
+}
+
+.guide-aside-nav {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1rem 0.55rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+}
+
+.guide-aside-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.guide-aside-header > span {
+    min-width: 0;
+    color: var(--page-muted);
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.guide-aside-placement-toggle::part(base) {
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border-radius: var(--wa-border-radius-m);
+}
+
+.guide-aside-placement-toggle::part(label) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.guide-aside-placement-toggle wa-icon {
+    color: currentColor;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.guide-aside-page-anchors {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0.2rem 0 0.35rem;
+    padding-left: var(--wa-space-l);
+    border-left: 1px solid var(--panel-stroke);
+}
+
+.guide-aside-nav .drawer-guide-link {
+    padding-inline: 0.55rem;
+}
+
+.guide-aside-page-anchor {
+    display: grid;
+    gap: 0.1rem;
+    padding: 0.44rem 0.45rem;
+    border-radius: var(--wa-border-radius-s);
+    color: var(--page-ink);
+    text-decoration: none;
+}
+
+.guide-aside-page-anchor:hover {
+    background: var(--surface-strong);
+}
+
+.guide-aside-page-anchor span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.guide-aside-page-anchor small {
+    color: var(--page-muted);
+    line-height: 1.35;
+}
+
+.guide-page > *,
+.guide-content-body > * {
     max-width: none;
 }
 
@@ -1945,27 +2061,34 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 
 .guide-page > h2,
 .guide-page > h3,
-.guide-page > h4 {
+.guide-page > h4,
+.guide-content-body > h2,
+.guide-content-body > h3,
+.guide-content-body > h4 {
     line-height: 1.1;
     font-family: var(--wa-font-family-heading);
     text-wrap: balance;
 }
 
-.guide-page > h2 {
+.guide-page > h2,
+.guide-content-body > h2 {
     margin: 3rem 0 1rem;
     font-size: clamp(2rem, 3.4vw, 3.3rem);
 }
 
-.guide-page > h2:first-child {
+.guide-page > h2:first-child,
+.guide-content-body > h2:first-child {
     margin-top: 0;
 }
 
-.guide-page > h3 {
+.guide-page > h3,
+.guide-content-body > h3 {
     margin: 2rem 0 0.75rem;
     font-size: clamp(1.35rem, 2.1vw, 1.8rem);
 }
 
-.guide-page > h4 {
+.guide-page > h4,
+.guide-content-body > h4 {
     margin: 1.4rem 0 0.55rem;
     font-size: 1.05rem;
 }
@@ -2171,6 +2294,53 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 
 .guide-screenshot-placeholder span {
     max-width: 32rem;
+    line-height: 1.55;
+}
+
+.guide-screenshot-figure {
+    margin: 0 0 1.1rem;
+}
+
+.guide-screenshot-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.guide-screenshot-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.guide-screenshot-legend {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0.8rem 0 0;
+    list-style: none;
+}
+
+.guide-screenshot-legend-item {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+}
+
+.guide-screenshot-legend-item strong {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.guide-screenshot-legend-item p {
+    margin: 0;
+    color: var(--page-muted);
     line-height: 1.55;
 }
 
@@ -2538,6 +2708,10 @@ wa-card.page-cta-card::part(body) {
         justify-content: flex-end;
     }
 
+    .nav-toggle-mobile {
+        margin-left: 0.35rem;
+    }
+
     .content-section {
         padding-block: 2.7rem;
     }
@@ -2589,6 +2763,25 @@ wa-card.page-cta-card::part(body) {
 
     .guide-adjacent-slot-next:first-child {
         grid-column: auto;
+    }
+
+    .guide-content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-content-body,
+    .guide-aside-shell,
+    wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-content-body,
+    wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside-shell {
+        grid-column: auto;
+    }
+
+    .guide-aside-shell {
+        display: none;
     }
 }
 
@@ -2706,6 +2899,10 @@ wa-card.page-cta-card::part(body) {
     .topbar-actions {
         gap: 0.25rem;
         justify-content: flex-end;
+    }
+
+    .nav-toggle-mobile {
+        margin-left: 0.35rem;
     }
 
     .icon-link-button::part(base),

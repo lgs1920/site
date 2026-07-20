@@ -1,7 +1,11 @@
 import i18n from '../_data/i18n.js'
+import { getGuidePageContent } from '../_data/guide-pages.generated.js'
+import { getGuideTranslationReport } from '../_data/translation-status.js'
+
+const GUIDE_CONTENT_ANCHOR_ID = 'guide-chapter'
 
 const normalizeGuideUrl = (url = '') => {
-    const normalizedUrl = url.replace(/index\.html$/, '')
+    const normalizedUrl = url.split('#')[0].split('?')[0].replace(/index\.html$/, '')
 
     if (normalizedUrl.endsWith('/')) {
         return normalizedUrl
@@ -15,7 +19,16 @@ const createGuideEntries = (sections = []) => sections.flatMap((section) => sect
     section,
 })))
 
-const createPaginationItem = (entry) => {
+const getGuideContentAnchorId = (url = '', locale = i18n.defaultLocale) => {
+    const pageContent = getGuidePageContent(url, locale)
+    const firstSection = pageContent?.sectionNav?.[0]
+
+    return firstSection?.id || GUIDE_CONTENT_ANCHOR_ID
+}
+
+const createGuideContentUrl = (url = '', locale = i18n.defaultLocale) => `${url.split('#')[0]}#${getGuideContentAnchorId(url, locale)}`
+
+const createPaginationItem = (entry, locale) => {
     if (!entry) {
         return null
     }
@@ -23,6 +36,7 @@ const createPaginationItem = (entry) => {
     return {
         label:       entry.item.label,
         url:         entry.item.url,
+        contentUrl:  createGuideContentUrl(entry.item.url, locale),
         summary:     entry.item.summary,
         icon:        entry.item.icon,
         sectionLabel:entry.section.label,
@@ -70,25 +84,19 @@ const resolveGuideContext = (data) => {
     const locale = getGuideLocale(data)
     const guideHomeUrl = i18n.localizedPath(locale, '/user-guide/')
     const isOverview = normalizeGuideUrl(currentEntry.item.url) === guideHomeUrl
-    const sectionHomeUrl = currentEntry.section.items[0]?.url
-    const sectionHomeIsCurrent = sectionHomeUrl && normalizeGuideUrl(sectionHomeUrl) === currentUrl
     const breadcrumbs = isOverview
         ? [
             {
-                label:data.uiLabels?.userGuide ?? 'User guide',
-                icon: 'book-open',
+                label:data.uiLabels?.home ?? 'Home',
+                url:  i18n.localizedPath(locale, '/'),
+                icon: 'house',
             },
         ]
         : [
             {
-                label:data.uiLabels?.userGuide ?? 'User guide',
-                url:  guideHomeUrl,
-                icon: 'book-open',
-            },
-            {
-                label:currentEntry.section.label,
-                url:  sectionHomeIsCurrent ? undefined : sectionHomeUrl,
-                icon: currentEntry.section.icon,
+                label:data.uiLabels?.home ?? 'Home',
+                url:  i18n.localizedPath(locale, '/'),
+                icon: 'house',
             },
             {
                 label:currentEntry.item.label,
@@ -100,23 +108,43 @@ const resolveGuideContext = (data) => {
         current: {
             label:       currentEntry.item.label,
             url:         currentEntry.item.url,
+            contentUrl:  createGuideContentUrl(currentEntry.item.url, locale),
             summary:     currentEntry.item.summary,
             icon:        currentEntry.item.icon,
             sectionLabel:currentEntry.section.label,
+            translations:getGuideTranslationReport(currentEntry.item.url),
         },
         section: {
             label:  currentEntry.section.label,
             summary:currentEntry.section.summary,
             icon:   currentEntry.section.icon,
         },
+        tocSections: sections.map((section) => {
+            const items = section.items.map((item) => ({
+                ...item,
+                contentUrl:createGuideContentUrl(item.url, locale),
+                isCurrent: normalizeGuideUrl(item.url) === currentUrl,
+            }))
+
+            return {
+                label:      section.label,
+                summary:    section.summary,
+                icon:       section.icon,
+                items,
+                isCurrent:  items.some((item) => item.isCurrent),
+                isOpen:     true,
+                firstUrl:   items[0]?.url,
+            }
+        }),
         sectionItems: currentEntry.section.items.map((item) => ({
             ...item,
+            contentUrl:createGuideContentUrl(item.url, locale),
             isCurrent: normalizeGuideUrl(item.url) === currentUrl,
         })),
         breadcrumbs,
         pagination: {
-            previous:createPaginationItem(entries[currentIndex - 1]),
-            next:    createPaginationItem(entries[currentIndex + 1]),
+            previous:createPaginationItem(entries[currentIndex - 1], locale),
+            next:    createPaginationItem(entries[currentIndex + 1], locale),
         },
     }
 }
@@ -134,6 +162,7 @@ export default {
         uiLabels:                  (data) => i18n.ui[getGuideLocale(data)] ?? i18n.ui.en,
         alternateLocales:          getAlternateLocales,
         guideContext:              resolveGuideContext,
+        guideTranslationReport:    (data) => getGuideTranslationReport(data.page?.url),
         pageCta:                   (data) => {
             const locale = getGuideLocale(data)
 
