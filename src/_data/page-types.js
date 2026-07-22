@@ -44,6 +44,7 @@ const home = {
             {id:'overview', label:'Overview', summary:'Browser-local journeys and exports'},
             {id:'features', label:'Features', summary:'The main workflows the Studio covers'},
             {id:'workflow', label:'Workflow', summary:'From source data to final output'},
+            {id:'roadmap', label:'Roadmap', summary:'The next Studio milestones'},
             {id:'access', label:'Access & cost', summary:'What stays free and when Cesium is needed'},
             {id:'faq', label:'FAQ', summary:'Common questions and answers'},
         ],
@@ -104,10 +105,20 @@ const home = {
                     {index:'03', title:'Export and share', body:'Produce screenshots, video, or reports and hand them off through the browser share flow when needed.'},
                 ],
             },
+            roadmap: {
+                kicker:'Roadmap',
+                title: 'Where Studio is heading next.',
+                items: [
+                    {version:'1.0', title:'Current Studio', body:'A privacy-first, local-first geospatial editor for journeys, tracks, POIs, Cesium 2D/3D scenes, camera controls, widgets, replay, snapshots, video, and PDF or HTML journey reports.'},
+                    {version:'1.1', title:'Extended activity imports', body:'Add FIT and TCX imports from Garmin and Strava while preserving activity and sensor data, with optional authenticated Strava access and connected-provider project files.'},
+                    {version:'1.2', title:'Timeline video editor', body:'Replace the separate Replay start, replay, and stop clip controls with a track-based timeline combining journey replay, clips, and widgets.'},
+                    {version:'1.3', title:'3D drone path editor', body:'Author editable 3D camera paths with GPS positions, altitude, duration, motion profiles, look-at targets, easing, and optional 360-degree moves.'},
+                ],
+            },
             access: {
                 kicker:'Access',
-                title: 'The Studio is free to use, and Cesium access is only needed when you use Cesium-backed data.',
-                note:   'You can open Studio and work on journeys without paying a license fee. A Cesium Ion account only becomes relevant when a scene or layer depends on Cesium services.',
+                title: 'Studio is free to use.',
+                note:   'During the trial period, access to Cesium is shared with limitations. After that, Cesium Ion access is required if you want to use your own private Cesium resources or Google Photorealistic 3D Tiles. The first Cesium access plan is completely free, and you can upgrade to suit your needs.',
                 cards:  [
                     {
                         icon:  'circle-check',
@@ -116,20 +127,13 @@ const home = {
                     },
                     {
                         icon:  'key',
-                        title: 'Cesium Ion account',
-                        body:  'Create or sign in to a Cesium Ion account when you need Cesium-backed scenes, layers, or tokens.',
+                        title: 'Free Cesium access',
+                        body:  'Create or sign in to a Cesium Ion account during the trial period to use your own resources and Google Photorealistic 3D Tiles.',
                     },
-                ],
-                actions: [
                     {
-                        label:     'Stack',
-                        href:      '/dependencies/',
-                        appearance:'outlined',
-                        variant:   'neutral',
-                        icon:      {
-                            name:   'screwdriver-wrench',
-                            variant:'regular',
-                        },
+                        icon:  'circle-info',
+                        title: 'Technical relationship only',
+                        body:  'LGS1920 has no commercial relationship with Cesium. Cesium is open source and is one of the leading 3D globe engines, used only as the technical 3D engine for Studio.',
                     },
                 ],
             },
@@ -234,6 +238,7 @@ const home = {
             {id:'overview', label:'Vue d\'ensemble', summary:'Parcours et exports dans le navigateur'},
             {id:'features', label:'Fonctionnalités', summary:'Les workflows principaux couverts par Studio'},
             {id:'workflow', label:'Workflow', summary:'De la donnée source à la sortie finale'},
+            {id:'roadmap', label:'Roadmap', summary:'Les prochaines étapes de Studio'},
             {id:'access', label:'Accès et coût', summary:'Ce qui reste gratuit et quand Cesium est nécessaire'},
             {id:'faq', label:'FAQ', summary:'Questions courantes et réponses'},
         ],
@@ -294,10 +299,20 @@ const home = {
                     {index:'03', title:'Exporter et partager', body:'Produire des captures, de la vidéo ou des rapports puis les transmettre via le flux de partage du navigateur si nécessaire.'},
                 ],
             },
+            roadmap: {
+                kicker:'Roadmap',
+                title: 'Les prochaines évolutions de Studio.',
+                items: [
+                    {version:'1.0', title:'Studio actuel', body:'Un éditeur géospatial privacy-first et local-first pour les parcours, traces, POI, scènes Cesium 2D/3D, contrôles caméra, widgets, replay, captures, vidéo et rapports de parcours PDF ou HTML.'},
+                    {version:'1.1', title:'Imports d’activités étendus', body:'Ajouter les imports FIT et TCX depuis Garmin et Strava en conservant les données d’activité et de capteurs, avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés.'},
+                    {version:'1.2', title:'Éditeur vidéo sur timeline', body:'Remplacer les contrôles Replay séparés de début, replay et fin par une timeline basée sur des pistes, réunissant replay du parcours, clips et widgets.'},
+                    {version:'1.3', title:'Éditeur de trajectoires drone 3D', body:'Créer des trajectoires caméra 3D éditables avec positions GPS, altitude, durée, profils de mouvement, cibles à regarder, easing et mouvements à 360 degrés optionnels.'},
+                ],
+            },
             access: {
                 kicker:'Accès',
-                title: 'Studio est gratuit à l’usage, et l’accès Cesium n’est nécessaire que pour les données qui en dépendent.',
-                note:   'Vous pouvez ouvrir Studio et travailler sur vos parcours sans payer de licence. Un compte Cesium Ion devient utile seulement quand une scène ou une couche s’appuie sur les services Cesium.',
+                title: 'Studio est gratuit à l’usage.',
+                note:   'Pendant la période d’essai, l’accès à Cesium est partagé et soumis à certaines limitations. Ensuite, un accès Cesium Ion est nécessaire si vous souhaitez utiliser vos propres ressources Cesium privées ou les couches 3D photoréalistes de Google. Le premier plan d’accès Cesium est totalement gratuit, et vous pouvez passer à une offre supérieure selon vos besoins.',
                 cards:  [
                     {
                         icon:  'circle-check',
@@ -306,20 +321,13 @@ const home = {
                     },
                     {
                         icon:  'key',
-                        title: 'Compte Cesium Ion',
-                        body:  'Créez ou utilisez un compte Cesium Ion quand vous avez besoin de scènes, couches ou jetons Cesium.',
+                        title: 'Accès Cesium gratuit',
+                        body:  'Créez ou utilisez un compte Cesium Ion pendant la période d’essai pour profiter de vos propres ressources et des couches 3D photoréalistes de Google.',
                     },
-                ],
-                actions: [
                     {
-                        label:     'Stack',
-                        href:      '/fr/dependencies/',
-                        appearance:'outlined',
-                        variant:   'neutral',
-                        icon:      {
-                            name:   'screwdriver-wrench',
-                            variant:'regular',
-                        },
+                        icon:  'circle-info',
+                        title: 'Relation uniquement technique',
+                        body:  'LGS1920 n’a aucun lien commercial avec Cesium. Cesium est open source et fait partie des moteurs 3D globe de référence ; il est utilisé uniquement comme moteur 3D technique de Studio.',
                     },
                 ],
             },

@@ -81,6 +81,25 @@
     </ol>
 </section>
 
+<section id="roadmap" class="content-section workflow-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.roadmap.kicker }}</p>
+        <h2>{{ home_content.roadmap.title }}</h2>
+    </div>
+
+    <ol class="workflow-list roadmap-list">
+        {% for item in home_content.roadmap.items %}
+            <li>
+                <span>{{ item.version }}</span>
+                <div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.body }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</section>
+
 <section id="access" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">{{ home_content.access.kicker }}</p>
