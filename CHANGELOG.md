@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-07-22 — `pending` — Update user guide Markdown content
+## 2026-07-22 — `7f56c27` — Update user guide Markdown content
 
 - Clarified scene modes, journey editing, replay/video capture, map layers, and widget workflows.
 - Documented 3D Tiles, deferred HQ replay export, dynamic statistics, and mandatory attribution widgets.
