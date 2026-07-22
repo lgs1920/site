@@ -2,8 +2,8 @@
 
 ## 2026-07-22 — `pending` — Accept legacy Studio changelog date prefixes
 
-- Kept the public Studio changelog source unchanged.
-- Accepted the legacy nine-digit date prefix used by `202607122-1.0.0-beta.3.md`.
+- Accepted the nine-digit date prefix used by `202607122-1.0.0-beta.3.md`.
+- Normalized it to the first eight digits for display and sorting.
 
 ## 2026-07-22 — `7f56c27` — Update user guide Markdown content
 

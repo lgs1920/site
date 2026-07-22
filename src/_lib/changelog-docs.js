@@ -143,16 +143,18 @@ const compareReleaseEntries = (left, right) => {
 }
 
 const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
-    const match = fileName.match(/^(?<date>\d{8})-(?<version>.+)\.md$/)
+    const match = fileName.match(/^(?<date>\d{8,9})-(?<version>.+)\.md$/)
 
     if (!match?.groups) {
         throw new Error(`Unsupported changelog filename: ${fileName}`)
     }
 
+    // Some legacy Studio entries contain one extra digit in the date prefix.
+    const dateKey = match.groups.date.slice(0, 8)
     const slug = fileName.slice(0, -3)
     const anchorId = `release-${slugify(slug)}`
-    const isoDate = `${match.groups.date.slice(0, 4)}-${match.groups.date.slice(4, 6)}-${match.groups.date.slice(6, 8)}`
-    const dateLabel = formatReleaseDate(match.groups.date, locale)
+    const isoDate = `${dateKey.slice(0, 4)}-${dateKey.slice(4, 6)}-${dateKey.slice(6, 8)}`
+    const dateLabel = formatReleaseDate(dateKey, locale)
     const sourcePath = path.join(changelogDirectory, fileName)
     const rawMarkdown = fs.readFileSync(sourcePath, 'utf8')
     const document = renderMarkdownDocument({
@@ -164,7 +166,7 @@ const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
 
     return {
         anchorId,
-        dateKey:   match.groups.date,
+        dateKey,
         dateLabel,
         isoDate,
         slug,
