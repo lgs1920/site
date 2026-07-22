@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-22 — `pending` — Update user guide Markdown content
+
+- Clarified scene modes, journey editing, replay/video capture, map layers, and widget workflows.
+- Documented 3D Tiles, deferred HQ replay export, dynamic statistics, and mandatory attribution widgets.
+
 ## 2026-07-22 — `6247a13` — Add site rules and commit changelog
 
 - Added site-specific AI project rules adapted from Studio.

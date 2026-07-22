@@ -30,6 +30,10 @@ Use journey controls to:
 6. Check dates, statistics, coordinates, and altitude data when the journey will be used in a report.
 7. Keep the camera and movement settings only when they support the final story.
 
+The activity selection also controls how Studio cleans implausible metric segments. Activity-specific thresholds can ignore impossible speeds, altitude jumps, climbs, descents, and stops without changing the original track coordinates. Review the resulting statistics after changing the activity.
+
+If several journeys are loaded, use the journey visibility controls or the setting that hides other journeys to isolate the active route before editing or exporting.
+
 <div class="guide-screenshot-placeholder" role="img" aria-label="Screenshot placeholder for journey editing">
     <wa-icon variant="regular" name="image"></wa-icon>
     <strong>Screenshot placeholder</strong>

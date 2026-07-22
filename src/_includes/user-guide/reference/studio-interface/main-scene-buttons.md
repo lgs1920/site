@@ -16,7 +16,7 @@ The main scene uses two bars: a primary action bar and a secondary tool bar. Bot
 
 | Element | Icon | Type | What it does | Notes |
 | --- | --- | --- | --- | --- |
-| Scene mode | <span class="guide-icon-chip"><wa-icon name="map" variant="regular"></wa-icon></span> <span class="guide-icon-chip"><wa-icon name="road" variant="regular"></wa-icon></span> <span class="guide-icon-chip"><wa-icon name="earth-europe" variant="regular"></wa-icon></span> | Popup button | Switches between 2D, 2.5D, and 3D scene modes. | The icon changes with the active mode. |
+| Scene mode | <span class="guide-icon-chip"><wa-icon name="map" variant="regular"></wa-icon></span> <span class="guide-icon-chip"><wa-icon name="earth-europe" variant="regular"></wa-icon></span> | Popup button | Switches between 2D and 3D scene modes. | The icon changes with the active mode. |
 | Geocoding | <span class="guide-icon-chip"><wa-icon name="map-location-dot" variant="regular"></wa-icon></span> | Button | Opens the [geocoding dialog](/user-guide/reference/studio-interface/dialogs/geocoding/). | Can create a temporary POI from a place result. |
 | Orbit | <span class="guide-icon-chip"><wa-icon name="arrows-rotate" variant="regular"></wa-icon></span> | Button | Starts or stops orbit around the current target. | Spins only when a valid target exists. |
 | Full screen | <span class="guide-icon-chip"><wa-icon name="expand" variant="regular"></wa-icon></span> <span class="guide-icon-chip"><wa-icon name="compress" variant="regular"></wa-icon></span> | Button | Toggles browser full-screen mode. | The icon reflects the current state. |
