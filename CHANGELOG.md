@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-22 — `pending` — Accept legacy Studio changelog date prefixes
+
+- Kept the public Studio changelog source unchanged.
+- Accepted the legacy nine-digit date prefix used by `202607122-1.0.0-beta.3.md`.
+
 ## 2026-07-22 — `7f56c27` — Update user guide Markdown content
 
 - Clarified scene modes, journey editing, replay/video capture, map layers, and widget workflows.
