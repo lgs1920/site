@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-07-22 — `pending` — Accept legacy Studio changelog date prefixes
+## 2026-07-22 — `09f70ae` — Accept legacy Studio changelog date prefixes
 
 - Accepted the nine-digit date prefix used by `202607122-1.0.0-beta.3.md`.
 - Normalized it to the first eight digits for display and sorting.
