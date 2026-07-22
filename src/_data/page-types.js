@@ -118,22 +118,22 @@ const home = {
             access: {
                 kicker:'Access',
                 title: 'Studio is free to use.',
-                note:   'During the trial period, access to Cesium is shared with limitations. After that, Cesium Ion access is required if you want to use your own private Cesium resources or Google Photorealistic 3D Tiles. The first Cesium access plan is completely free, and you can upgrade to suit your needs.',
+                note:   'Studio was designed so you can share your adventures as enriched videos without paying anything. Studio is and will remain completely free to use. During the trial period, Cesium access is shared and may have some limitations. After the trial, a completely free Cesium Ion account is needed to use your own Cesium resources or access additional basemaps. Paid basemaps are supported, but they are never required.',
                 cards:  [
                     {
                         icon:  'circle-check',
                         title: 'Free Studio access',
-                        body:  'Open the hosted Studio, edit journeys, and export outputs without a paid subscription.',
+                        body:  'Open the hosted Studio, edit journeys, and export outputs without a paid subscription. By default, Cesium uses free GIS layers. You can also choose freemium or paid layers, but using them is never mandatory.',
                     },
                     {
                         icon:  'key',
                         title: 'Free Cesium access',
-                        body:  'Create or sign in to a Cesium Ion account during the trial period to use your own resources and Google Photorealistic 3D Tiles.',
+                        body:  'During the trial period, Studio provides shared Cesium access with limitations. After the trial, create a free Cesium Ion account to use your own resources, Google Photorealistic 3D Tiles, and Google or Azure basemaps.',
                     },
                     {
                         icon:  'circle-info',
                         title: 'Technical relationship only',
-                        body:  'LGS1920 has no commercial relationship with Cesium. Cesium is open source and is one of the leading 3D globe engines, used only as the technical 3D engine for Studio.',
+                        body:  'LGS1920 has no commercial relationship with Cesium or the GIS layer providers. Cesium is an open-source, industry-leading 3D globe engine.<br>Studio uses it solely to render the scene and its optional layers.',
                     },
                 ],
             },
@@ -312,22 +312,22 @@ const home = {
             access: {
                 kicker:'Accès',
                 title: 'Studio est gratuit à l’usage.',
-                note:   'Pendant la période d’essai, l’accès à Cesium est partagé et soumis à certaines limitations. Ensuite, un accès Cesium Ion est nécessaire si vous souhaitez utiliser vos propres ressources Cesium privées ou les couches 3D photoréalistes de Google. Le premier plan d’accès Cesium est totalement gratuit, et vous pouvez passer à une offre supérieure selon vos besoins.',
+                note:   'Studio a été conçu pour vous permettre de partager vos aventures sous forme de vidéos enrichies sans rien payer. Studio est et restera totalement gratuit. Pendant la période d’essai, l’accès à Cesium est partagé et peut être soumis à certaines limitations. Après l’essai, un compte Cesium Ion totalement gratuit est nécessaire pour utiliser vos propres ressources Cesium ou accéder à des fonds de carte supplémentaires. Les fonds de carte payants sont pris en charge, mais ils ne sont jamais obligatoires.',
                 cards:  [
                     {
                         icon:  'circle-check',
                         title: 'Accès Studio gratuit',
-                        body:  'Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant.',
+                        body:  'Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant. Par défaut, Cesium utilise des couches SIG gratuites. Vous pouvez aussi choisir des couches freemium ou payantes, mais leur utilisation n’est jamais obligatoire.',
                     },
                     {
                         icon:  'key',
                         title: 'Accès Cesium gratuit',
-                        body:  'Créez ou utilisez un compte Cesium Ion pendant la période d’essai pour profiter de vos propres ressources et des couches 3D photoréalistes de Google.',
+                        body:  'Pendant la période d’essai, Studio fournit un accès Cesium partagé et limité. Après l’essai, créez un compte Cesium Ion gratuit pour utiliser vos propres ressources, les couches 3D photoréalistes de Google et les fonds de carte Google ou Azure.',
                     },
                     {
                         icon:  'circle-info',
                         title: 'Relation uniquement technique',
-                        body:  'LGS1920 n’a aucun lien commercial avec Cesium. Cesium est open source et fait partie des moteurs 3D globe de référence ; il est utilisé uniquement comme moteur 3D technique de Studio.',
+                        body:  'LGS1920 n’a aucun lien commercial avec Cesium ni avec les fournisseurs de couches SIG. Cesium est un moteur 3D globe open source de premier plan.<br>Studio l’utilise uniquement pour le rendu de la scène et de ses couches optionnelles.',
                     },
                 ],
             },

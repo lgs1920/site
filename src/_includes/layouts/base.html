@@ -46,7 +46,7 @@
             const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'yellow'
             const selectedTheme = allowedThemes.has(theme)
                 ? theme
-                : (allowedSeasonThemes.has(theme) ? 'system' : 'system')
+                : 'dark'
             const selectedSeasonTheme = allowedSeasonThemes.has(seasonTheme)
                 ? seasonTheme
                 : (allowedSeasonThemes.has(theme) ? theme : 'summer')

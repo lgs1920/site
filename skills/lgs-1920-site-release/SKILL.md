@@ -11,16 +11,17 @@ Use `/home/christian/devs/assets/lgs1920/site` and inspect both the site and sib
 
 1. Inspect `git status --short`, current branches, and intended release scope.
 2. Verify the site and Studio source revisions are intentional.
-3. Run `bun run content:check`.
-4. Run `bun run build`.
-5. Inspect generated English/French pages, legal pages, dependency page, assets, and redirects if applicable.
-6. Review the diff and generated-file policy before committing.
-7. Use the project's deployment script only when explicitly authorized.
-8. Report the release ref, checks, warnings, and remaining risks.
+3. Review and update the local `CHANGELOG.md` entry for the release or commit.
+4. Run `bun run content:check`.
+5. Run `bun run build`.
+6. Inspect generated English/French pages, legal pages, dependency page, assets, and redirects if applicable.
+7. Review the diff and generated-file policy before committing.
+8. Use the project's deployment script only when explicitly authorized.
+9. Report the release ref, checks, warnings, and remaining risks.
 
 ## External Studio source
 
-Legal and dependency content is read from the sibling repository. The dependency document is `../studio/tech-doc/README_DEPENDENCIES.md` at ref `1.0.0-beta.3`. Confirm that ref exists before release; do not silently switch to a working-tree file for a reproducible release.
+Legal, dependency, and public changelog content is read from the sibling repository. The dependency document is `../studio/tech-doc/README_DEPENDENCIES.md` at ref `1.0.0-beta.3`, and the public `/changelog/` page is generated from Studio release notes. Confirm the dependency ref exists before release; do not silently switch to working-tree files for a reproducible release. The local `CHANGELOG.md` records site commits separately and must not replace the public Studio changelog.
 
 ## Safety
 
