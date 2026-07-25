@@ -1458,20 +1458,27 @@ html.wa-light .hero-backdrop {
 }
 
 .intro-indication {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.95rem;
-    align-items: start;
+    display: block;
     min-height: 100%;
-    padding: 1.15rem;
     border: 1px solid var(--panel-stroke);
     border-radius: var(--wa-border-radius-m);
     background: var(--surface-soft);
     box-shadow: var(--shadow-soft);
 }
 
+.intro-indication::part(body) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.95rem;
+    align-items: center;
+    height: 100%;
+    padding: 1.15rem;
+}
+
 .intro-indication wa-icon {
-    margin-top: 0.12rem;
+    margin-top: 0;
+    font-size: 1.75rem;
+    line-height: 1;
 }
 
 .intro-indication h3,
@@ -2205,12 +2212,17 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
     vertical-align: top;
 }
 
+.guide-page td:has(.guide-icon-chip) {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
 .guide-icon-chip {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 2.35em;
-    block-size: 2.35em;
+    inline-size: 2.35rem;
+    block-size: 2.35rem;
     margin-right: 0.45rem;
     border: 1px solid var(--wa-color-brand);
     border-radius: var(--wa-border-radius-m);
@@ -2223,7 +2235,7 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
 }
 
 .guide-icon-chip wa-icon {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     color: inherit;
     line-height: 1;
     display: block;
