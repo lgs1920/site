@@ -15,8 +15,9 @@ const markdown = new MarkdownIt({
 const sourceConfig = {
     dependencies: {
         maxNavLevel: 3,
-        sourceFile:  'tech-doc/README_DEPENDENCIES.md',
+        sourceFile:  'tech-doc/specs/README_DEPENDENCIES.md',
         sourceLabel: 'studio/tech-doc/README_DEPENDENCIES.md',
+        sourceRefFile: 'tech-doc/README_DEPENDENCIES.md',
         sourceRef:   studioLicenseRef,
     },
     licensing: {
@@ -74,8 +75,9 @@ const createHeadingId = (text, seenIds) => {
     return count === 0 ? baseId : `${baseId}-${count + 1}`
 }
 
-const renderDocument = ({ maxNavLevel, sourceFile, sourceLabel, sourceRef = 'main' }) => {
+const renderDocument = ({ maxNavLevel, sourceFile, sourceLabel, sourceRefFile, sourceRef = 'main' }) => {
     const sourcePath = path.join(studioRoot, sourceFile)
+    const gitSourceFile = sourceRefFile ?? sourceFile
 
     if (!fs.existsSync(path.join(studioRoot, '.git'))) {
         throw new Error(`Missing studio git repository: ${studioRoot}`)
@@ -85,8 +87,8 @@ const renderDocument = ({ maxNavLevel, sourceFile, sourceLabel, sourceRef = 'mai
         throw new Error(`Missing legal source file: ${sourcePath}`)
     }
 
-    const sourceUrl = `${studioRepoBaseUrl}/${sourceFile}`
-    const rawMarkdown = rewriteStudioLinks(execFileSync('git', ['-C', studioRoot, 'show', `${sourceRef}:${sourceFile}`], {
+    const sourceUrl = `${studioRepoBaseUrl}/${gitSourceFile}`
+    const rawMarkdown = rewriteStudioLinks(execFileSync('git', ['-C', studioRoot, 'show', `${sourceRef}:${gitSourceFile}`], {
         encoding:'utf8',
     }))
     const tokens = markdown.parse(rawMarkdown, {})

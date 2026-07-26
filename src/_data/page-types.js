@@ -53,8 +53,8 @@ const home = {
                 kicker:        'Overview',
                 title:         'A browser workspace for journeys, camera control, capture, and reports.',
                 intro:         [
-                    'Import a route, inspect the scene, adjust the camera, and export what you need without leaving the browser.',
-                    'The Studio keeps working state local by default and only leans on external services when the workflow requires it.',
+                    'Import a route, inspect the scene, adjust the camera, and export what you need — reports or video — without leaving the browser.',
+                    'The Studio keeps working state local by default and only uses external services when the workflow requires it.',
                 ],
                 highlightsLabel:'What Studio covers',
                 highlights:    [
@@ -112,7 +112,7 @@ const home = {
                     {version:'1.0', title:'Current Studio', body:'A privacy-first, local-first geospatial editor for journeys, tracks, POIs, Cesium 2D/3D scenes, camera controls, widgets, replay, snapshots, video, and PDF or HTML journey reports.'},
                     {version:'1.1', title:'Extended activity imports', body:'Add FIT and TCX imports from Garmin and Strava while preserving activity and sensor data, with optional authenticated Strava access and connected-provider project files.'},
                     {version:'1.2', title:'Timeline video editor', body:'Replace the separate Replay start, replay, and stop clip controls with a track-based timeline combining journey replay, clips, and widgets.'},
-                    {version:'1.3', title:'3D drone path editor', body:'Author editable 3D camera paths with GPS positions, altitude, duration, motion profiles, look-at targets, easing, and optional 360-degree moves.'},
+                    {version:'1.3', title:'3D camera path editor', body:'Create editable 3D camera paths with GPS positions, altitude, duration, motion profiles, look-at targets, easing, and optional 360-degree moves.'},
                 ],
             },
             access: {
@@ -123,7 +123,7 @@ const home = {
                     {
                         icon:  'circle-check',
                         title: 'Free Studio access',
-                        body:  'Open the hosted Studio, edit journeys, and export outputs without a paid subscription. By default, Cesium uses free GIS layers. You can also choose freemium or paid layers, but using them is never mandatory.',
+                        body:  'Open Studio, edit journeys, and export outputs without a paid subscription. By default, Studio uses free GIS layers. You can also choose freemium or paid layers, but using them is never mandatory.',
                     },
                     {
                         icon:  'key',
@@ -133,7 +133,7 @@ const home = {
                     {
                         icon:  'circle-info',
                         title: 'Technical relationship only',
-                        body:  'LGS1920 has no commercial relationship with Cesium or the GIS layer providers. Cesium is an open-source, industry-leading 3D globe engine.<br>Studio uses it solely to render the scene and its optional layers.',
+                        body:  'LGS1920 has no commercial relationship with Cesium or the GIS layer providers. Cesium is an open-source 3D globe engine.<br>Studio uses it solely to render the scene and its optional layers.',
                     },
                 ],
             },
@@ -174,7 +174,7 @@ const home = {
         pageCta: {
             eyebrow:'Studio links',
             title:  'Open the Studio or browse the source.',
-            body:   'Use the hosted Studio for editing and the GitHub repository for the code and release history. Journey data stays local unless your browser setup is explicitly synced.',
+            body:   'Use the hosted Studio for editing and the GitHub repository for the code and release history. Journey data stays local unless your browser is explicitly synced.',
             actions:[
                 {
                     label:     'Open Studio',
@@ -247,8 +247,8 @@ const home = {
                 kicker:        'Vue d\'ensemble',
                 title:         'Un espace de travail dans le navigateur pour les parcours, la caméra, les captures et les rapports.',
                 intro:         [
-                    'Importez un parcours, inspectez la scène, ajustez la caméra et exportez ce qu’il faut sans quitter le navigateur.',
-                    'Studio garde l’état de travail en local par défaut et ne s’appuie sur des services externes que lorsque le workflow l’exige.',
+                    'Importez un parcours, inspectez la scène, ajustez la caméra et exportez ce qu’il faut — rapports ou vidéo — sans quitter le navigateur.',
+                    'Studio garde l’état de travail en local par défaut et n’utilise des services externes que lorsque le workflow l’exige.',
                 ],
                 highlightsLabel:'Ce que couvre Studio',
                 highlights:    [
@@ -306,28 +306,28 @@ const home = {
                     {version:'1.0', title:'Studio actuel', body:'Un éditeur géospatial privacy-first et local-first pour les parcours, traces, POI, scènes Cesium 2D/3D, contrôles caméra, widgets, replay, captures, vidéo et rapports de parcours PDF ou HTML.'},
                     {version:'1.1', title:'Imports d’activités étendus', body:'Ajouter les imports FIT et TCX depuis Garmin et Strava en conservant les données d’activité et de capteurs, avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés.'},
                     {version:'1.2', title:'Éditeur vidéo sur timeline', body:'Remplacer les contrôles Replay séparés de début, replay et fin par une timeline basée sur des pistes, réunissant replay du parcours, clips et widgets.'},
-                    {version:'1.3', title:'Éditeur de trajectoires drone 3D', body:'Créer des trajectoires caméra 3D éditables avec positions GPS, altitude, durée, profils de mouvement, cibles à regarder, easing et mouvements à 360 degrés optionnels.'},
+                    {version:'1.3', title:'Éditeur de trajectoires caméra 3D', body:'Créer des trajectoires caméra 3D éditables avec positions GPS, altitude, durée, profils de mouvement, cibles à regarder, easing et mouvements optionnels à 360 degrés.'},
                 ],
             },
             access: {
                 kicker:'Accès',
                 title: 'Studio est gratuit à l’usage.',
-                note:   'Studio a été conçu pour vous permettre de partager vos aventures sous forme de vidéos enrichies sans rien payer. Studio est et restera totalement gratuit. Pendant la période d’essai, l’accès à Cesium est partagé et peut être soumis à certaines limitations. Après l’essai, un compte Cesium Ion totalement gratuit est nécessaire pour utiliser vos propres ressources Cesium ou accéder à des fonds de carte supplémentaires. Les fonds de carte payants sont pris en charge, mais ils ne sont jamais obligatoires.',
+                note:   'Studio a été conçu pour vous permettre de partager vos aventures sous forme de vidéos enrichies sans rien payer. Studio est et restera totalement gratuit à l’usage. Pendant la période d’essai, l’accès à Cesium est partagé et peut être soumis à certaines limitations. Après l’essai, un compte Cesium Ion gratuit est nécessaire pour utiliser vos propres ressources Cesium ou accéder à des fonds de carte supplémentaires. Les fonds de carte payants sont pris en charge, mais ils ne sont jamais obligatoires.',
                 cards:  [
                     {
                         icon:  'circle-check',
                         title: 'Accès Studio gratuit',
-                        body:  'Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant. Par défaut, Cesium utilise des couches SIG gratuites. Vous pouvez aussi choisir des couches freemium ou payantes, mais leur utilisation n’est jamais obligatoire.',
+                        body:  'Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant. Par défaut, Studio utilise des couches SIG gratuites. Vous pouvez aussi choisir des couches freemium ou payantes, mais leur utilisation n’est jamais obligatoire.',
                     },
                     {
                         icon:  'key',
                         title: 'Accès Cesium gratuit',
-                        body:  'Pendant la période d’essai, Studio fournit un accès Cesium partagé et limité. Après l’essai, créez un compte Cesium Ion gratuit pour utiliser vos propres ressources, les couches 3D photoréalistes de Google et les fonds de carte Google ou Azure.',
+                        body:  'Pendant la période d’essai, Studio fournit un accès Cesium partagé et limité. Après l’essai, créez un compte Cesium Ion gratuit pour utiliser vos propres ressources, Google Photorealistic 3D Tiles et les fonds de carte Google ou Azure.',
                     },
                     {
                         icon:  'circle-info',
                         title: 'Relation uniquement technique',
-                        body:  'LGS1920 n’a aucun lien commercial avec Cesium ni avec les fournisseurs de couches SIG. Cesium est un moteur 3D globe open source de premier plan.<br>Studio l’utilise uniquement pour le rendu de la scène et de ses couches optionnelles.',
+                        body:  'LGS1920 n’a aucun lien commercial avec Cesium ni avec les fournisseurs de couches SIG. Cesium est un moteur 3D globe open source.<br>Studio l’utilise uniquement pour rendre la scène et ses couches optionnelles.',
                     },
                 ],
             },
