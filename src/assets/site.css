@@ -1376,6 +1376,11 @@ html.wa-light .hero-backdrop {
     color: var(--lgs-accent-color);
 }
 
+.workflow-card wa-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
 .hero-panel {
     padding: 1.35rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -2882,7 +2887,8 @@ wa-card.page-cta-card::part(body) {
     }
 
     .workflow-list li {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.75rem;
     }
 
     .hero-actions wa-button,
