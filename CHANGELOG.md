@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-27 — [`03cafef`](https://github.com/lgs1920/site/commit/03cafef) — Keep workflow badges aligned on mobile
+
+- Kept the Workflow and Roadmap step badges in a two-column grid on small screens.
+- Prevented the step numbers from wrapping below their labels on mobile.
+
 ## 2026-07-25 — [`03d4f82`](https://github.com/lgs1920/site/commit/03d4f82) — Refine site branding and guide presentation
 
 - Updated the logo palette and guide icon/card styling.
