@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-29 — [`7ded35b`](https://github.com/lgs1920/site/commit/7ded35b) — Paginate the public changelog
+
+- Split the English and French public changelog into ten-entry pages.
+- Added accessible page navigation and cross-page release links.
+- Preserved localized URLs, canonical metadata, and Studio changelog sourcing.
+
 ## 2026-07-29 — [`e0af43e`](https://github.com/lgs1920/site/commit/e0af43e) — Add live statistics page
 
 - Added bilingual `/stats/` pages with current and historical UTC usage counters.
