@@ -6,6 +6,7 @@ const studioRoot = path.resolve(process.cwd(), '..', 'studio')
 const changelogDirectory = path.join(studioRoot, 'public', 'assets', 'changelog')
 const studioRepoBaseUrl = 'https://github.com/lgs1920/studio/blob/main/public/assets/changelog'
 const studioRepoTreeUrl = 'https://github.com/lgs1920/studio/tree/main/public/assets/changelog'
+export const CHANGELOG_PAGE_SIZE = 10
 const markdown = new MarkdownIt({
     html:      true,
     linkify:   true,
@@ -142,6 +143,32 @@ const compareReleaseEntries = (left, right) => {
     return right.slug.localeCompare(left.slug)
 }
 
+export const getChangelogPagePath = (locale = 'en', pageNumber = 1) => {
+    const basePath = locale === 'fr' ? '/fr/changelog' : '/changelog'
+
+    return pageNumber <= 1 ? `${basePath}/` : `${basePath}/page/${pageNumber}/`
+}
+
+export const createChangelogPagination = ({locale = 'en', currentPage = 1, totalPages = 1} = {}) => ({
+    currentPage,
+    totalPages,
+    previous: currentPage > 1
+        ? {number: currentPage - 1, url: getChangelogPagePath(locale, currentPage - 1)}
+        : null,
+    next: currentPage < totalPages
+        ? {number: currentPage + 1, url: getChangelogPagePath(locale, currentPage + 1)}
+        : null,
+    pages: Array.from({length: totalPages}, (_, index) => {
+        const number = index + 1
+
+        return {
+            number,
+            url: getChangelogPagePath(locale, number),
+            current: number === currentPage,
+        }
+    }),
+})
+
 const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
     const match = fileName.match(/^(?<date>\d{8,9})-(?<version>.+)\.md$/)
 
@@ -181,21 +208,23 @@ const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
 
 const createChangelog = (locale = 'en') => {
     const entries = buildEntries(locale).map((entry, index, allEntries) => ({
-    ...entry,
-    newer:index > 0
-        ? {
-            anchorId: allEntries[index - 1].anchorId,
-            dateLabel:allEntries[index - 1].dateLabel,
-            version:  allEntries[index - 1].version,
-        }
-        : null,
-    older:index < allEntries.length - 1
-        ? {
-            anchorId: allEntries[index + 1].anchorId,
-            dateLabel:allEntries[index + 1].dateLabel,
-            version:  allEntries[index + 1].version,
-        }
-        : null,
+        ...entry,
+        newer: index > 0
+            ? {
+                anchorId: allEntries[index - 1].anchorId,
+                dateLabel: allEntries[index - 1].dateLabel,
+                version:  allEntries[index - 1].version,
+                url:      `${getChangelogPagePath(locale, Math.floor((index - 1) / CHANGELOG_PAGE_SIZE) + 1)}#${allEntries[index - 1].anchorId}`,
+            }
+            : null,
+        older: index < allEntries.length - 1
+            ? {
+                anchorId: allEntries[index + 1].anchorId,
+                dateLabel: allEntries[index + 1].dateLabel,
+                version:  allEntries[index + 1].version,
+                url:      `${getChangelogPagePath(locale, Math.floor((index + 1) / CHANGELOG_PAGE_SIZE) + 1)}#${allEntries[index + 1].anchorId}`,
+            }
+            : null,
     }))
 
     return {
@@ -214,7 +243,7 @@ const createChangelog = (locale = 'en') => {
 
 export const changelog = createChangelog('en')
 
-export const renderChangelogIndex = ({ directory, entries: changelogEntries, labels = {} }) => `
+export const renderChangelogIndex = ({ directory, entries: changelogEntries, labels = {}, pagination = null }) => `
 <section class="content-section legal-section changelog-section">
     <div class="legal-meta">
         <p>${labels.intro || 'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.'}</p>
@@ -252,23 +281,49 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries, lab
                 ${(entry.newer || entry.older) ? `
                     <nav class="changelog-inline-nav" aria-label="${labels.releaseNavigation || 'Release navigation'}">
                         ${entry.newer ? `
-                            <a class="changelog-inline-link" href="#${entry.newer.anchorId}">
+                            <a class="changelog-inline-link" href="${entry.newer.url || `#${entry.newer.anchorId}`}" rel="prev">
                                 <span class="changelog-inline-label">${labels.newer || 'Newer'}</span>
                                 <strong>${escapeHtml(entry.newer.version)}</strong>
                             </a>
                         ` : '<span></span>'}
 
                         ${entry.older ? `
-                            <a class="changelog-inline-link" href="#${entry.older.anchorId}" data-direction="older">
+                            <a class="changelog-inline-link" href="${entry.older.url || `#${entry.older.anchorId}`}" data-direction="older" rel="next">
                                 <span class="changelog-inline-label">${labels.older || 'Older'}</span>
                                 <strong>${escapeHtml(entry.older.version)}</strong>
                             </a>
                         ` : '<span></span>'}
                     </nav>
-                ` : ''}
+        ` : ''}
             </article>
         `).join('')}
     </div>
+
+    ${pagination && pagination.totalPages > 1 ? `
+        <nav class="changelog-pagination" aria-label="${labels.paginationNavigation || 'Changelog pagination'}">
+            <div class="changelog-pagination-controls">
+                ${pagination.previous ? `
+                    <a class="changelog-pagination-direction" href="${pagination.previous.url}" rel="prev">
+                        <wa-icon variant="solid" name="caret-left" aria-hidden="true"></wa-icon>
+                        <span>${labels.previousPage || 'Previous page'}</span>
+                    </a>
+                ` : '<span class="changelog-pagination-direction" aria-hidden="true"></span>'}
+
+                <ol class="changelog-pagination-pages">
+                    ${pagination.pages.map((page) => page.current
+                        ? `<li><span class="changelog-pagination-page" aria-current="page">${page.number}</span></li>`
+                        : `<li><a class="changelog-pagination-page" href="${page.url}" aria-label="${labels.page || 'Page'} ${page.number}">${page.number}</a></li>`).join('')}
+                </ol>
+
+                ${pagination.next ? `
+                    <a class="changelog-pagination-direction" href="${pagination.next.url}" rel="next">
+                        <span>${labels.nextPage || 'Next page'}</span>
+                        <wa-icon variant="solid" name="caret-right" aria-hidden="true"></wa-icon>
+                    </a>
+                ` : '<span class="changelog-pagination-direction" aria-hidden="true"></span>'}
+            </div>
+        </nav>
+    ` : ''}
 </section>
 `
 

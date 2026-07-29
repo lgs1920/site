@@ -344,10 +344,12 @@ const getCanonicalPath = (url = '') => {
     return prefix && normalizedUrl.startsWith(prefix) ? normalizedUrl.replace(prefix, '') : normalizedUrl
 }
 
+const isPaginatedChangelogPath = (path = '') => /^\/changelog\/page\/\d+\/$/.test(path)
+
 const getAlternateLocales = (url = '') => {
     const canonicalPath = getCanonicalPath(url)
 
-    if (!translatedPaths.has(canonicalPath)) {
+    if (!translatedPaths.has(canonicalPath) && !isPaginatedChangelogPath(canonicalPath)) {
         return null
     }
 

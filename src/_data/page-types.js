@@ -1096,6 +1096,19 @@ const changelog = {
                 },
             ],
         }),
+        renderLabels: {
+            intro:               'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.',
+            newer:               'Newer',
+            older:               'Older',
+            releaseNavigation:   'Release navigation',
+            source:              'Source',
+            sourceDirectory:     'Source directory',
+            version:             'Version',
+            paginationNavigation:'Changelog pagination',
+            previousPage:        'Previous page',
+            nextPage:            'Next page',
+            page:                'Page',
+        },
     },
     fr: {
         title:       'Historique',
@@ -1132,6 +1145,10 @@ const changelog = {
             source:           'Source',
             sourceDirectory:  'Dossier source',
             version:          'Version',
+            paginationNavigation:'Pagination de l’historique',
+            previousPage:     'Page précédente',
+            nextPage:         'Page suivante',
+            page:             'Page',
         },
     },
 }
@@ -1159,7 +1176,13 @@ export const getLocalizedContent = (definition, locale = i18n.defaultLocale) => 
     return definition[locale] ?? definition[i18n.defaultLocale] ?? null
 }
 
-export const getPageDefinition = (url = '') => getGuidePageDefinition(url) ?? pageDefinitionsByPath[i18n.getCanonicalPath(url)] ?? null
+export const getPageDefinition = (url = '') => {
+    const canonicalPath = i18n.getCanonicalPath(url)
+
+    return getGuidePageDefinition(url)
+        ?? pageDefinitionsByPath[canonicalPath]
+        ?? (/^\/changelog\/page\/\d+\/$/.test(canonicalPath) ? changelog : null)
+}
 
 export const getPageContent = (url = '', locale = i18n.getLocaleFromUrl(url)) => getLocalizedContent(
     getPageDefinition(url),
