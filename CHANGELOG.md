@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-07-29 — [`f7aec28`](https://github.com/lgs1920/site/commit/f7aec28ae502936442047832384ac9e3b91a967f) — Add live statistics page
+## 2026-07-29 — [`e0af43e`](https://github.com/lgs1920/site/commit/e0af43e) — Add live statistics page
 
 - Added bilingual `/stats/` pages with current and historical UTC usage counters.
 - Added automatic one-minute refresh and a manual refresh control.
