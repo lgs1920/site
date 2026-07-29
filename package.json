@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "content:check": "node scripts/content-check.mjs",
-    "dev": "eleventy --serve",
+    "test": "node --test",
+    "dev": "LGS1920_COUNT_API_URL=\"${LGS1920_COUNT_API_URL:-http://localhost:3333}\" eleventy --serve",
     "build": "bun run content:check && rm -rf .11ty-vite _site && eleventy",
     "deploy": "bun deploy.js",
     "clean": "rm -rf .11ty-vite _site"

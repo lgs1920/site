@@ -1896,6 +1896,123 @@ wa-card.accent-c::part(base) {
     font-weight: 600;
 }
 
+.stats-content {
+    display: grid;
+    gap: 0;
+}
+
+.stats-status {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 1rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    color: var(--page-muted);
+    background: var(--surface-soft);
+}
+
+.stats-content[data-stats-page][data-stats-state='error'] .stats-status,
+.stats-content[data-stats-page][data-stats-state='partial'] .stats-status {
+    border-color: color-mix(in oklab, var(--wa-color-warning-60) 42%, var(--panel-stroke));
+}
+
+.stats-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.stats-table {
+    width: 100%;
+    min-width: 42rem;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.stats-table caption {
+    padding: 1rem 1.1rem 0.8rem;
+    color: var(--page-muted);
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--panel-stroke);
+    line-height: 1.45;
+}
+
+.stats-table thead th {
+    color: var(--page-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.stats-table thead th:not(:first-child),
+.stats-table tbody td {
+    text-align: center;
+}
+
+.stats-table tbody th {
+    font-weight: 700;
+}
+
+.stats-table tbody td {
+    font-variant-numeric: tabular-nums;
+}
+
+.stats-table tbody tr:first-child {
+    background: var(--surface-strong);
+}
+
+.stats-table tbody tr:first-child th,
+.stats-table tbody tr:first-child td {
+    color: var(--lgs-accent-strong-color);
+    font-weight: 800;
+}
+
+.stats-table tbody tr:last-child th,
+.stats-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.stats-table tbody tr[data-stats-state='unavailable'] {
+    color: var(--page-muted);
+}
+
+.stats-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.stats-updated {
+    margin: 0;
+    color: var(--page-muted);
+    font-size: 0.88rem;
+}
+
+@media (max-width: 40rem) {
+    .stats-meta {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .stats-meta wa-button {
+        margin-left: auto;
+    }
+}
+
 .guide-hero.hero-no-video .hero-media {
     background:
         linear-gradient(135deg, rgba(10, 15, 22, 0.9), rgba(37, 44, 40, 0.86)),

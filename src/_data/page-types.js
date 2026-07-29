@@ -529,6 +529,54 @@ const faq = {
     },
 }
 
+const stats = {
+    layout:   'layouts/page.html',
+    pageClass:'stats-page',
+    path:     '/stats/',
+    en:       {
+        title:      'Statistics',
+        description:'Current and historical LGS1920 Studio usage counters by UTC period.',
+        hero:       {
+            video:     false,
+            badge:     'Live counters',
+            kicker:    'Statistics',
+            title:     'See the latest Studio usage counts.',
+            lead:      'Read-only counters are loaded from the backend when this page opens. Daily, weekly, monthly, and yearly values use UTC periods.',
+            highlights:[
+                {label:'Visits', icon:'eye', variant:'regular'},
+                {label:'Journeys', icon:'route', variant:'regular'},
+                {label:'Draft and HQ video', icon:'clapperboard-play', variant:'regular'},
+            ],
+        },
+        sectionTitle:'Usage counters',
+        intro:       'Each value is an accepted event count, not a unique visitor count. Video exports remain separated between draft and high-quality output.',
+        sectionNav:  [
+            {id:'stats-table', label:'Usage counters', summary:'Current and historical values by UTC period'},
+        ],
+    },
+    fr:       {
+        title:      'Statistiques',
+        description:'Compteurs d’utilisation actuels et historiques de LGS1920 Studio par période UTC.',
+        hero:       {
+            video:     false,
+            badge:     'Compteurs en direct',
+            kicker:    'Statistiques',
+            title:     'Consulter les derniers compteurs de Studio.',
+            lead:      'Les compteurs en lecture seule sont chargés depuis le backend à l’ouverture de cette page. Les valeurs quotidiennes, hebdomadaires, mensuelles et annuelles utilisent les périodes UTC.',
+            highlights:[
+                {label:'Visites', icon:'eye', variant:'regular'},
+                {label:'Parcours', icon:'route', variant:'regular'},
+                {label:'Vidéo brouillon et HQ', icon:'clapperboard-play', variant:'regular'},
+            ],
+        },
+        sectionTitle:'Compteurs d’utilisation',
+        intro:       'Chaque valeur compte les événements acceptés, et non les visiteurs uniques. Les exports vidéo restent séparés entre brouillon et haute qualité.',
+        sectionNav:  [
+            {id:'stats-table', label:'Compteurs d’utilisation', summary:'Valeurs actuelles et historiques par période UTC'},
+        ],
+    },
+}
+
 const userGuide = {
     gettingStarted: {
         firstSteps: {
@@ -1091,6 +1139,7 @@ const changelog = {
 const pageDefinitionsByPath = {
     '/':                              home,
     '/faq/':                          faq,
+    '/stats/':                        stats,
     '/changelog/':                    changelog,
     '/licensing/':                    legal.licensing,
     '/license/':                      legal.license,
@@ -1138,6 +1187,7 @@ export default {
     userGuide,
     legal,
     changelog,
+    stats,
     byPath:getPageDefinition,
     getLocalizedContent,
     getPageContent,

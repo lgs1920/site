@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-29 — [`f7aec28`](https://github.com/lgs1920/site/commit/f7aec28ae502936442047832384ac9e3b91a967f) — Add live statistics page
+
+- Added bilingual `/stats/` pages with current and historical UTC usage counters.
+- Added automatic one-minute refresh and a manual refresh control.
+- Added local development API configuration and coverage for the statistics client.
+
 ## 2026-07-27 — [`03cafef`](https://github.com/lgs1920/site/commit/03cafef) — Keep workflow badges aligned on mobile
 
 - Kept the Workflow and Roadmap step badges in a two-column grid on small screens.

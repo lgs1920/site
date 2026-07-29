@@ -1,0 +1,115 @@
+import assert from 'node:assert/strict'
+import test from 'node:test'
+
+import {buildCountRequests, formatUpdatedAt, getUtcPeriodKeys, loadStats, STATS_REFRESH_INTERVAL_MS} from '../src/assets/stats.js'
+import renderStatsPage from '../src/_lib/stats-page.js'
+
+const response = (payload, status = 200) => ({
+    ok:     status >= 200 && status < 300,
+    status,
+    json:   async () => payload,
+})
+
+const counter = (visits, journeys, draft, hq) => ({
+    visits,
+    journeys,
+    videos: {draft, hq},
+})
+
+test('builds current and historical UTC count requests', () => {
+    const now = new Date('2026-07-29T12:34:56.000Z')
+    const requests = buildCountRequests('https://api.lgs1920.fr/', now)
+
+    assert.deepEqual(getUtcPeriodKeys(now), {
+        daily:   '29-07-2026',
+        weekly:  '2026-W31',
+        monthly: '07-26',
+        yearly:  '2026',
+    })
+    assert.equal(requests.total, 'https://api.lgs1920.fr/count')
+    assert.equal(requests.today, 'https://api.lgs1920.fr/count/daily')
+    assert.equal(requests.yesterday, 'https://api.lgs1920.fr/count/daily/28-07-2026')
+    assert.equal(requests.thisWeek, 'https://api.lgs1920.fr/count/weekly')
+    assert.equal(requests.thisMonth, 'https://api.lgs1920.fr/count/monthly')
+    assert.equal(requests.previousMonth, 'https://api.lgs1920.fr/count/monthly/06-26')
+    assert.equal(requests.thisYear, 'https://api.lgs1920.fr/count/yearly')
+})
+
+test('loads total and current or historical rows without recalculating counters', async () => {
+    const now = new Date('2026-07-29T12:34:56.000Z')
+    const requests = buildCountRequests('https://api.lgs1920.fr', now)
+    const payloads = new Map([
+        [requests.total, {updatedAt:'2026-07-29T12:30:00.000Z', total:counter(120, 40, 8, 3)}],
+        [requests.today, counter(5, 2, 1, 0)],
+        [requests.yesterday, counter(4, 1, 0, 1)],
+        [requests.thisWeek, counter(20, 7, 3, 2)],
+        [requests.thisMonth, counter(70, 22, 6, 2)],
+        [requests.previousMonth, counter(60, 18, 4, 1)],
+        [requests.thisYear, counter(120, 40, 8, 3)],
+    ])
+    const seenUrls = []
+    const fetchImpl = async (url) => {
+        seenUrls.push(url)
+        return response(payloads.get(url))
+    }
+
+    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now})
+
+    assert.deepEqual(result.failed, [])
+    assert.deepEqual(result.rows.total, {visits:120, journeys:40, videoDraft:8, videoHq:3})
+    assert.deepEqual(result.rows.yesterday, {visits:4, journeys:1, videoDraft:0, videoHq:1})
+    assert.deepEqual(result.rows['previous-month'], {visits:60, journeys:18, videoDraft:4, videoHq:1})
+    assert.equal(seenUrls.length, 7)
+    assert.equal(result.updatedAt, '2026-07-29T12:30:00.000Z')
+})
+
+test('keeps failed API rows unavailable while preserving successful rows', async () => {
+    const now = new Date('2026-07-29T12:34:56.000Z')
+    const requests = buildCountRequests('https://api.lgs1920.fr', now)
+    const fetchImpl = async (url) => {
+        if (url === requests.total) {
+            return response({total:counter(10, 2, 1, 0)})
+        }
+        if (url === requests.today) {
+            return response(counter(3, 1, 1, 0))
+        }
+        return response({success:false, error:'temporary'}, 503)
+    }
+
+    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now})
+
+    assert.deepEqual(result.rows.total, {visits:10, journeys:2, videoDraft:1, videoHq:0})
+    assert.deepEqual(result.rows.today, {visits:3, journeys:1, videoDraft:1, videoHq:0})
+    assert.equal(result.rows.yesterday, null)
+    assert.equal(result.rows['this-week'], null)
+    assert.equal(result.failed.length, 5)
+})
+
+test('renders an accessible localized stats table shell', () => {
+    const html = renderStatsPage({locale:'fr', apiUrl:'https://api.lgs1920.fr'})
+
+    assert.match(html, /data-stats-page/)
+    assert.match(html, /data-stats-api-url="https:\/\/api\.lgs1920\.fr"/)
+    assert.match(html, /<caption>Compteurs d’utilisation de LGS1920 Studio par période UTC<\/caption>/)
+    assert.match(html, /<th scope="col">Visites<\/th>/)
+    assert.match(html, /<th scope="row">Aujourd’hui<\/th>/)
+    assert.match(html, /data-stats-cell="video-draft"/)
+    assert.match(html, /data-stats-cell="video-hq"/)
+    assert.match(html, /data-stats-refresh/)
+    assert.match(html, /class="stats-meta"/)
+    assert.match(html, /name="arrows-rotate"/)
+    assert.match(html, /Actualiser/)
+})
+
+test('refreshes stats every minute', () => {
+    assert.equal(STATS_REFRESH_INTERVAL_MS, 60 * 1000)
+})
+
+test('uses the current date when the backend update is missing', () => {
+    const fallbackDate = new Date('2026-07-29T12:30:00.000Z')
+
+    assert.match(formatUpdatedAt(null, 'fr', fallbackDate), /2026/)
+    assert.match(formatUpdatedAt(undefined, 'fr', fallbackDate), /2026/)
+    assert.match(formatUpdatedAt('not-a-date', 'fr', fallbackDate), /2026/)
+    assert.match(formatUpdatedAt('2026-07-29T12:30:00.000Z', 'fr'), /2026/)
+})

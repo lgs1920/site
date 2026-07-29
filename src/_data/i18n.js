@@ -45,6 +45,7 @@ const translatedSitePaths = [
     '/contributor-license-agreement/',
     '/dependencies/',
     '/faq/',
+    '/stats/',
     '/user-guide/',
     '/user-guide/getting-started/first-steps/',
     '/user-guide/getting-started/import-source-data/',
@@ -256,6 +257,7 @@ const ui = {
         releaseNavigation:     'Release navigation',
         openGithubRepository:  'Open GitHub repository',
         changelog:             'Changelog',
+        stats:                 'Statistics',
         license:               'License',
         licensing:             'Licensing',
         fullLicense:           'Full license',
@@ -298,6 +300,7 @@ const ui = {
         releaseNavigation:     'Navigation des versions',
         openGithubRepository:  'Ouvrir le dépôt GitHub',
         changelog:             'Historique',
+        stats:                 'Statistiques',
         license:               'Licence',
         licensing:             'Licences',
         fullLicense:           'Licence complète',
@@ -438,6 +441,10 @@ const buildHeaderLinks = (locale = defaultLocale) => [
 ]
 
 const buildLegalLinks = (locale = defaultLocale) => [
+    {
+        label:ui[locale].stats,
+        url:  localizedPath(locale, '/stats/'),
+    },
     {
         label:ui[locale].userGuide,
         url:  localizedPath(locale, '/user-guide/'),
