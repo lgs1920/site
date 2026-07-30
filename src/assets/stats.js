@@ -15,7 +15,7 @@ const clientLabels = {
         partial:     'Some counters are temporarily unavailable.',
         failed:      'Counters could not be loaded right now.',
         refreshing:  'Refreshing counters…',
-        updated:     'Last backend update',
+        updated:     'Last update:',
         refresh:     'Refresh',
         unavailable: 'Unavailable',
     },
@@ -25,7 +25,7 @@ const clientLabels = {
         partial:     'Certains compteurs sont temporairement indisponibles.',
         failed:      'Les compteurs ne peuvent pas être chargés pour le moment.',
         refreshing:  'Actualisation des compteurs…',
-        updated:     'Dernière mise à jour du backend',
+        updated:     'Dernière mise à jour :',
         refresh:     'Actualiser',
         unavailable: 'Indisponible',
     },
@@ -162,9 +162,16 @@ export const loadStats = async ({apiUrl, fetchImpl = globalThis.fetch, now = new
 
 const getLabels = (locale) => clientLabels[locale] ?? clientLabels.en
 
+const statusPresentation = {
+    loading: {variant: 'warning', icon: 'spinner'},
+    loaded:  {variant: 'success', icon: 'circle-check'},
+    partial: {variant: 'warning', icon: 'triangle-exclamation'},
+    error:   {variant: 'danger', icon: 'circle-exclamation'},
+}
+
 const getFormatter = (locale) => new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-GB')
 
-export const formatUpdatedAt = (value, locale, fallbackValue = new Date()) => {
+export const getUpdatedAtIso = (value, fallbackValue = new Date()) => {
     const receivedDate = value ? new Date(value) : null
     const fallbackDate = new Date(fallbackValue)
     const date = receivedDate && Number.isFinite(receivedDate.getTime()) ? receivedDate : fallbackDate
@@ -172,17 +179,19 @@ export const formatUpdatedAt = (value, locale, fallbackValue = new Date()) => {
         return null
     }
 
-    return new Intl.DateTimeFormat(locale === 'fr' ? 'fr-FR' : 'en-GB', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-        timeZone:   'UTC',
-    }).format(date)
+    return date.toISOString()
 }
 
 const setStatus = (page, text, state) => {
     const status = page.querySelector('[data-stats-status]')
     if (status) {
-        status.textContent = text
+        const presentation = statusPresentation[state] ?? {variant: 'neutral', icon: 'circle-info'}
+        const message = status.querySelector('[data-stats-status-message]')
+        const icon = status.querySelector('[data-stats-status-icon]')
+
+        status.setAttribute('variant', presentation.variant)
+        message ? message.textContent = text : status.textContent = text
+        icon?.setAttribute('name', presentation.icon)
     }
     page.dataset.statsState = state
 }
@@ -209,15 +218,16 @@ const renderRows = (page, rows, locale) => {
     })
 }
 
-const renderUpdatedAt = (page, updatedAt, locale) => {
+const renderUpdatedAt = (page, updatedAt) => {
     const target = page.querySelector('[data-stats-updated]')
-    const formatted = formatUpdatedAt(updatedAt, locale)
-    if (!target || !formatted) {
+    const date = target?.querySelector('[data-stats-updated-date]')
+    const isoDate = getUpdatedAtIso(updatedAt)
+    if (!target || !date || !isoDate) {
         return
     }
 
     target.hidden = false
-    target.textContent = `${getLabels(locale).updated}: ${formatted} UTC`
+    date.setAttribute('date', isoDate)
 }
 
 const refreshButtonState = (page, locale, isRefreshing) => {
@@ -262,14 +272,14 @@ export const refreshStatsPage = (page) => {
             const statusText = state === 'error' ? pageLabels.failed : pageLabels[state]
 
             renderRows(page, result.rows, locale)
-            renderUpdatedAt(page, result.updatedAt, locale)
+            renderUpdatedAt(page, result.updatedAt)
             setStatus(page, statusText, state)
 
             return result
         }
         catch {
             renderRows(page, {}, locale)
-            renderUpdatedAt(page, null, locale)
+            renderUpdatedAt(page, null)
             setStatus(page, pageLabels.failed, 'error')
             return null
         }

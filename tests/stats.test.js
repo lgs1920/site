@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import {buildCountRequests, formatUpdatedAt, getUtcPeriodKeys, loadStats, STATS_REFRESH_INTERVAL_MS} from '../src/assets/stats.js'
+import {buildCountRequests, getUpdatedAtIso, getUtcPeriodKeys, loadStats, STATS_REFRESH_INTERVAL_MS} from '../src/assets/stats.js'
 import renderStatsPage from '../src/_lib/stats-page.js'
 
 const response = (payload, status = 200) => ({
@@ -97,6 +97,11 @@ test('renders an accessible localized stats table shell', () => {
     assert.match(html, /data-stats-cell="video-hq"/)
     assert.match(html, /data-stats-refresh/)
     assert.match(html, /class="stats-meta"/)
+    assert.match(html, /<wa-callout class="stats-status" data-stats-status role="status" aria-live="polite" variant="warning" appearance="filled-outlined">/)
+    assert.match(html, /slot="icon" variant="regular" name="spinner" data-stats-status-icon/)
+    assert.match(html, /data-stats-status-message>Chargement des compteurs…/)
+    assert.match(html, /<span data-stats-updated-label>Dernière mise à jour :<\/span>/)
+    assert.match(html, /<wa-format-date data-stats-updated-date lang="fr" year="numeric" month="short" day="numeric" hour="numeric" minute="numeric" hour-format="auto"><\/wa-format-date>/)
     assert.match(html, /name="arrows-rotate"/)
     assert.match(html, /Actualiser/)
 })
@@ -105,11 +110,11 @@ test('refreshes stats every minute', () => {
     assert.equal(STATS_REFRESH_INTERVAL_MS, 60 * 1000)
 })
 
-test('uses the current date when the backend update is missing', () => {
+test('uses the fallback date when the backend update is missing', () => {
     const fallbackDate = new Date('2026-07-29T12:30:00.000Z')
 
-    assert.match(formatUpdatedAt(null, 'fr', fallbackDate), /2026/)
-    assert.match(formatUpdatedAt(undefined, 'fr', fallbackDate), /2026/)
-    assert.match(formatUpdatedAt('not-a-date', 'fr', fallbackDate), /2026/)
-    assert.match(formatUpdatedAt('2026-07-29T12:30:00.000Z', 'fr'), /2026/)
+    assert.equal(getUpdatedAtIso(null, fallbackDate), fallbackDate.toISOString())
+    assert.equal(getUpdatedAtIso(undefined, fallbackDate), fallbackDate.toISOString())
+    assert.equal(getUpdatedAtIso('not-a-date', fallbackDate), fallbackDate.toISOString())
+    assert.equal(getUpdatedAtIso('2026-07-29T12:30:00.000Z', fallbackDate), '2026-07-29T12:30:00.000Z')
 })

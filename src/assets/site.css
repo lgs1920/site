@@ -1985,21 +1985,20 @@ wa-card.accent-c::part(base) {
 }
 
 .stats-status {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 0 1rem;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--panel-stroke);
-    border-radius: var(--wa-border-radius-m);
-    color: var(--page-muted);
-    background: var(--surface-soft);
+    width: 100%;
+    padding: var(--wa-space-m);
+    margin-block: 0 var(--wa-space-l);
 }
 
-.stats-content[data-stats-page][data-stats-state='error'] .stats-status,
-.stats-content[data-stats-page][data-stats-state='partial'] .stats-status {
-    border-color: color-mix(in oklab, var(--wa-color-warning-60) 42%, var(--panel-stroke));
+.stats-status::part(icon) {
+    align-self: center;
+}
+
+.stats-status::part(message) {
+    display: flex;
+    align-items: center;
 }
 
 .stats-table-wrap {

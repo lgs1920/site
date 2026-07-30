@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-30 — [`2775f12`](https://github.com/lgs1920/site/commit/2775f12) — Refine statistics status display
+
+- Replaced statistics status messages with full-width Web Awesome callouts and status icons.
+- Displayed backend update timestamps with `wa-format-date` in the visitor’s local time.
+
 ## 2026-07-29 — [`7ded35b`](https://github.com/lgs1920/site/commit/7ded35b) — Paginate the public changelog
 
 - Split the English and French public changelog into ten-entry pages.
