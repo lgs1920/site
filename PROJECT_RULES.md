@@ -45,3 +45,12 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - A changelog entry must be added before committing and must use the final commit identifier. If the identifier is not known yet, create the commit, then update the entry and amend the commit.
 - The public `/changelog/` page remains sourced from the Studio changelog and must not be switched to the local site log.
 - Do not update the Studio changelog for a site-only commit.
+
+## 6. Issue workflow
+
+- Every open issue in this repository must have a corresponding issue in `lgs1920/studio`.
+- Create the Studio mirror as part of the same workflow when creating a new Site issue.
+- The Studio mirror must use the same GitHub issue type as the source issue. If the source issue has no type, determine and set its correct type before creating the mirror.
+- Prefix the Studio mirror title with `[Site]` and apply the lowercase `site` label.
+- Add reciprocal cross-references between the Site issue and its Studio mirror.
+- Before creating a mirror, search open and closed Studio issues for an existing reference to the Site issue and reuse the existing mirror when one exists.

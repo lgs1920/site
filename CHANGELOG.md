@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-30 — [`32a867c`](https://github.com/lgs1920/site/commit/32a867c) — Define Studio issue mirroring
+
+- Required every open Site issue to have a corresponding Studio issue.
+- Preserved issue types and standardized the `[Site]` title prefix and `site` label.
+- Required reciprocal links and duplicate checks for issue mirrors.
+
 ## 2026-07-30 — [`2775f12`](https://github.com/lgs1920/site/commit/2775f12) — Refine statistics status display
 
 - Replaced statistics status messages with full-width Web Awesome callouts and status icons.
