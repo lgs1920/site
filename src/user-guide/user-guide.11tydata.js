@@ -87,14 +87,14 @@ const resolveGuideContext = (data) => {
     const breadcrumbs = isOverview
         ? [
             {
-                label:data.uiLabels?.home ?? 'Home',
+                label:data.uiLabels.home,
                 url:  i18n.localizedPath(locale, '/'),
                 icon: 'house',
             },
         ]
         : [
             {
-                label:data.uiLabels?.home ?? 'Home',
+                label:data.uiLabels.home,
                 url:  i18n.localizedPath(locale, '/'),
                 icon: 'house',
             },

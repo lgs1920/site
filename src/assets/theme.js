@@ -478,8 +478,8 @@ const setupGuideAsidePlacement = () => {
     const tooltip = document.querySelector('[data-guide-aside-placement-tooltip]')
     const icon = toggle.querySelector('wa-icon')
     const labels = {
-        left: toggle.dataset.moveLeftLabel || 'Move guide navigation left',
-        right:toggle.dataset.moveRightLabel || 'Move guide navigation right',
+        left: toggle.dataset.moveLeftLabel,
+        right:toggle.dataset.moveRightLabel,
     }
 
     const actionForPlacement = (placement) => placement === 'left' ? 'right' : 'left'

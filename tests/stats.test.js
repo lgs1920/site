@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import {buildCountRequests, getUpdatedAtIso, getUtcPeriodKeys, loadStats, STATS_REFRESH_INTERVAL_MS} from '../src/assets/stats.js'
+import {buildCountRequests, getPeriodKeys, getUpdatedAtIso, getUtcPeriodKeys, loadStats, STATS_REFRESH_INTERVAL_MS} from '../src/assets/stats.js'
 import renderStatsPage from '../src/_lib/stats-page.js'
 
 const response = (payload, status = 200) => ({
@@ -16,9 +16,9 @@ const counter = (visits, journeys, draft, hq) => ({
     videos: {draft, hq},
 })
 
-test('builds current and historical UTC count requests', () => {
+test('builds current and historical count requests in the viewer time zone', () => {
     const now = new Date('2026-07-29T12:34:56.000Z')
-    const requests = buildCountRequests('https://api.lgs1920.fr/', now)
+    const requests = buildCountRequests('https://api.lgs1920.fr/', now, 'Europe/Paris')
 
     assert.deepEqual(getUtcPeriodKeys(now), {
         daily:   '29-07-2026',
@@ -26,18 +26,24 @@ test('builds current and historical UTC count requests', () => {
         monthly: '07-26',
         yearly:  '2026',
     })
-    assert.equal(requests.total, 'https://api.lgs1920.fr/count')
-    assert.equal(requests.today, 'https://api.lgs1920.fr/count/daily')
-    assert.equal(requests.yesterday, 'https://api.lgs1920.fr/count/daily/28-07-2026')
-    assert.equal(requests.thisWeek, 'https://api.lgs1920.fr/count/weekly')
-    assert.equal(requests.thisMonth, 'https://api.lgs1920.fr/count/monthly')
-    assert.equal(requests.previousMonth, 'https://api.lgs1920.fr/count/monthly/06-26')
-    assert.equal(requests.thisYear, 'https://api.lgs1920.fr/count/yearly')
+    assert.deepEqual(getPeriodKeys('2026-07-29T22:30:00.000Z', 'America/Montreal'), {
+        daily:   '29-07-2026',
+        weekly:  '2026-W31',
+        monthly: '07-26',
+        yearly:  '2026',
+    })
+    assert.equal(requests.total, 'https://api.lgs1920.fr/count?timeZone=Europe%2FParis')
+    assert.equal(requests.today, 'https://api.lgs1920.fr/count/daily?timeZone=Europe%2FParis')
+    assert.equal(requests.yesterday, 'https://api.lgs1920.fr/count/daily/28-07-2026?timeZone=Europe%2FParis')
+    assert.equal(requests.thisWeek, 'https://api.lgs1920.fr/count/weekly?timeZone=Europe%2FParis')
+    assert.equal(requests.thisMonth, 'https://api.lgs1920.fr/count/monthly?timeZone=Europe%2FParis')
+    assert.equal(requests.previousMonth, 'https://api.lgs1920.fr/count/monthly/06-26?timeZone=Europe%2FParis')
+    assert.equal(requests.thisYear, 'https://api.lgs1920.fr/count/yearly?timeZone=Europe%2FParis')
 })
 
 test('loads total and current or historical rows without recalculating counters', async () => {
     const now = new Date('2026-07-29T12:34:56.000Z')
-    const requests = buildCountRequests('https://api.lgs1920.fr', now)
+    const requests = buildCountRequests('https://api.lgs1920.fr', now, 'Europe/Paris')
     const payloads = new Map([
         [requests.total, {updatedAt:'2026-07-29T12:30:00.000Z', total:counter(120, 40, 8, 3)}],
         [requests.today, counter(5, 2, 1, 0)],
@@ -53,7 +59,7 @@ test('loads total and current or historical rows without recalculating counters'
         return response(payloads.get(url))
     }
 
-    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now})
+    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now, timeZone:'Europe/Paris'})
 
     assert.deepEqual(result.failed, [])
     assert.deepEqual(result.rows.total, {visits:120, journeys:40, videoDraft:8, videoHq:3})
@@ -65,7 +71,7 @@ test('loads total and current or historical rows without recalculating counters'
 
 test('keeps failed API rows unavailable while preserving successful rows', async () => {
     const now = new Date('2026-07-29T12:34:56.000Z')
-    const requests = buildCountRequests('https://api.lgs1920.fr', now)
+    const requests = buildCountRequests('https://api.lgs1920.fr', now, 'Europe/Paris')
     const fetchImpl = async (url) => {
         if (url === requests.total) {
             return response({total:counter(10, 2, 1, 0)})
@@ -76,7 +82,7 @@ test('keeps failed API rows unavailable while preserving successful rows', async
         return response({success:false, error:'temporary'}, 503)
     }
 
-    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now})
+    const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now, timeZone:'Europe/Paris'})
 
     assert.deepEqual(result.rows.total, {visits:10, journeys:2, videoDraft:1, videoHq:0})
     assert.deepEqual(result.rows.today, {visits:3, journeys:1, videoDraft:1, videoHq:0})
@@ -86,11 +92,17 @@ test('keeps failed API rows unavailable while preserving successful rows', async
 })
 
 test('renders an accessible localized stats table shell', () => {
-    const html = renderStatsPage({locale:'fr', apiUrl:'https://api.lgs1920.fr'})
+    const html = renderStatsPage({
+        locale:      'fr',
+        apiUrl:      'https://api.lgs1920.fr',
+        kicker:      'Statistiques',
+        sectionTitle:'Compteurs d’utilisation',
+        intro:       'Résumé des compteurs.',
+    })
 
     assert.match(html, /data-stats-page/)
     assert.match(html, /data-stats-api-url="https:\/\/api\.lgs1920\.fr"/)
-    assert.match(html, /<caption>Compteurs d’utilisation de LGS1920 Studio par période UTC<\/caption>/)
+    assert.match(html, /<caption>Compteurs d’utilisation de LGS1920 Studio selon la période locale du visiteur<\/caption>/)
     assert.match(html, /<th scope="col">Visites<\/th>/)
     assert.match(html, /<th scope="row">Aujourd’hui<\/th>/)
     assert.match(html, /data-stats-cell="video-draft"/)

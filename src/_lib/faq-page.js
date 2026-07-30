@@ -17,7 +17,7 @@ const renderFaqLinks = (links = []) => {
     }).join('')
 }
 
-export const renderFaqPage = ({ kicker = 'FAQ', title = 'Common questions', intro, items = [] }) => `
+export const renderFaqPage = ({ kicker, title, intro, items = [] }) => `
 <section class="content-section faq-page">
     <div class="section-heading">
         <p class="section-kicker">${escapeHtml(kicker)}</p>

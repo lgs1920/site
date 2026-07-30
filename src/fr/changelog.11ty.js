@@ -35,12 +35,13 @@ export default class {
         const totalPages = Math.ceil(changelog.count / CHANGELOG_PAGE_SIZE)
 
         return renderChangelogIndex({
+            locale,
             directory:{
                 sourceLabel:changelog.sourceLabel,
                 sourceUrl:  changelog.sourceUrl,
             },
             entries: data.entries ?? data.pagination?.items ?? [],
-            labels:  pageContent.renderLabels,
+            intro:   pageContent.intro,
             pagination:createChangelogPagination({locale, currentPage, totalPages}),
         })
     }

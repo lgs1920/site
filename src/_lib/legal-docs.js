@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
 import MarkdownIt from 'markdown-it'
+import i18n from '../_data/i18n.js'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
 const studioLicenseRef = '1.0.0-beta.3'
@@ -140,13 +141,13 @@ export const legalDocs = Object.fromEntries(
     Object.entries(sourceConfig).map(([key, config]) => [key, renderDocument(config)])
 )
 
-export const renderLegalSection = ({ document, intro, labels = {} }) => `
+export const renderLegalSection = ({ document, intro, locale }) => `
 <section class="content-section legal-section">
     <div class="legal-meta">
         <p>${intro}</p>
         <a class="legal-source-link" href="${document.sourceUrl}" target="_blank" rel="noreferrer">
             <wa-icon variant="regular" name="file-lines"></wa-icon>
-            <span>${labels.sourceLabel || 'Source'}: ${document.sourceLabel}</span>
+            <span>${i18n.ui[locale].source}: ${document.sourceLabel}</span>
         </a>
     </div>
 

@@ -15,7 +15,7 @@ export default class {
         return renderLegalSection({
             document: legalDocs.cla,
             intro:    pageContent.intro,
-            labels:   pageContent.renderLabels,
+            locale,
         })
     }
 }

@@ -19,6 +19,7 @@ export default class {
         return renderStatsPage({
             locale,
             apiUrl:       site.countApiUrl,
+            kicker:       pageContent.hero.kicker,
             sectionTitle: pageContent.sectionTitle,
             intro:        pageContent.intro,
         })

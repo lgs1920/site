@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import MarkdownIt from 'markdown-it'
+import i18n from '../_data/i18n.js'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
 const changelogDirectory = path.join(studioRoot, 'public', 'assets', 'changelog')
@@ -243,13 +244,13 @@ const createChangelog = (locale = 'en') => {
 
 export const changelog = createChangelog('en')
 
-export const renderChangelogIndex = ({ directory, entries: changelogEntries, labels = {}, pagination = null }) => `
+export const renderChangelogIndex = ({ directory, entries: changelogEntries, intro, locale, pagination = null }) => `
 <section class="content-section legal-section changelog-section">
     <div class="legal-meta">
-        <p>${labels.intro || 'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.'}</p>
+        <p>${intro}</p>
         <a class="legal-source-link" href="${directory.sourceUrl}" target="_blank" rel="noreferrer">
             <wa-icon variant="regular" name="file-lines"></wa-icon>
-            <span>${labels.sourceDirectory || 'Source directory'}: ${directory.sourceLabel}</span>
+            <span>${i18n.ui[locale].sourceDirectory}: ${directory.sourceLabel}</span>
         </a>
     </div>
 
@@ -258,7 +259,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries, lab
             <article id="${entry.anchorId}" class="changelog-entry">
                 <header class="changelog-entry-header">
                     <div class="changelog-entry-copy">
-                        <p class="section-kicker">${labels.version || 'Version'} ${escapeHtml(entry.version)}</p>
+                        <p class="section-kicker">${i18n.ui[locale].version} ${escapeHtml(entry.version)}</p>
                         <h2>${escapeHtml(entry.title)}</h2>
                         <p class="changelog-entry-date">
                             <wa-icon variant="regular" name="calendar-days"></wa-icon>
@@ -269,7 +270,7 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries, lab
                     <div class="changelog-entry-actions">
                         <a class="legal-source-link" href="${entry.sourceUrl}" target="_blank" rel="noreferrer">
                             <wa-icon variant="regular" name="file-lines"></wa-icon>
-                            <span>${labels.source || 'Source'}: ${escapeHtml(entry.sourceLabel)}</span>
+                            <span>${i18n.ui[locale].source}: ${escapeHtml(entry.sourceLabel)}</span>
                         </a>
                     </div>
                 </header>
@@ -279,17 +280,17 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries, lab
                 </div>
 
                 ${(entry.newer || entry.older) ? `
-                    <nav class="changelog-inline-nav" aria-label="${labels.releaseNavigation || 'Release navigation'}">
+                    <nav class="changelog-inline-nav" aria-label="${i18n.ui[locale].releaseNavigation}">
                         ${entry.newer ? `
                             <a class="changelog-inline-link" href="${entry.newer.url || `#${entry.newer.anchorId}`}" rel="prev">
-                                <span class="changelog-inline-label">${labels.newer || 'Newer'}</span>
+                                <span class="changelog-inline-label">${i18n.ui[locale].newer}</span>
                                 <strong>${escapeHtml(entry.newer.version)}</strong>
                             </a>
                         ` : '<span></span>'}
 
                         ${entry.older ? `
                             <a class="changelog-inline-link" href="${entry.older.url || `#${entry.older.anchorId}`}" data-direction="older" rel="next">
-                                <span class="changelog-inline-label">${labels.older || 'Older'}</span>
+                                <span class="changelog-inline-label">${i18n.ui[locale].older}</span>
                                 <strong>${escapeHtml(entry.older.version)}</strong>
                             </a>
                         ` : '<span></span>'}
@@ -300,24 +301,24 @@ export const renderChangelogIndex = ({ directory, entries: changelogEntries, lab
     </div>
 
     ${pagination && pagination.totalPages > 1 ? `
-        <nav class="changelog-pagination" aria-label="${labels.paginationNavigation || 'Changelog pagination'}">
+        <nav class="changelog-pagination" aria-label="${i18n.ui[locale].paginationNavigation}">
             <div class="changelog-pagination-controls">
                 ${pagination.previous ? `
                     <a class="changelog-pagination-direction" href="${pagination.previous.url}" rel="prev">
                         <wa-icon variant="solid" name="caret-left" aria-hidden="true"></wa-icon>
-                        <span>${labels.previousPage || 'Previous page'}</span>
+                        <span>${i18n.ui[locale].previousPage}</span>
                     </a>
                 ` : '<span class="changelog-pagination-direction" aria-hidden="true"></span>'}
 
                 <ol class="changelog-pagination-pages">
                     ${pagination.pages.map((page) => page.current
                         ? `<li><span class="changelog-pagination-page" aria-current="page">${page.number}</span></li>`
-                        : `<li><a class="changelog-pagination-page" href="${page.url}" aria-label="${labels.page || 'Page'} ${page.number}">${page.number}</a></li>`).join('')}
+                        : `<li><a class="changelog-pagination-page" href="${page.url}" aria-label="${i18n.ui[locale].page} ${page.number}">${page.number}</a></li>`).join('')}
                 </ol>
 
                 ${pagination.next ? `
                     <a class="changelog-pagination-direction" href="${pagination.next.url}" rel="next">
-                        <span>${labels.nextPage || 'Next page'}</span>
+                        <span>${i18n.ui[locale].nextPage}</span>
                         <wa-icon variant="solid" name="caret-right" aria-hidden="true"></wa-icon>
                     </a>
                 ` : '<span class="changelog-pagination-direction" aria-hidden="true"></span>'}

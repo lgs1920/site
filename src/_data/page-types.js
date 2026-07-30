@@ -535,13 +535,13 @@ const stats = {
     path:     '/stats/',
     en:       {
         title:      'Statistics',
-        description:'Current and historical LGS1920 Studio usage counters by UTC period.',
+        description:'Current and historical LGS1920 Studio usage counters by the viewer’s local period.',
         hero:       {
             video:     false,
             badge:     'Live counters',
             kicker:    'Statistics',
             title:     'See the latest Studio usage counts.',
-            lead:      'Read-only counters are loaded from the backend when this page opens. Daily, weekly, monthly, and yearly values use UTC periods.',
+            lead:      'Read-only counters are loaded from the backend when this page opens. Daily, weekly, monthly, and yearly values use the viewer’s local time zone.',
             highlights:[
                 {label:'Visits', icon:'eye', variant:'regular'},
                 {label:'Journeys', icon:'route', variant:'regular'},
@@ -549,20 +549,20 @@ const stats = {
             ],
         },
         sectionTitle:'Usage counters',
-        intro:       'Each value is an accepted event count, not a unique visitor count. Video exports remain separated between draft and high-quality output.',
+        intro:       'Each value is an accepted event count, not a unique visitor count (no IP or other data except time zone).',
         sectionNav:  [
-            {id:'stats-table', label:'Usage counters', summary:'Current and historical values by UTC period'},
+            {id:'stats-table', label:'Usage counters', summary:'Current and historical values by local date period'},
         ],
     },
     fr:       {
         title:      'Statistiques',
-        description:'Compteurs d’utilisation actuels et historiques de LGS1920 Studio par période UTC.',
+        description:'Compteurs d’utilisation actuels et historiques de LGS1920 Studio selon la période locale du visiteur.',
         hero:       {
             video:     false,
             badge:     'Compteurs en direct',
             kicker:    'Statistiques',
             title:     'Consulter les derniers compteurs de Studio.',
-            lead:      'Les compteurs en lecture seule sont chargés depuis le backend à l’ouverture de cette page. Les valeurs quotidiennes, hebdomadaires, mensuelles et annuelles utilisent les périodes UTC.',
+            lead:      'Les compteurs en lecture seule sont chargés depuis le backend à l’ouverture de cette page. Les valeurs quotidiennes, hebdomadaires, mensuelles et annuelles utilisent le fuseau horaire local du visiteur.',
             highlights:[
                 {label:'Visites', icon:'eye', variant:'regular'},
                 {label:'Parcours', icon:'route', variant:'regular'},
@@ -570,9 +570,9 @@ const stats = {
             ],
         },
         sectionTitle:'Compteurs d’utilisation',
-        intro:       'Chaque valeur compte les événements acceptés, et non les visiteurs uniques. Les exports vidéo restent séparés entre brouillon et haute qualité.',
+        intro:       'Chaque valeur compte les événements acceptés, et non les visiteurs uniques (pas d\'adresse IP ni d\'autre donnée, à l\'exception du fuseau horaire).',
         sectionNav:  [
-            {id:'stats-table', label:'Compteurs d’utilisation', summary:'Valeurs actuelles et historiques par période UTC'},
+            {id:'stats-table', label:'Compteurs d’utilisation', summary:'Valeurs actuelles et historiques par période locale'},
         ],
     },
 }
@@ -898,7 +898,6 @@ const legal = {
                 ],
             },
             intro:       'Le résumé légal ci-dessous est récupéré au build depuis la branche Studio 1.0.0-beta.3 afin que le site public reste aligné sur la documentation source.',
-            renderLabels:{sourceLabel:'Source'},
             pageCta:     {
                 eyebrow:'Conditions d\'usage',
                 title:  'Besoin d\'autres conditions d\'usage ?',
@@ -948,7 +947,6 @@ const legal = {
                 lead:  'Cette page reflète le texte complet maintenu dans la branche Studio 1.0.0-beta.3.',
             },
             intro:       'Le texte de licence ci-dessous est rendu directement depuis le Markdown canonique conservé dans la branche Studio 1.0.0-beta.3.',
-            renderLabels:{sourceLabel:'Source'},
         },
     },
     cla: {
@@ -978,7 +976,6 @@ const legal = {
                 lead:  'Les contributeurs doivent accepter ces conditions avant que leurs changements puissent être fusionnés dans le dépôt principal Studio.',
             },
             intro:       'Le CLA ci-dessous est récupéré au build depuis le dépôt principal Studio afin de garder les conditions de contribution synchronisées.',
-            renderLabels:{sourceLabel:'Source'},
         },
     },
     dependencies: {
@@ -1039,7 +1036,6 @@ const legal = {
                 ],
             },
             intro:       'L\'inventaire des dépendances ci-dessous est récupéré au build depuis le dépôt principal Studio afin que le site public reflète le même instantané.',
-            renderLabels:{sourceLabel:'Source'},
             pageCta:     {
                 eyebrow:'Source de vérité',
                 title:  'L\'inventaire des dépendances est généré depuis le dépôt principal Studio.',
@@ -1096,19 +1092,7 @@ const changelog = {
                 },
             ],
         }),
-        renderLabels: {
-            intro:               'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.',
-            newer:               'Newer',
-            older:               'Older',
-            releaseNavigation:   'Release navigation',
-            source:              'Source',
-            sourceDirectory:     'Source directory',
-            version:             'Version',
-            paginationNavigation:'Changelog pagination',
-            previousPage:        'Previous page',
-            nextPage:            'Next page',
-            page:                'Page',
-        },
+        intro: 'The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.',
     },
     fr: {
         title:       'Historique',
@@ -1137,19 +1121,7 @@ const changelog = {
                 },
             ],
         }),
-        renderLabels:{
-            intro:            'Les notes de version ci-dessous sont concaténées au build à partir des fichiers Markdown de changelog maintenus dans le dépôt principal Studio.',
-            newer:            'Plus récent',
-            older:            'Plus ancien',
-            releaseNavigation:'Navigation des versions',
-            source:           'Source',
-            sourceDirectory:  'Dossier source',
-            version:          'Version',
-            paginationNavigation:'Pagination de l’historique',
-            previousPage:     'Page précédente',
-            nextPage:         'Page suivante',
-            page:             'Page',
-        },
+        intro: 'Les notes de version ci-dessous sont concaténées au build à partir des fichiers Markdown de changelog maintenus dans le dépôt principal Studio.',
     },
 }
 

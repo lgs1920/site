@@ -1,3 +1,5 @@
+import {getStatsLabels} from '../_data/stats-labels.js'
+
 const DAY_MS = 24 * 60 * 60 * 1000
 export const STATS_REFRESH_INTERVAL_MS = 60 * 1000
 
@@ -8,82 +10,103 @@ const statKeys = {
     videoHq:    'video-hq',
 }
 
-const clientLabels = {
-    en: {
-        loading:     'Loading counters…',
-        loaded:      'Counters loaded.',
-        partial:     'Some counters are temporarily unavailable.',
-        failed:      'Counters could not be loaded right now.',
-        refreshing:  'Refreshing counters…',
-        updated:     'Last update:',
-        refresh:     'Refresh',
-        unavailable: 'Unavailable',
-    },
-    fr: {
-        loading:     'Chargement des compteurs…',
-        loaded:      'Compteurs chargés.',
-        partial:     'Certains compteurs sont temporairement indisponibles.',
-        failed:      'Les compteurs ne peuvent pas être chargés pour le moment.',
-        refreshing:  'Actualisation des compteurs…',
-        updated:     'Dernière mise à jour :',
-        refresh:     'Actualiser',
-        unavailable: 'Indisponible',
-    },
-}
-
 const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value)
 
 const pad = (value, length) => `${value}`.padStart(length, '0')
 
-const getIsoWeek = (date) => {
-    const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()))
-    const day = utcDate.getUTCDay() || 7
-    utcDate.setUTCDate(utcDate.getUTCDate() + 4 - day)
-    const year = utcDate.getUTCFullYear()
-    const firstThursday = new Date(Date.UTC(year, 0, 4))
-    const week = 1 + Math.round((utcDate.getTime() - firstThursday.getTime()) / DAY_MS / 7)
-
-    return {year, week}
-}
-
-export const getUtcPeriodKeys = (value = new Date()) => {
-    const date = value instanceof Date ? new Date(value.getTime()) : new Date(value)
-    const isoWeek = getIsoWeek(date)
-
-    return {
-        daily:   `${pad(date.getUTCDate(), 2)}-${pad(date.getUTCMonth() + 1, 2)}-${date.getUTCFullYear()}`,
-        weekly:  `${isoWeek.year}-W${pad(isoWeek.week, 2)}`,
-        monthly: `${pad(date.getUTCMonth() + 1, 2)}-${pad(date.getUTCFullYear() % 100, 2)}`,
-        yearly:  `${date.getUTCFullYear()}`,
+/**
+ * Resolve the browser's IANA time zone for statistics calendar periods.
+ *
+ * @returns {string} Browser time zone, or UTC when it is unavailable.
+ */
+export const getClientTimeZone = () => {
+    try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+    }
+    catch {
+        return 'UTC'
     }
 }
 
-const getPreviousDate = (value) => {
-    const date = new Date(value.getTime())
-    date.setUTCDate(date.getUTCDate() - 1)
-    return date
-}
-
-const getPreviousMonth = (value) => new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth() - 1, 1))
-
-const createCountUrl = (apiUrl, suffix = '') => {
-    const baseUrl = String(apiUrl || '').replace(/\/+$/, '')
-    return `${baseUrl}/count${suffix}`
-}
-
-export const buildCountRequests = (apiUrl, now = new Date()) => {
-    const date = now instanceof Date ? new Date(now.getTime()) : new Date(now)
-    const previousDateKeys = getUtcPeriodKeys(getPreviousDate(date))
-    const previousMonthKeys = getUtcPeriodKeys(getPreviousMonth(date))
+const getCalendarParts = (value, timeZone) => {
+    const date = value instanceof Date ? new Date(value.getTime()) : new Date(value)
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone,
+        year:     'numeric',
+        month:    '2-digit',
+        day:      '2-digit',
+    }).formatToParts(date)
+    const values = Object.fromEntries(parts.filter(part => part.type !== 'literal').map(part => [part.type, Number(part.value)]))
 
     return {
-        total:          createCountUrl(apiUrl),
-        today:          createCountUrl(apiUrl, '/daily'),
-        yesterday:      createCountUrl(apiUrl, `/daily/${previousDateKeys.daily}`),
-        thisWeek:       createCountUrl(apiUrl, '/weekly'),
-        thisMonth:      createCountUrl(apiUrl, '/monthly'),
-        previousMonth:  createCountUrl(apiUrl, `/monthly/${previousMonthKeys.monthly}`),
-        thisYear:       createCountUrl(apiUrl, '/yearly'),
+        year:  values.year,
+        month: values.month,
+        day:   values.day,
+    }
+}
+
+const getIsoWeek = ({year, month, day}) => {
+    const utcDate = new Date(Date.UTC(year, month - 1, day))
+    const isoDay = utcDate.getUTCDay() || 7
+    utcDate.setUTCDate(utcDate.getUTCDate() + 4 - isoDay)
+    const weekYear = utcDate.getUTCFullYear()
+    const firstThursday = new Date(Date.UTC(weekYear, 0, 4))
+    const week = 1 + Math.round((utcDate.getTime() - firstThursday.getTime()) / DAY_MS / 7)
+
+    return {year: weekYear, week}
+}
+
+const getPeriodKeysFromParts = (parts) => {
+    const isoWeek = getIsoWeek(parts)
+
+    return {
+        daily:   `${pad(parts.day, 2)}-${pad(parts.month, 2)}-${parts.year}`,
+        weekly:  `${isoWeek.year}-W${pad(isoWeek.week, 2)}`,
+        monthly: `${pad(parts.month, 2)}-${pad(parts.year % 100, 2)}`,
+        yearly:  `${parts.year}`,
+    }
+}
+
+export const getPeriodKeys = (value = new Date(), timeZone = getClientTimeZone()) => {
+    return getPeriodKeysFromParts(getCalendarParts(value, timeZone))
+}
+
+export const getUtcPeriodKeys = (value = new Date()) => getPeriodKeys(value, 'UTC')
+
+const shiftCalendarDate = (parts, dayDelta) => {
+    const date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day))
+    date.setUTCDate(date.getUTCDate() + dayDelta)
+    return {
+        year:  date.getUTCFullYear(),
+        month: date.getUTCMonth() + 1,
+        day:   date.getUTCDate(),
+    }
+}
+
+const getPreviousMonth = (parts) => ({
+    year:  parts.month === 1 ? parts.year - 1 : parts.year,
+    month: parts.month === 1 ? 12 : parts.month - 1,
+    day:   1,
+})
+
+const createCountUrl = (apiUrl, suffix = '', timeZone = 'UTC') => {
+    const baseUrl = String(apiUrl || '').replace(/\/+$/, '')
+    return `${baseUrl}/count${suffix}?timeZone=${encodeURIComponent(timeZone)}`
+}
+
+export const buildCountRequests = (apiUrl, now = new Date(), timeZone = getClientTimeZone()) => {
+    const calendarParts = getCalendarParts(now, timeZone)
+    const previousDateKeys = getPeriodKeysFromParts(shiftCalendarDate(calendarParts, -1))
+    const previousMonthKeys = getPeriodKeysFromParts(getPreviousMonth(calendarParts))
+
+    return {
+        total:          createCountUrl(apiUrl, '', timeZone),
+        today:          createCountUrl(apiUrl, '/daily', timeZone),
+        yesterday:      createCountUrl(apiUrl, `/daily/${previousDateKeys.daily}`, timeZone),
+        thisWeek:       createCountUrl(apiUrl, '/weekly', timeZone),
+        thisMonth:      createCountUrl(apiUrl, '/monthly', timeZone),
+        previousMonth:  createCountUrl(apiUrl, `/monthly/${previousMonthKeys.monthly}`, timeZone),
+        thisYear:       createCountUrl(apiUrl, '/yearly', timeZone),
     }
 }
 
@@ -128,8 +151,8 @@ const fetchJson = async (url, fetchImpl = globalThis.fetch) => {
     return payload
 }
 
-export const loadStats = async ({apiUrl, fetchImpl = globalThis.fetch, now = new Date()} = {}) => {
-    const requests = buildCountRequests(apiUrl, now)
+export const loadStats = async ({apiUrl, fetchImpl = globalThis.fetch, now = new Date(), timeZone = getClientTimeZone()} = {}) => {
+    const requests = buildCountRequests(apiUrl, now, timeZone)
     const requestEntries = Object.entries(requests)
     const results = await Promise.all(requestEntries.map(async ([key, url]) => {
         try {
@@ -159,8 +182,6 @@ export const loadStats = async ({apiUrl, fetchImpl = globalThis.fetch, now = new
         updatedAt: responses.total.value?.updatedAt ?? null,
     }
 }
-
-const getLabels = (locale) => clientLabels[locale] ?? clientLabels.en
 
 const statusPresentation = {
     loading: {variant: 'warning', icon: 'spinner'},
@@ -209,7 +230,7 @@ const renderRows = (page, rows, locale) => {
             cell.textContent = values ? formatter.format(value) : '—'
 
             if (!values) {
-                cell.setAttribute('aria-label', getLabels(locale).unavailable)
+                cell.setAttribute('aria-label', getStatsLabels(locale).unavailable)
             }
             else {
                 cell.removeAttribute('aria-label')
@@ -238,7 +259,7 @@ const refreshButtonState = (page, locale, isRefreshing) => {
         button.setAttribute('aria-busy', `${isRefreshing}`)
     }
     if (label) {
-        const pageLabels = getLabels(locale)
+        const pageLabels = getStatsLabels(locale)
         label.textContent = isRefreshing ? pageLabels.refreshing : pageLabels.refresh
     }
 }
@@ -256,7 +277,7 @@ export const refreshStatsPage = (page) => {
     }
 
     const locale = page.dataset.locale ?? 'en'
-    const pageLabels = getLabels(locale)
+    const pageLabels = getStatsLabels(locale)
 
     const refresh = (async () => {
         page.setAttribute('aria-busy', 'true')

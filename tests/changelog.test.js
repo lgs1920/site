@@ -26,13 +26,14 @@ test('creates accessible previous, current, and next page links', () => {
     assert.equal(pagination.pages.length, 4)
 
     const html = renderChangelogIndex({
+        locale: 'fr',
         directory: {sourceLabel:'source', sourceUrl:'https://example.test/source'},
         entries: changelog.entries.slice(0, CHANGELOG_PAGE_SIZE),
-        labels: {paginationNavigation:'Pagination', previousPage:'Previous', nextPage:'Next', page:'Page'},
+        intro: 'Release notes.',
         pagination,
     })
 
-    assert.match(html, /aria-label="Pagination"/)
+    assert.match(html, /aria-label="Pagination de l’historique"/)
     assert.match(html, /aria-current="page">2<\/span>/)
     assert.match(html, /href="\/fr\/changelog\/page\/3\/"/)
 })
