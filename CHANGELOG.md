@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-05 — [`19cb2b0`](https://github.com/lgs1920/site/commit/19cb2b0) — Update site release tooling
+
+- Synchronized site project rules and release skill guidance with the shared repository workflow.
+- Updated the site Vite dependency lockfile.
+
 ## 2026-07-30 — [`2775f12`](https://github.com/lgs1920/site/commit/2775f12) — Refine statistics status display
 
 - Replaced statistics status messages with full-width Web Awesome callouts and status icons.

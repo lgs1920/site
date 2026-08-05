@@ -34,7 +34,16 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Treat content-check errors as blockers. Existing heading-count warnings between locales should be reported but do not by themselves block the work.
 - Use `git diff --check` before handoff.
 
-## 5. Git and release workflow
+## 5. Issue and release workflow
+
+### Cross-repository issue ownership
+
+- The managed repositories are `studio`, `site`, and `backend`. Create an issue in the repository that owns the site content, template, or operational change.
+- Never mirror a `site` or `backend` issue into `studio`. Record cross-repository dependencies with direct links to the owning issue; do not create duplicate issues.
+- During the mirror-removal migration, inventory confirmed `studio` mirrors of `site` issues, transfer missing information to the owning issue, remove links to the mirror from the original issue and related documentation, and delete only unambiguous mirror issues.
+- Do not delete an issue with independent scope or unclear ownership. Report ambiguous cases for explicit user decision and verify that no active issue links to a deleted mirror.
+
+### Release and changelog workflow
 
 - Never create a commit automatically. Commit only when the user explicitly requests it.
 - Use a concise conventional commit message with a key such as `feat`, `fix`, `docs`, `style`, `test`, or `chore`.
@@ -45,3 +54,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - A changelog entry must be added before committing and must use the final commit identifier. If the identifier is not known yet, create the commit, then update the entry and amend the commit.
 - The public `/changelog/` page remains sourced from the Studio changelog and must not be switched to the local site log.
 - Do not update the Studio changelog for a site-only commit.
+- The shared public release changelog uses `../studio/public/assets/changelog/YYYYMMDD-<version>.md`. If the target file does not exist, create it automatically in the Studio repository using today's date and the nearest existing changelog's filename and header conventions.
+- Group closed issues and remaining open bugs/features by owning repository (`studio`, `site`, or `backend`). Omit repository headings when they have no entries, and omit a category heading when it has no entries at all.
+- Link every issue to its owning repository. Never include mirror issue links or duplicate issue numbers.
+- Do not invent issue numbers, versions, dates, release membership, or user-facing outcomes.
