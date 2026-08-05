@@ -45,6 +45,7 @@ const translatedSitePaths = [
     '/contributor-license-agreement/',
     '/dependencies/',
     '/faq/',
+    '/registration/',
     '/stats/',
     '/user-guide/',
     '/user-guide/getting-started/first-steps/',

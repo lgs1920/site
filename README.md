@@ -50,3 +50,10 @@ LGS1920_COUNT_API_URL="http://api.lgs1920.fr:3334" bun run dev
 
 Production keeps using `https://api.lgs1920.fr` unless
 `LGS1920_COUNT_API_URL` is explicitly set.
+
+## Public registration form
+
+The site includes English and French launch-registration forms for first name,
+last name, and email address. Submissions are sent to `POST /registration` on
+the backend. The form uses `LGS1920_REGISTRATION_API_URL` when it is set; otherwise it
+uses the same API URL as the statistics feature.

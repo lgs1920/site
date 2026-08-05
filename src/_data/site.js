@@ -15,6 +15,7 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
 })))
 
 const countApiUrl = process.env.LGS1920_COUNT_API_URL || 'https://api.lgs1920.fr'
+const registrationApiUrl = process.env.LGS1920_REGISTRATION_API_URL || countApiUrl
 
 export default {
     name:        'LGS1920 Studio',
@@ -24,6 +25,7 @@ export default {
     url:         'https://lgs1920.fr',
     appUrl:      'https://studio.lgs1920.fr',
     countApiUrl,
+    registrationApiUrl,
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'contact@lgs1920.fr',
     footerNote:  `LGS1920 ${copyrightYears} - GNU AGPL v3 or later`,

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-05 — [`4d76c9b`](https://github.com/lgs1920/site/commit/4d76c9b) — Add Studio launch registration
+
+- Added bilingual launch-registration pages with explicit consent, privacy information, and official AGPL licensing link.
+- Connected the form to the public backend registration endpoint and preserved direct access without a homepage link.
+
 ## 2026-08-05 — [`19cb2b0`](https://github.com/lgs1920/site/commit/19cb2b0) — Update site release tooling
 
 - Synchronized site project rules and release skill guidance with the shared repository workflow.

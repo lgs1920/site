@@ -1,8 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
     --shell-width: min(1240px, calc(100vw - 2rem));
     --site-inline-edge: max(10px, calc((100vw - var(--shell-width)) / 2));
+    --lgs-gutter: 0.8rem;
+    --lgs-slogan-font-family: "Cookie", cursive;
+    --lgs-slogan-font-size: calc(2.5 * var(--lgs-gutter));
     --hero-glow-a: color-mix(in oklab, var(--wa-color-brand-60) 28%, transparent);
     --hero-glow-b: color-mix(in oklab, var(--wa-color-brand-70) 20%, transparent);
     --hero-glow-c: color-mix(in oklab, var(--wa-color-brand-95) 14%, transparent);
@@ -1816,6 +1819,88 @@ html.wa-light .hero-backdrop {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.registration-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.registration-brand-column {
+    display: grid;
+    min-height: 100%;
+    place-items: center;
+    padding: clamp(1rem, 4vw, 3rem);
+}
+
+.registration-brand-lockup {
+    display: grid;
+    justify-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.registration-brand-column .brand-logo-mark,
+.registration-brand-column .registration-logo {
+    display: block;
+    width: min(100%, 22rem) !important;
+    height: auto;
+}
+
+.registration-slogan {
+    width: 100%;
+    margin-top: calc(2 * var(--lgs-gutter));
+    color: var(--wa-color-brand);
+    font-family: var(--lgs-slogan-font-family);
+    font-size: var(--lgs-slogan-font-size);
+    transform: rotate(-10deg) skew(-18deg);
+    text-align: center;
+}
+
+.registration-card {
+    height: 100%;
+}
+
+wa-card.registration-card::part(body) {
+    display: grid;
+    height: 100%;
+    padding: 1.45rem;
+}
+
+.registration-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.registration-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.registration-form .page-cta-actions {
+    margin-top: 0;
+}
+
+.registration-status {
+    margin-top: 0.25rem;
+}
+
+.registration-license {
+    margin: 0;
+    color: var(--page-muted);
+    line-height: 1.65;
+}
+
+.registration-honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 .vision-card,
 .feature-card {
     height: 100%;
@@ -2099,6 +2184,25 @@ wa-card.accent-c::part(base) {
     background:
         linear-gradient(135deg, rgba(10, 15, 22, 0.9), rgba(37, 44, 40, 0.86)),
         color-mix(in oklab, var(--wa-color-neutral-10) 74%, var(--wa-color-brand-40) 26%);
+}
+
+.registration-hero.hero-no-video .hero-media {
+    background:
+        linear-gradient(135deg, rgba(10, 15, 22, 0.92), rgba(45, 44, 32, 0.84)),
+        color-mix(in oklab, var(--wa-color-neutral-10) 72%, var(--wa-color-brand-40) 28%);
+}
+
+.registration-hero.hero-no-video .hero-backdrop,
+html.wa-light .registration-hero.hero-no-video .hero-backdrop {
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.04)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.44));
+}
+
+html.wa-light .registration-hero.hero-no-video .hero-media {
+    background:
+        linear-gradient(135deg, rgba(17, 24, 35, 0.9), rgba(76, 68, 44, 0.82)),
+        color-mix(in oklab, var(--wa-color-neutral-20) 74%, var(--wa-color-brand-60) 26%);
 }
 
 .guide-hero.hero-no-video .hero-backdrop,
@@ -2835,6 +2939,11 @@ wa-card.page-cta-card::part(body) {
     }
 
     .intro-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-layout,
+    .registration-form-grid {
         grid-template-columns: 1fr;
     }
 

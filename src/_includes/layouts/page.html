@@ -13,7 +13,7 @@ layout: layouts/base.html
 {% assign page_section_nav = localizedPage.sectionNav | default: sectionNav %}
 {% assign page_cta = localizedPage.pageCta | default: pageCta %}
 {% assign page_class_value = localizedPage.pageClass | default: pageClass %}
-<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right">
+<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}{% if minimalChrome %} minimal-chrome-layout{% endif %}" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right">
     <script>
         (() => {
             const page = document.currentScript.closest('wa-page')
@@ -38,6 +38,7 @@ layout: layouts/base.html
     </script>
     <span slot="skip-to-content">{{ labels.skipToContent }}</span>
 
+    {% unless minimalChrome %}
     <header slot="header" class="topbar">
         <div class="brand-lockup">
             <p class="brand-kicker">{{ localizedSite.tagline | default: site.tagline }}</p>
@@ -146,7 +147,9 @@ layout: layouts/base.html
             <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
         </div>
     </header>
+    {% endunless %}
 
+    {% unless minimalChrome %}
     <nav id="site-navigation" slot="navigation" class="drawer-nav" aria-label="{{ labels.primaryNavigation }}">
         {% if chrome_navigation and chrome_navigation.size > 0 %}
             <section class="drawer-group">
@@ -271,6 +274,7 @@ layout: layouts/base.html
             </section>
         {% endif %}
     </nav>
+    {% endunless %}
 
     <section slot="main-header" class="page-hero{% unless page_hero.video == false %} hero-has-video{% else %} hero-no-video{% endunless %}{% if page_hero.className %} {{ page_hero.className }}{% endif %}">
         <div class="hero-media" aria-hidden="true">
@@ -498,6 +502,7 @@ layout: layouts/base.html
         </section>
     {% endif %}
 
+    {% unless minimalChrome %}
     <footer slot="footer" class="site-footer">
         <div class="site-footer-copy">
             <p class="site-footer-note">
@@ -524,12 +529,15 @@ layout: layouts/base.html
         <a id="site-contact-link" href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
         <wa-tooltip class="control-tooltip" for="site-contact-link">{{ site.contactEmail }}</wa-tooltip>
     </footer>
+    {% endunless %}
 </wa-page>
 
+{% unless minimalChrome %}
 <wa-button id="page-nav-toggle-desktop" class="nav-fab" data-page-nav-toggle data-page-nav-toggle-desktop appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
     <wa-icon variant="regular" name="bars"></wa-icon>
 </wa-button>
 <wa-tooltip class="control-tooltip" for="page-nav-toggle-desktop" placement="right" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
+{% endunless %}
 
 {% if alternateLocales %}
     <script>

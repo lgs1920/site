@@ -397,6 +397,85 @@ const home = {
     },
 }
 
+const launchRegistration = {
+    layout:   'layouts/page.html',
+    minimalChrome:true,
+    pageClass:'launch-registration-page',
+    path:     '/registration/',
+    en:       {
+        title:       'Studio launch registration',
+        description: 'Register to be notified when LGS1920 Studio launches and learn about the communication channels available afterwards.',
+        hero:        {
+            className: 'registration-hero',
+            video:     false,
+            badge:     'Studio launch',
+            kicker:    'Registration',
+            title:     'Register for the Studio launch.',
+            lead:      'Register with your name and email address. We will contact you only about the Studio launch, then give you the option to join our communication channels.',
+            highlights:[
+                {label:'Launch updates only', icon:'bell', variant:'regular'},
+                {label:'Explicit consent', icon:'shield-check', variant:'regular'},
+                {label:'No data resale', icon:'lock', variant:'regular'},
+            ],
+        },
+        sectionNav: [
+            {id:'registration-form', label:'Registration form', summary:'Enter your details and consent'},
+            {id:'registration-privacy', label:'Your data', summary:'How the registration data is used'},
+        ],
+        form: {
+            firstNameLabel: 'First name',
+            firstNamePlaceholder: 'Your first name',
+            lastNameLabel: 'Last name',
+            lastNamePlaceholder: 'Your last name',
+            emailLabel: 'Email address',
+            emailPlaceholder: 'you@example.com',
+            consentLabel: 'I agree to be contacted when Studio launches.',
+            submitLabel: 'Notify me at launch',
+            successMessage: 'Thank you. Your launch registration has been recorded.',
+            errorMessage: 'The registration could not be saved. Please try again later.',
+        },
+        privacy: 'Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to contact@lgs1920.fr. We keep the registration only for the launch information period and review it afterwards.',
+        licenseReminder: 'This site and Studio are distributed under the GNU Affero General Public License v3 or later.',
+        licenseLink:     'Read the license',
+    },
+    fr:       {
+        title:       'Inscription au lancement de Studio',
+        description: 'Inscrivez-vous pour être averti du lancement de LGS1920 Studio et découvrir ensuite nos canaux de communication.',
+        hero:        {
+            className: 'registration-hero',
+            video:     false,
+            badge:     'Lancement de Studio',
+            kicker:    'Inscription',
+            title:     'Inscrivez-vous au lancement du Studio.',
+            lead:      'Inscrivez vos prénom, nom et adresse e-mail. Vous aurez ensuite la possibilité de vous inscrire à nos canaux de communication.',
+            highlights:[
+                {label:'Informations sur le lancement uniquement', icon:'bell', variant:'regular'},
+                {label:'Consentement explicite', icon:'shield-check', variant:'regular'},
+                {label:'Aucune revente de données', icon:'lock', variant:'regular'},
+            ],
+        },
+        sectionNav: [
+            {id:'registration-form', label:'Formulaire d’inscription', summary:'Renseigner vos coordonnées et votre consentement'},
+            {id:'registration-privacy', label:'Vos données', summary:'Utilisation des données d’inscription'},
+        ],
+        form: {
+            firstNameLabel: 'Prénom',
+            firstNamePlaceholder: 'Votre prénom',
+            lastNameLabel: 'Nom',
+            lastNamePlaceholder: 'Votre nom',
+            emailLabel: 'Adresse e-mail',
+            emailPlaceholder: 'vous@exemple.fr',
+            consentLabel: 'J’accepte d’être recontacté lors du lancement du Studio.',
+            submitLabel: 'M’avertir du lancement',
+            successMessage: 'Merci. Votre inscription au lancement a bien été enregistrée.',
+            errorMessage: 'L’inscription n’a pas pu être enregistrée. Veuillez réessayer plus tard.',
+        },
+        privacy: 'Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à contact@lgs1920.fr. L’inscription est conservée pendant la période d’information sur le lancement, puis réévaluée.',
+        licenseReminder: 'Ce site et Studio sont distribués sous licence GNU Affero General Public License v3 ou ultérieure.',
+        licenseLink:     'Lire la licence',
+    },
+}
+
 const faq = {
     layout:   'layouts/page.html',
     pageClass:'faq-page',
@@ -1128,6 +1207,7 @@ const changelog = {
 const pageDefinitionsByPath = {
     '/':                              home,
     '/faq/':                          faq,
+    '/registration/':                 launchRegistration,
     '/stats/':                        stats,
     '/changelog/':                    changelog,
     '/licensing/':                    legal.licensing,
@@ -1169,6 +1249,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
         permalink:  i18n.localizedPath(locale, definition.path),
         title:      content.title,
         description:content.description,
+        minimalChrome: definition.minimalChrome,
         pageClass:  definition.pageClass,
         hero:       typeof content.getHero === 'function' ? content.getHero(options) : content.hero,
         sectionNav: options.sectionNav,
@@ -1178,6 +1259,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
 
 export default {
     home,
+    launchRegistration,
     faq,
     userGuide,
     legal,
