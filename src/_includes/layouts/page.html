@@ -89,6 +89,11 @@ layout: layouts/base.html
                 <wa-tooltip class="control-tooltip" for="locale-trigger" placement="bottom">{{ labels.chooseLanguage }}</wa-tooltip>
             {% endif %}
 
+            <wa-button id="header-contact-link" class="icon-link-button" href="{{ localizedRegistrationUrl | default: '/registration/' }}" appearance="plain" aria-label="{{ labels.contact }}">
+                <wa-icon variant="regular" name="envelope"></wa-icon>
+            </wa-button>
+            <wa-tooltip class="control-tooltip" for="header-contact-link" placement="bottom">{{ labels.contact }}</wa-tooltip>
+
             <div class="theme-controls">
                 <wa-dropdown class="theme-palette-menu" placement="bottom-end" data-theme-palette-dropdown>
                     <wa-button id="theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseBrandAndSeason }}">
@@ -526,8 +531,8 @@ layout: layouts/base.html
                 </nav>
             {% endif %}
         </div>
-        <a id="site-contact-link" href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
-        <wa-tooltip class="control-tooltip" for="site-contact-link">{{ site.contactEmail }}</wa-tooltip>
+        <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact/' }}">{{ labels.contact }}</a>
+        <wa-tooltip class="control-tooltip" for="site-contact-link">{{ labels.contact }}</wa-tooltip>
     </footer>
     {% endunless %}
 </wa-page>

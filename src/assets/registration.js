@@ -37,7 +37,7 @@ const submitRegistrationForm = async (event) => {
     }
 
     try {
-        const response = await fetch(`${apiUrl}/registration`, {
+        const response = await fetch(`${apiUrl}/launch-registration`, {
             method:  'POST',
             headers: {'Content-Type': 'application/json'},
             body:    JSON.stringify(payload),

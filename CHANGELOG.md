@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-06 — [`4572de9`](https://github.com/lgs1920/site/commit/4572de9) — Add public contact form and registration links
+
+- Added bilingual Contact pages with consent, privacy information, anti-spam handling, and protected backend submission.
+- Added the Contact page to localized navigation and replaced public mail links with localized page links.
+- Updated Launch Registration submission configuration and endpoint naming.
+
 ## 2026-08-05 — [`4d76c9b`](https://github.com/lgs1920/site/commit/4d76c9b) — Add Studio launch registration
 
 - Added bilingual launch-registration pages with explicit consent, privacy information, and official AGPL licensing link.

@@ -45,6 +45,7 @@ const translatedSitePaths = [
     '/contributor-license-agreement/',
     '/dependencies/',
     '/faq/',
+    '/contact/',
     '/registration/',
     '/stats/',
     '/user-guide/',
@@ -407,6 +408,12 @@ const buildNavigation = (locale = defaultLocale) => [
         label:  ui[locale].changelog,
         url:    localizedPath(locale, '/changelog/'),
         icon:   'arrows-turn-to-dots',
+        variant:'regular',
+    },
+    {
+        label:  ui[locale].contact,
+        url:    localizedPath(locale, '/contact/'),
+        icon:   'envelope',
         variant:'regular',
     },
     {

@@ -47,6 +47,8 @@ export default {
         locale:              getLocale,
         localizedSite:       (data) => i18n.site[getLocale(data)] ?? i18n.site.en,
         localizedHomeUrl:    (data) => i18n.localizedPath(getLocale(data), '/'),
+        localizedContactUrl: (data) => i18n.localizedPath(getLocale(data), '/contact/'),
+        localizedRegistrationUrl:(data) => i18n.localizedPath(getLocale(data), '/registration/'),
         localizedPage:       getLocalizedPageContent,
         pageMeta:            getPageMeta,
         localizedNavigation: (data) => i18n.navigation[getLocale(data)] ?? i18n.navigation.en,

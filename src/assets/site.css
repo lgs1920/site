@@ -1901,6 +1901,50 @@ wa-card.registration-card::part(body) {
     white-space: nowrap;
 }
 
+.contact-card {
+    width: min(100%, 54rem);
+    margin: 0 auto;
+}
+
+wa-card.contact-card::part(body) {
+    padding: clamp(1.15rem, 3vw, 2rem);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.contact-form .page-cta-actions {
+    margin-top: 0;
+}
+
+.contact-status {
+    margin-top: 0.25rem;
+}
+
+.contact-privacy-notice {
+    max-width: 48rem;
+    margin: 0;
+    color: var(--page-muted);
+    line-height: 1.65;
+}
+
+.contact-honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 .vision-card,
 .feature-card {
     height: 100%;
@@ -2943,7 +2987,8 @@ wa-card.page-cta-card::part(body) {
     }
 
     .registration-layout,
-    .registration-form-grid {
+    .registration-form-grid,
+    .contact-form-grid {
         grid-template-columns: 1fr;
     }
 

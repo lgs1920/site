@@ -185,7 +185,7 @@ export default {
                         },
                         {
                             label:     'Contact',
-                            href:      'mailto:contact@lgs1920.fr',
+                            href:      '/contact/',
                             appearance:'outlined',
                             variant:   'brand',
                             icon:      {
@@ -215,7 +215,7 @@ export default {
                     },
                     {
                         label:     'Contact',
-                        href:      'mailto:contact@lgs1920.fr',
+                        href:      '/fr/contact/',
                         appearance:'outlined',
                         variant:   'brand',
                         icon:      {

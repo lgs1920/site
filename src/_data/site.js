@@ -15,7 +15,11 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
 })))
 
 const countApiUrl = process.env.LGS1920_COUNT_API_URL || 'https://api.lgs1920.fr'
-const registrationApiUrl = process.env.LGS1920_REGISTRATION_API_URL || countApiUrl
+const registrationApiUrl = process.env.LGS1920_LAUNCH_REGISTRATION_API_URL
+    || process.env.LGS1920_REGISTRATION_API_URL
+    || countApiUrl
+const contactApiUrl = process.env.LGS1920_CONTACT_API_URL || countApiUrl
+const contactTarget = process.env.LGS1920_CONTACT_TARGET || 'f7a91c'
 
 export default {
     name:        'LGS1920 Studio',
@@ -26,8 +30,10 @@ export default {
     appUrl:      'https://studio.lgs1920.fr',
     countApiUrl,
     registrationApiUrl,
+    contactApiUrl,
+    contactTarget,
     repoUrl:     'https://github.com/lgs1920/studio',
-    contactEmail:'contact@lgs1920.fr',
+    contactEmail:'studio@lgs1920.fr',
     footerNote:  `LGS1920 ${copyrightYears} - GNU AGPL v3 or later`,
     buildLink:   {
         label:   'Built with Eleventy',
@@ -144,7 +150,7 @@ export default {
         },
         {
             label:   'Contact',
-            url:     'mailto:contact@lgs1920.fr',
+            url:     '/contact/',
             icon:    'envelope',
             variant: 'regular',
         },

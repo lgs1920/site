@@ -3,7 +3,9 @@ import { getGuidePageDefinition } from './guide-pages.generated.js'
 
 const studioUrl = 'https://studio.lgs1920.fr'
 const repositoryUrl = 'https://github.com/lgs1920/studio'
-const contactEmail = 'contact@lgs1920.fr'
+const contactEmail = 'studio@lgs1920.fr'
+const contactUrl = '/contact/'
+const frenchContactUrl = '/fr/contact/'
 
 const home = {
     layout:'layouts/page.html',
@@ -434,7 +436,7 @@ const launchRegistration = {
             successMessage: 'Thank you. Your launch registration has been recorded.',
             errorMessage: 'The registration could not be saved. Please try again later.',
         },
-        privacy: 'Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to contact@lgs1920.fr. We keep the registration only for the launch information period and review it afterwards.',
+        privacy: 'Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to studio@lgs1920.fr. We keep the registration only for the launch information period and review it afterwards.',
         licenseReminder: 'This site and Studio are distributed under the GNU Affero General Public License v3 or later.',
         licenseLink:     'Read the license',
     },
@@ -470,9 +472,97 @@ const launchRegistration = {
             successMessage: 'Merci. Votre inscription au lancement a bien été enregistrée.',
             errorMessage: 'L’inscription n’a pas pu être enregistrée. Veuillez réessayer plus tard.',
         },
-        privacy: 'Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à contact@lgs1920.fr. L’inscription est conservée pendant la période d’information sur le lancement, puis réévaluée.',
+        privacy: 'Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à studio@lgs1920.fr. L’inscription est conservée pendant la période d’information sur le lancement, puis réévaluée.',
         licenseReminder: 'Ce site et Studio sont distribués sous licence GNU Affero General Public License v3 ou ultérieure.',
         licenseLink:     'Lire la licence',
+    },
+}
+
+const contact = {
+    layout:   'layouts/page.html',
+    pageClass:'contact-page',
+    path:     '/contact/',
+    en:       {
+        title:       'Contact LGS1920',
+        description: 'Send a message to the LGS1920 Studio team through a privacy-conscious contact form.',
+        hero:        {
+            video:     false,
+            badge:     'Contact',
+            kicker:    'Get in touch',
+            title:     'Tell us what you need.',
+            lead:      'Use this form for questions about Studio, the website, licensing, partnerships, or anything else you would like to share with LGS1920.',
+            highlights:[
+                {label:'A direct reply', icon:'paper-plane', variant:'regular'},
+                {label:'Clear consent', icon:'shield-check', variant:'regular'},
+                {label:'No advertising reuse', icon:'lock', variant:'regular'},
+            ],
+        },
+        sectionNav: [
+            {id:'contact-form', label:'Contact form', summary:'Send your message to LGS1920'},
+            {id:'contact-privacy', label:'Your data', summary:'How contact requests are handled'},
+        ],
+        form: {
+            firstNameLabel:      'First name',
+            firstNamePlaceholder:'Your first name',
+            lastNameLabel:       'Last name',
+            lastNamePlaceholder: 'Your last name',
+            emailLabel:          'Email address',
+            emailPlaceholder:   'you@example.com',
+            subjectLabel:        'Subject',
+            subjectPlaceholder: 'What can we help with?',
+            messageLabel:        'Message',
+            messagePlaceholder:  'Write your message here',
+            consentLabel:        'I agree to be contacted about this request.',
+            submitLabel:         'Send message',
+            successMessage:      'Thank you. Your message has been sent.',
+            errorMessage:        'Your message could not be sent. Please try again later.',
+        },
+        privacy: {
+            title:   'A limited and transparent use of your message.',
+            body:    'The details you provide are used only to answer your request. They are not sold or shared for advertising. You can ask for access, correction, or deletion of your data, or withdraw your consent, by sending a new request through this form or by writing to studio@lgs1920.fr.',
+            notice:  'Only the information needed to answer your request is retained for as long as necessary. The form includes an anti-spam field and does not require an account.',
+        },
+    },
+    fr:       {
+        title:       'Contacter LGS1920',
+        description: 'Écrivez à l’équipe LGS1920 Studio avec un formulaire de contact respectueux de votre vie privée.',
+        hero:        {
+            video:     false,
+            badge:     'Contact',
+            kicker:    'Nous écrire',
+            title:     'Dites-nous ce dont vous avez besoin.',
+            lead:      'Utilisez ce formulaire pour vos questions sur Studio, le site, les licences, les partenariats ou tout autre sujet à partager avec LGS1920.',
+            highlights:[
+                {label:'Une réponse directe', icon:'paper-plane', variant:'regular'},
+                {label:'Consentement clair', icon:'shield-check', variant:'regular'},
+                {label:'Aucune réutilisation publicitaire', icon:'lock', variant:'regular'},
+            ],
+        },
+        sectionNav: [
+            {id:'contact-form', label:'Formulaire de contact', summary:'Envoyer votre message à LGS1920'},
+            {id:'contact-privacy', label:'Vos données', summary:'Traitement des demandes de contact'},
+        ],
+        form: {
+            firstNameLabel:      'Prénom',
+            firstNamePlaceholder:'Votre prénom',
+            lastNameLabel:       'Nom',
+            lastNamePlaceholder: 'Votre nom',
+            emailLabel:          'Adresse e-mail',
+            emailPlaceholder:   'vous@exemple.fr',
+            subjectLabel:        'Objet',
+            subjectPlaceholder: 'Comment pouvons-nous vous aider ?',
+            messageLabel:        'Message',
+            messagePlaceholder:  'Écrivez votre message ici',
+            consentLabel:        'J’accepte d’être recontacté au sujet de cette demande.',
+            submitLabel:         'Envoyer le message',
+            successMessage:      'Merci. Votre message a bien été envoyé.',
+            errorMessage:        'Votre message n’a pas pu être envoyé. Veuillez réessayer plus tard.',
+        },
+        privacy: {
+            title:   'Un usage limité et transparent de votre message.',
+            body:    'Les informations transmises servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni partagées à des fins publicitaires. Vous pouvez demander l’accès, la rectification ou la suppression de vos données, ou retirer votre consentement, en envoyant une nouvelle demande via ce formulaire ou en écrivant à studio@lgs1920.fr.',
+            notice:  'Seules les informations nécessaires à votre réponse sont conservées pendant la durée utile. Le formulaire comprend un champ anti-spam et ne nécessite pas de compte.',
+        },
     },
 }
 
@@ -532,7 +622,7 @@ const faq = {
                 },
                 {
                     label:     'Contact',
-                    href:      `mailto:${contactEmail}`,
+                    href:      contactUrl,
                     appearance:'outlined',
                     variant:   'brand',
                     icon:      {
@@ -595,7 +685,7 @@ const faq = {
                 },
                 {
                     label:     'Contact',
-                    href:      `mailto:${contactEmail}`,
+                    href:      frenchContactUrl,
                     appearance:'outlined',
                     variant:   'brand',
                     icon:      {
@@ -947,7 +1037,7 @@ const legal = {
                 actions:[
                     {
                         label:  'Contact',
-                        href:   `mailto:${contactEmail}`,
+                        href:   contactUrl,
                         variant:'brand',
                         icon:   {name:'envelope', variant:'regular'},
                     },
@@ -984,7 +1074,7 @@ const legal = {
                 actions:[
                     {
                         label:  'Contact',
-                        href:   `mailto:${contactEmail}`,
+                        href:   frenchContactUrl,
                         variant:'brand',
                         icon:   {name:'envelope', variant:'regular'},
                     },
@@ -1207,6 +1297,7 @@ const changelog = {
 const pageDefinitionsByPath = {
     '/':                              home,
     '/faq/':                          faq,
+    '/contact/':                      contact,
     '/registration/':                 launchRegistration,
     '/stats/':                        stats,
     '/changelog/':                    changelog,
@@ -1259,6 +1350,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
 
 export default {
     home,
+    contact,
     launchRegistration,
     faq,
     userGuide,

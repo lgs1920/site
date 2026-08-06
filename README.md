@@ -24,6 +24,7 @@ This repository includes project skills for maintaining the public site and its 
 - [Multilingual content](skills/lgs-1920-site-multilingual-content/SKILL.md)
 - [Site QA](skills/lgs-1920-site-qa/SKILL.md)
 - [Release preparation](skills/lgs-1920-site-release/SKILL.md)
+- [Contact mail](skills/lgs-1920-site-contact-mail/SKILL.md)
 
 ## Live links
 
@@ -54,6 +55,24 @@ Production keeps using `https://api.lgs1920.fr` unless
 ## Public registration form
 
 The site includes English and French launch-registration forms for first name,
-last name, and email address. Submissions are sent to `POST /registration` on
-the backend. The form uses `LGS1920_REGISTRATION_API_URL` when it is set; otherwise it
+last name, and email address. Submissions are sent to `POST /launch-registration`
+on the backend. The form uses `LGS1920_LAUNCH_REGISTRATION_API_URL` when it is
+set, then falls back to the legacy `LGS1920_REGISTRATION_API_URL`, and finally
 uses the same API URL as the statistics feature.
+
+## Public contact form
+
+The English and French contact pages collect a name, email address, subject,
+message, and explicit consent before sending the request to `POST /contact` on
+the backend. The form uses `LGS1920_CONTACT_API_URL` when it is set; otherwise
+it uses the same API URL as the statistics feature. Before submitting, the
+form requests a short-lived backend token and sends only an opaque contact
+target key, for example `C4P7Z2`. The backend may answer with HTTP `429` when
+the token or submission limit is reached; the site keeps that response generic
+and does not reveal delivery details. SMTP credentials and recipient addresses
+remain server-side in the backend and are never exposed to the site.
+
+The target key is configured in the site build with
+`LGS1920_CONTACT_TARGET` and mapped to the real recipient only by the backend.
+The mapping must never be copied into this repository or the generated browser
+bundle.
