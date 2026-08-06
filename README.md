@@ -60,6 +60,11 @@ on the backend. The form uses `LGS1920_LAUNCH_REGISTRATION_API_URL` when it is
 set, then falls back to the legacy `LGS1920_REGISTRATION_API_URL`, and finally
 uses the same API URL as the statistics feature.
 
+The backend normalizes registration email addresses and accepts a duplicate
+submission without creating a second record. It also limits repeated
+registration requests and may return HTTP `429`; the form keeps the failure
+message generic.
+
 ## Public contact form
 
 The English and French contact pages collect a name, email address, subject,
