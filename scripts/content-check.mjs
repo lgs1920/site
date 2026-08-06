@@ -4,7 +4,7 @@ import process from 'node:process'
 import {fileURLToPath} from 'node:url'
 
 import i18n from '../src/_data/i18n.js'
-import {guidePages} from '../src/_data/guide-pages.generated.js'
+import {guidePages} from '../src/_data/guide-pages.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []

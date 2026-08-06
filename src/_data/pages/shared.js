@@ -1,0 +1,5 @@
+export const studioUrl = 'https://studio.lgs1920.fr'
+export const repositoryUrl = 'https://github.com/lgs1920/studio'
+export const contactEmail = 'studio@lgs1920.fr'
+export const contactUrl = '/contact/'
+export const frenchContactUrl = '/fr/contact/'

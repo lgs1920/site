@@ -1,14 +1,15 @@
 import site from './_data/site.js'
-import pageTypes, { getGeneratedPageData } from './_data/page-types.js'
+import stats from './_data/pages/stats.js'
+import { getGeneratedPageData } from './_lib/page-data.js'
 import renderStatsPage from './_lib/stats-page.js'
 
 const locale = 'en'
-const pageContent = pageTypes.stats[locale]
+const pageContent = stats[locale]
 
 export default class {
     data() {
         return {
-            ...getGeneratedPageData(pageTypes.stats, locale, {
+            ...getGeneratedPageData(stats, locale, {
                 sectionNav: pageContent.sectionNav,
             }),
             statsApiUrl: site.countApiUrl,

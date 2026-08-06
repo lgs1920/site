@@ -1,11 +1,11 @@
 import i18n from '../../_data/i18n.js'
-import pageTypes from '../../_data/page-types.js'
+import page from '../../_data/guide-pages/getting-started/first-steps.js'
 
 const getLocale = (data) => i18n.getLocaleFromUrl(data.page?.url)
 const getContent = (data) => {
     const locale = getLocale(data)
 
-    return pageTypes.userGuide.gettingStarted.firstSteps[locale] ?? pageTypes.userGuide.gettingStarted.firstSteps.en
+    return page.locales[locale] ?? page.locales.en
 }
 
 export default {

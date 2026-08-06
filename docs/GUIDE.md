@@ -48,34 +48,19 @@ src/fr/user-guide/index.md
 
 ### Title, description, and hero
 
-For guide pages, these elements are centralized in:
+For guide pages, these elements live next to the page definition in:
 
 ```text
-src/_data/guide-pages.generated.js
+src/_data/guide-pages/<page-path>.js
 ```
 
-Each URL is a key, for example:
+For example, the export page is defined in:
 
-```js
-"/user-guide/workflows/export/": {
-  "layout": "layouts/page.html",
-  "locales": {
-    "en": {
-      "title": "Export",
-      "description": "...",
-      "hero": {
-        "badge": "Main step",
-        "kicker": "Export",
-        "title": "Export the final output.",
-        "lead": "..."
-      },
-      "sectionNav": [
-        { "id": "choose-output", "label": "Choose the output", "summary": "..." }
-      ]
-    }
-  }
-}
+```text
+src/_data/guide-pages/workflows/export.js
 ```
+
+Each page module exports a definition with `locales.en` and `locales.fr`.
 
 In this file:
 
@@ -85,17 +70,7 @@ In this file:
 - `hero.highlights` changes the cards or highlights displayed in the hero;
 - `sectionNav` changes the “On this page” navigation and its anchors.
 
-The file is named `generated.js`, but it is currently imported by the site as a data source. Do not edit `_site/` instead.
-
-### Special case: rich content stored in `page-types.js`
-
-Some pages or detailed content still use:
-
-```text
-src/_data/page-types.js
-```
-
-This includes the getting-started data and some structured sections using `content`, `steps`, `table`, `cards`, or `pageCta`. Search for the page path or content key before editing. `.11tydata.js` files generally connect this data to the template; they are not the files to edit for a simple paragraph.
+The guide catalogue in `src/_data/guide-pages.js` only registers these modules by canonical URL and exposes the lookup helpers. Do not edit `_site/` instead.
 
 ### Legal and licensing pages
 
@@ -114,7 +89,7 @@ For a legal page, use this map:
 
 | Need | Source |
 | --- | --- |
-| Page title, description, hero, intro, CTA | `src/_data/page-types.js` |
+| Page title, description, hero, intro, CTA | `src/_data/pages/<page>.js` |
 | Rendered legal Markdown | `src/_lib/legal-docs.js` |
 | Licensing source | `../studio/LICENSES.md` |
 | Full license source | `../studio/LICENSE.md` |
@@ -145,7 +120,7 @@ Heading IDs are generated automatically from the heading text. If a heading chan
 
 ### B. Page data
 
-`src/_data/guide-pages.generated.js` provides shared information for the page and navigation. The code exposes `getGuidePageDefinition()` and `getGuidePageContent()`.
+`src/_data/guide-pages/<page-path>.js` provides the localized information for one page. `src/_data/guide-pages.js` registers the modules and exposes `getGuidePageDefinition()` and `getGuidePageContent()`.
 
 `src/user-guide/user-guide.11tydata.js` adds guide context: breadcrumbs, table of contents, previous/next pagination, language links, and the CTA.
 
@@ -172,7 +147,7 @@ src/user-guide/workflows/<page>.md
 src/fr/user-guide/workflows/<page>.md
 ```
 
-Edit both files when the content should remain synchronized. Data in `guide-pages.generated.js` is also separated by locale:
+Edit both Markdown files and both locale objects when the content should remain synchronized. Page data is separated by locale in the page module:
 
 ```js
 locales: {
@@ -198,7 +173,7 @@ In English, use the path without a locale prefix:
 To add a complete page:
 
 1. Create the English Markdown file and, when needed, the French file.
-2. Add the URL metadata to `src/_data/guide-pages.generated.js`.
+2. Add the page module under `src/_data/guide-pages/` and register its canonical URL in `src/_data/guide-pages.js`.
 3. Add the item to `guideItemDefinitions` in `src/_data/i18n.js` if it should appear in guide navigation.
 4. Check the links on `src/user-guide/index.md` and `src/fr/user-guide/index.md` if the page should be promoted there.
 5. Run `bun run content:check` to validate the localized catalogue and internal guide links.
@@ -257,13 +232,14 @@ bun run dev
 | --- | --- |
 | Paragraph or steps on an English page | `src/user-guide/.../*.md` |
 | Paragraph or steps on a French page | `src/fr/user-guide/.../*.md` |
-| Title, description, hero, section navigation | `src/_data/guide-pages.generated.js` |
+| Title, description, hero, section navigation | `src/_data/guide-pages/<page-path>.js` |
 | Guide menu labels and order | `src/_data/i18n.js` |
-| Structured data for a special page | `src/_data/page-types.js` |
+| Shared page-data helpers | `src/_lib/page-data.js` |
+| Public page definitions | `src/_data/pages/<page>.js` |
 | Legal page controller | `src/<page>.11ty.js` or `src/fr/<page>.11ty.js` |
 | Legal source documents | `../studio/*.md` and `../studio/tech-doc/specs/README_DEPENDENCIES.md` |
 | Shared page structure | `src/_includes/layouts/page.html` |
 | Global appearance | `src/assets/site.css` |
 | Translation status and revision data | `src/_data/translation-status.js` |
 
-The most useful rule is: **article text = Markdown; title/hero/section navigation = `guide-pages.generated.js`; global UI strings and menu configuration = `i18n.js`.**
+The most useful rule is: **article text = Markdown; title/hero/section navigation = the page module under `guide-pages/`; shared page helpers = `_lib/page-data.js`; global UI strings and menu configuration = `i18n.js`.**

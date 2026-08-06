@@ -1,5 +1,5 @@
 import i18n from './i18n.js'
-import pageTypes from './page-types.js'
+import pages from './pages/index.js'
 
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
@@ -157,5 +157,5 @@ export default {
     ],
     legalLinks: i18n.legalLinks.en,
     ui:         i18n.ui.en,
-    pageTypes,
+    pages,
 }

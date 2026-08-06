@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-06 — [`f59d0cb`](https://github.com/lgs1920/site/commit/f59d0cb) — Split localized page data
+
+- Split public page definitions and user-guide metadata into page-specific modules.
+- Moved shared page-data helpers into `src/_lib/page-data.js` and removed the monolithic data files.
+
 ## 2026-08-06 — [`98254f1`](https://github.com/lgs1920/site/commit/98254f1) — Add contact delivery diagnostics
 
 - Added visible browser logs for contact payload metadata, token responses, HTTP responses, and delivery errors.

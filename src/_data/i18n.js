@@ -1,4 +1,4 @@
-import {guidePages} from './guide-pages.generated.js'
+import {guidePages} from './guide-pages.js'
 
 const defaultLocale = 'en'
 

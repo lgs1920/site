@@ -1,12 +1,13 @@
-import pageTypes, { getGeneratedPageData } from '../_data/page-types.js'
+import faq from '../_data/pages/faq.js'
+import { getGeneratedPageData } from '../_lib/page-data.js'
 import { renderFaqPage } from '../_lib/faq-page.js'
 
 const locale = 'fr'
-const pageContent = pageTypes.faq[locale]
+const pageContent = faq[locale]
 
 export default class {
     data() {
-        return getGeneratedPageData(pageTypes.faq, locale, {
+        return getGeneratedPageData(faq, locale, {
             sectionNav: pageContent.items.map((item) => ({
                 id: item.id,
                 label: item.summary,

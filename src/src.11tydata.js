@@ -1,9 +1,10 @@
 import i18n from './_data/i18n.js'
-import { getPageContent } from './_data/page-types.js'
+import { getPageDefinition } from './_data/pages/index.js'
+import { getPageContent } from './_lib/page-data.js'
 
 const stripTrailingSlash = (value = '') => value.replace(/\/$/, '')
 const getLocale = (data) => i18n.getLocaleFromUrl(data.page?.url)
-const getLocalizedPageContent = (data) => getPageContent(data.page?.url, getLocale(data))
+const getLocalizedPageContent = (data) => getPageContent(getPageDefinition, data.page?.url, getLocale(data))
 const getAbsoluteUrl = (siteUrl, path = '/') => `${stripTrailingSlash(siteUrl)}${path}`
 
 const getPageMeta = (data) => {

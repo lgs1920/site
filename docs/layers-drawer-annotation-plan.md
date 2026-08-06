@@ -16,7 +16,7 @@ The French page can mirror the same structure later, but the English page should
 
 The current guide setup already has the right split:
 
-- `src/_data/guide-pages.generated.js` holds the actual guide content data.
+- `src/_data/guide-pages/reference/studio-interface/drawers/layers.js` holds the page-specific guide metadata.
 - `src/user-guide/reference/studio-interface/drawers/layers.md` only includes the shared UI detail template and the flow text.
 - `src/_includes/user-guide/reference/studio-interface/ui-detail.md` renders the generic screenshot block, controls table, steps, and notes.
 - `src/assets/site.css` contains the screenshot placeholder and the icon chip styles.
@@ -31,7 +31,7 @@ Update the English entry for:
 
 `/user-guide/reference/studio-interface/drawers/layers/`
 
-in `src/_data/guide-pages.generated.js`.
+in `src/_data/guide-pages/reference/studio-interface/drawers/layers.js`.
 
 Use that entry as the source for:
 
@@ -99,7 +99,7 @@ Do not move the screenshot logic into this file.
 
 Use this rule when deciding where to place content:
 
-- if it is page-specific data, put it in `guide-pages.generated.js`,
+- if it is page-specific data, put it in the matching module under `src/_data/guide-pages/`,
 - if it is generic rendering, put it in `ui-detail.md`,
 - if it is a visual style concern, put it in `site.css`,
 - if it is navigation or flow text, keep it in the drawer page markdown.

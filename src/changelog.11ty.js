@@ -1,10 +1,11 @@
 import changelogs from './_data/changelog.js'
 import { CHANGELOG_PAGE_SIZE, createChangelogPagination, getChangelogPagePath, renderChangelogIndex } from './_lib/changelog-docs.js'
-import pageTypes, { getGeneratedPageData } from './_data/page-types.js'
+import changelogPage from './_data/pages/changelog.js'
+import { getGeneratedPageData } from './_lib/page-data.js'
 
 const locale = 'en'
 const changelog = changelogs[locale]
-const pageContent = pageTypes.changelog[locale]
+const pageContent = changelogPage[locale]
 const getPageSectionNav = (data) => (data.pagination?.items ?? changelog.entries).map((entry) => ({
     id:     entry.anchorId,
     label:  entry.version,
@@ -14,7 +15,7 @@ const getPageSectionNav = (data) => (data.pagination?.items ?? changelog.entries
 export default class {
     data() {
         return {
-            ...getGeneratedPageData(pageTypes.changelog, locale, {
+            ...getGeneratedPageData(changelogPage, locale, {
                 changelog,
                 sectionNav:changelog.sectionNav,
             }),
