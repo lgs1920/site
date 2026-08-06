@@ -361,6 +361,22 @@ layout: layouts/base.html
                             {% endfor %}
                         </div>
                     {% endif %}
+
+                    {% if page_hero.localeSwitcher and alternateLocales %}
+                        <div class="hero-panel-locale">
+                            {% if locale == 'fr' %}
+                                <a class="hero-panel-locale-link" href="{{ alternateLocales.en }}" data-site-locale="en" aria-label="English version">
+                                    <img class="locale-flag" src="/assets/flags/gb.svg" alt="English" width="18" height="18">
+                                    <span>English</span>
+                                </a>
+                            {% else %}
+                                <a class="hero-panel-locale-link" href="{{ alternateLocales.fr }}" data-site-locale="fr" aria-label="Version française">
+                                    <img class="locale-flag" src="/assets/flags/fr.svg" alt="Français" width="18" height="18">
+                                    <span>Français</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </aside>
             {% endif %}
         </div>

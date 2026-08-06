@@ -104,6 +104,10 @@ export class Deployment {
             args:    ['run', 'build'],
             command: 'bun',
             cwd:     this.root,
+            env:     {
+                ...process.env,
+                LGS1920_DEPLOY_PLATFORM: this.platform,
+            },
             label:   'Site build',
         })
 

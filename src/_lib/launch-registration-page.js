@@ -28,7 +28,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
     return `
 <section id="registration-form" class="content-section launch-registration-section">
     <div class="section-heading">
-        <p class="section-kicker">${escapeHtml(pageContent.hero.kicker)}</p>
+        ${pageContent.hero.kicker ? `<p class="section-kicker">${escapeHtml(pageContent.hero.kicker)}</p>` : ''}
         <h2>${escapeHtml(pageContent.title)}</h2>
     </div>
 
@@ -83,7 +83,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
                     ${escapeHtml(form.consentLabel)}
                 </wa-checkbox>
 
-                <input class="registration-honeypot" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input class="registration-honeypot" name="website" type="text" maxlength="200" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                 <div class="page-cta-actions">
                     <wa-button type="submit" appearance="filled" variant="brand" data-registration-submit>

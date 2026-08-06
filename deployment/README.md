@@ -22,6 +22,8 @@ bun run deploy -s --dry-run
 - une archive `dist/<release>.zip` est envoyée sur le serveur
 - la release distante est déployée dans `staging/site` ou `production/site`
 - le lien `current` est mis à jour vers la nouvelle release
+- le build de production redirige `/` et `/fr/` vers la page d’inscription
+- les builds locaux, test et staging conservent la page d’accueil
 
 ## Variables d'environnement
 

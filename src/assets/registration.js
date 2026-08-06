@@ -5,6 +5,35 @@ const getRegistrationValue = (form, name) => {
     return typeof control?.value === 'string' ? control.value.trim() : ''
 }
 
+const registrationStatusTimers = new WeakMap()
+const registrationStatusTransitionTimers = new WeakMap()
+const registrationStatusFadeDuration = 220
+
+const hideRegistrationStatus = (form) => {
+    const status = form.querySelector('[data-registration-status]')
+
+    if (!status) {
+        return
+    }
+
+    const previousTransitionTimer = registrationStatusTransitionTimers.get(form)
+    if (previousTransitionTimer) {
+        window.clearTimeout(previousTransitionTimer)
+    }
+
+    if (status.hidden) {
+        registrationStatusTransitionTimers.delete(form)
+        return
+    }
+
+    status.classList.remove('is-visible')
+    const transitionTimer = window.setTimeout(() => {
+        status.hidden = true
+        registrationStatusTransitionTimers.delete(form)
+    }, registrationStatusFadeDuration)
+    registrationStatusTransitionTimers.set(form, transitionTimer)
+}
+
 const setRegistrationStatus = (form, variant, message) => {
     const status = form.querySelector('[data-registration-status]')
     const statusText = form.querySelector('[data-registration-status-text]')
@@ -13,9 +42,34 @@ const setRegistrationStatus = (form, variant, message) => {
         return
     }
 
+    const previousTimer = registrationStatusTimers.get(form)
+    if (previousTimer) {
+        window.clearTimeout(previousTimer)
+    }
+
+    const previousTransitionTimer = registrationStatusTransitionTimers.get(form)
+    if (previousTransitionTimer) {
+        window.clearTimeout(previousTransitionTimer)
+        registrationStatusTransitionTimers.delete(form)
+    }
+
+    const wasHidden = status.hidden
     status.variant = variant
     statusText.textContent = message
     status.hidden = false
+
+    if (wasHidden) {
+        window.requestAnimationFrame(() => status.classList.add('is-visible'))
+    }
+    else {
+        status.classList.add('is-visible')
+    }
+
+    const timer = window.setTimeout(() => {
+        hideRegistrationStatus(form)
+        registrationStatusTimers.delete(form)
+    }, 5000)
+    registrationStatusTimers.set(form, timer)
 }
 
 const submitRegistrationForm = async (event) => {

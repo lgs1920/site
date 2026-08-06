@@ -62,6 +62,22 @@ const LOGO_OUTPUT_DIR = path.resolve('public', 'assets', 'logo')
 const LOGO_STYLE_TEXT = fs.readFileSync(path.join(LOGO_SOURCE_DIR, 'style.css'), 'utf8')
 const LOGO_HORIZONTAL_TEXT = fs.readFileSync(path.join(LOGO_SOURCE_DIR, 'logo-horizontal.svg'), 'utf8')
 const LOGO_STANDALONE_TEXT = fs.readFileSync(path.join(LOGO_SOURCE_DIR, 'logo.svg'), 'utf8')
+const PRODUCTION_HOME_REDIRECTS = {
+    '/':    'https://lgs1920.fr/registration/',
+    '/fr/': 'https://lgs1920.fr/fr/registration/',
+}
+
+const renderHomeRedirect = (redirectUrl, locale) => `<!doctype html>
+<html lang="${locale}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=${redirectUrl}">
+    <link rel="canonical" href="${redirectUrl}">
+    <script>window.location.replace('${redirectUrl}')</script>
+</head>
+<body></body>
+</html>
+`
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
@@ -192,6 +208,19 @@ export default function(eleventyConfig) {
         'public/assets/logo': 'assets/logo',
     })
     eleventyConfig.addGlobalData('studioLogoHorizontalMarkup', studioLogoHorizontalMarkup)
+    eleventyConfig.addTransform('production-home-redirect', function(content) {
+        if (process.env.LGS1920_DEPLOY_PLATFORM !== 'production') {
+            return content
+        }
+
+        const redirectUrl = PRODUCTION_HOME_REDIRECTS[this.page.url]
+        if (!redirectUrl) {
+            return content
+        }
+
+        const locale = this.page.url === '/fr/' ? 'fr' : 'en'
+        return renderHomeRedirect(redirectUrl, locale)
+    })
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
         viteOptions: {

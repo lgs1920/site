@@ -1241,6 +1241,22 @@ html.wa-light .hero-backdrop {
     transform: translate(calc(var(--hero-cta-x-offset) * -1), var(--hero-cta-y-offset));
 }
 
+.registration-hero.intro-hero .hero-shell {
+    grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 24rem);
+}
+
+.registration-hero.intro-hero .hero-copy {
+    grid-template-columns: 1fr;
+}
+
+.registration-hero.intro-hero .hero-copy > * {
+    grid-column: 1;
+}
+
+.registration-hero.intro-hero .hero-panel {
+    align-self: center;
+}
+
 .page-hero h1,
 .section-heading h2,
 .vision-card h3,
@@ -1392,6 +1408,12 @@ html.wa-light .hero-backdrop {
     box-shadow: var(--shadow-soft);
 }
 
+.registration-hero .hero-panel {
+    background: color-mix(in oklab, var(--surface-soft) 70%, transparent);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
 .hero-panel-title {
     margin-top: 0.35rem;
     font-size: clamp(1.45rem, 2.1vw, 2rem);
@@ -1425,6 +1447,24 @@ html.wa-light .hero-backdrop {
 .hero-metric-list span {
     color: var(--hero-muted);
     line-height: 1.5;
+}
+
+.hero-panel-locale {
+    margin-top: var(--wa-space-l);
+    padding-top: var(--wa-space-m);
+    border-top: 1px solid color-mix(in oklab, var(--hero-ink) 20%, transparent);
+}
+
+.hero-panel-locale-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--wa-space-s);
+    color: var(--hero-ink);
+    text-decoration: none;
+}
+
+.hero-panel-locale-link:hover {
+    color: var(--wa-color-brand-70);
 }
 
 .page-content {
@@ -1884,6 +1924,13 @@ wa-card.registration-card::part(body) {
 
 .registration-status {
     margin-top: 0.25rem;
+    padding: 1.25rem 1.5rem;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.registration-status.is-visible {
+    opacity: 1;
 }
 
 .registration-license {
@@ -3032,6 +3079,10 @@ wa-card.page-cta-card::part(body) {
     }
 
     .intro-hero .hero-copy {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-hero.intro-hero .hero-shell {
         grid-template-columns: 1fr;
     }
 

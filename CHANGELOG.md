@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-06 — [`7d8e373`](https://github.com/lgs1920/site/commit/7d8e373) — Refine launch registration page
+
+- Added the registration hero layout, localized language links, and translucent Studio explanation panel.
+- Added the registration status fade-out behavior and production-only homepage redirect.
+
 ## 2026-08-06 — [`f59d0cb`](https://github.com/lgs1920/site/commit/f59d0cb) — Split localized page data
 
 - Split public page definitions and user-guide metadata into page-specific modules.
