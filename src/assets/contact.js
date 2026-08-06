@@ -39,6 +39,8 @@ const getResponseLog = (response, body) => ({
     body:       truncate(body),
 })
 
+const contactStatusTimers = new WeakMap()
+
 const setContactStatus = (form, variant, message) => {
     const status = form.querySelector('[data-contact-status]')
     const statusText = form.querySelector('[data-contact-status-text]')
@@ -47,9 +49,20 @@ const setContactStatus = (form, variant, message) => {
         return
     }
 
+    const previousTimer = contactStatusTimers.get(form)
+    if (previousTimer) {
+        window.clearTimeout(previousTimer)
+    }
+
     status.variant = variant
     statusText.textContent = message
     status.hidden = false
+
+    const timer = window.setTimeout(() => {
+        status.hidden = true
+        contactStatusTimers.delete(form)
+    }, 5000)
+    contactStatusTimers.set(form, timer)
 }
 
 /**
