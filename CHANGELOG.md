@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-06 — [`98254f1`](https://github.com/lgs1920/site/commit/98254f1) — Add contact delivery diagnostics
+
+- Added visible browser logs for contact payload metadata, token responses, HTTP responses, and delivery errors.
+- Redacted CSRF tokens and personal message fields while preserving response bodies for API troubleshooting.
+
 ## 2026-08-06 — [`4572de9`](https://github.com/lgs1920/site/commit/4572de9) — Add public contact form and registration links
 
 - Added bilingual Contact pages with consent, privacy information, anti-spam handling, and protected backend submission.
