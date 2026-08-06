@@ -1928,6 +1928,12 @@ wa-card.contact-card::part(body) {
 .contact-status {
     margin-top: 0.25rem;
     padding: 1.25rem 1.5rem;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.contact-status.is-visible {
+    opacity: 1;
 }
 
 .contact-privacy-notice {

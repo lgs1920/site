@@ -40,6 +40,33 @@ const getResponseLog = (response, body) => ({
 })
 
 const contactStatusTimers = new WeakMap()
+const contactStatusTransitionTimers = new WeakMap()
+const contactStatusFadeDuration = 220
+
+const hideContactStatus = (form) => {
+    const status = form.querySelector('[data-contact-status]')
+
+    if (!status) {
+        return
+    }
+
+    const previousTransitionTimer = contactStatusTransitionTimers.get(form)
+    if (previousTransitionTimer) {
+        window.clearTimeout(previousTransitionTimer)
+    }
+
+    if (status.hidden) {
+        contactStatusTransitionTimers.delete(form)
+        return
+    }
+
+    status.classList.remove('is-visible')
+    const transitionTimer = window.setTimeout(() => {
+        status.hidden = true
+        contactStatusTransitionTimers.delete(form)
+    }, contactStatusFadeDuration)
+    contactStatusTransitionTimers.set(form, transitionTimer)
+}
 
 const setContactStatus = (form, variant, message) => {
     const status = form.querySelector('[data-contact-status]')
@@ -54,12 +81,26 @@ const setContactStatus = (form, variant, message) => {
         window.clearTimeout(previousTimer)
     }
 
+    const previousTransitionTimer = contactStatusTransitionTimers.get(form)
+    if (previousTransitionTimer) {
+        window.clearTimeout(previousTransitionTimer)
+        contactStatusTransitionTimers.delete(form)
+    }
+
+    const wasHidden = status.hidden
     status.variant = variant
     statusText.textContent = message
     status.hidden = false
 
+    if (wasHidden) {
+        window.requestAnimationFrame(() => status.classList.add('is-visible'))
+    }
+    else {
+        status.classList.add('is-visible')
+    }
+
     const timer = window.setTimeout(() => {
-        status.hidden = true
+        hideContactStatus(form)
         contactStatusTimers.delete(form)
     }, 5000)
     contactStatusTimers.set(form, timer)
