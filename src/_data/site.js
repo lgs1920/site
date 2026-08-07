@@ -15,11 +15,26 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
 })))
 
 const countApiUrl = process.env.LGS1920_COUNT_API_URL || 'https://api.lgs1920.fr'
+const backendApiUrl = process.env.LGS1920_BACKEND_API_URL || countApiUrl
 const registrationApiUrl = process.env.LGS1920_LAUNCH_REGISTRATION_API_URL
     || process.env.LGS1920_REGISTRATION_API_URL
     || countApiUrl
 const contactApiUrl = process.env.LGS1920_CONTACT_API_URL || countApiUrl
 const contactTarget = process.env.LGS1920_CONTACT_TARGET || 'f7a91c'
+const deploymentPlatform = process.env.LGS1920_DEPLOY_PLATFORM || 'development'
+const defaultBackendRestartOrigins = {
+    production: 'https://studio.lgs1920.fr',
+    staging:   'https://staging.lgs1920.fr',
+    test:      'https://test.lgs1920.fr',
+}
+const configuredBackendRestartUrl = process.env.LGS1920_BACKEND_RESTART_URL
+const backendRestartUrl = deploymentPlatform === 'development'
+    ? ''
+    : configuredBackendRestartUrl === undefined
+        ? (defaultBackendRestartOrigins[deploymentPlatform]
+            ? `${defaultBackendRestartOrigins[deploymentPlatform]}/start-backend.php`
+            : '')
+        : configuredBackendRestartUrl
 
 export default {
     name:        'LGS1920 Studio',
@@ -29,6 +44,8 @@ export default {
     url:         'https://lgs1920.fr',
     appUrl:      'https://studio.lgs1920.fr',
     countApiUrl,
+    backendApiUrl,
+    backendRestartUrl,
     registrationApiUrl,
     contactApiUrl,
     contactTarget,

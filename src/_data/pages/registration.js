@@ -1,6 +1,7 @@
 const launchRegistration = {
     layout:   'layouts/page.html',
     minimalChrome:true,
+    requiresBackend:true,
     pageClass:'launch-registration-page',
     path:     '/registration/',
     en:       {

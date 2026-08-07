@@ -1,5 +1,6 @@
 const stats = {
     layout:   'layouts/page.html',
+    requiresBackend:true,
     pageClass:'stats-page',
     path:     '/stats/',
     en:       {

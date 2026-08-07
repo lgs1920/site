@@ -1467,6 +1467,103 @@ html.wa-light .hero-backdrop {
     color: var(--wa-color-brand-70);
 }
 
+#backend-restart-dialog wa-callout {
+    padding: var(--wa-space-m);
+}
+
+#backend-restart-dialog {
+    --backend-dialog-bg: var(--hero-card-bg);
+    --spacing: var(--wa-space-l);
+    --width: min(32rem, calc(100vw - (2 * var(--site-inline-edge))));
+    color: var(--page-ink);
+}
+
+wa-dialog::part(dialog),
+wa-dialog::part(header),
+wa-dialog::part(body),
+wa-dialog::part(footer) {
+    background: var(--panel-bg);
+}
+
+#backend-restart-dialog::part(dialog) {
+    overflow: hidden;
+    border: var(--wa-border-width-s) solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--backend-dialog-bg);
+    box-shadow: var(--shadow-soft);
+    color: var(--page-ink);
+}
+
+#backend-restart-dialog::part(header),
+#backend-restart-dialog::part(footer) {
+    background: var(--backend-dialog-bg);
+    border-color: var(--header-stroke);
+}
+
+#backend-restart-dialog::part(title) {
+    color: var(--header-ink);
+    font-family: var(--wa-font-family-heading);
+}
+
+#backend-restart-dialog::part(body) {
+    display: grid;
+    gap: var(--wa-space-m);
+    background: var(--backend-dialog-bg) !important;
+    color: var(--page-ink);
+}
+
+#backend-restart-dialog::part(close-button) {
+    display: none;
+}
+
+#backend-restart-dialog .backend-restart-locale {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#backend-restart-dialog .backend-restart-contact::part(base) {
+    align-self: center;
+    color: var(--header-ink);
+    font-size: var(--wa-font-size-m);
+    font-weight: var(--wa-font-weight-normal);
+    text-decoration: none;
+}
+
+#backend-restart-dialog .backend-restart-contact:hover::part(base) {
+    color: var(--wa-color-brand-70);
+}
+
+#backend-restart-dialog::part(footer) {
+    flex-wrap: wrap;
+}
+
+#backend-restart-dialog .backend-restart-footer-divider {
+    flex: 0 0 100%;
+    width: 100%;
+    --color: var(--panel-stroke);
+    --spacing: 0;
+}
+
+#backend-restart-dialog [data-backend-restart-details] {
+    margin: 0;
+}
+
+#backend-restart-dialog wa-callout[variant='danger']::part(icon),
+#backend-restart-dialog wa-callout[variant='danger']::part(message) {
+    color: var(--wa-color-danger-70);
+}
+
+#backend-restart-dialog wa-callout[variant='warning']::part(icon),
+#backend-restart-dialog wa-callout[variant='warning']::part(message) {
+    color: var(--wa-color-warning-70);
+}
+
+#backend-restart-dialog wa-callout[variant='success']::part(icon),
+#backend-restart-dialog wa-callout[variant='success']::part(message) {
+    color: var(--wa-color-success-70);
+}
+
 .page-content {
     display: grid;
     width: 100%;

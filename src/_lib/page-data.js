@@ -26,6 +26,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
         title:      content.title,
         description:content.description,
         minimalChrome: definition.minimalChrome,
+        requiresBackend: definition.requiresBackend === true,
         pageClass:  definition.pageClass,
         hero:       typeof content.getHero === 'function' ? content.getHero(options) : content.hero,
         sectionNav: options.sectionNav,

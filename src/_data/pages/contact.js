@@ -1,5 +1,6 @@
 const contact = {
     layout:   'layouts/page.html',
+    requiresBackend:true,
     pageClass:'contact-page',
     path:     '/contact/',
     en:       {

@@ -26,6 +26,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Shared page data lives in `src/_data/`.
 - Reusable templates and includes live in `src/_includes/`.
 - Generated output lives in `_site/` and must never be edited directly.
+- Pages that use the backend must declare `requiresBackend: true` in their shared page data. The connection check and retry dialog are opt-in for those pages and must not be attached globally from the base layout.
 
 ## 4. Validation
 
