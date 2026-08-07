@@ -1,5 +1,10 @@
 import i18n from './i18n.js'
 import pages from './pages/index.js'
+import {
+    buildStudioBackendRestartUrl,
+    buildStudioBackendUrl,
+    readStudioServers,
+} from '../_lib/studio-servers.js'
 
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
@@ -14,26 +19,24 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
     sectionLabel: section.label,
 })))
 
-const countApiUrl = process.env.LGS1920_COUNT_API_URL || 'https://api.lgs1920.fr'
+const deploymentPlatform = process.env.LGS1920_DEPLOY_PLATFORM || 'development'
+const studioServers = readStudioServers(deploymentPlatform)
+const configuredCountApiUrl = process.env.LGS1920_COUNT_API_URL
+const studioBackendUrl = buildStudioBackendUrl(studioServers)
+const countApiUrl = configuredCountApiUrl
+    || studioBackendUrl
+    || (deploymentPlatform === 'development' ? 'http://localhost:3333' : 'https://api.lgs1920.fr')
 const backendApiUrl = process.env.LGS1920_BACKEND_API_URL || countApiUrl
 const registrationApiUrl = process.env.LGS1920_LAUNCH_REGISTRATION_API_URL
     || process.env.LGS1920_REGISTRATION_API_URL
     || countApiUrl
 const contactApiUrl = process.env.LGS1920_CONTACT_API_URL || countApiUrl
 const contactTarget = process.env.LGS1920_CONTACT_TARGET || 'f7a91c'
-const deploymentPlatform = process.env.LGS1920_DEPLOY_PLATFORM || 'development'
-const defaultBackendRestartOrigins = {
-    production: 'https://studio.lgs1920.fr',
-    staging:   'https://staging.lgs1920.fr',
-    test:      'https://test.lgs1920.fr',
-}
 const configuredBackendRestartUrl = process.env.LGS1920_BACKEND_RESTART_URL
 const backendRestartUrl = deploymentPlatform === 'development'
     ? ''
     : configuredBackendRestartUrl === undefined
-        ? (defaultBackendRestartOrigins[deploymentPlatform]
-            ? `${defaultBackendRestartOrigins[deploymentPlatform]}/start-backend.php`
-            : '')
+        ? buildStudioBackendRestartUrl(studioServers)
         : configuredBackendRestartUrl
 
 export default {

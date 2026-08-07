@@ -33,8 +33,8 @@ This repository includes project skills for maintaining the public site and its 
 
 ## Statistics API in development
 
-The local development server uses the local backend count API at
-`http://localhost:3333` by default:
+The local development server reads its backend URL from the Studio server
+configuration in `../studio/servers.json`:
 
 ```bash
 bun run dev
@@ -43,14 +43,15 @@ bun run dev
 The site is served at Eleventy’s default address, `http://localhost:8080`.
 
 Override the API address for another backend environment when building or
-serving the site:
+serving the site if needed:
 
 ```bash
 LGS1920_COUNT_API_URL="http://api.lgs1920.fr:3334" bun run dev
 ```
 
-Production keeps using `https://api.lgs1920.fr` unless
-`LGS1920_COUNT_API_URL` is explicitly set.
+Production and non-development builds use the public backend domain from the
+Studio deployment configuration. `LGS1920_COUNT_API_URL` remains available as
+an explicit override.
 
 ## Public registration form
 

@@ -5,7 +5,7 @@
   "scripts": {
     "content:check": "node scripts/content-check.mjs",
     "test": "node --test",
-    "dev": "LGS1920_DEPLOY_PLATFORM=development LGS1920_COUNT_API_URL=\"${LGS1920_COUNT_API_URL:-http://localhost:3333}\" eleventy --serve",
+    "dev": "LGS1920_DEPLOY_PLATFORM=development eleventy --serve",
     "build": "bun run content:check && rm -rf .11ty-vite _site && eleventy",
     "deploy": "bun deploy.js",
     "clean": "rm -rf .11ty-vite _site"
@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/fontawesome-svg-core",
     "@fortawesome/free-brands-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/free-brands-svg-icons",
     "@fortawesome/pro-regular-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-regular-svg-icons",
-    "@fortawesome/pro-solid-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-solid-svg-icons"
+    "@fortawesome/pro-solid-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-solid-svg-icons",
+    "js-yaml": "^4.1.1"
   }
 }
