@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-08 — [`c08bf27`](https://github.com/lgs1920/site/commit/c08bf27) — Migrate site logo assets to PNG
+
+- Replaced the generated SVG logo assets with the PNG logo variants.
+- Simplified Eleventy logo copying and registration markup to use the PNG assets.
+
 ## 2026-08-08 — [`0e988e4`](https://github.com/lgs1920/site/commit/0e988e4) — Refine hero branding
 
 - Added the simple PNG logo as the site favicon.

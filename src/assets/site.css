@@ -1424,7 +1424,7 @@ html.wa-light .hero-backdrop {
     width: 66.666%;
     aspect-ratio: 1;
     content: '';
-    background: url('/assets/logo/logo.svg') center / contain no-repeat;
+    background: url('/assets/logo/logo.png') center / contain no-repeat;
     opacity: 0.2;
     pointer-events: none;
 }

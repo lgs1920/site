@@ -23,7 +23,7 @@ const linkifyContactEmail = (value = '') => escapeHtml(value)
  */
 export const renderLaunchRegistrationPage = (pageContent) => {
     const form = pageContent.form
-    const logoMarkup = pageContent.logoMarkup || '<img class="registration-logo" src="/assets/logo/logo-horizontal.svg" alt="LGS1920 Studio logo">'
+    const logoMarkup = pageContent.logoMarkup || '<img class="registration-logo" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
 
     return `
 <section id="registration-form" class="content-section launch-registration-section">
