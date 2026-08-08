@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-08 — [`46ec3ba`](https://github.com/lgs1920/site/commit/46ec3ba) — Polish French registration copy
+
+- Shortened the French privacy and free-access copy and updated the free-access icon to a gift.
+
 ## 2026-08-08 — [`10a21ec`](https://github.com/lgs1920/site/commit/10a21ec) — Refine launch registration hero
 
 - Refined the bilingual launch-registration hero layout, language selector, responsive card, and supporting privacy/free-access content.

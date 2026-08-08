@@ -74,10 +74,10 @@ const launchRegistration = {
                 ],
                 promise: {
                     icon: 'lock',
-                    text: 'La confidentialité et l’accès pour tous.',
+                    text: 'Confidentialité et accès pour tous.',
                     items: [
-                        {icon:'location-pin-lock', title:'La confidentialité avant tout', text:'Vos données restent dans votre navigateur, sur votre appareil ou dans votre cloud.'},
-                        {icon:'circle-check', title:'Totalement gratuit !', text:'Arrêtez de payer pour certaines fonctionnalités : Studio vous les fournit gratuitement.'},
+                        {icon:'location-pin-lock', title:'Confidentialité', text:'Vos données restent chez vous : navigateur, appareil ou cloud.'},
+                        {icon:'gift', title:'Gratuit !', text:'Ne payez plus certaines fonctionnalités : Studio les offre gratuitement.'},
                     ],
                 },
             },
