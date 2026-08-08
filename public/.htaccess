@@ -1,0 +1,6 @@
+Options -Indexes
+
+# Deployment metadata must never be served from the public release.
+<FilesMatch "^(branch|build|deployment)\.json$">
+    Require all denied
+</FilesMatch>

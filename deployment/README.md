@@ -19,6 +19,7 @@ bun run deploy -s --dry-run
 
 - `bun run deploy -s` build uniquement le repo `site`
 - le build Eleventy est copié dans `dist/<release>`
+- les métadonnées de déploiement restent dans `dist/<release>.json`, hors de la release publique
 - une archive `dist/<release>.zip` est envoyée sur le serveur
 - la release distante est déployée dans `staging/site` ou `production/site`
 - le lien `current` est mis à jour vers la nouvelle release

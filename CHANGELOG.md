@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-08 — [`8e0003d`](https://github.com/lgs1920/site/commit/8e0003d) — Protect public release directories
+
+- Disabled directory listings in generated releases with a public `.htaccess` rule.
+- Moved deployment metadata outside the web-served release.
+
 ## 2026-08-08 — [`c08bf27`](https://github.com/lgs1920/site/commit/c08bf27) — Migrate site logo assets to PNG
 
 - Replaced the generated SVG logo assets with the PNG logo variants.

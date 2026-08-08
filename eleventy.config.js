@@ -91,6 +91,7 @@ export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
     copyLogoAssets()
     eleventyConfig.addPassthroughCopy({
+        'public/.htaccess': '.htaccess',
         'src/assets': 'src/assets',
         'public/assets/flags': 'assets/flags',
     })

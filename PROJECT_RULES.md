@@ -9,6 +9,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - **Documentation:** JSDoc blocks, inline code comments, and technical code documentation must be in English.
 - **User-facing content:** Public site content must be written in the appropriate locale and kept synchronized between English and French when both versions exist.
 - **Autonomy:** Preserve unrelated user changes and ask before taking an action that would materially expand the requested scope.
+- **Public output security:** Generated releases must not expose directory listings or deployment metadata. Keep deployment metadata outside the web-served release and preserve the public `.htaccess` protection when changing the build or deployment flow.
 
 ## 2. Code and content style
 
