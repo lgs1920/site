@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-08 — [`0e988e4`](https://github.com/lgs1920/site/commit/0e988e4) — Refine hero branding
+
+- Added the simple PNG logo as the site favicon.
+- Increased the visibility of the logo used in the launch-registration hero card.
+
 ## 2026-08-08 — [`46ec3ba`](https://github.com/lgs1920/site/commit/46ec3ba) — Polish French registration copy
 
 - Shortened the French privacy and free-access copy and updated the free-access icon to a gift.
