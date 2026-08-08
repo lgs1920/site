@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-08 — [`10a21ec`](https://github.com/lgs1920/site/commit/10a21ec) — Refine launch registration hero
+
+- Refined the bilingual launch-registration hero layout, language selector, responsive card, and supporting privacy/free-access content.
+- Added generated flag passthrough and tightened hero spacing, typography, and icon presentation.
+
 ## 2026-08-06 — [`7d8e373`](https://github.com/lgs1920/site/commit/7d8e373) — Refine launch registration page
 
 - Added the registration hero layout, localized language links, and translucent Studio explanation panel.

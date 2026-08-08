@@ -205,6 +205,7 @@ export default function(eleventyConfig) {
     copyLogoAssets()
     eleventyConfig.addPassthroughCopy({
         'src/assets': 'src/assets',
+        'public/assets/flags': 'assets/flags',
         'public/assets/logo': 'assets/logo',
     })
     eleventyConfig.addGlobalData('studioLogoHorizontalMarkup', studioLogoHorizontalMarkup)

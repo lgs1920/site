@@ -32,13 +32,12 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         <h2>${escapeHtml(pageContent.title)}</h2>
     </div>
 
-    <p class="section-intro">${escapeHtml(pageContent.hero.lead)}</p>
+    <p class="section-intro">${escapeHtml(pageContent.registrationIntro)}</p>
 
     <div class="registration-layout">
         <div class="registration-brand-column">
             <div class="registration-brand-lockup">
                 ${logoMarkup}
-                <p class="registration-slogan">Replay the World Outdoors!</p>
             </div>
         </div>
 
@@ -99,6 +98,8 @@ export const renderLaunchRegistrationPage = (pageContent) => {
             </form>
         </wa-card>
     </div>
+
+    <p class="registration-slogan">Replay the World Outdoors!</p>
 </section>
 
 <section id="registration-privacy" class="content-section registration-privacy-section">
