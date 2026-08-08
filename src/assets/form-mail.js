@@ -1,6 +1,6 @@
 export const FORM_MAIL_PLACEHOLDERS = Object.freeze({
     contact:             Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email', 'subject', 'message']),
-    'launch-registration': Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email']),
+    'launch-registration': Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email', 'revoke-url']),
 })
 
 const MAX_RENDERED_MESSAGE_LENGTH = 20_000
@@ -79,11 +79,19 @@ export const renderFormMail = ({template, form, locale, values = {}} = {}) => {
 
     let renderedMessage = template
     for (const name of allowedPlaceholders) {
+        if (name === 'revoke-url') {
+            continue
+        }
+
         const value = name === 'form' ? form : name === 'locale' ? locale : normalizeValue(values[name] ?? '', name)
         renderedMessage = renderedMessage.replaceAll(`{{${name}}}`, escapeMarkdownValue(value))
     }
 
-    if (UNRESOLVED_PLACEHOLDER_PATTERN.test(renderedMessage)) {
+    const unresolvedPlaceholders = renderedMessage.match(ANY_PLACEHOLDER_PATTERN) ?? []
+    const onlyAllowedDeferredPlaceholders = form === 'launch-registration'
+        && unresolvedPlaceholders.length > 0
+        && unresolvedPlaceholders.every(placeholder => placeholder === '{{revoke-url}}')
+    if (UNRESOLVED_PLACEHOLDER_PATTERN.test(renderedMessage) && !onlyAllowedDeferredPlaceholders) {
         throw new Error('Form mail template contains unresolved placeholders')
     }
 

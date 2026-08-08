@@ -6,3 +6,7 @@ Thank you for your interest in LGS1920 Studio. Your registration has been record
 
 Name: {{firstName}} {{lastName}}
 Email: {{email}}
+
+To cancel your registration, please click the link below.
+
+[Cancel my registration]({{revoke-url}})

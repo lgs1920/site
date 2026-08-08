@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-08 — [`79db092`](https://github.com/lgs1920/site/commit/79db092) — Add localized cancellation links
+
+- Added clear localized contact and registration email notices.
+- Added single-use registration cancellation links with deferred `{{revoke-url}}` replacement.
+
 ## 2026-08-08 — [`4db50ee`](https://github.com/lgs1920/site/commit/4db50ee) — Add localized form mail catalog
 
 - Added English and French Markdown catalogs for contact and launch-registration messages.

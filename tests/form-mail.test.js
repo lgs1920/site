@@ -29,6 +29,7 @@ test('renders the contact catalog with the selected locale and submitted values'
     assert.match(rendered, /Nom : Ada Lovelace/)
     assert.match(rendered, /Objet : Studio question/)
     assert.match(rendered, /## Votre demande/) // Ensure the French template is selected.
+    assert.match(rendered, /Si vous ne nous avez pas contacté, veuillez ne pas tenir compte de ce message/)
     assert.doesNotMatch(rendered, /{{[\s\S]*?}}/)
     assert.doesNotMatch(rendered, /logo-horizontal\.png/)
 })
@@ -43,7 +44,9 @@ test('renders the launch-registration catalog with only its supported fields', (
     })
 
     assert.match(rendered, /Nom : Ada Lovelace/)
-    assert.doesNotMatch(rendered, /{{[\s\S]*?}}/)
+    assert.match(rendered, /Pour annuler votre inscription, veuillez cliquer sur le lien ci-dessous/)
+    assert.match(rendered, /\[Annuler mon inscription\]\(\{\{revoke-url\}\}\)/)
+    assert.doesNotMatch(rendered, /{{(?!revoke-url}})[\s\S]*?}}/)
     assert.doesNotMatch(rendered, /logo-horizontal\.png/)
 })
 

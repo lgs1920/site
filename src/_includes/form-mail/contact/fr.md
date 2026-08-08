@@ -9,3 +9,5 @@ E-mail : {{email}}
 Objet : {{subject}}
 
 {{message}}
+
+Si vous ne nous avez pas contacté, veuillez ne pas tenir compte de ce message.
