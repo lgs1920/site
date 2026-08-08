@@ -66,6 +66,11 @@ submission without creating a second record. It also limits repeated
 registration requests and may return HTTP `429`; the form keeps the failure
 message generic.
 
+Each registration request includes `form: "launch-registration"`, its page
+locale, the opaque contact target key, and a rendered Markdown message selected
+from the site catalog. The backend validates the metadata and may use the same
+rendered message for its optional notification email.
+
 ## Public contact form
 
 The English and French contact pages collect a name, email address, subject,
@@ -77,6 +82,14 @@ target key, for example `C4P7Z2`. The backend may answer with HTTP `429` when
 the token or submission limit is reached; the site keeps that response generic
 and does not reveal delivery details. SMTP credentials and recipient addresses
 remain server-side in the backend and are never exposed to the site.
+
+Both forms use the site-owned Markdown catalog under
+`src/_includes/form-mail/`, with one English and one French template per form.
+The browser selects the template from the form identity and locale, replaces
+the allowed placeholders with escaped submitted values, and sends the bounded
+`renderedMessage` alongside the validated form fields. The backend adds the
+generic horizontal LGS1920 logo footer after receiving the rendered message;
+the localized templates do not duplicate that shared footer.
 
 The target key is configured in the site build with
 `LGS1920_CONTACT_TARGET` and mapped to the real recipient only by the backend.

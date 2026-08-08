@@ -1,3 +1,5 @@
+import {decodeFormMailTemplate, renderFormMail} from './form-mail.js'
+
 const getRegistrationControl = (form, name) => form.querySelector(`[name="${name}"]`)
 
 const getRegistrationValue = (form, name) => {
@@ -78,12 +80,12 @@ const submitRegistrationForm = async (event) => {
     const form = event.currentTarget
     const submitButton = form.querySelector('[data-registration-submit]')
     const apiUrl = String(form.dataset.registrationApiUrl || '').replace(/\/+$/, '')
-    const payload = {
+    const formId = String(form.dataset.registrationForm || 'launch-registration')
+    const locale = String(form.dataset.registrationLocale || '')
+    const values = {
         firstName: getRegistrationValue(form, 'firstName'),
         lastName:  getRegistrationValue(form, 'lastName'),
         email:     getRegistrationValue(form, 'email'),
-        consent:   Boolean(getRegistrationControl(form, 'consent')?.checked),
-        website:   getRegistrationValue(form, 'website'),
     }
 
     if (submitButton) {
@@ -91,21 +93,51 @@ const submitRegistrationForm = async (event) => {
     }
 
     try {
+        const payload = {
+            to:             String(form.dataset.registrationTarget || ''),
+            form:           formId,
+            locale,
+            firstName:      values.firstName,
+            lastName:       values.lastName,
+            email:          values.email,
+            consent:        Boolean(getRegistrationControl(form, 'consent')?.checked),
+            website:        getRegistrationValue(form, 'website'),
+            renderedMessage: renderFormMail({
+                template: decodeFormMailTemplate(form.dataset.registrationTemplate),
+                form:     formId,
+                locale,
+                values,
+            }),
+        }
         const response = await fetch(`${apiUrl}/launch-registration`, {
             method:  'POST',
             headers: {'Content-Type': 'application/json'},
             body:    JSON.stringify(payload),
         })
 
+        const responseBody = await response.text()
+        let responsePayload = {}
+        try {
+            responsePayload = JSON.parse(responseBody)
+        }
+        catch {
+            responsePayload = {}
+        }
+
         if (!response.ok) {
-            throw new Error('Registration submission failed')
+            const error = new Error('Registration submission failed')
+            error.duplicate = response.status === 409 || responsePayload.error === 'Already registered'
+            throw error
         }
 
         setRegistrationStatus(form, 'success', form.dataset.registrationSuccess || '')
         form.reset()
     }
-    catch {
-        setRegistrationStatus(form, 'danger', form.dataset.registrationError || '')
+    catch (error) {
+        const message = error.duplicate
+            ? form.dataset.registrationDuplicate
+            : form.dataset.registrationError
+        setRegistrationStatus(form, 'danger', message || '')
     }
     finally {
         if (submitButton) {

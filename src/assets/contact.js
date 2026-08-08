@@ -1,3 +1,5 @@
+import {decodeFormMailTemplate, renderFormMail} from './form-mail.js'
+
 const getContactControl = (form, name) => form.querySelector(`[name="${name}"]`)
 
 const getContactValue = (form, name) => {
@@ -27,6 +29,7 @@ const getPayloadLog = (payload) => ({
     email:     maskEmail(payload.email),
     subject:   payload.subject ? `[${payload.subject.length} characters]` : '',
     message:   payload.message ? `[${payload.message.length} characters]` : '',
+    renderedMessage: payload.renderedMessage ? `[${payload.renderedMessage.length} characters]` : '',
     consent:   payload.consent,
     website:   payload.website ? '[filled]' : '',
 })
@@ -161,26 +164,43 @@ const getContactToken = async (apiUrl) => {
 const submitContactForm = async (event) => {
     event.preventDefault()
 
-    const form = event.currentTarget
-    const submitButton = form.querySelector('[data-contact-submit]')
-    const apiUrl = String(form.dataset.contactApiUrl || '').replace(/\/+$/, '')
+    const formElement = event.currentTarget
+    const submitButton = formElement.querySelector('[data-contact-submit]')
+    const apiUrl = String(formElement.dataset.contactApiUrl || '').replace(/\/+$/, '')
 
     if (submitButton) {
         submitButton.disabled = true
     }
 
     try {
+        const form = String(formElement.dataset.contactForm || 'contact')
+        const locale = String(formElement.dataset.contactLocale || '')
+        const renderedMessage = renderFormMail({
+            template: decodeFormMailTemplate(formElement.dataset.contactTemplate),
+            form,
+            locale,
+            values: {
+                firstName: getContactValue(formElement, 'firstName'),
+                lastName:  getContactValue(formElement, 'lastName'),
+                email:     getContactValue(formElement, 'email'),
+                subject:   getContactValue(formElement, 'subject'),
+                message:   getContactValue(formElement, 'message'),
+            },
+        })
         const csrfToken = await getContactToken(apiUrl)
         const payload = {
-            to:        String(form.dataset.contactTarget || ''),
+            to:        String(formElement.dataset.contactTarget || ''),
             csrfToken,
-            firstName: getContactValue(form, 'firstName'),
-            lastName:  getContactValue(form, 'lastName'),
-            email:     getContactValue(form, 'email'),
-            subject:   getContactValue(form, 'subject'),
-            message:   getContactValue(form, 'message'),
-            consent:   Boolean(getContactControl(form, 'consent')?.checked),
-            website:   getContactValue(form, 'website'),
+            form,
+            locale,
+            firstName: getContactValue(formElement, 'firstName'),
+            lastName:  getContactValue(formElement, 'lastName'),
+            email:     getContactValue(formElement, 'email'),
+            subject:   getContactValue(formElement, 'subject'),
+            message:   getContactValue(formElement, 'message'),
+            renderedMessage,
+            consent:   Boolean(getContactControl(formElement, 'consent')?.checked),
+            website:   getContactValue(formElement, 'website'),
         }
 
         console.info('[contact] submission payload', getPayloadLog(payload))
@@ -206,12 +226,12 @@ const submitContactForm = async (event) => {
             console.warn('[contact] submission returned HTML instead of the expected API response')
         }
 
-        setContactStatus(form, 'success', form.dataset.contactSuccess || '')
-        form.reset()
+        setContactStatus(formElement, 'success', formElement.dataset.contactSuccess || '')
+        formElement.reset()
     }
     catch (error) {
         console.error('[contact] submission error', error)
-        setContactStatus(form, 'danger', form.dataset.contactError || '')
+        setContactStatus(formElement, 'danger', formElement.dataset.contactError || '')
     }
     finally {
         if (submitButton) {

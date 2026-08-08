@@ -1,4 +1,5 @@
 import site from '../_data/site.js'
+import {encodeFormMailTemplate, getFormMailTemplate} from './form-mail-catalog.js'
 
 const escapeHtml = (value = '') => String(value)
     .replace(/&/g, '&amp;')
@@ -17,6 +18,7 @@ const escapeHtml = (value = '') => String(value)
 export const renderContactPage = (pageContent, apiUrl = site.contactApiUrl) => {
     const form = pageContent.form
     const privacy = pageContent.privacy
+    const formTemplate = encodeFormMailTemplate(getFormMailTemplate({form: 'contact', locale: pageContent.locale}))
 
     return `
 <section id="contact-form" class="content-section contact-section">
@@ -33,6 +35,9 @@ export const renderContactPage = (pageContent, apiUrl = site.contactApiUrl) => {
             data-contact-form
             data-contact-api-url="${escapeHtml(apiUrl)}"
             data-contact-target="${escapeHtml(site.contactTarget)}"
+            data-contact-form="contact"
+            data-contact-locale="${escapeHtml(pageContent.locale)}"
+            data-contact-template="${formTemplate}"
             data-contact-success="${escapeHtml(form.successMessage)}"
             data-contact-error="${escapeHtml(form.errorMessage)}"
         >

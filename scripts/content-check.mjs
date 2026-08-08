@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url'
 
 import i18n from '../src/_data/i18n.js'
 import {guidePages} from '../src/_data/guide-pages.js'
+import {FORM_MAIL_PLACEHOLDERS} from '../src/assets/form-mail.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []
@@ -58,6 +59,25 @@ for (const [url, definition] of Object.entries(guidePages)) {
 for (const locale of i18n.supportedLocales) {
     const guideRoot = locale === 'fr' ? path.join(root, 'src', 'fr', 'user-guide') : path.join(root, 'src', 'user-guide')
     if (!fs.existsSync(guideRoot)) fail(`Répertoire du guide absent pour ${locale}: ${path.relative(root, guideRoot)}.`)
+}
+
+const formMailRoot = path.join(root, 'src', '_includes', 'form-mail')
+const formMailPlaceholderPattern = /{{([a-z][a-zA-Z0-9]*)}}/g
+for (const [form, placeholders] of Object.entries(FORM_MAIL_PLACEHOLDERS)) {
+    for (const locale of i18n.supportedLocales) {
+        const file = path.join(formMailRoot, form, `${locale}.md`)
+        if (!fs.existsSync(file)) {
+            fail(`Modèle d’e-mail ${form}/${locale} manquant (${path.relative(root, file)}).`)
+            continue
+        }
+
+        const content = fs.readFileSync(file, 'utf8')
+        for (const match of content.matchAll(formMailPlaceholderPattern)) {
+            if (!placeholders.includes(match[1])) {
+                fail(`${path.relative(root, file)}: placeholder inconnu {{${match[1]}}}.`)
+            }
+        }
+    }
 }
 
 for (const message of warnings) console.warn(`content:check warning: ${message}`)

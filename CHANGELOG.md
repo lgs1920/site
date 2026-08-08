@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-08 — [`4db50ee`](https://github.com/lgs1920/site/commit/4db50ee) — Add localized form mail catalog
+
+- Added English and French Markdown catalogs for contact and launch-registration messages.
+- Aligned browser submissions with the rendered-message backend contract and added duplicate-registration feedback.
+- Kept the generic logo footer owned by the backend.
+
 ## 2026-08-08 — [`8e0003d`](https://github.com/lgs1920/site/commit/8e0003d) — Protect public release directories
 
 - Disabled directory listings in generated releases with a public `.htaccess` rule.
