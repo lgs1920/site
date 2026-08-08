@@ -338,6 +338,10 @@ layout: layouts/base.html
                 {% endif %}
             </div>
 
+            {% if page_hero.panel.promise %}
+                <div class="registration-hero-side">
+            {% endif %}
+
             {% if page_hero.panel %}
                 <aside class="hero-panel">
                     <div class="hero-panel-header">
@@ -420,12 +424,24 @@ layout: layouts/base.html
                                     <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
                                     <div>
                                         <strong>{{ item.title }}</strong>
-                                        <span>{{ item.text }}</span>
+                                        <span>
+                                            {{ item.text }}
+                                            {% if item.note %}
+                    <wa-button id="hero-panel-note-trigger-{{ locale }}" class="hero-panel-note-trigger" variant="brand" appearance="plain" size="small" aria-label="{{ item.noteLabel }}">
+                                                    <wa-icon variant="regular" name="circle-info"></wa-icon>
+                                                </wa-button>
+                                                <wa-tooltip for="hero-panel-note-trigger-{{ locale }}" placement="top">{{ item.note }}</wa-tooltip>
+                                            {% endif %}
+                                        </span>
                                     </div>
                                 </article>
                             {% endfor %}
                         </div>
                     {% endif %}
+                </div>
+            {% endif %}
+
+            {% if page_hero.panel.promise %}
                 </div>
             {% endif %}
         </div>

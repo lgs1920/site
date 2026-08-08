@@ -1412,6 +1412,7 @@ html.wa-light .hero-backdrop {
     position: relative;
     min-width: 0;
     overflow: hidden;
+    text-align: left;
     background: color-mix(in oklab, var(--surface-soft) 70%, transparent);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
@@ -1434,15 +1435,56 @@ html.wa-light .hero-backdrop {
     z-index: 1;
 }
 
-.registration-hero .hero-panel-promise {
+.registration-hero .registration-hero-side {
     display: grid;
     grid-column: 2;
+    align-self: center;
+    align-content: center;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+}
+
+.registration-hero .hero-panel-promise {
+    display: grid;
+    grid-column: auto;
     gap: 0.65rem;
     width: 100%;
     padding: 1.35rem;
-    margin-top: -5rem;
+    margin-top: 0;
     justify-self: stretch;
     color: var(--hero-ink);
+}
+
+.registration-hero .hero-panel-header {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: stretch;
+}
+
+.registration-hero .hero-panel-header-actions {
+    position: static;
+}
+
+.registration-hero .hero-panel-promise-heading {
+    justify-content: flex-start;
+}
+
+.registration-hero .hero-panel-description {
+    text-align: left;
+}
+
+.registration-hero .hero-metric-list,
+.registration-hero .hero-panel-promise-items {
+    width: 100%;
+    justify-self: stretch;
+}
+
+.registration-hero .hero-metric-list article,
+.registration-hero .hero-panel-promise-items article {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: stretch;
+    text-align: left;
 }
 
 .hero-panel-promise-heading {
@@ -1498,6 +1540,19 @@ html.wa-light .hero-backdrop {
     font-size: 0.82rem;
     line-height: 1.4;
     overflow-wrap: anywhere;
+}
+
+.hero-panel-note-trigger {
+    display: inline-flex;
+    vertical-align: -0.15em;
+    margin-inline-start: 0.25rem;
+    color: var(--lgs-accent-color);
+}
+
+.hero-panel-note-trigger::part(base) {
+    min-height: auto;
+    padding: 0;
+    color: inherit;
 }
 
 .hero-panel-header {
@@ -2154,6 +2209,7 @@ wa-card.registration-card::part(body) {
     margin: 0;
     color: var(--page-muted);
     line-height: 1.65;
+    text-align: center;
 }
 
 .registration-privacy-section .section-intro {
@@ -3327,8 +3383,12 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
 
-    .registration-hero .hero-panel-promise {
+    .registration-hero .registration-hero-side {
         grid-column: 1;
+    }
+
+    .registration-hero .hero-panel-promise {
+        grid-column: auto;
     }
 
     .intro-hero .hero-copy > :not(.hero-actions),

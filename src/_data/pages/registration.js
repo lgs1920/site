@@ -28,7 +28,7 @@ const launchRegistration = {
                     text: 'Privacy and access for everyone.',
                     items: [
                         {icon:'location-pin-lock', title:'Privacy first', text:'Your data stays in your browser, on your device, or in your cloud.'},
-                        {icon:'circle-check', title:'Completely free!', text:'Stop paying for certain features: Studio provides them for free.'},
+{icon:'circle-check', title:'Studio is free', text:'Studio is completely free and will remain so.', note:'Some external services accessible through Studio may be paid services from their providers. Studio has no affiliation with any of the providers concerned.', noteLabel:'More about external services'},
                     ],
                 },
             },
@@ -50,7 +50,7 @@ const launchRegistration = {
             errorMessage: 'The registration could not be saved. Please try again later.',
         },
         privacy: 'Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to studio@lgs1920.fr. We keep your registration data only for the launch information period, then review it.',
-        licenseReminder: 'This site and Studio are distributed under the GNU Affero General Public License v3 or later.',
+        licenseReminder: 'This site is distributed under the GNU Affero General Public License v3 or later.',
         licenseLink:     'Read the license',
     },
     fr:       {
@@ -77,7 +77,7 @@ const launchRegistration = {
                     text: 'Confidentialité et accès pour tous.',
                     items: [
                         {icon:'location-pin-lock', title:'Confidentialité', text:'Vos données restent chez vous : navigateur, appareil ou cloud.'},
-                        {icon:'gift', title:'Gratuit !', text:'Ne payez plus certaines fonctionnalités : Studio les offre gratuitement.'},
+{icon:'gift', title:'Studio gratuit', text:'Studio est entièrement gratuit et le restera.', note:'Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.', noteLabel:'En savoir plus sur les services externes'},
                     ],
                 },
             },
@@ -99,7 +99,7 @@ const launchRegistration = {
             errorMessage: 'L’inscription n’a pas pu être enregistrée. Veuillez réessayer plus tard.',
         },
         privacy: 'Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à studio@lgs1920.fr. Nous conservons vos données d’inscription uniquement pendant la période d’information sur le lancement, puis nous les réévaluons.',
-        licenseReminder: 'Ce site et Studio sont distribués sous licence GNU Affero General Public License v3 ou ultérieure.',
+        licenseReminder: 'Ce site est distribué sous licence GNU Affero General Public License v3 ou ultérieure.',
         licenseLink:     'Lire la licence',
     },
 }
