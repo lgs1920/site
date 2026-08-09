@@ -64,7 +64,14 @@ const PRODUCTION_REGISTRATION_URLS = {
     en: 'https://lgs1920.fr/registration/',
     fr: 'https://lgs1920.fr/fr/registration/',
 }
-const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set(['/403.html', '/404.html', '/fr/403.html', '/fr/404.html'])
+const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set([
+    '/403.html',
+    '/404.html',
+    '/fr/403.html',
+    '/fr/404.html',
+    '/registration/revoke/',
+    '/fr/registration/revoke/',
+])
 
 const getProductionRedirectUrl = (pageUrl) => {
     if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(pageUrl)) {
