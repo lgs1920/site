@@ -4,6 +4,8 @@
 
 **Date :** 20 juillet 2026
 
+> Mise à jour du 6 août 2026 : la découpe recommandée dans ce document a été appliquée. Les définitions publiques sont désormais dans `src/_data/pages/`, les métadonnées du guide dans `src/_data/guide-pages/`, et les helpers partagés dans `src/_lib/page-data.js`.
+
 ## 1. Synthèse
 
 Le site repose sur une bonne base technique : génération statique avec Eleventy, layout partagé, routes françaises préfixées par `/fr`, métadonnées SEO calculées automatiquement et séparation globale entre contenu, présentation et navigation.

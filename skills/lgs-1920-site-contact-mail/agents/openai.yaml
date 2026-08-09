@@ -1,0 +1,4 @@
+interface:
+  display_name: "Site Contact Mail"
+  short_description: "Maintain the public contact mail form"
+  default_prompt: "Use $lgs-1920-site-contact-mail to update the LGS1920 public contact form without exposing mail secrets."

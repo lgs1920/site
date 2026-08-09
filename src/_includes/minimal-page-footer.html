@@ -1,0 +1,10 @@
+<footer slot="footer" class="minimal-page-footer">
+    <span class="minimal-page-footer-copyright">
+        <wa-icon variant="regular" name="copyright" aria-hidden="true"></wa-icon>
+        <span>{{ site.name }} {{ site.copyrightYears }}</span>
+    </span>
+    <span class="minimal-page-footer-separator" aria-hidden="true">-</span>
+    <a href="{{ site.licenseUrl }}" target="_blank" rel="noreferrer">{{ site.licenseName }}</a>
+    <span class="minimal-page-footer-separator" aria-hidden="true">-</span>
+    <a href="{{ localizedHomeUrl | default: '/' }}">{{ uiLabels.home | default: 'Home' }}</a>
+</footer>

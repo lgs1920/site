@@ -8,7 +8,8 @@ It is written for the current Eleventy setup used by LGS1920 Studio, where page 
 
 The current architecture is built around a few shared pieces:
 
-- `src/_data/page-types.js` centralizes page metadata for the home page, legal pages, changelog, and guide content.
+- `src/_data/pages/` stores one localized definition per public page.
+- `src/_data/guide-pages/` stores one localized definition per guide page, while `src/_data/guide-pages.js` keeps the canonical URL registry.
 - `src/_data/i18n.js` defines supported locales, localized navigation labels, translated paths, and the user guide structure.
 - `src/src.11tydata.js` computes locale-aware metadata such as `title`, `description`, `canonicalUrl`, `hreflang`, `og:locale`, and Twitter tags.
 - `src/user-guide/user-guide.11tydata.js` builds guide navigation, breadcrumbs, and pagination.
@@ -59,7 +60,7 @@ For documentation pages that explain site authoring or translation workflows, I 
 
 ### 3. Add the page metadata to the data layer
 
-For pages that should behave like the rest of the site, add their metadata to `src/_data/page-types.js`.
+For public pages, add their metadata to the matching module under `src/_data/pages/`. For guide pages, use the matching module under `src/_data/guide-pages/`.
 
 Use the same pattern as the existing guide pages:
 
@@ -163,7 +164,7 @@ Example:
 
 ### 4. Add locale-aware page data
 
-For pages that use centralized metadata, add localized content for the new locale in `src/_data/page-types.js`.
+Add the localized content for the new locale to the page module under `src/_data/pages/` or `src/_data/guide-pages/`, depending on the page type.
 
 The content should be complete enough that the layout can render:
 

@@ -5,8 +5,12 @@
     {% assign meta_description = pageMeta.description | default: description | default: localizedSite.description | default: site.description %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/assets/logo/logo.png">
     <title>{{ meta_title | escape }}</title>
     <meta name="description" content="{{ meta_description | escape }}">
+    {% if errorPage %}
+        <meta name="robots" content="noindex, nofollow">
+    {% endif %}
     {% if pageMeta.canonicalUrl %}
         <link rel="canonical" href="{{ pageMeta.canonicalUrl }}">
         <meta property="og:url" content="{{ pageMeta.canonicalUrl }}">

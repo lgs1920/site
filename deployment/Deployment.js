@@ -85,6 +85,7 @@ export class Deployment {
         this.release = `${this.timestamp}-${this.commit}`
         this.localReleasePath = path.join(this.distRoot, this.release)
         this.localArchivePath = `${this.localReleasePath}.zip`
+        this.localMetadataPath = path.join(this.distRoot, `${this.release}.json`)
         this.password = process.env[`LGS1920_PASSWORD_${this.platform.toUpperCase()}`]
 
         if (!this.dryRun && !this.password) {
@@ -97,6 +98,7 @@ export class Deployment {
         fs.rmSync(this.buildOutput, { force: true, recursive: true })
         fs.rmSync(this.localReleasePath, { force: true, recursive: true })
         fs.rmSync(this.localArchivePath, { force: true, recursive: true })
+        fs.rmSync(this.localMetadataPath, { force: true })
         fs.mkdirSync(this.distRoot, { recursive: true })
 
         console.log(`--- Building ${COLORS.yellow}${this.product}${COLORS.reset} for ${COLORS.yellow}${this.platform}${COLORS.reset}`)
@@ -104,6 +106,10 @@ export class Deployment {
             args:    ['run', 'build'],
             command: 'bun',
             cwd:     this.root,
+            env:     {
+                ...process.env,
+                LGS1920_DEPLOY_PLATFORM: this.platform,
+            },
             label:   'Site build',
         })
 
@@ -116,25 +122,23 @@ export class Deployment {
     }
 
     writeMetadata = () => {
-        fs.writeFileSync(path.join(this.localReleasePath, 'branch.json'), JSON.stringify({
+        fs.writeFileSync(this.localMetadataPath, JSON.stringify({
             branch: this.branch,
+            build:  {
+                commit:      this.commit,
+                date:        Date.now(),
+                generatedAt: new Date().toISOString(),
+                release:     this.release,
+            },
+            deployment: {
+                platform: this.platform,
+                product:  this.product,
+                release:  this.release,
+                site:     this.site,
+            },
         }, null, 2))
 
-        fs.writeFileSync(path.join(this.localReleasePath, 'build.json'), JSON.stringify({
-            commit:      this.commit,
-            date:        Date.now(),
-            generatedAt: new Date().toISOString(),
-            release:     this.release,
-        }, null, 2))
-
-        fs.writeFileSync(path.join(this.localReleasePath, 'deployment.json'), JSON.stringify({
-            platform: this.platform,
-            product:  this.product,
-            release:  this.release,
-            site:     this.site,
-        }, null, 2))
-
-        console.log(`    > ${COLORS.yellow}Deployment metadata written${COLORS.reset}`)
+        console.log(`    > ${COLORS.yellow}Deployment metadata kept outside the public release${COLORS.reset}`)
     }
 
     zip = () => {

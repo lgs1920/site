@@ -1,5 +1,10 @@
 import i18n from './i18n.js'
-import pageTypes from './page-types.js'
+import pages from './pages/index.js'
+import {
+    buildStudioBackendRestartUrl,
+    buildStudioBackendUrl,
+    readStudioServers,
+} from '../_lib/studio-servers.js'
 
 const copyrightStartYear = 2026
 const currentYear = new Date().getFullYear()
@@ -14,7 +19,28 @@ const userGuideNavigation = userGuideSections.flatMap((section) => section.items
     sectionLabel: section.label,
 })))
 
-const countApiUrl = process.env.LGS1920_COUNT_API_URL || 'https://api.lgs1920.fr'
+const deploymentPlatform = process.env.LGS1920_DEPLOY_PLATFORM || 'development'
+const studioServers = readStudioServers(deploymentPlatform)
+const configuredCountApiUrl = process.env.LGS1920_COUNT_API_URL
+const studioBackendUrl = buildStudioBackendUrl(studioServers)
+const localDevelopmentBackendUrl = deploymentPlatform === 'development'
+    ? 'http://localhost:3333'
+    : studioBackendUrl
+const countApiUrl = configuredCountApiUrl
+    || localDevelopmentBackendUrl
+    || (deploymentPlatform === 'development' ? 'http://localhost:3333' : 'https://api.lgs1920.fr')
+const backendApiUrl = process.env.LGS1920_BACKEND_API_URL || countApiUrl
+const registrationApiUrl = process.env.LGS1920_LAUNCH_REGISTRATION_API_URL
+    || process.env.LGS1920_REGISTRATION_API_URL
+    || countApiUrl
+const contactApiUrl = process.env.LGS1920_CONTACT_API_URL || countApiUrl
+const contactTarget = process.env.LGS1920_CONTACT_TARGET || 'f7a91c'
+const configuredBackendRestartUrl = process.env.LGS1920_BACKEND_RESTART_URL
+const backendRestartUrl = deploymentPlatform === 'development'
+    ? ''
+    : configuredBackendRestartUrl === undefined
+        ? buildStudioBackendRestartUrl(studioServers)
+        : configuredBackendRestartUrl
 
 export default {
     name:        'LGS1920 Studio',
@@ -22,11 +48,19 @@ export default {
     tagline:     'Shape route data in the browser',
     description: 'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
     url:         'https://lgs1920.fr',
+    copyrightYears,
     appUrl:      'https://studio.lgs1920.fr',
     countApiUrl,
+    backendApiUrl,
+    backendRestartUrl,
+    registrationApiUrl,
+    contactApiUrl,
+    contactTarget,
     repoUrl:     'https://github.com/lgs1920/studio',
-    contactEmail:'contact@lgs1920.fr',
+    contactEmail:'studio@lgs1920.fr',
     footerNote:  `LGS1920 ${copyrightYears} - GNU AGPL v3 or later`,
+    licenseName: 'GNU AGPL v3 or later',
+    licenseUrl:  'https://www.gnu.org/licenses/agpl-3.0.html',
     buildLink:   {
         label:   'Built with Eleventy',
         short:   'Eleventy',
@@ -44,17 +78,17 @@ export default {
         {
             value: 'orange',
             label: 'Orange',
-            swatch:'var(--wa-color-orange-70)',
+            swatch:'var(--wa-color-orange)',
         },
         {
             value: 'red',
             label: 'Red',
-            swatch:'var(--wa-color-red-60)',
+            swatch:'var(--wa-color-red)',
         },
         {
             value: 'pink',
             label: 'Pink',
-            swatch:'var(--wa-color-pink-70)',
+            swatch:'var(--wa-color-pink)',
         },
         {
             value: 'purple',
@@ -69,12 +103,12 @@ export default {
         {
             value: 'green',
             label: 'Green',
-            swatch:'var(--wa-color-green-70)',
+            swatch:'var(--wa-color-green)',
         },
         {
             value: 'brown',
             label: 'Brown',
-            swatch:'color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%)',
+            swatch:'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)',
         },
         {
             value: 'gray',
@@ -142,12 +176,12 @@ export default {
         },
         {
             label:   'Contact',
-            url:     'mailto:contact@lgs1920.fr',
+            url:     '/contact/',
             icon:    'envelope',
             variant: 'regular',
         },
     ],
     legalLinks: i18n.legalLinks.en,
     ui:         i18n.ui.en,
-    pageTypes,
+    pages,
 }

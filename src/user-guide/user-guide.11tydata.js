@@ -1,5 +1,5 @@
 import i18n from '../_data/i18n.js'
-import { getGuidePageContent } from '../_data/guide-pages.generated.js'
+import { getGuidePageContent } from '../_data/guide-pages.js'
 import { getGuideTranslationReport } from '../_data/translation-status.js'
 
 const GUIDE_CONTENT_ANCHOR_ID = 'guide-chapter'
@@ -185,7 +185,7 @@ export default {
                         },
                         {
                             label:     'Contact',
-                            href:      'mailto:contact@lgs1920.fr',
+                            href:      '/contact/',
                             appearance:'outlined',
                             variant:   'brand',
                             icon:      {
@@ -215,7 +215,7 @@ export default {
                     },
                     {
                         label:     'Contact',
-                        href:      'mailto:contact@lgs1920.fr',
+                        href:      '/fr/contact/',
                         appearance:'outlined',
                         variant:   'brand',
                         icon:      {

@@ -1,4 +1,4 @@
-import {guidePages} from './guide-pages.generated.js'
+import {guidePages} from './guide-pages.js'
 
 const defaultLocale = 'en'
 
@@ -45,6 +45,9 @@ const translatedSitePaths = [
     '/contributor-license-agreement/',
     '/dependencies/',
     '/faq/',
+    '/contact/',
+    '/registration/',
+    '/registration/revoke/',
     '/stats/',
     '/user-guide/',
     '/user-guide/getting-started/first-steps/',
@@ -268,6 +271,16 @@ const ui = {
         fullLicense:           'Full license',
         cla:                   'CLA',
         builtWithEleventy:     'Built with Eleventy',
+        backendRestartTitle:   'Trying to restart the backend...',
+        backendRestartMessage: 'Restarting the backend...',
+        backendRestartDetails: '',
+        backendRestartAction:  'Restart backend',
+        backendRetryAction:    'Retry connection',
+        backendRestarting:     'Restarting the backend…',
+        backendRetrying:       'Checking the backend…',
+        backendRestartFailed:  'The backend could not be restarted. You can try again.',
+        backendRetryFailed:    'The backend is still unavailable.',
+        backendRestartContact: 'Contact Support',
     },
     fr: {
         home:                  'Accueil',
@@ -316,6 +329,16 @@ const ui = {
         fullLicense:           'Licence complète',
         cla:                   'CLA',
         builtWithEleventy:     'Construit avec Eleventy',
+        backendRestartTitle:   'Tentative de redémarrage du backend…',
+        backendRestartMessage: 'Redémarrage du backend…',
+        backendRestartDetails: '',
+        backendRestartAction:  'Relancer le backend',
+        backendRetryAction:    'Réessayer la connexion',
+        backendRestarting:     'Redémarrage du backend…',
+        backendRetrying:       'Vérification du backend…',
+        backendRestartFailed:  'Le backend n’a pas pu être relancé. Vous pouvez réessayer.',
+        backendRetryFailed:    'Le backend est toujours indisponible.',
+        backendRestartContact: 'Contacter le support',
     },
 }
 
@@ -407,6 +430,19 @@ const buildNavigation = (locale = defaultLocale) => [
         url:    localizedPath(locale, '/changelog/'),
         icon:   'arrows-turn-to-dots',
         variant:'regular',
+    },
+    {
+        label:  ui[locale].contact,
+        url:    localizedPath(locale, '/contact/'),
+        icon:   'envelope',
+        variant:'regular',
+    },
+    {
+        label:   ui[locale].openGithubRepository,
+        url:     'https://github.com/lgs1920/studio',
+        icon:    'github',
+        family:  'brands',
+        external:true,
     },
     {
         label:  ui[locale].license,

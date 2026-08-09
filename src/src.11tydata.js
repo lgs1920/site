@@ -1,9 +1,10 @@
 import i18n from './_data/i18n.js'
-import { getPageContent } from './_data/page-types.js'
+import { getPageDefinition } from './_data/pages/index.js'
+import { getPageContent } from './_lib/page-data.js'
 
 const stripTrailingSlash = (value = '') => value.replace(/\/$/, '')
 const getLocale = (data) => i18n.getLocaleFromUrl(data.page?.url)
-const getLocalizedPageContent = (data) => getPageContent(data.page?.url, getLocale(data))
+const getLocalizedPageContent = (data) => getPageContent(getPageDefinition, data.page?.url, getLocale(data))
 const getAbsoluteUrl = (siteUrl, path = '/') => `${stripTrailingSlash(siteUrl)}${path}`
 
 const getPageMeta = (data) => {
@@ -15,6 +16,19 @@ const getPageMeta = (data) => {
     const siteUrl = data.site?.url
     const title = localizedPage?.title ?? data.title ?? data.site?.name
     const description = localizedPage?.description ?? data.description ?? localizedSite?.description ?? data.site?.description
+
+    if (data.errorPage) {
+        return {
+            title,
+            description,
+            canonicalUrl: null,
+            ogLocale: i18n.localeMeta[locale]?.ogLocale,
+            alternates: [],
+            xDefault: null,
+            alternateOgLocales: [],
+        }
+    }
+
     const canonicalUrl = siteUrl && currentPath
         ? getAbsoluteUrl(siteUrl, currentPath)
         : currentPath
@@ -47,6 +61,8 @@ export default {
         locale:              getLocale,
         localizedSite:       (data) => i18n.site[getLocale(data)] ?? i18n.site.en,
         localizedHomeUrl:    (data) => i18n.localizedPath(getLocale(data), '/'),
+        localizedContactUrl: (data) => i18n.localizedPath(getLocale(data), '/contact/'),
+        localizedRegistrationUrl:(data) => i18n.localizedPath(getLocale(data), '/registration/'),
         localizedPage:       getLocalizedPageContent,
         pageMeta:            getPageMeta,
         localizedNavigation: (data) => i18n.navigation[getLocale(data)] ?? i18n.navigation.en,

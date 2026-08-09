@@ -13,7 +13,7 @@ layout: layouts/base.html
 {% assign page_section_nav = localizedPage.sectionNav | default: sectionNav %}
 {% assign page_cta = localizedPage.pageCta | default: pageCta %}
 {% assign page_class_value = localizedPage.pageClass | default: pageClass %}
-<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right">
+<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}{% if minimalChrome %} minimal-chrome-layout{% endif %}" mobile-breakpoint="960" navigation-placement="end" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right"{% if requiresBackend %} data-backend-restart-page data-backend-api-url="{{ site.backendApiUrl | escape }}" data-backend-restart-url="{{ site.backendRestartUrl | escape }}" data-backend-restart-title="{{ labels.backendRestartTitle | escape }}" data-backend-restart-message="{{ labels.backendRestartMessage | escape }}" data-backend-restart-details="{{ labels.backendRestartDetails | escape }}" data-backend-restart-action="{{ labels.backendRestartAction | escape }}" data-backend-retry-action="{{ labels.backendRetryAction | escape }}" data-backend-restarting="{{ labels.backendRestarting | escape }}" data-backend-retry="{{ labels.backendRetrying | escape }}" data-backend-restart-failed="{{ labels.backendRestartFailed | escape }}" data-backend-retry-failed="{{ labels.backendRetryFailed | escape }}" data-backend-restart-contact="{{ labels.backendRestartContact | escape }}"{% if alternateLocales %} data-backend-restart-language="{{ labels.language | escape }}" data-backend-restart-choose-language="{{ labels.chooseLanguage | escape }}" data-backend-restart-locale="{{ locale | escape }}" data-backend-restart-english-url="{{ alternateLocales.en | escape }}" data-backend-restart-french-url="{{ alternateLocales.fr | escape }}"{% endif %}{% endif %}>
     <script>
         (() => {
             const page = document.currentScript.closest('wa-page')
@@ -38,11 +38,15 @@ layout: layouts/base.html
     </script>
     <span slot="skip-to-content">{{ labels.skipToContent }}</span>
 
+    {% unless minimalChrome %}
     <header slot="header" class="topbar">
         <div class="brand-lockup">
             <p class="brand-kicker">{{ localizedSite.tagline | default: site.tagline }}</p>
             <a id="site-home-link" class="brand-name" href="{{ localizedHomeUrl | default: '/' }}" aria-label="{{ site.name }}">
-                {{ studioLogoHorizontalMarkup }}
+                <picture class="brand-logo-mark brand-logo-picture">
+                    <source media="(max-width: 820px)" srcset="/assets/logo/logo.png">
+                    <img class="brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">
+                </picture>
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
                 </span>
@@ -52,7 +56,7 @@ layout: layouts/base.html
 
         <div class="topbar-actions">
             {% for link in chrome_header_links %}
-                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'book-open' %} header-link-user-guide{% elsif link.icon == 'github' %} header-link-github{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
                 </wa-button>
                 <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
@@ -87,6 +91,11 @@ layout: layouts/base.html
                 </wa-dropdown>
                 <wa-tooltip class="control-tooltip" for="locale-trigger" placement="bottom">{{ labels.chooseLanguage }}</wa-tooltip>
             {% endif %}
+
+            <wa-button id="header-contact-link" class="icon-link-button" href="{{ localizedContactUrl | default: '/contact/' }}" appearance="plain" aria-label="{{ labels.contact }}">
+                <wa-icon variant="regular" name="envelope"></wa-icon>
+            </wa-button>
+            <wa-tooltip class="control-tooltip" for="header-contact-link" placement="bottom">{{ labels.contact }}</wa-tooltip>
 
             <div class="theme-controls">
                 <wa-dropdown class="theme-palette-menu" placement="bottom-end" data-theme-palette-dropdown>
@@ -146,7 +155,9 @@ layout: layouts/base.html
             <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
         </div>
     </header>
+    {% endunless %}
 
+    {% unless minimalChrome %}
     <nav id="site-navigation" slot="navigation" class="drawer-nav" aria-label="{{ labels.primaryNavigation }}">
         {% if chrome_navigation and chrome_navigation.size > 0 %}
             <section class="drawer-group">
@@ -271,6 +282,7 @@ layout: layouts/base.html
             </section>
         {% endif %}
     </nav>
+    {% endunless %}
 
     <section slot="main-header" class="page-hero{% unless page_hero.video == false %} hero-has-video{% else %} hero-no-video{% endunless %}{% if page_hero.className %} {{ page_hero.className }}{% endif %}">
         <div class="hero-media" aria-hidden="true">
@@ -329,18 +341,64 @@ layout: layouts/base.html
                 {% endif %}
             </div>
 
+            {% if page_hero.panel.promise %}
+                <div class="registration-hero-side">
+            {% endif %}
+
             {% if page_hero.panel %}
                 <aside class="hero-panel">
-                    {% if page_hero.panel.eyebrow %}
-                        <p class="panel-eyebrow">{{ page_hero.panel.eyebrow }}</p>
-                    {% endif %}
+                    <div class="hero-panel-header">
+                        <div class="hero-panel-heading">
+                            {% if page_hero.panel.eyebrow %}
+                                <p class="panel-eyebrow">{{ page_hero.panel.eyebrow }}</p>
+                            {% endif %}
 
-                    {% if page_hero.panel.title %}
-                        <h2 class="hero-panel-title">{{ page_hero.panel.title }}</h2>
+                            {% if page_hero.panel.title %}
+                                <h2 class="hero-panel-title">{{ page_hero.panel.title }}</h2>
+                            {% endif %}
+                        </div>
+
+                        {% if page_hero.localeSwitcher and alternateLocales and localeOptions %}
+                            {% assign current_locale_code = locale | default: 'en' %}
+                            {% assign current_locale_option = null %}
+                            {% for option in localeOptions %}
+                                {% if option.code == current_locale_code %}
+                                    {% assign current_locale_option = option %}
+                                {% endif %}
+                            {% endfor %}
+                            <div class="hero-panel-header-actions">
+                                <wa-dropdown class="locale-dropdown" placement="bottom-end">
+                                    <wa-button id="hero-locale-trigger" slot="trigger" class="locale-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseLanguage }}">
+                                        <span class="locale-trigger-copy">
+                                            <img class="locale-flag" src="{{ current_locale_option.flagUrl }}" alt="{{ current_locale_option.label }}" width="18" height="18">
+                                        </span>
+                                    </wa-button>
+
+                                    <div class="locale-menu-panel" role="menu" aria-label="{{ labels.language }}">
+                                        {% for option in localeOptions %}
+                                            {% assign is_current_locale = option.code == current_locale_code %}
+                                            <a class="locale-menu-link{% if is_current_locale %} is-current{% endif %}" href="{{ alternateLocales[option.code] }}" role="menuitem"{% if is_current_locale %} aria-current="true"{% endif %} data-site-locale="{{ option.code }}">
+                                                <img class="locale-flag" src="{{ option.flagUrl }}" alt="{{ option.label }}" width="18" height="18">
+                                                <span class="locale-menu-copy">
+                                                    <strong>{{ option.label }}</strong>
+                                                </span>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </wa-dropdown>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% if page_hero.panel.description %}
+                        <p class="hero-panel-description">
+                            {{ page_hero.panel.description }}{% if page_hero.panel.descriptionBreak %}<br>{{ page_hero.panel.descriptionBreak }}{% endif %}
+                        </p>
                     {% endif %}
 
                     {% if page_hero.panel.items and page_hero.panel.items.size > 0 %}
                         <div class="hero-metric-list">
+                            <wa-divider class="hero-panel-divider"></wa-divider>
                             {% for item in page_hero.panel.items %}
                                 <article>
                                     <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
@@ -353,6 +411,41 @@ layout: layouts/base.html
                         </div>
                     {% endif %}
                 </aside>
+            {% endif %}
+
+            {% if page_hero.panel.promise %}
+                <div class="hero-panel-promise">
+                    <div class="hero-panel-promise-heading">
+                        <wa-icon{% if page_hero.panel.promise.family %} family="{{ page_hero.panel.promise.family }}"{% endif %}{% if page_hero.panel.promise.iconVariant %} variant="{{ page_hero.panel.promise.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ page_hero.panel.promise.icon }}"></wa-icon>
+                        <p>{{ page_hero.panel.promise.text }}</p>
+                    </div>
+
+                    {% if page_hero.panel.promise.items and page_hero.panel.promise.items.size > 0 %}
+                        <div class="hero-panel-promise-items">
+                            {% for item in page_hero.panel.promise.items %}
+                                <article>
+                                    <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.iconVariant %} variant="{{ item.iconVariant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
+                                    <div>
+                                        <strong>{{ item.title }}</strong>
+                                        <span>
+                                            {{ item.text }}
+                                            {% if item.note %}
+                    <wa-button id="hero-panel-note-trigger-{{ locale }}" class="hero-panel-note-trigger" variant="brand" appearance="plain" size="small" aria-label="{{ item.noteLabel }}">
+                                                    <wa-icon variant="regular" name="circle-info"></wa-icon>
+                                                </wa-button>
+                                                <wa-tooltip for="hero-panel-note-trigger-{{ locale }}" placement="top">{{ item.note }}</wa-tooltip>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if page_hero.panel.promise %}
+                </div>
             {% endif %}
         </div>
     </section>
@@ -498,38 +591,55 @@ layout: layouts/base.html
         </section>
     {% endif %}
 
+    {% if minimalChrome %}
+        {% include "minimal-page-footer.html" %}
+    {% else %}
     <footer slot="footer" class="site-footer">
-        <div class="site-footer-copy">
-            <p class="site-footer-note">
-                <wa-icon variant="regular" name="copyright"></wa-icon>
-                <span>{{ site.footerNote }}</span>
-                {% if site.buildLink %}
-                    <span class="site-footer-separator">-</span>
-                    <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
-                        <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% else %} variant="regular"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
-                        <span>{{ site.buildLink.label }}</span>
-                    </a>
-                    <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
+        <div class="site-footer-main">
+            <div class="site-footer-copy">
+                <p class="site-footer-note">
+                    <wa-icon variant="regular" name="copyright"></wa-icon>
+                    <span>{{ site.footerNote }}</span>
+                    {% if site.buildLink %}
+                        <span class="site-footer-separator">-</span>
+                        <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
+                            <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% else %} variant="regular"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
+                            <span>{{ site.buildLink.label }}</span>
+                        </a>
+                        <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
+                    {% endif %}
+                </p>
+                {% if chrome_legal_links and chrome_legal_links.size > 0 %}
+                    <nav class="site-footer-links" aria-label="{{ labels.footerNavigation }}">
+                        {% for link in chrome_legal_links %}
+                            <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
+                            <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
+                        {% endfor %}
+                    </nav>
                 {% endif %}
-            </p>
-            {% if chrome_legal_links and chrome_legal_links.size > 0 %}
-                <nav class="site-footer-links" aria-label="{{ labels.footerNavigation }}">
-                    {% for link in chrome_legal_links %}
-                        <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
-                        <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
-                    {% endfor %}
-                </nav>
-            {% endif %}
+            </div>
+            <div class="site-footer-contact">
+                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact/' }}">{{ labels.contact }}</a>
+                <wa-tooltip class="control-tooltip" for="site-contact-link">{{ labels.contact }}</wa-tooltip>
+            </div>
         </div>
-        <a id="site-contact-link" href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
-        <wa-tooltip class="control-tooltip" for="site-contact-link">{{ site.contactEmail }}</wa-tooltip>
+        <p class="site-footer-privacy">
+            {% if locale == 'fr' %}
+                Privacy first : ce site ne stocke aucun cookie ni donnée personnelle. Certaines préférences (langue, couleurs, etc.) sont stockées dans la base de données du navigateur.
+            {% else %}
+                Privacy first: this site does not store any cookies or personal data. Some preferences (language, colours, etc.) are stored in the browser's database.
+            {% endif %}
+        </p>
     </footer>
+    {% endif %}
 </wa-page>
 
+{% unless minimalChrome %}
 <wa-button id="page-nav-toggle-desktop" class="nav-fab" data-page-nav-toggle data-page-nav-toggle-desktop appearance="plain" aria-label="{{ labels.openNavigation }}" aria-controls="site-navigation">
     <wa-icon variant="regular" name="bars"></wa-icon>
 </wa-button>
 <wa-tooltip class="control-tooltip" for="page-nav-toggle-desktop" placement="right" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
+{% endunless %}
 
 {% if alternateLocales %}
     <script>

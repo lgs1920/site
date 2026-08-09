@@ -1,12 +1,13 @@
 import { legalDocs, renderLegalSection } from './_lib/legal-docs.js'
-import pageTypes, { getGeneratedPageData } from './_data/page-types.js'
+import legal from './_data/pages/legal.js'
+import { getGeneratedPageData } from './_lib/page-data.js'
 
 const locale = 'en'
-const pageContent = pageTypes.legal.licensing[locale]
+const pageContent = legal.licensing[locale]
 
 export default class {
     data() {
-        return getGeneratedPageData(pageTypes.legal.licensing, locale, {
+        return getGeneratedPageData(legal.licensing, locale, {
             sectionNav:legalDocs.licensing.sectionNav,
         })
     }
