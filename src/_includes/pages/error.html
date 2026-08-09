@@ -1,0 +1,70 @@
+<wa-page class="site-layout error-site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
+    <header slot="header" class="topbar error-topbar">
+        <a class="brand-name" href="/" aria-label="LGS1920 home">
+            {{ studioLogoHorizontalMarkup }}
+        </a>
+        <div class="topbar-actions">
+            <wa-badge variant="brand" appearance="filled">{{ errorCode }}</wa-badge>
+            <wa-dropdown class="locale-dropdown" placement="bottom-end">
+                <wa-button id="error-locale-trigger-{{ errorCode }}-{{ errorLocale }}" slot="trigger" class="locale-trigger" appearance="plain" size="small" aria-label="{{ errorLanguageLabel }}">
+                    <span class="locale-trigger-copy">
+                        <img class="locale-flag" src="{{ errorFlagUrl }}" alt="{{ errorCurrentLocaleLabel }}" width="18" height="18">
+                    </span>
+                </wa-button>
+
+                <div class="locale-menu-panel" role="menu" aria-label="{{ errorLanguageLabel }}">
+                    <a class="locale-menu-link{% if errorLocale == 'en' %} is-current{% endif %}" href="{{ errorEnglishHref }}" lang="en" hreflang="en" role="menuitem"{% if errorLocale == 'en' %} aria-current="page"{% endif %}>
+                        <img class="locale-flag" src="/assets/flags/gb.svg" alt="English" width="18" height="18">
+                        <span class="locale-menu-copy"><strong>English</strong></span>
+                    </a>
+                    <a class="locale-menu-link{% if errorLocale == 'fr' %} is-current{% endif %}" href="{{ errorFrenchHref }}" lang="fr" hreflang="fr" role="menuitem"{% if errorLocale == 'fr' %} aria-current="page"{% endif %}>
+                        <img class="locale-flag" src="/assets/flags/fr.svg" alt="Français" width="18" height="18">
+                        <span class="locale-menu-copy"><strong>Français</strong></span>
+                    </a>
+                </div>
+            </wa-dropdown>
+        </div>
+    </header>
+
+    <main id="content" class="error-page">
+        <section class="error-panel" aria-labelledby="error-title">
+            <div class="error-copy">
+                <p class="error-kicker">{{ errorKicker }}</p>
+                <p class="error-code" aria-hidden="true">{{ errorCode }}</p>
+                <h1 id="error-title">{{ errorTitle }}</h1>
+                <p class="error-message">{{ errorMessage }}</p>
+                <div class="error-actions">
+                    <wa-button href="{{ errorPrimaryHref }}" variant="brand" appearance="filled" with-start>
+                        <wa-icon slot="start" variant="regular" name="arrow-left"></wa-icon>
+                        {{ errorPrimaryLabel }}
+                    </wa-button>
+                    <wa-button href="{{ errorSecondaryHref }}" variant="brand" appearance="outlined" with-start>
+                        <wa-icon slot="start" variant="regular" name="{{ errorSecondaryIcon }}"></wa-icon>
+                        {{ errorSecondaryLabel }}
+                    </wa-button>
+                </div>
+            </div>
+
+            {% if errorImage %}
+                <figure class="error-visual error-photo error-glitch">
+                    <img src="{{ errorImage }}" alt="{{ errorImageAlt }}" width="2400" height="2400">
+                </figure>
+            {% else %}
+                <div class="error-visual" aria-hidden="true">
+                    <div class="error-map-grid"></div>
+                    <span class="error-map-label error-map-label-top">{{ errorMapLabel }}</span>
+                    <span class="error-map-label error-map-label-bottom">LGS1920 / RE-ROUTE</span>
+                    <span class="error-route error-route-one"></span>
+                    <span class="error-route error-route-two"></span>
+                    <span class="error-pin error-pin-start"><wa-icon variant="regular" name="location-dot"></wa-icon></span>
+                    <span class="error-pin error-pin-end"><wa-icon variant="solid" name="location-dot"></wa-icon></span>
+                    <span class="error-compass">N</span>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer slot="footer" class="site-footer error-footer">
+        <p class="site-footer-privacy">{{ errorFooter }}</p>
+    </footer>
+</wa-page>

@@ -16,6 +16,19 @@ const getPageMeta = (data) => {
     const siteUrl = data.site?.url
     const title = localizedPage?.title ?? data.title ?? data.site?.name
     const description = localizedPage?.description ?? data.description ?? localizedSite?.description ?? data.site?.description
+
+    if (data.errorPage) {
+        return {
+            title,
+            description,
+            canonicalUrl: null,
+            ogLocale: i18n.localeMeta[locale]?.ogLocale,
+            alternates: [],
+            xDefault: null,
+            alternateOgLocales: [],
+        }
+    }
+
     const canonicalUrl = siteUrl && currentPath
         ? getAbsoluteUrl(siteUrl, currentPath)
         : currentPath

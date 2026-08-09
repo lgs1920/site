@@ -60,12 +60,29 @@ markdownLibrary.renderer.rules.heading_open = (tokens, index, options, env, self
 const LOGO_SOURCE_DIR = path.resolve('..', 'studio', 'public', 'assets', 'logo')
 const LOGO_OUTPUT_DIR = path.resolve('public', 'assets', 'logo')
 const LOGO_FILE_NAMES = ['logo-horizontal.png', 'logo-vertical.png', 'logo.png']
-const PRODUCTION_HOME_REDIRECTS = {
-    '/':    'https://lgs1920.fr/registration/',
-    '/fr/': 'https://lgs1920.fr/fr/registration/',
+const PRODUCTION_REGISTRATION_URLS = {
+    en: 'https://lgs1920.fr/registration/',
+    fr: 'https://lgs1920.fr/fr/registration/',
+}
+const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set(['/403.html', '/404.html', '/fr/403.html', '/fr/404.html'])
+
+const getProductionRedirectUrl = (pageUrl) => {
+    if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(pageUrl)) {
+        return null
+    }
+
+    const normalizedPageUrl = pageUrl.endsWith('/') ? pageUrl : `${pageUrl}/`
+    const locale = normalizedPageUrl === '/fr/' || normalizedPageUrl.startsWith('/fr/') ? 'fr' : 'en'
+    const redirectUrl = PRODUCTION_REGISTRATION_URLS[locale]
+
+    if (normalizedPageUrl === new URL(redirectUrl).pathname) {
+        return null
+    }
+
+    return redirectUrl
 }
 
-const renderHomeRedirect = (redirectUrl, locale) => `<!doctype html>
+const renderProductionRedirect = (redirectUrl, locale) => `<!doctype html>
 <html lang="${locale}">
 <head>
     <meta charset="utf-8">
@@ -86,6 +103,7 @@ const copyLogoAssets = () => {
 }
 
 const studioLogoHorizontalMarkup = '<img class="brand-logo-mark brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
+const studioLogoResponsiveMarkup = '<picture class="brand-logo-mark brand-logo-picture"><source media="(max-width: 820px)" srcset="/assets/logo/logo.png"><img class="brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo"></picture>'
 
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
@@ -94,6 +112,7 @@ export default function(eleventyConfig) {
         'public/.htaccess': '.htaccess',
         'src/assets': 'src/assets',
         'public/assets/flags': 'assets/flags',
+        'public/assets/errors': 'assets/errors',
     })
     for (const fileName of LOGO_FILE_NAMES) {
         eleventyConfig.addPassthroughCopy({
@@ -101,18 +120,23 @@ export default function(eleventyConfig) {
         })
     }
     eleventyConfig.addGlobalData('studioLogoHorizontalMarkup', studioLogoHorizontalMarkup)
-    eleventyConfig.addTransform('production-home-redirect', function(content) {
+    eleventyConfig.addGlobalData('studioLogoResponsiveMarkup', studioLogoResponsiveMarkup)
+    eleventyConfig.addTransform('production-registration-redirect', function(content) {
         if (process.env.LGS1920_DEPLOY_PLATFORM !== 'production') {
             return content
         }
 
-        const redirectUrl = PRODUCTION_HOME_REDIRECTS[this.page.url]
+        if (!this.page?.outputPath?.endsWith('.html')) {
+            return content
+        }
+
+        const redirectUrl = getProductionRedirectUrl(this.page.url)
         if (!redirectUrl) {
             return content
         }
 
-        const locale = this.page.url === '/fr/' ? 'fr' : 'en'
-        return renderHomeRedirect(redirectUrl, locale)
+        const locale = this.page.url === '/fr/' || this.page.url.startsWith('/fr/') ? 'fr' : 'en'
+        return renderProductionRedirect(redirectUrl, locale)
     })
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
