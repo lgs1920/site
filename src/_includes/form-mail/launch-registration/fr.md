@@ -10,3 +10,7 @@ E-mail : {{email}}
 Pour annuler votre inscription, veuillez cliquer sur le lien ci-dessous.
 
 [Annuler mon inscription]({{revoke-url}})
+
+Cordialement,
+
+L’équipe LGS1920 Studio

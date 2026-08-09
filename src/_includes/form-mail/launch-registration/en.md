@@ -10,3 +10,7 @@ Email: {{email}}
 To cancel your registration, please click the link below.
 
 [Cancel my registration]({{revoke-url}})
+
+Kind regards,
+
+The LGS1920 Studio team

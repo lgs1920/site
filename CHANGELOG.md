@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-09 — [`fddc4e8`](https://github.com/lgs1920/site/commit/fddc4e8) — Harmonize form mail signatures
+
+- Standardized English and French courtesy formulas and signatures in visitor acknowledgement templates.
+
 ## 2026-08-09 — [`aa95a71`](https://github.com/lgs1920/site/commit/aa95a71) — Split form acknowledgement and support templates
 
 - Added localized support templates for contact and launch-registration mail.
