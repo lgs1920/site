@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-09 — [`16f304a`](https://github.com/lgs1920/site/commit/16f304a) — Remove registration license notice
+
+- Removed the GNU AGPL reminder and license link from the English and French registration pages.
+
 ## 2026-08-09 — [`e5cf014`](https://github.com/lgs1920/site/commit/e5cf014) — Tune registration hero card opacity
 
 - Increased the registration hero card background opacity while preserving the seasonal green surface.

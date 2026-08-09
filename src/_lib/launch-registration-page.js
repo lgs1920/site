@@ -119,7 +119,6 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         <h2>${escapeHtml(pageContent.locale === 'fr' ? 'Un consentement clair et limité.' : 'Clear and limited consent.')}</h2>
     </div>
     <p class="section-intro">${linkifyContactEmail(pageContent.privacy)}</p>
-    <p class="registration-license">${escapeHtml(pageContent.licenseReminder)} <a href="${site.licenseUrl}" target="_blank" rel="noreferrer">${escapeHtml(pageContent.licenseLink)}</a>.</p>
 </section>
 `
 }
