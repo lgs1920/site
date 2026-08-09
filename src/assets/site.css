@@ -1804,7 +1804,7 @@ html.wa-light .hero-backdrop {
     min-width: 0;
     overflow: hidden;
     text-align: left;
-    background: color-mix(in oklab, var(--surface-soft) 70%, transparent);
+    background: rgb(from var(--surface-soft) r g b / 0.8);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }

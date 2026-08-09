@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-09 — [`e5cf014`](https://github.com/lgs1920/site/commit/e5cf014) — Tune registration hero card opacity
+
+- Increased the registration hero card background opacity while preserving the seasonal green surface.
+
 ## 2026-08-09 — [`599da50`](https://github.com/lgs1920/site/commit/599da50) — Keep registration cancellation routes accessible
 
 - Exempted the English and French registration cancellation pages from the production registration redirect.
