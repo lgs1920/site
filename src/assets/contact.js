@@ -30,6 +30,7 @@ const getPayloadLog = (payload) => ({
     subject:   payload.subject ? `[${payload.subject.length} characters]` : '',
     message:   payload.message ? `[${payload.message.length} characters]` : '',
     renderedMessage: payload.renderedMessage ? `[${payload.renderedMessage.length} characters]` : '',
+    supportRenderedMessage: payload.supportRenderedMessage ? `[${payload.supportRenderedMessage.length} characters]` : '',
     consent:   payload.consent,
     website:   payload.website ? '[filled]' : '',
 })
@@ -175,17 +176,24 @@ const submitContactForm = async (event) => {
     try {
         const form = String(formElement.dataset.contactForm || 'contact')
         const locale = String(formElement.dataset.contactLocale || '')
+        const values = {
+            firstName: getContactValue(formElement, 'firstName'),
+            lastName:  getContactValue(formElement, 'lastName'),
+            email:     getContactValue(formElement, 'email'),
+            subject:   getContactValue(formElement, 'subject'),
+            message:   getContactValue(formElement, 'message'),
+        }
         const renderedMessage = renderFormMail({
             template: decodeFormMailTemplate(formElement.dataset.contactTemplate),
             form,
             locale,
-            values: {
-                firstName: getContactValue(formElement, 'firstName'),
-                lastName:  getContactValue(formElement, 'lastName'),
-                email:     getContactValue(formElement, 'email'),
-                subject:   getContactValue(formElement, 'subject'),
-                message:   getContactValue(formElement, 'message'),
-            },
+            values,
+        })
+        const supportRenderedMessage = renderFormMail({
+            template: decodeFormMailTemplate(formElement.dataset.contactSupportTemplate),
+            form,
+            locale,
+            values,
         })
         const csrfToken = await getContactToken(apiUrl)
         const payload = {
@@ -199,6 +207,7 @@ const submitContactForm = async (event) => {
             subject:   getContactValue(formElement, 'subject'),
             message:   getContactValue(formElement, 'message'),
             renderedMessage,
+            supportRenderedMessage,
             consent:   Boolean(getContactControl(formElement, 'consent')?.checked),
             website:   getContactValue(formElement, 'website'),
         }

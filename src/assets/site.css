@@ -2526,6 +2526,20 @@ wa-card.registration-card::part(body) {
     gap: 1rem;
 }
 
+/* Keep browser-restored values aligned with the normal form-control surface. */
+.registration-form wa-input,
+.contact-form wa-input,
+.contact-form wa-textarea {
+    --wa-color-brand-fill-quiet: var(--wa-form-control-background-color);
+}
+
+.registration-form wa-input::part(input),
+.contact-form wa-input::part(input),
+.contact-form wa-textarea::part(textarea) {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+}
+
 .registration-form .page-cta-actions {
     margin-top: 0;
 }

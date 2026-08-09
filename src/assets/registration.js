@@ -108,6 +108,12 @@ const submitRegistrationForm = async (event) => {
                 locale,
                 values,
             }),
+            supportRenderedMessage: renderFormMail({
+                template: decodeFormMailTemplate(form.dataset.registrationSupportTemplate),
+                form:     formId,
+                locale,
+                values,
+            }),
         }
         const response = await fetch(`${apiUrl}/launch-registration`, {
             method:  'POST',

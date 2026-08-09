@@ -26,6 +26,11 @@ export const renderLaunchRegistrationPage = (pageContent) => {
     const form = pageContent.form
     const logoMarkup = pageContent.logoMarkup || '<img class="registration-logo" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
     const formTemplate = encodeFormMailTemplate(getFormMailTemplate({form: 'launch-registration', locale: pageContent.locale}))
+    const supportFormTemplate = encodeFormMailTemplate(getFormMailTemplate({
+        form:     'launch-registration',
+        locale:   pageContent.locale,
+        audience: 'support',
+    }))
 
     return `
 <section id="registration-form" class="content-section launch-registration-section">
@@ -52,6 +57,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
                 data-registration-form="launch-registration"
                 data-registration-locale="${escapeHtml(pageContent.locale)}"
                 data-registration-template="${formTemplate}"
+                data-registration-support-template="${supportFormTemplate}"
                 data-registration-success="${escapeHtml(form.successMessage)}"
                 data-registration-duplicate="${escapeHtml(form.duplicateMessage)}"
                 data-registration-error="${escapeHtml(form.errorMessage)}"

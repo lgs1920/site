@@ -67,17 +67,23 @@ export const buildStudioBackendUrl = (servers) => {
         return ''
     }
 
-    if (servers.platform !== 'development' && servers.site?.protocol) {
-        return `${servers.site.protocol}://${backend.domain}`
-    }
-
     const protocol = backend.protocol || 'https'
     const port = Number(backend.port)
     const hasNonDefaultPort = Number.isInteger(port)
         && port > 0
         && !((protocol === 'http' && port === 80) || (protocol === 'https' && port === 443))
+    const backendTarget = `${protocol}://${backend.domain}${hasNonDefaultPort ? `:${port}` : ''}`
+    const studio = servers?.studio
 
-    return `${protocol}://${backend.domain}${hasNonDefaultPort ? `:${port}` : ''}`
+    if (servers?.platform !== 'development' && studio?.domain && studio?.protocol && studio.proxy) {
+        return `${studio.protocol}://${studio.domain}${studio.proxy}${backendTarget}`
+    }
+
+    if (servers?.platform !== 'development' && servers.site?.protocol) {
+        return `${servers.site.protocol}://${backend.domain}`
+    }
+
+    return backendTarget
 }
 
 /**

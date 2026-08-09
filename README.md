@@ -33,8 +33,9 @@ This repository includes project skills for maintaining the public site and its 
 
 ## Statistics API in development
 
-The local development server reads its backend URL from the Studio server
-configuration in `../studio/servers.json`:
+The local development server uses the local backend at `http://localhost:3333`
+by default. Production and staging builds use the Studio reverse proxy and
+their configured backend target from `../studio/deployment/deploy.yml`:
 
 ```bash
 bun run dev
@@ -68,8 +69,8 @@ message generic.
 
 Each registration request includes `form: "launch-registration"`, its page
 locale, the opaque contact target key, and a rendered Markdown message selected
-from the site catalog. The backend validates the metadata and may use the same
-rendered message for its optional notification email.
+from the site catalog. The backend validates the metadata and sends the same
+rendered message to the configured Studio mailbox.
 
 ## Public contact form
 
@@ -83,13 +84,14 @@ the token or submission limit is reached; the site keeps that response generic
 and does not reveal delivery details. SMTP credentials and recipient addresses
 remain server-side in the backend and are never exposed to the site.
 
-Both forms use the site-owned Markdown catalog under
-`src/_includes/form-mail/`, with one English and one French template per form.
-The browser selects the template from the form identity and locale, replaces
-the allowed placeholders with escaped submitted values, and sends the bounded
-`renderedMessage` alongside the validated form fields. The backend adds the
-generic horizontal LGS1920 logo footer after receiving the rendered message;
-the localized templates do not duplicate that shared footer.
+Both forms use the site-owned Markdown catalogs under
+`src/_includes/form-mail/`: one acknowledgement template and one Studio
+notification template per form and locale. The browser selects both templates
+from the form identity and locale, replaces the allowed placeholders with
+escaped submitted values, and sends `renderedMessage` for the visitor plus
+`supportRenderedMessage` for Studio alongside the validated form fields. The
+backend adds the generic horizontal LGS1920 logo footer after receiving each
+rendered message; the localized templates do not duplicate that shared footer.
 
 The target key is configured in the site build with
 `LGS1920_CONTACT_TARGET` and mapped to the real recipient only by the backend.

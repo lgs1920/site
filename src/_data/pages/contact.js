@@ -35,7 +35,7 @@ const contact = {
             messagePlaceholder:  'Write your message here',
             consentLabel:        'I agree to be contacted about this request.',
             submitLabel:         'Send message',
-            successMessage:      'Thank you. Your message has been sent.',
+            successMessage:      'Thank you. Your message has been sent. Please check your spam folder if you do not receive a reply.',
             errorMessage:        'Your message could not be sent. Please try again later.',
         },
         privacy: {
@@ -76,7 +76,7 @@ const contact = {
             messagePlaceholder:  'Écrivez votre message ici',
             consentLabel:        'J’accepte d’être recontacté au sujet de cette demande.',
             submitLabel:         'Envoyer le message',
-            successMessage:      'Merci. Votre message a bien été envoyé.',
+            successMessage:      'Merci. Votre message a bien été envoyé. Si vous ne recevez pas de réponse, vérifiez votre dossier de courriers indésirables.',
             errorMessage:        'Votre message n’a pas pu être envoyé. Veuillez réessayer plus tard.',
         },
         privacy: {

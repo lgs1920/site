@@ -18,6 +18,10 @@ test('loads every localized form-mail catalog entry', () => {
             const template = getFormMailTemplate({form, locale})
             assert.match(template, /{{(?:firstName|lastName|email)}}/)
             assert.doesNotMatch(template, /logo-horizontal\.png/)
+
+            const supportTemplate = getFormMailTemplate({form, locale, audience: 'support'})
+            assert.match(supportTemplate, /{{(?:firstName|lastName|email)}}/)
+            assert.doesNotMatch(supportTemplate, /Thank you|Merci d’avoir|Merci de votre intérêt/)
         }
     }
 })
@@ -71,6 +75,10 @@ test('rejects unknown placeholders and unsupported catalog entries before submis
     )
     assert.throws(
         () => getFormMailTemplate({form: 'contact', locale: 'de'}),
+        FormMailCatalogError,
+    )
+    assert.throws(
+        () => getFormMailTemplate({form: 'contact', locale: 'en', audience: 'unknown'}),
         FormMailCatalogError,
     )
 })

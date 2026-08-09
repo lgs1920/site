@@ -23,8 +23,11 @@ const deploymentPlatform = process.env.LGS1920_DEPLOY_PLATFORM || 'development'
 const studioServers = readStudioServers(deploymentPlatform)
 const configuredCountApiUrl = process.env.LGS1920_COUNT_API_URL
 const studioBackendUrl = buildStudioBackendUrl(studioServers)
+const localDevelopmentBackendUrl = deploymentPlatform === 'development'
+    ? 'http://localhost:3333'
+    : studioBackendUrl
 const countApiUrl = configuredCountApiUrl
-    || studioBackendUrl
+    || localDevelopmentBackendUrl
     || (deploymentPlatform === 'development' ? 'http://localhost:3333' : 'https://api.lgs1920.fr')
 const backendApiUrl = process.env.LGS1920_BACKEND_API_URL || countApiUrl
 const registrationApiUrl = process.env.LGS1920_LAUNCH_REGISTRATION_API_URL

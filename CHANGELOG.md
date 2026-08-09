@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-09 — [`aa95a71`](https://github.com/lgs1920/site/commit/aa95a71) — Split form acknowledgement and support templates
+
+- Added localized support templates for contact and launch-registration mail.
+- Sent separate rendered messages to visitors and the Studio mailbox.
+- Kept browser-restored form values aligned with the normal field surface.
+
 ## 2026-08-09 — [`c940d42`](https://github.com/lgs1920/site/commit/c940d42) — Restore native logo rendering
 
 - Restored the native logo rendering without recolor filters.

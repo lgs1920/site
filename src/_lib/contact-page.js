@@ -19,6 +19,11 @@ export const renderContactPage = (pageContent, apiUrl = site.contactApiUrl) => {
     const form = pageContent.form
     const privacy = pageContent.privacy
     const formTemplate = encodeFormMailTemplate(getFormMailTemplate({form: 'contact', locale: pageContent.locale}))
+    const supportFormTemplate = encodeFormMailTemplate(getFormMailTemplate({
+        form:     'contact',
+        locale:   pageContent.locale,
+        audience: 'support',
+    }))
 
     return `
 <section id="contact-form" class="content-section contact-section">
@@ -38,6 +43,7 @@ export const renderContactPage = (pageContent, apiUrl = site.contactApiUrl) => {
             data-contact-form="contact"
             data-contact-locale="${escapeHtml(pageContent.locale)}"
             data-contact-template="${formTemplate}"
+            data-contact-support-template="${supportFormTemplate}"
             data-contact-success="${escapeHtml(form.successMessage)}"
             data-contact-error="${escapeHtml(form.errorMessage)}"
         >

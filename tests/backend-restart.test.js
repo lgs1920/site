@@ -8,6 +8,7 @@ import {
     restartBackend,
     waitForBackend,
 } from '../src/assets/backend-restart.js'
+import {buildStudioBackendUrl} from '../src/_lib/studio-servers.js'
 
 const response = (payload, status = 200) => ({
     ok:     status >= 200 && status < 300,
@@ -17,6 +18,18 @@ const response = (payload, status = 200) => ({
 
 test('builds the backend ping endpoint without duplicate slashes', () => {
     assert.equal(buildBackendPingUrl('https://api.lgs1920.fr/'), 'https://api.lgs1920.fr/ping')
+})
+
+test('builds the production backend URL through the Studio reverse proxy', () => {
+    assert.equal(
+        buildStudioBackendUrl({
+            platform: 'production',
+            backend: {domain: 'api.lgs1920.fr', protocol: 'http', port: 3333},
+            studio:  {domain: 'studio.lgs1920.fr', protocol: 'https', proxy: '/proxy.php?csurl='},
+            site:    {domain: 'lgs1920.fr', protocol: 'https'},
+        }),
+        'https://studio.lgs1920.fr/proxy.php?csurl=http://api.lgs1920.fr:3333',
+    )
 })
 
 test('recognizes only an explicit alive response', () => {
