@@ -38,24 +38,24 @@
 }
 
 html.wa-brand-brown {
-    --wa-color-brand: color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%);
-    --wa-color-brand-05: color-mix(in oklab, var(--wa-color-orange-70) 6%, black 94%);
-    --wa-color-brand-10: color-mix(in oklab, var(--wa-color-orange-70) 12%, black 88%);
-    --wa-color-brand-20: color-mix(in oklab, var(--wa-color-orange-70) 18%, black 82%);
-    --wa-color-brand-30: color-mix(in oklab, var(--wa-color-orange-70) 28%, black 72%);
-    --wa-color-brand-40: color-mix(in oklab, var(--wa-color-orange-70) 40%, black 60%);
-    --wa-color-brand-50: color-mix(in oklab, var(--wa-color-orange-70) 52%, black 48%);
-    --wa-color-brand-60: color-mix(in oklab, var(--wa-color-orange-70) 64%, var(--wa-color-red-60) 36%);
-    --wa-color-brand-70: color-mix(in oklab, var(--wa-color-orange-70) 72%, var(--wa-color-red-60) 28%);
-    --wa-color-brand-80: color-mix(in oklab, var(--wa-color-orange-70) 82%, var(--wa-color-red-60) 18%);
-    --wa-color-brand-90: color-mix(in oklab, var(--wa-color-orange-70) 22%, white 78%);
-    --wa-color-brand-95: color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%);
+    --wa-color-brand: color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%);
+    --wa-color-brand-05: color-mix(in oklab, var(--wa-color-orange) 6%, black 94%);
+    --wa-color-brand-10: color-mix(in oklab, var(--wa-color-orange) 12%, black 88%);
+    --wa-color-brand-20: color-mix(in oklab, var(--wa-color-orange) 18%, black 82%);
+    --wa-color-brand-30: color-mix(in oklab, var(--wa-color-orange) 28%, black 72%);
+    --wa-color-brand-40: color-mix(in oklab, var(--wa-color-orange) 40%, black 60%);
+    --wa-color-brand-50: color-mix(in oklab, var(--wa-color-orange) 52%, black 48%);
+    --wa-color-brand-60: color-mix(in oklab, var(--wa-color-orange) 64%, var(--wa-color-red) 36%);
+    --wa-color-brand-70: color-mix(in oklab, var(--wa-color-orange) 72%, var(--wa-color-red) 28%);
+    --wa-color-brand-80: color-mix(in oklab, var(--wa-color-orange) 82%, var(--wa-color-red) 18%);
+    --wa-color-brand-90: color-mix(in oklab, var(--wa-color-orange) 22%, white 78%);
+    --wa-color-brand-95: color-mix(in oklab, var(--wa-color-orange) 14%, white 86%);
     --wa-color-brand-fill: var(--wa-color-brand);
     --wa-color-brand-fill-normal: var(--wa-color-brand);
-    --wa-color-brand-fill-quiet: color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%);
+    --wa-color-brand-fill-quiet: color-mix(in oklab, var(--wa-color-orange) 14%, white 86%);
     --wa-color-brand-on: #fff;
     --wa-color-brand-on-normal: var(--wa-color-brand-on);
-    --wa-color-brand-on-quiet: color-mix(in oklab, var(--wa-color-orange-70) 18%, white 82%);
+    --wa-color-brand-on-quiet: color-mix(in oklab, var(--wa-color-orange) 18%, white 82%);
     --wa-color-brand-border-normal: color-mix(in oklab, var(--wa-color-brand) 85%, black 12%);
 }
 
@@ -94,7 +94,6 @@ html.wa-dark body {
             color-mix(in oklab, var(--theme-dark-tint) 72%, var(--wa-color-neutral-20) 28%) 0%,
             color-mix(in oklab, var(--theme-dark-tint) 64%, var(--wa-color-neutral-10) 36%) 100%
         );
-    --brand-logo-filter: brightness(0) saturate(100%) invert(58%) sepia(13%) saturate(780%) hue-rotate(353deg) brightness(109%) contrast(88%);
 }
 
 html.wa-light body {
@@ -417,7 +416,7 @@ wa-page.error-site-layout::part(footer) {
 }
 
 .error-topbar {
-    min-height: 4.75rem;
+    min-height: 0;
 }
 
 .error-topbar wa-badge {

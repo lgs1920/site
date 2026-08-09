@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-09 — [`c940d42`](https://github.com/lgs1920/site/commit/c940d42) — Restore native logo rendering
+
+- Restored the native logo rendering without recolor filters.
+- Kept the localized error-page logo markup and aligned brand swatches with the brand palette.
+
 ## 2026-08-08 — [`79db092`](https://github.com/lgs1920/site/commit/79db092) — Add localized cancellation links
 
 - Added clear localized contact and registration email notices.

@@ -17,13 +17,13 @@ const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
 const GUIDE_ASIDE_PLACEMENTS = ['left', 'right']
 const BRAND_SWATCHES = {
     yellow:'var(--wa-color-yellow)',
-    orange:'var(--wa-color-orange-70)',
-    red:   'var(--wa-color-red-60)',
-    pink:  'var(--wa-color-pink-70)',
+    orange:'var(--wa-color-orange)',
+    red:   'var(--wa-color-red)',
+    pink:  'var(--wa-color-pink)',
     purple:'var(--wa-color-purple)',
     blue:  'var(--wa-color-blue)',
-    green: 'var(--wa-color-green-70)',
-    brown: 'color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%)',
+    green: 'var(--wa-color-green)',
+    brown: 'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)',
     gray:  'var(--wa-color-gray)',
 }
 const SEASON_SWATCHES = {
@@ -162,27 +162,27 @@ const syncSeasonSwatches = (season) => {
 }
 
 const setBrownBrandScale = (target) => {
-    const brownBase = 'color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%)'
+    const brownBase = 'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)'
     const scale = {
         '--wa-color-brand': brownBase,
-        '--wa-color-brand-05': 'color-mix(in oklab, var(--wa-color-orange-70) 6%, black 94%)',
-        '--wa-color-brand-10': 'color-mix(in oklab, var(--wa-color-orange-70) 12%, black 88%)',
-        '--wa-color-brand-20': 'color-mix(in oklab, var(--wa-color-orange-70) 18%, black 82%)',
-        '--wa-color-brand-30': 'color-mix(in oklab, var(--wa-color-orange-70) 28%, black 72%)',
-        '--wa-color-brand-40': 'color-mix(in oklab, var(--wa-color-orange-70) 40%, black 60%)',
-        '--wa-color-brand-50': 'color-mix(in oklab, var(--wa-color-orange-70) 52%, black 48%)',
-        '--wa-color-brand-60': 'color-mix(in oklab, var(--wa-color-orange-70) 64%, var(--wa-color-red-60) 36%)',
-        '--wa-color-brand-70': 'color-mix(in oklab, var(--wa-color-orange-70) 72%, var(--wa-color-red-60) 28%)',
-        '--wa-color-brand-80': 'color-mix(in oklab, var(--wa-color-orange-70) 82%, var(--wa-color-red-60) 18%)',
-        '--wa-color-brand-90': 'color-mix(in oklab, var(--wa-color-orange-70) 22%, white 78%)',
-        '--wa-color-brand-95': 'color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%)',
+        '--wa-color-brand-05': 'color-mix(in oklab, var(--wa-color-orange) 6%, black 94%)',
+        '--wa-color-brand-10': 'color-mix(in oklab, var(--wa-color-orange) 12%, black 88%)',
+        '--wa-color-brand-20': 'color-mix(in oklab, var(--wa-color-orange) 18%, black 82%)',
+        '--wa-color-brand-30': 'color-mix(in oklab, var(--wa-color-orange) 28%, black 72%)',
+        '--wa-color-brand-40': 'color-mix(in oklab, var(--wa-color-orange) 40%, black 60%)',
+        '--wa-color-brand-50': 'color-mix(in oklab, var(--wa-color-orange) 52%, black 48%)',
+        '--wa-color-brand-60': 'color-mix(in oklab, var(--wa-color-orange) 64%, var(--wa-color-red) 36%)',
+        '--wa-color-brand-70': 'color-mix(in oklab, var(--wa-color-orange) 72%, var(--wa-color-red) 28%)',
+        '--wa-color-brand-80': 'color-mix(in oklab, var(--wa-color-orange) 82%, var(--wa-color-red) 18%)',
+        '--wa-color-brand-90': 'color-mix(in oklab, var(--wa-color-orange) 22%, white 78%)',
+        '--wa-color-brand-95': 'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
         '--wa-color-brand-fill': 'var(--wa-color-brand)',
         '--wa-color-brand-fill-normal': 'var(--wa-color-brand)',
-        '--wa-color-brand-fill-quiet': 'color-mix(in oklab, var(--wa-color-orange-70) 14%, white 86%)',
+        '--wa-color-brand-fill-quiet': 'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
         '--wa-color-brand-border-normal': 'color-mix(in oklab, var(--wa-color-brand) 85%, black 12%)',
         '--wa-color-brand-on': '#fff',
         '--wa-color-brand-on-normal': 'var(--wa-color-brand-on)',
-        '--wa-color-brand-on-quiet': 'color-mix(in oklab, var(--wa-color-orange-70) 18%, white 82%)',
+        '--wa-color-brand-on-quiet': 'color-mix(in oklab, var(--wa-color-orange) 18%, white 82%)',
     }
 
     Object.entries(scale).forEach(([name, value]) => {

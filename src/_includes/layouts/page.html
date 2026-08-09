@@ -43,7 +43,10 @@ layout: layouts/base.html
         <div class="brand-lockup">
             <p class="brand-kicker">{{ localizedSite.tagline | default: site.tagline }}</p>
             <a id="site-home-link" class="brand-name" href="{{ localizedHomeUrl | default: '/' }}" aria-label="{{ site.name }}">
-                {{ studioLogoResponsiveMarkup }}
+                <picture class="brand-logo-mark brand-logo-picture">
+                    <source media="(max-width: 820px)" srcset="/assets/logo/logo.png">
+                    <img class="brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">
+                </picture>
                 <span class="brand-name-text">
                     <span class="brand-title">LGS1920</span>
                 </span>

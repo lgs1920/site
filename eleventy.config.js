@@ -103,7 +103,6 @@ const copyLogoAssets = () => {
 }
 
 const studioLogoHorizontalMarkup = '<img class="brand-logo-mark brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
-const studioLogoResponsiveMarkup = '<picture class="brand-logo-mark brand-logo-picture"><source media="(max-width: 820px)" srcset="/assets/logo/logo.png"><img class="brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo"></picture>'
 
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
@@ -120,7 +119,6 @@ export default function(eleventyConfig) {
         })
     }
     eleventyConfig.addGlobalData('studioLogoHorizontalMarkup', studioLogoHorizontalMarkup)
-    eleventyConfig.addGlobalData('studioLogoResponsiveMarkup', studioLogoResponsiveMarkup)
     eleventyConfig.addTransform('production-registration-redirect', function(content) {
         if (process.env.LGS1920_DEPLOY_PLATFORM !== 'production') {
             return content

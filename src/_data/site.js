@@ -72,17 +72,17 @@ export default {
         {
             value: 'orange',
             label: 'Orange',
-            swatch:'var(--wa-color-orange-70)',
+            swatch:'var(--wa-color-orange)',
         },
         {
             value: 'red',
             label: 'Red',
-            swatch:'var(--wa-color-red-60)',
+            swatch:'var(--wa-color-red)',
         },
         {
             value: 'pink',
             label: 'Pink',
-            swatch:'var(--wa-color-pink-70)',
+            swatch:'var(--wa-color-pink)',
         },
         {
             value: 'purple',
@@ -97,12 +97,12 @@ export default {
         {
             value: 'green',
             label: 'Green',
-            swatch:'var(--wa-color-green-70)',
+            swatch:'var(--wa-color-green)',
         },
         {
             value: 'brown',
             label: 'Brown',
-            swatch:'color-mix(in oklab, var(--wa-color-orange-70) 62%, var(--wa-color-red-60) 38%)',
+            swatch:'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)',
         },
         {
             value: 'gray',

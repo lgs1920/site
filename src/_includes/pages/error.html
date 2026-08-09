@@ -1,7 +1,10 @@
 <wa-page class="site-layout error-site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
     <header slot="header" class="topbar error-topbar">
-        <a class="brand-name" href="/" aria-label="LGS1920 home">
-            {{ studioLogoHorizontalMarkup }}
+        <a class="brand-name" href="{% if errorLocale == 'fr' %}/fr/{% else %}/{% endif %}" aria-label="LGS1920 home">
+            <picture class="brand-logo-mark brand-logo-picture">
+                <source media="(max-width: 820px)" srcset="/assets/logo/logo.png">
+                <img class="brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">
+            </picture>
         </a>
         <div class="topbar-actions">
             <wa-badge variant="brand" appearance="filled">{{ errorCode }}</wa-badge>
