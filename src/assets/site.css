@@ -415,6 +415,61 @@ wa-page.error-site-layout::part(footer) {
     background: transparent;
 }
 
+wa-page.minimal-page-layout {
+    --menu-width: 0rem;
+    --main-width: 100%;
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    background: transparent;
+}
+
+wa-page.minimal-page-layout::part(base),
+wa-page.minimal-page-layout::part(header),
+wa-page.minimal-page-layout::part(footer) {
+    background: transparent;
+}
+
+.minimal-page-topbar {
+    min-height: 0;
+}
+
+.minimal-page-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--wa-space-m);
+    width: 100%;
+    padding: var(--wa-space-l) var(--site-inline-edge);
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--page-muted);
+    font-size: var(--wa-font-size-s);
+    text-align: center;
+}
+
+.minimal-page-footer a {
+    color: var(--lgs-accent-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.minimal-page-footer a:hover {
+    color: var(--lgs-accent-color);
+    text-decoration: underline;
+}
+
+.minimal-page-footer-copyright {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--wa-space-xs);
+}
+
+.minimal-page-footer-separator {
+    color: var(--page-muted);
+}
+
 .error-topbar {
     min-height: 0;
 }
@@ -1758,7 +1813,8 @@ html.wa-light .hero-backdrop {
     position: absolute;
     right: 1.35rem;
     bottom: 1.35rem;
-    width: 66.666%;
+    width: auto;
+    height: min(66.666%, calc(100% - 2.7rem));
     aspect-ratio: 1;
     content: '';
     background: url('/assets/logo/logo.png') center / contain no-repeat;
@@ -2470,6 +2526,70 @@ wa-dialog::part(footer) {
     grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1fr);
     gap: 1rem;
     align-items: start;
+}
+
+.registration-revoke-hero {
+    min-height: 76svh;
+}
+
+.registration-revoke-hero .hero-shell {
+    align-items: center;
+}
+
+.registration-revoke-panel {
+    position: relative;
+    display: grid;
+    gap: var(--wa-space-l);
+    align-self: center;
+    min-width: 0;
+    overflow: hidden;
+    background: color-mix(in oklab, var(--surface-soft) 76%, transparent);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+.registration-revoke-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.registration-revoke-panel .hero-panel-title {
+    max-width: none;
+}
+
+.registration-revoke-loading {
+    display: grid;
+    gap: var(--wa-space-m);
+    justify-items: start;
+}
+
+.registration-revoke-state {
+    display: grid;
+    gap: var(--wa-space-m);
+    width: 100%;
+}
+
+.registration-revoke-state[hidden] {
+    display: none !important;
+}
+
+.registration-revoke-state p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.registration-revoke-spinner {
+    font-size: 2rem;
+}
+
+.registration-revoke-state wa-callout {
+    width: 100%;
+    padding: var(--wa-space-l);
+    text-align: start;
+}
+
+.registration-revoke-state wa-callout p {
+    margin-top: 0.5rem;
 }
 
 .registration-brand-column {

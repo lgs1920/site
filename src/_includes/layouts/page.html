@@ -591,7 +591,9 @@ layout: layouts/base.html
         </section>
     {% endif %}
 
-    {% unless minimalChrome %}
+    {% if minimalChrome %}
+        {% include "minimal-page-footer.html" %}
+    {% else %}
     <footer slot="footer" class="site-footer">
         <div class="site-footer-main">
             <div class="site-footer-copy">
@@ -629,7 +631,7 @@ layout: layouts/base.html
             {% endif %}
         </p>
     </footer>
-    {% endunless %}
+    {% endif %}
 </wa-page>
 
 {% unless minimalChrome %}

@@ -1,8 +1,6 @@
 import site from '../_data/site.js'
 import {encodeFormMailTemplate, getFormMailTemplate} from './form-mail-catalog.js'
 
-const OFFICIAL_AGPL_URL = 'https://www.gnu.org/licenses/agpl-3.0.html'
-
 const escapeHtml = (value = '') => String(value)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -121,7 +119,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         <h2>${escapeHtml(pageContent.locale === 'fr' ? 'Un consentement clair et limité.' : 'Clear and limited consent.')}</h2>
     </div>
     <p class="section-intro">${linkifyContactEmail(pageContent.privacy)}</p>
-    <p class="registration-license">${escapeHtml(pageContent.licenseReminder)} <a href="${OFFICIAL_AGPL_URL}" target="_blank" rel="noreferrer">${escapeHtml(pageContent.licenseLink)}</a>.</p>
+    <p class="registration-license">${escapeHtml(pageContent.licenseReminder)} <a href="${site.licenseUrl}" target="_blank" rel="noreferrer">${escapeHtml(pageContent.licenseLink)}</a>.</p>
 </section>
 `
 }

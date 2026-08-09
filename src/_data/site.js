@@ -48,6 +48,7 @@ export default {
     tagline:     'Shape route data in the browser',
     description: 'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
     url:         'https://lgs1920.fr',
+    copyrightYears,
     appUrl:      'https://studio.lgs1920.fr',
     countApiUrl,
     backendApiUrl,
@@ -58,6 +59,8 @@ export default {
     repoUrl:     'https://github.com/lgs1920/studio',
     contactEmail:'studio@lgs1920.fr',
     footerNote:  `LGS1920 ${copyrightYears} - GNU AGPL v3 or later`,
+    licenseName: 'GNU AGPL v3 or later',
+    licenseUrl:  'https://www.gnu.org/licenses/agpl-3.0.html',
     buildLink:   {
         label:   'Built with Eleventy',
         short:   'Eleventy',

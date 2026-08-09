@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-09 — [`da4ba04`](https://github.com/lgs1920/site/commit/da4ba04) — Add launch registration cancellation page
+
+- Added localized cancellation pages and single-use link handling for launch registrations.
+- Added minimal page chrome and the associated localized route, API integration, and responsive styles.
+
 ## 2026-08-09 — [`24fc5c7`](https://github.com/lgs1920/site/commit/24fc5c7) — Improve mobile navigation
 
 - Moved the mobile navigation drawer to the right and kept Contact, User guide, and GitHub links in the hamburger menu.

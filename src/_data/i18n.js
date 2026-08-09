@@ -47,6 +47,7 @@ const translatedSitePaths = [
     '/faq/',
     '/contact/',
     '/registration/',
+    '/registration/revoke/',
     '/stats/',
     '/user-guide/',
     '/user-guide/getting-started/first-steps/',
