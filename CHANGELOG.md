@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-09 — [`24fc5c7`](https://github.com/lgs1920/site/commit/24fc5c7) — Improve mobile navigation
+
+- Moved the mobile navigation drawer to the right and kept Contact, User guide, and GitHub links in the hamburger menu.
+
 ## 2026-08-09 — [`b57713a`](https://github.com/lgs1920/site/commit/b57713a) — Fix mobile registration hero height
 
 - Let the two-column registration hero grow with its stacked content on mobile.

@@ -3776,6 +3776,12 @@ wa-card.page-cta-card::part(body) {
     .page-hero h1 {
         max-width: 100%;
     }
+
+    .header-link-user-guide,
+    .header-link-github,
+    #header-contact-link {
+        display: none;
+    }
 }
 
 @media (max-width: 820px) {

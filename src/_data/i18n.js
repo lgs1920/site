@@ -437,6 +437,13 @@ const buildNavigation = (locale = defaultLocale) => [
         variant:'regular',
     },
     {
+        label:   ui[locale].openGithubRepository,
+        url:     'https://github.com/lgs1920/studio',
+        icon:    'github',
+        family:  'brands',
+        external:true,
+    },
+    {
         label:  ui[locale].license,
         icon:   'scale-balanced',
         variant:'regular',
