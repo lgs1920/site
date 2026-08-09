@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-09 — [`b57713a`](https://github.com/lgs1920/site/commit/b57713a) — Fix mobile registration hero height
+
+- Let the two-column registration hero grow with its stacked content on mobile.
+
 ## 2026-08-09 — [`fddc4e8`](https://github.com/lgs1920/site/commit/fddc4e8) — Harmonize form mail signatures
 
 - Standardized English and French courtesy formulas and signatures in visitor acknowledgement templates.

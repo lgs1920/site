@@ -3738,8 +3738,8 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
 
-    .intro-hero {
-        height: 100svh;
+    .registration-hero.intro-hero {
+        height: auto;
         min-height: 100svh;
     }
 
