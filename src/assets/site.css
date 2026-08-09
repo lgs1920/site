@@ -486,9 +486,17 @@ wa-page.error-site-layout::part(footer) {
 
 .error-actions {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
     gap: 0.75rem;
-    margin-top: 0.65rem;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0.65rem auto 0;
+}
+
+.error-actions wa-button {
+    flex: 0 0 auto;
+    width: auto;
 }
 
 .error-visual {
@@ -3880,12 +3888,7 @@ wa-card.page-cta-card::part(body) {
     }
 
     .error-actions {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .error-actions wa-button {
-        width: 100%;
+        align-items: center;
     }
 
     .error-visual {
