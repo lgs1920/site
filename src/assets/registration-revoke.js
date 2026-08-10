@@ -15,6 +15,19 @@ const setState = (page, state, title = '', message = '') => {
     })
 }
 
+const setEmail = (page, email = '') => {
+    const element = page.querySelector('[data-revoke-email]')
+    if (!element) {
+        return
+    }
+
+    const normalizedEmail = typeof email === 'string' ? email.trim() : ''
+    element.textContent = normalizedEmail
+        ? `${page.dataset.revokeEmailLabel || 'Email address:'} ${normalizedEmail}`
+        : ''
+    element.hidden = !normalizedEmail
+}
+
 const REVOCATION_TIMEOUT_MS = 15000
 
 const buildRevokeUrl = (apiUrl, id, token, locale) => {
@@ -61,6 +74,7 @@ const processRevocation = async (page) => {
     const timeout = window.setTimeout(() => controller.abort(), REVOCATION_TIMEOUT_MS)
 
     try {
+        setEmail(page)
         const revokeUrl = getRevokeUrl(page)
         if (!revokeUrl) {
             throw new Error('Revocation URL is invalid')
@@ -75,7 +89,13 @@ const processRevocation = async (page) => {
             throw new Error('Revocation request failed')
         }
 
+        const result = await response.json()
+        if (!result?.success || typeof result.email !== 'string' || !result.email.trim()) {
+            throw new Error('Revocation response is invalid')
+        }
+
         setState(page, 'success', page.dataset.revokeSuccessTitle, page.dataset.revokeSuccessMessage)
+        setEmail(page, result.email)
     }
     catch {
         setState(page, 'invalid', page.dataset.revokeInvalidTitle, page.dataset.revokeInvalidMessage)

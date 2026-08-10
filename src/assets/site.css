@@ -2592,6 +2592,11 @@ wa-dialog::part(footer) {
     margin-top: 0.5rem;
 }
 
+.registration-revoke-email {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
 .registration-brand-column {
     display: grid;
     min-height: 100%;

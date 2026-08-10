@@ -33,6 +33,7 @@ export const renderRevokeRegistrationPage = (pageContent) => `
             data-revoke-api-url="${escapeHtml(site.registrationApiUrl)}"
             data-revoke-locale="${escapeHtml(pageContent.locale)}"
             data-revoke-loading="${escapeHtml(pageContent.loading)}"
+            data-revoke-email-label="${escapeHtml(pageContent.emailLabel)}"
             data-revoke-success-title="${escapeHtml(pageContent.successTitle)}"
             data-revoke-success-message="${escapeHtml(pageContent.successMessage)}"
             data-revoke-invalid-title="${escapeHtml(pageContent.invalidTitle)}"
@@ -58,6 +59,7 @@ export const renderRevokeRegistrationPage = (pageContent) => `
                     <wa-icon slot="icon" variant="regular" name="circle-check"></wa-icon>
                     <strong data-revoke-title></strong>
                     <p data-revoke-message></p>
+                    <p class="registration-revoke-email" data-revoke-email hidden></p>
                 </wa-callout>
             </div>
 
