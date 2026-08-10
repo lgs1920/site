@@ -7,9 +7,9 @@ Merci de votre intérêt pour LGS1920 Studio. Votre inscription a bien été enr
 Nom : {{firstName}} {{lastName}}
 E-mail : {{email}}
 
-Pour annuler votre inscription, veuillez cliquer sur le lien ci-dessous.
+Si vous n'êtes pas à l'origine de cette demande, vous pouvez l'[annuler ici]({{revoke-url}}).
 
-[Annuler mon inscription]({{revoke-url}})
+
 
 Cordialement,
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 — [`8eb61f3`](https://github.com/lgs1920/site/commit/8eb61f3) — Clarify registration cancellation email
+
+- Clarified the localized cancellation instructions in the English and French launch-registration email templates.
+
 ## 2026-08-09 — [`16f304a`](https://github.com/lgs1920/site/commit/16f304a) — Remove registration license notice
 
 - Removed the GNU AGPL reminder and license link from the English and French registration pages.
