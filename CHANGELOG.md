@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-11 — [`d5a942f`](https://github.com/lgs1920/site/commit/d5a942f) — Add launch-registration confirmation flow
+
+- Added bilingual confirmation pages and the two-step confirmation API rendering flow.
+- Added pending-registration resend handling, staged localized mail catalogs, and confirmation templates.
+
 ## 2026-08-11 — [`4287492`](https://github.com/lgs1920/site/commit/4287492) — Document launch-registration confirmation flow
 
 - Documented the Site-owned localized mail catalog and the transient rendered-message contract for launch-registration requests.

@@ -2,6 +2,7 @@ import i18n from '../i18n.js'
 import { getGuidePageDefinition } from '../guide-pages.js'
 import home from './home.js'
 import registration from './registration.js'
+import confirmRegistration from './confirm-registration.js'
 import revokeRegistration from './revoke-registration.js'
 import contact from './contact.js'
 import faq from './faq.js'
@@ -14,6 +15,7 @@ const pageDefinitionsByPath = {
     '/faq/':                          faq,
     '/contact/':                      contact,
     '/registration/':                 registration,
+    '/registration/confirm/':         confirmRegistration,
     '/registration/revoke/':          revokeRegistration,
     '/stats/':                        stats,
     '/changelog/':                    changelog,
@@ -35,6 +37,7 @@ export default {
     home,
     contact,
     registration,
+    confirmRegistration,
     revokeRegistration,
     faq,
     legal,

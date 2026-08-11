@@ -69,6 +69,8 @@ const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set([
     '/404.html',
     '/fr/403.html',
     '/fr/404.html',
+    '/registration/confirm/',
+    '/fr/registration/confirm/',
     '/registration/revoke/',
     '/fr/registration/revoke/',
 ])

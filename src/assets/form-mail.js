@@ -1,6 +1,5 @@
 export const FORM_MAIL_PLACEHOLDERS = Object.freeze({
-    contact:             Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email', 'subject', 'message']),
-    'launch-registration': Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email', 'revoke-url']),
+    contact: Object.freeze(['form', 'locale', 'firstName', 'lastName', 'email', 'subject', 'message']),
 })
 
 const MAX_RENDERED_MESSAGE_LENGTH = 20_000
@@ -57,8 +56,12 @@ const getPlaceholders = (template) => [...template.matchAll(ANY_PLACEHOLDER_PATT
  * @returns {string} Bounded Markdown message without unresolved placeholders.
  * @throws {Error} If the template or values do not satisfy the site contract.
  */
-export const renderFormMail = ({template, form, locale, values = {}} = {}) => {
-    const allowedPlaceholders = FORM_MAIL_PLACEHOLDERS[form]
+export const renderFormMail = ({template, form, locale, stage = 'initial', values = {}} = {}) => {
+    const allowedPlaceholders = form === 'launch-registration'
+        ? stage === 'confirmed'
+            ? ['form', 'locale', 'firstName', 'lastName', 'email', 'revoke-url']
+            : ['form', 'locale', 'firstName', 'lastName', 'email', 'confirm-url']
+        : FORM_MAIL_PLACEHOLDERS[form]
     if (!allowedPlaceholders) {
         throw new Error('Unsupported form mail form')
     }
@@ -79,7 +82,7 @@ export const renderFormMail = ({template, form, locale, values = {}} = {}) => {
 
     let renderedMessage = template
     for (const name of allowedPlaceholders) {
-        if (name === 'revoke-url') {
+        if (name === 'confirm-url' || name === 'revoke-url') {
             continue
         }
 
@@ -88,9 +91,12 @@ export const renderFormMail = ({template, form, locale, values = {}} = {}) => {
     }
 
     const unresolvedPlaceholders = renderedMessage.match(ANY_PLACEHOLDER_PATTERN) ?? []
-    const onlyAllowedDeferredPlaceholders = form === 'launch-registration'
+    const deferredPlaceholder = form === 'launch-registration'
+        ? stage === 'confirmed' ? '{{revoke-url}}' : '{{confirm-url}}'
+        : null
+    const onlyAllowedDeferredPlaceholders = Boolean(deferredPlaceholder)
         && unresolvedPlaceholders.length > 0
-        && unresolvedPlaceholders.every(placeholder => placeholder === '{{revoke-url}}')
+        && unresolvedPlaceholders.every(placeholder => placeholder === deferredPlaceholder)
     if (UNRESOLVED_PLACEHOLDER_PATTERN.test(renderedMessage) && !onlyAllowedDeferredPlaceholders) {
         throw new Error('Form mail template contains unresolved placeholders')
     }

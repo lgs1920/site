@@ -48,10 +48,31 @@ test('renders the launch-registration catalog with only its supported fields', (
     })
 
     assert.match(rendered, /Nom : Ada Lovelace/)
-    assert.match(rendered, /Pour annuler votre inscription, veuillez cliquer sur le lien ci-dessous/)
-    assert.match(rendered, /\[Annuler mon inscription\]\(\{\{revoke-url\}\}\)/)
-    assert.doesNotMatch(rendered, /{{(?!revoke-url}})[\s\S]*?}}/)
+    assert.match(rendered, /Votre demande d’inscription a bien été enregistrée/)
+    assert.match(rendered, /Nous vous avons envoyé cet e-mail/)
+    assert.match(rendered, /\[Confirmer mon inscription\]\(\{\{confirm-url\}\}\)/)
+    assert.doesNotMatch(rendered, /{{(?!confirm-url}})[\s\S]*?}}/)
     assert.doesNotMatch(rendered, /logo-horizontal\.png/)
+})
+
+test('renders the confirmed launch-registration catalogs with a deferred cancellation URL', () => {
+    const template = getFormMailTemplate({form: 'launch-registration', locale: 'fr', stage: 'confirmed'})
+    const supportTemplate = getFormMailTemplate({form: 'launch-registration', locale: 'fr', audience: 'support', stage: 'confirmed'})
+    const rendered = renderFormMail({
+        template,
+        form:    'launch-registration',
+        locale:  'fr',
+        stage:   'confirmed',
+        values:  contactValues,
+    })
+
+    assert.match(rendered, /Votre inscription au lancement de LGS1920 Studio est maintenant confirmée/)
+    assert.match(rendered, /\[Demander l’annulation de l’inscription\]\(\{\{revoke-url\}\}\)/)
+    assert.match(supportTemplate, /Un visiteur a confirmé son inscription/)
+    assert.throws(
+        () => renderFormMail({template, form: 'launch-registration', locale: 'fr', values: contactValues}),
+        /Unknown form mail placeholder/,
+    )
 })
 
 test('escapes Markdown control syntax while preserving a bounded rendered message', () => {

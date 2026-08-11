@@ -2528,15 +2528,18 @@ wa-dialog::part(footer) {
     align-items: start;
 }
 
-.registration-revoke-hero {
+.registration-revoke-hero,
+.registration-confirm-hero {
     min-height: 76svh;
 }
 
-.registration-revoke-hero .hero-shell {
+.registration-revoke-hero .hero-shell,
+.registration-confirm-hero .hero-shell {
     align-items: center;
 }
 
-.registration-revoke-panel {
+.registration-revoke-panel,
+.registration-confirm-panel {
     position: relative;
     display: grid;
     gap: var(--wa-space-l);
@@ -2548,53 +2551,67 @@ wa-dialog::part(footer) {
     backdrop-filter: blur(3px);
 }
 
-.registration-revoke-panel > * {
+.registration-revoke-panel > *,
+.registration-confirm-panel > * {
     position: relative;
     z-index: 1;
 }
 
-.registration-revoke-panel .hero-panel-title {
+.registration-revoke-panel .hero-panel-title,
+.registration-confirm-panel .hero-panel-title {
     max-width: none;
 }
 
-.registration-revoke-loading {
+.registration-revoke-loading,
+.registration-confirm-loading {
     display: grid;
     gap: var(--wa-space-m);
     justify-items: start;
 }
 
-.registration-revoke-state {
+.registration-revoke-state,
+.registration-confirm-state {
     display: grid;
     gap: var(--wa-space-m);
     width: 100%;
 }
 
-.registration-revoke-state[hidden] {
+.registration-revoke-state[hidden],
+.registration-confirm-state[hidden] {
     display: none !important;
 }
 
-.registration-revoke-state p {
+.registration-revoke-state p,
+.registration-confirm-state p {
     margin: 0;
     line-height: 1.6;
 }
 
-.registration-revoke-spinner {
+.registration-revoke-spinner,
+.registration-confirm-spinner {
     font-size: 2rem;
 }
 
-.registration-revoke-state wa-callout {
+.registration-revoke-state wa-callout,
+.registration-confirm-state wa-callout {
     width: 100%;
     padding: var(--wa-space-l);
     text-align: start;
 }
 
-.registration-revoke-state wa-callout p {
+.registration-revoke-state wa-callout p,
+.registration-confirm-state wa-callout p {
     margin-top: 0.5rem;
 }
 
-.registration-revoke-email {
+.registration-revoke-email,
+.registration-confirm-email {
     font-weight: 600;
     overflow-wrap: anywhere;
+}
+
+.registration-confirm-warning {
+    color: var(--page-muted);
 }
 
 .registration-brand-column {
@@ -2678,6 +2695,10 @@ wa-card.registration-card::part(body) {
 
 .registration-status.is-visible {
     opacity: 1;
+}
+
+.registration-resend[hidden] {
+    display: none !important;
 }
 
 .registration-license {

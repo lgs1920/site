@@ -87,8 +87,17 @@
         <script>
             (() => {
                 const currentLocale = '{{ locale | default: "en" }}'
-                const englishUrl = '{{ alternateLocales.en }}'
-                const frenchUrl = '{{ alternateLocales.fr }}'
+                const preserveCurrentSearch = (targetUrl) => {
+                    if (!targetUrl || !window.location.search) {
+                        return targetUrl
+                    }
+
+                    const target = new URL(targetUrl, window.location.origin)
+                    target.search = window.location.search
+                    return `${target.pathname}${target.search}${target.hash}`
+                }
+                const englishUrl = preserveCurrentSearch('{{ alternateLocales.en }}')
+                const frenchUrl = preserveCurrentSearch('{{ alternateLocales.fr }}')
                 const preferredLocale = localStorage.getItem('preferredLocale')
                 const browserLocale = (navigator.language || navigator.userLanguage || '').toLowerCase()
                 const targetLocale = preferredLocale || (browserLocale.startsWith('fr') ? 'fr' : 'en')

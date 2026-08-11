@@ -58,6 +58,13 @@ export const renderLaunchRegistrationPage = (pageContent) => {
                 data-registration-support-template="${supportFormTemplate}"
                 data-registration-success="${escapeHtml(form.successMessage)}"
                 data-registration-duplicate="${escapeHtml(form.duplicateMessage)}"
+                data-registration-pending="${escapeHtml(form.pendingMessage)}"
+                data-registration-resend-label="${escapeHtml(form.resendButtonLabel)}"
+                data-registration-resend-success="${escapeHtml(form.resendSuccessMessage)}"
+                data-registration-resend-error="${escapeHtml(form.resendErrorMessage)}"
+                data-registration-resend-rate-limit="${escapeHtml(form.resendRateLimitMessage)}"
+                data-registration-delivery-error="${escapeHtml(form.deliveryErrorMessage)}"
+                data-registration-rate-limit="${escapeHtml(form.rateLimitMessage)}"
                 data-registration-error="${escapeHtml(form.errorMessage)}"
             >
                 <div class="registration-form-grid">
@@ -103,8 +110,16 @@ export const renderLaunchRegistrationPage = (pageContent) => {
                 </div>
 
                 <wa-callout class="registration-status" data-registration-status variant="success" hidden aria-live="polite">
-                    <wa-icon slot="icon" variant="regular" name="circle-check"></wa-icon>
-                    <span data-registration-status-text></span>
+                    <wa-icon slot="icon" variant="regular" name="circle-check" data-registration-status-icon></wa-icon>
+                    <div class="wa-split">
+                        <span data-registration-status-text></span>
+                        <div class="registration-resend wa-cluster wa-justify-content-end" data-registration-resend hidden>
+                            <wa-button type="button" appearance="outlined" variant="brand" data-registration-resend-button>
+                                <wa-icon slot="start" variant="regular" name="envelope"></wa-icon>
+                                ${escapeHtml(form.resendButtonLabel)}
+                            </wa-button>
+                        </div>
+                    </div>
                 </wa-callout>
             </form>
         </wa-card>

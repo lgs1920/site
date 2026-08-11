@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url'
 export const FORM_MAIL_FORMS = Object.freeze(['contact', 'launch-registration'])
 export const FORM_MAIL_LOCALES = Object.freeze(['en', 'fr'])
 export const FORM_MAIL_AUDIENCES = Object.freeze(['acknowledgement', 'support'])
+export const FORM_MAIL_STAGES = Object.freeze(['initial', 'confirmed'])
 
 const defaultTemplateDirectory = fileURLToPath(new URL('../_includes/form-mail', import.meta.url))
 
@@ -43,6 +44,15 @@ const normalizeAudience = (audience) => {
     return normalized
 }
 
+const normalizeStage = (stage) => {
+    const normalized = typeof stage === 'string' ? stage.trim().toLowerCase() : 'initial'
+    if (!FORM_MAIL_STAGES.includes(normalized)) {
+        throw new FormMailCatalogError('Unsupported form mail catalog stage')
+    }
+
+    return normalized
+}
+
 /**
  * Read the Markdown template for one form and locale.
  *
@@ -50,17 +60,23 @@ const normalizeAudience = (audience) => {
  * @param {string} options.form Form identifier.
  * @param {string} options.locale Supported locale.
  * @param {'acknowledgement'|'support'} [options.audience='acknowledgement'] Message recipient audience.
+ * @param {'initial'|'confirmed'} [options.stage='initial'] Launch-registration delivery stage.
  * @param {string} [options.templateDirectory] Catalog root used by tests or builds.
  * @returns {string} Markdown template.
  * @throws {FormMailCatalogError} If the catalog entry is unavailable.
  */
-export const getFormMailTemplate = ({form, locale, audience = 'acknowledgement', templateDirectory = defaultTemplateDirectory} = {}) => {
+export const getFormMailTemplate = ({form, locale, audience = 'acknowledgement', stage = 'initial', templateDirectory = defaultTemplateDirectory} = {}) => {
     const normalizedForm = normalizeForm(form)
     const normalizedLocale = normalizeLocale(locale)
     const normalizedAudience = normalizeAudience(audience)
-    const templatePath = normalizedAudience === 'support'
-        ? path.join(templateDirectory, 'support', normalizedForm, `${normalizedLocale}.md`)
-        : path.join(templateDirectory, normalizedForm, `${normalizedLocale}.md`)
+    const normalizedStage = normalizeStage(stage)
+    const templatePath = normalizedStage === 'confirmed'
+        ? normalizedAudience === 'support'
+            ? path.join(templateDirectory, 'support', normalizedForm, 'confirmed', `${normalizedLocale}.md`)
+            : path.join(templateDirectory, normalizedForm, 'confirmed', `${normalizedLocale}.md`)
+        : normalizedAudience === 'support'
+            ? path.join(templateDirectory, 'support', normalizedForm, `${normalizedLocale}.md`)
+            : path.join(templateDirectory, normalizedForm, `${normalizedLocale}.md`)
 
     let template
     try {
