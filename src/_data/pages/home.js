@@ -9,6 +9,26 @@ const home = {
             className:'intro-hero',
             title:    'Turn outdoors adventures into shared stories.',
             lead:     'Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.',
+            routeAnimation: {
+                ariaLabel: 'Animated dotted route with three equally spaced points of interest.',
+                pois:       [
+                    {
+                        id:       'ridge-viewpoint',
+                        position: '0.25',
+                        label:    'POI 01',
+                    },
+                    {
+                        id:       'forest-crossing',
+                        position: '0.50',
+                        label:    'POI 02',
+                    },
+                    {
+                        id:       'summit-passage',
+                        position: '0.75',
+                        label:    'POI 03',
+                    },
+                ],
+            },
             actions:  [
                 {
                     label:     'Studio',
@@ -203,6 +223,26 @@ const home = {
             className:'intro-hero',
             title:    'Transformez vos aventures outdoor en histoires à partager.',
             lead:     'Marchez, courrez ou roulez, puis importez, éditez et partagez des vidéos de vos parcours sans quitter votre navigateur*',
+            routeAnimation: {
+                ariaLabel: 'Trace animée en pointillés avec trois points d’intérêt équidistants.',
+                pois:       [
+                    {
+                        id:       'belvedere',
+                        position: '0.25',
+                        label:    'POI 01',
+                    },
+                    {
+                        id:       'traversee-foret',
+                        position: '0.50',
+                        label:    'POI 02',
+                    },
+                    {
+                        id:       'passage-sommet',
+                        position: '0.75',
+                        label:    'POI 03',
+                    },
+                ],
+            },
             actions:  [
                 {
                     label:     'Studio',

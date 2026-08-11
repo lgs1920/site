@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-11 — [`a9aa253`](https://github.com/lgs1920/site/commit/a9aa253) — Add animated neon hero route
+
+- Added a bilingual homepage route animation with a moving marker, POI overlays, and a non-WebGL fallback.
+- Tuned the beginning opacity reveal, seasonal colors, responsive styling, and narrower neon trail.
+
 ## 2026-08-11 — [`d5a942f`](https://github.com/lgs1920/site/commit/d5a942f) — Add launch-registration confirmation flow
 
 - Added bilingual confirmation pages and the two-step confirmation API rendering flow.

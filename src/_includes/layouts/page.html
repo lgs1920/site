@@ -300,6 +300,26 @@ layout: layouts/base.html
 
         <div class="hero-backdrop" aria-hidden="true"></div>
 
+        {% if page_hero.routeAnimation %}
+            <div class="hero-route-layer" data-hero-route>
+                <canvas class="hero-route-canvas" data-hero-route-canvas aria-hidden="true"></canvas>
+
+                <svg class="hero-route-fallback" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M 5 74 C 18 14, 30 88, 45 52 S 72 7, 95 28"></path>
+                </svg>
+
+                <p class="hero-route-description hero-route-sr-only">{{ page_hero.routeAnimation.ariaLabel }}</p>
+
+                <div class="hero-route-annotations">
+                    {% for poi in page_hero.routeAnimation.pois %}
+                        <div class="hero-route-poi" data-hero-route-poi data-route-point="{{ poi.position }}" data-route-poi-index="{{ forloop.index0 }}" role="img" aria-label="{{ poi.label }}">
+                            <wa-icon variant="solid" name="location-dot" aria-hidden="true"></wa-icon>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
         <div class="hero-shell">
             <div class="hero-copy">
                 {% if page_hero.badge %}
