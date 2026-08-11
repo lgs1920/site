@@ -62,15 +62,19 @@ on the backend. The form uses `LGS1920_LAUNCH_REGISTRATION_API_URL` when it is
 set, then falls back to the legacy `LGS1920_REGISTRATION_API_URL`, and finally
 uses the same API URL as the statistics feature.
 
-The backend normalizes registration email addresses and accepts a duplicate
-submission without creating a second record. It also limits repeated
-registration requests and may return HTTP `429`; the form keeps the failure
-message generic.
+The backend normalizes registration email addresses and keeps new submissions
+pending until the visitor confirms the link sent by email. If the address is
+already pending, the form explains that a confirmation email is waiting and
+offers a resend action. Confirmed registrations are then moved to the active
+registration file. The backend also limits repeated registration requests and
+may return HTTP `429`; the form keeps the failure message generic.
 
 Each registration request includes `form: "launch-registration"`, its page
-locale, the opaque contact target key, and a rendered Markdown message selected
-from the site catalog. The backend validates the metadata and sends the same
-rendered message to the configured Studio mailbox.
+locale, the opaque contact target key, and a rendered Markdown confirmation
+message selected from the site catalog. The backend validates the metadata,
+injects the single-use confirmation URL, and sends the message to the visitor.
+After confirmation it sends the final visitor acknowledgement and the Studio
+notification.
 
 ## Public contact form
 

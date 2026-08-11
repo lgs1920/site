@@ -8,6 +8,10 @@ description: Maintain the LGS1920 English and French public contact form safely,
 Use this skill for the public contact experience in the Eleventy site. The site
 collects and submits a message; it does not own SMTP configuration and must never
 contain credentials or recipient email addresses intended to remain server-side.
+The Site is also the sole owner of launch-registration mail catalogs. The backend
+does not provide launch-registration templates or fallback messages: the Site
+must render fresh confirmation, resend, post-confirmation, and Studio-notification
+bodies for each corresponding request.
 
 ## Workflow
 
@@ -26,6 +30,9 @@ contain credentials or recipient email addresses intended to remain server-side.
 4. Keep field limits, explicit consent, honeypot input, disabled-submit behavior,
    generic failure messaging, and the backend's 429 response behavior intact.
    Do not expose backend error details or recipient mappings in the UI.
+   Launch-registration rendered bodies are transient and must be sent again for
+   resend and confirmation actions; never rely on backend persistence or a
+   backend template fallback.
 5. Update `README.md` or the owning documentation when the public contract or
    environment variable changes. Document opaque examples such as
    `LGS1920_CONTACT_TARGET_C4P7Z2`, never the mapped email address.

@@ -21,9 +21,13 @@ Work from `/home/christian/devs/assets/lgs1920/site` and inspect the existing da
 1. Trace the data from source file to layout before editing.
 2. Prefer a shared data/helper change over duplicated template logic.
 3. Preserve locale fallback and canonical URL behavior.
-4. Use `apply_patch` and keep changes scoped.
-5. Run `bun run content:check`.
-6. Run `bun run build` and inspect representative English and French HTML.
+4. Keep launch-registration mail templates in the Site catalog. The backend must
+   not contain or load launch-registration template fallbacks; render fresh
+   confirmation, resend, post-confirmation, and support messages at the point of
+   each API request.
+5. Use `apply_patch` and keep changes scoped.
+6. Run `bun run content:check`.
+7. Run `bun run build` and inspect representative English and French HTML.
 
 ## Build dependency
 

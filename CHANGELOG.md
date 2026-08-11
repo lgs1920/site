@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-11 — [`4287492`](https://github.com/lgs1920/site/commit/4287492) — Document launch-registration confirmation flow
+
+- Documented the Site-owned localized mail catalog and the transient rendered-message contract for launch-registration requests.
+- Updated the project README and maintenance guidance for pending, confirmed, resend, and support messages.
+
 ## 2026-08-10 — [`8eb61f3`](https://github.com/lgs1920/site/commit/8eb61f3) — Clarify registration cancellation email
 
 - Clarified the localized cancellation instructions in the English and French launch-registration email templates.
