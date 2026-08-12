@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-12 — [`9529caa`](https://github.com/lgs1920/site/commit/9529caa) — Add English credits pages
+
+- Added a build-time aggregation of the Studio attribution Markdown files at `/credits/`.
+- Added a separate `/credits/open-source/` page and linked Credits from the site footer.
+
 ## 2026-08-12 — [`2a7c756`](https://github.com/lgs1920/site/commit/2a7c756) — Improve footer navigation
 
 - Added localized Credits links to the site footer.

@@ -9,6 +9,7 @@ import faq from './faq.js'
 import stats from './stats.js'
 import legal from './legal.js'
 import changelog from './changelog.js'
+import credits from './credits.js'
 
 const pageDefinitionsByPath = {
     '/':                              home,
@@ -23,6 +24,8 @@ const pageDefinitionsByPath = {
     '/license/':                      legal.license,
     '/contributor-license-agreement/':legal.cla,
     '/dependencies/':                 legal.dependencies,
+    '/credits/':                       credits.general,
+    '/credits/open-source/':           credits.openSource,
 }
 
 export const getPageDefinition = (url = '') => {
@@ -41,6 +44,7 @@ export default {
     revokeRegistration,
     faq,
     legal,
+    credits,
     changelog,
     stats,
     byPath: getPageDefinition,

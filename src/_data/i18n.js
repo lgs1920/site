@@ -333,7 +333,7 @@ const ui = {
         page:                  'Page',
         openGithubRepository:  'Ouvrir le dépôt GitHub',
         changelog:             'Historique',
-        credits:               'Crédits',
+        credits:               'Credits',
         stats:                 'Statistiques',
         license:               'Licence',
         licensing:             'Licences',
@@ -514,8 +514,7 @@ const buildLegalLinks = (locale = defaultLocale) => [
     },
     {
         label:   ui[locale].credits,
-        url:     'https://github.com/lgs1920/studio/tree/main/src/assets/credits',
-        external:true,
+        url:     '/credits/',
     },
     {
         label:ui[locale].licensing,
