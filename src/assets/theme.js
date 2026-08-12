@@ -1,5 +1,13 @@
-import desktopVideo from './media/trekking-hero-desktop.mp4'
-import mobileVideo from './media/trekking-hero-mobile.mp4'
+import {bannerMediaCatalog} from './banner-media-catalog.js'
+import {
+    BANNER_MEDIA_QUERY_PARAM,
+    consumeBannerMedia,
+    consumeNextBannerMedia,
+    getBannerMediaFallback,
+    getBannerMediaSource,
+    selectBannerMedia,
+    storeBannerMedia,
+} from './banner-media-state.js'
 
 const THEME_STORAGE_KEY = 'theme'
 const SEASON_STORAGE_KEY = 'seasonTheme'
@@ -509,30 +517,196 @@ const setupGuideAsidePlacement = () => {
     })
 }
 
-const setupHeroVideo = () => {
-    const video = document.querySelector('[data-hero-video]')
+const preloadBannerMedia = (choice, isMobile = heroViewport.matches) => {
+    const source = getBannerMediaSource(choice, isMobile)
 
-    if (!video) {
+    if (!source) {
         return
     }
 
-    const syncVideoSource = () => {
-        const nextSrc = heroViewport.matches ? mobileVideo : desktopVideo
+    const existingPreload = document.querySelector(`[data-banner-media-preload="${choice.id}"]`)
 
-        if (!nextSrc || video.dataset.activeSrc === nextSrc) {
+    if (existingPreload) {
+        return
+    }
+
+    const preload = document.createElement('link')
+
+    preload.rel = 'preload'
+    preload.as = choice.type === 'image' ? 'image' : 'video'
+    preload.href = source
+    preload.dataset.bannerMediaPreload = choice.id
+    preload.fetchPriority = 'high'
+    document.head.append(preload)
+
+    const fallbackImage = getBannerMediaFallback(choice, isMobile)
+
+    if (choice.type === 'video' && fallbackImage) {
+        const fallbackPreload = document.createElement('link')
+
+        fallbackPreload.rel = 'preload'
+        fallbackPreload.as = 'image'
+        fallbackPreload.href = fallbackImage
+        fallbackPreload.dataset.bannerMediaPreload = `${choice.id}-fallback`
+        fallbackPreload.fetchPriority = 'high'
+        document.head.append(fallbackPreload)
+    }
+}
+
+const setupBannerMediaNavigation = () => {
+    document.addEventListener('click', (event) => {
+        if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
             return
         }
 
-        video.src = nextSrc
-        video.dataset.activeSrc = nextSrc
+        const link = event.target.closest?.('a[href], wa-button[href]')
+        const heroMedia = document.querySelector('[data-hero-media]')
+        const href = link?.getAttribute('href')
+
+        if (!link || !heroMedia || !href || link.hasAttribute('download')) {
+            return
+        }
+
+        const destination = new URL(href, window.location.href)
+
+        if (destination.origin !== window.location.origin || destination.protocol !== window.location.protocol) {
+            return
+        }
+
+        if (destination.pathname === window.location.pathname && destination.hash && !destination.search) {
+            return
+        }
+
+        const choice = consumeNextBannerMedia(
+            bannerMediaCatalog,
+            heroMedia.dataset.heroMediaKey,
+            undefined,
+            Math.random,
+            heroMedia.dataset.bannerMediaId,
+        )
+
+        if (!choice) {
+            return
+        }
+
+        preloadBannerMedia(choice)
+        storeBannerMedia(choice.id)
+
+        if (link.localName === 'wa-button') {
+            event.preventDefault()
+            event.stopImmediatePropagation()
+            window.location.assign(href)
+            return
+        }
+    }, true)
+}
+
+const consumeLegacyBannerMediaQuery = () => {
+    const url = new URL(window.location.href)
+    const mediaId = url.searchParams.get(BANNER_MEDIA_QUERY_PARAM)
+
+    if (!mediaId) {
+        return null
+    }
+
+    url.searchParams.delete(BANNER_MEDIA_QUERY_PARAM)
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+    return mediaId
+}
+
+const syncHeroMediaCredit = (choice) => {
+    const creditElement = document.querySelector('[data-hero-media-credit]')
+    const link = creditElement?.querySelector('[data-hero-media-credit-link]')
+    const credit = choice?.credit
+
+    if (!creditElement || !link || !credit?.label || !credit.url) {
+        if (creditElement) {
+            creditElement.hidden = true
+        }
+
+        return
+    }
+
+    link.textContent = credit.label
+    link.href = credit.url
+    creditElement.hidden = false
+}
+
+const setupHeroMedia = () => {
+    const mediaElement = document.querySelector('[data-hero-media]')
+
+    if (!mediaElement) {
+        return
+    }
+
+    const video = mediaElement.querySelector('[data-hero-video]')
+    const fallbackElement = mediaElement.querySelector('[data-hero-media-fallback]')
+    const catalogKey = mediaElement.dataset.heroMediaKey || 'default'
+    const selectedId = consumeBannerMedia() || consumeLegacyBannerMediaQuery()
+    const choice = selectedId
+        ? selectBannerMedia(bannerMediaCatalog, catalogKey, selectedId)
+        : consumeNextBannerMedia(bannerMediaCatalog, catalogKey)
+    let fallbackImage = getBannerMediaFallback(choice, heroViewport.matches)
+    let activeSource = null
+
+    mediaElement.dataset.bannerMediaId = choice?.id || ''
+    syncHeroMediaCredit(choice)
+
+    const applyFallback = () => {
+        mediaElement.classList.add('is-media-fallback')
+        mediaElement.classList.remove('is-image-media', 'is-video-ready')
+
+        if (fallbackElement) {
+            fallbackElement.src = fallbackImage || ''
+        }
+    }
+
+    const applyFallbackImage = (source) => {
+        if (fallbackElement) {
+            fallbackElement.src = source || ''
+            return
+        }
+
+        mediaElement.style.backgroundImage = source
+            ? `url(${JSON.stringify(source)})`
+            : ''
+    }
+
+    const syncMediaSource = () => {
+        const source = getBannerMediaSource(choice, heroViewport.matches)
+        fallbackImage = getBannerMediaFallback(choice, heroViewport.matches)
+        const displaySource = !video || mediaElement.dataset.heroVideoEnabled === 'false'
+            ? fallbackImage
+            : source
+
+        if (!displaySource || displaySource === activeSource) {
+            return
+        }
+
+        activeSource = displaySource
+
+        if (!video || choice.type !== 'video' || mediaElement.dataset.heroVideoEnabled === 'false') {
+            mediaElement.classList.add('is-image-media')
+            mediaElement.classList.remove('is-media-fallback', 'is-video-ready')
+            applyFallbackImage(displaySource)
+            return
+        }
+
+        mediaElement.classList.remove('is-image-media', 'is-media-fallback', 'is-video-ready')
+        applyFallbackImage(fallbackImage)
+        video.poster = fallbackImage || ''
+        video.src = source
         video.load()
 
         const playback = video.play()
         playback?.catch(() => {})
     }
 
-    syncVideoSource()
-    heroViewport.addEventListener('change', syncVideoSource)
+    video?.addEventListener('error', applyFallback)
+    video?.addEventListener('canplay', () => mediaElement.classList.add('is-video-ready'))
+    preloadBannerMedia(choice)
+    syncMediaSource()
+    heroViewport.addEventListener('change', syncMediaSource)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -588,7 +762,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    setupHeroVideo()
+    setupHeroMedia()
+    setupBannerMediaNavigation()
     setupNavigationScrollbars(page)
     setupPageNavigation()
     setupGuideAsidePlacement()
