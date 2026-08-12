@@ -493,7 +493,9 @@ const setupHeroRoute = async () => {
             const elapsed = animationStartedAt === null
                 ? 0
                 : (timestamp - animationStartedAt) % ROUTE_DURATION
-            const progress = reducedMotionQuery.matches ? 1 : elapsed / ROUTE_DURATION
+            const progress = reducedMotionQuery.matches
+                ? 1
+                : Math.max(0, Math.min(1, elapsed / ROUTE_DURATION))
             const reachedAll = reducedMotionQuery.matches
 
             updateTrail(progress)
@@ -532,7 +534,11 @@ const setupHeroRoute = async () => {
         }
 
         let paletteSignature = `${root.dataset.brandColor || ''}:${root.dataset.seasonTheme || ''}`
-        const paletteObserver = new MutationObserver(() => {
+        const restartRoute = () => {
+            rebuildRoute()
+            render(0)
+        }
+        const syncPalette = () => {
             const nextPaletteSignature = `${root.dataset.brandColor || ''}:${root.dataset.seasonTheme || ''}`
 
             if (nextPaletteSignature === paletteSignature) {
@@ -540,9 +546,9 @@ const setupHeroRoute = async () => {
             }
 
             paletteSignature = nextPaletteSignature
-            rebuildRoute()
-            render(performance.now())
-        })
+            restartRoute()
+        }
+        const paletteObserver = new MutationObserver(syncPalette)
 
         paletteObserver.observe(root, {
             attributes:     true,
