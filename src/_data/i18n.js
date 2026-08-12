@@ -270,6 +270,7 @@ const ui = {
         page:                  'Page',
         openGithubRepository:  'Open GitHub repository',
         changelog:             'Changelog',
+        credits:               'Credits',
         stats:                 'Statistics',
         license:               'License',
         licensing:             'Licensing',
@@ -332,6 +333,7 @@ const ui = {
         page:                  'Page',
         openGithubRepository:  'Ouvrir le dépôt GitHub',
         changelog:             'Historique',
+        credits:               'Crédits',
         stats:                 'Statistiques',
         license:               'Licence',
         licensing:             'Licences',
@@ -509,6 +511,11 @@ const buildLegalLinks = (locale = defaultLocale) => [
     {
         label:ui[locale].changelog,
         url:  localizedPath(locale, '/changelog/'),
+    },
+    {
+        label:   ui[locale].credits,
+        url:     'https://github.com/lgs1920/studio/tree/main/src/assets/credits',
+        external:true,
     },
     {
         label:ui[locale].licensing,

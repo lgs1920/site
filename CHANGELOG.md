@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-12 — [`2a7c756`](https://github.com/lgs1920/site/commit/2a7c756) — Improve footer navigation
+
+- Added localized Credits links to the site footer.
+- Refined footer spacing, link styling, focus states, and responsive alignment.
+
 ## 2026-08-12 — [`8c40bc0`](https://github.com/lgs1920/site/commit/8c40bc0) — Extend animated route to all heroes
 
 - Added the animated neon route to every generated site hero, including guide and registration status pages.
