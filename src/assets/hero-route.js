@@ -12,6 +12,9 @@ const NEON_MIDDLE_RADIUS = 0.046
 const NEON_CORE_RADIUS = 0.018
 const ROUTE_HEAD_FADE_END = 0.14
 const ROUTE_HEAD_MIN_OPACITY = 0.24
+const ROUTE_SHAPE_STRETCH = 0.16
+const ROUTE_SHAPE_SQUEEZE = 0.09
+const ROUTE_SHAPE_CYCLE = 5_800
 
 const GLOW_VERTEX_SHADER = `
     attribute float aAlpha;
@@ -238,7 +241,6 @@ const setupHeroRoute = async () => {
             const spiralPoints = Array.from({length: spiralControlPointCount}, (_, index) => {
                 return getSpiralPoint(index / (spiralControlPointCount - 1))
             })
-            const spiralCurve = new THREE.CatmullRomCurve3(spiralPoints, false, 'centripetal', 0.28)
             const spiralStartPoint = spiralPoints[0]
             const spiralEndPoint = spiralPoints[spiralPoints.length - 1]
             const spiralStartTangent = new THREE.Vector3()
@@ -247,18 +249,6 @@ const setupHeroRoute = async () => {
             const spiralEndTangent = new THREE.Vector3()
                 .subVectors(spiralPoints[spiralPoints.length - 1], spiralPoints[spiralPoints.length - 2])
                 .normalize()
-            const createTangentSegment = (start, end, startTangent, endTangent) => {
-                const distance = start.distanceTo(end)
-                const startHandle = Math.min(1.45, Math.max(0.32, distance * 0.42))
-                const endHandle = Math.min(1.45, Math.max(0.32, distance * 0.42))
-
-                return new THREE.CubicBezierCurve3(
-                    start,
-                    start.clone().add(startTangent.clone().normalize().multiplyScalar(startHandle)),
-                    end.clone().sub(endTangent.clone().normalize().multiplyScalar(endHandle)),
-                    end,
-                )
-            }
             const getRouteNormal = (direction) => {
                 const normal = new THREE.Vector3(-direction.y, direction.x, 0)
 
@@ -271,67 +261,39 @@ const setupHeroRoute = async () => {
             const entryApproach = spiralStartPoint.clone()
                 .sub(spiralStartTangent.clone().multiplyScalar(randomBetween(0.78, 1.12)))
             const entryDirection = new THREE.Vector3().subVectors(entryApproach, entryPoint).normalize()
+            const entryNormal = getRouteNormal(entryDirection)
             const entryBend = entryPoint.clone()
                 .lerp(entryApproach, randomBetween(0.34, 0.52))
-                .add(getRouteNormal(entryDirection).multiplyScalar(randomBetween(0.75, 1.25)))
+                .add(entryNormal.clone().multiplyScalar(randomBetween(0.95, 1.4)))
             entryBend.z += randomBetween(-0.3, 0.35)
-            const entryBendTangent = new THREE.Vector3()
-                .subVectors(entryApproach, entryPoint)
-                .normalize()
-            const entryCurve = createTangentSegment(
-                entryPoint,
-                entryBend,
-                new THREE.Vector3().subVectors(entryBend, entryPoint),
-                entryBendTangent,
-            )
-            const entryTurnCurve = createTangentSegment(
-                entryBend,
-                entryApproach,
-                entryBendTangent,
-                spiralStartTangent,
-            )
-            const entryApproachCurve = createTangentSegment(
-                entryApproach,
-                spiralStartPoint,
-                spiralStartTangent,
-                spiralStartTangent,
-            )
+            const entrySway = entryPoint.clone()
+                .lerp(entryApproach, randomBetween(0.62, 0.74))
+                .add(entryNormal.clone().multiplyScalar(randomBetween(-0.55, -0.85)))
+            entrySway.z += randomBetween(-0.22, 0.22)
             const exitDeparture = spiralEndPoint.clone()
                 .add(spiralEndTangent.clone().multiplyScalar(randomBetween(0.82, 1.18)))
             const exitDirection = new THREE.Vector3().subVectors(exitPoint, exitDeparture).normalize()
+            const exitNormal = getRouteNormal(exitDirection)
             const exitBend = exitDeparture.clone()
                 .lerp(exitPoint, randomBetween(0.42, 0.62))
-                .add(getRouteNormal(exitDirection).multiplyScalar(randomBetween(-1.2, -0.65)))
+                .add(exitNormal.clone().multiplyScalar(randomBetween(-1.2, -0.65)))
             exitBend.z += randomBetween(-0.35, 0.3)
-            const exitBendTangent = new THREE.Vector3()
-                .subVectors(exitPoint, exitDeparture)
-                .normalize()
-            const exitDepartureCurve = createTangentSegment(
-                spiralEndPoint,
-                exitDeparture,
-                spiralEndTangent,
-                spiralEndTangent,
-            )
-            const exitTurnCurve = createTangentSegment(
+            const exitSway = exitDeparture.clone()
+                .lerp(exitPoint, randomBetween(0.7, 0.8))
+                .add(exitNormal.clone().multiplyScalar(randomBetween(0.45, 0.8)))
+            exitSway.z += randomBetween(-0.2, 0.2)
+            const routeControlPoints = [
+                entryPoint,
+                entryBend,
+                entrySway,
+                entryApproach,
+                ...spiralPoints,
                 exitDeparture,
                 exitBend,
-                spiralEndTangent,
-                exitBendTangent,
-            )
-            const exitCurve = createTangentSegment(
-                exitBend,
+                exitSway,
                 exitPoint,
-                exitBendTangent,
-                new THREE.Vector3().subVectors(exitPoint, exitBend),
-            )
-            const routeCurve = new THREE.CurvePath()
-            routeCurve.add(entryCurve)
-            routeCurve.add(entryTurnCurve)
-            routeCurve.add(entryApproachCurve)
-            routeCurve.add(spiralCurve)
-            routeCurve.add(exitDepartureCurve)
-            routeCurve.add(exitTurnCurve)
-            routeCurve.add(exitCurve)
+            ]
+            const routeCurve = new THREE.CatmullRomCurve3(routeControlPoints, false, 'centripetal', 0.28)
             const routePathPoints = routeCurve.getSpacedPoints(ROUTE_PATH_SAMPLE_COUNT)
             const routePositions = new Float32Array(routePathPoints.length * 3)
 
@@ -531,7 +493,9 @@ const setupHeroRoute = async () => {
             const elapsed = animationStartedAt === null
                 ? 0
                 : (timestamp - animationStartedAt) % ROUTE_DURATION
-            const progress = reducedMotionQuery.matches ? 1 : elapsed / ROUTE_DURATION
+            const progress = reducedMotionQuery.matches
+                ? 1
+                : Math.max(0, Math.min(1, elapsed / ROUTE_DURATION))
             const reachedAll = reducedMotionQuery.matches
 
             updateTrail(progress)
@@ -548,6 +512,16 @@ const setupHeroRoute = async () => {
             sceneRoot.rotation.z = reducedMotionQuery.matches
                 ? 0.06
                 : Math.sin(timestamp * 0.00023) * 0.1
+            const shapePhase = timestamp / ROUTE_SHAPE_CYCLE * Math.PI * 2
+            const shapeWave = Math.sin(shapePhase)
+            const horizontalStretch = reducedMotionQuery.matches
+                ? 1
+                : 1 + shapeWave * ROUTE_SHAPE_STRETCH
+            const verticalSqueeze = reducedMotionQuery.matches
+                ? 1
+                : 1 - shapeWave * ROUTE_SHAPE_SQUEEZE
+
+            routeState.routeGroup.scale.set(horizontalStretch, verticalSqueeze, 1)
             sceneRoot.updateMatrixWorld(true)
 
             routeState.poiItems.forEach((item) => {
@@ -560,7 +534,11 @@ const setupHeroRoute = async () => {
         }
 
         let paletteSignature = `${root.dataset.brandColor || ''}:${root.dataset.seasonTheme || ''}`
-        const paletteObserver = new MutationObserver(() => {
+        const restartRoute = () => {
+            rebuildRoute()
+            render(0)
+        }
+        const syncPalette = () => {
             const nextPaletteSignature = `${root.dataset.brandColor || ''}:${root.dataset.seasonTheme || ''}`
 
             if (nextPaletteSignature === paletteSignature) {
@@ -568,9 +546,9 @@ const setupHeroRoute = async () => {
             }
 
             paletteSignature = nextPaletteSignature
-            rebuildRoute()
-            render(performance.now())
-        })
+            restartRoute()
+        }
+        const paletteObserver = new MutationObserver(syncPalette)
 
         paletteObserver.observe(root, {
             attributes:     true,

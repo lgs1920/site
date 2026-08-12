@@ -15,8 +15,29 @@ const escapeHtml = (value = '') => String(value)
  * @returns {string} Rendered HTML fragment.
  */
 export const renderRevokeRegistrationPage = (pageContent) => `
-<section class="page-hero hero-no-video registration-revoke-hero">
-    <div class="hero-media" aria-hidden="true"></div>
+<section class="page-hero hero-has-video registration-revoke-hero">
+    <div class="hero-media"
+         aria-hidden="true"
+         data-hero-media
+         data-hero-media-key="outdoor"
+         data-hero-video-enabled="true">
+        <img class="hero-media-fallback"
+             data-hero-media-fallback
+             alt=""
+             aria-hidden="true"
+             decoding="async">
+        <video class="hero-video"
+               data-hero-video
+               muted
+               loop
+               playsinline
+               autoplay
+               preload="metadata"
+               disablepictureinpicture></video>
+    </div>
+    <div class="hero-media-credit" data-hero-media-credit hidden>
+        <a data-hero-media-credit-link target="_blank" rel="noreferrer noopener"></a>
+    </div>
     <div class="hero-backdrop" aria-hidden="true"></div>
     ${renderHeroRouteMarkup({
         ariaLabel: pageContent.locale === 'fr'

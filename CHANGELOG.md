@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-12 — [`3229f8a`](https://github.com/lgs1920/site/commit/3229f8a) — Fix hero route restart after theme changes
+
+- Prevented a negative animation progress from stopping the hero route after changing the season or brand.
+
+## 2026-08-12 — [`2779f16`](https://github.com/lgs1920/site/commit/2779f16) — Smooth and enrich hero route curves
+
+- Replaced segmented spiral joins with one continuous route curve.
+- Added visible S-turns before and after the spiral, plus stronger stretch and squeeze motion.
+
 ## 2026-08-12 — [`9529caa`](https://github.com/lgs1920/site/commit/9529caa) — Add English credits pages
 
 - Added a build-time aggregation of the Studio attribution Markdown files at `/credits/`.

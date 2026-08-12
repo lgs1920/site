@@ -29,6 +29,7 @@ const home = {
                     },
                 ],
             },
+            mediaCatalog:'outdoor',
             actions:  [
                 {
                     label:     'Studio',
@@ -243,6 +244,7 @@ const home = {
                     },
                 ],
             },
+            mediaCatalog:'outdoor',
             actions:  [
                 {
                     label:     'Studio',
