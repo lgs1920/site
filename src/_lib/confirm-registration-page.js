@@ -1,5 +1,6 @@
 import site from '../_data/site.js'
 import {encodeFormMailTemplate, getFormMailTemplate} from './form-mail-catalog.js'
+import {renderHeroRouteMarkup} from './hero-route-markup.js'
 
 const escapeHtml = (value = '') => String(value)
     .replace(/&/g, '&amp;')
@@ -31,6 +32,14 @@ export const renderConfirmRegistrationPage = (pageContent) => {
 <section class="page-hero hero-no-video registration-confirm-hero">
     <div class="hero-media" aria-hidden="true"></div>
     <div class="hero-backdrop" aria-hidden="true"></div>
+    ${renderHeroRouteMarkup({
+        ariaLabel: pageContent.locale === 'fr'
+            ? 'Trace animée avec trois points d’intérêt.'
+            : 'Animated route with three points of interest.',
+        poiLabels: pageContent.locale === 'fr'
+            ? ['Point d’intérêt 01', 'Point d’intérêt 02', 'Point d’intérêt 03']
+            : ['Point of interest 01', 'Point of interest 02', 'Point of interest 03'],
+    })}
 
     <div class="hero-shell">
         <div class="hero-copy">

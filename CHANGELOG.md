@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-12 — [`8c40bc0`](https://github.com/lgs1920/site/commit/8c40bc0) — Extend animated route to all heroes
+
+- Added the animated neon route to every generated site hero, including guide and registration status pages.
+- Added localized fallback POI labels and shared route markup for custom-rendered heroes.
+
 ## 2026-08-11 — [`a9aa253`](https://github.com/lgs1920/site/commit/a9aa253) — Add animated neon hero route
 
 - Added a bilingual homepage route animation with a moving marker, POI overlays, and a non-WebGL fallback.
