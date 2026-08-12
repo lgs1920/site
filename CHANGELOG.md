@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-12 — [`68f665b`](https://github.com/lgs1920/site/commit/68f665b) — Tune hero video color grading
+
+- Applied a warm, restrained vintage randonnée/cartography filter to hero media.
+
 ## 2026-08-12 — [`3229f8a`](https://github.com/lgs1920/site/commit/3229f8a) — Fix hero route restart after theme changes
 
 - Prevented a negative animation progress from stopping the hero route after changing the season or brand.
