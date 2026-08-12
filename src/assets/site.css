@@ -1609,11 +1609,25 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     opacity: 0.9;
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
     mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hero-route-fallback-breathe 7.2s ease-in-out infinite;
     transition: opacity 0.65s ease;
 }
 
 .hero-route-layer.is-ready .hero-route-fallback {
     opacity: 0;
+}
+
+@keyframes hero-route-fallback-breathe {
+    0%,
+    100% {
+        transform: scale(0.9, 1.09);
+    }
+
+    50% {
+        transform: scale(1.1, 0.91);
+    }
 }
 
 .hero-route-annotations {
