@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`de939f5`](https://github.com/lgs1920/site/commit/de939f5) — Improve mobile hero route visibility
+
+- Increased the mobile hero route opacity so the animated path remains visible against the backdrop.
+
 ## 2026-08-13 — [`8d0831d`](https://github.com/lgs1920/site/commit/8d0831d) — Remove trailing slashes from public URLs
 
 - Generated internal links and canonical URLs without a trailing slash.

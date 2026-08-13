@@ -4450,11 +4450,11 @@ wa-card.page-cta-card::part(body) {
 
 @media (max-width: 720px) {
     .hero-route-canvas {
-        opacity: 0.74;
+        opacity: 0.86;
     }
 
     .hero-route-layer.is-ready .hero-route-canvas {
-        opacity: 0.74;
+        opacity: 0.86;
     }
 
     .hero-route-fallback {
