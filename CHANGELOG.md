@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-13 — [`32c2182`](https://github.com/lgs1920/site/commit/32c2182) — Refine registration hero controls and title
+
+- Added the brand and season selector beside the registration hero language selector.
+- Removed the registration privacy asterisk, added the French line break, and added subtle token-based title depth.
+
 ## 2026-08-13 — [`0149d04`](https://github.com/lgs1920/site/commit/0149d04) — Document Studio reporting for visual changes
 
 - Documented that video catalog, video effects, and hero animation changes must be reported in the Studio repository.

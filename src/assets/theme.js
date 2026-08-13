@@ -750,34 +750,35 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(theme, seasonTheme, brandColor)
     })
 
-    const themePaletteDropdown = document.querySelector('[data-theme-palette-dropdown]')
-    themePaletteDropdown?.addEventListener('wa-select', (event) => {
-        const item = event.detail.item
-        const value = item?.getAttribute('value') || item?.value
-        const group = item?.getAttribute('data-theme-group')
+    document.querySelectorAll('[data-theme-palette-dropdown]').forEach((themePaletteDropdown) => {
+        themePaletteDropdown.addEventListener('wa-select', (event) => {
+            const item = event.detail.item
+            const value = item?.getAttribute('value') || item?.value
+            const group = item?.getAttribute('data-theme-group')
 
-        if (!value || !group) {
-            return
-        }
+            if (!value || !group) {
+                return
+            }
 
-        const brandColor = resolveBrandColor(root.dataset.brandColor)
-        const theme = resolveTheme(root.dataset.themeSelection || getInitialTheme())
-        const seasonTheme = resolveSeasonTheme(root.dataset.seasonTheme || getInitialSeasonTheme())
+            const brandColor = resolveBrandColor(root.dataset.brandColor)
+            const theme = resolveTheme(root.dataset.themeSelection || getInitialTheme())
+            const seasonTheme = resolveSeasonTheme(root.dataset.seasonTheme || getInitialSeasonTheme())
 
-        if (group === 'brand') {
-            const resolvedBrandColor = resolveBrandColor(value)
+            if (group === 'brand') {
+                const resolvedBrandColor = resolveBrandColor(value)
 
-            localStorage.setItem(BRAND_COLOR_STORAGE_KEY, resolvedBrandColor)
-            applyTheme(theme, seasonTheme, resolvedBrandColor)
-            return
-        }
+                localStorage.setItem(BRAND_COLOR_STORAGE_KEY, resolvedBrandColor)
+                applyTheme(theme, seasonTheme, resolvedBrandColor)
+                return
+            }
 
-        if (group === 'season') {
-            const resolvedSeasonTheme = resolveSeasonTheme(value)
+            if (group === 'season') {
+                const resolvedSeasonTheme = resolveSeasonTheme(value)
 
-            localStorage.setItem(SEASON_STORAGE_KEY, resolvedSeasonTheme)
-            applyTheme(theme, resolvedSeasonTheme, brandColor)
-        }
+                localStorage.setItem(SEASON_STORAGE_KEY, resolvedSeasonTheme)
+                applyTheme(theme, resolvedSeasonTheme, brandColor)
+            }
+        })
     })
 
     setupHeroMedia()

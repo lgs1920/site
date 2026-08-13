@@ -28,7 +28,7 @@ const launchRegistration = {
                     icon: 'lock',
                     text: 'Privacy and access for everyone.',
                     items: [
-                        {icon:'location-pin-lock', title:'Privacy first', text:'Your data stays with you: browser, device, or cloud*.', note:'Cloud access will be available in a future version.', noteLabel:'More about cloud access'},
+                        {icon:'location-pin-lock', title:'Privacy first', text:'Your data stays with you: browser, device, or cloud.', note:'Cloud access will be available in a future version.', noteLabel:'More about cloud access'},
 {icon:'circle-check', title:'Studio is free', text:'Studio is completely free and will remain so.', note:'Some external services accessible through Studio may be paid services from their providers. Studio has no affiliation with any of the providers concerned.', noteLabel:'More about external services'},
                     ],
                 },
@@ -85,7 +85,7 @@ const launchRegistration = {
                     icon: 'lock',
                     text: 'Confidentialité et accès pour tous.',
                     items: [
-                        {icon:'location-pin-lock', title:'Confidentialité', text:'Vos données restent chez vous : navigateur, appareil ou cloud*.', note:'L’accès cloud sera possible dans une prochaine version.', noteLabel:'En savoir plus sur l’accès cloud'},
+                        {icon:'location-pin-lock', title:'Confidentialité', textLines:['Vos données restent chez vous : navigateur, appareil', 'ou cloud.'], note:'L’accès cloud sera possible dans une prochaine version.', noteLabel:'En savoir plus sur l’accès cloud'},
 {icon:'gift', title:'Studio gratuit', text:'Studio est entièrement gratuit et le restera.', note:'Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.', noteLabel:'En savoir plus sur les services externes'},
                     ],
                 },

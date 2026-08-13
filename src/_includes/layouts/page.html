@@ -350,6 +350,38 @@ layout: layouts/base.html
                 {% endif %}
             {% endfor %}
             <div class="registration-hero-locale">
+                <wa-dropdown class="theme-palette-menu registration-hero-theme-palette" placement="bottom-end" data-theme-palette-dropdown>
+                    <wa-button id="registration-hero-theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseBrandAndSeason }}">
+                        <span class="theme-palette-trigger-swatches">
+                            <span class="brand-color-swatch" data-brand-swatch style="--swatch-color: var(--wa-color-yellow)"></span>
+                            <span class="theme-color-swatch" data-season-swatch style="--swatch-color: var(--wa-color-green-60)"></span>
+                        </span>
+                    </wa-button>
+
+                    <h3>{{ labels.brandColor }}</h3>
+                    {% for option in site.brandOptions %}
+                        <wa-dropdown-item value="{{ option.value }}" data-brand-option="{{ option.value }}" data-theme-group="brand">
+                            <span class="theme-option">
+                                <span class="brand-color-swatch" style="--swatch-color: {{ option.swatch }}"></span>
+                                <span>{{ option.label }}</span>
+                            </span>
+                        </wa-dropdown-item>
+                    {% endfor %}
+
+                    <wa-divider></wa-divider>
+
+                    <h3>{{ labels.seasonTheme }}</h3>
+                    {% for option in site.seasonOptions %}
+                        <wa-dropdown-item value="{{ option.value }}" data-season-option="{{ option.value }}" data-theme-group="season">
+                            <span class="theme-option">
+                                <span class="theme-color-swatch" style="--swatch-color: {{ option.swatch }}"></span>
+                                <span>{{ option.label }}</span>
+                            </span>
+                        </wa-dropdown-item>
+                    {% endfor %}
+                </wa-dropdown>
+                <wa-tooltip class="control-tooltip" for="registration-hero-theme-palette-trigger" placement="bottom">{{ labels.chooseBrandAndSeason }}</wa-tooltip>
+
                 <wa-dropdown class="locale-dropdown" placement="bottom-end">
                     <wa-button id="hero-locale-trigger" slot="trigger" class="locale-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseLanguage }}">
                         <span class="locale-trigger-copy">

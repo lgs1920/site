@@ -36,7 +36,7 @@ const renderRegistrationHeroDetails = (pageContent) => {
             <div>
                 <strong>${escapeHtml(item.title)}</strong>
                 <span>
-                    ${escapeHtml(item.text)}
+                    ${item.textLines?.map((line, lineIndex) => `${lineIndex ? '<br>' : ''}${escapeHtml(line)}`).join('') || escapeHtml(item.text)}
                     ${item.note ? `<wa-button id="registration-details-note-${pageContent.locale}-${index}" class="hero-panel-note-trigger" variant="brand" appearance="plain" size="small" aria-label="${escapeHtml(item.noteLabel)}"><wa-icon variant="regular" name="circle-info"></wa-icon></wa-button><wa-tooltip for="registration-details-note-${pageContent.locale}-${index}" placement="top">${escapeHtml(item.note)}</wa-tooltip>` : ''}
                 </span>
             </div>

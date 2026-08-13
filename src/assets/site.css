@@ -1942,6 +1942,10 @@ html.wa-light .hero-backdrop {
     grid-template-columns: 1fr;
 }
 
+.registration-hero.intro-hero .hero-copy h1 {
+    text-shadow: 0 var(--wa-shadow-offset-y-s) var(--wa-shadow-blur-m) var(--wa-color-shadow);
+}
+
 .registration-hero.intro-hero .hero-copy > * {
     grid-column: 1;
 }
@@ -2151,10 +2155,24 @@ html.wa-light .hero-backdrop {
 }
 
 .registration-hero-locale {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--wa-space-2xs);
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
     z-index: 6;
+}
+
+.registration-hero-locale .theme-palette-trigger::part(base),
+.registration-hero-locale .locale-trigger::part(base) {
+    color: var(--hero-ink);
+}
+
+.registration-hero-locale .theme-palette-trigger:hover::part(base),
+.registration-hero-locale .locale-trigger:hover::part(base) {
+    color: var(--hero-ink);
+    background: color-mix(in oklab, var(--hero-ink) 12%, transparent) !important;
 }
 
 .registration-hero-action-header .locale-trigger::part(base) {
@@ -4556,7 +4574,8 @@ wa-card.page-cta-card::part(body) {
 
     wa-tooltip[for='locale-trigger'],
     wa-tooltip[for='theme-trigger'],
-    wa-tooltip[for='theme-palette-trigger'] {
+    wa-tooltip[for='theme-palette-trigger'],
+    wa-tooltip[for='registration-hero-theme-palette-trigger'] {
         display: none;
     }
 
