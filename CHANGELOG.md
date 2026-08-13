@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`bc2882f`](https://github.com/lgs1920/site/commit/bc2882f) — Add cloud access tooltip to registration
+
+- Added localized cloud-access explanatory tooltips to the registration privacy rows.
+
 ## 2026-08-13 — [`119eebd`](https://github.com/lgs1920/site/commit/119eebd) — Update registration hero copy
 
 - Updated the English and French registration hero headlines.
