@@ -41,6 +41,27 @@ const SEASON_SWATCHES = {
     fall:  '#c56e12',
     winter:'#dbeafe',
 }
+const BROWN_BRAND_SCALE = {
+    '--wa-color-brand':             'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)',
+    '--wa-color-brand-05':          'color-mix(in oklab, var(--wa-color-orange) 6%, black 94%)',
+    '--wa-color-brand-10':          'color-mix(in oklab, var(--wa-color-orange) 12%, black 88%)',
+    '--wa-color-brand-20':          'color-mix(in oklab, var(--wa-color-orange) 18%, black 82%)',
+    '--wa-color-brand-30':          'color-mix(in oklab, var(--wa-color-orange) 28%, black 72%)',
+    '--wa-color-brand-40':          'color-mix(in oklab, var(--wa-color-orange) 40%, black 60%)',
+    '--wa-color-brand-50':          'color-mix(in oklab, var(--wa-color-orange) 52%, black 48%)',
+    '--wa-color-brand-60':          'color-mix(in oklab, var(--wa-color-orange) 64%, var(--wa-color-red) 36%)',
+    '--wa-color-brand-70':          'color-mix(in oklab, var(--wa-color-orange) 72%, var(--wa-color-red) 28%)',
+    '--wa-color-brand-80':          'color-mix(in oklab, var(--wa-color-orange) 82%, var(--wa-color-red) 18%)',
+    '--wa-color-brand-90':          'color-mix(in oklab, var(--wa-color-orange) 22%, white 78%)',
+    '--wa-color-brand-95':          'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
+    '--wa-color-brand-fill':        'var(--wa-color-brand)',
+    '--wa-color-brand-fill-normal': 'var(--wa-color-brand)',
+    '--wa-color-brand-fill-quiet':  'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
+    '--wa-color-brand-border-normal': 'color-mix(in oklab, var(--wa-color-brand) 85%, black 12%)',
+    '--wa-color-brand-on':          '#fff',
+    '--wa-color-brand-on-normal':   'var(--wa-color-brand-on)',
+    '--wa-color-brand-on-quiet':    'color-mix(in oklab, var(--wa-color-orange) 18%, white 82%)',
+}
 const LEGACY_ROOT_THEME_PREFIXES = ['sl-theme-', 'wa-brand-', 'wa-palette-', 'wa-neutral-', 'wa-success-', 'wa-warning-', 'wa-danger-']
 const LEGACY_ROOT_THEME_CLASSES = new Set(['wa-theme-premium'])
 const root = document.documentElement
@@ -171,31 +192,14 @@ const syncSeasonSwatches = (season) => {
 }
 
 const setBrownBrandScale = (target) => {
-    const brownBase = 'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)'
-    const scale = {
-        '--wa-color-brand': brownBase,
-        '--wa-color-brand-05': 'color-mix(in oklab, var(--wa-color-orange) 6%, black 94%)',
-        '--wa-color-brand-10': 'color-mix(in oklab, var(--wa-color-orange) 12%, black 88%)',
-        '--wa-color-brand-20': 'color-mix(in oklab, var(--wa-color-orange) 18%, black 82%)',
-        '--wa-color-brand-30': 'color-mix(in oklab, var(--wa-color-orange) 28%, black 72%)',
-        '--wa-color-brand-40': 'color-mix(in oklab, var(--wa-color-orange) 40%, black 60%)',
-        '--wa-color-brand-50': 'color-mix(in oklab, var(--wa-color-orange) 52%, black 48%)',
-        '--wa-color-brand-60': 'color-mix(in oklab, var(--wa-color-orange) 64%, var(--wa-color-red) 36%)',
-        '--wa-color-brand-70': 'color-mix(in oklab, var(--wa-color-orange) 72%, var(--wa-color-red) 28%)',
-        '--wa-color-brand-80': 'color-mix(in oklab, var(--wa-color-orange) 82%, var(--wa-color-red) 18%)',
-        '--wa-color-brand-90': 'color-mix(in oklab, var(--wa-color-orange) 22%, white 78%)',
-        '--wa-color-brand-95': 'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
-        '--wa-color-brand-fill': 'var(--wa-color-brand)',
-        '--wa-color-brand-fill-normal': 'var(--wa-color-brand)',
-        '--wa-color-brand-fill-quiet': 'color-mix(in oklab, var(--wa-color-orange) 14%, white 86%)',
-        '--wa-color-brand-border-normal': 'color-mix(in oklab, var(--wa-color-brand) 85%, black 12%)',
-        '--wa-color-brand-on': '#fff',
-        '--wa-color-brand-on-normal': 'var(--wa-color-brand-on)',
-        '--wa-color-brand-on-quiet': 'color-mix(in oklab, var(--wa-color-orange) 18%, white 82%)',
-    }
-
-    Object.entries(scale).forEach(([name, value]) => {
+    Object.entries(BROWN_BRAND_SCALE).forEach(([name, value]) => {
         target.style.setProperty(name, value)
+    })
+}
+
+const clearBrownBrandScale = (target) => {
+    Object.keys(BROWN_BRAND_SCALE).forEach((name) => {
+        target.style.removeProperty(name)
     })
 }
 
@@ -217,6 +221,9 @@ const applyTheme = (themeMode, seasonTheme, brandColor = null) => {
     root.classList.add(ROOT_THEME_CLASS, `wa-brand-${resolvedBrandColor}`)
     if (resolvedBrandColor === 'brown') {
         setBrownBrandScale(root)
+    }
+    else {
+        clearBrownBrandScale(root)
     }
     root.classList.toggle('wa-dark', effectiveMode === 'dark')
     root.classList.toggle('wa-light', effectiveMode !== 'dark')

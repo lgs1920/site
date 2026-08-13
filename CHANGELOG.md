@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`9445b10`](https://github.com/lgs1920/site/commit/9445b10) — Reset stale brown brand variables
+
+- Cleared the inline brown palette variables when switching to another brand color.
+
 ## 2026-08-13 — [`d747005`](https://github.com/lgs1920/site/commit/d747005) — Improve mobile hero route visibility
 
 - Lowered and brightened the mobile Three.js hero route while keeping the desktop composition unchanged.
