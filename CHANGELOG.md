@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`a37d719`](https://github.com/lgs1920/site/commit/a37d719) — Refine homepage hero copy
+
+- Updated the English and French homepage hero title and French lead copy.
+
 ## 2026-08-13 — [`2d27806`](https://github.com/lgs1920/site/commit/2d27806) — Remove hero highlights
 
 - Removed the highlight badges from the shared hero layout while keeping content highlights below the hero unchanged.

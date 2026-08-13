@@ -7,7 +7,7 @@ const home = {
         description: 'Local-first route editing for journeys, tracks, POIs, camera views, widgets, reports, and media capture.',
         hero:        {
             className:'intro-hero',
-            title:    'Turn outdoors adventures into shared stories.',
+            title:    'Live outdoor adventures, share the stories.',
             lead:     'Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.',
             routeAnimation: {
                 ariaLabel: 'Animated dotted route with three equally spaced points of interest.',
@@ -222,8 +222,8 @@ const home = {
         description: 'Édition de parcours orientée local pour trajets, traces, POI, vues caméra, widgets, rapports et captures média.',
         hero:        {
             className:'intro-hero',
-            title:    'Transformez vos aventures outdoor en histoires à partager.',
-            lead:     'Marchez, courrez ou roulez, puis importez, éditez et partagez des vidéos de vos parcours sans quitter votre navigateur*',
+            title:    'Vivez vos aventures outdoor, partagez vos histoires.',
+            lead:     'Marchez, courez ou roulez, puis importez, éditez, rejouez et partagez les vidéos de vos parcours sans quitter votre navigateur.',
             routeAnimation: {
                 ariaLabel: 'Trace animée en pointillés avec trois points d’intérêt équidistants.',
                 pois:       [
