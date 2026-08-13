@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`9e3e8d2`](https://github.com/lgs1920/site/commit/9e3e8d2) — Fade hero route at both ends
+
+- Applied the same opacity fade to the beginning and end of the animated hero route for smoother tour restarts.
+
 ## 2026-08-13 — [`533aefa`](https://github.com/lgs1920/site/commit/533aefa) — Reduce header and logo size
 
 - Reduced shared header padding and responsive logo dimensions.
