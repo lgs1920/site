@@ -2065,16 +2065,6 @@ html.wa-light .hero-backdrop {
     min-width: 7.75rem;
 }
 
-.hero-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.hero-highlights li,
 .stack-band span {
     display: inline-flex;
     align-items: center;
@@ -2083,12 +2073,6 @@ html.wa-light .hero-backdrop {
     border-radius: var(--wa-border-radius-m);
 }
 
-.hero-highlights li {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: color-mix(in oklab, var(--theme-dark-tint) 28%, transparent);
-}
-
-.hero-highlights wa-icon,
 .stack-band wa-icon,
 .card-heading wa-icon,
 .intro-indication wa-icon,
@@ -4639,21 +4623,11 @@ wa-card.page-cta-card::part(body) {
     }
 
     .guide-hero .hero-copy,
-    .guide-hero .hero-lead,
-    .guide-hero .hero-highlights {
+    .guide-hero .hero-lead {
         width: calc(100vw - 3rem);
         min-width: 0;
         max-width: calc(100vw - 3rem);
         white-space: normal;
-    }
-
-    .guide-hero .hero-highlights li {
-        min-width: 0;
-    }
-
-    .guide-hero .hero-highlights span {
-        min-width: 0;
-        overflow-wrap: anywhere;
     }
 
     .page-hero h1 {
@@ -4712,14 +4686,6 @@ wa-card.page-cta-card::part(body) {
     .nav-toggle wa-icon,
     .nav-fab wa-icon {
         font-size: 0.9rem;
-    }
-
-    .hero-highlights {
-        gap: 0.6rem;
-    }
-
-    .hero-highlights li {
-        width: 100%;
     }
 
 }

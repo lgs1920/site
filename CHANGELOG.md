@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`2d27806`](https://github.com/lgs1920/site/commit/2d27806) — Remove hero highlights
+
+- Removed the highlight badges from the shared hero layout while keeping content highlights below the hero unchanged.
+
 ## 2026-08-13 — [`9e3e8d2`](https://github.com/lgs1920/site/commit/9e3e8d2) — Fade hero route at both ends
 
 - Applied the same opacity fade to the beginning and end of the animated hero route for smoother tour restarts.

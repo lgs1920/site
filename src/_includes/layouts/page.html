@@ -434,16 +434,6 @@ layout: layouts/base.html
                     </div>
                 {% endif %}
 
-                {% if page_hero.highlights and page_hero.highlights.size > 0 %}
-                    <ul class="hero-highlights" aria-label="Product highlights">
-                        {% for item in page_hero.highlights %}
-                            <li>
-                                <wa-icon{% if item.family %} family="{{ item.family }}"{% endif %}{% if item.variant %} variant="{{ item.variant }}"{% else %} variant="regular"{% endif %} name="{{ item.icon }}"></wa-icon>
-                                <span>{{ item.label }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
             </div>
 
             {% unless page_hero.className contains 'registration-hero' %}
