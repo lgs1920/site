@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`d747005`](https://github.com/lgs1920/site/commit/d747005) — Improve mobile hero route visibility
+
+- Lowered and brightened the mobile Three.js hero route while keeping the desktop composition unchanged.
+
 ## 2026-08-13 — [`32c2182`](https://github.com/lgs1920/site/commit/32c2182) — Refine registration hero controls and title
 
 - Added the brand and season selector beside the registration hero language selector.

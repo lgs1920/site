@@ -1691,7 +1691,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .hero-route-layer {
     position: absolute;
     inset: 0;
-    z-index: auto;
+    z-index: 2;
     overflow: hidden;
     pointer-events: none;
 }
@@ -4409,11 +4409,11 @@ wa-card.page-cta-card::part(body) {
 
 @media (max-width: 720px) {
     .hero-route-canvas {
-        opacity: 0.58;
+        opacity: 0.74;
     }
 
     .hero-route-layer.is-ready .hero-route-canvas {
-        opacity: 0.58;
+        opacity: 0.74;
     }
 
     .hero-route-fallback {

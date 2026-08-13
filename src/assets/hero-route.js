@@ -472,12 +472,14 @@ const setupHeroRoute = async () => {
             camera.updateProjectionMatrix()
 
             const aspect = bounds.width / bounds.height
-            const routeScale = bounds.width < 720
+            const isMobile = bounds.width < 720
+            const routeScale = isMobile
                 ? Math.max(0.36, Math.min(0.5, aspect * 0.58))
                 : Math.max(0.54, Math.min(0.72, aspect * 0.46))
-            sceneRoot.scale.setScalar(routeScale)
-            sceneRoot.position.x = bounds.width < 720 ? 0 : 1.35
-            sceneRoot.position.y = bounds.width < 720 ? 0.55 : 0.05
+            const routeHeightScale = routeScale
+            sceneRoot.scale.set(routeScale, routeHeightScale, routeScale)
+            sceneRoot.position.x = isMobile ? 0 : 1.35
+            sceneRoot.position.y = isMobile ? -1.5 : 0.05
             sceneRoot.updateMatrixWorld(true)
         }
 
