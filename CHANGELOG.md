@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-13 — [`070c469`](https://github.com/lgs1920/site/commit/070c469) — Refine hero and site chrome
+
+- Added localized hero build metadata and aligned footer navigation, contact, legal links, and privacy messaging.
+- Refined hero, registration status page, and responsive site chrome styling.
+
 ## 2026-08-13 — [`a37d719`](https://github.com/lgs1920/site/commit/a37d719) — Refine homepage hero copy
 
 - Updated the English and French homepage hero title and French lead copy.

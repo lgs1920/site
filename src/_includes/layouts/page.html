@@ -309,6 +309,20 @@ layout: layouts/base.html
             <a data-hero-media-credit-link target="_blank" rel="noreferrer noopener"></a>
         </div>
 
+        <div class="hero-build-info" aria-label="{{ labels.heroBuildInfo }}">
+            {% if site.version %}
+                <span class="hero-build-info-item">
+                    <wa-icon variant="regular" name="code-branch" aria-hidden="true"></wa-icon>
+                    <span>{{ site.version }}</span>
+                </span>
+                <span class="hero-build-info-separator" aria-hidden="true">·</span>
+            {% endif %}
+            <span class="hero-build-info-item">
+                <wa-icon variant="regular" name="calendar-days" aria-hidden="true"></wa-icon>
+                <wa-format-date date="{{ site.buildDate }}" lang="{{ locale | default: site.lang }}" year="numeric" month="short" day="numeric"></wa-format-date>
+            </span>
+        </div>
+
         <div class="hero-backdrop" aria-hidden="true"></div>
 
         <div class="hero-route-layer" data-hero-route>
@@ -718,33 +732,44 @@ layout: layouts/base.html
     {% else %}
     <footer slot="footer" class="site-footer">
         <div class="site-footer-main">
-            <div class="site-footer-copy">
-                <p class="site-footer-note">
-                    <wa-icon variant="regular" name="copyright"></wa-icon>
-                    <span>{{ site.footerNote }}</span>
-                    {% if site.buildLink %}
-                        <span class="site-footer-separator">-</span>
-                        <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
-                            <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% else %} variant="regular"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
-                            <span>{{ site.buildLink.label }}</span>
-                        </a>
-                        <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
-                    {% endif %}
-                </p>
-                {% if chrome_legal_links and chrome_legal_links.size > 0 %}
-                    <nav class="site-footer-links" aria-label="{{ labels.footerNavigation }}">
-                        {% for link in chrome_legal_links %}
-                            <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>{{ link.label }}</a>
-                            <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
-                        {% endfor %}
-                    </nav>
+            <p class="site-footer-note">
+                <wa-icon variant="regular" name="copyright"></wa-icon>
+                <span>{{ site.footerNote }}</span>
+                {% if site.buildLink %}
+                    <span class="site-footer-separator" aria-hidden="true"></span>
+                    <a id="site-build-link" class="site-build-link" href="{{ site.buildLink.url }}"{% if site.buildLink.external %} target="_blank" rel="noreferrer"{% endif %}>
+                        <wa-icon{% if site.buildLink.family %} family="{{ site.buildLink.family }}"{% endif %}{% if site.buildLink.variant %} variant="{{ site.buildLink.variant }}"{% else %} variant="regular"{% endif %} name="{{ site.buildLink.icon }}"></wa-icon>
+                        <span>{{ site.buildLink.label }}</span>
+                    </a>
+                    <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
                 {% endif %}
-            </div>
+            </p>
             <div class="site-footer-contact">
-                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact/' }}">{{ labels.contact }}</a>
+                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact/' }}">
+                    <wa-icon variant="regular" name="envelope" aria-hidden="true"></wa-icon>
+                    <span>{{ labels.contact }}</span>
+                </a>
                 <wa-tooltip class="control-tooltip" for="site-contact-link">{{ labels.contact }}</wa-tooltip>
             </div>
         </div>
+
+        <wa-divider class="site-footer-divider"></wa-divider>
+
+        {% if chrome_legal_links and chrome_legal_links.size > 0 %}
+            <nav class="site-footer-links" aria-label="{{ labels.footerLegal | default: labels.footerNavigation }}">
+                {% for link in chrome_legal_links %}
+                    <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                        {% if link.icon %}<wa-icon variant="regular" name="{{ link.icon }}" aria-hidden="true"></wa-icon>{% endif %}
+                        <span>{{ link.label }}</span>
+                    </a>
+                    {% unless forloop.last %}
+                        <wa-divider orientation="vertical" class="site-footer-link-divider" aria-hidden="true"></wa-divider>
+                    {% endunless %}
+                    <wa-tooltip class="control-tooltip" for="legal-link-{{ forloop.index }}">{{ link.label }}</wa-tooltip>
+                {% endfor %}
+            </nav>
+        {% endif %}
+
         <p class="site-footer-privacy">
             {% if locale == 'fr' %}
                 Privacy first : ce site ne stocke aucun cookie ni donnée personnelle. Certaines préférences (langue, couleurs, etc.) sont stockées dans la base de données du navigateur.

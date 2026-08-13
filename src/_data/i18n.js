@@ -251,6 +251,8 @@ const ui = {
         next:                  'Next',
         userGuidePagination:   'User guide pagination',
         footerNavigation:      'Footer navigation',
+        footerLegal:           'Legal and project links',
+        heroBuildInfo:         'Hero build information',
         primaryNavigation:     'Primary navigation',
         useStudio:             'Use Studio',
         contact:               'Contact',
@@ -315,6 +317,8 @@ const ui = {
         next:                  'Suivant',
         userGuidePagination:   'Pagination du guide utilisateur',
         footerNavigation:      'Navigation de pied de page',
+        footerLegal:           'Liens légaux et projet',
+        heroBuildInfo:         'Informations de build du hero',
         primaryNavigation:     'Navigation principale',
         useStudio:             'Utiliser Studio',
         contact:               'Contact',
@@ -505,30 +509,37 @@ const buildLegalLinks = (locale = defaultLocale) => [
     {
         label:ui[locale].stats,
         url:  localizedPath(locale, '/stats/'),
+        icon: 'chart-line',
     },
     {
         label:ui[locale].userGuide,
         url:  localizedPath(locale, '/user-guide/'),
+        icon: 'book-open',
     },
     {
         label:ui[locale].changelog,
         url:  localizedPath(locale, '/changelog/'),
+        icon: 'arrows-turn-to-dots',
     },
     {
         label:   ui[locale].credits,
         url:     '/credits/',
+        icon:    'circle-info',
     },
     {
         label:ui[locale].licensing,
         url:  localizedPath(locale, '/licensing/'),
+        icon: 'scale-balanced',
     },
     {
         label:ui[locale].fullLicense,
         url:  localizedPath(locale, '/license/'),
+        icon: 'file-lines',
     },
     {
         label:ui[locale].cla,
         url:  localizedPath(locale, '/contributor-license-agreement/'),
+        icon: 'handshake',
     },
 ]
 

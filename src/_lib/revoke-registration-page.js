@@ -1,4 +1,5 @@
 import site from '../_data/site.js'
+import {renderHeroBuildInfo} from './hero-build-info.js'
 import {renderHeroRouteMarkup} from './hero-route-markup.js'
 
 const escapeHtml = (value = '') => String(value)
@@ -38,6 +39,7 @@ export const renderRevokeRegistrationPage = (pageContent) => `
     <div class="hero-media-credit" data-hero-media-credit hidden>
         <a data-hero-media-credit-link target="_blank" rel="noreferrer noopener"></a>
     </div>
+    ${renderHeroBuildInfo(pageContent.locale)}
     <div class="hero-backdrop" aria-hidden="true"></div>
     ${renderHeroRouteMarkup({
         ariaLabel: pageContent.locale === 'fr'
@@ -47,6 +49,10 @@ export const renderRevokeRegistrationPage = (pageContent) => `
             ? ['Point d’intérêt 01', 'Point d’intérêt 02', 'Point d’intérêt 03']
             : ['Point of interest 01', 'Point of interest 02', 'Point of interest 03'],
     })}
+
+    <wa-button class="hero-scroll-button" variant="brand" appearance="plain" size="medium" type="button" data-hero-scroll aria-label="${pageContent.locale === 'fr' ? 'Faire défiler vers le contenu' : 'Scroll to content'}">
+        <wa-icon variant="solid" name="angles-down" aria-hidden="true"></wa-icon>
+    </wa-button>
 
     <div class="hero-shell">
         <div class="hero-copy">

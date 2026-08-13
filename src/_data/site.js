@@ -41,12 +41,16 @@ const backendRestartUrl = deploymentPlatform === 'development'
     : configuredBackendRestartUrl === undefined
         ? buildStudioBackendRestartUrl(studioServers)
         : configuredBackendRestartUrl
+const buildDate = process.env.LGS1920_BUILD_DATE || new Date().toISOString()
+const version = process.env.LGS1920_SITE_VERSION || null
 
 export default {
     name:        'LGS1920 Studio',
     lang:        'en',
     tagline:     'Shape route data in the browser',
     description: 'Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture.',
+    version,
+    buildDate,
     url:         'https://lgs1920.fr',
     copyrightYears,
     appUrl:      'https://studio.lgs1920.fr',
