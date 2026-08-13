@@ -873,7 +873,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding: 10px var(--site-inline-edge);
+    padding: 6px var(--site-inline-edge);
     border: none;
     border-radius: 0;
     color: var(--header-ink);
@@ -919,7 +919,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 
 .brand-logo-mark {
     flex: none;
-    width: clamp(6.6rem, 15vw, 10rem);
+    width: clamp(5.75rem, 12.5vw, 8.5rem);
     height: auto;
 }
 
@@ -4450,7 +4450,7 @@ wa-card.page-cta-card::part(body) {
     .topbar {
         flex-wrap: nowrap;
         gap: 0.75rem;
-        padding: 10px var(--site-inline-edge);
+        padding: 6px var(--site-inline-edge);
         border: none;
         border-radius: 0;
         background: transparent;
@@ -4580,7 +4580,7 @@ wa-card.page-cta-card::part(body) {
     }
 
     .brand-logo-mark {
-        width: clamp(2.5rem, 18vw, 3rem);
+        width: clamp(2.25rem, 15vw, 2.75rem);
     }
 
     .brand-kicker {
@@ -4676,8 +4676,8 @@ wa-card.page-cta-card::part(body) {
 }
 
 @media (max-width: 520px) {
-    .topbar {
-        padding: 10px var(--site-inline-edge);
+.topbar {
+        padding: 6px var(--site-inline-edge);
     }
 
     .brand-name {

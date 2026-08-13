@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`533aefa`](https://github.com/lgs1920/site/commit/533aefa) — Reduce header and logo size
+
+- Reduced shared header padding and responsive logo dimensions.
+
 ## 2026-08-13 — [`9445b10`](https://github.com/lgs1920/site/commit/9445b10) — Reset stale brown brand variables
 
 - Cleared the inline brown palette variables when switching to another brand color.
