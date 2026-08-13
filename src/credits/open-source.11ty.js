@@ -18,7 +18,7 @@ export default class {
             document:   creditsDocs.openSource,
             intro:      pageContent.intro,
             relatedLink:{
-                href: '/credits/',
+                href: '/credits',
                 label:'View all credits',
             },
         })

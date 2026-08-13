@@ -359,7 +359,19 @@ const ui = {
     },
 }
 
-const localizedPath = (locale, path) => `${localeMeta[locale]?.prefix ?? ''}${path}`
+const stripTrailingSlash = (value = '') => {
+    if (value === '/') {
+        return value
+    }
+
+    return value.replace(/\/$/, '') || '/'
+}
+
+const ensureTrailingSlash = (value = '') => value === '/' || value.endsWith('/') ? value : `${value}/`
+
+const publicPath = (path = '') => stripTrailingSlash(path)
+const localizedPath = (locale, path) => publicPath(`${localeMeta[locale]?.prefix ?? ''}${path}`)
+const localizedPermalinkPath = (locale, path) => ensureTrailingSlash(`${localeMeta[locale]?.prefix ?? ''}${path}`)
 
 const getLocaleFromUrl = (url = '') => {
     const match = localeOptions
@@ -523,7 +535,7 @@ const buildLegalLinks = (locale = defaultLocale) => [
     },
     {
         label:   ui[locale].credits,
-        url:     '/credits/',
+        url:     '/credits',
         icon:    'circle-info',
     },
     {
@@ -558,6 +570,8 @@ export default {
     getAlternateLocales,
     normalizeUrl,
     localizedPath,
+    localizedPermalinkPath,
+    publicPath,
     userGuideSections: {
         en:buildUserGuideSections('en'),
         fr:buildUserGuideSections('fr'),

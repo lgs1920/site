@@ -16,7 +16,7 @@ The Studio uses keyboard shortcuts for app-wide actions, widget editing, map int
 | <span class="guide-icon-chip"><wa-icon name="arrows-rotate" variant="regular"></wa-icon></span> | Toggle Orbit widget | `Alt+O` | Orbit mode | Shows or hides the Orbit widget while Orbit is running. |
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Toggle panorama | `Alt+Shift+P` | App | Starts or stops panorama mode around the current target. |
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Toggle Panorama widget | `Alt+P` | Panorama mode | Shows or hides the Panorama widget while Panorama is active. |
-| <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Close active panel | `Escape` | App | Closes the active drawer, popup, or [dialog](/user-guide/reference/studio-interface/#dialogs) when supported by the current view. |
+| <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Close active panel | `Escape` | App | Closes the active drawer, popup, or [dialog](/user-guide/reference/studio-interface#dialogs) when supported by the current view. |
 
 ## Selected Widget Shortcuts
 

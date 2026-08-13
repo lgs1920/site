@@ -22,7 +22,7 @@ export const getGeneratedPageData = (definition, locale, options = {}) => {
 
     return {
         layout:     definition.layout,
-        permalink:  i18n.localizedPath(locale, definition.path),
+        permalink:  i18n.localizedPermalinkPath(locale, definition.path),
         title:      content.title,
         description:content.description,
         minimalChrome: definition.minimalChrome,

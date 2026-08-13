@@ -92,7 +92,7 @@ layout: layouts/base.html
                 <wa-tooltip class="control-tooltip" for="locale-trigger" placement="bottom">{{ labels.chooseLanguage }}</wa-tooltip>
             {% endif %}
 
-            <wa-button id="header-contact-link" class="icon-link-button" href="{{ localizedContactUrl | default: '/contact/' }}" appearance="plain" aria-label="{{ labels.contact }}">
+            <wa-button id="header-contact-link" class="icon-link-button" href="{{ localizedContactUrl | default: '/contact' }}" appearance="plain" aria-label="{{ labels.contact }}">
                 <wa-icon variant="regular" name="envelope"></wa-icon>
             </wa-button>
             <wa-tooltip class="control-tooltip" for="header-contact-link" placement="bottom">{{ labels.contact }}</wa-tooltip>
@@ -165,10 +165,10 @@ layout: layouts/base.html
                 {% for item in chrome_navigation %}
                     {% assign is_current = false %}
                     {% if item.url %}
-                        {% if item.url == page.url %}
+                        {% if item.url == currentPageUrl %}
                             {% assign is_current = true %}
                         {% elsif item.url != '/' %}
-                            {% assign nav_prefix = page.url | slice: 0, item.url.size %}
+                            {% assign nav_prefix = currentPageUrl | slice: 0, item.url.size %}
                             {% if nav_prefix == item.url %}
                                 {% assign is_current = true %}
                             {% endif %}
@@ -176,10 +176,10 @@ layout: layouts/base.html
                     {% endif %}
                     {% if item.children and item.children.size > 0 %}
                         {% for child in item.children %}
-                            {% if child.url == page.url %}
+                            {% if child.url == currentPageUrl %}
                                 {% assign is_current = true %}
                             {% elsif child.url != '/' %}
-                                {% assign child_prefix = page.url | slice: 0, child.url.size %}
+                                {% assign child_prefix = currentPageUrl | slice: 0, child.url.size %}
                                 {% if child_prefix == child.url %}
                                     {% assign is_current = true %}
                                 {% endif %}
@@ -195,10 +195,10 @@ layout: layouts/base.html
                             <div class="drawer-subnav">
                                 {% for child in item.children %}
                                     {% assign child_current = false %}
-                                    {% if child.url == page.url %}
+                                    {% if child.url == currentPageUrl %}
                                         {% assign child_current = true %}
                                     {% elsif child.url != '/' %}
-                                        {% assign child_nav_prefix = page.url | slice: 0, child.url.size %}
+                                        {% assign child_nav_prefix = currentPageUrl | slice: 0, child.url.size %}
                                         {% if child_nav_prefix == child.url %}
                                             {% assign child_current = true %}
                                         {% endif %}
@@ -253,7 +253,7 @@ layout: layouts/base.html
                         </p>
                         {% for item in section.items %}
                             {% assign is_current = false %}
-                            {% if item.url == page.url %}
+                            {% if item.url == currentPageUrl %}
                                 {% assign is_current = true %}
                             {% endif %}
                             <a class="drawer-link drawer-link-muted drawer-guide-link{% if is_current %} is-current{% endif %}" href="{{ item.contentUrl | default: item.url }}"{% if is_current %} aria-current="page"{% endif %}>
@@ -745,7 +745,7 @@ layout: layouts/base.html
                 {% endif %}
             </p>
             <div class="site-footer-contact">
-                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact/' }}">
+                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact' }}">
                     <wa-icon variant="regular" name="envelope" aria-hidden="true"></wa-icon>
                     <span>{{ labels.contact }}</span>
                 </a>

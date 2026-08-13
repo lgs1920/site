@@ -176,7 +176,7 @@ const home = {
                 actions: [
                     {
                         label:     'Open FAQ page',
-                        href:      '/faq/',
+                        href:      '/faq',
                         appearance:'outlined',
                         variant:   'neutral',
                         icon:      {
@@ -391,7 +391,7 @@ const home = {
                 actions: [
                     {
                         label:     'Ouvrir la page FAQ',
-                        href:      '/fr/faq/',
+                        href:      '/fr/faq',
                         appearance:'outlined',
                         variant:   'neutral',
                         icon:      {

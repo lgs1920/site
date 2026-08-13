@@ -5,7 +5,7 @@ const page = {
             "title": "Modal Layer token",
             "description": "Prompt de jeton d'accès pour les couches ou terrains protégés.",
             "ui": {
-                "backUrl": "/fr/user-guide/reference/studio-interface/drawers/layers/",
+                "backUrl": "/fr/user-guide/reference/studio-interface/drawers/layers",
                 "backLabel": "Drawer Layers",
                 "overview": "Le modal Layer token apparaît quand une couche ou une source de terrain protégée demande un jeton d'accès.\n",
                 "controls": [
@@ -34,7 +34,7 @@ const page = {
             "title": "Layer token modal",
             "description": "Access token prompt for protected layer or terrain sources.",
             "ui": {
-                "backUrl": "/user-guide/reference/studio-interface/drawers/layers/",
+                "backUrl": "/user-guide/reference/studio-interface/drawers/layers",
                 "backLabel": "Layers drawer",
                 "overview": "The Layer token modal appears when a protected layer or terrain source needs an access token. It keeps the token request tied to the source that needs it.\n",
                 "controls": [

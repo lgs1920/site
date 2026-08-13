@@ -180,7 +180,7 @@ export default {
         },
         {
             label:   'Contact',
-            url:     '/contact/',
+            url:     '/contact',
             icon:    'envelope',
             variant: 'regular',
         },

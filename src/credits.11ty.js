@@ -18,7 +18,7 @@ export default class {
             document:   creditsDocs.general,
             intro:      pageContent.intro,
             relatedLink:{
-                href: '/credits/open-source/',
+                href: '/credits/open-source',
                 label:'Open source software credits',
             },
         })

@@ -147,8 +147,10 @@ const compareReleaseEntries = (left, right) => {
 export const getChangelogPagePath = (locale = 'en', pageNumber = 1) => {
     const basePath = locale === 'fr' ? '/fr/changelog' : '/changelog'
 
-    return pageNumber <= 1 ? `${basePath}/` : `${basePath}/page/${pageNumber}/`
+    return pageNumber <= 1 ? basePath : `${basePath}/page/${pageNumber}`
 }
+
+export const getChangelogPermalinkPath = (locale = 'en', pageNumber = 1) => `${getChangelogPagePath(locale, pageNumber)}/`
 
 export const createChangelogPagination = ({locale = 'en', currentPage = 1, totalPages = 1} = {}) => ({
     currentPage,

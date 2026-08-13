@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-13 — [`8d0831d`](https://github.com/lgs1920/site/commit/8d0831d) — Remove trailing slashes from public URLs
+
+- Generated internal links and canonical URLs without a trailing slash.
+- Added the Eleventy development-server fallback so directory pages work directly without the slash.
+
 ## 2026-08-13 — [`070c469`](https://github.com/lgs1920/site/commit/070c469) — Refine hero and site chrome
 
 - Added localized hero build metadata and aligned footer navigation, contact, legal links, and privacy messaging.

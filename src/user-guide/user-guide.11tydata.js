@@ -51,7 +51,7 @@ const getLocalizedGuideSections = (data) => i18n.userGuideSections[getGuideLocal
 const getAlternateLocales = (data) => {
     const locale = getGuideLocale(data)
     const canonicalPath = i18n.getCanonicalGuidePath(normalizeGuideUrl(data.page?.url))
-    const localizedGuidePaths = new Set(i18n.userGuideSections.en.flatMap((section) => section.items.map((item) => item.url)))
+    const localizedGuidePaths = new Set(i18n.userGuideSections.en.flatMap((section) => section.items.map((item) => i18n.normalizeUrl(item.url))))
 
     if (!localizedGuidePaths.has(canonicalPath)) {
         return null
@@ -82,7 +82,7 @@ const resolveGuideContext = (data) => {
 
     const currentEntry = entries[currentIndex]
     const locale = getGuideLocale(data)
-    const guideHomeUrl = i18n.localizedPath(locale, '/user-guide/')
+    const guideHomeUrl = i18n.normalizeUrl(i18n.localizedPath(locale, '/user-guide/'))
     const isOverview = normalizeGuideUrl(currentEntry.item.url) === guideHomeUrl
     const breadcrumbs = isOverview
         ? [
@@ -185,7 +185,7 @@ export default {
                         },
                         {
                             label:     'Contact',
-                            href:      '/contact/',
+                            href:      '/contact',
                             appearance:'outlined',
                             variant:   'brand',
                             icon:      {
@@ -215,7 +215,7 @@ export default {
                     },
                     {
                         label:     'Contact',
-                        href:      '/fr/contact/',
+                        href:      '/fr/contact',
                         appearance:'outlined',
                         variant:   'brand',
                         icon:      {

@@ -28,13 +28,13 @@ const credits = {
                 actions:[
                     {
                         label:     'Open source credits',
-                        href:      '/credits/open-source/',
+                        href:      '/credits/open-source',
                         variant:   'brand',
                         icon:      {name:'code', variant:'regular'},
                     },
                     {
                         label:     'Dependency inventory',
-                        href:      '/dependencies/',
+                        href:      '/dependencies',
                         appearance:'outlined',
                         icon:      {name:'box-open-full', variant:'regular'},
                     },
@@ -69,7 +69,7 @@ const credits = {
                 actions:[
                     {
                         label:     'All credits',
-                        href:      '/credits/',
+                        href:      '/credits',
                         variant:   'brand',
                         icon:      {name:'arrow-left', variant:'regular'},
                     },

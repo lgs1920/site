@@ -41,10 +41,10 @@ const sourceConfig = {
 }
 
 const internalLinkMap = new Map([
-    ['README_DEPENDENCIES.md', '/dependencies/'],
-    ['LICENSES.md', '/licensing/'],
-    ['LICENSE.md', '/license/'],
-    ['CONTRIBUTOR_LICENSE_AGREEMENT.md', '/contributor-license-agreement/'],
+    ['README_DEPENDENCIES.md', '/dependencies'],
+    ['LICENSES.md', '/licensing'],
+    ['LICENSE.md', '/license'],
+    ['CONTRIBUTOR_LICENSE_AGREEMENT.md', '/contributor-license-agreement'],
 ])
 
 const stripMarkdown = (value) => value

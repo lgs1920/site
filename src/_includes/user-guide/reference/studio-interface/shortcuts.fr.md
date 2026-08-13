@@ -16,7 +16,7 @@ Le Studio utilise des raccourcis clavier pour les actions globales, l'édition d
 | <span class="guide-icon-chip"><wa-icon name="arrows-rotate" variant="regular"></wa-icon></span> | Basculer le widget Orbit | `Alt+O` | Mode Orbit | Affiche ou masque le widget Orbit pendant la rotation. |
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Basculer le panorama | `Alt+Shift+P` | Application | Démarre ou arrête le mode panorama autour de la cible courante. |
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Basculer le widget Panorama | `Alt+P` | Mode Panorama | Affiche ou masque le widget Panorama pendant le panorama. |
-| <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Fermer le panneau actif | `Escape` | Application | Ferme le drawer, le popup ou le [dialog](/fr/user-guide/reference/studio-interface/#dialogs) actif quand la vue le permet. |
+| <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Fermer le panneau actif | `Escape` | Application | Ferme le drawer, le popup ou le [dialog](/fr/user-guide/reference/studio-interface#dialogs) actif quand la vue le permet. |
 
 ## Raccourcis Du Widget Sélectionné
 

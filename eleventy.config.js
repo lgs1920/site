@@ -113,6 +113,51 @@ const copyLogoAssets = () => {
 
 const studioLogoHorizontalMarkup = '<img class="brand-logo-mark brand-logo-image" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
 
+const normalizeInternalLinks = (content) => content.replace(/href="(\/[^"#?]*?)\/(?=["#?])/g, (match, pathName) => {
+    if (pathName.startsWith('/assets/') || pathName.startsWith('/src/')) {
+        return match
+    }
+
+    return `href="${pathName}`
+})
+
+const rewriteDevServerDirectoryRequest = (requestUrl) => {
+    let request
+    let pathname
+
+    try {
+        request = new URL(requestUrl, 'http://localhost')
+        pathname = decodeURIComponent(request.pathname)
+    } catch {
+        return null
+    }
+
+    if (pathname === '/' || pathname.endsWith('/') || path.extname(pathname)) {
+        return null
+    }
+
+    const outputDirectory = path.resolve('_site')
+    const indexPath = path.resolve(outputDirectory, `.${pathname}`, 'index.html')
+
+    if (!indexPath.startsWith(`${outputDirectory}${path.sep}`) || !fs.existsSync(indexPath)) {
+        return null
+    }
+
+    return `${pathname}/${request.search}`
+}
+
+const devServerDirectoryMiddleware = (request, response, next) => {
+    if (request.method === 'GET' || request.method === 'HEAD') {
+        const rewrittenUrl = rewriteDevServerDirectoryRequest(request.url)
+
+        if (rewrittenUrl) {
+            request.url = rewrittenUrl
+        }
+    }
+
+    next()
+}
+
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
     copyLogoAssets()
@@ -145,8 +190,18 @@ export default function(eleventyConfig) {
         const locale = this.page.url === '/fr/' || this.page.url.startsWith('/fr/') ? 'fr' : 'en'
         return renderProductionRedirect(redirectUrl, locale)
     })
+    eleventyConfig.addTransform('normalize-internal-links', function(content) {
+        if (!this.page?.outputPath?.endsWith('.html')) {
+            return content
+        }
+
+        return normalizeInternalLinks(content)
+    })
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
+        serverOptions: {
+            middleware: [devServerDirectoryMiddleware],
+        },
         viteOptions: {
             resolve: {
                 alias: {

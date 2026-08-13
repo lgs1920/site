@@ -5,7 +5,7 @@ const page = {
             "title": "Modal Layer information",
             "description": "Modal d'avertissement et d'information pour une couche ou une source de terrain.",
             "ui": {
-                "backUrl": "/fr/user-guide/reference/studio-interface/drawers/layers/",
+                "backUrl": "/fr/user-guide/reference/studio-interface/drawers/layers",
                 "backLabel": "Drawer Layers",
                 "overview": "Le modal Layer information affiche le disclaimer ou les notes supplémentaires liées à une couche ou une source de terrain.\n",
                 "controls": [
@@ -28,7 +28,7 @@ const page = {
             "title": "Layer information modal",
             "description": "Disclaimer and information modal for a layer or terrain source.",
             "ui": {
-                "backUrl": "/user-guide/reference/studio-interface/drawers/layers/",
+                "backUrl": "/user-guide/reference/studio-interface/drawers/layers",
                 "backLabel": "Layers drawer",
                 "overview": "The Layer information modal shows the disclaimer or additional notes attached to a layer or terrain source. It is a short reading step before the user continues with the selected source.\n",
                 "controls": [

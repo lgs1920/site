@@ -1,5 +1,5 @@
 import changelogs from '../_data/changelog.js'
-import { CHANGELOG_PAGE_SIZE, createChangelogPagination, getChangelogPagePath, renderChangelogIndex } from '../_lib/changelog-docs.js'
+import { CHANGELOG_PAGE_SIZE, createChangelogPagination, getChangelogPermalinkPath, renderChangelogIndex } from '../_lib/changelog-docs.js'
 import changelogPage from '../_data/pages/changelog.js'
 import { getGeneratedPageData } from '../_lib/page-data.js'
 
@@ -24,7 +24,7 @@ export default class {
                 size: CHANGELOG_PAGE_SIZE,
                 alias:'entries',
             },
-            permalink: (data) => getChangelogPagePath(locale, (data.pagination?.pageNumber ?? 0) + 1),
+            permalink: (data) => getChangelogPermalinkPath(locale, (data.pagination?.pageNumber ?? 0) + 1),
             eleventyComputed: {
                 sectionNav: getPageSectionNav,
             },

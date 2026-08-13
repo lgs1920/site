@@ -11,7 +11,7 @@ const getPageMeta = (data) => {
     const locale = getLocale(data)
     const localizedPage = getLocalizedPageContent(data)
     const localizedSite = i18n.site[locale] ?? i18n.site[i18n.defaultLocale]
-    const currentPath = i18n.normalizeUrl(data.page?.url)
+    const currentPath = i18n.publicPath(data.page?.url)
     const alternateLocales = i18n.getAlternateLocales(data.page?.url)
     const siteUrl = data.site?.url
     const title = localizedPage?.title ?? data.title ?? data.site?.name
@@ -63,6 +63,7 @@ export default {
         localizedHomeUrl:    (data) => i18n.localizedPath(getLocale(data), '/'),
         localizedContactUrl: (data) => i18n.localizedPath(getLocale(data), '/contact/'),
         localizedRegistrationUrl:(data) => i18n.localizedPath(getLocale(data), '/registration/'),
+        currentPageUrl:      (data) => i18n.publicPath(data.page?.url),
         localizedPage:       getLocalizedPageContent,
         pageMeta:            getPageMeta,
         localizedNavigation: (data) => i18n.navigation[getLocale(data)] ?? i18n.navigation.en,
