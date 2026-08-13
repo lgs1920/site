@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`362d759`](https://github.com/lgs1920/site/commit/362d759) — Set hero video slow motion
+
+- Set hero video playback to a restrained 0.75× slow-motion rate.
+
 ## 2026-08-12 — [`68f665b`](https://github.com/lgs1920/site/commit/68f665b) — Tune hero video color grading
 
 - Applied a warm, restrained vintage randonnée/cartography filter to hero media.

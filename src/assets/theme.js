@@ -19,6 +19,7 @@ const DEFAULT_BRAND_COLOR = 'yellow'
 const DEFAULT_THEME = 'dark'
 const DEFAULT_SEASON = 'summer'
 const DEFAULT_GUIDE_ASIDE_PLACEMENT = 'right'
+const HERO_VIDEO_PLAYBACK_RATE = 0.75
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray']
 const THEME_OPTIONS = ['light', 'dark', 'system']
 const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
@@ -696,6 +697,8 @@ const setupHeroMedia = () => {
         applyFallbackImage(fallbackImage)
         video.poster = fallbackImage || ''
         video.src = source
+        video.defaultPlaybackRate = HERO_VIDEO_PLAYBACK_RATE
+        video.playbackRate = HERO_VIDEO_PLAYBACK_RATE
         video.load()
 
         const playback = video.play()
