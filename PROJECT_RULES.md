@@ -20,6 +20,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Keep internal links localized: English routes have no locale prefix; French routes use `/fr/`.
 - Every banner video must have a matching WebP fallback image. Register both assets in the banner media catalog, preload the WebP, render it below the video layer, and fade it out only after the video can play.
 - Banner videos must keep their full duration while being optimized for web delivery: maximum 1920px width, maximum 30 fps, no audio when unused, H.264 encoding with `faststart`, and a matching WebP fallback.
+- Any change to the video catalog, video effects, or hero animation must also be reported in the Studio repository before handoff, using the appropriate Studio issue or documentation entry.
 
 ## 3. Site architecture
 

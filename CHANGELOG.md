@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-13 — [`0149d04`](https://github.com/lgs1920/site/commit/0149d04) — Document Studio reporting for visual changes
+
+- Documented that video catalog, video effects, and hero animation changes must be reported in the Studio repository.
+
 ## 2026-08-13 — [`bc2882f`](https://github.com/lgs1920/site/commit/bc2882f) — Add cloud access tooltip to registration
 
 - Added localized cloud-access explanatory tooltips to the registration privacy rows.
