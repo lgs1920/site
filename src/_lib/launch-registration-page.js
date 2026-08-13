@@ -14,6 +14,59 @@ const linkifyContactEmail = (value = '') => escapeHtml(value)
         `<a href="mailto:${site.contactEmail}">${escapeHtml(site.contactEmail)}</a>`,
     )
 
+const renderRegistrationHeroDetails = (pageContent) => {
+    const panel = pageContent.hero.panel
+
+    if (!panel) {
+        return ''
+    }
+
+    const renderItems = (items = []) => items.map((item) => `
+        <article>
+            <wa-icon${item.family ? ` family="${escapeHtml(item.family)}"` : ''} variant="${escapeHtml(item.iconVariant || 'regular')}" name="${escapeHtml(item.icon)}"></wa-icon>
+            <div>
+                <strong>${escapeHtml(item.title)}</strong>
+                <span>${escapeHtml(item.text)}</span>
+            </div>
+        </article>`).join('')
+
+    const renderPromiseItems = (items = []) => items.map((item, index) => `
+        <article>
+            <wa-icon${item.family ? ` family="${escapeHtml(item.family)}"` : ''} variant="${escapeHtml(item.iconVariant || 'regular')}" name="${escapeHtml(item.icon)}"></wa-icon>
+            <div>
+                <strong>${escapeHtml(item.title)}</strong>
+                <span>
+                    ${escapeHtml(item.text)}
+                    ${item.note ? `<wa-button id="registration-details-note-${pageContent.locale}-${index}" class="hero-panel-note-trigger" variant="brand" appearance="plain" size="small" aria-label="${escapeHtml(item.noteLabel)}"><wa-icon variant="regular" name="circle-info"></wa-icon></wa-button><wa-tooltip for="registration-details-note-${pageContent.locale}-${index}" placement="top">${escapeHtml(item.note)}</wa-tooltip>` : ''}
+                </span>
+            </div>
+        </article>`).join('')
+
+    return `
+<section id="registration-details" class="content-section registration-details-section" aria-labelledby="registration-details-title-${pageContent.locale}">
+    <div class="section-heading">
+        <h2 id="registration-details-title-${pageContent.locale}">${escapeHtml(panel.title || '')}</h2>
+    </div>
+
+    <div class="registration-hero-details">
+        <wa-card class="registration-hero-details-card">
+            <div class="registration-hero-details-main">
+                ${panel.description ? `<p class="hero-panel-description">${escapeHtml(panel.description)}${panel.descriptionBreak ? `<br>${escapeHtml(panel.descriptionBreak)}` : ''}</p>` : ''}
+                ${panel.items?.length ? `<div class="hero-metric-list"><wa-divider class="hero-panel-divider"></wa-divider>${renderItems(panel.items)}</div>` : ''}
+            </div>
+        </wa-card>
+
+        ${panel.promise ? `<aside class="registration-hero-details-promise" aria-labelledby="registration-privacy-promise-title-${pageContent.locale}">
+            <div class="hero-panel-promise-heading">
+                <wa-icon${panel.promise.family ? ` family="${escapeHtml(panel.promise.family)}"` : ''} variant="${escapeHtml(panel.promise.iconVariant || 'regular')}" name="${escapeHtml(panel.promise.icon)}"></wa-icon>
+                <h3 id="registration-privacy-promise-title-${pageContent.locale}">${escapeHtml(panel.promise.text)}</h3>
+            </div>
+            ${panel.promise.items?.length ? `<div class="hero-panel-promise-items">${renderPromiseItems(panel.promise.items)}</div>` : ''}
+        </aside>` : ''}
+    </div>
+</section>`
+}
+
 /**
  * Render the bilingual launch registration page body.
  *
@@ -31,6 +84,8 @@ export const renderLaunchRegistrationPage = (pageContent) => {
     }))
 
     return `
+    ${renderRegistrationHeroDetails(pageContent)}
+
 <section id="registration-form" class="content-section launch-registration-section">
     <div class="section-heading">
         ${pageContent.hero.kicker ? `<p class="section-kicker">${escapeHtml(pageContent.hero.kicker)}</p>` : ''}
@@ -44,6 +99,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
             <div class="registration-brand-lockup">
                 ${logoMarkup}
             </div>
+            <p class="registration-slogan">Replay the World Outdoors!</p>
         </div>
 
         <wa-card class="registration-card">
@@ -124,8 +180,6 @@ export const renderLaunchRegistrationPage = (pageContent) => {
             </form>
         </wa-card>
     </div>
-
-    <p class="registration-slogan">Replay the World Outdoors!</p>
 </section>
 
 <section id="registration-privacy" class="content-section registration-privacy-section">

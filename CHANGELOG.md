@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-13 — [`2edb5fb`](https://github.com/lgs1920/site/commit/2edb5fb) — Refine launch registration page
+
+- Reworked the bilingual registration hero, launch details, privacy layout, and responsive form arrangement.
+- Added the hero scroll action and refined the registration page spacing, language selector, and alignment.
+
 ## 2026-08-13 — [`362d759`](https://github.com/lgs1920/site/commit/362d759) — Set hero video slow motion
 
 - Set hero video playback to a restrained 0.75× slow-motion rate.

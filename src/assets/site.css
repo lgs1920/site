@@ -1532,7 +1532,11 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     max-width: none;
     padding: 0 !important;
     margin-top: calc(var(--header-height, 0px) * -1);
-    min-height: min(82svh, 52rem);
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
     overflow: clip;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-inline: 0;
@@ -1583,6 +1587,58 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .hero-media-credit a:hover,
 .hero-media-credit a:focus-visible {
     color: #fff;
+}
+
+.hero-scroll-button {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    z-index: 6;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.page-hero.is-scroll-prompt-visible .hero-scroll-button {
+    opacity: 0.9;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.hero-scroll-button wa-icon {
+    display: block;
+    font-size: 1.25rem;
+    animation: hero-scroll-jello 2.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-jello {
+    0%,
+    18%,
+    100% {
+        transform: none;
+    }
+
+    24% {
+        transform: skewX(-10deg) skewY(-7deg) scaleY(0.96);
+    }
+
+    30% {
+        transform: skewX(7deg) skewY(5deg) scaleY(1.04);
+    }
+
+    36% {
+        transform: skewX(-4deg) skewY(-3deg) scaleY(0.98);
+    }
+
+    42% {
+        transform: skewX(2deg) skewY(2deg) scaleY(1.01);
+    }
+
+    48% {
+        transform: none;
+    }
 }
 
 .hero-media-fallback,
@@ -1894,6 +1950,12 @@ html.wa-light .hero-backdrop {
     align-self: center;
 }
 
+@media (min-width: 961px) {
+    .registration-hero.intro-hero .hero-panel {
+        transform: translateY(16.666svh);
+    }
+}
+
 .page-hero h1,
 .section-heading h2,
 .vision-card h3,
@@ -2050,22 +2112,13 @@ html.wa-light .hero-backdrop {
     min-width: 0;
     overflow: hidden;
     text-align: left;
-    background: rgb(from var(--surface-soft) r g b / 0.8);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
 }
 
 .registration-hero .hero-panel::before {
-    position: absolute;
-    right: 1.35rem;
-    bottom: 1.35rem;
-    width: auto;
-    height: min(66.666%, calc(100% - 2.7rem));
-    aspect-ratio: 1;
-    content: '';
-    background: url('/assets/logo/logo.png') center / contain no-repeat;
-    opacity: 0.2;
-    pointer-events: none;
+    display: none;
 }
 
 .registration-hero .hero-panel > * {
@@ -2083,6 +2136,35 @@ html.wa-light .hero-backdrop {
     min-width: 0;
 }
 
+.registration-hero-action {
+    display: grid;
+    gap: 1.25rem;
+    align-content: center;
+    justify-items: start;
+    min-height: 100%;
+}
+
+.registration-hero-action-header {
+    display: grid;
+    align-items: start;
+    width: 100%;
+}
+
+.registration-hero-locale {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 6;
+}
+
+.registration-hero-action-header .locale-trigger::part(base) {
+    color: var(--hero-ink);
+}
+
+.registration-hero-action-button::part(base) {
+    min-width: 9rem;
+}
+
 .registration-hero .hero-panel-promise {
     display: grid;
     grid-column: auto;
@@ -2092,6 +2174,9 @@ html.wa-light .hero-backdrop {
     margin-top: 0;
     justify-self: stretch;
     color: var(--hero-ink);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .registration-hero .hero-panel-header {
@@ -2110,6 +2195,10 @@ html.wa-light .hero-backdrop {
 
 .registration-hero .hero-panel-description {
     text-align: left;
+}
+
+.registration-hero .hero-panel-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
 .registration-hero .hero-metric-list,
@@ -2182,7 +2271,7 @@ html.wa-light .hero-backdrop {
 
 .hero-panel-note-trigger {
     display: inline-flex;
-    vertical-align: -0.15em;
+    vertical-align: middle;
     margin-inline-start: 0.25rem;
     color: var(--lgs-accent-color);
 }
@@ -2774,6 +2863,71 @@ wa-dialog::part(footer) {
     align-items: start;
 }
 
+.registration-hero-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: stretch;
+    width: 100%;
+    margin-block: 2rem 0;
+}
+
+.registration-hero-details-card {
+    width: 100%;
+}
+
+wa-card.registration-hero-details-card::part(body) {
+    padding: clamp(1.35rem, 3vw, 2rem);
+}
+
+.registration-hero-details-main,
+.registration-hero-details-promise {
+    min-width: 0;
+}
+
+.registration-hero-details-promise {
+    display: grid;
+    gap: var(--wa-space-m);
+    color: var(--page-ink);
+}
+
+.registration-hero-details-promise .hero-panel-promise-heading {
+    padding-block-end: 0;
+    border-block-end: 1px solid var(--panel-stroke);
+}
+
+.registration-hero-details-promise .hero-panel-promise-heading h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.registration-hero-details .hero-panel-description,
+.registration-hero-details .hero-panel-promise-items span {
+    color: var(--page-muted);
+}
+
+.registration-hero-details .hero-metric-list article,
+.registration-hero-details .hero-panel-promise-items article {
+    border-color: var(--panel-stroke);
+}
+
+.registration-hero-details .hero-panel-promise-items {
+    grid-template-columns: 1fr;
+    gap: var(--wa-space-2xs);
+}
+
+.registration-hero-details .hero-panel-promise-items article {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.registration-hero-details .hero-metric-list wa-icon,
+.registration-hero-details .hero-panel-promise-heading wa-icon,
+.registration-hero-details .hero-panel-promise-items wa-icon {
+    color: var(--lgs-accent-color);
+}
+
 .registration-revoke-hero,
 .registration-confirm-hero {
     min-height: 76svh;
@@ -2862,8 +3016,9 @@ wa-dialog::part(footer) {
 
 .registration-brand-column {
     display: grid;
+    align-content: center;
+    justify-items: center;
     min-height: 100%;
-    place-items: center;
     padding: clamp(1rem, 4vw, 3rem);
 }
 
@@ -2883,7 +3038,7 @@ wa-dialog::part(footer) {
 
 .registration-slogan {
     width: min(100%, 22rem);
-    margin: 5rem auto 0;
+    margin: 1.5rem auto 0;
     color: var(--wa-color-brand);
     font-family: var(--lgs-slogan-font-family);
     font-size: clamp(1.55rem, 7vw, calc(3.5 * var(--lgs-gutter)));
@@ -4117,6 +4272,30 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: 1fr;
     }
 
+    .registration-hero-details {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-hero-details-promise {
+        padding-block-start: 1.25rem;
+    }
+
+    .registration-slogan {
+        grid-column: 1;
+        grid-row: 3;
+        padding-inline: clamp(1rem, 4vw, 3rem);
+    }
+
+    .registration-brand-column {
+        display: contents;
+    }
+
+    .registration-brand-lockup {
+        grid-column: 1;
+        grid-row: 1;
+        padding: clamp(1rem, 4vw, 3rem);
+    }
+
     .intro-indication-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -4163,8 +4342,10 @@ wa-card.page-cta-card::part(body) {
     }
 
     .registration-hero.intro-hero {
-        height: auto;
-        min-height: 100svh;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .intro-hero .hero-copy {
@@ -4530,6 +4711,10 @@ wa-card.page-cta-card::part(body) {
     .hero-route-poi,
     .hero-route-poi wa-icon {
         transition: none;
+        animation: none;
+    }
+
+    .hero-scroll-button wa-icon {
         animation: none;
     }
 }

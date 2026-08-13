@@ -633,6 +633,21 @@ const syncHeroMediaCredit = (choice) => {
     creditElement.hidden = false
 }
 
+const setupHeroScrollPrompt = () => {
+    const hero = document.querySelector('.page-hero')
+    const scrollButtons = hero ? Array.from(hero.querySelectorAll('[data-hero-scroll]')) : []
+    const content = document.querySelector('#content')
+
+    if (!hero || scrollButtons.length === 0 || !content) {
+        return
+    }
+
+    window.setTimeout(() => hero.classList.add('is-scroll-prompt-visible'), 5000)
+    scrollButtons.forEach((button) => {
+        button.addEventListener('click', () => content.scrollIntoView({behavior: 'smooth', block: 'start'}))
+    })
+}
+
 const setupHeroMedia = () => {
     const mediaElement = document.querySelector('[data-hero-media]')
 
@@ -767,6 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupHeroMedia()
     setupBannerMediaNavigation()
+    setupHeroScrollPrompt()
     setupNavigationScrollbars(page)
     setupPageNavigation()
     setupGuideAsidePlacement()

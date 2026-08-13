@@ -16,6 +16,7 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Something amazing is on the way.',
+                action: {label:'Stay Tuned', appearance:'filled', variant:'brand'},
                 description: 'We are working hard to bring you a new experience.',
                 descriptionBreak: 'Be one of the first to know when we launch and get early access.',
                 items:  [
@@ -34,6 +35,7 @@ const launchRegistration = {
             },
         },
         sectionNav: [
+            {id:'registration-details', label:'Something amazing is on the way', summary:'Discover what is coming to Studio'},
             {id:'registration-form', label:'Registration form', summary:'Enter your details and consent'},
             {id:'registration-privacy', label:'Your data', summary:'How the registration data is used'},
         ],
@@ -71,6 +73,7 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Quelque chose de sympa arrive.',
+                action: {label:'Restez informé', appearance:'filled', variant:'brand'},
                 description: 'Nous travaillons pour vous proposer une nouvelle expérience.',
                 descriptionBreak: 'Soyez parmi les premiers informés du lancement et bénéficiez d’un accès anticipé.',
                 items:  [
@@ -89,6 +92,7 @@ const launchRegistration = {
             },
         },
         sectionNav: [
+            {id:'registration-details', label:'Quelque chose de sympa arrive', summary:'Découvrir ce qui arrive dans Studio'},
             {id:'registration-form', label:'Formulaire d’inscription', summary:'Renseigner vos coordonnées et votre consentement'},
             {id:'registration-privacy', label:'Vos données', summary:'Utilisation des données d’inscription'},
         ],
