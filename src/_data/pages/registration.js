@@ -11,7 +11,7 @@ const launchRegistration = {
         hero:        {
             className:'intro-hero registration-hero',
             localeSwitcher:true,
-            title:    'Turn outdoor adventures into shared stories.',
+            title:    'Live outdoor adventures, share the stories.',
             lead:     'Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.',
             panel:    {
                 eyebrow:'LGS1920 Studio',
@@ -68,7 +68,7 @@ const launchRegistration = {
         hero:        {
             className:'intro-hero registration-hero',
             localeSwitcher:true,
-            title:    'Transformez vos aventures outdoor en histoires à partager.',
+            title:    'Vivez vos aventures outdoor, partagez vos histoires.',
             lead:     'Marchez, courez ou roulez, puis importez, éditez, rejouez et partagez les vidéos de vos parcours sans quitter votre navigateur.',
             panel:    {
                 eyebrow:'LGS1920 Studio',

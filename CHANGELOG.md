@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-13 — [`119eebd`](https://github.com/lgs1920/site/commit/119eebd) — Update registration hero copy
+
+- Updated the English and French registration hero headlines.
+- Refreshed the optimized logo PNG assets.
+
 ## 2026-08-13 — [`2edb5fb`](https://github.com/lgs1920/site/commit/2edb5fb) — Refine launch registration page
 
 - Reworked the bilingual registration hero, launch details, privacy layout, and responsive form arrangement.
