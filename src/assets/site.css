@@ -1973,7 +1973,22 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 }
 
 .intro-hero .hero-copy::before {
-    display: none;
+    display: block;
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: -2.5rem auto -2.5rem -2rem;
+    width: min(54rem, 92vw);
+    border-radius: 2rem;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 8, 7, 0.5),
+        rgba(3, 8, 7, 0.27) 48%,
+        rgba(3, 8, 7, 0.08) 76%,
+        transparent 100%
+    );
+    filter: blur(24px);
+    pointer-events: none;
 }
 
 .intro-hero .hero-copy > * {
@@ -2048,6 +2063,15 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     color: var(--lgs-accent-strong-color);
     font-size: clamp(1rem, 1.5vw, 1.18rem);
     line-height: 1.7;
+}
+
+.intro-hero .hero-copy h1,
+.intro-hero .hero-lead {
+    text-shadow: 0 1px 0.7rem rgba(0, 0, 0, 0.48);
+}
+
+.intro-hero .hero-lead {
+    color: var(--hero-ink);
 }
 
 .hero-note {

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-14 — [`de07174`](https://github.com/lgs1920/site/commit/de07174) — Improve homepage hero readability
+
+- Added a blurred gradient scrim behind the homepage hero copy.
+- Added subtle title and lead text shadows for steadier contrast over video.
+
 ## 2026-08-14 — [`c6a9b8c`](https://github.com/lgs1920/site/commit/c6a9b8c) — Align site identity and page titles
 
 - Renamed the public site identity from LGS1920 Studio to LGS1920 Site on the homepage and shared site data.
