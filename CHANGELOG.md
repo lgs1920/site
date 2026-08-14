@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-14 — [`4960c28`](https://github.com/lgs1920/site/commit/4960c28) — Refine 404 reroute messages
+
+- Refined the English and French 404-page reroute messages with aligned wording.
+
 ## 2026-08-14 — [`1f54ebd`](https://github.com/lgs1920/site/commit/1f54ebd) — Swap homepage hero button emphasis
 
 - Promoted Discover and Découvrir to the filled brand action with a double-chevron-down icon.
