@@ -16,9 +16,8 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Something amazing is on the way.',
-                action: {label:'Stay Tuned', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
-                description: 'We are working hard to bring you a new experience.',
-                descriptionBreak: 'Be one of the first to know when we launch and get early access.',
+                action: {label:'Register for launch updates', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
+                lead:     'Stay tuned and register for launch updates to be among the first to discover what Studio has in store.',
                 items:  [
                     {icon:'route', title:'Import your trail, ride or trek and review it.', text:'GeoJSON, GPX, and KML'},
                     {icon:'camera', title:'Explore a global, 3D playground!', text:'Worldwide layers and dynamic widgets (profiles, live data, compass, text, and more to come).'},
@@ -73,9 +72,8 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Quelque chose de sympa arrive.',
-                action: {label:'Restez informé', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
-                description: 'Nous travaillons pour vous proposer une nouvelle expérience.',
-                descriptionBreak: 'Soyez parmi les premiers informés du lancement et bénéficiez d’un accès anticipé.',
+                action: {label:'S’inscrire aux infos du lancement', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
+                lead:     'Restez informé et inscrivez-vous pour être parmi les premiers à découvrir ce que Studio vous réserve.',
                 items:  [
                     {icon:'route', title:'Importez et relisez vos parcours, sorties et randonnées.', text:'GeoJSON, GPX et KML'},
                     {icon:'camera', title:'Explorez un terrain de jeu mondial en 3D !', text:'Couches mondiales et widgets dynamiques (profils, données en direct, boussole, textes et bien plus à venir).'},

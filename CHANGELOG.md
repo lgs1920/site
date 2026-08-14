@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-14 — [`ff8da71`](https://github.com/lgs1920/site/commit/ff8da71) — Refine launch registration hero
+
+- Added localized launch-registration lead copy below the hero title and updated the call-to-action label.
+- Reduced the lead text size in the registration hero for a lighter visual hierarchy.
+
 ## 2026-08-14 — [`4b8cc9d`](https://github.com/lgs1920/site/commit/4b8cc9d) — Fix hero notification bell animation
 
 - Matched the bell icon color to the button text and made its Font Awesome swing animation clearly visible every 10 seconds.

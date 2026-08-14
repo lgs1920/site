@@ -470,6 +470,9 @@ layout: layouts/base.html
                                     {% if page_hero.panel.title %}
                                         <h2 class="hero-panel-title">{{ page_hero.panel.title }}</h2>
                                     {% endif %}
+                                    {% if page_hero.panel.lead %}
+                                        <p class="hero-panel-description">{{ page_hero.panel.lead }}</p>
+                                    {% endif %}
                                 </div>
                             </div>
                             {% if page_hero.panel.action %}

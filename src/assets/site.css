@@ -2227,6 +2227,12 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     width: 100%;
 }
 
+.registration-hero-action .hero-panel-description {
+    margin-top: 0.55rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
 .registration-hero-locale {
     display: inline-flex;
     align-items: center;
