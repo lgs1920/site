@@ -99,7 +99,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
             <div class="registration-brand-lockup">
                 ${logoMarkup}
             </div>
-            <p class="registration-slogan">Replay the World Outdoors!</p>
+            <p class="registration-slogan">Replay Your World Outdoors.</p>
         </div>
 
         <wa-card class="registration-card">
