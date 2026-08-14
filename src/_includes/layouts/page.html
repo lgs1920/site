@@ -295,14 +295,19 @@ layout: layouts/base.html
                  alt=""
                  aria-hidden="true"
                  decoding="async">
-            <video class="hero-video"
+            <video class="hero-video hero-video-active"
                    data-hero-video
                    muted
-                   loop
                    playsinline
                    autoplay
-                   preload="metadata"
-                   disablepictureinpicture></video>
+                   preload="auto"
+                   disablepictureinpicture><source data-hero-video-source type="video/mp4"></video>
+            <video class="hero-video hero-video-incoming"
+                   data-hero-video-incoming
+                   muted
+                   playsinline
+                   preload="auto"
+                   disablepictureinpicture><source data-hero-video-source type="video/mp4"></video>
         </div>
 
         <div class="hero-media-credit" data-hero-media-credit hidden>

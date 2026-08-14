@@ -1695,7 +1695,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .hero-video {
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.35s ease;
+    transition: opacity 3s ease-in-out;
 }
 
 .hero-media.is-video-ready .hero-media-fallback {
@@ -1710,6 +1710,24 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .hero-media.is-media-fallback .hero-video {
     opacity: 0;
     visibility: hidden;
+}
+
+.hero-video-active {
+    z-index: 2;
+}
+
+.hero-video-incoming {
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero-media.is-video-transitioning.is-incoming-video-ready .hero-video-active {
+    opacity: 0;
+}
+
+.hero-media.is-video-transitioning.is-incoming-video-ready .hero-video-incoming {
+    opacity: 1;
 }
 
 .hero-backdrop {

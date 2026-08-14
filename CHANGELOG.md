@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-14 — [`3edd627`](https://github.com/lgs1920/site/commit/3edd627) — Stabilize hero video crossfades
+
+- Matched the Studio two-player event sequence for continuous hero video rotation.
+- Prevented the first video's fallback from resurfacing and made the outgoing/incoming crossfade more visible.
+
 ## 2026-08-13 — [`de939f5`](https://github.com/lgs1920/site/commit/de939f5) — Improve mobile hero route visibility
 
 - Increased the mobile hero route opacity so the animated path remains visible against the backdrop.

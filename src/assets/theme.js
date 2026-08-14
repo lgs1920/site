@@ -3,6 +3,7 @@ import {
     BANNER_MEDIA_QUERY_PARAM,
     consumeBannerMedia,
     consumeNextBannerMedia,
+    getBannerMediaChoices,
     getBannerMediaFallback,
     getBannerMediaSource,
     selectBannerMedia,
@@ -20,6 +21,8 @@ const DEFAULT_THEME = 'dark'
 const DEFAULT_SEASON = 'summer'
 const DEFAULT_GUIDE_ASIDE_PLACEMENT = 'right'
 const HERO_VIDEO_PLAYBACK_RATE = 0.75
+const HERO_VIDEO_CROSSFADE_DURATION = 3000
+const HERO_VIDEO_CROSSFADE_LEAD = 3
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray']
 const THEME_OPTIONS = ['light', 'dark', 'system']
 const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
@@ -662,7 +665,10 @@ const setupHeroMedia = () => {
         return
     }
 
-    const video = mediaElement.querySelector('[data-hero-video]')
+    const primaryVideo = mediaElement.querySelector('[data-hero-video]')
+    const secondaryVideo = mediaElement.querySelector('[data-hero-video-incoming]')
+    const primarySourceElement = primaryVideo?.querySelector('[data-hero-video-source]')
+    const secondarySourceElement = secondaryVideo?.querySelector('[data-hero-video-source]')
     const fallbackElement = mediaElement.querySelector('[data-hero-media-fallback]')
     const catalogKey = mediaElement.dataset.heroMediaKey || 'default'
     const selectedId = consumeBannerMedia() || consumeLegacyBannerMediaQuery()
@@ -671,11 +677,21 @@ const setupHeroMedia = () => {
         : consumeNextBannerMedia(bannerMediaCatalog, catalogKey)
     let fallbackImage = getBannerMediaFallback(choice, heroViewport.matches)
     let activeSource = null
+    let activeVideo = primaryVideo
+    let incomingVideo = secondaryVideo
+    let activeSourceElement = primarySourceElement
+    let incomingSourceElement = secondarySourceElement
+    let activeChoice = choice
+    let incomingChoice = null
+    let transitionTimer = null
+    let transitionStarted = false
+    let hasPlayedVideo = false
 
     mediaElement.dataset.bannerMediaId = choice?.id || ''
     syncHeroMediaCredit(choice)
 
-    const applyFallback = () => {
+    const applyFallback = (mediaChoice) => {
+        fallbackImage = getBannerMediaFallback(mediaChoice, heroViewport.matches)
         mediaElement.classList.add('is-media-fallback')
         mediaElement.classList.remove('is-image-media', 'is-video-ready')
 
@@ -696,9 +712,9 @@ const setupHeroMedia = () => {
     }
 
     const syncMediaSource = () => {
-        const source = getBannerMediaSource(choice, heroViewport.matches)
-        fallbackImage = getBannerMediaFallback(choice, heroViewport.matches)
-        const displaySource = !video || mediaElement.dataset.heroVideoEnabled === 'false'
+        const source = getBannerMediaSource(activeChoice, heroViewport.matches)
+        fallbackImage = getBannerMediaFallback(activeChoice, heroViewport.matches)
+        const displaySource = !activeVideo || mediaElement.dataset.heroVideoEnabled === 'false'
             ? fallbackImage
             : source
 
@@ -708,7 +724,7 @@ const setupHeroMedia = () => {
 
         activeSource = displaySource
 
-        if (!video || choice.type !== 'video' || mediaElement.dataset.heroVideoEnabled === 'false') {
+        if (!activeVideo || activeChoice.type !== 'video' || mediaElement.dataset.heroVideoEnabled === 'false') {
             mediaElement.classList.add('is-image-media')
             mediaElement.classList.remove('is-media-fallback', 'is-video-ready')
             applyFallbackImage(displaySource)
@@ -717,18 +733,150 @@ const setupHeroMedia = () => {
 
         mediaElement.classList.remove('is-image-media', 'is-media-fallback', 'is-video-ready')
         applyFallbackImage(fallbackImage)
-        video.poster = fallbackImage || ''
-        video.src = source
-        video.defaultPlaybackRate = HERO_VIDEO_PLAYBACK_RATE
-        video.playbackRate = HERO_VIDEO_PLAYBACK_RATE
-        video.load()
+        activeVideo.removeAttribute('poster')
+        activeSourceElement.src = source || ''
+        activeVideo.defaultPlaybackRate = HERO_VIDEO_PLAYBACK_RATE
+        activeVideo.playbackRate = HERO_VIDEO_PLAYBACK_RATE
+        activeVideo.load()
 
-        const playback = video.play()
+        const playback = activeVideo.play()
         playback?.catch(() => {})
     }
 
-    video?.addEventListener('error', applyFallback)
-    video?.addEventListener('canplay', () => mediaElement.classList.add('is-video-ready'))
+    const changeVideo = () => {
+        if (!activeVideo || !incomingVideo || transitionStarted || getBannerMediaChoices(bannerMediaCatalog, catalogKey).length < 2) {
+            return
+        }
+
+        if (incomingChoice) {
+            activeVideo.play().catch(() => {})
+            return
+        }
+
+        incomingChoice = consumeNextBannerMedia(
+            bannerMediaCatalog,
+            catalogKey,
+            undefined,
+            Math.random,
+            activeChoice?.id,
+        )
+
+        if (!incomingChoice) {
+            return
+        }
+
+        incomingSourceElement.src = getBannerMediaSource(incomingChoice, heroViewport.matches) || ''
+        incomingVideo.removeAttribute('poster')
+        incomingVideo.defaultPlaybackRate = HERO_VIDEO_PLAYBACK_RATE
+        incomingVideo.playbackRate = HERO_VIDEO_PLAYBACK_RATE
+        incomingVideo.load()
+    }
+
+    const resetVideo = (videoElement, sourceElement) => {
+        videoElement.pause()
+        videoElement.removeAttribute('poster')
+        sourceElement.removeAttribute('src')
+        videoElement.load()
+    }
+
+    const handleVideoError = (event) => {
+        if (transitionStarted || event.currentTarget !== activeVideo) {
+            return
+        }
+
+        if (!hasPlayedVideo) {
+            applyFallback(activeChoice)
+            return
+        }
+
+        changeVideo()
+    }
+
+    const finishIncomingVideo = (event) => {
+        const nextVideo = event.currentTarget
+        if (nextVideo !== incomingVideo || !incomingChoice || transitionStarted) {
+            return
+        }
+
+        transitionStarted = true
+        nextVideo.currentTime = 0
+        nextVideo.play().catch(() => {})
+        nextVideo.getBoundingClientRect()
+        mediaElement.classList.add('is-video-transitioning', 'is-incoming-video-ready')
+        mediaElement.classList.add('is-video-ready')
+        mediaElement.classList.remove('is-image-media', 'is-media-fallback')
+        transitionTimer = window.setTimeout(() => {
+            const outgoingVideo = activeVideo
+            const outgoingSourceElement = activeSourceElement
+            const nextChoice = incomingChoice
+
+            activeVideo = incomingVideo
+            incomingVideo = outgoingVideo
+            activeSourceElement = incomingSourceElement
+            incomingSourceElement = outgoingSourceElement
+            activeChoice = nextChoice
+            incomingChoice = null
+            transitionStarted = false
+            transitionTimer = null
+            fallbackImage = getBannerMediaFallback(activeChoice, heroViewport.matches)
+            activeSource = getBannerMediaSource(activeChoice, heroViewport.matches)
+            applyFallbackImage(fallbackImage)
+            mediaElement.dataset.bannerMediaId = activeChoice.id
+            syncHeroMediaCredit(activeChoice)
+            activeVideo.classList.remove('hero-video-incoming')
+            activeVideo.classList.add('hero-video-active')
+            incomingVideo?.classList.remove('hero-video-active')
+            incomingVideo?.classList.add('hero-video-incoming')
+            if (outgoingVideo) {
+                resetVideo(outgoingVideo, outgoingSourceElement)
+            }
+
+            mediaElement.classList.add('is-video-ready')
+            mediaElement.classList.remove('is-image-media', 'is-media-fallback')
+            mediaElement.classList.remove('is-video-transitioning', 'is-incoming-video-ready')
+        }, HERO_VIDEO_CROSSFADE_DURATION)
+    }
+
+    const handleVideoTimeUpdate = (event) => {
+        const videoElement = event.currentTarget
+        if (videoElement !== activeVideo || !Number.isFinite(videoElement.duration)) {
+            return
+        }
+
+        const remainingDuration = videoElement.duration - videoElement.currentTime
+        if (videoElement.duration > HERO_VIDEO_CROSSFADE_LEAD
+            && remainingDuration > 0
+            && remainingDuration <= HERO_VIDEO_CROSSFADE_LEAD) {
+            changeVideo()
+        }
+    }
+
+    const handleIncomingVideoReady = (event) => {
+        if (event.currentTarget === incomingVideo) {
+            finishIncomingVideo(event)
+        }
+    }
+
+    const heroVideos = [primaryVideo, secondaryVideo]
+
+    heroVideos.forEach((heroVideo) => {
+        heroVideo?.addEventListener('error', handleVideoError)
+        heroVideo?.addEventListener('playing', () => {
+            if (heroVideo === activeVideo) {
+                hasPlayedVideo = true
+                mediaElement.classList.add('is-video-ready')
+                mediaElement.classList.remove('is-image-media', 'is-media-fallback')
+            }
+        })
+        heroVideo?.addEventListener('timeupdate', handleVideoTimeUpdate)
+        heroVideo?.addEventListener('ended', (event) => {
+            if (event.currentTarget === activeVideo) {
+                changeVideo()
+            }
+        })
+        heroVideo?.addEventListener('loadeddata', handleIncomingVideoReady)
+        heroVideo?.addEventListener('canplay', handleIncomingVideoReady)
+    })
     preloadBannerMedia(choice)
     syncMediaSource()
     heroViewport.addEventListener('change', syncMediaSource)
