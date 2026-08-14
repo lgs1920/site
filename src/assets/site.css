@@ -2256,6 +2256,11 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     min-width: 9rem;
 }
 
+[data-hero-action-icon-animation] {
+    --animation-duration: 1s;
+    --animation-iteration-count: 1;
+}
+
 .registration-hero .hero-panel-promise {
     display: grid;
     grid-column: auto;

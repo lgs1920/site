@@ -16,7 +16,7 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Something amazing is on the way.',
-                action: {label:'Stay Tuned', appearance:'filled', variant:'brand'},
+                action: {label:'Stay Tuned', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
                 description: 'We are working hard to bring you a new experience.',
                 descriptionBreak: 'Be one of the first to know when we launch and get early access.',
                 items:  [
@@ -73,7 +73,7 @@ const launchRegistration = {
             panel:    {
                 eyebrow:'LGS1920 Studio',
                 title:  'Quelque chose de sympa arrive.',
-                action: {label:'Restez informé', appearance:'filled', variant:'brand'},
+                action: {label:'Restez informé', appearance:'filled', variant:'brand', icon:{name:'bell', variant:'regular', animation:'swing'}},
                 description: 'Nous travaillons pour vous proposer une nouvelle expérience.',
                 descriptionBreak: 'Soyez parmi les premiers informés du lancement et bénéficiez d’un accès anticipé.',
                 items:  [

@@ -480,6 +480,12 @@ layout: layouts/base.html
                                     appearance="{{ page_hero.panel.action.appearance | default: 'outlined' }}"
                                     variant="{{ page_hero.panel.action.variant | default: 'brand' }}"
                                 >
+                                    {% if page_hero.panel.action.icon %}
+                                        <wa-icon slot="start"
+                                                 name="{{ page_hero.panel.action.icon.name }}"
+                                                 variant="{{ page_hero.panel.action.icon.variant | default: 'regular' }}"{% if page_hero.panel.action.icon.animation %}
+                                                 data-hero-action-icon-animation="{{ page_hero.panel.action.icon.animation }}"{% endif %}></wa-icon>
+                                    {% endif %}
                                     {{ page_hero.panel.action.label }}
                                 </wa-button>
                             {% endif %}
