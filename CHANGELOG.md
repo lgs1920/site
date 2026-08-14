@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-14 — [`1f54ebd`](https://github.com/lgs1920/site/commit/1f54ebd) — Swap homepage hero button emphasis
+
+- Promoted Discover and Découvrir to the filled brand action with a double-chevron-down icon.
+- Moved the outlined blur treatment to the Studio launch action.
+
 ## 2026-08-14 — [`3edd627`](https://github.com/lgs1920/site/commit/3edd627) — Stabilize hero video crossfades
 
 - Matched the Studio two-player event sequence for continuous hero video rotation.

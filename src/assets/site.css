@@ -2095,31 +2095,31 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 }
 
 .hero-button-primary::part(base),
-.hero-button-launch::part(base) {
+.hero-button-discover::part(base) {
     color: var(--wa-color-brand-on);
     background: var(--wa-color-brand) !important;
     border-color: transparent;
 }
 
 .hero-button-primary:hover::part(base),
-.hero-button-launch:hover::part(base) {
+.hero-button-discover:hover::part(base) {
     background: var(--wa-color-brand-70) !important;
 }
 
 .hero-button-secondary::part(base),
-.hero-button-discover::part(base) {
+.hero-button-launch::part(base) {
     border-color: var(--wa-color-brand);
     color: var(--wa-color-brand-on-quiet);
     background: transparent !important;
 }
 
-.hero-button-discover::part(base) {
+.hero-button-launch::part(base) {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
 .hero-button-secondary:hover::part(base),
-.hero-button-discover:hover::part(base) {
+.hero-button-launch:hover::part(base) {
     background: color-mix(in oklab, var(--wa-color-brand-fill-normal) 84%, transparent) !important;
 }
 

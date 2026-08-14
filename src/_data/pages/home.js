@@ -34,7 +34,7 @@ const home = {
                 {
                     label:     'Studio',
                     href:      studioUrl,
-                    appearance:'filled',
+                    appearance:'outlined',
                     variant:   'brand',
                     className: 'hero-button-launch',
                     external:  true,
@@ -46,11 +46,11 @@ const home = {
                 {
                     label:     'Discover',
                     href:      '#overview',
-                    appearance:'outlined',
+                    appearance:'filled',
                     variant:   'brand',
                     className: 'hero-button-discover',
                     icon:      {
-                        name:   'arrow-down',
+                        name:   'angles-down',
                         variant:'regular',
                     },
                 },
@@ -249,7 +249,7 @@ const home = {
                 {
                     label:     'Studio',
                     href:      studioUrl,
-                    appearance:'filled',
+                    appearance:'outlined',
                     variant:   'brand',
                     className: 'hero-button-launch',
                     external:  true,
@@ -261,11 +261,11 @@ const home = {
                 {
                     label:     'Découvrir',
                     href:      '#overview',
-                    appearance:'outlined',
+                    appearance:'filled',
                     variant:   'brand',
                     className: 'hero-button-discover',
                     icon:      {
-                        name:   'arrow-down',
+                        name:   'angles-down',
                         variant:'regular',
                     },
                 },
