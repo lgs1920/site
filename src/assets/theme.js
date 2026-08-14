@@ -23,8 +23,7 @@ const DEFAULT_GUIDE_ASIDE_PLACEMENT = 'right'
 const HERO_VIDEO_PLAYBACK_RATE = 0.75
 const HERO_VIDEO_CROSSFADE_DURATION = 3000
 const HERO_VIDEO_CROSSFADE_LEAD = 3
-const HERO_ACTION_ICON_ANIMATION_INTERVAL = 30000
-const HERO_ACTION_ICON_ANIMATION_RESET_DELAY = 1100
+const HERO_ACTION_ICON_ANIMATION_INTERVAL = 10000
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray']
 const THEME_OPTIONS = ['light', 'dark', 'system']
 const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
@@ -668,14 +667,18 @@ const setupHeroActionIconAnimation = () => {
         return
     }
 
-    window.setInterval(() => {
+    const animateIcon = () => {
         if (document.hidden) {
             return
         }
 
+        icon.removeAttribute('animation')
+        icon.getBoundingClientRect()
         icon.setAttribute('animation', animation)
-        window.setTimeout(() => icon.removeAttribute('animation'), HERO_ACTION_ICON_ANIMATION_RESET_DELAY)
-    }, HERO_ACTION_ICON_ANIMATION_INTERVAL)
+    }
+
+    animateIcon()
+    window.setInterval(animateIcon, HERO_ACTION_ICON_ANIMATION_INTERVAL)
 }
 
 const setupHeroMedia = () => {

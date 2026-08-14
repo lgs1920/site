@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-14 — [`4b8cc9d`](https://github.com/lgs1920/site/commit/4b8cc9d) — Fix hero notification bell animation
+
+- Matched the bell icon color to the button text and made its Font Awesome swing animation clearly visible every 10 seconds.
+
 ## 2026-08-14 — [`e23b0e6`](https://github.com/lgs1920/site/commit/e23b0e6) — Animate hero notification bell
 
 - Added a bell to the localized launch-registration hero action and triggered its native Font Awesome swing animation once every 30 seconds.
