@@ -801,9 +801,9 @@ const setupHeroMedia = () => {
         transitionStarted = true
         nextVideo.currentTime = 0
         nextVideo.play().catch(() => {})
+        mediaElement.classList.add('is-video-transitioning')
         nextVideo.getBoundingClientRect()
-        mediaElement.classList.add('is-video-transitioning', 'is-incoming-video-ready')
-        mediaElement.classList.add('is-video-ready')
+        mediaElement.classList.add('is-incoming-video-ready', 'is-video-ready')
         mediaElement.classList.remove('is-image-media', 'is-media-fallback')
         transitionTimer = window.setTimeout(() => {
             const outgoingVideo = activeVideo

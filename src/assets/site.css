@@ -1695,14 +1695,13 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .hero-video {
     z-index: 1;
     opacity: 0;
-    transition: opacity 3s ease-in-out;
 }
 
 .hero-media.is-video-ready .hero-media-fallback {
     opacity: 0;
 }
 
-.hero-media.is-video-ready .hero-video {
+.hero-media.is-video-ready .hero-video-active {
     opacity: 1;
 }
 
@@ -1720,6 +1719,10 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     z-index: 1;
     opacity: 0;
     pointer-events: none;
+}
+
+.hero-media.is-video-transitioning .hero-video {
+    transition: opacity 3s ease-in-out;
 }
 
 .hero-media.is-video-transitioning.is-incoming-video-ready .hero-video-active {

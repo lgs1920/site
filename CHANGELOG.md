@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-14 — [`4fb62c3`](https://github.com/lgs1920/site/commit/4fb62c3) — Show initial hero video without fade
+
+- Displayed the first hero video immediately while keeping the three-second crossfade between subsequent videos.
+
 ## 2026-08-14 — [`de07174`](https://github.com/lgs1920/site/commit/de07174) — Improve homepage hero readability
 
 - Added a blurred gradient scrim behind the homepage hero copy.
