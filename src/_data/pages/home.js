@@ -3,7 +3,7 @@ import { repositoryUrl, studioUrl } from './shared.js'
 const home = {
     layout:'layouts/page.html',
     en:    {
-        title:       'LGS1920 Studio',
+        title:       'LGS1920 Site',
         description: 'Local-first route editing for journeys, tracks, POIs, camera views, widgets, reports, and media capture.',
         hero:        {
             className:'intro-hero',
@@ -218,7 +218,7 @@ const home = {
         },
     },
     fr: {
-        title:       'LGS1920 Studio',
+        title:       'LGS1920 Site',
         description: 'Édition de parcours orientée local pour trajets, traces, POI, vues caméra, widgets, rapports et captures média.',
         hero:        {
             className:'intro-hero',

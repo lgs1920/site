@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-14 — [`c6a9b8c`](https://github.com/lgs1920/site/commit/c6a9b8c) — Align site identity and page titles
+
+- Renamed the public site identity from LGS1920 Studio to LGS1920 Site on the homepage and shared site data.
+- Added the site name suffix to page titles while keeping the homepage title concise.
+
 ## 2026-08-14 — [`4960c28`](https://github.com/lgs1920/site/commit/4960c28) — Refine 404 reroute messages
 
 - Refined the English and French 404-page reroute messages with aligned wording.

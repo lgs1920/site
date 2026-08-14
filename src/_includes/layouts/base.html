@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="{{ locale | default: site.lang | default: 'en' }}" class="wa-theme-lgs1920 wa-brand-yellow" data-fa-kit-code="eb5c406148">
 <head>
-    {% assign meta_title = pageMeta.title | default: title | default: site.name %}
+    {% assign page_title = pageMeta.title | default: title | default: site.name %}
+    {% if page_title == site.name %}
+        {% assign meta_title = page_title %}
+    {% else %}
+        {% assign meta_title = page_title | append: ' — ' | append: site.name %}
+    {% endif %}
     {% assign meta_description = pageMeta.description | default: description | default: localizedSite.description | default: site.description %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
