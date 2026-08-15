@@ -14,7 +14,47 @@ const toPlainText = (value = '') => {
     return template.content.textContent.replace(/\s+/g, ' ').trim()
 }
 
-const createSearchResult = (result) => {
+const escapeRegExp = (value = '') => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+const createSearchMatcher = (query = '') => {
+    const terms = [...new Set(query.trim().split(/\s+/).filter(Boolean))]
+        .sort((first, second) => second.length - first.length)
+
+    if (terms.length === 0) {
+        return null
+    }
+
+    return new RegExp(`(${terms.map(escapeRegExp).join('|')})`, 'gi')
+}
+
+const appendHighlightedText = (container, value, query = '') => {
+    const matcher = createSearchMatcher(query)
+
+    if (!matcher) {
+        container.textContent = value
+        return
+    }
+
+    let cursor = 0
+    let match
+
+    while ((match = matcher.exec(value)) !== null) {
+        if (match.index > cursor) {
+            container.append(document.createTextNode(value.slice(cursor, match.index)))
+        }
+
+        const highlight = document.createElement('mark')
+        highlight.textContent = match[0]
+        container.append(highlight)
+        cursor = matcher.lastIndex
+    }
+
+    if (cursor < value.length) {
+        container.append(document.createTextNode(value.slice(cursor)))
+    }
+}
+
+const createSearchResult = (result, query = '') => {
     const link = document.createElement('a')
     link.className = 'site-search-result'
 
@@ -32,7 +72,7 @@ const createSearchResult = (result) => {
 
     const title = document.createElement('strong')
     title.className = 'site-search-result-title'
-    title.textContent = result.meta?.title || result.title || result.url
+    appendHighlightedText(title, result.meta?.title || result.title || result.url, query)
 
     const categories = [result.meta?.category, result.meta?.subcategory].filter(Boolean)
     if (categories.length > 0) {
@@ -44,7 +84,7 @@ const createSearchResult = (result) => {
 
     const excerpt = document.createElement('span')
     excerpt.className = 'site-search-result-excerpt'
-    excerpt.textContent = toPlainText(result.excerpt)
+    appendHighlightedText(excerpt, toPlainText(result.excerpt), query)
 
     link.prepend(title)
     link.append(excerpt)
@@ -124,7 +164,7 @@ const initSearch = async ({documentObject = globalThis.document, windowObject = 
             }
 
             const loadedResults = await Promise.all(response.results.slice(0, SEARCH_RESULT_LIMIT).map((item) => item.data()))
-            const resultLinks = loadedResults.map(createSearchResult).filter(Boolean)
+            const resultLinks = loadedResults.map((result) => createSearchResult(result, query)).filter(Boolean)
             resultLinks.forEach((link) => results.append(link))
 
             if (resultLinks.length === 0) {
@@ -177,4 +217,4 @@ if (typeof document !== 'undefined') {
     void initSearch()
 }
 
-export {createSearchResult, initSearch, toPlainText}
+export {appendHighlightedText, createSearchResult, initSearch, toPlainText}

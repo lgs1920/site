@@ -1140,6 +1140,10 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     overflow-y: auto;
 }
 
+.site-search-results > .site-search-result:first-child {
+    margin-top: 1px;
+}
+
 .site-search-page-metadata {
     position: absolute;
     width: 1px;
@@ -1194,6 +1198,16 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     color: var(--page-muted);
     font-size: 0.82rem;
     line-height: 1.45;
+}
+
+.site-search-result mark {
+    padding: 0.06em 0.18em;
+    border-radius: var(--wa-border-radius-s);
+    color: var(--wa-color-brand-on-quiet);
+    background: color-mix(in oklab, var(--wa-color-brand) 24%, transparent);
+    font-weight: 750;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .icon-link-button::part(base),

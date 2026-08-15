@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`bd08a59`](https://github.com/lgs1920/site/commit/bd08a59) — Highlight search matches
+
+- Highlighted matching terms in search-result titles and excerpts.
+- Added a small top margin to the first result so its hover border remains visible.
+
 ## 2026-08-15 — [`20713a6`](https://github.com/lgs1920/site/commit/20713a6) — Refine guide navigation placement
 
 - Added a localized guide-navigation heading with the current section.
