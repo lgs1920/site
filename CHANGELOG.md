@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`21ec19a`](https://github.com/lgs1920/site/commit/21ec19a) — Unify page breadcrumbs
+
+- Added one localized breadcrumb component to standard, minimal, and error pages while keeping both home pages excluded.
+- Reused the existing guide breadcrumb entries and unified their styling across the site.
+
 ## 2026-08-14 — [`ff8da71`](https://github.com/lgs1920/site/commit/ff8da71) — Refine launch registration hero
 
 - Added localized launch-registration lead copy below the hero title and updated the call-to-action label.

@@ -1,0 +1,35 @@
+{% assign breadcrumb_labels = labels | default: uiLabels | default: site.ui %}
+{% assign breadcrumb_title = pageMeta.title | default: title | default: site.name %}
+{% unless currentPageUrl == localizedHomeUrl %}
+    <nav class="page-breadcrumb-shell" aria-label="{{ breadcrumb_labels.breadcrumb }}">
+        <wa-breadcrumb>
+            <wa-breadcrumb-item href="{{ localizedHomeUrl | default: '/' }}">
+                <wa-icon slot="start" variant="regular" name="house"></wa-icon>
+                {{ breadcrumb_labels.home }}
+            </wa-breadcrumb-item>
+            {% if guideContext %}
+                {% if guideContext.breadcrumbs.size > 0 %}
+                    {% for crumb in guideContext.breadcrumbs %}
+                        {% unless crumb.url == localizedHomeUrl %}
+                            <wa-breadcrumb-item{% if crumb.url %} href="{{ crumb.url }}"{% else %} aria-current="page"{% endif %}>
+                                {% if crumb.icon %}
+                                    <wa-icon slot="start" variant="regular" name="{{ crumb.icon }}"></wa-icon>
+                                {% endif %}
+                                {{ crumb.label }}
+                            </wa-breadcrumb-item>
+                        {% endunless %}
+                    {% endfor %}
+                {% else %}
+                    <wa-breadcrumb-item aria-current="page">
+                        {% if guideContext.current.icon %}
+                            <wa-icon slot="start" variant="regular" name="{{ guideContext.current.icon }}"></wa-icon>
+                        {% endif %}
+                        {{ breadcrumb_title }}
+                    </wa-breadcrumb-item>
+                {% endif %}
+            {% else %}
+                <wa-breadcrumb-item aria-current="page">{{ breadcrumb_title }}</wa-breadcrumb-item>
+            {% endif %}
+        </wa-breadcrumb>
+    </nav>
+{% endunless %}

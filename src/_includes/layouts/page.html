@@ -651,24 +651,7 @@ layout: layouts/base.html
                 <span data-pagefind-meta="subcategory" data-pagefind-filter="subcategory">{{ search_subcategory }}</span>
             </div>
         {% endif %}
-        {% if guideContext %}
-            <nav class="guide-breadcrumb-shell" aria-label="{{ labels.breadcrumb }}">
-                <wa-breadcrumb>
-                    <wa-breadcrumb-item href="{{ localizedHomeUrl | default: '/' }}">
-                        <wa-icon slot="start" variant="regular" name="house"></wa-icon>
-                        {{ labels.home }}
-                    </wa-breadcrumb-item>
-                    {% for crumb in guideContext.breadcrumbs %}
-                        <wa-breadcrumb-item{% if crumb.url %} href="{{ crumb.url }}"{% elsif forloop.last %} aria-current="page"{% endif %}>
-                            {% if crumb.icon %}
-                                <wa-icon slot="start" variant="regular" name="{{ crumb.icon }}"></wa-icon>
-                            {% endif %}
-                            {{ crumb.label }}
-                        </wa-breadcrumb-item>
-                    {% endfor %}
-                </wa-breadcrumb>
-            </nav>
-        {% endif %}
+        {% include "components/page-breadcrumb.html" %}
 
         {% if guideContext and guideContext.tocSections and guideContext.tocSections.size > 0 %}
             <div class="guide-content-layout">

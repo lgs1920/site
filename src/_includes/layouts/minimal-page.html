@@ -39,6 +39,7 @@ layout: layouts/base.html
     </header>
 
     <main id="content" class="page-content{% if pageClass %} {{ pageClass }}{% endif %}">
+        {% include "components/page-breadcrumb.html" %}
         {{ content }}
     </main>
 

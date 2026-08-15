@@ -3875,25 +3875,25 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
     max-width: none;
 }
 
-.guide-breadcrumb-shell,
+.page-breadcrumb-shell,
 .guide-pagination {
     width: 100%;
     max-width: none;
 }
 
-.guide-breadcrumb-shell {
+.page-breadcrumb-shell {
     margin: 0 0 1.55rem;
 }
 
-.guide-breadcrumb-shell wa-breadcrumb::part(base) {
+.page-breadcrumb-shell wa-breadcrumb::part(base) {
     color: var(--page-muted);
 }
 
-.guide-breadcrumb-shell wa-breadcrumb-item::part(label) {
+.page-breadcrumb-shell wa-breadcrumb-item::part(label) {
     font-weight: 650;
 }
 
-.guide-breadcrumb-shell wa-icon {
+.page-breadcrumb-shell wa-icon {
     margin: 0;
     color: var(--lgs-accent-color);
 }
