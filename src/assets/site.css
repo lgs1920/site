@@ -513,7 +513,7 @@ wa-page.minimal-page-layout::part(footer) {
     align-items: center;
     width: 100%;
     min-height: calc(100vh - 9.5rem);
-    padding: clamp(2rem, 7vw, 6rem) var(--site-inline-edge);
+    padding: 0 var(--site-inline-edge) clamp(2rem, 7vw, 6rem);
 }
 
 .error-panel {
@@ -3757,7 +3757,7 @@ html.wa-light .guide-hero.hero-no-video .hero-media {
 
 .page-content.guide-page {
     gap: 0;
-    padding-block: 3rem 4rem;
+    padding-block: 0 4rem;
 }
 
 .guide-content-layout {
@@ -3895,7 +3895,8 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
 }
 
 .page-breadcrumb-shell {
-    margin: 0 0 1.55rem;
+    width: auto;
+    margin: 1.55rem var(--site-inline-edge);
 }
 
 .page-breadcrumb-shell wa-breadcrumb::part(base) {
@@ -3909,6 +3910,11 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
 .page-breadcrumb-shell wa-icon {
     margin: 0;
     color: var(--lgs-accent-color);
+}
+
+.page-content.guide-page > .page-breadcrumb-shell,
+.error-page > .page-breadcrumb-shell {
+    margin-inline: 0;
 }
 
 .guide-page > h2,
@@ -4808,7 +4814,7 @@ wa-card.page-cta-card::part(body) {
 @media (max-width: 640px) {
     .error-page {
         min-height: calc(100vh - 8rem);
-        padding-block: 2.5rem 3rem;
+        padding-block: 0 3rem;
     }
 
     .error-copy h1 {

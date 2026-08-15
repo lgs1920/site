@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-15 — [`e357d4d`](https://github.com/lgs1920/site/commit/e357d4d) — Unify breadcrumb spacing
+
+- Applied the same vertical and horizontal spacing to breadcrumbs across regular, guide, registration, and error pages.
+
 ## 2026-08-15 — [`5664dcd`](https://github.com/lgs1920/site/commit/5664dcd) — Avoid duplicate guide home breadcrumbs
 
 - Removed the home item from guide-specific breadcrumb data because the shared breadcrumb component now owns the home entry.
