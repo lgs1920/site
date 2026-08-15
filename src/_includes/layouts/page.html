@@ -13,6 +13,18 @@ layout: layouts/base.html
 {% assign page_section_nav = localizedPage.sectionNav | default: sectionNav %}
 {% assign page_cta = localizedPage.pageCta | default: pageCta %}
 {% assign page_class_value = localizedPage.pageClass | default: pageClass %}
+{% assign search_category = null %}
+{% assign search_subcategory = null %}
+{% if guideContext and guideContext.current %}
+    {% assign search_category = guideContext.current.category %}
+    {% assign search_subcategory = guideContext.current.subcategory %}
+{% elsif page.url contains '/faq/' %}
+    {% assign search_category = labels.searchCategoryHelp %}
+    {% assign search_subcategory = labels.searchSubcategoryFaq %}
+{% elsif page.url contains '/changelog/' %}
+    {% assign search_category = labels.searchCategoryProject %}
+    {% assign search_subcategory = labels.searchSubcategoryChangelog %}
+{% endif %}
 <wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}{% if minimalChrome %} minimal-chrome-layout{% endif %}" mobile-breakpoint="960" navigation-placement="end" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right"{% if requiresBackend %} data-backend-restart-page data-backend-api-url="{{ site.backendApiUrl | escape }}" data-backend-restart-url="{{ site.backendRestartUrl | escape }}" data-backend-restart-title="{{ labels.backendRestartTitle | escape }}" data-backend-restart-message="{{ labels.backendRestartMessage | escape }}" data-backend-restart-details="{{ labels.backendRestartDetails | escape }}" data-backend-restart-action="{{ labels.backendRestartAction | escape }}" data-backend-retry-action="{{ labels.backendRetryAction | escape }}" data-backend-restarting="{{ labels.backendRestarting | escape }}" data-backend-retry="{{ labels.backendRetrying | escape }}" data-backend-restart-failed="{{ labels.backendRestartFailed | escape }}" data-backend-retry-failed="{{ labels.backendRetryFailed | escape }}" data-backend-restart-contact="{{ labels.backendRestartContact | escape }}"{% if alternateLocales %} data-backend-restart-language="{{ labels.language | escape }}" data-backend-restart-choose-language="{{ labels.chooseLanguage | escape }}" data-backend-restart-locale="{{ locale | escape }}" data-backend-restart-english-url="{{ alternateLocales.en | escape }}" data-backend-restart-french-url="{{ alternateLocales.fr | escape }}"{% endif %}{% endif %}>
     <script>
         (() => {

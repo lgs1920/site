@@ -111,6 +111,8 @@ const resolveGuideContext = (data) => {
             contentUrl:  createGuideContentUrl(currentEntry.item.url, locale),
             summary:     currentEntry.item.summary,
             icon:        currentEntry.item.icon,
+            category:    currentEntry.item.category,
+            subcategory: currentEntry.item.subcategory,
             sectionLabel:currentEntry.section.label,
             translations:getGuideTranslationReport(currentEntry.item.url),
         },
