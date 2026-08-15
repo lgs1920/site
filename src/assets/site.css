@@ -4564,6 +4564,10 @@ wa-card.page-cta-card::part(body) {
         padding-block-start: 1.25rem;
     }
 
+    .registration-hero-details-promise .hero-panel-promise-heading {
+        padding-block-end: var(--wa-space-s);
+    }
+
     .registration-slogan {
         grid-column: 1;
         grid-row: 3;

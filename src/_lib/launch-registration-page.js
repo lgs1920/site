@@ -52,7 +52,7 @@ const renderRegistrationHeroDetails = (pageContent) => {
         <wa-card class="registration-hero-details-card">
             <div class="registration-hero-details-main">
                 ${panel.description ? `<p class="hero-panel-description">${escapeHtml(panel.description)}${panel.descriptionBreak ? `<br>${escapeHtml(panel.descriptionBreak)}` : ''}</p>` : ''}
-                ${panel.items?.length ? `<div class="hero-metric-list"><wa-divider class="hero-panel-divider"></wa-divider>${renderItems(panel.items)}</div>` : ''}
+                ${panel.items?.length ? `<div class="hero-metric-list">${renderItems(panel.items)}</div>` : ''}
             </div>
         </wa-card>
 

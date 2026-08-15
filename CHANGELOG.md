@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`09dcb0c`](https://github.com/lgs1920/site/commit/09dcb0c) — Refine registration detail spacing
+
+- Removed the unnecessary divider from the registration details card.
+- Added mobile spacing below the Privacy and access separator.
+
 ## 2026-08-15 — [`e357d4d`](https://github.com/lgs1920/site/commit/e357d4d) — Unify breadcrumb spacing
 
 - Applied the same vertical and horizontal spacing to breadcrumbs across regular, guide, registration, and error pages.
