@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`144b4db`](https://github.com/lgs1920/site/commit/144b4db) — Expand guide reference documentation
+
+- Added bilingual reference entries for Studio drawers and dialogs, including detailed controls and workflows.
+- Renamed the first guide entry to Quick guide and aligned its guide icons.
+
 ## 2026-08-15 — [`4dba773`](https://github.com/lgs1920/site/commit/4dba773) — Unify page breadcrumbs
 
 - Added one localized breadcrumb component to standard, minimal, and error pages while keeping both home pages excluded.

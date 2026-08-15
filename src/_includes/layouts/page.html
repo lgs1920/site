@@ -75,7 +75,7 @@ layout: layouts/base.html
             <wa-tooltip class="control-tooltip" for="site-search-trigger" placement="bottom" data-search-tooltip hidden>{{ labels.openSearch }}</wa-tooltip>
 
             {% for link in chrome_header_links %}
-                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'book-open' %} header-link-user-guide{% elsif link.icon == 'github' %} header-link-github{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'book-sparkles' %} header-link-user-guide{% elsif link.icon == 'github' %} header-link-github{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
                 </wa-button>
                 <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>

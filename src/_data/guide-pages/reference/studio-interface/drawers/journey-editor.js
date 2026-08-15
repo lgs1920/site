@@ -50,6 +50,54 @@ const page = {
                         "icon": "camera",
                         "type": "Fields",
                         "description": "Ajuste les valeurs caméra utiles à la présentation finale."
+                    },
+                    {
+                        "label": "Data / Edit / POIs tabs",
+                        "icon": "table-columns",
+                        "type": "Tabs",
+                        "description": "Change de famille de réglages entre les données du parcours, son édition et ses points d'intérêt."
+                    },
+                    {
+                        "label": "Elevation source",
+                        "icon": "mountain-sun",
+                        "type": "Selector",
+                        "description": "Choisit la source d'altitude utilisée pour les données et les statistiques du parcours."
+                    },
+                    {
+                        "label": "Activity",
+                        "icon": "person-hiking",
+                        "type": "Selector",
+                        "description": "Associe une activité au parcours pour guider les statistiques et la présentation."
+                    },
+                    {
+                        "label": "Export Journey",
+                        "icon": "file-export",
+                        "type": "Button",
+                        "description": "Ouvre les options d'export en fichier ou en rapport. Le nom de fichier et le format sont ensuite configurables."
+                    },
+                    {
+                        "label": "Remove Journey",
+                        "icon": "trash",
+                        "type": "Button",
+                        "description": "Supprime le parcours actif après confirmation. Cette action ne sert pas à masquer temporairement le parcours."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Choisir le parcours",
+                        "description": "Sélectionnez le parcours à éditer dans le sélecteur, puis utilisez le bouton d'import si vous devez charger un nouveau parcours."
+                    },
+                    {
+                        "title": "Modifier les données",
+                        "description": "Utilisez <em>Data</em> pour choisir la source d'altitude et vérifier les informations calculées."
+                    },
+                    {
+                        "title": "Régler la présentation",
+                        "description": "Dans <em>Edit</em>, ajustez le titre, la description, le style de trace, la visibilité et le cadrage caméra."
+                    },
+                    {
+                        "title": "Exporter ou supprimer",
+                        "description": "Utilisez <em>Export Journey</em> pour produire un fichier ou un rapport. Réservez <em>Remove Journey</em> à une suppression confirmée."
                     }
                 ]
             }
@@ -103,6 +151,54 @@ const page = {
                         "icon": "camera",
                         "type": "Fields",
                         "description": "Adjusts the camera-related values that support the final presentation."
+                    },
+                    {
+                        "label": "Data / Edit / POIs tabs",
+                        "icon": "table-columns",
+                        "type": "Tabs",
+                        "description": "Switches between journey data, editing controls, and points of interest."
+                    },
+                    {
+                        "label": "Elevation source",
+                        "icon": "mountain-sun",
+                        "type": "Selector",
+                        "description": "Selects the elevation source used by journey data and statistics."
+                    },
+                    {
+                        "label": "Activity",
+                        "icon": "person-hiking",
+                        "type": "Selector",
+                        "description": "Assigns an activity to guide the journey statistics and presentation."
+                    },
+                    {
+                        "label": "Export Journey",
+                        "icon": "file-export",
+                        "type": "Button",
+                        "description": "Opens export choices for a file or a report. You can then set the file name and format."
+                    },
+                    {
+                        "label": "Remove Journey",
+                        "icon": "trash",
+                        "type": "Button",
+                        "description": "Deletes the active journey after confirmation. Use visibility controls when you only need to hide it."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Choose the journey",
+                        "description": "Select the journey to edit, then use the import button if you need to load another journey."
+                    },
+                    {
+                        "title": "Edit the data",
+                        "description": "Use <em>Data</em> to choose the elevation source and review calculated information."
+                    },
+                    {
+                        "title": "Tune the presentation",
+                        "description": "In <em>Edit</em>, adjust the title, description, track style, visibility, and camera framing."
+                    },
+                    {
+                        "title": "Export or remove",
+                        "description": "Use <em>Export Journey</em> to create a file or report. Reserve <em>Remove Journey</em> for a confirmed deletion."
                     }
                 ],
                 "notes": [

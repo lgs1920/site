@@ -54,6 +54,11 @@ const page = {
                     "id": "captures",
                     "label": "Captures",
                     "summary": "Emplacements réservés aux visuels"
+                },
+                {
+                    "id": "pages-de-reference",
+                    "label": "Pages de référence",
+                    "summary": "Tous les drawers et dialogs"
                 }
             ]
         },
@@ -110,6 +115,11 @@ const page = {
                     "id": "screenshots",
                     "label": "Screenshots",
                     "summary": "Reserved areas for visuals"
+                },
+                {
+                    "id": "reference-pages",
+                    "label": "Reference pages",
+                    "summary": "All drawers and dialogs"
                 }
             ]
         }

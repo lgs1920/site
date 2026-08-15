@@ -32,6 +32,66 @@ const page = {
                         "icon": "bullseye",
                         "type": "Button",
                         "description": "Centre la caméra sur le POI sélectionné."
+                    },
+                    {
+                        "label": "Description and journey fields",
+                        "icon": "align-left",
+                        "type": "Fields",
+                        "description": "Renseigne le texte du POI et, lorsque le contexte le permet, le parcours auquel il est associé."
+                    },
+                    {
+                        "label": "Coordinates and altitude",
+                        "icon": "map-location-dot",
+                        "type": "Fields",
+                        "description": "Modifie la longitude, la latitude et la hauteur du marqueur. Les boutons de copie permettent de réutiliser les coordonnées."
+                    },
+                    {
+                        "label": "Copy coordinates",
+                        "icon": "copy",
+                        "type": "Button",
+                        "description": "Copie les coordonnées du POI pour les coller dans un autre outil ou champ."
+                    },
+                    {
+                        "label": "Show / Hide Filters",
+                        "icon": "filter",
+                        "type": "Button",
+                        "description": "Affiche ou masque les filtres de liste pour les POIs globaux ou liés à un parcours."
+                    },
+                    {
+                        "label": "Search POIs",
+                        "icon": "magnifying-glass",
+                        "type": "Field",
+                        "description": "Recherche un POI par son contenu dans le panneau de filtres."
+                    },
+                    {
+                        "label": "POI actions",
+                        "icons": ["eye", "bullseye", "trash"],
+                        "type": "Menu",
+                        "description": "Selon l'état du POI, affiche les actions Show/Hide, Focus, Orbit, Copy Coords, Reduce/Expand et Remove."
+                    },
+                    {
+                        "label": "Bulk actions",
+                        "icon": "list-check",
+                        "type": "Menu",
+                        "description": "Applique une action à plusieurs POIs sélectionnés lorsque la sélection multiple est disponible."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Sélectionner un POI",
+                        "description": "Choisissez un marqueur dans la liste, puis utilisez <em>Focus</em> pour le retrouver dans la scène."
+                    },
+                    {
+                        "title": "Modifier ses champs",
+                        "description": "Mettez à jour le titre, la description, la catégorie, les coordonnées, l'altitude et le parcours associé."
+                    },
+                    {
+                        "title": "Filtrer la liste",
+                        "description": "Ouvrez <em>Show Filters</em>, recherchez un POI et choisissez si les résultats doivent inclure les POIs globaux ou ceux d'un parcours."
+                    },
+                    {
+                        "title": "Utiliser les actions",
+                        "description": "Utilisez le menu du POI pour le masquer, le déplacer dans la vue, copier ses coordonnées ou le supprimer."
                     }
                 ]
             }
@@ -67,6 +127,66 @@ const page = {
                         "icon": "bullseye",
                         "type": "Button",
                         "description": "Centers the camera on the selected POI for review or adjustment."
+                    },
+                    {
+                        "label": "Description and journey fields",
+                        "icon": "align-left",
+                        "type": "Fields",
+                        "description": "Stores the POI text and, where relevant, the journey it belongs to."
+                    },
+                    {
+                        "label": "Coordinates and altitude",
+                        "icon": "map-location-dot",
+                        "type": "Fields",
+                        "description": "Edits the marker longitude, latitude, and height. Copy buttons help reuse the coordinates."
+                    },
+                    {
+                        "label": "Copy coordinates",
+                        "icon": "copy",
+                        "type": "Button",
+                        "description": "Copies the POI coordinates so you can reuse them in another tool or field."
+                    },
+                    {
+                        "label": "Show / Hide Filters",
+                        "icon": "filter",
+                        "type": "Button",
+                        "description": "Shows or hides list filters for global POIs or journey-related POIs."
+                    },
+                    {
+                        "label": "Search POIs",
+                        "icon": "magnifying-glass",
+                        "type": "Field",
+                        "description": "Searches the POI list by its content from the filter panel."
+                    },
+                    {
+                        "label": "POI actions",
+                        "icons": ["eye", "bullseye", "trash"],
+                        "type": "Menu",
+                        "description": "Depending on the POI state, provides Show/Hide, Focus, Orbit, Copy Coords, Reduce/Expand, and Remove."
+                    },
+                    {
+                        "label": "Bulk actions",
+                        "icon": "list-check",
+                        "type": "Menu",
+                        "description": "Applies an action to multiple selected POIs when multi-selection is available."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Select a POI",
+                        "description": "Choose a marker in the list, then use <em>Focus</em> to find it in the scene."
+                    },
+                    {
+                        "title": "Edit its fields",
+                        "description": "Update the title, description, category, coordinates, altitude, and associated journey."
+                    },
+                    {
+                        "title": "Filter the list",
+                        "description": "Open <em>Show Filters</em>, search for a POI, and choose whether global or journey POIs should be included."
+                    },
+                    {
+                        "title": "Use POI actions",
+                        "description": "Use the POI menu to hide it, move the view to it, copy its coordinates, or remove it."
                     }
                 ],
                 "notes": [

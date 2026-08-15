@@ -69,7 +69,7 @@ const guideItemDefinitions = [
     {
         key:     'overview',
         path:    '/user-guide/',
-        icon:    'book-open',
+        icon:    'book-sparkles',
         label:   {
             en:'Overview',
             fr:'Vue d\'ensemble',
@@ -82,14 +82,14 @@ const guideItemDefinitions = [
     {
         key:     'first-steps',
         path:    '/user-guide/getting-started/first-steps/',
-        icon:    'circle-play',
+        icon:    'book-open-lines',
         label:   {
-            en:'Start a session',
-            fr:'Démarrer une session',
+            en:'Quick guide',
+            fr:'Guide rapide',
         },
         summary: {
-            en:'Open the workspace',
-            fr:'Ouvrir l\'espace de travail',
+            en:'Get started with Studio',
+            fr:'Premiers pas dans Studio',
         },
     },
     {
@@ -483,7 +483,7 @@ const buildUserGuideSections = (locale = defaultLocale) => [
     {
         key:    'user-guide',
         label:  ui[locale].userGuide,
-        icon:   'book-open',
+        icon:   'book-sparkles',
         summary:locale === 'fr'
             ? 'Étapes principales pour utiliser LGS1920 Studio'
             : 'Main steps for using LGS1920 Studio',
@@ -512,7 +512,7 @@ const buildNavigation = (locale = defaultLocale) => [
     {
         label:  ui[locale].userGuide,
         url:    localizedPath(locale, '/user-guide/'),
-        icon:   'book-open',
+        icon:   'book-sparkles',
         variant:'regular',
     },
     {
@@ -566,7 +566,7 @@ const buildHeaderLinks = (locale = defaultLocale) => [
     {
         label:  ui[locale].userGuide,
         url:    localizedPath(locale, '/user-guide/'),
-        icon:   'book-open',
+        icon:   'book-sparkles',
         variant:'regular',
     },
     {
@@ -587,7 +587,7 @@ const buildLegalLinks = (locale = defaultLocale) => [
     {
         label:ui[locale].userGuide,
         url:  localizedPath(locale, '/user-guide/'),
-        icon: 'book-open',
+        icon: 'book-sparkles',
     },
     {
         label:ui[locale].changelog,

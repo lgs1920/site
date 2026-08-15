@@ -32,6 +32,38 @@ const page = {
                         "icon": "trash",
                         "type": "Button",
                         "description": "Supprime le widget sélectionné de la composition courante."
+                    },
+                    {
+                        "label": "Reorder handle",
+                        "icon": "grip-vertical",
+                        "type": "Drag control",
+                        "description": "Fait glisser un widget pour changer son ordre dans le board courant."
+                    },
+                    {
+                        "label": "Recenter",
+                        "icon": "bullseye",
+                        "type": "Button",
+                        "description": "Recentre la vue sur le widget choisi pour le retrouver dans la composition."
+                    },
+                    {
+                        "label": "Edit",
+                        "icon": "pen-to-square",
+                        "type": "Button",
+                        "description": "Ouvre le drawer Widgets editor pour modifier les propriétés du widget."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Choisir le board",
+                        "description": "Sélectionnez <em>Scene widgets</em> ou <em>Video widgets</em> selon la composition à organiser."
+                    },
+                    {
+                        "title": "Réordonner",
+                        "description": "Faites glisser la poignée du widget pour modifier l'ordre d'empilement ou de présentation."
+                    },
+                    {
+                        "title": "Modifier ou supprimer",
+                        "description": "Utilisez <em>Edit</em> pour ouvrir l'éditeur, <em>Recenter</em> pour retrouver le widget et <em>Remove</em> pour le retirer."
                     }
                 ]
             }
@@ -67,6 +99,38 @@ const page = {
                         "icon": "trash",
                         "type": "Button",
                         "description": "Deletes the selected widget from the current composition."
+                    },
+                    {
+                        "label": "Reorder handle",
+                        "icon": "grip-vertical",
+                        "type": "Drag control",
+                        "description": "Drags a widget to change its order on the current board."
+                    },
+                    {
+                        "label": "Recenter",
+                        "icon": "bullseye",
+                        "type": "Button",
+                        "description": "Recenters the view on the chosen widget so you can find it in the composition."
+                    },
+                    {
+                        "label": "Edit",
+                        "icon": "pen-to-square",
+                        "type": "Button",
+                        "description": "Opens the Widgets editor drawer for the widget's properties."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Choose the board",
+                        "description": "Select <em>Scene widgets</em> or <em>Video widgets</em> according to the composition you want to organize."
+                    },
+                    {
+                        "title": "Reorder widgets",
+                        "description": "Drag a widget handle to change its stacking or presentation order."
+                    },
+                    {
+                        "title": "Edit or remove",
+                        "description": "Use <em>Edit</em> to open the editor, <em>Recenter</em> to find the widget, and <em>Remove</em> to take it out of the composition."
                     }
                 ],
                 "notes": [

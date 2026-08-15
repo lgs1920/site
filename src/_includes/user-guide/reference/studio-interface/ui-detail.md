@@ -43,6 +43,43 @@
 {% endif %}
 {% endif %}
 
+<h2>{% if is_french %}Commandes communes{% else %}Shared drawer controls{% endif %}</h2>
+{% if is_french %}
+<p>Ces commandes sont disponibles dans la plupart des drawers, quel que soit leur contenu.</p>
+{% else %}
+<p>These controls are available in most drawers, regardless of the drawer-specific content.</p>
+{% endif %}
+
+<table>
+<thead>
+<tr>
+<th>{% if is_french %}Élément{% else %}Element{% endif %}</th>
+<th>{% if is_french %}Icône{% else %}Icon{% endif %}</th>
+<th>Type</th>
+<th>{% if is_french %}Ce qu'il fait{% else %}What it does{% endif %}</th>
+</tr>
+</thead>
+<tbody>
+{% if is_french %}
+<tr><td>Close drawer</td><td><span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span></td><td>Bouton</td><td>Ferme le drawer courant et rend la scène visible. La touche <kbd>Escape</kbd> produit le même effet lorsque le focus le permet.</td></tr>
+<tr><td>Theme selector</td><td><span class="guide-icon-chip"><wa-icon name="palette" variant="regular"></wa-icon></span></td><td>Bouton</td><td>Ouvre le sélecteur de thème pour choisir la couleur de marque et le thème de saison de l'interface.</td></tr>
+<tr><td>Back</td><td><span class="guide-icon-chip"><wa-icon name="chevrons-left" variant="regular"></wa-icon></span></td><td>Bouton</td><td>Revient au drawer précédent lorsqu'un drawer a été ouvert par-dessus un autre.</td></tr>
+<tr><td>Version information</td><td><span class="guide-icon-chip"><wa-icon name="server" variant="regular"></wa-icon></span></td><td>Information</td><td>Affiche les versions de Studio et du backend utilisées par la session.</td></tr>
+<tr><td>Changelog</td><td><span class="guide-icon-chip"><wa-icon name="circle-info" variant="regular"></wa-icon></span></td><td>Bouton</td><td>Ouvre le drawer Information directement sur l'onglet <em>What's New?</em>.</td></tr>
+<tr><td>LGS1920 project Web site</td><td><span class="guide-icon-chip"><wa-icon name="globe-pointer" variant="regular"></wa-icon></span></td><td>Lien externe</td><td>Ouvre le site du projet LGS1920 dans un nouvel onglet.</td></tr>
+<tr><td>Our Github repos</td><td><span class="guide-icon-chip"><wa-icon name="github" variant="brands"></wa-icon></span></td><td>Lien externe</td><td>Ouvre les dépôts GitHub du projet dans un nouvel onglet.</td></tr>
+{% else %}
+<tr><td>Close drawer</td><td><span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span></td><td>Button</td><td>Closes the current drawer and returns the scene to view. Press <kbd>Escape</kbd> for the same action when focus allows it.</td></tr>
+<tr><td>Theme selector</td><td><span class="guide-icon-chip"><wa-icon name="palette" variant="regular"></wa-icon></span></td><td>Button</td><td>Opens the theme selector so you can choose the interface brand color and seasonal theme.</td></tr>
+<tr><td>Back</td><td><span class="guide-icon-chip"><wa-icon name="chevrons-left" variant="regular"></wa-icon></span></td><td>Button</td><td>Returns to the previous drawer when the current drawer was opened on top of another one.</td></tr>
+<tr><td>Version information</td><td><span class="guide-icon-chip"><wa-icon name="server" variant="regular"></wa-icon></span></td><td>Information</td><td>Shows the Studio and backend versions used by the current session.</td></tr>
+<tr><td>Changelog</td><td><span class="guide-icon-chip"><wa-icon name="circle-info" variant="regular"></wa-icon></span></td><td>Button</td><td>Opens the Information drawer directly on the <em>What's New?</em> tab.</td></tr>
+<tr><td>LGS1920 project Web site</td><td><span class="guide-icon-chip"><wa-icon name="globe-pointer" variant="regular"></wa-icon></span></td><td>External link</td><td>Opens the LGS1920 project website in a new tab.</td></tr>
+<tr><td>Our Github repos</td><td><span class="guide-icon-chip"><wa-icon name="github" variant="brands"></wa-icon></span></td><td>External link</td><td>Opens the project's GitHub repositories in a new tab.</td></tr>
+{% endif %}
+</tbody>
+</table>
+
 <h2>{% if is_french %}Contrôles{% else %}Controls{% endif %}</h2>
 
 {% if is_french %}

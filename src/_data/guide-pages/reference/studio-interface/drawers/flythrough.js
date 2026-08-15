@@ -34,6 +34,20 @@ const page = {
                         "description": "Lie le flythrough à d'autres états de capture ou vidéo quand c'est supporté."
                     }
                 ],
+                "steps": [
+                    {
+                        "title": "Préparer la scène",
+                        "description": "Vérifiez le parcours, les widgets et la zone de capture avant de lancer le mouvement."
+                    },
+                    {
+                        "title": "Régler le mouvement",
+                        "description": "Choisissez la direction, la durée et le rythme adaptés à la présentation souhaitée."
+                    },
+                    {
+                        "title": "Prévisualiser puis capturer",
+                        "description": "Utilisez <em>Play</em> pour contrôler le résultat, puis synchronisez la séquence avec la capture si cette option est disponible."
+                    }
+                ],
                 "notes": [
                     "Utilisez ce drawer quand le mouvement caméra fait partie de la sortie finale."
                 ]
@@ -70,6 +84,20 @@ const page = {
                         "icon": "link-simple",
                         "type": "Switches",
                         "description": "Links the flythrough with other capture or video state when supported."
+                    }
+                ],
+                "steps": [
+                    {
+                        "title": "Prepare the scene",
+                        "description": "Check the journey, widgets, and capture area before starting the movement."
+                    },
+                    {
+                        "title": "Tune the movement",
+                        "description": "Choose the direction, duration, and pacing that fit the intended presentation."
+                    },
+                    {
+                        "title": "Preview and capture",
+                        "description": "Use <em>Play</em> to check the result, then synchronize the sequence with capture when the option is available."
                     }
                 ],
                 "notes": [

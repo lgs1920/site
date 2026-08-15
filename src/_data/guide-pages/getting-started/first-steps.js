@@ -2,18 +2,18 @@ const page = {
     "layout": "layouts/page.html",
     "locales": {
         "fr": {
-            "title": "Démarrer une session",
-            "description": "Premières étapes dans LGS1920 Studio: ouvrir l'espace de travail et repérer les contrôles principaux.",
+            "title": "Guide rapide",
+            "description": "Les premières étapes dans LGS1920 Studio : ouvrir l'espace de travail et repérer les contrôles principaux.",
             "hero": {
                 "video": false,
                 "className": "guide-hero",
-                "badge": "Étape principale",
+                "badge": "Guide rapide",
                 "kicker": "Guide utilisateur",
-                "title": "Démarrer une session Studio.",
+                "title": "Démarrer avec LGS1920 Studio.",
                 "lead": "Ouvrir Studio, identifier les zones principales et préparer la première session d'édition.",
                 "highlights": [
                     {
-                        "icon": "circle-play",
+                        "icon": "book-open-lines",
                         "label": "Premier lancement",
                         "variant": "regular"
                     },
@@ -48,18 +48,18 @@ const page = {
             ]
         },
         "en": {
-            "title": "Start A Session",
-            "description": "First user steps in LGS1920 Studio: open the workspace, identify the scene, panels, and primary controls.",
+            "title": "Quick guide",
+            "description": "The essential first steps in LGS1920 Studio: open the workspace, identify the main controls, and prepare a session.",
             "hero": {
                 "video": false,
                 "className": "guide-hero",
-                "badge": "Main step",
+                "badge": "Quick guide",
                 "kicker": "User guide",
-                "title": "Start a Studio session.",
+                "title": "Get started with LGS1920 Studio.",
                 "lead": "Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.",
                 "highlights": [
                     {
-                        "icon": "circle-play",
+                        "icon": "book-open-lines",
                         "label": "First launch",
                         "variant": "regular"
                     },
