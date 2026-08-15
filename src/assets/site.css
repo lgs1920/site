@@ -1078,6 +1078,50 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     display: inline-flex;
     align-items: center;
     gap: 0.18rem;
+    order: 3;
+}
+
+.header-link-studio {
+    order: 1;
+}
+
+.header-studio-divider {
+    order: 2;
+    --color: var(--header-stroke);
+    --spacing: 0.1rem;
+    height: 1.35rem;
+}
+
+.header-link-user-guide {
+    order: 4;
+}
+
+#header-contact-link {
+    order: 5;
+}
+
+.locale-dropdown {
+    order: 6;
+}
+
+.theme-controls {
+    order: 7;
+}
+
+.theme-palette-menu {
+    order: 1;
+}
+
+.header-link-github {
+    order: 2;
+}
+
+.theme-menu {
+    order: 3;
+}
+
+.nav-toggle-mobile {
+    order: 8;
 }
 
 .site-search-dialog-header-actions {
@@ -1514,6 +1558,12 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 .drawer-guide-section {
     display: grid;
     gap: 0.35rem;
+}
+
+.drawer-guide-section-divider {
+    --color: var(--header-stroke);
+    --spacing: 0.15rem;
+    margin: 0.2rem 0 0.1rem;
 }
 
 .drawer-guide-section + .drawer-guide-section {

@@ -80,6 +80,32 @@ const guideItemDefinitions = [
         },
     },
     {
+        key:     'site-header',
+        path:    '/user-guide/reference/site-header/',
+        icon:    'window-maximize',
+        label:   {
+            en:'Header help',
+            fr:'Aide de l\'en-tête',
+        },
+        summary: {
+            en:'Desktop and mobile header controls',
+            fr:'Contrôles de l\'en-tête desktop et mobile',
+        },
+    },
+    {
+        key:     'site-search',
+        path:    '/user-guide/reference/site-header/search/',
+        icon:    'magnifying-glass',
+        label:   {
+            en:'Site search',
+            fr:'Recherche du site',
+        },
+        summary: {
+            en:'Find pages with search',
+            fr:'Retrouver des pages avec la recherche',
+        },
+    },
+    {
         key:     'first-steps',
         path:    '/user-guide/getting-started/first-steps/',
         icon:    'book-open-lines',
@@ -481,29 +507,46 @@ const getAlternateLocales = (url = '') => {
     return alternates
 }
 
-const buildUserGuideSections = (locale = defaultLocale) => [
-    {
-        key:    'user-guide',
-        label:  ui[locale].userGuide,
-        icon:   'book-sparkles',
-        summary:locale === 'fr'
-            ? 'Étapes principales pour utiliser LGS1920 Studio'
-            : 'Main steps for using LGS1920 Studio',
-        items:  guideItemDefinitions.map((item) => {
-            const subcategory = guideSubcategoryLabels[getGuideSubcategoryKey(item.path)] ?? guideSubcategoryLabels.overview
+const buildUserGuideSections = (locale = defaultLocale) => {
+    const siteHelpKeys = new Set([
+        'site-header',
+        'site-search',
+    ])
+    const items = guideItemDefinitions.map((item) => {
+        const subcategory = guideSubcategoryLabels[getGuideSubcategoryKey(item.path)] ?? guideSubcategoryLabels.overview
 
-            return {
-                key:         item.key,
-                label:       item.label[locale],
-                url:         localizedPath(locale, item.path),
-                summary:     item.summary[locale],
-                icon:        item.icon,
-                category:    ui[locale].userGuide,
-                subcategory: subcategory[locale],
-            }
-        }),
-    },
-]
+        return {
+            key:         item.key,
+            label:       item.label[locale],
+            url:         localizedPath(locale, item.path),
+            summary:     item.summary[locale],
+            icon:        item.icon,
+            category:    ui[locale].userGuide,
+            subcategory: subcategory[locale],
+        }
+    })
+
+    return [
+        {
+            key:    'user-guide',
+            label:  locale === 'fr' ? 'Aide Studio' : 'Studio Help',
+            icon:   'book-sparkles',
+            summary:locale === 'fr'
+                ? 'Aides principales pour utiliser LGS1920 Studio'
+                : 'Main help for using LGS1920 Studio',
+            items:  items.filter((item) => !siteHelpKeys.has(item.key)),
+        },
+        {
+            key:    'site-help',
+            label:  locale === 'fr' ? 'Aide Site' : 'Site Help',
+            icon:   'circle-info',
+            summary:locale === 'fr'
+                ? 'Aides du site et recherche'
+                : 'Site help and search',
+            items:  items.filter((item) => siteHelpKeys.has(item.key)),
+        },
+    ]
+}
 
 const buildNavigation = (locale = defaultLocale) => [
     {
@@ -573,7 +616,7 @@ const buildHeaderLinks = (locale = defaultLocale) => [
     },
     {
         label:   ui[locale].openGithubRepository,
-        url:     'https://github.com/lgs1920/studio',
+        url:     'https://github.com/lgs1920',
         icon:    'github',
         family:  'brands',
         external:true,
@@ -615,6 +658,13 @@ const buildLegalLinks = (locale = defaultLocale) => [
         label:ui[locale].cla,
         url:  localizedPath(locale, '/contributor-license-agreement/'),
         icon: 'handshake',
+    },
+    {
+        label:   'GitHub',
+        url:     'https://github.com/lgs1920',
+        icon:    'github',
+        family:  'brands',
+        external:true,
     },
 ]
 

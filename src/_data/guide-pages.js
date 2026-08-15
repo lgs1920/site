@@ -3,6 +3,7 @@ import firstSteps from './guide-pages/getting-started/first-steps.js'
 import importSourceData from './guide-pages/getting-started/import-source-data.js'
 import actions from './guide-pages/reference/actions.js'
 import objects from './guide-pages/reference/objects.js'
+import {siteHeader, siteSearch} from './guide-pages/reference/site-header.js'
 import studioInterface from './guide-pages/reference/studio-interface.js'
 import backendRestart from './guide-pages/reference/studio-interface/dialogs/backend-restart.js'
 import cesiumToken from './guide-pages/reference/studio-interface/dialogs/cesium-token.js'
@@ -45,6 +46,8 @@ const guidePages = {
     '/user-guide/getting-started/import-source-data/': importSourceData,
     '/user-guide/reference/actions/': actions,
     '/user-guide/reference/objects/': objects,
+    '/user-guide/reference/site-header/': siteHeader,
+    '/user-guide/reference/site-header/search/': siteSearch,
     '/user-guide/reference/studio-interface/': studioInterface,
     '/user-guide/reference/studio-interface/dialogs/backend-restart/': backendRestart,
     '/user-guide/reference/studio-interface/dialogs/cesium-token/': cesiumToken,

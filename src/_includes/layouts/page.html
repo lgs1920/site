@@ -73,12 +73,15 @@ layout: layouts/base.html
                 </wa-button>
             </div>
             <wa-tooltip class="control-tooltip" for="site-search-trigger" placement="bottom" data-search-tooltip hidden>{{ labels.openSearch }}</wa-tooltip>
+            <wa-divider class="header-studio-divider" orientation="vertical" aria-hidden="true"></wa-divider>
 
             {% for link in chrome_header_links %}
-                <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'book-sparkles' %} header-link-user-guide{% elsif link.icon == 'github' %} header-link-github{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
-                    <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
-                </wa-button>
-                <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
+                {% unless link.icon == 'github' %}
+                    <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'clapperboard-play' %} header-link-studio{% elsif link.icon == 'book-sparkles' %} header-link-user-guide{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                        <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
+                    </wa-button>
+                    <wa-tooltip class="control-tooltip" for="header-link-{{ forloop.index }}" placement="bottom">{{ link.label }}</wa-tooltip>
+                {% endunless %}
             {% endfor %}
 
             {% if alternateLocales and localeOptions %}
@@ -148,6 +151,15 @@ layout: layouts/base.html
                     {% endfor %}
                 </wa-dropdown>
                 <wa-tooltip class="control-tooltip" for="theme-palette-trigger" placement="bottom">{{ labels.chooseBrandAndSeason }}</wa-tooltip>
+
+                {% for link in chrome_header_links %}
+                    {% if link.icon == 'github' %}
+                        <wa-button id="header-link-github" class="icon-link-button header-link-github" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
+                            <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
+                        </wa-button>
+                        <wa-tooltip class="control-tooltip" for="header-link-github" placement="bottom">{{ link.label }}</wa-tooltip>
+                    {% endif %}
+                {% endfor %}
 
                 <wa-dropdown class="theme-menu" placement="bottom-end" data-theme-dropdown>
                     <wa-button id="theme-trigger" slot="trigger" class="theme-trigger" appearance="plain" size="small" aria-label="{{ labels.toggleColorModeMenu }}">
@@ -288,6 +300,7 @@ layout: layouts/base.html
             <section class="drawer-group">
                 <p class="drawer-label">{{ labels.userGuide }}</p>
                 {% for section in chrome_guide_sections %}
+                    <wa-divider class="drawer-guide-section-divider" aria-hidden="true"></wa-divider>
                     <div class="drawer-guide-section">
                         <p class="drawer-guide-section-label">
                             {% if section.icon %}
@@ -680,6 +693,7 @@ layout: layouts/base.html
                             <wa-tooltip class="control-tooltip" for="guide-aside-placement-toggle" placement="top" data-guide-aside-placement-tooltip>{{ labels.moveGuideAsideLeft }}</wa-tooltip>
                         </div>
                         {% for section in guideContext.tocSections %}
+                            <wa-divider class="drawer-guide-section-divider" aria-hidden="true"></wa-divider>
                             <div class="drawer-guide-section guide-aside-section{% if section.isCurrent %} is-current{% endif %}">
                                 <p class="drawer-guide-section-label">
                                     {% if section.icon %}
@@ -808,7 +822,7 @@ layout: layouts/base.html
             <nav class="site-footer-links" aria-label="{{ labels.footerLegal | default: labels.footerNavigation }}">
                 {% for link in chrome_legal_links %}
                     <a id="legal-link-{{ forloop.index }}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
-                        {% if link.icon %}<wa-icon variant="regular" name="{{ link.icon }}" aria-hidden="true"></wa-icon>{% endif %}
+                        {% if link.icon %}<wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}" aria-hidden="true"></wa-icon>{% endif %}
                         <span>{{ link.label }}</span>
                     </a>
                     {% unless forloop.last %}
