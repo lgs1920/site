@@ -2169,6 +2169,7 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     height: 100svh;
     min-height: 100svh;
     max-height: none;
+    overflow: visible;
     border-inline: 0;
     border-radius: 0;
 }
@@ -2201,17 +2202,17 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     content: "";
     position: absolute;
     z-index: 0;
-    inset: -2.5rem auto -2.5rem -2rem;
-    width: min(54rem, 92vw);
-    border-radius: 2rem;
-    background: linear-gradient(
-        90deg,
-        rgba(3, 8, 7, 0.5),
-        rgba(3, 8, 7, 0.27) 48%,
-        rgba(3, 8, 7, 0.08) 76%,
+    inset: -10rem auto -10rem -8rem;
+    width: min(64rem, calc(100vw + 12rem));
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at 34% 50%,
+        rgba(3, 8, 7, 0.48) 0%,
+        rgba(3, 8, 7, 0.28) 34%,
+        rgba(3, 8, 7, 0.1) 62%,
         transparent 100%
     );
-    filter: blur(24px);
+    filter: blur(44px);
     pointer-events: none;
 }
 
@@ -2291,7 +2292,7 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 
 .intro-hero .hero-copy h1,
 .intro-hero .hero-lead {
-    text-shadow: 0 1px 0.7rem rgba(0, 0, 0, 0.48);
+    text-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.56), 0 0 2.8rem rgba(0, 0, 0, 0.34);
 }
 
 .intro-hero .hero-lead {

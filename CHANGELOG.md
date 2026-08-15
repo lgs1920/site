@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`4a8a1e1`](https://github.com/lgs1920/site/commit/4a8a1e1) — Diffuse homepage hero halo
+
+- Replaced the directional homepage hero scrim with a wider radial halo around the copy.
+- Allowed the intro hero halo to extend beyond the viewport bounds.
+
 ## 2026-08-15 — [`bd08a59`](https://github.com/lgs1920/site/commit/bd08a59) — Highlight search matches
 
 - Highlighted matching terms in search-result titles and excerpts.
