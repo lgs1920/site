@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`61ab145`](https://github.com/lgs1920/site/commit/61ab145) — Brand search keyboard shortcuts
+
+- Styled the `Ctrl`, `K`, and `/` shortcut keys with the site brand colors and hover inversion.
+- Increased their padding and emphasis for clearer keyboard affordances.
+
 ## 2026-08-15 — [`144b4db`](https://github.com/lgs1920/site/commit/144b4db) — Expand guide reference documentation
 
 - Added bilingual reference entries for Studio drawers and dialogs, including detailed controls and workflows.

@@ -1102,13 +1102,22 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 
 .site-search-dialog-header-actions kbd {
     min-width: 1.1rem;
-    padding: 0.2rem 0.28rem;
-    border: 1px solid color-mix(in oklab, var(--header-ink) 24%, transparent);
+    padding: 0.28rem 0.44rem;
+    border: 1px solid var(--lgs-button-border-color);
     border-radius: 0.28rem;
-    color: var(--header-ink);
-    background: color-mix(in oklab, var(--surface-soft) 68%, transparent);
+    color: var(--lgs-button-color);
+    background: var(--lgs-button-bg-color);
     font: inherit;
+    font-weight: 700;
     text-align: center;
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.site-search-dialog-header-actions kbd:hover,
+.site-search-dialog-header-actions kbd:focus-visible {
+    border-color: var(--wa-color-brand-50);
+    color: var(--wa-color-brand-70);
+    background: var(--wa-color-brand-20);
 }
 
 .site-search-help-text {
