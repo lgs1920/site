@@ -224,11 +224,49 @@ const guideItemDefinitions = [
     },
 ]
 
+const guideSubcategoryLabels = {
+    overview: {
+        en: 'Overview',
+        fr: 'Vue d’ensemble',
+    },
+    'getting-started': {
+        en: 'Getting started',
+        fr: 'Démarrage',
+    },
+    workflows: {
+        en: 'Workflows',
+        fr: 'Flux de travail',
+    },
+    reference: {
+        en: 'Reference',
+        fr: 'Référence',
+    },
+}
+
+const getGuideSubcategoryKey = (path = '') => path.split('/')[2] || 'overview'
+
 const ui = {
     en: {
         home:                  'Home',
         skipToContent:         'Skip to content',
         openNavigation:        'Open navigation',
+        openSearch:            'Search the site',
+        searchDialogTitle:     'Search the site',
+        searchSite:            'Search the site',
+        searchPlaceholder:     'Search guides, FAQ, and changelog',
+        searchHelpTitle:       'Lost?',
+        searchHelpBody:        'Find a guide procedure, an FAQ answer, or a changelog entry. Try words like “widget”, “import”, or “camera”.',
+        searchShortcutLabel:   'Shortcut',
+        searchShortcutOr:      'or',
+        searchPrompt:          'Type a search term to find a page.',
+        searchLoading:         'Searching…',
+        searchNoResults:       'No matching pages found.',
+        searchResultCount:     'results',
+        searchUnavailable:     'Search is temporarily unavailable.',
+        searchCategoryHelp:    'Help',
+        searchCategoryProject: 'Project',
+        searchSubcategoryFaq:  'FAQ',
+        searchSubcategoryChangelog:'Changelog',
         pages:                 'Pages',
         userGuide:             'User guide',
         onThisPage:            'On this page',
@@ -295,6 +333,23 @@ const ui = {
         home:                  'Accueil',
         skipToContent:         'Aller au contenu',
         openNavigation:        'Ouvrir la navigation',
+        openSearch:            'Rechercher sur le site',
+        searchDialogTitle:     'Rechercher sur le site',
+        searchSite:            'Rechercher sur le site',
+        searchPlaceholder:     'Rechercher dans le guide, la FAQ et l’historique',
+        searchHelpTitle:       'Perdu ?',
+        searchHelpBody:        'Retrouvez une procédure, une réponse dans la FAQ ou une note de version. Essayez « widget », « import » ou « caméra ».',
+        searchShortcutLabel:   'Raccourci',
+        searchShortcutOr:      'ou',
+        searchPrompt:          'Saisissez un terme pour trouver une page.',
+        searchLoading:         'Recherche en cours…',
+        searchNoResults:       'Aucune page correspondante.',
+        searchResultCount:     'résultats',
+        searchUnavailable:     'La recherche est momentanément indisponible.',
+        searchCategoryHelp:    'Aide',
+        searchCategoryProject: 'Projet',
+        searchSubcategoryFaq:  'FAQ',
+        searchSubcategoryChangelog:'Historique',
         pages:                 'Pages',
         userGuide:             'Guide utilisateur',
         onThisPage:            'Sur cette page',
@@ -432,13 +487,19 @@ const buildUserGuideSections = (locale = defaultLocale) => [
         summary:locale === 'fr'
             ? 'Étapes principales pour utiliser LGS1920 Studio'
             : 'Main steps for using LGS1920 Studio',
-        items:  guideItemDefinitions.map((item) => ({
-            key:     item.key,
-            label:   item.label[locale],
-            url:     localizedPath(locale, item.path),
-            summary: item.summary[locale],
-            icon:    item.icon,
-        })),
+        items:  guideItemDefinitions.map((item) => {
+            const subcategory = guideSubcategoryLabels[getGuideSubcategoryKey(item.path)] ?? guideSubcategoryLabels.overview
+
+            return {
+                key:         item.key,
+                label:       item.label[locale],
+                url:         localizedPath(locale, item.path),
+                summary:     item.summary[locale],
+                icon:        item.icon,
+                category:    ui[locale].userGuide,
+                subcategory: subcategory[locale],
+            }
+        }),
     },
 ]
 

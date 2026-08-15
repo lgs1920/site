@@ -55,6 +55,13 @@ layout: layouts/base.html
         <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">{{ labels.home }}</wa-tooltip>
 
         <div class="topbar-actions">
+            <div class="site-search-trigger-wrap" data-search-trigger-wrap hidden>
+                <wa-button id="site-search-trigger" class="icon-link-button site-search-trigger" data-search-trigger hidden appearance="plain" aria-label="{{ labels.openSearch }}" aria-controls="site-search-dialog" aria-haspopup="dialog">
+                    <wa-icon variant="regular" name="magnifying-glass"></wa-icon>
+                </wa-button>
+            </div>
+            <wa-tooltip class="control-tooltip" for="site-search-trigger" placement="bottom" data-search-tooltip hidden>{{ labels.openSearch }}</wa-tooltip>
+
             {% for link in chrome_header_links %}
                 <wa-button id="header-link-{{ forloop.index }}" class="icon-link-button{% if link.icon == 'book-open' %} header-link-user-guide{% elsif link.icon == 'github' %} header-link-github{% endif %}" href="{{ link.url }}" appearance="plain" aria-label="{{ link.label }}"{% if link.external %} target="_blank" rel="noreferrer"{% endif %}>
                     <wa-icon{% if link.family %} family="{{ link.family }}"{% endif %}{% if link.variant %} variant="{{ link.variant }}"{% else %} variant="regular"{% endif %} name="{{ link.icon }}"></wa-icon>
@@ -155,6 +162,31 @@ layout: layouts/base.html
             <wa-tooltip class="control-tooltip" for="page-nav-toggle-mobile" placement="bottom" data-nav-toggle-tooltip>{{ labels.openNavigation }}</wa-tooltip>
         </div>
     </header>
+    {% endunless %}
+
+    {% unless minimalChrome %}
+    <wa-dialog id="site-search-dialog" label="{{ labels.searchDialogTitle }}" data-search-dialog data-search-loading="{{ labels.searchLoading | escape }}" data-search-prompt="{{ labels.searchPrompt | escape }}" data-search-no-results="{{ labels.searchNoResults | escape }}" data-search-result-count="{{ labels.searchResultCount | escape }}" data-search-unavailable="{{ labels.searchUnavailable | escape }}">
+        <span slot="label" class="site-search-dialog-label">
+            <wa-icon variant="regular" name="compass" aria-hidden="true"></wa-icon>
+            <span>{{ labels.searchHelpTitle }}</span>
+        </span>
+        <div slot="header-actions" class="site-search-dialog-header-actions" aria-label="{{ labels.searchShortcutLabel }}">
+            <span>{{ labels.searchShortcutLabel }}</span>
+            <kbd>Ctrl</kbd><kbd>K</kbd><span>{{ labels.searchShortcutOr }}</span><kbd>/</kbd>
+        </div>
+        <p class="site-search-help-text" data-pagefind-ignore>{{ labels.searchHelpBody }}</p>
+        <wa-input
+            id="site-search-input"
+            class="site-search-input"
+            data-search-input
+            label="{{ labels.searchSite }}"
+            placeholder="{{ labels.searchPlaceholder }}"
+            autocomplete="off"
+            clearable
+        ></wa-input>
+        <p class="site-search-status" data-search-status role="status" aria-live="polite">{{ labels.searchPrompt }}</p>
+        <div class="site-search-results" data-search-results></div>
+    </wa-dialog>
     {% endunless %}
 
     {% unless minimalChrome %}
@@ -600,7 +632,13 @@ layout: layouts/base.html
         </div>
     </section>
 
-    <main id="content" class="page-content{% if page_class_value %} {{ page_class_value }}{% endif %}">
+    <main id="content" class="page-content{% if page_class_value %} {{ page_class_value }}{% endif %}" data-pagefind-body>
+        {% if search_category and search_subcategory %}
+            <div class="site-search-page-metadata" aria-hidden="true">
+                <span data-pagefind-meta="category" data-pagefind-filter="category">{{ search_category }}</span>
+                <span data-pagefind-meta="subcategory" data-pagefind-filter="subcategory">{{ search_subcategory }}</span>
+            </div>
+        {% endif %}
         {% if guideContext %}
             <nav class="guide-breadcrumb-shell" aria-label="{{ labels.breadcrumb }}">
                 <wa-breadcrumb>

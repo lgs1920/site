@@ -1,4 +1,5 @@
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite'
+import {spawnSync} from 'node:child_process'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import MarkdownIt from 'markdown-it'
@@ -158,6 +159,22 @@ const devServerDirectoryMiddleware = (request, response, next) => {
     next()
 }
 
+const buildSearchIndex = () => {
+    const result = spawnSync('pagefind', ['--site', path.resolve('_site')], {
+        cwd:     process.cwd(),
+        env:     process.env,
+        stdio:   'inherit',
+    })
+
+    if (result.error) {
+        throw result.error
+    }
+
+    if (result.status !== 0) {
+        throw new Error(`Pagefind failed with exit code ${result.status}`)
+    }
+}
+
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
     copyLogoAssets()
@@ -210,6 +227,11 @@ export default function(eleventyConfig) {
                 },
             },
         },
+    })
+    eleventyConfig.on('eleventy.after', ({runMode}) => {
+        if (runMode === 'serve') {
+            buildSearchIndex()
+        }
     })
 
     return {
