@@ -204,8 +204,9 @@ const home = {
                     {
                         id:     'why-lgs1920',
                         summary:'Why LGS1920? What does it mean?',
-                        body:   'LGS1920 stands for La Grande Sure, a 1,920-metre summit in the Chartreuse massif, at GPS coordinates 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
+                        body:   'LGS1920 stands for La Grande Sure, a 1,920-metre summit in the Chartreuse massif, in the French Alps, at GPS coordinates 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
                         bodyAfter:'It is a mountain that means a great deal to me: it is part of my family roots, and I was barely twelve when I climbed it for the first time with my family. At the time, it was my Mont Blanc — better still, my Everest.',
+                        bodyFinal:'One of Studio’s journey samples is, appropriately, named LGS1920. It is one of my favourite hikes, and I still hike it once a year, 54 years later.',
                         image:  {
                             ...grandeSureImage,
                             alt:'The Hurtières cirque and the Voironnais seen from the trail to the Hurtières Gullet',
@@ -473,8 +474,9 @@ const home = {
                     {
                         id:     'pourquoi-lgs1920',
                         summary:'Pourquoi LGS1920 ? Que signifie ce nom ?',
-                        body:   'LGS1920 signifie La Grande Sure, un sommet de 1 920 mètres dans le massif de la Chartreuse, aux coordonnées GPS 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
+                        body:   'LGS1920 signifie La Grande Sure, un sommet de 1 920 mètres dans le massif de la Chartreuse, dans les Alpes françaises, aux coordonnées GPS 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
                         bodyAfter:'C’est une montagne qui m’est chère : elle fait partie de mes racines familiales et j’avais à peine douze ans lorsque je l’ai gravie pour la première fois en famille. À l’époque, c’était mon Mont Blanc — mieux encore, mon Everest.',
+                        bodyFinal:'L’un des journey samples de Studio porte, comme il se doit, le nom de LGS1920. C’est l’une de mes randonnées préférées, que je refais toujours, 54 ans après, une fois par an.',
                         image:  {
                             ...grandeSureImage,
                             alt:'Le cirque d’Hurtières et le Voironnais vus depuis le sentier du goulet d’Hurtières',

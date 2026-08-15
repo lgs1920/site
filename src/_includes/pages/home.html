@@ -179,6 +179,7 @@
                     <div class="faq-answer-copy">
                         <p>{{ item.body }}</p>
                         {% if item.bodyAfter %}<p>{{ item.bodyAfter }}</p>{% endif %}
+                        {% if item.bodyFinal %}<p>{{ item.bodyFinal }}</p>{% endif %}
                         {% if item.links and item.links.size > 0 %}
                             <p>
                                 {% for link in item.links %}

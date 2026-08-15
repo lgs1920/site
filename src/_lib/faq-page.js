@@ -47,6 +47,7 @@ export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = 
                     <div class="faq-answer-copy">
                         <p>${escapeHtml(item.body)}</p>
                         ${item.bodyAfter ? `<p>${escapeHtml(item.bodyAfter)}</p>` : ''}
+                        ${item.bodyFinal ? `<p>${escapeHtml(item.bodyFinal)}</p>` : ''}
                         ${item.links ? `<p>${renderFaqLinks(item.links)}</p>` : ''}
                     </div>
                     ${renderFaqImage(item.image, creditLabel)}

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`37be315`](https://github.com/lgs1920/site/commit/37be315) — Expand Grande Sure FAQ story
+
+- Added the French Alps reference and the LGS1920 Studio journey sample mention.
+- Clarified that the hike is still repeated once a year, 54 years after the first ascent.
+
 ## 2026-08-15 — [`a2f60e3`](https://github.com/lgs1920/site/commit/a2f60e3) — Add Grande Sure FAQ story and photo
 
 - Added the bilingual LGS1920 origin story to the FAQ and homepage FAQ.

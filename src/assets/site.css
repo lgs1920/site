@@ -3689,12 +3689,16 @@ wa-card.accent-c::part(base) {
 }
 
 .faq-answer-copy p {
+    display: block;
     margin: 0;
 }
 
 .faq-answer-copy {
-    display: grid;
-    gap: 0.8rem;
+    display: block;
+}
+
+.faq-answer-copy p + p {
+    margin-top: 0.8rem;
 }
 
 .faq-answer-media {
