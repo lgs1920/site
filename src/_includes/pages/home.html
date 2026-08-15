@@ -43,6 +43,38 @@
     </div>
 </section>
 
+<section id="quick-access" class="content-section quick-access-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.quickAccess.kicker }}</p>
+        <h2>{{ home_content.quickAccess.title }}</h2>
+    </div>
+
+    <p class="section-intro">{{ home_content.quickAccess.intro }}</p>
+
+    <div class="feature-grid quick-access-grid">
+        {% for card in home_content.quickAccess.cards %}
+            <wa-card class="feature-card quick-access-card">
+                <div class="card-heading">
+                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
+                    <h3>{{ card.title }}</h3>
+                </div>
+                <p>{{ card.body }}</p>
+
+                {% if card.action %}
+                    <div class="page-cta-actions">
+                        <wa-button class="cta-button" href="{{ card.action.href }}"{% if card.action.appearance %} appearance="{{ card.action.appearance }}"{% endif %}{% if card.action.variant %} variant="{{ card.action.variant }}"{% endif %}{% if card.action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                            {% if card.action.icon %}
+                                <wa-icon slot="start"{% if card.action.icon.family %} family="{{ card.action.icon.family }}"{% endif %}{% if card.action.icon.variant %} variant="{{ card.action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ card.action.icon.name }}"></wa-icon>
+                            {% endif %}
+                            {{ card.action.label }}
+                        </wa-button>
+                    </div>
+                {% endif %}
+            </wa-card>
+        {% endfor %}
+    </div>
+</section>
+
 <section id="features" class="content-section">
     <div class="section-heading">
         <p class="section-kicker">{{ home_content.features.kicker }}</p>

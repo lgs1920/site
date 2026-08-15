@@ -58,6 +58,7 @@ const home = {
         },
         sectionNav: [
             {id:'overview', label:'Overview', summary:'Browser-local journeys and exports'},
+            {id:'quick-access', label:'Start here', summary:'Guides and direct access to Studio'},
             {id:'features', label:'Features', summary:'The main workflows the Studio covers'},
             {id:'workflow', label:'Workflow', summary:'From source data to final output'},
             {id:'roadmap', label:'Roadmap', summary:'The next Studio milestones'},
@@ -70,7 +71,6 @@ const home = {
                 title:         'A browser workspace for journeys, camera control, capture, and reports.',
                 intro:         [
                     'Import a route, inspect the scene, adjust the camera, and export what you need — reports or video — without leaving the browser.',
-                    'The Studio keeps working state local by default and only uses external services when the workflow requires it.',
                 ],
                 highlightsLabel:'What Studio covers',
                 highlights:    [
@@ -99,6 +99,50 @@ const home = {
                         {icon:'chart-line', title:'Delivery', text:'Reports, snapshots, video'},
                     ],
                 },
+            },
+            quickAccess: {
+                kicker: 'Start here',
+                title:  'In a hurry?',
+                intro:   'Choose the shortest path to what you need: a guided first step, the full User guide, or Studio itself.',
+                cards:   [
+                    {
+                        icon:  'book-open-lines',
+                        title: 'Quick guide',
+                        body:  'Follow the first steps to open Studio, import a journey, and get familiar with the main workflow.',
+                        action: {
+                            label:     'Read the Quick guide',
+                            href:      '/user-guide/getting-started/first-steps/',
+                            appearance:'outlined',
+                            variant:   'brand',
+                            icon:      {name:'book-open-lines', variant:'regular'},
+                        },
+                    },
+                    {
+                        icon:  'book-sparkles',
+                        title: 'User guide',
+                        body:  'Find detailed procedures for importing, editing, configuring, and exporting your journeys.',
+                        action: {
+                            label:     'Open the User guide',
+                            href:      '/user-guide/',
+                            appearance:'outlined',
+                            variant:   'brand',
+                            icon:      {name:'book-sparkles', variant:'regular'},
+                        },
+                    },
+                    {
+                        icon:  'clapperboard-play',
+                        title: 'Studio',
+                        body:  'Already know what you want to do? Open Studio directly in your browser.',
+                        action: {
+                            label:     'Open Studio',
+                            href:      studioUrl,
+                            appearance:'filled',
+                            variant:   'brand',
+                            external:  true,
+                            icon:      {name:'clapperboard-play', variant:'regular'},
+                        },
+                    },
+                ],
             },
             features: {
                 kicker:'Features',
@@ -273,6 +317,7 @@ const home = {
         },
         sectionNav: [
             {id:'overview', label:'Vue d\'ensemble', summary:'Parcours et exports dans le navigateur'},
+            {id:'quick-access', label:'Commencer', summary:'Guides et accès direct à Studio'},
             {id:'features', label:'Fonctionnalités', summary:'Les workflows principaux couverts par Studio'},
             {id:'workflow', label:'Workflow', summary:'De la donnée source à la sortie finale'},
             {id:'roadmap', label:'Roadmap', summary:'Les prochaines étapes de Studio'},
@@ -285,7 +330,6 @@ const home = {
                 title:         'Un espace de travail dans le navigateur pour les parcours, la caméra, les captures et les rapports.',
                 intro:         [
                     'Importez un parcours, inspectez la scène, ajustez la caméra et exportez ce qu’il faut — rapports ou vidéo — sans quitter le navigateur.',
-                    'Studio garde l’état de travail en local par défaut et n’utilise des services externes que lorsque le workflow l’exige.',
                 ],
                 highlightsLabel:'Ce que couvre Studio',
                 highlights:    [
@@ -314,6 +358,50 @@ const home = {
                         {icon:'chart-line', title:'Livrables', text:'Rapports, captures, vidéo'},
                     ],
                 },
+            },
+            quickAccess: {
+                kicker: 'Commencer',
+                title:  'Trop pressé ?',
+                intro:   'Choisissez le chemin le plus court : un premier parcours guidé, le guide utilisateur complet ou Studio directement.',
+                cards:   [
+                    {
+                        icon:  'book-open-lines',
+                        title: 'Guide rapide',
+                        body:  'Suivez les premières étapes pour ouvrir Studio, importer un parcours et prendre en main le workflow principal.',
+                        action: {
+                            label:     'Lire le guide rapide',
+                            href:      '/fr/user-guide/getting-started/first-steps/',
+                            appearance:'outlined',
+                            variant:   'brand',
+                            icon:      {name:'book-open-lines', variant:'regular'},
+                        },
+                    },
+                    {
+                        icon:  'book-sparkles',
+                        title: 'Guide utilisateur',
+                        body:  'Retrouvez les procédures détaillées pour importer, modifier, configurer et exporter vos parcours.',
+                        action: {
+                            label:     'Ouvrir le guide utilisateur',
+                            href:      '/fr/user-guide/',
+                            appearance:'outlined',
+                            variant:   'brand',
+                            icon:      {name:'book-sparkles', variant:'regular'},
+                        },
+                    },
+                    {
+                        icon:  'clapperboard-play',
+                        title: 'Studio',
+                        body:  'Vous savez déjà ce que vous voulez faire ? Ouvrez Studio directement dans votre navigateur.',
+                        action: {
+                            label:     'Ouvrir Studio',
+                            href:      studioUrl,
+                            appearance:'filled',
+                            variant:   'brand',
+                            external:  true,
+                            icon:      {name:'clapperboard-play', variant:'regular'},
+                        },
+                    },
+                ],
             },
             features: {
                 kicker:'Fonctionnalités',

@@ -1,9 +1,14 @@
 # Changelog
 
-## 2026-08-15 — [`21ec19a`](https://github.com/lgs1920/site/commit/21ec19a) — Unify page breadcrumbs
+## 2026-08-15 — [`4dba773`](https://github.com/lgs1920/site/commit/4dba773) — Unify page breadcrumbs
 
 - Added one localized breadcrumb component to standard, minimal, and error pages while keeping both home pages excluded.
 - Reused the existing guide breadcrumb entries and unified their styling across the site.
+
+## 2026-08-15 — [`347897f`](https://github.com/lgs1920/site/commit/347897f) — Add homepage quick access
+
+- Added localized quick-access cards for the Quick guide, User guide, and Studio.
+- Added the section navigation entry and aligned card actions on the homepage.
 
 ## 2026-08-14 — [`ff8da71`](https://github.com/lgs1920/site/commit/ff8da71) — Refine launch registration hero
 
