@@ -21,6 +21,7 @@ export default class {
             title:  pageContent.sectionTitle,
             intro:  pageContent.intro,
             items:  pageContent.items,
+            creditLabel:'Photo :',
         })
     }
 }

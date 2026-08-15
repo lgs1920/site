@@ -17,7 +17,21 @@ const renderFaqLinks = (links = []) => {
     }).join('')
 }
 
-export const renderFaqPage = ({ kicker, title, intro, items = [] }) => `
+const renderFaqImage = (image, creditLabel = 'Photo:') => {
+    if (!image?.src) {
+        return ''
+    }
+
+    return `
+        <figure class="faq-answer-media">
+            <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || '')}" width="1280" height="453" loading="lazy" decoding="async">
+            <figcaption>
+                ${escapeHtml(creditLabel)} <a href="${escapeHtml(image.pageUrl)}" target="_blank" rel="noreferrer">${escapeHtml(image.author)}</a>, <a href="${escapeHtml(image.licenseUrl)}" target="_blank" rel="noreferrer">${escapeHtml(image.license)}</a>
+            </figcaption>
+        </figure>`
+}
+
+export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = 'Photo:' }) => `
 <section class="content-section faq-page">
     <div class="section-heading">
         <p class="section-kicker">${escapeHtml(kicker)}</p>
@@ -29,10 +43,14 @@ export const renderFaqPage = ({ kicker, title, intro, items = [] }) => `
     <div class="faq-list">
         ${items.map((item, index) => `
             <wa-details id="${escapeHtml(item.id || `faq-item-${index + 1}`)}" summary="${escapeHtml(item.summary)}">
-                <p>
-                    ${escapeHtml(item.body)}
-                    ${renderFaqLinks(item.links)}
-                </p>
+                <div class="faq-answer${item.image ? ' faq-answer-with-media' : ''}">
+                    <div class="faq-answer-copy">
+                        <p>${escapeHtml(item.body)}</p>
+                        ${item.bodyAfter ? `<p>${escapeHtml(item.bodyAfter)}</p>` : ''}
+                        ${item.links ? `<p>${renderFaqLinks(item.links)}</p>` : ''}
+                    </div>
+                    ${renderFaqImage(item.image, creditLabel)}
+                </div>
             </wa-details>
         `).join('')}
     </div>

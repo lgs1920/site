@@ -1,4 +1,4 @@
-import { repositoryUrl, studioUrl } from './shared.js'
+import { grandeSureImage, repositoryUrl, studioUrl } from './shared.js'
 
 const home = {
     layout:'layouts/page.html',
@@ -201,6 +201,16 @@ const home = {
                 kicker:'FAQ',
                 title: 'Common questions about Studio and the public site.',
                 items: [
+                    {
+                        id:     'why-lgs1920',
+                        summary:'Why LGS1920? What does it mean?',
+                        body:   'LGS1920 stands for La Grande Sure, a 1,920-metre summit in the Chartreuse massif, at GPS coordinates 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
+                        bodyAfter:'It is a mountain that means a great deal to me: it is part of my family roots, and I was barely twelve when I climbed it for the first time with my family. At the time, it was my Mont Blanc — better still, my Everest.',
+                        image:  {
+                            ...grandeSureImage,
+                            alt:'The Hurtières cirque and the Voironnais seen from the trail to the Hurtières Gullet',
+                        },
+                    },
                     {
                         id:     'who-is-studio-for',
                         summary:'Who is Studio for?',
@@ -460,6 +470,16 @@ const home = {
                 kicker:'FAQ',
                 title: 'Questions courantes sur Studio et le site public.',
                 items: [
+                    {
+                        id:     'pourquoi-lgs1920',
+                        summary:'Pourquoi LGS1920 ? Que signifie ce nom ?',
+                        body:   'LGS1920 signifie La Grande Sure, un sommet de 1 920 mètres dans le massif de la Chartreuse, aux coordonnées GPS 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).',
+                        bodyAfter:'C’est une montagne qui m’est chère : elle fait partie de mes racines familiales et j’avais à peine douze ans lorsque je l’ai gravie pour la première fois en famille. À l’époque, c’était mon Mont Blanc — mieux encore, mon Everest.',
+                        image:  {
+                            ...grandeSureImage,
+                            alt:'Le cirque d’Hurtières et le Voironnais vus depuis le sentier du goulet d’Hurtières',
+                        },
+                    },
                     {
                         id:     'pour-qui-est-studio',
                         summary:'À qui s’adresse Studio ?',

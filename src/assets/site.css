@@ -3681,6 +3681,46 @@ wa-card.accent-c::part(base) {
     font-weight: 600;
 }
 
+.faq-answer-with-media {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.faq-answer-copy p {
+    margin: 0;
+}
+
+.faq-answer-copy {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.faq-answer-media {
+    min-width: 0;
+    margin: 0;
+}
+
+.faq-answer-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1280 / 453;
+    border-radius: var(--wa-border-radius-s);
+    object-fit: cover;
+}
+
+.faq-answer-media figcaption {
+    margin-top: 0.35rem;
+    color: var(--page-muted);
+    font-size: 0.7rem;
+    line-height: 1.35;
+}
+
+.faq-answer-media figcaption a {
+    color: inherit;
+}
+
 .stats-content {
     display: grid;
     gap: 0;
@@ -4945,6 +4985,12 @@ wa-card.page-cta-card::part(body) {
         position: static;
         order: -1;
         margin-bottom: 1.25rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .faq-answer-with-media {
+        grid-template-columns: 1fr;
     }
 }
 

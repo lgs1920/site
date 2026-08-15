@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`a2f60e3`](https://github.com/lgs1920/site/commit/a2f60e3) — Add Grande Sure FAQ story and photo
+
+- Added the bilingual LGS1920 origin story to the FAQ and homepage FAQ.
+- Added the responsive Wikimedia Commons photo with a small CC BY-SA 4.0 credit.
+
 ## 2026-08-15 — [`bbdb16e`](https://github.com/lgs1920/site/commit/bbdb16e) — Hand off 404 search to the global dialog
 
 - Added a localized search field between the 404 lead and its actions.
