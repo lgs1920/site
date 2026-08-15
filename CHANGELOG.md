@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-15 — [`5664dcd`](https://github.com/lgs1920/site/commit/5664dcd) — Avoid duplicate guide home breadcrumbs
+
+- Removed the home item from guide-specific breadcrumb data because the shared breadcrumb component now owns the home entry.
+
 ## 2026-08-15 — [`61ab145`](https://github.com/lgs1920/site/commit/61ab145) — Brand search keyboard shortcuts
 
 - Styled the `Ctrl`, `K`, and `/` shortcut keys with the site brand colors and hover inversion.

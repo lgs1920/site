@@ -85,19 +85,8 @@ const resolveGuideContext = (data) => {
     const guideHomeUrl = i18n.normalizeUrl(i18n.localizedPath(locale, '/user-guide/'))
     const isOverview = normalizeGuideUrl(currentEntry.item.url) === guideHomeUrl
     const breadcrumbs = isOverview
-        ? [
-            {
-                label:data.uiLabels.home,
-                url:  i18n.localizedPath(locale, '/'),
-                icon: 'house',
-            },
-        ]
+        ? []
         : [
-            {
-                label:data.uiLabels.home,
-                url:  i18n.localizedPath(locale, '/'),
-                icon: 'house',
-            },
             {
                 label:currentEntry.item.label,
                 icon: currentEntry.item.icon,
