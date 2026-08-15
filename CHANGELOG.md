@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-15 — [`bbdb16e`](https://github.com/lgs1920/site/commit/bbdb16e) — Hand off 404 search to the global dialog
+
+- Added a localized search field between the 404 lead and its actions.
+- Opened the shared search dialog from the 404 search form with the query prefilled.
+
 ## 2026-08-15 — [`5cd4eba`](https://github.com/lgs1920/site/commit/5cd4eba) — Add guide-scoped site search
 
 - Added a localized User guide search field with guide-only Pagefind results.

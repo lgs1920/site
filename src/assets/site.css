@@ -567,6 +567,17 @@ wa-page.minimal-page-layout::part(footer) {
     line-height: 1.7;
 }
 
+.error-search-form {
+    display: grid;
+    gap: 0.55rem;
+    width: min(34rem, 100%);
+    margin-top: 0.15rem;
+}
+
+.error-search-input {
+    width: 100%;
+}
+
 .error-actions {
     display: flex;
     flex-wrap: nowrap;

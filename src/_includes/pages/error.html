@@ -1,3 +1,4 @@
+{% assign error_labels = uiLabels | default: site.ui %}
 <wa-page class="site-layout error-site-layout" mobile-breakpoint="960" navigation-placement="start" disable-navigation-toggle data-nav-collapsed="true">
     <header slot="header" class="topbar error-topbar">
         <a class="brand-name" href="{% if errorLocale == 'fr' %}/fr{% else %}/{% endif %}" aria-label="LGS1920 home">
@@ -37,6 +38,19 @@
                 <p class="error-code" aria-hidden="true">{{ errorCode }}</p>
                 <h1 id="error-title">{{ errorTitle }}</h1>
                 <p class="error-message">{{ errorMessage }}</p>
+                <form class="error-search-form"
+                      data-inline-search>
+                    <wa-input
+                        class="error-search-input"
+                        data-inline-search-input
+                        label="{{ error_labels.searchSite }}"
+                        placeholder="{{ error_labels.searchPlaceholder }}"
+                        autocomplete="off"
+                        clearable
+                    >
+                        <wa-icon class="search-input-icon" slot="start" variant="regular" name="magnifying-glass" aria-hidden="true"></wa-icon>
+                    </wa-input>
+                </form>
                 <div class="error-actions">
                     <wa-button href="{{ errorPrimaryHref }}" variant="brand" appearance="filled" with-start>
                         <wa-icon slot="start" variant="regular" name="arrow-left"></wa-icon>
@@ -67,6 +81,8 @@
             {% endif %}
         </section>
     </main>
+
+    {% include "components/site-search-dialog.html" %}
 
     <footer slot="footer" class="site-footer error-footer">
         <p class="site-footer-privacy">{{ errorFooter }}</p>
