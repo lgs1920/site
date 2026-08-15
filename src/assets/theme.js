@@ -507,12 +507,15 @@ const setupGuideAsidePlacement = () => {
         const resolvedPlacement = resolveGuideAsidePlacement(placement)
         const nextPlacement = actionForPlacement(resolvedPlacement)
         const label = labels[nextPlacement]
+        const iconName = nextPlacement === 'left' ? 'left-to-line' : 'right-to-line'
 
         page.dataset.guideAsidePlacement = resolvedPlacement
         toggle.setAttribute('aria-label', label)
         tooltip && (tooltip.textContent = label)
 
         if (icon) {
+            icon.setAttribute('name', iconName)
+            icon.setAttribute('variant', 'solid')
             icon.setAttribute('label', label)
         }
 

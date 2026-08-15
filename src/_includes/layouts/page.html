@@ -25,7 +25,7 @@ layout: layouts/base.html
     {% assign search_category = labels.searchCategoryProject %}
     {% assign search_subcategory = labels.searchSubcategoryChangelog %}
 {% endif %}
-<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}{% if minimalChrome %} minimal-chrome-layout{% endif %}" mobile-breakpoint="960" navigation-placement="end" disable-navigation-toggle data-nav-collapsed="true" data-guide-aside-placement="right"{% if requiresBackend %} data-backend-restart-page data-backend-api-url="{{ site.backendApiUrl | escape }}" data-backend-restart-url="{{ site.backendRestartUrl | escape }}" data-backend-restart-title="{{ labels.backendRestartTitle | escape }}" data-backend-restart-message="{{ labels.backendRestartMessage | escape }}" data-backend-restart-details="{{ labels.backendRestartDetails | escape }}" data-backend-restart-action="{{ labels.backendRestartAction | escape }}" data-backend-retry-action="{{ labels.backendRetryAction | escape }}" data-backend-restarting="{{ labels.backendRestarting | escape }}" data-backend-retry="{{ labels.backendRetrying | escape }}" data-backend-restart-failed="{{ labels.backendRestartFailed | escape }}" data-backend-retry-failed="{{ labels.backendRetryFailed | escape }}" data-backend-restart-contact="{{ labels.backendRestartContact | escape }}"{% if alternateLocales %} data-backend-restart-language="{{ labels.language | escape }}" data-backend-restart-choose-language="{{ labels.chooseLanguage | escape }}" data-backend-restart-locale="{{ locale | escape }}" data-backend-restart-english-url="{{ alternateLocales.en | escape }}" data-backend-restart-french-url="{{ alternateLocales.fr | escape }}"{% endif %}{% endif %}>
+<wa-page class="site-layout{% if guideContext %} guide-layout{% endif %}{% if minimalChrome %} minimal-chrome-layout{% endif %}" mobile-breakpoint="960" navigation-placement="end" disable-navigation-toggle data-nav-collapsed="true"{% if requiresBackend %} data-backend-restart-page data-backend-api-url="{{ site.backendApiUrl | escape }}" data-backend-restart-url="{{ site.backendRestartUrl | escape }}" data-backend-restart-title="{{ labels.backendRestartTitle | escape }}" data-backend-restart-message="{{ labels.backendRestartMessage | escape }}" data-backend-restart-details="{{ labels.backendRestartDetails | escape }}" data-backend-restart-action="{{ labels.backendRestartAction | escape }}" data-backend-retry-action="{{ labels.backendRetryAction | escape }}" data-backend-restarting="{{ labels.backendRestarting | escape }}" data-backend-retry="{{ labels.backendRetrying | escape }}" data-backend-restart-failed="{{ labels.backendRestartFailed | escape }}" data-backend-retry-failed="{{ labels.backendRetryFailed | escape }}" data-backend-restart-contact="{{ labels.backendRestartContact | escape }}"{% if alternateLocales %} data-backend-restart-language="{{ labels.language | escape }}" data-backend-restart-choose-language="{{ labels.chooseLanguage | escape }}" data-backend-restart-locale="{{ locale | escape }}" data-backend-restart-english-url="{{ alternateLocales.en | escape }}" data-backend-restart-french-url="{{ alternateLocales.fr | escape }}"{% endif %}{% endif %}>
     <script>
         (() => {
             const page = document.currentScript.closest('wa-page')
@@ -658,22 +658,24 @@ layout: layouts/base.html
                 <div id="guide-chapter" class="guide-content-body">
                     {{ content }}
                 </div>
-
                 <aside class="guide-aside-shell" aria-label="{{ labels.userGuide }}">
                     <nav class="guide-aside-nav" aria-label="{{ labels.userGuide }}">
                         <div class="guide-aside-header">
-                            <span>{{ labels.userGuide }}</span>
+                            <div class="guide-aside-heading">
+                                <span>{{ labels.guideNavigation }}</span>
+                                <small>{{ guideContext.section.label }}</small>
+                            </div>
                             <wa-button
                                 id="guide-aside-placement-toggle"
                                 class="guide-aside-placement-toggle"
                                 variant="brand"
-                                appearance="filled"
+                                appearance="outlined"
                                 size="s"
                                 data-guide-aside-placement-toggle
                                 data-move-left-label="{{ labels.moveGuideAsideLeft }}"
                                 data-move-right-label="{{ labels.moveGuideAsideRight }}"
                                 aria-label="{{ labels.moveGuideAsideLeft }}">
-                                <wa-icon variant="regular" name="right-left" label="{{ labels.moveGuideAsideLeft }}"></wa-icon>
+                                <wa-icon variant="solid" name="left-to-line" label="{{ labels.moveGuideAsideLeft }}"></wa-icon>
                             </wa-button>
                             <wa-tooltip class="control-tooltip" for="guide-aside-placement-toggle" placement="top" data-guide-aside-placement-tooltip>{{ labels.moveGuideAsideLeft }}</wa-tooltip>
                         </div>

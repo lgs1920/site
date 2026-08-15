@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-15 — [`20713a6`](https://github.com/lgs1920/site/commit/20713a6) — Refine guide navigation placement
+
+- Added a localized guide-navigation heading with the current section.
+- Restored the desktop control for moving the guide navigation left or right, with matching directional icons.
+- Kept the placement control hidden on mobile while preserving the navigation in the page flow.
+
 ## 2026-08-15 — [`09dcb0c`](https://github.com/lgs1920/site/commit/09dcb0c) — Refine registration detail spacing
 
 - Removed the unnecessary divider from the registration details card.
