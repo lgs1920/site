@@ -1,0 +1,25 @@
+{% assign search_labels = labels | default: error_labels | default: uiLabels | default: site.ui %}
+<wa-dialog id="site-search-dialog" label="{{ search_labels.searchDialogTitle }}" data-search-dialog data-search-loading="{{ search_labels.searchLoading | escape }}" data-search-prompt="{{ search_labels.searchPrompt | escape }}" data-search-no-results="{{ search_labels.searchNoResults | escape }}" data-search-result-count="{{ search_labels.searchResultCount | escape }}" data-search-unavailable="{{ search_labels.searchUnavailable | escape }}">
+    <span slot="label" class="site-search-dialog-label">
+        <wa-icon variant="regular" name="compass" aria-hidden="true"></wa-icon>
+        <span>{{ search_labels.searchHelpTitle }}</span>
+    </span>
+    <div slot="header-actions" class="site-search-dialog-header-actions" aria-label="{{ search_labels.searchShortcutLabel }}">
+        <span>{{ search_labels.searchShortcutLabel }}</span>
+        <kbd>Ctrl</kbd><kbd>K</kbd><span>{{ search_labels.searchShortcutOr }}</span><kbd>/</kbd>
+    </div>
+    <p class="site-search-help-text" data-pagefind-ignore>{{ search_labels.searchHelpBody }}</p>
+    <wa-input
+        id="site-search-input"
+        class="site-search-input"
+        data-search-input
+        label="{{ search_labels.searchSite }}"
+        placeholder="{{ search_labels.searchPlaceholder }}"
+        autocomplete="off"
+        clearable
+    >
+        <wa-icon class="search-input-icon" slot="start" variant="regular" name="magnifying-glass" aria-hidden="true"></wa-icon>
+    </wa-input>
+    <p class="site-search-status" data-search-status role="status" aria-live="polite">{{ search_labels.searchPrompt }}</p>
+    <div class="site-search-results" data-search-results></div>
+</wa-dialog>

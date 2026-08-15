@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-15 — [`5cd4eba`](https://github.com/lgs1920/site/commit/5cd4eba) — Add guide-scoped site search
+
+- Added a localized User guide search field with guide-only Pagefind results.
+- Preserved the guide search query and restored it when navigating to a result.
+- Reused the global search dialog markup across the main layout and error pages.
+
 ## 2026-08-15 — [`4a8a1e1`](https://github.com/lgs1920/site/commit/4a8a1e1) — Diffuse homepage hero halo
 
 - Replaced the directional homepage hero scrim with a wider radial halo around the copy.

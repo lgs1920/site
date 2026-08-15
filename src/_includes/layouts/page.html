@@ -189,28 +189,7 @@ layout: layouts/base.html
     {% endunless %}
 
     {% unless minimalChrome %}
-    <wa-dialog id="site-search-dialog" label="{{ labels.searchDialogTitle }}" data-search-dialog data-search-loading="{{ labels.searchLoading | escape }}" data-search-prompt="{{ labels.searchPrompt | escape }}" data-search-no-results="{{ labels.searchNoResults | escape }}" data-search-result-count="{{ labels.searchResultCount | escape }}" data-search-unavailable="{{ labels.searchUnavailable | escape }}">
-        <span slot="label" class="site-search-dialog-label">
-            <wa-icon variant="regular" name="compass" aria-hidden="true"></wa-icon>
-            <span>{{ labels.searchHelpTitle }}</span>
-        </span>
-        <div slot="header-actions" class="site-search-dialog-header-actions" aria-label="{{ labels.searchShortcutLabel }}">
-            <span>{{ labels.searchShortcutLabel }}</span>
-            <kbd>Ctrl</kbd><kbd>K</kbd><span>{{ labels.searchShortcutOr }}</span><kbd>/</kbd>
-        </div>
-        <p class="site-search-help-text" data-pagefind-ignore>{{ labels.searchHelpBody }}</p>
-        <wa-input
-            id="site-search-input"
-            class="site-search-input"
-            data-search-input
-            label="{{ labels.searchSite }}"
-            placeholder="{{ labels.searchPlaceholder }}"
-            autocomplete="off"
-            clearable
-        ></wa-input>
-        <p class="site-search-status" data-search-status role="status" aria-live="polite">{{ labels.searchPrompt }}</p>
-        <div class="site-search-results" data-search-results></div>
-    </wa-dialog>
+    {% include "components/site-search-dialog.html" %}
     {% endunless %}
 
     {% unless minimalChrome %}
@@ -662,6 +641,9 @@ layout: layouts/base.html
             <div class="site-search-page-metadata" aria-hidden="true">
                 <span data-pagefind-meta="category" data-pagefind-filter="category">{{ search_category }}</span>
                 <span data-pagefind-meta="subcategory" data-pagefind-filter="subcategory">{{ search_subcategory }}</span>
+                {% if guideContext %}
+                    <span data-pagefind-filter="scope">guide</span>
+                {% endif %}
             </div>
         {% endif %}
         {% include "components/page-breadcrumb.html" %}
@@ -691,6 +673,25 @@ layout: layouts/base.html
                                 <wa-icon variant="solid" name="left-to-line" label="{{ labels.moveGuideAsideLeft }}"></wa-icon>
                             </wa-button>
                             <wa-tooltip class="control-tooltip" for="guide-aside-placement-toggle" placement="top" data-guide-aside-placement-tooltip>{{ labels.moveGuideAsideLeft }}</wa-tooltip>
+                        </div>
+                        <wa-divider class="drawer-guide-search-divider" aria-hidden="true"></wa-divider>
+                        <div class="guide-aside-search"
+                             data-guide-search
+                             data-search-loading="{{ labels.searchLoading | escape }}"
+                             data-search-no-results="{{ labels.searchNoResults | escape }}"
+                             data-search-result-count="{{ labels.searchResultCount | escape }}"
+                             data-search-unavailable="{{ labels.searchUnavailable | escape }}">
+                            <wa-input
+                                class="guide-aside-search-input"
+                                data-guide-search-input
+                                placeholder="{{ labels.guideSearchPlaceholder }}"
+                                autocomplete="off"
+                                clearable
+                            >
+                                <wa-icon class="search-input-icon" slot="start" variant="regular" name="magnifying-glass" aria-hidden="true"></wa-icon>
+                            </wa-input>
+                            <p class="guide-aside-search-status" data-guide-search-status role="status" aria-live="polite" hidden></p>
+                            <div class="site-search-results guide-aside-search-results" data-guide-search-results></div>
                         </div>
                         {% for section in guideContext.tocSections %}
                             <wa-divider class="drawer-guide-section-divider" aria-hidden="true"></wa-divider>
