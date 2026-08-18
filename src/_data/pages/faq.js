@@ -44,6 +44,12 @@ const faq = {
                 body:   'Snapshots, video, PDF reports, and ZIP-packaged HTML reports.',
             },
             {
+                id:     'why-cant-load-downloads-mobile',
+                summary:'Why can’t I load a file from the Downloads folder on my mobile or tablet?',
+                body:   'On Android and iOS, files in the dedicated Downloads directory cannot be read directly by a browser.',
+                bodyAfter:'LGS1920 follows a privacy-first approach: your files remain on your device and are read locally by the browser. To work around this restriction, we would have to send the file contents unencrypted to our backend so it could download the file on your behalf. We refuse to do that.',
+            },
+            {
                 id:     'how-private-is-it',
                 summary:'How private is it?',
                 body:   'Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data.',
@@ -116,6 +122,12 @@ const faq = {
                 id:     'quexporte-studio',
                 summary:'Qu’exporte Studio ?',
                 body:   'Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP.',
+            },
+            {
+                id:     'pourquoi-fichier-telechargements-mobile',
+                summary:'Pourquoi ne puis-je pas charger un fichier depuis le dossier « Téléchargements » sur mon mobile ou ma tablette ?',
+                body:   'Sur Android comme sur iOS, les fichiers du répertoire dédié aux téléchargements ne peuvent pas être lus directement par un navigateur.',
+                bodyAfter:'LGS1920 respecte une approche privacy-first : vos fichiers restent sur votre appareil et sont lus localement par le navigateur. Pour contourner cette restriction, nous devrions envoyer le contenu du fichier en clair à notre backend afin qu’il puisse effectuer le téléchargement à votre place. Nous refusons de procéder ainsi.',
             },
             {
                 id:     'quel-niveau-de-vie-privee',

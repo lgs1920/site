@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-18 — [`3278428`](https://github.com/lgs1920/site/commit/3278428) — Explain mobile download limits in FAQ
+
+- Added bilingual FAQ guidance about mobile and tablet file access.
+- Documented the privacy-first reason LGS1920 does not send file contents to its backend.
+
 ## 2026-08-15 — [`37be315`](https://github.com/lgs1920/site/commit/37be315) — Expand Grande Sure FAQ story
 
 - Added the French Alps reference and the LGS1920 Studio journey sample mention.
