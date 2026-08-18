@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-18 — [`d6fec46`](https://github.com/lgs1920/site/commit/d6fec46) — Enable and style search clear buttons
+
+- Enabled Web Awesome's native clear button on the global, guide, and error-page search fields.
+- Matched the clear button color to the search icon's brand accent.
+
 ## 2026-08-18 — [`3278428`](https://github.com/lgs1920/site/commit/3278428) — Explain mobile download limits in FAQ
 
 - Added bilingual FAQ guidance about mobile and tablet file access.

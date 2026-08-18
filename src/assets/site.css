@@ -1089,6 +1089,12 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     color: var(--lgs-accent-color);
 }
 
+.site-search-input::part(clear-button),
+.error-search-input::part(clear-button),
+.guide-aside-search-input::part(clear-button) {
+    color: var(--lgs-accent-color);
+}
+
 .site-search-trigger-wrap {
     display: inline-flex;
     align-items: center;
