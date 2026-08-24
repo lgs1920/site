@@ -1,6 +1,8 @@
 import i18n from '../i18n.js'
 import { getGuidePageDefinition } from '../guide-pages.js'
 import home from './home.js'
+import studioPresentation from './studio-presentation.js'
+import studioRegistration from './studio-registration.js'
 import registration from './registration.js'
 import confirmRegistration from './confirm-registration.js'
 import revokeRegistration from './revoke-registration.js'
@@ -13,6 +15,8 @@ import credits from './credits.js'
 
 const pageDefinitionsByPath = {
     '/':                              home,
+    '/studio/':                       studioPresentation,
+    '/registration/studio/':          studioRegistration,
     '/faq/':                          faq,
     '/contact/':                      contact,
     '/registration/':                 registration,
@@ -38,6 +42,8 @@ export const getPageDefinition = (url = '') => {
 
 export default {
     home,
+    studioPresentation,
+    studioRegistration,
     contact,
     registration,
     confirmRegistration,

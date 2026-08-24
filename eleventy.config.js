@@ -74,14 +74,16 @@ const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set([
     '/fr/registration/confirm/',
     '/registration/revoke/',
     '/fr/registration/revoke/',
+    '/registration/studio/',
+    '/fr/registration/studio/',
 ])
 
-const getProductionRedirectUrl = (pageUrl) => {
-    if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(pageUrl)) {
+export const getProductionRedirectUrl = (pageUrl) => {
+    const normalizedPageUrl = pageUrl.endsWith('/') ? pageUrl : `${pageUrl}/`
+    if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(normalizedPageUrl)) {
         return null
     }
 
-    const normalizedPageUrl = pageUrl.endsWith('/') ? pageUrl : `${pageUrl}/`
     const locale = normalizedPageUrl === '/fr/' || normalizedPageUrl.startsWith('/fr/') ? 'fr' : 'en'
     const redirectUrl = PRODUCTION_REGISTRATION_URLS[locale]
 

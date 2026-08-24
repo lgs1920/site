@@ -1,0 +1,221 @@
+{
+  "title": "Qu’est-ce que LGS1920 Studio ?",
+  "description": "Une présentation simple de LGS1920 Studio, de son fonctionnement, de ses exports et de ce qu’il faut pour commencer.",
+  "hero": {
+    "video": false,
+    "className": "intro-hero",
+    "badge": "Studio",
+    "kicker": "Présentation simple",
+    "title": "Qu’est-ce que Studio et que peut-on en faire ?",
+    "lead": "Studio est une application dans le navigateur, pensée pour préserver votre confidentialité, qui transforme un parcours outdoor en présentation cartographique et en vidéo à partager sur Instagram, TikTok, YouTube ou un autre réseau social. Les images et les rapports restent disponibles lorsque vous préférez un format fixe.",
+    "actions": [
+      {
+        "label": "Ouvrir Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Lire le guide rapide",
+        "href": "/fr/user-guide/getting-started/first-steps/",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "book-open-lines",
+          "variant": "regular"
+        }
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "studio-overview",
+      "label": "Ce qu’est Studio",
+      "summary": "Le rôle de l’application"
+    },
+    {
+      "id": "studio-workflow",
+      "label": "Comment ça marche",
+      "summary": "Quatre étapes du fichier à l’export"
+    },
+    {
+      "id": "studio-outputs",
+      "label": "Ce que Studio crée",
+      "summary": "Vidéo pour les réseaux, images et rapports"
+    },
+    {
+      "id": "studio-before-starting",
+      "label": "Avant de commencer",
+      "summary": "Fichiers, navigateur et confidentialité"
+    }
+  ],
+  "presentation": {
+    "overview": {
+      "kicker": "Ce qu’est Studio",
+      "title": "Un espace de travail pour un parcours que vous possédez déjà.",
+      "intro": [
+        "Studio est une application web qui s’ouvre directement dans un navigateur. Vous chargez un fichier de parcours existant, vous l’affichez sur une carte en 2D ou en 3D, puis vous préparez une présentation claire de votre sortie.",
+        "Vous pouvez ajuster le parcours, ajouter des points d’intérêt et des informations utiles, choisir ce que montre la caméra et préparer une relecture pour créer une vidéo à partager. Les images et les rapports restent disponibles lorsque vous préférez un format fixe ou documentaire. Studio s’utilise après ou autour d’une sortie : il n’enregistre pas votre activité pendant que vous êtes sur le terrain."
+      ],
+      "simpleTitle": "L’idée en trois points",
+      "simpleIntro": "Le même fonctionnement s’applique, que vous vouliez seulement vérifier un parcours ou préparer une présentation complète."
+    },
+    "basics": [
+      {
+        "icon": "file-import",
+        "title": "Partir d’un fichier de parcours",
+        "body": "Chargez un fichier GeoJSON, GPX ou KML créé par un GPS, une application mobile, un autre outil cartographique ou fourni comme exemple dans Studio."
+      },
+      {
+        "icon": "map-location-dot",
+        "title": "Travailler dans le navigateur",
+        "body": "Examinez le parcours sur la carte, changez son apparence, ajoutez du contexte et préparez la vue sans installer un éditeur classique sur votre ordinateur."
+      },
+      {
+        "icon": "file-export",
+        "title": "Préparer et partager une vidéo",
+        "body": "Préparez une relecture, enregistrez une vidéo et exportez-la pour Instagram, TikTok, YouTube ou un autre réseau social. Les images et les rapports restent disponibles si vous en avez besoin."
+      },
+      {
+        "icon": "lock",
+        "title": "Confidentialité et accès pour tous.",
+        "items": [
+          {
+            "icon": "location-pin-lock",
+            "title": "Confidentialité",
+            "body": "Vos données restent chez vous : navigateur, appareil ou cloud.",
+            "note": "L’accès cloud sera possible dans une prochaine version.",
+            "noteLabel": "En savoir plus sur l’accès cloud",
+            "noteId": "studio-presentation-privacy-note-fr-0"
+          },
+          {
+            "icon": "gift",
+            "title": "Studio gratuit",
+            "body": "Studio est entièrement gratuit et le restera.",
+            "note": "Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.",
+            "noteLabel": "En savoir plus sur les services externes",
+            "noteId": "studio-presentation-privacy-note-fr-1"
+          }
+        ]
+      }
+    ],
+    "workflow": {
+      "kicker": "Comment ça marche",
+      "title": "Une session en quatre étapes.",
+      "intro": "Vous n’avez pas besoin de connaître tous les outils avant de commencer. Une première session peut suivre cet ordre simple.",
+      "steps": [
+        {
+          "index": "1",
+          "title": "Ouvrir ou importer un parcours",
+          "body": "Choisissez un exemple ou chargez un fichier GeoJSON, GPX ou KML depuis votre appareil."
+        },
+        {
+          "index": "2",
+          "title": "Vérifier le parcours",
+          "body": "Assurez-vous que le parcours, les traces et les points d’intérêt apparaissent au bon endroit."
+        },
+        {
+          "index": "3",
+          "title": "Préparer la présentation",
+          "body": "Choisissez la carte, les couleurs, la vue de la caméra, la relecture et les textes ou statistiques à afficher."
+        },
+        {
+          "index": "4",
+          "title": "Enregistrer et partager",
+          "body": "Relisez le parcours, enregistrez la vidéo puis exportez-la pour Instagram, TikTok, YouTube ou un autre réseau social."
+        }
+      ]
+    },
+    "outputs": {
+      "kicker": "Ce que Studio crée",
+      "title": "Le résultat principal : une vidéo à partager.",
+      "intro": "La vidéo est le moyen principal de présenter un parcours. Les images et les rapports restent disponibles lorsqu’un format fixe ou documentaire est plus adapté.",
+      "items": [
+        {
+          "icon": "video",
+          "title": "Vidéo pour les réseaux sociaux",
+          "body": "Relisez le parcours et enregistrez la scène cartographique, les mouvements de caméra et les widgets visibles. Exportez le résultat pour Instagram, TikTok, YouTube ou un autre réseau social."
+        },
+        {
+          "icon": "image",
+          "title": "Images",
+          "body": "Créez une image fixe de la carte, du parcours, de la vue de la caméra et des informations visibles."
+        },
+        {
+          "icon": "file-pdf",
+          "title": "Rapports",
+          "body": "Générez un document PDF ou un rapport HTML regroupé avec les informations du parcours, les statistiques, les points d’intérêt et les cartes."
+        }
+      ]
+    },
+    "practical": {
+      "kicker": "Avant de commencer",
+      "title": "Quelques repères utiles.",
+      "intro": "Studio est conçu pour être ouvert et essayé directement. Ces quelques points résument les principaux besoins techniques sans connaissances spécialisées.",
+      "items": [
+        {
+          "icon": "shield-check",
+          "title": "Vos données de travail restent locales par défaut",
+          "body": "Les fichiers de parcours et le projet en cours sont traités dans le navigateur, sauf si vous utilisez explicitement une synchronisation ou un service externe."
+        },
+        {
+          "icon": "browser",
+          "title": "Utilisez un navigateur récent",
+          "body": "La carte a besoin de WebGL. La vidéo peut utiliser davantage de mémoire : fermer les onglets inutiles peut rendre l’enregistrement plus fluide."
+        },
+        {
+          "icon": "key",
+          "title": "Moteur Cesium et accès gratuit",
+          "body": "Studio utilise Cesium, un moteur de globe 3D open source, pour ses scènes 2D et 3D. Pendant la période d’essai, Studio fournit un accès Cesium partagé qui peut être limité. Après l’essai, un compte Cesium Ion gratuit et un jeton sont nécessaires pour les données dépendantes de Cesium et donnent accès à des fonds de carte et couches 3D supplémentaires."
+        },
+        {
+          "icon": "circle-info",
+          "title": "Des fournisseurs payants facultatifs",
+          "body": "Studio peut aussi donner accès à des fournisseurs de cartes ou de données payants. Ces services sont facultatifs et facturés par leurs propres fournisseurs ; LGS1920 n’a aucun lien commercial avec eux."
+        }
+      ]
+    },
+    "basic": {
+      "kicker": "Découvrir Studio",
+      "title": "Qu’est-ce que LGS1920 Studio ?",
+      "intro": "Studio vous aide à transformer un parcours outdoor existant en relecture et en vidéo à partager sur Instagram, TikTok, YouTube ou un autre réseau social. Vous pouvez aussi créer une image ou un rapport lorsque ce format vous est plus utile.",
+      "action": {
+        "label": "Voir la présentation complète",
+        "href": "/fr/studio/"
+      }
+    }
+  },
+  "pageCta": {
+    "eyebrow": "Première session",
+    "title": "Créer une vidéo et partager votre parcours.",
+    "body": "Ouvrez Studio avec un fichier de parcours pour préparer une vidéo destinée à vos réseaux sociaux, ou utilisez le guide rapide pour découvrir brièvement l’espace de travail.",
+    "actions": [
+      {
+        "label": "Ouvrir Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Lire le guide rapide",
+        "href": "/fr/user-guide/getting-started/first-steps/",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "book-open-lines",
+          "variant": "regular"
+        }
+      }
+    ]
+  }
+}

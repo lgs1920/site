@@ -1,0 +1,221 @@
+{
+  "title": "What is LGS1920 Studio?",
+  "description": "A plain-language introduction to LGS1920 Studio, its workflow, its exports, and what you need to get started.",
+  "hero": {
+    "video": false,
+    "className": "intro-hero",
+    "badge": "Studio",
+    "kicker": "Simple introduction",
+    "title": "What is Studio, and what can you do with it?",
+    "lead": "Studio is a privacy-first browser application for turning an outdoor route into a map presentation and a video you can share on social network, enriched with dynamic points of interest, cinematic camera angles, and synchronized multimedia data to create an immersive narrative of your outdoor adventures.",
+    "actions": [
+      {
+        "label": "Open Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Quick guide",
+        "href": "/user-guide/getting-started/first-steps/",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "book-open-lines",
+          "variant": "regular"
+        }
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "studio-overview",
+      "label": "What Studio is",
+      "summary": "The purpose of the application"
+    },
+    {
+      "id": "studio-workflow",
+      "label": "How it works",
+      "summary": "Four steps from file to export"
+    },
+    {
+      "id": "studio-outputs",
+      "label": "What it creates",
+      "summary": "Video for social networks, snapshots, and reports"
+    },
+    {
+      "id": "studio-before-starting",
+      "label": "Before starting",
+      "summary": "Files, browser, and privacy"
+    }
+  ],
+  "presentation": {
+    "overview": {
+      "kicker": "What Studio is",
+      "title": "A workspace for an outdoor route you already have.",
+      "intro": [
+        "Studio is a web application that opens directly in a browser. You load an existing route file, view it on a 2D or 3D map, and prepare a clear presentation of the journey.",
+        "You can adjust the route, add points of interest and useful information, choose what the camera shows, and prepare a replay for a shareable video. Snapshots and reports remain available when you prefer a still or documentary format. Studio is used after or around an outing; it does not record the activity while you are outdoors."
+      ],
+      "simpleTitle": "The basic idea",
+      "simpleIntro": "Default settings allow you to start and create your first video very easily, but you have access to many other settings to go much further."
+    },
+    "basics": [
+      {
+        "icon": "route",
+        "title": "Start with a route file",
+        "body": "Load a GeoJSON, GPX, or KML file created by a GPS device, a mobile application, another mapping tool, or one of the Studio samples."
+      },
+      {
+        "icon": "street-view",
+        "title": "Explore a global, 3D playground in the browser!",
+        "body": "Inspect the route on the map, change its appearance, add context, and prepare the view without installing a traditional desktop editor."
+      },
+      {
+        "icon": "file-export",
+        "title": "Prepare and share a video",
+        "body": "Prepare a replay, record a video, and export it for Instagram, TikTok, YouTube, or another social network. Snapshots and PDF or HTML reports remain available when you need them."
+      },
+      {
+        "icon": "lock",
+        "title": "Privacy and access for everyone.",
+        "items": [
+          {
+            "icon": "location-pin-lock",
+            "title": "Privacy first",
+            "body": "Your data stays with you: browser, device, or cloud.",
+            "note": "Cloud access will be available in a future version.",
+            "noteLabel": "More about cloud access",
+            "noteId": "studio-presentation-privacy-note-en-0"
+          },
+          {
+            "icon": "circle-check",
+            "title": "Studio is free",
+            "body": "Studio is completely free and will remain so.",
+            "note": "Some external services accessible through Studio may be paid services from their providers. Studio has no affiliation with any of the providers concerned.",
+            "noteLabel": "More about external services",
+            "noteId": "studio-presentation-privacy-note-en-1"
+          }
+        ]
+      }
+    ],
+    "workflow": {
+      "kicker": "How it works",
+      "title": "A session in four steps.",
+      "intro": "You do not need to know every tool before starting. A first session can follow this simple order.",
+      "steps": [
+        {
+          "index": "1",
+          "title": "Open or import a route",
+          "body": "Choose a sample or load a GeoJSON, GPX, or KML file from your device."
+        },
+        {
+          "index": "2",
+          "title": "Check the journey",
+          "body": "Make sure the route, tracks, and points of interest appear in the right place."
+        },
+        {
+          "index": "3",
+          "title": "Prepare the presentation",
+          "body": "Choose the map, colors, camera view, replay, and any text or statistics you want to show."
+        },
+        {
+          "index": "4",
+          "title": "Record and share",
+          "body": "Replay the journey, record the video, then export it on social network or download it."
+        }
+      ]
+    },
+    "outputs": {
+      "kicker": "What Studio creates",
+      "title": "The main result: a video you can share.",
+      "intro": "The video workflow is the main way to present a journey. Snapshots and reports remain available as alternatives when a still image or document is more useful.",
+      "items": [
+        {
+          "icon": "video",
+          "title": "Video for social networks",
+          "body": "Replay the journey and record the map scene, camera movement, and visible widgets. Export the result for Instagram, TikTok, YouTube, or another social network."
+        },
+        {
+          "icon": "image",
+          "title": "Snapshots",
+          "body": "Create a still image of the current map, route, camera view, and visible information."
+        },
+        {
+          "icon": "file-pdf",
+          "title": "Reports",
+          "body": "Generate a PDF document or a packaged HTML report with route information, statistics, points of interest, and maps."
+        }
+      ]
+    },
+    "practical": {
+      "kicker": "Before starting",
+      "title": "A few useful things to know.",
+      "intro": "Studio is designed to be opened and tried directly. These points explain the main technical requirements without requiring specialist knowledge.",
+      "items": [
+        {
+          "icon": "shield-check",
+          "title": "Your working data stays local by default",
+          "body": "Route files and the current project are handled in the browser unless you explicitly use a synchronization or external service."
+        },
+        {
+          "icon": "browser",
+          "title": "Use a recent browser",
+          "body": "The map needs WebGL. Video work can use more memory, so closing unused tabs may make recording smoother."
+        },
+        {
+          "icon": "key",
+          "title": "Cesium engine and free access",
+          "body": "Studio uses Cesium, an open-source 3D globe engine, for its 2D and 3D scenes. During the trial, Studio provides shared Cesium access that may have some limitations. After the trial, a free Cesium Ion account and token are needed for Cesium-backed data and provide access to additional basemaps and 3D layers."
+        },
+        {
+          "icon": "circle-info",
+          "title": "Optional paid providers",
+          "body": "Studio can also give you access to paid map or data providers. These services are optional and billed by their own providers; LGS1920 has no commercial relationship with them."
+        }
+      ]
+    },
+    "basic": {
+      "kicker": "Discover Studio",
+      "title": "What is LGS1920 Studio?",
+      "intro": "Studio helps you turn an existing outdoor route into a replay and a video to share on Instagram, TikTok, YouTube, or another social network. You can also create a snapshot or report when that is more useful.",
+      "action": {
+        "label": "See the full presentation",
+        "href": "/studio/"
+      }
+    }
+  },
+  "pageCta": {
+    "eyebrow": "First session",
+    "title": "Create a video and share your journey.",
+    "body": "Open Studio with a route file and prepare a video for your social networks, or use the quick guide for a short tour of the workspace.",
+    "actions": [
+      {
+        "label": "Open Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Quick guide",
+        "href": "/user-guide/getting-started/first-steps/",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "book-open-lines",
+          "variant": "regular"
+        }
+      }
+    ]
+  }
+}

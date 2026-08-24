@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-24 — [`f4d9eeb`](https://github.com/lgs1920/site/commit/f4d9eeb) — Add Studio presentation pages
+
+- Added complete English and French Studio presentation pages plus standalone registration variants.
+- Replaced the old registration introduction with the shared Studio overview and kept the standalone routes available in production.
+
 ## 2026-08-24 — [`cb3c6b3`](https://github.com/lgs1920/site/commit/cb3c6b3) — Move localized copy to JSON
 
 - Moved shared page, guide, navigation, and interface copy from JavaScript modules into localized JSON files.

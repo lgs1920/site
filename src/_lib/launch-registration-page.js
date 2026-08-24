@@ -1,5 +1,8 @@
 import site from '../_data/site.js'
+import studioPresentation from '../_data/pages/studio-presentation.js'
+import i18n from '../_data/i18n.js'
 import {encodeFormMailTemplate, getFormMailTemplate} from './form-mail-catalog.js'
+import {renderStudioPresentationPage} from './studio-presentation-page.js'
 
 const escapeHtml = (value = '') => String(value)
     .replace(/&/g, '&amp;')
@@ -43,11 +46,7 @@ const renderRegistrationHeroDetails = (pageContent) => {
         </article>`).join('')
 
     return `
-<section id="registration-details" class="content-section registration-details-section" aria-labelledby="registration-details-title-${pageContent.locale}">
-    <div class="section-heading">
-        <h2 id="registration-details-title-${pageContent.locale}">${escapeHtml(panel.title || '')}</h2>
-    </div>
-
+<section id="registration-details" class="content-section registration-details-section"${panel.promise ? ` aria-labelledby="registration-privacy-promise-title-${pageContent.locale}"` : ''}>
     <div class="registration-hero-details">
         <wa-card class="registration-hero-details-card">
             <div class="registration-hero-details-main">
@@ -58,7 +57,7 @@ const renderRegistrationHeroDetails = (pageContent) => {
 
         ${panel.promise ? `<aside class="registration-hero-details-promise" aria-labelledby="registration-privacy-promise-title-${pageContent.locale}">
             <div class="hero-panel-promise-heading">
-                <wa-icon${panel.promise.family ? ` family="${escapeHtml(panel.promise.family)}"` : ''} variant="${escapeHtml(panel.promise.iconVariant || 'regular')}" name="${escapeHtml(panel.promise.icon)}"></wa-icon>
+                <wa-icon${panel.promise.family ? ` family="${panel.promise.family}"` : ''} variant="${escapeHtml(panel.promise.iconVariant || 'regular')}" name="${escapeHtml(panel.promise.icon)}"></wa-icon>
                 <h3 id="registration-privacy-promise-title-${pageContent.locale}">${escapeHtml(panel.promise.text)}</h3>
             </div>
             ${panel.promise.items?.length ? `<div class="hero-panel-promise-items">${renderPromiseItems(panel.promise.items)}</div>` : ''}
@@ -75,17 +74,28 @@ const renderRegistrationHeroDetails = (pageContent) => {
  */
 export const renderLaunchRegistrationPage = (pageContent) => {
     const form = pageContent.form
-    const logoMarkup = pageContent.logoMarkup || '<img class="registration-logo" src="/assets/logo/logo-horizontal.png" alt="LGS1920 Studio logo">'
+    const logoMarkup = pageContent.logoMarkup || `<img class="registration-logo" src="/assets/logo/logo-horizontal.png" alt="${escapeHtml(pageContent.logoAlt)}">`
     const formTemplate = encodeFormMailTemplate(getFormMailTemplate({form: 'launch-registration', locale: pageContent.locale}))
     const supportFormTemplate = encodeFormMailTemplate(getFormMailTemplate({
         form:     'launch-registration',
         locale:   pageContent.locale,
         audience: 'support',
     }))
+    const presentationContent = studioPresentation[pageContent.locale] ?? studioPresentation.en
+    const standalonePresentationUrl = i18n.localizedPermalinkPath(pageContent.locale, '/registration/studio/')
+    const standalonePresentationLabel = pageContent.standalonePresentationLabel
 
     return `
-    ${renderRegistrationHeroDetails(pageContent)}
-
+    ${renderStudioPresentationPage(presentationContent, {
+        variant: 'basic',
+        showAction:true,
+        action: {
+            href:       standalonePresentationUrl,
+            label:      standalonePresentationLabel,
+            appearance: 'filled',
+            variant:    'brand',
+        },
+    })}
 <section id="registration-form" class="content-section launch-registration-section">
     <div class="section-heading">
         ${pageContent.hero.kicker ? `<p class="section-kicker">${escapeHtml(pageContent.hero.kicker)}</p>` : ''}
@@ -99,7 +109,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
             <div class="registration-brand-lockup">
                 ${logoMarkup}
             </div>
-            <p class="registration-slogan">Replay Your World Outdoors.</p>
+            <p class="registration-slogan">${escapeHtml(pageContent.registrationSlogan)}</p>
         </div>
 
         <wa-card class="registration-card">
@@ -184,8 +194,8 @@ export const renderLaunchRegistrationPage = (pageContent) => {
 
 <section id="registration-privacy" class="content-section registration-privacy-section">
     <div class="section-heading">
-        <p class="section-kicker">${escapeHtml(pageContent.locale === 'fr' ? 'Confidentialité' : 'Privacy')}</p>
-        <h2>${escapeHtml(pageContent.locale === 'fr' ? 'Un consentement clair et limité.' : 'Clear and limited consent.')}</h2>
+        <p class="section-kicker">${escapeHtml(pageContent.privacyKicker)}</p>
+        <h2>${escapeHtml(pageContent.privacyTitle)}</h2>
     </div>
     <p class="section-intro">${linkifyContactEmail(pageContent.privacy)}</p>
 </section>

@@ -8,9 +8,11 @@
         <wa-icon variant="regular" name="scale-balanced" aria-hidden="true"></wa-icon>
         <span>{{ site.licenseName }}</span>
     </a>
-    <span class="minimal-page-footer-separator" aria-hidden="true"></span>
-    <a href="{{ localizedHomeUrl | default: '/' }}">
-        <wa-icon variant="regular" name="house" aria-hidden="true"></wa-icon>
-        <span>{{ uiLabels.home | default: 'Home' }}</span>
-    </a>
+    {% unless hideMinimalFooterHomeLink %}
+        <span class="minimal-page-footer-separator" aria-hidden="true"></span>
+        <a href="{{ localizedHomeUrl | default: '/' }}">
+            <wa-icon variant="regular" name="house" aria-hidden="true"></wa-icon>
+            <span>{{ uiLabels.home | default: 'Home' }}</span>
+        </a>
+    {% endunless %}
 </footer>

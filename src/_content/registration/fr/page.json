@@ -1,0 +1,109 @@
+{
+  "title": "Inscription au lancement de LGS1920 Studio",
+  "description": "Inscrivez-vous pour recevoir les informations sur le lancement et savoir comment rester en contact ensuite.",
+  "registrationIntro": "Inscrivez-vous pour recevoir les informations sur le lancement et savoir comment rester en contact ensuite.",
+  "hero": {
+    "className": "intro-hero registration-hero",
+    "localeSwitcher": true,
+    "title": "Vivez vos aventures outdoor, partagez vos histoires.",
+    "lead": "Marchez, courez ou roulez, puis importez, éditez, rejouez et exportez les vidéos de vos parcours pour Instagram, TikTok, YouTube ou d’autres réseaux sociaux sans quitter votre navigateur.",
+    "panel": {
+      "eyebrow": "LGS1920 Studio",
+      "title": "Quelque chose de sympa arrive.",
+      "action": {
+        "label": "S’inscrire aux infos du lancement",
+        "appearance": "filled",
+        "variant": "brand",
+        "icon": {
+          "name": "bell",
+          "variant": "regular",
+          "animation": "swing"
+        }
+      },
+      "lead": "Restez informé et inscrivez-vous pour être parmi les premiers à découvrir ce que Studio vous réserve.",
+      "items": [
+        {
+          "icon": "route",
+          "title": "Importez et relisez vos parcours, sorties et randonnées.",
+          "text": "GeoJSON, GPX et KML"
+        },
+        {
+          "icon": "camera",
+          "title": "Explorez un terrain de jeu mondial en 3D !",
+          "text": "Couches mondiales et widgets dynamiques (profils, données en direct, boussole, textes et bien plus à venir)."
+        },
+        {
+          "icon": "file-pdf",
+          "title": "Exportez et partagez",
+          "text": "Partagez les vidéos de vos aventures sur les réseaux sociaux et exportez des rapports HTML ou PDF."
+        }
+      ],
+      "promise": {
+        "icon": "lock",
+        "text": "Confidentialité et accès pour tous.",
+        "items": [
+          {
+            "icon": "location-pin-lock",
+            "title": "Confidentialité",
+            "textLines": [
+              "Vos données restent chez vous : navigateur, appareil",
+              "ou cloud."
+            ],
+            "note": "L’accès cloud sera possible dans une prochaine version.",
+            "noteLabel": "En savoir plus sur l’accès cloud"
+          },
+          {
+            "icon": "gift",
+            "title": "Studio gratuit",
+            "text": "Studio est entièrement gratuit et le restera.",
+            "note": "Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.",
+            "noteLabel": "En savoir plus sur les services externes"
+          }
+        ]
+      }
+    }
+  },
+  "sectionNav": [
+    {
+      "id": "studio-presentation",
+      "label": "Ce qu’est Studio",
+      "summary": "Une présentation simple de Studio"
+    },
+    {
+      "id": "registration-form",
+      "label": "Formulaire d’inscription",
+      "summary": "Renseigner vos coordonnées et votre consentement"
+    },
+    {
+      "id": "registration-privacy",
+      "label": "Vos données",
+      "summary": "Utilisation des données d’inscription"
+    }
+  ],
+  "form": {
+    "firstNameLabel": "Prénom",
+    "firstNamePlaceholder": "Votre prénom",
+    "lastNameLabel": "Nom",
+    "lastNamePlaceholder": "Votre nom",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.fr",
+    "consentLabel": "J’accepte d’être recontacté lors du lancement du Studio.",
+    "submitLabel": "M’avertir du lancement",
+    "successMessage": "Un e-mail de confirmation vient de vous être envoyé. Cliquez sur le lien qu’il contient pour finaliser votre inscription. Vérifiez vos pourriels si vous ne le recevez pas.",
+    "duplicateMessage": "Cette adresse e-mail est déjà inscrite au lancement du Studio.",
+    "pendingMessage": "Un e-mail de confirmation est déjà en attente pour cette adresse.",
+    "resendButtonLabel": "Renvoyer",
+    "resendSuccessMessage": "Un nouvel e-mail de confirmation vient d’être envoyé. Consultez votre boîte de réception.",
+    "resendErrorMessage": "L’e-mail de confirmation n’a pas pu être envoyé. Veuillez réessayer plus tard.",
+    "resendRateLimitMessage": "Trop de tentatives. Veuillez patienter avant de réessayer.",
+    "deliveryErrorMessage": "L’inscription est enregistrée, mais l’e-mail de confirmation n’a pas pu être envoyé. Veuillez réessayer plus tard.",
+    "rateLimitMessage": "Trop de tentatives. Veuillez patienter avant de réessayer.",
+    "errorMessage": "L’inscription n’a pas pu être enregistrée. Veuillez réessayer plus tard."
+  },
+  "privacy": "Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à studio@lgs1920.fr. Nous conservons vos données d’inscription uniquement pendant la période d’information sur le lancement, puis nous les réévaluons.",
+  "standalonePresentationLabel": "Plus d’informations sur Studio",
+  "registrationSlogan": "Replay Your World Outdoors.",
+  "privacyKicker": "Confidentialité",
+  "privacyTitle": "Un consentement clair et limité.",
+  "logoAlt": "LGS1920 Studio logo"
+}
