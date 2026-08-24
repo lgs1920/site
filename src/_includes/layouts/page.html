@@ -320,7 +320,7 @@ layout: layouts/base.html
     </nav>
     {% endunless %}
 
-    <section slot="main-header" class="page-hero hero-has-video{% if page_hero.className %} {{ page_hero.className }}{% endif %}">
+    <section slot="main-header" class="page-hero hero-has-video{% if page_hero.className %} {{ page_hero.className }}{% endif %}{% if page.url == '/' or page.url == '/fr/' %} home-page-hero{% endif %}">
         <div class="hero-media"
              aria-hidden="true"
              data-hero-media

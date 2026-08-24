@@ -100,17 +100,26 @@
         <h2>{{ home_content.workflow.title }}</h2>
     </div>
 
-    <ol class="workflow-list">
-        {% for step in home_content.workflow.steps %}
-            <li>
-                <span>{{ step.index }}</span>
-                <div>
-                    <h3>{{ step.title }}</h3>
-                    <p>{{ step.body }}</p>
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
+    {% assign workflow_route_size = home_content.workflow.steps.size %}
+    <div class="workflow-list-wrap">
+        {% include "components/workflow-route.html" %}
+        <ol class="workflow-list">
+            {% for step in home_content.workflow.steps %}
+                <li>
+                    <span class="workflow-poi" aria-hidden="true">
+                        <span class="workflow-poi-icon">
+                            <wa-icon variant="solid" name="location-dot"></wa-icon>
+                        </span>
+                        <b>{{ step.index }}</b>
+                    </span>
+                    <div>
+                        <h3>{{ step.title }}</h3>
+                        <p>{{ step.body }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 </section>
 
 <section id="roadmap" class="content-section workflow-section">
@@ -119,17 +128,26 @@
         <h2>{{ home_content.roadmap.title }}</h2>
     </div>
 
-    <ol class="workflow-list roadmap-list">
-        {% for item in home_content.roadmap.items %}
-            <li>
-                <span>{{ item.version }}</span>
-                <div>
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.body }}</p>
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
+    {% assign workflow_route_size = home_content.roadmap.items.size %}
+    <div class="workflow-list-wrap">
+        {% include "components/workflow-route.html" %}
+        <ol class="workflow-list roadmap-list">
+            {% for item in home_content.roadmap.items %}
+                <li>
+                    <span class="workflow-poi" aria-hidden="true">
+                        <span class="workflow-poi-icon">
+                            <wa-icon variant="solid" name="location-dot"></wa-icon>
+                        </span>
+                        <b>{{ item.index }}</b>
+                    </span>
+                    <div>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.body }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 </section>
 
 <section id="access" class="content-section">

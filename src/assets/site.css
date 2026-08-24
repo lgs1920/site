@@ -2190,7 +2190,8 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     height: 100svh;
     min-height: 100svh;
     max-height: none;
-    overflow: visible;
+    overflow-x: clip;
+    overflow-y: visible;
     border-inline: 0;
     border-radius: 0;
 }
@@ -2278,6 +2279,23 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 }
 
 @media (min-width: 961px) {
+    .registration-hero.intro-hero.studio-presentation-minimal-hero .hero-shell {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .registration-hero.intro-hero.studio-presentation-minimal-hero .hero-copy {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .registration-hero.intro-hero.studio-presentation-minimal-hero .hero-copy > :not(.hero-actions) {
+        grid-column: 1;
+    }
+
+    .registration-hero.intro-hero.studio-presentation-minimal-hero .hero-copy > .hero-actions {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+    }
+
     .registration-hero.intro-hero .hero-panel {
         transform: translateY(16.666svh);
     }
@@ -2298,9 +2316,22 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 }
 
 .page-hero h1 {
-    max-width: 10ch;
+    width: 100%;
+    max-width: none;
     font-size: clamp(3.1rem, 6.4vw, 6rem);
-    text-wrap: balance;
+    text-wrap: wrap;
+}
+
+.vision-card h3,
+.feature-card h3,
+.intro-indication h3,
+.workflow-card h3,
+.workflow-list h3,
+.page-cta-card h2,
+.hero-panel-title {
+    width: 100%;
+    max-width: none;
+    text-wrap: wrap;
 }
 
 .hero-lead {
@@ -2314,10 +2345,6 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 .intro-hero .hero-copy h1,
 .intro-hero .hero-lead {
     text-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.56), 0 0 2.8rem rgba(0, 0, 0, 0.34);
-}
-
-.intro-hero .hero-lead {
-    color: var(--hero-ink);
 }
 
 .hero-note {
@@ -2412,6 +2439,23 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 .hero-panel wa-icon,
 .page-cta-actions wa-icon {
     color: var(--lgs-accent-color);
+}
+
+.studio-presentation-privacy-items {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+}
+
+.studio-presentation-privacy-items article {
+    border-color: var(--panel-stroke);
+}
+
+.studio-presentation-privacy-items article > wa-icon {
+    color: var(--lgs-accent-color);
+}
+
+.studio-presentation-privacy-items span {
+    color: var(--page-muted);
 }
 
 .workflow-card wa-icon {
@@ -2614,6 +2658,10 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     font-size: 0.82rem;
     line-height: 1.4;
     overflow-wrap: anywhere;
+}
+
+.studio-presentation-privacy-card .studio-presentation-privacy-items span {
+    color: var(--page-muted);
 }
 
 .hero-panel-note-trigger {
@@ -2846,6 +2894,7 @@ wa-dialog::part(footer) {
 
 .intro-indication-grid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -3183,10 +3232,13 @@ wa-dialog::part(footer) {
     font-size: 1.03rem;
 }
 
-.section-heading h2,
-.page-cta-card h2 {
+.section-heading h2 {
     font-size: clamp(2.15rem, 3.9vw, 4.25rem);
     text-wrap: balance;
+}
+
+.page-cta-card h2 {
+    font-size: clamp(2.15rem, 3.9vw, 4.25rem);
 }
 
 .vision-grid,
@@ -3600,6 +3652,10 @@ wa-details:hover::part(base) {
     margin-top: auto;
 }
 
+.studio-presentation-basic .page-cta-actions {
+    margin-top: 1.25rem;
+}
+
 wa-card.accent-a::part(base) {
     background: color-mix(in oklab, var(--panel-bg) 84%, var(--wa-color-brand-60) 16%);
 }
@@ -3634,12 +3690,46 @@ wa-card.accent-c::part(base) {
     bottom: 0;
 }
 
+.workflow-list-wrap {
+    position: relative;
+}
+
 .workflow-list {
+    position: relative;
+    z-index: 1;
     display: grid;
     gap: 1rem;
     padding: 0;
     margin: 0;
     list-style: none;
+}
+
+.workflow-route {
+    position: absolute;
+    inset-block: -0.5rem;
+    left: 1rem;
+    width: 3rem;
+    height: calc(100% + 1rem);
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.72;
+}
+
+.workflow-route path {
+    fill: none;
+    stroke: var(--wa-color-brand);
+    stroke-width: 2.5;
+    stroke-dasharray: 1.5 5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    animation: workflow-route-flow 7s linear infinite;
+}
+
+@keyframes workflow-route-flow {
+    to {
+        stroke-dashoffset: -26;
+    }
 }
 
 .workflow-list li {
@@ -3648,19 +3738,65 @@ wa-card.accent-c::part(base) {
     gap: 1rem;
     align-items: start;
     padding: 1.2rem 0;
+    position: relative;
+    z-index: 1;
 }
 
-.workflow-list span {
-    display: inline-flex;
+.workflow-poi {
+    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border-radius: var(--wa-border-radius-m);
-    font-weight: 700;
-    color: var(--wa-color-brand-on);
-    background: var(--wa-color-brand);
-    box-shadow: 0 12px 24px color-mix(in oklab, var(--wa-color-brand) 22%, transparent);
+    z-index: 1;
+    color: var(--wa-color-brand);
+    filter: drop-shadow(0 8px 14px color-mix(in oklab, var(--wa-color-brand) 28%, transparent));
+}
+
+.workflow-poi-icon {
+    position: absolute;
+    inset: -0.5rem;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+}
+
+.workflow-poi-icon wa-icon {
+    display: block;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    font-size: 2.8rem;
+    line-height: 1;
+}
+
+.workflow-poi b {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 2px;
+    z-index: 1;
+    margin-inline: auto;
+    border: 2px solid var(--wa-color-brand);
+    border-radius: 50%;
+    color: var(--wa-color-brand);
+    background: var(--page-bg);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+    transform: translateY(-0.46rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .workflow-route path {
+        animation: none;
+    }
 }
 
 .stack-band {
@@ -4704,6 +4840,11 @@ wa-card.page-cta-card::part(body) {
 }
 
 @media (min-width: 1121px) {
+    #studio-overview .feature-grid,
+    .studio-presentation-basic .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .feature-grid > *:nth-child(3n + 2),
     .logo-option-grid > *:nth-child(3n + 2),
     .logo-note-grid > *:nth-child(3n + 2) {
@@ -4759,7 +4900,7 @@ wa-card.page-cta-card::part(body) {
     }
 
     .intro-indication-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .logo-option-grid,
@@ -5163,6 +5304,31 @@ wa-card.page-cta-card::part(body) {
         font-size: 0.9rem;
     }
 
+}
+
+/* Keep the home hero immersive while allowing every other hero to grow with its content. */
+.page-hero:not(.home-page-hero) {
+    height: auto;
+    min-height: min(100dvh, 56.25vw);
+}
+
+.page-hero:not(.home-page-hero) .hero-shell {
+    align-self: stretch;
+    min-height: inherit;
+    padding-block: clamp(4.5rem, 8vh, 6rem);
+}
+
+@media (max-width: 960px) and (orientation: landscape) {
+    .page-hero:not(.home-page-hero) {
+        min-height: 56.25vw;
+    }
+}
+
+@media (max-width: 960px) and (orientation: portrait) {
+    .page-hero:not(.home-page-hero) {
+        min-height: 80vh;
+        min-height: 80dvh;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

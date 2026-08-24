@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-24 — [`d6ef8c2`](https://github.com/lgs1920/site/commit/d6ef8c2) — Refine heroes and workflow routes
+
+- Added responsive non-home hero proportions, centered copy, full-width headings, and consistent brand-colored leads.
+- Reworked Studio card layouts and introduced animated route markers for homepage and guide workflows.
+
 ## 2026-08-24 — [`f4d9eeb`](https://github.com/lgs1920/site/commit/f4d9eeb) — Add Studio presentation pages
 
 - Added complete English and French Studio presentation pages plus standalone registration variants.

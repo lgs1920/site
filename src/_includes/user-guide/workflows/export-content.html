@@ -32,16 +32,25 @@
         <h2>{{ export_page.snapshotVideo.title }}</h2>
     </div>
 
-    <ol class="workflow-list">
-        {% for step in export_page.snapshotVideo.steps %}
-            <li>
-                <span>0{{ forloop.index }}</span>
-                <div>
-                    <p>{{ step }}</p>
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
+    {% assign workflow_route_size = export_page.snapshotVideo.steps.size %}
+    <div class="workflow-list-wrap">
+        {% include "components/workflow-route.html" %}
+        <ol class="workflow-list">
+            {% for step in export_page.snapshotVideo.steps %}
+                <li>
+                    <span class="workflow-poi" aria-hidden="true">
+                        <span class="workflow-poi-icon">
+                            <wa-icon variant="solid" name="location-dot"></wa-icon>
+                        </span>
+                        <b>{{ forloop.index }}</b>
+                    </span>
+                    <div>
+                        <p>{{ step }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 
     <p class="guide-followup">
         {{ export_page.snapshotVideo.followupLabel }}
@@ -55,16 +64,25 @@
         <h2>{{ export_page.report.title }}</h2>
     </div>
 
-    <ol class="workflow-list">
-        {% for step in export_page.report.steps %}
-            <li>
-                <span>0{{ forloop.index }}</span>
-                <div>
-                    <p>{{ step }}</p>
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
+    {% assign workflow_route_size = export_page.report.steps.size %}
+    <div class="workflow-list-wrap">
+        {% include "components/workflow-route.html" %}
+        <ol class="workflow-list">
+            {% for step in export_page.report.steps %}
+                <li>
+                    <span class="workflow-poi" aria-hidden="true">
+                        <span class="workflow-poi-icon">
+                            <wa-icon variant="solid" name="location-dot"></wa-icon>
+                        </span>
+                        <b>{{ forloop.index }}</b>
+                    </span>
+                    <div>
+                        <p>{{ step }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 
     <p class="guide-followup">
         {{ export_page.report.followupLabel }}
@@ -78,14 +96,23 @@
         <h2>{{ export_page.finalChecks.title }}</h2>
     </div>
 
-    <ol class="workflow-list">
-        {% for step in export_page.finalChecks.steps %}
-            <li>
-                <span>0{{ forloop.index }}</span>
-                <div>
-                    <p>{{ step }}</p>
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
+    {% assign workflow_route_size = export_page.finalChecks.steps.size %}
+    <div class="workflow-list-wrap">
+        {% include "components/workflow-route.html" %}
+        <ol class="workflow-list">
+            {% for step in export_page.finalChecks.steps %}
+                <li>
+                    <span class="workflow-poi" aria-hidden="true">
+                        <span class="workflow-poi-icon">
+                            <wa-icon variant="solid" name="location-dot"></wa-icon>
+                        </span>
+                        <b>{{ forloop.index }}</b>
+                    </span>
+                    <div>
+                        <p>{{ step }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 </section>
