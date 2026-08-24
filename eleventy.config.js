@@ -221,9 +221,16 @@ export default function(eleventyConfig) {
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
         serverOptions: {
+            port:                  8080,
+            portReassignmentRetryCount:0,
             middleware: [devServerDirectoryMiddleware],
         },
         viteOptions: {
+            server: {
+                hmr: {
+                    port: 24679,
+                },
+            },
             resolve: {
                 alias: {
                     '/src': path.resolve('.', 'src'),

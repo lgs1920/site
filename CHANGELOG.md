@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-24 — [`7ee36ef`](https://github.com/lgs1920/site/commit/7ee36ef) — Stabilize Eleventy HMR
+
+- Fixed the development server on port 8080 with a dedicated HMR port and disabled automatic port reassignment.
+- Added a supervised Eleventy development process that restarts after source changes.
+
 ## 2026-08-24 — [`d6ef8c2`](https://github.com/lgs1920/site/commit/d6ef8c2) — Refine heroes and workflow routes
 
 - Added responsive non-home hero proportions, centered copy, full-width headings, and consistent brand-colored leads.

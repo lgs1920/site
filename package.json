@@ -5,7 +5,7 @@
   "scripts": {
     "content:check": "node scripts/content-check.mjs",
     "test": "node --test",
-    "dev": "LGS1920_DEPLOY_PLATFORM=development eleventy --serve",
+    "dev": "node scripts/dev-server.mjs",
     "build": "bun run content:check && rm -rf .11ty-vite _site && eleventy && node scripts/build-search-index.mjs",
     "deploy": "bun deploy.js",
     "clean": "rm -rf .11ty-vite _site"
