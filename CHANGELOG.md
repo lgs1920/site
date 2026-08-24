@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-24 — [`db02c4e`](https://github.com/lgs1920/site/commit/db02c4e) — Order releases by publication date
+
+- Displayed the public Studio releases from newest to oldest by publication date.
+
 ## 2026-08-24 — [`TBD`](https://github.com/lgs1920/site/commit/TBD) — Flatten Studio privacy card
 
 - Removed the hover lift, border, background, and shadow from the Studio privacy card.

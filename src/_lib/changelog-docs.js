@@ -128,20 +128,16 @@ const getChangelogFiles = () => {
 }
 
 const compareReleaseEntries = (left, right) => {
-    // Changelog navigation should start from the highest published version.
-    const versionOrder = versionCollator.compare(right.version, left.version)
-
-    if (versionOrder !== 0) {
-        return versionOrder
-    }
-
+    // Changelog navigation follows publication order, newest release first.
     const dateOrder = right.dateKey.localeCompare(left.dateKey)
 
     if (dateOrder !== 0) {
         return dateOrder
     }
 
-    return right.slug.localeCompare(left.slug)
+    const versionOrder = versionCollator.compare(right.version, left.version)
+
+    return versionOrder !== 0 ? versionOrder : right.slug.localeCompare(left.slug)
 }
 
 export const getChangelogPagePath = (locale = 'en', pageNumber = 1) => {
