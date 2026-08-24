@@ -1,0 +1,359 @@
+{
+  "site": {
+    "tagline": "Façonner les parcours dans le navigateur",
+    "description": "Édition de parcours locale pour trajets, traces, POI, vues caméra, rapports et captures média."
+  },
+  "ui": {
+    "home": "Accueil",
+    "skipToContent": "Aller au contenu",
+    "openNavigation": "Ouvrir la navigation",
+    "openSearch": "Rechercher sur le site",
+    "searchDialogTitle": "Rechercher sur le site",
+    "searchSite": "Rechercher sur le site",
+    "searchPlaceholder": "Rechercher dans le guide, la FAQ et l’historique",
+    "searchHelpTitle": "Perdu ?",
+    "searchHelpBody": "Retrouvez une procédure, une réponse dans la FAQ ou une note de version. Essayez « widget », « import » ou « caméra ».",
+    "searchShortcutLabel": "Raccourci",
+    "searchShortcutOr": "ou",
+    "searchPrompt": "Saisissez un terme pour trouver une page.",
+    "searchLoading": "Recherche en cours…",
+    "searchNoResults": "Aucune page correspondante.",
+    "searchResultCount": "résultats",
+    "searchUnavailable": "La recherche est momentanément indisponible.",
+    "searchCategoryHelp": "Aide",
+    "searchCategoryProject": "Projet",
+    "searchSubcategoryFaq": "FAQ",
+    "searchSubcategoryChangelog": "Historique",
+    "pages": "Pages",
+    "userGuide": "Guide utilisateur",
+    "guideNavigation": "Navigation du guide",
+    "guideSearchPlaceholder": "Rechercher dans le guide utilisateur",
+    "onThisPage": "Sur cette page",
+    "heroRouteDescription": "Trace animée avec trois points d’intérêt.",
+    "heroRoutePoiOne": "Point d’intérêt 01",
+    "heroRoutePoiTwo": "Point d’intérêt 02",
+    "heroRoutePoiThree": "Point d’intérêt 03",
+    "scrollToContent": "Faire défiler vers le contenu",
+    "moveGuideAsideLeft": "Déplacer la navigation du guide à gauche",
+    "moveGuideAsideRight": "Déplacer la navigation du guide à droite",
+    "chooseBrandAndSeason": "Choisir la couleur de marque et le thème saisonnier",
+    "brandColor": "Couleur de marque",
+    "seasonTheme": "Thème saisonnier",
+    "chooseColorMode": "Choisir le mode de couleur",
+    "toggleColorModeMenu": "Ouvrir le menu du mode de couleur",
+    "breadcrumb": "Fil d'Ariane",
+    "userGuideBreadcrumb": "Fil d'Ariane du guide utilisateur",
+    "section": "Section",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "userGuidePagination": "Pagination du guide utilisateur",
+    "footerNavigation": "Navigation de pied de page",
+    "footerLegal": "Liens légaux et projet",
+    "heroBuildInfo": "Informations de build du hero",
+    "primaryNavigation": "Navigation principale",
+    "useStudio": "Utiliser Studio",
+    "contact": "Contact",
+    "openStudio": "Ouvrir Studio",
+    "discoverStudio": "Découvrir Studio",
+    "language": "Langue",
+    "chooseLanguage": "Choisir la langue",
+    "english": "Anglais",
+    "french": "Français",
+    "source": "Source",
+    "sourceDirectory": "Dossier source",
+    "newer": "Plus récent",
+    "older": "Plus ancien",
+    "releaseNavigation": "Navigation des versions",
+    "version": "Version",
+    "paginationNavigation": "Pagination de l’historique",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "page": "Page",
+    "openGithubRepository": "Ouvrir le dépôt GitHub",
+    "changelog": "Historique",
+    "credits": "Credits",
+    "stats": "Statistiques",
+    "license": "Licence",
+    "licensing": "Licences",
+    "fullLicense": "Licence complète",
+    "cla": "CLA",
+    "builtWithEleventy": "Construit avec Eleventy",
+    "backendRestartTitle": "Tentative de redémarrage du backend…",
+    "backendRestartMessage": "Redémarrage du backend…",
+    "backendRestartDetails": "",
+    "backendRestartAction": "Relancer le backend",
+    "backendRetryAction": "Réessayer la connexion",
+    "backendRestarting": "Redémarrage du backend…",
+    "backendRetrying": "Vérification du backend…",
+    "backendRestartFailed": "Le backend n’a pas pu être relancé. Vous pouvez réessayer.",
+    "backendRetryFailed": "Le backend est toujours indisponible.",
+    "backendRestartContact": "Contacter le support"
+  },
+  "userGuideSections": [
+    {
+      "key": "user-guide",
+      "label": "Aide Studio",
+      "icon": "book-sparkles",
+      "summary": "Aides principales pour utiliser LGS1920 Studio",
+      "items": [
+        {
+          "key": "overview",
+          "label": "Vue d'ensemble",
+          "url": "/fr/user-guide",
+          "summary": "Ce que couvre le guide",
+          "icon": "book-sparkles",
+          "category": "Guide utilisateur",
+          "subcategory": "Vue d’ensemble"
+        },
+        {
+          "key": "first-steps",
+          "label": "Guide rapide",
+          "url": "/fr/user-guide/getting-started/first-steps",
+          "summary": "Premiers pas dans Studio",
+          "icon": "book-open-lines",
+          "category": "Guide utilisateur",
+          "subcategory": "Démarrage"
+        },
+        {
+          "key": "import-source-data",
+          "label": "Importer un parcours",
+          "url": "/fr/user-guide/getting-started/import-source-data",
+          "summary": "Charger du GeoJSON, GPX ou KML",
+          "icon": "file-import",
+          "category": "Guide utilisateur",
+          "subcategory": "Démarrage"
+        },
+        {
+          "key": "use-map-layers",
+          "label": "Utiliser les couches cartographiques",
+          "url": "/fr/user-guide/workflows/use-map-layers",
+          "summary": "Changer le fond, le terrain et les jetons",
+          "icon": "layer-group",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "journeys-and-tracks",
+          "label": "Modifier les parcours et traces",
+          "url": "/fr/user-guide/workflows/journeys-and-tracks",
+          "summary": "Changer les métadonnées, le style et la visibilité",
+          "icon": "route",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "points-of-interest",
+          "label": "Utiliser les POI",
+          "url": "/fr/user-guide/workflows/points-of-interest",
+          "summary": "Gérer les repères et les lieux",
+          "icon": "map-location-dot",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "appearance",
+          "label": "Changer les couleurs et l'apparence",
+          "url": "/fr/user-guide/workflows/appearance",
+          "summary": "Mode, couleur de marque et préférences UI",
+          "icon": "palette",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "scene-and-camera",
+          "label": "Régler la caméra et la scène",
+          "url": "/fr/user-guide/workflows/scene-and-camera",
+          "summary": "Focus, rotation et panorama",
+          "icon": "camera",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "widgets-and-overlays",
+          "label": "Utiliser les widgets",
+          "url": "/fr/user-guide/workflows/widgets-and-overlays",
+          "summary": "Composer le contexte visible",
+          "icon": "box",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "export",
+          "label": "Exporter",
+          "url": "/fr/user-guide/workflows/export",
+          "summary": "Capture, vidéo, PDF ou ZIP HTML",
+          "icon": "video",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "common-problems",
+          "label": "Résoudre les problèmes courants",
+          "url": "/fr/user-guide/workflows/common-problems",
+          "summary": "Jetons, imports, widgets, démarrage",
+          "icon": "triangle-exclamation",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
+          "key": "shortcuts",
+          "label": "Raccourcis",
+          "url": "/fr/user-guide/workflows/shortcuts",
+          "summary": "Raccourcis clavier et pointeur",
+          "icon": "keyboard",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        }
+      ]
+    },
+    {
+      "key": "site-help",
+      "label": "Aide Site",
+      "icon": "circle-info",
+      "summary": "Aides du site et recherche",
+      "items": [
+        {
+          "key": "site-header",
+          "label": "Aide de l'en-tête",
+          "url": "/fr/user-guide/reference/site-header",
+          "summary": "Contrôles de l'en-tête desktop et mobile",
+          "icon": "window-maximize",
+          "category": "Guide utilisateur",
+          "subcategory": "Référence"
+        },
+        {
+          "key": "site-search",
+          "label": "Recherche du site",
+          "url": "/fr/user-guide/reference/site-header/search",
+          "summary": "Retrouver des pages avec la recherche",
+          "icon": "magnifying-glass",
+          "category": "Guide utilisateur",
+          "subcategory": "Référence"
+        }
+      ]
+    }
+  ],
+  "navigation": [
+    {
+      "label": "Accueil",
+      "url": "/fr",
+      "icon": "house"
+    },
+    {
+      "label": "Découvrir Studio",
+      "url": "/fr/studio",
+      "icon": "circle-info",
+      "variant": "regular"
+    },
+    {
+      "label": "Guide utilisateur",
+      "url": "/fr/user-guide",
+      "icon": "book-sparkles",
+      "variant": "regular"
+    },
+    {
+      "label": "Historique",
+      "url": "/fr/changelog",
+      "icon": "arrows-turn-to-dots",
+      "variant": "regular"
+    },
+    {
+      "label": "Contact",
+      "url": "/fr/contact",
+      "icon": "envelope",
+      "variant": "regular"
+    },
+    {
+      "label": "Ouvrir le dépôt GitHub",
+      "url": "https://github.com/lgs1920/studio",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    },
+    {
+      "label": "Licence",
+      "icon": "scale-balanced",
+      "variant": "regular",
+      "children": [
+        {
+          "label": "Licences",
+          "url": "/fr/licensing"
+        },
+        {
+          "label": "Licence complète",
+          "url": "/fr/license"
+        },
+        {
+          "label": "CLA",
+          "url": "/fr/contributor-license-agreement"
+        }
+      ]
+    }
+  ],
+  "headerLinks": [
+    {
+      "label": "Ouvrir Studio",
+      "url": "https://studio.lgs1920.fr",
+      "icon": "clapperboard-play",
+      "variant": "regular",
+      "external": true
+    },
+    {
+      "label": "Guide utilisateur",
+      "url": "/fr/user-guide",
+      "icon": "book-sparkles",
+      "variant": "regular"
+    },
+    {
+      "label": "Ouvrir le dépôt GitHub",
+      "url": "https://github.com/lgs1920",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Statistiques",
+      "url": "/fr/stats",
+      "icon": "chart-line"
+    },
+    {
+      "label": "Guide utilisateur",
+      "url": "/fr/user-guide",
+      "icon": "book-sparkles"
+    },
+    {
+      "label": "Historique",
+      "url": "/fr/changelog",
+      "icon": "arrows-turn-to-dots"
+    },
+    {
+      "label": "Credits",
+      "url": "/credits",
+      "icon": "circle-info"
+    },
+    {
+      "label": "Licences",
+      "url": "/fr/licensing",
+      "icon": "scale-balanced"
+    },
+    {
+      "label": "Licence complète",
+      "url": "/fr/license",
+      "icon": "file-lines"
+    },
+    {
+      "label": "CLA",
+      "url": "/fr/contributor-license-agreement",
+      "icon": "handshake"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/lgs1920",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    }
+  ]
+}

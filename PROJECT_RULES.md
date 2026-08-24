@@ -18,6 +18,8 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Keep the existing Eleventy data and template conventions. Default exports are allowed where the site already uses them.
 - Do not apply Studio-only constraints such as Valtio, React, Elysia, or Studio component rules to site code.
 - Keep internal links localized: English routes have no locale prefix; French routes use `/fr/`.
+- **JSON/Markdown separation:** Keep short page copy (a few words, labels, or up to two sentences) directly in `src/_content/<page>/<locale>/page.json`. Use a Markdown file in that same locale directory only for genuinely multi-line editorial content such as headings, lists, tables, or longer composed text, and reference it from JSON with `@md:`. Do not create one-line Markdown files for short copy.
+- Keep the English and French JSON structures aligned. Page JavaScript may assemble dynamic values and rendering data, but must not become the source of ordinary page copy.
 - Every banner video must have a matching WebP fallback image. Register both assets in the banner media catalog, preload the WebP, render it below the video layer, and fade it out only after the video can play.
 - Banner videos must keep their full duration while being optimized for web delivery: maximum 1920px width, maximum 30 fps, no audio when unused, H.264 encoding with `faststart`, and a matching WebP fallback.
 - Any change to the video catalog, video effects, or hero animation must also be reported in the Studio repository before handoff, using the appropriate Studio issue or documentation entry.

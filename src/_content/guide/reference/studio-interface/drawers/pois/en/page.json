@@ -1,0 +1,103 @@
+{
+  "title": "POIs drawer",
+  "description": "Point of interest editing for markers, annotations, and route story moments.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "The POIs drawer is where you edit the points of interest that support the route story. It covers the marker data, the visual state, and the details that keep a POI useful in the scene and in exports.\n",
+    "controls": [
+      {
+        "label": "Title and category fields",
+        "icon": "pen-to-square",
+        "type": "Inputs",
+        "description": "Lets you name the POI and choose the category that best describes it."
+      },
+      {
+        "label": "Coordinates fields",
+        "icon": "map-location-dot",
+        "type": "Inputs",
+        "description": "Lets you review or edit the POI position and related location values."
+      },
+      {
+        "label": "Visibility switch",
+        "icon": "eye",
+        "type": "Switch",
+        "description": "Shows or hides the POI without deleting it from the journey."
+      },
+      {
+        "label": "Focus POI",
+        "icon": "bullseye",
+        "type": "Button",
+        "description": "Centers the camera on the selected POI for review or adjustment."
+      },
+      {
+        "label": "Description and journey fields",
+        "icon": "align-left",
+        "type": "Fields",
+        "description": "Stores the POI text and, where relevant, the journey it belongs to."
+      },
+      {
+        "label": "Coordinates and altitude",
+        "icon": "map-location-dot",
+        "type": "Fields",
+        "description": "Edits the marker longitude, latitude, and height. Copy buttons help reuse the coordinates."
+      },
+      {
+        "label": "Copy coordinates",
+        "icon": "copy",
+        "type": "Button",
+        "description": "Copies the POI coordinates so you can reuse them in another tool or field."
+      },
+      {
+        "label": "Show / Hide Filters",
+        "icon": "filter",
+        "type": "Button",
+        "description": "Shows or hides list filters for global POIs or journey-related POIs."
+      },
+      {
+        "label": "Search POIs",
+        "icon": "magnifying-glass",
+        "type": "Field",
+        "description": "Searches the POI list by its content from the filter panel."
+      },
+      {
+        "label": "POI actions",
+        "icons": [
+          "eye",
+          "bullseye",
+          "trash"
+        ],
+        "type": "Menu",
+        "description": "Depending on the POI state, provides Show/Hide, Focus, Orbit, Copy Coords, Reduce/Expand, and Remove."
+      },
+      {
+        "label": "Bulk actions",
+        "icon": "list-check",
+        "type": "Menu",
+        "description": "Applies an action to multiple selected POIs when multi-selection is available."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Select a POI",
+        "description": "Choose a marker in the list, then use <em>Focus</em> to find it in the scene."
+      },
+      {
+        "title": "Edit its fields",
+        "description": "Update the title, description, category, coordinates, altitude, and associated journey."
+      },
+      {
+        "title": "Filter the list",
+        "description": "Open <em>Show Filters</em>, search for a POI, and choose whether global or journey POIs should be included."
+      },
+      {
+        "title": "Use POI actions",
+        "description": "Use the POI menu to hide it, move the view to it, copy its coordinates, or remove it."
+      }
+    ],
+    "notes": [
+      "Use POIs to support story moments, points of interest, or map annotations.",
+      "Check the POI presentation before export so important markers remain readable."
+    ]
+  }
+}

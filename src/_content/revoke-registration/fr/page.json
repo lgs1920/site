@@ -1,0 +1,21 @@
+{
+  "title": "Annuler votre inscription au lancement de LGS1920 Studio",
+  "description": "Confirmez l’annulation de votre inscription au lancement de LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Inscription",
+    "kicker": "Lancement du Studio",
+    "title": "Annuler votre inscription",
+    "lead": "Vous avez demandé l’annulation de votre inscription au lancement de LGS1920 Studio."
+  },
+  "panel": {
+    "eyebrow": "État de l’inscription",
+    "title": "Annulation"
+  },
+  "loading": "Vérification de votre lien d’annulation…",
+  "emailLabel": "Adresse e-mail :",
+  "successTitle": "Votre inscription a été annulée.",
+  "successMessage": "Votre inscription au lancement de LGS1920 Studio a bien été supprimée.",
+  "invalidTitle": "Ce lien d’annulation n’est plus valide.",
+  "invalidMessage": "Il a peut-être déjà été utilisé ou a expiré. Vous pouvez fermer cette page."
+}

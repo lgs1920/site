@@ -1,0 +1,55 @@
+{
+  "title": "Licences",
+  "description": "Licence publique et références légales pour LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Légal",
+    "kicker": "Licences",
+    "title": "Lire les conditions publiques de l'AGPL.",
+    "lead": "Cette page reflète le résumé de licence maintenu dans la branche Studio 1.0.0-beta.3.",
+    "highlights": [
+      {
+        "label": "AGPL v3 ou ultérieure",
+        "icon": "scale-balanced",
+        "variant": "regular"
+      },
+      {
+        "label": "Texte source synchronisé depuis studio",
+        "icon": "file-lines",
+        "variant": "regular"
+      },
+      {
+        "label": "L'usage réseau impose le partage du code source",
+        "icon": "network-wired",
+        "variant": "regular"
+      }
+    ]
+  },
+  "intro": "Le résumé légal ci-dessous est récupéré au build depuis la branche Studio 1.0.0-beta.3 afin que le site public reste aligné sur la documentation source.",
+  "pageCta": {
+    "eyebrow": "Conditions d'usage",
+    "title": "Besoin d'autres conditions d'usage ?",
+    "body": "Les questions sur les conditions d'usage et les contributions sont traitées directement par LGS1920.",
+    "actions": [
+      {
+        "label": "Contact",
+        "href": "/fr/contact",
+        "variant": "brand",
+        "icon": {
+          "name": "envelope",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Ouvrir le dépôt Studio",
+        "href": "https://github.com/lgs1920/studio",
+        "appearance": "outlined",
+        "external": true,
+        "icon": {
+          "family": "brands",
+          "name": "github"
+        }
+      }
+    ]
+  }
+}

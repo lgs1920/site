@@ -1,0 +1,92 @@
+{
+  "title": "Drawer Widgets editor",
+  "description": "Drawer de configuration détaillée du widget sélectionné.",
+  "ui": {
+    "backUrl": "/fr/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "Le drawer Widgets editor change la configuration du widget sélectionné. Il n'en change pas la position directe; il modifie son apparence et son comportement.\n",
+    "controls": [
+      {
+        "label": "Position controls",
+        "icon": "arrows-up-down-left-right",
+        "type": "Fields",
+        "description": "Change la position du widget dans la scène ou sur le board."
+      },
+      {
+        "label": "Size controls",
+        "icon": "expand",
+        "type": "Fields",
+        "description": "Change l'échelle du widget et l'espace qu'il occupe."
+      },
+      {
+        "label": "Rotation controls",
+        "icon": "rotate-right",
+        "type": "Fields",
+        "description": "Change l'orientation des widgets qui supportent la rotation."
+      },
+      {
+        "label": "Style and visibility options",
+        "icon": "palette",
+        "type": "Switches",
+        "description": "Ajuste le traitement visuel et les options spécifiques."
+      },
+      {
+        "label": "Preview",
+        "icon": "eye",
+        "type": "Tab",
+        "description": "Affiche un aperçu du widget et de ses changements dans la composition."
+      },
+      {
+        "label": "Widgets",
+        "icon": "table-columns",
+        "type": "Tab",
+        "description": "Affiche la liste des widgets pour changer de widget ou accéder à leur ordre."
+      },
+      {
+        "label": "Typography and text",
+        "icons": [
+          "font",
+          "text"
+        ],
+        "type": "Fields",
+        "description": "Selon le widget, règle la police, la taille, la hauteur de ligne, la couleur, le contour et le contenu texte."
+      },
+      {
+        "label": "Background, border, shadow, radius",
+        "icon": "square",
+        "type": "Fields",
+        "description": "Selon le widget, règle le fond, la bordure, l'ombre et l'arrondi."
+      },
+      {
+        "label": "Padding and alignment",
+        "icon": "align-center",
+        "type": "Fields",
+        "description": "Règle les espacements internes et l'alignement du contenu."
+      },
+      {
+        "label": "Visibility switch",
+        "icon": "eye",
+        "type": "Switch",
+        "description": "Affiche ou masque le widget sans supprimer sa configuration."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Ouvrir l'aperçu",
+        "description": "Restez dans l'onglet <em>Preview</em> pour voir l'effet des changements sur le widget sélectionné."
+      },
+      {
+        "title": "Régler les propriétés",
+        "description": "Modifiez les champs affichés par le widget, notamment position, taille, rotation, typographie, couleurs et effets."
+      },
+      {
+        "title": "Changer de widget",
+        "description": "Ouvrez l'onglet <em>Widgets</em> pour choisir un autre widget ou revenir à son ordre de composition."
+      },
+      {
+        "title": "Vérifier la visibilité",
+        "description": "Utilisez le switch de visibilité pour tester une composition sans perdre les réglages du widget."
+      }
+    ]
+  }
+}

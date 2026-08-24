@@ -1,0 +1,24 @@
+{
+  "title": "Header help",
+  "description": "Reference for the site header buttons and shortcuts across desktop and mobile layouts.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Reference",
+    "kicker": "Site header",
+    "title": "Understand the site header.",
+    "lead": "Find the header buttons and see how they adapt between desktop and mobile layouts."
+  },
+  "sectionNav": [
+    {
+      "id": "desktop-header",
+      "label": "Desktop",
+      "summary": "Buttons and shortcuts visible on large screens"
+    },
+    {
+      "id": "mobile-header",
+      "label": "Mobile",
+      "summary": "Controls kept on small screens"
+    }
+  ]
+}

@@ -177,6 +177,8 @@ const buildSearchIndex = () => {
 
 export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLibrary)
+    eleventyConfig.ignores.add('src/_content/**')
+    eleventyConfig.addWatchTarget('src/_content')
     copyLogoAssets()
     eleventyConfig.addPassthroughCopy({
         'public/.htaccess': '.htaccess',

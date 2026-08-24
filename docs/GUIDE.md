@@ -48,19 +48,26 @@ src/fr/user-guide/index.md
 
 ### Title, description, and hero
 
-For guide pages, these elements live next to the page definition in:
+For guide pages, these elements live in the localized JSON content file:
 
 ```text
-src/_data/guide-pages/<page-path>.js
+src/_content/guide/<page-path>/<locale>/page.json
 ```
 
-For example, the export page is defined in:
+For example, the English export page metadata is defined in:
 
 ```text
-src/_data/guide-pages/workflows/export.js
+src/_content/guide/workflows/export/en/page.json
 ```
 
-Each page module exports a definition with `locales.en` and `locales.fr`.
+The shared guide catalogue loads the two locale JSON files and exposes them to the Eleventy data flow.
+
+The guide body remains in the route Markdown files because those files are Eleventy page sources:
+
+```text
+src/user-guide/workflows/export.md
+src/fr/user-guide/workflows/export.md
+```
 
 In this file:
 

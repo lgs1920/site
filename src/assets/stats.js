@@ -1,4 +1,12 @@
-import {getStatsLabels} from '../_data/stats-labels.js'
+import englishStatsLabels from '../_content/stats/en/labels.json'
+import frenchStatsLabels from '../_content/stats/fr/labels.json'
+
+const statsLabels = {
+    en: englishStatsLabels,
+    fr: frenchStatsLabels,
+}
+
+const getStatsLabels = (locale = 'en') => statsLabels[locale] ?? statsLabels.en
 
 const DAY_MS = 24 * 60 * 60 * 1000
 export const STATS_REFRESH_INTERVAL_MS = 60 * 1000

@@ -1,0 +1,87 @@
+{
+  "title": "Settings drawer",
+  "description": "Global Studio settings for the workspace, interaction, and profile-related preferences.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "The Settings drawer gathers the options that change how Studio behaves across the whole session. Use it when you need to adjust the interface instead of the current journey.\n",
+    "controls": [
+      {
+        "label": "Global Settings",
+        "icon": "screwdriver-wrench",
+        "type": "Tab",
+        "description": "Opens the app-wide settings for workspace behavior, editing defaults, and shared preferences."
+      },
+      {
+        "label": "User Interface",
+        "icon": "paintbrush-pencil",
+        "type": "Tab",
+        "description": "Opens the visual and interaction preferences for the Studio surface."
+      },
+      {
+        "label": "Manage My Profile",
+        "icon": "circle-user",
+        "type": "Tab",
+        "description": "Opens profile-specific options for the current browser or account state."
+      },
+      {
+        "label": "Units System",
+        "icon": "ruler-combined",
+        "type": "Radio groups",
+        "description": "Chooses Metric or Imperial units and DD or DMS coordinate format."
+      },
+      {
+        "label": "Camera Settings",
+        "icon": "camera",
+        "type": "Switches and selectors",
+        "description": "Controls camera information, target markers, initial focus, and orbit behavior."
+      },
+      {
+        "label": "Journey Statistics Settings",
+        "icon": "chart-line",
+        "type": "Fields",
+        "description": "Selects an activity profile and tunes duration, distance, altitude, speed, and climb thresholds. Each threshold can be reset."
+      },
+      {
+        "label": "Menu / Compass / Editor / PWA Settings",
+        "icon": "sliders",
+        "type": "Sections",
+        "description": "Groups the preferences for the menu, compass, editor, and installable application behavior."
+      },
+      {
+        "label": "Sync my profile",
+        "icon": "cloud-arrow-up",
+        "type": "Action and fields",
+        "description": "Lets you enter a token and save or clear profile synchronization."
+      },
+      {
+        "label": "Reset profile",
+        "icon": "arrow-rotate-left",
+        "type": "Options and button",
+        "description": "Selects data to reset, such as journeys, POIs, widgets, settings, or tokens, then applies Reset."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Choose a category",
+        "description": "Open <em>Global Settings</em>, <em>User Interface</em>, or <em>Manage My Profile</em> according to the scope of the change."
+      },
+      {
+        "title": "Set units",
+        "description": "In <em>Units System</em>, choose Metric or Imperial and the DD or DMS coordinate format."
+      },
+      {
+        "title": "Configure camera and statistics",
+        "description": "Adjust the switches and selectors in <em>Camera Settings</em>, then tune the activity profile thresholds in <em>Journey Statistics Settings</em>."
+      },
+      {
+        "title": "Sync or reset",
+        "description": "In the profile area, save a token with <em>Save</em> or select exactly which data to clear before choosing <em>Reset</em>."
+      }
+    ],
+    "notes": [
+      "Changes here affect the Studio as a whole, not a single drawer or widget.",
+      "Use this drawer for repeated configuration, not for one-time decisions."
+    ]
+  }
+}

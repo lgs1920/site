@@ -1,0 +1,359 @@
+{
+  "site": {
+    "tagline": "Shape route data in the browser",
+    "description": "Local-first route editing for journeys, tracks, POIs, camera views, reports, and media capture."
+  },
+  "ui": {
+    "home": "Home",
+    "skipToContent": "Skip to content",
+    "openNavigation": "Open navigation",
+    "openSearch": "Search the site",
+    "searchDialogTitle": "Search the site",
+    "searchSite": "Search the site",
+    "searchPlaceholder": "Search guides, FAQ, and changelog",
+    "searchHelpTitle": "Lost?",
+    "searchHelpBody": "Find a guide procedure, an FAQ answer, or a changelog entry. Try words like “widget”, “import”, or “camera”.",
+    "searchShortcutLabel": "Shortcut",
+    "searchShortcutOr": "or",
+    "searchPrompt": "Type a search term to find a page.",
+    "searchLoading": "Searching…",
+    "searchNoResults": "No matching pages found.",
+    "searchResultCount": "results",
+    "searchUnavailable": "Search is temporarily unavailable.",
+    "searchCategoryHelp": "Help",
+    "searchCategoryProject": "Project",
+    "searchSubcategoryFaq": "FAQ",
+    "searchSubcategoryChangelog": "Changelog",
+    "pages": "Pages",
+    "userGuide": "User guide",
+    "guideNavigation": "Guide navigation",
+    "guideSearchPlaceholder": "Search the User guide",
+    "onThisPage": "On this page",
+    "heroRouteDescription": "Animated route with three points of interest.",
+    "heroRoutePoiOne": "Point of interest 01",
+    "heroRoutePoiTwo": "Point of interest 02",
+    "heroRoutePoiThree": "Point of interest 03",
+    "scrollToContent": "Scroll to content",
+    "moveGuideAsideLeft": "Move guide navigation left",
+    "moveGuideAsideRight": "Move guide navigation right",
+    "chooseBrandAndSeason": "Choose brand color and season theme",
+    "brandColor": "Brand color",
+    "seasonTheme": "Season theme",
+    "chooseColorMode": "Choose color mode",
+    "toggleColorModeMenu": "Toggle color mode menu",
+    "breadcrumb": "Breadcrumb",
+    "userGuideBreadcrumb": "User guide breadcrumb",
+    "section": "Section",
+    "previous": "Previous",
+    "next": "Next",
+    "userGuidePagination": "User guide pagination",
+    "footerNavigation": "Footer navigation",
+    "footerLegal": "Legal and project links",
+    "heroBuildInfo": "Hero build information",
+    "primaryNavigation": "Primary navigation",
+    "useStudio": "Use Studio",
+    "contact": "Contact",
+    "openStudio": "Open Studio",
+    "discoverStudio": "Discover Studio",
+    "language": "Language",
+    "chooseLanguage": "Choose language",
+    "english": "English",
+    "french": "French",
+    "source": "Source",
+    "sourceDirectory": "Source directory",
+    "newer": "Newer",
+    "older": "Older",
+    "releaseNavigation": "Release navigation",
+    "version": "Version",
+    "paginationNavigation": "Changelog pagination",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "page": "Page",
+    "openGithubRepository": "Open GitHub repository",
+    "changelog": "Changelog",
+    "credits": "Credits",
+    "stats": "Statistics",
+    "license": "License",
+    "licensing": "Licensing",
+    "fullLicense": "Full license",
+    "cla": "CLA",
+    "builtWithEleventy": "Built with Eleventy",
+    "backendRestartTitle": "Trying to restart the backend...",
+    "backendRestartMessage": "Restarting the backend...",
+    "backendRestartDetails": "",
+    "backendRestartAction": "Restart backend",
+    "backendRetryAction": "Retry connection",
+    "backendRestarting": "Restarting the backend…",
+    "backendRetrying": "Checking the backend…",
+    "backendRestartFailed": "The backend could not be restarted. You can try again.",
+    "backendRetryFailed": "The backend is still unavailable.",
+    "backendRestartContact": "Contact Support"
+  },
+  "userGuideSections": [
+    {
+      "key": "user-guide",
+      "label": "Studio Help",
+      "icon": "book-sparkles",
+      "summary": "Main help for using LGS1920 Studio",
+      "items": [
+        {
+          "key": "overview",
+          "label": "Overview",
+          "url": "/user-guide",
+          "summary": "What the guide covers",
+          "icon": "book-sparkles",
+          "category": "User guide",
+          "subcategory": "Overview"
+        },
+        {
+          "key": "first-steps",
+          "label": "Quick guide",
+          "url": "/user-guide/getting-started/first-steps",
+          "summary": "Get started with Studio",
+          "icon": "book-open-lines",
+          "category": "User guide",
+          "subcategory": "Getting started"
+        },
+        {
+          "key": "import-source-data",
+          "label": "Import a route",
+          "url": "/user-guide/getting-started/import-source-data",
+          "summary": "Load GeoJSON, GPX, or KML",
+          "icon": "file-import",
+          "category": "User guide",
+          "subcategory": "Getting started"
+        },
+        {
+          "key": "use-map-layers",
+          "label": "Use map layers",
+          "url": "/user-guide/workflows/use-map-layers",
+          "summary": "Change background, terrain, and tokens",
+          "icon": "layer-group",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "journeys-and-tracks",
+          "label": "Edit journeys and tracks",
+          "url": "/user-guide/workflows/journeys-and-tracks",
+          "summary": "Change metadata, route style, and visibility",
+          "icon": "route",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "points-of-interest",
+          "label": "Use POIs",
+          "url": "/user-guide/workflows/points-of-interest",
+          "summary": "Manage markers and places",
+          "icon": "map-location-dot",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "appearance",
+          "label": "Change colors and appearance",
+          "url": "/user-guide/workflows/appearance",
+          "summary": "Theme mode, brand color, and UI preferences",
+          "icon": "palette",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "scene-and-camera",
+          "label": "Set camera and scene",
+          "url": "/user-guide/workflows/scene-and-camera",
+          "summary": "Focus, orbit, and panorama",
+          "icon": "camera",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "widgets-and-overlays",
+          "label": "Use widgets",
+          "url": "/user-guide/workflows/widgets-and-overlays",
+          "summary": "Compose visible context",
+          "icon": "box",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "export",
+          "label": "Export",
+          "url": "/user-guide/workflows/export",
+          "summary": "Snapshot, video, PDF, or HTML ZIP",
+          "icon": "video",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "common-problems",
+          "label": "Fix common problems",
+          "url": "/user-guide/workflows/common-problems",
+          "summary": "Tokens, import issues, widgets, startup",
+          "icon": "triangle-exclamation",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
+          "key": "shortcuts",
+          "label": "Shortcuts",
+          "url": "/user-guide/workflows/shortcuts",
+          "summary": "Keyboard and pointer shortcuts",
+          "icon": "keyboard",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        }
+      ]
+    },
+    {
+      "key": "site-help",
+      "label": "Site Help",
+      "icon": "circle-info",
+      "summary": "Site help and search",
+      "items": [
+        {
+          "key": "site-header",
+          "label": "Header help",
+          "url": "/user-guide/reference/site-header",
+          "summary": "Desktop and mobile header controls",
+          "icon": "window-maximize",
+          "category": "User guide",
+          "subcategory": "Reference"
+        },
+        {
+          "key": "site-search",
+          "label": "Site search",
+          "url": "/user-guide/reference/site-header/search",
+          "summary": "Find pages with search",
+          "icon": "magnifying-glass",
+          "category": "User guide",
+          "subcategory": "Reference"
+        }
+      ]
+    }
+  ],
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "/",
+      "icon": "house"
+    },
+    {
+      "label": "Discover Studio",
+      "url": "/studio",
+      "icon": "circle-info",
+      "variant": "regular"
+    },
+    {
+      "label": "User guide",
+      "url": "/user-guide",
+      "icon": "book-sparkles",
+      "variant": "regular"
+    },
+    {
+      "label": "Changelog",
+      "url": "/changelog",
+      "icon": "arrows-turn-to-dots",
+      "variant": "regular"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact",
+      "icon": "envelope",
+      "variant": "regular"
+    },
+    {
+      "label": "Open GitHub repository",
+      "url": "https://github.com/lgs1920/studio",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    },
+    {
+      "label": "License",
+      "icon": "scale-balanced",
+      "variant": "regular",
+      "children": [
+        {
+          "label": "Licensing",
+          "url": "/licensing"
+        },
+        {
+          "label": "Full license",
+          "url": "/license"
+        },
+        {
+          "label": "CLA",
+          "url": "/contributor-license-agreement"
+        }
+      ]
+    }
+  ],
+  "headerLinks": [
+    {
+      "label": "Open Studio",
+      "url": "https://studio.lgs1920.fr",
+      "icon": "clapperboard-play",
+      "variant": "regular",
+      "external": true
+    },
+    {
+      "label": "User guide",
+      "url": "/user-guide",
+      "icon": "book-sparkles",
+      "variant": "regular"
+    },
+    {
+      "label": "Open GitHub repository",
+      "url": "https://github.com/lgs1920",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Statistics",
+      "url": "/stats",
+      "icon": "chart-line"
+    },
+    {
+      "label": "User guide",
+      "url": "/user-guide",
+      "icon": "book-sparkles"
+    },
+    {
+      "label": "Changelog",
+      "url": "/changelog",
+      "icon": "arrows-turn-to-dots"
+    },
+    {
+      "label": "Credits",
+      "url": "/credits",
+      "icon": "circle-info"
+    },
+    {
+      "label": "Licensing",
+      "url": "/licensing",
+      "icon": "scale-balanced"
+    },
+    {
+      "label": "Full license",
+      "url": "/license",
+      "icon": "file-lines"
+    },
+    {
+      "label": "CLA",
+      "url": "/contributor-license-agreement",
+      "icon": "handshake"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/lgs1920",
+      "icon": "github",
+      "family": "brands",
+      "external": true
+    }
+  ]
+}

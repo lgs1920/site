@@ -1,0 +1,29 @@
+{
+  "title": "Dialog PWA update",
+  "description": "Prompt d'installation et de mise à jour pour le flux Progressive Web App.",
+  "ui": {
+    "backUrl": "/fr/user-guide/reference/studio-interface/#dialogs",
+    "backLabel": "Dialogs",
+    "overview": "Le dialog PWA update apparaît quand le navigateur propose une nouvelle version d'app ou une installation.\n",
+    "controls": [
+      {
+        "label": "Install or update",
+        "icon": "download",
+        "type": "Button",
+        "description": "Lance l'installation ou la mise à jour de la session navigateur courante."
+      },
+      {
+        "label": "Later",
+        "icon": "clock",
+        "type": "Button",
+        "description": "Ferme le prompt pour le moment."
+      },
+      {
+        "label": "Release note text",
+        "icon": "newspaper",
+        "type": "Read-only panel",
+        "description": "Explique ce qui a changé ou pourquoi le prompt apparaît."
+      }
+    ]
+  }
+}

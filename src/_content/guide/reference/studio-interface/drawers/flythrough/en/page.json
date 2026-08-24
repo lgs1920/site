@@ -1,0 +1,53 @@
+{
+  "title": "Flythrough drawer",
+  "description": "Camera flythrough controls for previewing and capturing motion.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "The Flythrough drawer controls a camera motion sequence that can be used for recording or previewing route movement. It keeps the scene visible while you tune how the movement behaves.\n",
+    "controls": [
+      {
+        "label": "Play / stop",
+        "icon": "play",
+        "type": "Button",
+        "description": "Starts or stops the flythrough movement."
+      },
+      {
+        "label": "Direction settings",
+        "icon": "arrows-rotate",
+        "type": "Control",
+        "description": "Chooses how the movement runs around the current target."
+      },
+      {
+        "label": "Timing settings",
+        "icon": "clock",
+        "type": "Fields",
+        "description": "Adjusts the duration and pacing of the flythrough."
+      },
+      {
+        "label": "Sync options",
+        "icon": "link-simple",
+        "type": "Switches",
+        "description": "Links the flythrough with other capture or video state when supported."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Prepare the scene",
+        "description": "Check the journey, widgets, and capture area before starting the movement."
+      },
+      {
+        "title": "Tune the movement",
+        "description": "Choose the direction, duration, and pacing that fit the intended presentation."
+      },
+      {
+        "title": "Preview and capture",
+        "description": "Use <em>Play</em> to check the result, then synchronize the sequence with capture when the option is available."
+      }
+    ],
+    "notes": [
+      "Use this drawer when the camera movement is part of the final output.",
+      "Check the scene, widgets, and capture area before starting the movement."
+    ]
+  }
+}

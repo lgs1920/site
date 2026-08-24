@@ -6,8 +6,8 @@ const escapeHtml = (value = '') => String(value)
     .replace(/'/g, '&#39;')
 
 export const renderHeroRouteMarkup = ({
-    ariaLabel = 'Animated route with three points of interest.',
-    poiLabels = ['Point of interest 01', 'Point of interest 02', 'Point of interest 03'],
+    ariaLabel,
+    poiLabels,
 } = {}) => `
     <div class="hero-route-layer" data-hero-route>
         <canvas class="hero-route-canvas" data-hero-route-canvas aria-hidden="true"></canvas>

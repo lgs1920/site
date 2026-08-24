@@ -1,4 +1,5 @@
 import site from '../_data/site.js'
+import i18n from '../_data/i18n.js'
 
 const escapeHtml = (value = '') => String(value)
     .replace(/&/g, '&amp;')
@@ -13,8 +14,11 @@ const escapeHtml = (value = '') => String(value)
  * @param {string} locale The current page locale.
  * @returns {string} Rendered hero build metadata markup.
  */
-export const renderHeroBuildInfo = (locale = 'en') => `
-    <div class="hero-build-info" aria-label="${locale === 'fr' ? 'Informations de build du hero' : 'Hero build information'}">
+export const renderHeroBuildInfo = (locale = 'en') => {
+    const labels = i18n.ui[locale] ?? i18n.ui.en
+
+    return `
+    <div class="hero-build-info" aria-label="${escapeHtml(labels.heroBuildInfo)}">
         ${site.version ? `
             <span class="hero-build-info-item">
                 <wa-icon variant="regular" name="code-branch" aria-hidden="true"></wa-icon>
@@ -28,3 +32,4 @@ export const renderHeroBuildInfo = (locale = 'en') => `
         </span>
     </div>
 `
+}

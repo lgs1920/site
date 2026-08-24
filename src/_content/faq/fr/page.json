@@ -1,0 +1,97 @@
+{
+  "title": "FAQ",
+  "description": "Questions courantes sur Studio et le site public.",
+  "hero": {
+    "video": false,
+    "badge": "Aide",
+    "kicker": "FAQ",
+    "title": "Réponses aux questions courantes sur Studio.",
+    "lead": "Cette page rassemble les questions sur le site public et le produit, avec des réponses courtes et faciles à mettre à jour.",
+    "highlights": [
+      {
+        "label": "Workflow local-first",
+        "icon": "database",
+        "variant": "regular"
+      },
+      {
+        "label": "Exports et rapports",
+        "icon": "file-pdf",
+        "variant": "regular"
+      },
+      {
+        "label": "Cesium si nécessaire",
+        "icon": "key",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionTitle": "Questions courantes",
+  "intro": "Réponses courtes aux questions que l’on pose généralement avant d’ouvrir Studio ou de lire la documentation.",
+  "items": [
+    {
+      "id": "pourquoi-lgs1920",
+      "summary": "Pourquoi LGS1920 ? Que signifie ce nom ?",
+      "body": "LGS1920 signifie La Grande Sure, un sommet de 1 920 mètres dans le massif de la Chartreuse, dans les Alpes françaises, aux coordonnées GPS 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).",
+      "bodyAfter": "C’est une montagne qui m’est chère : elle fait partie de mes racines familiales et j’avais à peine douze ans lorsque je l’ai gravie pour la première fois en famille. À l’époque, c’était mon Mont Blanc — mieux encore, mon Everest.",
+      "bodyFinal": "L’un des journey samples de Studio porte, comme il se doit, le nom de LGS1920. C’est l’une de mes randonnées préférées, que je refais toujours, 54 ans après, une fois par an.",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sangle_Hurti%C3%A8res_Voironnais.jpg/1280px-Sangle_Hurti%C3%A8res_Voironnais.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Sangle_Hurti%C3%A8res_Voironnais.jpg",
+        "author": "Hélène Rival",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": "Le cirque d’Hurtières et le Voironnais vus depuis le sentier du goulet d’Hurtières"
+      }
+    },
+    {
+      "id": "pour-qui-est-studio",
+      "summary": "À qui s’adresse Studio ?",
+      "body": "Aux personnes qui doivent relire, présenter et exporter des scènes cartographiques, des rapports, des captures ou de la vidéo."
+    },
+    {
+      "id": "quexporte-studio",
+      "summary": "Qu’exporte Studio ?",
+      "body": "Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP."
+    },
+    {
+      "id": "pourquoi-fichier-telechargements-mobile",
+      "summary": "Pourquoi ne puis-je pas charger un fichier depuis le dossier « Téléchargements » sur mon mobile ou ma tablette ?",
+      "body": "Sur Android comme sur iOS, les fichiers du répertoire dédié aux téléchargements ne peuvent pas être lus directement par un navigateur.",
+      "bodyAfter": "LGS1920 respecte une approche privacy-first : vos fichiers restent sur votre appareil et sont lus localement par le navigateur. Pour contourner cette restriction, nous devrions envoyer le contenu du fichier en clair à notre backend afin qu’il puisse effectuer le téléchargement à votre place. Nous refusons de procéder ainsi."
+    },
+    {
+      "id": "quel-niveau-de-vie-privee",
+      "summary": "Quel niveau de vie privée ?",
+      "body": "Les données de travail restent dans le navigateur par défaut. Cesium Ion n’est nécessaire que pour les données dépendantes de Cesium."
+    }
+  ],
+  "pageCta": {
+    "eyebrow": "Et ensuite",
+    "title": "Ouvrir Studio ou nous contacter.",
+    "body": "Utilisez Studio pour l’édition, ou contactez LGS1920 si vous avez besoin d’un autre parcours de licence ou d’intégration.",
+    "actions": [
+      {
+        "label": "Ouvrir Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Contact",
+        "href": "/fr/contact",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "envelope",
+          "variant": "regular"
+        }
+      }
+    ]
+  },
+  "creditLabel": "Photo :"
+}

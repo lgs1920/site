@@ -1,0 +1,21 @@
+{
+  "title": "Cancel your LGS1920 Studio launch registration",
+  "description": "Confirm the cancellation of your LGS1920 Studio launch registration.",
+  "hero": {
+    "video": false,
+    "badge": "Registration",
+    "kicker": "Launch registration",
+    "title": "Cancel your registration",
+    "lead": "You have requested cancellation of your LGS1920 Studio launch registration."
+  },
+  "panel": {
+    "eyebrow": "Registration status",
+    "title": "Cancellation"
+  },
+  "loading": "Checking your cancellation link…",
+  "emailLabel": "Email address:",
+  "successTitle": "Your registration has been cancelled.",
+  "successMessage": "Your LGS1920 Studio launch registration has been removed successfully.",
+  "invalidTitle": "This cancellation link is no longer valid.",
+  "invalidMessage": "It may have already been used or may have expired. You can close this page."
+}

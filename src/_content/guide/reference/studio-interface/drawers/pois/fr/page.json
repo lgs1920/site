@@ -1,0 +1,99 @@
+{
+  "title": "Drawer POIs",
+  "description": "Édition des points d'intérêt pour marqueurs, annotations et moments du parcours.",
+  "ui": {
+    "backUrl": "/fr/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "Le drawer POIs est l'endroit où éditer les points d'intérêt qui soutiennent le récit du parcours.\n",
+    "controls": [
+      {
+        "label": "Title and category fields",
+        "icon": "pen-to-square",
+        "type": "Inputs",
+        "description": "Permet de nommer le POI et de choisir la catégorie la plus adaptée."
+      },
+      {
+        "label": "Coordinates fields",
+        "icon": "map-location-dot",
+        "type": "Inputs",
+        "description": "Permet de relire ou éditer la position et les valeurs associées."
+      },
+      {
+        "label": "Visibility switch",
+        "icon": "eye",
+        "type": "Switch",
+        "description": "Affiche ou masque le POI sans le supprimer du parcours."
+      },
+      {
+        "label": "Focus POI",
+        "icon": "bullseye",
+        "type": "Button",
+        "description": "Centre la caméra sur le POI sélectionné."
+      },
+      {
+        "label": "Description and journey fields",
+        "icon": "align-left",
+        "type": "Fields",
+        "description": "Renseigne le texte du POI et, lorsque le contexte le permet, le parcours auquel il est associé."
+      },
+      {
+        "label": "Coordinates and altitude",
+        "icon": "map-location-dot",
+        "type": "Fields",
+        "description": "Modifie la longitude, la latitude et la hauteur du marqueur. Les boutons de copie permettent de réutiliser les coordonnées."
+      },
+      {
+        "label": "Copy coordinates",
+        "icon": "copy",
+        "type": "Button",
+        "description": "Copie les coordonnées du POI pour les coller dans un autre outil ou champ."
+      },
+      {
+        "label": "Show / Hide Filters",
+        "icon": "filter",
+        "type": "Button",
+        "description": "Affiche ou masque les filtres de liste pour les POIs globaux ou liés à un parcours."
+      },
+      {
+        "label": "Search POIs",
+        "icon": "magnifying-glass",
+        "type": "Field",
+        "description": "Recherche un POI par son contenu dans le panneau de filtres."
+      },
+      {
+        "label": "POI actions",
+        "icons": [
+          "eye",
+          "bullseye",
+          "trash"
+        ],
+        "type": "Menu",
+        "description": "Selon l'état du POI, affiche les actions Show/Hide, Focus, Orbit, Copy Coords, Reduce/Expand et Remove."
+      },
+      {
+        "label": "Bulk actions",
+        "icon": "list-check",
+        "type": "Menu",
+        "description": "Applique une action à plusieurs POIs sélectionnés lorsque la sélection multiple est disponible."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Sélectionner un POI",
+        "description": "Choisissez un marqueur dans la liste, puis utilisez <em>Focus</em> pour le retrouver dans la scène."
+      },
+      {
+        "title": "Modifier ses champs",
+        "description": "Mettez à jour le titre, la description, la catégorie, les coordonnées, l'altitude et le parcours associé."
+      },
+      {
+        "title": "Filtrer la liste",
+        "description": "Ouvrez <em>Show Filters</em>, recherchez un POI et choisissez si les résultats doivent inclure les POIs globaux ou ceux d'un parcours."
+      },
+      {
+        "title": "Utiliser les actions",
+        "description": "Utilisez le menu du POI pour le masquer, le déplacer dans la vue, copier ses coordonnées ou le supprimer."
+      }
+    ]
+  }
+}

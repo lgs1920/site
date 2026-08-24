@@ -1,0 +1,106 @@
+{
+  "title": "Journey editor drawer",
+  "description": "Journey-level metadata, track settings, visibility, and camera-related settings.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "The Journey editor drawer holds the story-level settings for the active journey. It is also where the track controls live, so the path styling and visibility flow through the same surface after you open the Journey button.\n",
+    "controls": [
+      {
+        "label": "Title and description fields",
+        "icon": "pen-to-square",
+        "type": "Inputs",
+        "description": "Lets you rename the journey and refine the story description."
+      },
+      {
+        "label": "Track selector",
+        "icon": "route",
+        "type": "Selector",
+        "description": "Chooses which track inside the active journey you want to edit."
+      },
+      {
+        "label": "Track visibility switch",
+        "icon": "eye",
+        "type": "Switch",
+        "description": "Shows or hides the selected track without removing it."
+      },
+      {
+        "label": "Track style fields",
+        "icon": "paintbrush",
+        "type": "Fields",
+        "description": "Adjusts line color, thickness, and related display settings for the selected track."
+      },
+      {
+        "label": "Visibility switch",
+        "icon": "eye",
+        "type": "Switch",
+        "description": "Shows or hides the journey-level content without removing the data."
+      },
+      {
+        "label": "Focus journey",
+        "icon": "bullseye",
+        "type": "Button",
+        "description": "Centers the scene on the current journey so you can verify the framing."
+      },
+      {
+        "label": "Camera and movement settings",
+        "icon": "camera",
+        "type": "Fields",
+        "description": "Adjusts the camera-related values that support the final presentation."
+      },
+      {
+        "label": "Data / Edit / POIs tabs",
+        "icon": "table-columns",
+        "type": "Tabs",
+        "description": "Switches between journey data, editing controls, and points of interest."
+      },
+      {
+        "label": "Elevation source",
+        "icon": "mountain-sun",
+        "type": "Selector",
+        "description": "Selects the elevation source used by journey data and statistics."
+      },
+      {
+        "label": "Activity",
+        "icon": "person-hiking",
+        "type": "Selector",
+        "description": "Assigns an activity to guide the journey statistics and presentation."
+      },
+      {
+        "label": "Export Journey",
+        "icon": "file-export",
+        "type": "Button",
+        "description": "Opens export choices for a file or a report. You can then set the file name and format."
+      },
+      {
+        "label": "Remove Journey",
+        "icon": "trash",
+        "type": "Button",
+        "description": "Deletes the active journey after confirmation. Use visibility controls when you only need to hide it."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Choose the journey",
+        "description": "Select the journey to edit, then use the import button if you need to load another journey."
+      },
+      {
+        "title": "Edit the data",
+        "description": "Use <em>Data</em> to choose the elevation source and review calculated information."
+      },
+      {
+        "title": "Tune the presentation",
+        "description": "In <em>Edit</em>, adjust the title, description, track style, visibility, and camera framing."
+      },
+      {
+        "title": "Export or remove",
+        "description": "Use <em>Export Journey</em> to create a file or report. Reserve <em>Remove Journey</em> for a confirmed deletion."
+      }
+    ],
+    "notes": [
+      "Journey edits are story-level changes, not single-object tweaks.",
+      "Track editing is reached from the same drawer after you select the active track.",
+      "Review metadata and statistics here before generating a report or capture."
+    ]
+  }
+}

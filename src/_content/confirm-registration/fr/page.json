@@ -1,0 +1,21 @@
+{
+  "title": "Confirmer votre inscription au lancement de LGS1920 Studio",
+  "description": "Confirmez votre adresse e-mail pour finaliser votre inscription au lancement de LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Inscription",
+    "kicker": "Lancement du Studio",
+    "title": "Confirmer votre inscription",
+    "lead": "Utilisez le lien reçu par e-mail pour finaliser votre inscription au lancement de LGS1920 Studio."
+  },
+  "panel": {
+    "eyebrow": "État de l’inscription",
+    "title": "Confirmation"
+  },
+  "loading": "Vérification de votre lien de confirmation…",
+  "emailLabel": "Adresse e-mail :",
+  "successTitle": "Votre inscription est confirmée. Merci !",
+  "successMessage": "Votre adresse e-mail est confirmée pour recevoir les informations sur le lancement de LGS1920 Studio.",
+  "invalidTitle": "Ce lien de confirmation n’est plus valide.",
+  "invalidMessage": "Il a peut-être déjà été utilisé ou a expiré. Vous pouvez fermer cette page."
+}

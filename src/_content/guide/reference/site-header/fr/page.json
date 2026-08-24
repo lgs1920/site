@@ -1,0 +1,24 @@
+{
+  "title": "Aide de l'en-tête",
+  "description": "Référence des boutons et raccourcis de l'en-tête du site, adaptés au desktop et au mobile.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Référence",
+    "kicker": "En-tête du site",
+    "title": "Comprendre l'en-tête du site.",
+    "lead": "Retrouvez les boutons de l'en-tête et leur adaptation entre desktop et mobile."
+  },
+  "sectionNav": [
+    {
+      "id": "header-desktop",
+      "label": "Desktop",
+      "summary": "Boutons et raccourcis visibles sur grand écran"
+    },
+    {
+      "id": "header-mobile",
+      "label": "Mobile",
+      "summary": "Contrôles conservés sur petit écran"
+    }
+  ]
+}

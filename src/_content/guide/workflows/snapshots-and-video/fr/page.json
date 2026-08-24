@@ -1,0 +1,29 @@
+{
+  "title": "Exporter Des Captures Et Vidéos",
+  "description": "Préparer la zone de capture, les overlays, les mouvements de caméra et les réglages de sortie.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Workflow",
+    "kicker": "Capture",
+    "title": "Exporter la scène composée.",
+    "lead": "Capturez une image fixe ou enregistrez une vidéo après vérification du cadrage, des overlays et du mouvement."
+  },
+  "sectionNav": [
+    {
+      "id": "workflow-snapshot",
+      "label": "Snapshot",
+      "summary": "Export image"
+    },
+    {
+      "id": "workflow-video",
+      "label": "Vidéo",
+      "summary": "Préparation enregistrement"
+    },
+    {
+      "id": "checklist-finale",
+      "label": "Checklist finale",
+      "summary": "Avant capture"
+    }
+  ]
+}

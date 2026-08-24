@@ -1,0 +1,61 @@
+{
+  "title": "User Guide",
+  "description": "Practical user guide for LGS1920 Studio journeys, tracks, POIs, camera tools, widgets, reports, screenshots, and video exports with privacy-first browser storage.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "User guide",
+    "kicker": "Documentation",
+    "title": "Use LGS1920 Studio day to day.",
+    "lead": "A practical guide organized around the way you prepare, edit, compose, and export route scenes while keeping data local or synced in the browser.",
+    "highlights": [
+      {
+        "icon": "circle-play",
+        "label": "Start and import",
+        "variant": "regular"
+      },
+      {
+        "icon": "route",
+        "label": "Journeys, tracks, and POIs",
+        "variant": "regular"
+      },
+      {
+        "icon": "clapperboard-play",
+        "label": "Snapshot and video output",
+        "variant": "regular"
+      },
+      {
+        "icon": "file-pdf",
+        "label": "Export output",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "general-presentation",
+      "label": "General presentation",
+      "summary": "What the Studio is for"
+    },
+    {
+      "id": "main-steps",
+      "label": "Main steps",
+      "summary": "What to do next"
+    },
+    {
+      "id": "typical-session",
+      "label": "Typical session",
+      "summary": "The expected user flow"
+    },
+    {
+      "id": "screenshots",
+      "label": "Screenshots",
+      "summary": "Reserved areas for visuals"
+    },
+    {
+      "id": "reference-pages",
+      "label": "Reference pages",
+      "summary": "All drawers and dialogs"
+    }
+  ]
+}

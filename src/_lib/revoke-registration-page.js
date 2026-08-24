@@ -1,4 +1,5 @@
 import site from '../_data/site.js'
+import i18n from '../_data/i18n.js'
 import {renderHeroBuildInfo} from './hero-build-info.js'
 import {renderHeroRouteMarkup} from './hero-route-markup.js'
 
@@ -15,7 +16,10 @@ const escapeHtml = (value = '') => String(value)
  * @param {object} pageContent Localized cancellation page content.
  * @returns {string} Rendered HTML fragment.
  */
-export const renderRevokeRegistrationPage = (pageContent) => `
+export const renderRevokeRegistrationPage = (pageContent) => {
+    const labels = i18n.ui[pageContent.locale] ?? i18n.ui.en
+
+    return `
 <section class="page-hero hero-has-video registration-revoke-hero">
     <div class="hero-media"
          aria-hidden="true"
@@ -42,15 +46,11 @@ export const renderRevokeRegistrationPage = (pageContent) => `
     ${renderHeroBuildInfo(pageContent.locale)}
     <div class="hero-backdrop" aria-hidden="true"></div>
     ${renderHeroRouteMarkup({
-        ariaLabel: pageContent.locale === 'fr'
-            ? 'Trace animée avec trois points d’intérêt.'
-            : 'Animated route with three points of interest.',
-        poiLabels: pageContent.locale === 'fr'
-            ? ['Point d’intérêt 01', 'Point d’intérêt 02', 'Point d’intérêt 03']
-            : ['Point of interest 01', 'Point of interest 02', 'Point of interest 03'],
+        ariaLabel: labels.heroRouteDescription,
+        poiLabels: [labels.heroRoutePoiOne, labels.heroRoutePoiTwo, labels.heroRoutePoiThree],
     })}
 
-    <wa-button class="hero-scroll-button" variant="brand" appearance="plain" size="medium" type="button" data-hero-scroll aria-label="${pageContent.locale === 'fr' ? 'Faire défiler vers le contenu' : 'Scroll to content'}">
+    <wa-button class="hero-scroll-button" variant="brand" appearance="plain" size="medium" type="button" data-hero-scroll aria-label="${escapeHtml(labels.scrollToContent)}">
         <wa-icon variant="solid" name="angles-down" aria-hidden="true"></wa-icon>
     </wa-button>
 
@@ -110,5 +110,6 @@ export const renderRevokeRegistrationPage = (pageContent) => `
     </div>
 </section>
 `
+}
 
 export default renderRevokeRegistrationPage

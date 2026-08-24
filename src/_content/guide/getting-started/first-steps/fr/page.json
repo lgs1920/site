@@ -1,0 +1,46 @@
+{
+  "title": "Guide rapide",
+  "description": "Les premières étapes dans LGS1920 Studio : ouvrir l'espace de travail et repérer les contrôles principaux.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Guide rapide",
+    "kicker": "Guide utilisateur",
+    "title": "Démarrer avec LGS1920 Studio.",
+    "lead": "Ouvrir Studio, identifier les zones principales et préparer la première session d'édition.",
+    "highlights": [
+      {
+        "icon": "book-open-lines",
+        "label": "Premier lancement",
+        "variant": "regular"
+      },
+      {
+        "icon": "table-layout",
+        "label": "Zones de travail",
+        "variant": "regular"
+      },
+      {
+        "icon": "bars",
+        "label": "Panneaux latéraux",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "ouvrir-studio",
+      "label": "Ouvrir Studio",
+      "summary": "Accéder à l'éditeur"
+    },
+    {
+      "id": "reperer-les-zones",
+      "label": "Repérer l'espace",
+      "summary": "Scène, panneaux, contrôles"
+    },
+    {
+      "id": "premiers-controles",
+      "label": "Premiers contrôles",
+      "summary": "Avant l'import"
+    }
+  ]
+}

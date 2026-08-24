@@ -1,0 +1,29 @@
+{
+  "title": "Exporter",
+  "description": "Exporter des captures, vidéos et rapports de parcours depuis la scène préparée.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Étape principale",
+    "kicker": "Export",
+    "title": "Exporter le rendu final.",
+    "lead": "Choisissez le bon flux d'export une fois le parcours, la scène, les widgets et la caméra prêts."
+  },
+  "sectionNav": [
+    {
+      "id": "choisir-la-sortie",
+      "label": "Choisir la sortie",
+      "summary": "Capture, vidéo, rapport"
+    },
+    {
+      "id": "capture-et-video",
+      "label": "Capture et vidéo",
+      "summary": "Capturer la scène"
+    },
+    {
+      "id": "rapport",
+      "label": "Rapport",
+      "summary": "Export documentaire"
+    }
+  ]
+}

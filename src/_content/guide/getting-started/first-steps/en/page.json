@@ -1,0 +1,46 @@
+{
+  "title": "Quick guide",
+  "description": "The essential first steps in LGS1920 Studio: open the workspace, identify the main controls, and prepare a session.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Quick guide",
+    "kicker": "User guide",
+    "title": "Get started with LGS1920 Studio.",
+    "lead": "Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.",
+    "highlights": [
+      {
+        "icon": "book-open-lines",
+        "label": "First launch",
+        "variant": "regular"
+      },
+      {
+        "icon": "table-layout",
+        "label": "Workspace areas",
+        "variant": "regular"
+      },
+      {
+        "icon": "bars",
+        "label": "Side panels",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "open-the-studio",
+      "label": "Open the Studio",
+      "summary": "Access the editor"
+    },
+    {
+      "id": "identify-the-workspace",
+      "label": "Workspace areas",
+      "summary": "Scene, panels, controls"
+    },
+    {
+      "id": "first-checks",
+      "label": "First checks",
+      "summary": "Before importing data"
+    }
+  ]
+}

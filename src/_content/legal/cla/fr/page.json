@@ -1,0 +1,12 @@
+{
+  "title": "Contributor License Agreement",
+  "description": "Conditions applicables aux contributions de code et de documentation proposées à LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Légal",
+    "kicker": "Contributions",
+    "title": "Relire le Contributor License Agreement.",
+    "lead": "Les contributeurs doivent accepter ces conditions avant que leurs changements puissent être fusionnés dans le dépôt principal Studio."
+  },
+  "intro": "Le CLA ci-dessous est récupéré au build depuis le dépôt principal Studio afin de garder les conditions de contribution synchronisées."
+}

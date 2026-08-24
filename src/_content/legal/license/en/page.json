@@ -1,0 +1,12 @@
+{
+  "title": "GNU AGPL v3 or later",
+  "description": "Full GNU AGPL v3 or later text used for the public version of LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Legal",
+    "kicker": "License",
+    "title": "Read the complete AGPL text.",
+    "lead": "This page mirrors the full license text maintained in the 1.0.0-beta.3 Studio branch."
+  },
+  "intro": "The license text below is rendered directly from the canonical Markdown kept in the 1.0.0-beta.3 Studio branch."
+}

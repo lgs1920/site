@@ -1,0 +1,61 @@
+{
+  "title": "Contact LGS1920",
+  "description": "Send a message to the LGS1920 Studio team through a privacy-conscious contact form.",
+  "hero": {
+    "video": false,
+    "badge": "Contact",
+    "kicker": "Get in touch",
+    "title": "Tell us what you need.",
+    "lead": "Use this form for questions about Studio, the website, licensing, partnerships, or anything else you would like to share with LGS1920.",
+    "highlights": [
+      {
+        "label": "A direct reply",
+        "icon": "paper-plane",
+        "variant": "regular"
+      },
+      {
+        "label": "Clear consent",
+        "icon": "shield-check",
+        "variant": "regular"
+      },
+      {
+        "label": "No advertising reuse",
+        "icon": "lock",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "contact-form",
+      "label": "Contact form",
+      "summary": "Send your message to LGS1920"
+    },
+    {
+      "id": "contact-privacy",
+      "label": "Your data",
+      "summary": "How contact requests are handled"
+    }
+  ],
+  "form": {
+    "firstNameLabel": "First name",
+    "firstNamePlaceholder": "Your first name",
+    "lastNameLabel": "Last name",
+    "lastNamePlaceholder": "Your last name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "What can we help with?",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here",
+    "consentLabel": "I agree to be contacted about this request.",
+    "submitLabel": "Send message",
+    "successMessage": "Thank you. Your message has been sent. Please check your spam folder if you do not receive a reply.",
+    "errorMessage": "Your message could not be sent. Please try again later."
+  },
+  "privacy": {
+    "title": "A limited and transparent use of your message.",
+    "body": "The details you provide are used only to answer your request. They are not sold or shared for advertising. You can ask for access, correction, or deletion of your data, or withdraw your consent, by sending a new request through this form or by writing to studio@lgs1920.fr.",
+    "notice": "Only the information needed to answer your request is retained for as long as necessary. The form includes an anti-spam field and does not require an account."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "GNU AGPL v3 ou ultérieure",
+  "description": "Texte complet de la GNU AGPL v3 ou ultérieure utilisé pour la version publique de LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Légal",
+    "kicker": "Licence",
+    "title": "Lire le texte complet de l'AGPL.",
+    "lead": "Cette page reflète le texte complet maintenu dans la branche Studio 1.0.0-beta.3."
+  },
+  "intro": "Le texte de licence ci-dessous est rendu directement depuis le Markdown canonique conservé dans la branche Studio 1.0.0-beta.3."
+}

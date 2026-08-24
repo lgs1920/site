@@ -1,0 +1,21 @@
+{
+  "title": "Confirm your LGS1920 Studio launch registration",
+  "description": "Confirm your email address to complete your LGS1920 Studio launch registration.",
+  "hero": {
+    "video": false,
+    "badge": "Registration",
+    "kicker": "Launch registration",
+    "title": "Confirm your registration",
+    "lead": "Use the link from your confirmation email to complete your LGS1920 Studio launch registration."
+  },
+  "panel": {
+    "eyebrow": "Registration status",
+    "title": "Confirmation"
+  },
+  "loading": "Checking your confirmation link…",
+  "emailLabel": "Email address:",
+  "successTitle": "Your registration is confirmed. Thank you!",
+  "successMessage": "Your email address has been confirmed for LGS1920 Studio launch updates.",
+  "invalidTitle": "This confirmation link is no longer valid.",
+  "invalidMessage": "It may have already been used or may have expired. You can close this page."
+}

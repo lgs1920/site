@@ -1,0 +1,29 @@
+{
+  "title": "Prompt Cesium token",
+  "description": "Prompt de jeton affiché quand l'accès Cesium manque ou est invalide.",
+  "ui": {
+    "backUrl": "/fr/user-guide/reference/studio-interface/#dialogs",
+    "backLabel": "Dialogs",
+    "overview": "Le prompt Cesium token apparaît quand Studio a besoin d'un jeton Cesium Ion valide.\n",
+    "controls": [
+      {
+        "label": "Token field",
+        "icon": "key",
+        "type": "Text field",
+        "description": "Reçoit le jeton Cesium Ion à valider."
+      },
+      {
+        "label": "Validate",
+        "icon": "circle-check",
+        "type": "Button",
+        "description": "Vérifie le jeton et l'enregistre s'il est valide."
+      },
+      {
+        "label": "Cancel",
+        "icon": "xmark",
+        "type": "Button",
+        "description": "Ferme le prompt sans rien enregistrer."
+      }
+    ]
+  }
+}

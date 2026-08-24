@@ -1,0 +1,19 @@
+{
+  "title": "Site search",
+  "description": "Use site search to find a guide page, an FAQ answer, or a project history entry.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Reference",
+    "kicker": "Search",
+    "title": "Find a page quickly.",
+    "lead": "Use the search button or keyboard shortcuts to query the guide and other indexed content."
+  },
+  "sectionNav": [
+    {
+      "id": "search",
+      "label": "Search",
+      "summary": "Search the guide and site"
+    }
+  ]
+}

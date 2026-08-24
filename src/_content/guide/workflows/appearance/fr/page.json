@@ -1,0 +1,29 @@
+{
+  "title": "Changer Les Couleurs Et L'apparence",
+  "description": "Changer le mode de thème, la couleur de marque et les préférences d'interface.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Étape principale",
+    "kicker": "Apparence",
+    "title": "Ajuster l'apparence de l'espace de travail.",
+    "lead": "Utilisez les réglages d'apparence lorsque l'interface, la couleur de marque ou le mode de thème doivent changer."
+  },
+  "sectionNav": [
+    {
+      "id": "ouvrir-settings",
+      "label": "Ouvrir Settings",
+      "summary": "Depuis le bouton Settings"
+    },
+    {
+      "id": "changer-le-theme",
+      "label": "Changer le thème",
+      "summary": "Light, dark, system"
+    },
+    {
+      "id": "changer-la-couleur",
+      "label": "Changer la couleur",
+      "summary": "Marque et saison"
+    }
+  ]
+}

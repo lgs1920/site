@@ -1,0 +1,46 @@
+{
+  "title": "Use Widgets",
+  "description": "Add, place, and review visual overlays such as text, credits, compass, profile, and journey statistics.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Main step",
+    "kicker": "Widgets",
+    "title": "Compose the visible story layer.",
+    "lead": "Add overlays that explain the route without hiding the map.",
+    "highlights": [
+      {
+        "icon": "compass",
+        "label": "Compass",
+        "variant": "regular"
+      },
+      {
+        "icon": "chart-line",
+        "label": "Profile and stats",
+        "variant": "regular"
+      },
+      {
+        "icon": "text",
+        "label": "Text and credits",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "choose-widgets",
+      "label": "Choose widgets",
+      "summary": "Useful overlays"
+    },
+    {
+      "id": "place-widgets",
+      "label": "Place widgets",
+      "summary": "Position and size"
+    },
+    {
+      "id": "export-ready-checks",
+      "label": "Export checks",
+      "summary": "Final review"
+    }
+  ]
+}

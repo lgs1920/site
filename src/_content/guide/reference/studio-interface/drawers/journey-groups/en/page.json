@@ -1,0 +1,80 @@
+{
+  "title": "Journey groups drawer",
+  "description": "Group organization and assignment for journeys.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/#drawers",
+    "backLabel": "Drawers",
+    "overview": "The Journey groups drawer is used to organize journeys into collections. It helps when a project contains more than one route story and you need a predictable way to keep them sorted.\n",
+    "controls": [
+      {
+        "label": "Group selector",
+        "icon": "folder-tree",
+        "type": "Selector",
+        "description": "Chooses the active group for the current journey."
+      },
+      {
+        "label": "Assignment controls",
+        "icon": "arrows-left-right",
+        "type": "Button group",
+        "description": "Moves or assigns journeys between groups."
+      },
+      {
+        "label": "Sort order",
+        "icon": "arrow-down-a-z",
+        "type": "Control",
+        "description": "Changes how journeys are ordered inside the list."
+      },
+      {
+        "label": "Add group",
+        "icon": "folder-plus",
+        "type": "Button",
+        "description": "Opens the group creation form with fields for a name, color, parent, and description."
+      },
+      {
+        "label": "Add journey",
+        "icon": "route",
+        "type": "Button",
+        "description": "Opens the journey picker so you can add journeys to the current group."
+      },
+      {
+        "label": "Group name, color, parent, description",
+        "icon": "pen-to-square",
+        "type": "Fields",
+        "description": "Defines a group's identity and hierarchy. The parent can be set to <em>No parent</em>."
+      },
+      {
+        "label": "Edit / remove group",
+        "icons": [
+          "pen-to-square",
+          "trash"
+        ],
+        "type": "Actions",
+        "description": "Edits the group details or removes the group from the tree after confirmation."
+      },
+      {
+        "label": "Expand / collapse tree",
+        "icon": "chevron-down",
+        "type": "Control",
+        "description": "Expands or collapses groups while you browse their contents."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Create a group",
+        "description": "Select <em>Add group</em>, complete the fields, then confirm with <em>Create group</em>."
+      },
+      {
+        "title": "Add journeys",
+        "description": "Select a group, choose <em>Add journey</em>, select the journeys, and confirm the selection."
+      },
+      {
+        "title": "Organize the tree",
+        "description": "Change the parent, reorder items, and use the edit or remove action on the appropriate group."
+      }
+    ],
+    "notes": [
+      "Use groups when a project contains multiple journeys that need a stable editorial order.",
+      "This drawer is for organization, not for route geometry editing."
+    ]
+  }
+}

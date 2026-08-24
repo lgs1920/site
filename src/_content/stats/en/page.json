@@ -1,0 +1,37 @@
+{
+  "title": "Statistics",
+  "description": "Current and historical LGS1920 Studio usage counters by the viewer’s local period.",
+  "hero": {
+    "video": false,
+    "badge": "Live counters",
+    "kicker": "Statistics",
+    "title": "See the latest Studio usage counts.",
+    "lead": "Read-only counters are loaded from the backend when this page opens. Daily, weekly, monthly, and yearly values use the viewer’s local time zone.",
+    "highlights": [
+      {
+        "label": "Visits",
+        "icon": "eye",
+        "variant": "regular"
+      },
+      {
+        "label": "Journeys",
+        "icon": "route",
+        "variant": "regular"
+      },
+      {
+        "label": "Draft and HQ video",
+        "icon": "clapperboard-play",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionTitle": "Usage counters",
+  "intro": "Each value is an accepted event count, not a unique visitor count (no IP or other data except time zone).",
+  "sectionNav": [
+    {
+      "id": "stats-table",
+      "label": "Usage counters",
+      "summary": "Current and historical values by local date period"
+    }
+  ]
+}

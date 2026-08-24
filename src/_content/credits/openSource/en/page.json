@@ -1,0 +1,59 @@
+{
+  "title": "Open Source Credits",
+  "description": "Open source software credits for LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Open source",
+    "kicker": "Open Source Credits",
+    "title": "Explore the open source projects powering Studio.",
+    "lead": "This page mirrors the dedicated open source credit document maintained in the main Studio repository.",
+    "highlights": [
+      {
+        "label": "Map and 3D",
+        "icon": "cube",
+        "variant": "regular"
+      },
+      {
+        "label": "Runtime and tooling",
+        "icon": "screwdriver-wrench",
+        "variant": "regular"
+      },
+      {
+        "label": "User interface libraries",
+        "icon": "window",
+        "variant": "regular"
+      }
+    ]
+  },
+  "intro": "The open source projects below are credited from the canonical Studio document. Other runtime, tooling, and trusted dependencies are listed separately in the dependency inventory.",
+  "pageCta": {
+    "eyebrow": "Project sources",
+    "title": "Read the complete credits collection.",
+    "body": "Return to the general credits page for map providers, geocoding, and other attribution details.",
+    "actions": [
+      {
+        "label": "All credits",
+        "href": "/credits",
+        "variant": "brand",
+        "icon": {
+          "name": "arrow-left",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Open Studio repository",
+        "href": "https://github.com/lgs1920/studio",
+        "appearance": "outlined",
+        "external": true,
+        "icon": {
+          "family": "brands",
+          "name": "github"
+        }
+      }
+    ]
+  },
+  "relatedLink": {
+    "href": "/credits",
+    "label": "View all credits"
+  }
+}

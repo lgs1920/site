@@ -1,0 +1,18 @@
+[
+  {
+    "code": "en",
+    "prefix": "",
+    "label": "English",
+    "short": "EN",
+    "ogLocale": "en_US",
+    "flagUrl": "/assets/flags/gb.svg"
+  },
+  {
+    "code": "fr",
+    "prefix": "/fr",
+    "label": "Français",
+    "short": "FR",
+    "ogLocale": "fr_FR",
+    "flagUrl": "/assets/flags/fr.svg"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "tableCaption": "LGS1920 Studio usage counters by the viewer’s local period",
+  "period": "Period",
+  "visits": "Visits",
+  "journeys": "Journeys",
+  "videoDraft": "Draft videos",
+  "videoHq": "HQ videos",
+  "total": "Total",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "previousMonth": "Last month",
+  "thisYear": "This year",
+  "loading": "Loading counters…",
+  "loaded": "Counters loaded.",
+  "partial": "Some counters are temporarily unavailable.",
+  "failed": "Counters could not be loaded right now.",
+  "refreshing": "Refreshing counters…",
+  "updated": "Last update:",
+  "refresh": "Refresh",
+  "unavailable": "Unavailable"
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Credits",
+  "description": "Attribution and source credits for LGS1920 Studio.",
+  "hero": {
+    "video": false,
+    "badge": "Attribution",
+    "kicker": "Credits",
+    "title": "Meet the projects and data providers behind Studio.",
+    "lead": "These credits are assembled at build time from the Markdown files maintained in the main Studio repository.",
+    "highlights": [
+      {
+        "label": "3 source documents",
+        "icon": "file-lines",
+        "variant": "regular"
+      },
+      {
+        "label": "Maps, terrain, and geocoding",
+        "icon": "map",
+        "variant": "regular"
+      },
+      {
+        "label": "Open source code on its own page",
+        "icon": "code",
+        "variant": "regular"
+      }
+    ]
+  },
+  "intro": "The sections below acknowledge the map engine, data providers, and geocoding services used by LGS1920 Studio.",
+  "pageCta": {
+    "eyebrow": "Keep exploring",
+    "title": "Want the code dependency list too?",
+    "body": "Read the dedicated open source credits page or browse the full dependency inventory maintained for Studio.",
+    "actions": [
+      {
+        "label": "Open source credits",
+        "href": "/credits/open-source",
+        "variant": "brand",
+        "icon": {
+          "name": "code",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Dependency inventory",
+        "href": "/dependencies",
+        "appearance": "outlined",
+        "icon": {
+          "name": "box-open-full",
+          "variant": "regular"
+        }
+      }
+    ]
+  },
+  "relatedLink": {
+    "href": "/credits/open-source",
+    "label": "Open source software credits"
+  }
+}

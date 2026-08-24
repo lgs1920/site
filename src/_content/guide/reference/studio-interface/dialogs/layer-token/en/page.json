@@ -1,0 +1,32 @@
+{
+  "title": "Layer token modal",
+  "description": "Access token prompt for protected layer or terrain sources.",
+  "ui": {
+    "backUrl": "/user-guide/reference/studio-interface/drawers/layers",
+    "backLabel": "Layers drawer",
+    "overview": "The Layer token modal appears when a protected layer or terrain source needs an access token. It keeps the token request tied to the source that needs it.\n",
+    "controls": [
+      {
+        "label": "Token field",
+        "icon": "key",
+        "type": "Text field",
+        "description": "Accepts the access token for the selected layer or terrain source."
+      },
+      {
+        "label": "Validate",
+        "icon": "circle-check",
+        "type": "Button",
+        "description": "Checks the token and unlocks the source when it is valid."
+      },
+      {
+        "label": "Cancel",
+        "icon": "xmark",
+        "type": "Button",
+        "description": "Closes the modal without saving a token."
+      }
+    ],
+    "notes": [
+      "Use the token modal only for protected source access."
+    ]
+  }
+}

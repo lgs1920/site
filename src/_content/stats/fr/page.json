@@ -1,0 +1,37 @@
+{
+  "title": "Statistiques",
+  "description": "Compteurs d’utilisation actuels et historiques de LGS1920 Studio selon la période locale du visiteur.",
+  "hero": {
+    "video": false,
+    "badge": "Compteurs en direct",
+    "kicker": "Statistiques",
+    "title": "Consulter les derniers compteurs de Studio.",
+    "lead": "Les compteurs en lecture seule sont chargés depuis le backend à l’ouverture de cette page. Les valeurs quotidiennes, hebdomadaires, mensuelles et annuelles utilisent le fuseau horaire local du visiteur.",
+    "highlights": [
+      {
+        "label": "Visites",
+        "icon": "eye",
+        "variant": "regular"
+      },
+      {
+        "label": "Parcours",
+        "icon": "route",
+        "variant": "regular"
+      },
+      {
+        "label": "Vidéo brouillon et HQ",
+        "icon": "clapperboard-play",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionTitle": "Compteurs d’utilisation",
+  "intro": "Chaque valeur compte les événements acceptés, et non les visiteurs uniques (pas d'adresse IP ni d'autre donnée, à l'exception du fuseau horaire).",
+  "sectionNav": [
+    {
+      "id": "stats-table",
+      "label": "Compteurs d’utilisation",
+      "summary": "Valeurs actuelles et historiques par période locale"
+    }
+  ]
+}

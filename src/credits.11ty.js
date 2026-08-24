@@ -17,10 +17,7 @@ export default class {
         return renderCreditsSection({
             document:   creditsDocs.general,
             intro:      pageContent.intro,
-            relatedLink:{
-                href: '/credits/open-source',
-                label:'Open source software credits',
-            },
+            relatedLink: pageContent.relatedLink,
         })
     }
 }

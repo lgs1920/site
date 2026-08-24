@@ -17,10 +17,7 @@ export default class {
         return renderCreditsSection({
             document:   creditsDocs.openSource,
             intro:      pageContent.intro,
-            relatedLink:{
-                href: '/credits',
-                label:'View all credits',
-            },
+            relatedLink: pageContent.relatedLink,
         })
     }
 }

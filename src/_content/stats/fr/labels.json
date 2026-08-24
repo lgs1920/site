@@ -1,0 +1,23 @@
+{
+  "tableCaption": "Compteurs d’utilisation de LGS1920 Studio selon la période locale du visiteur",
+  "period": "Période",
+  "visits": "Visites",
+  "journeys": "Parcours",
+  "videoDraft": "Vidéos brouillon",
+  "videoHq": "Vidéos HQ",
+  "total": "Total",
+  "today": "Aujourd’hui",
+  "yesterday": "Hier",
+  "thisWeek": "Cette semaine",
+  "thisMonth": "Ce mois-ci",
+  "previousMonth": "Le mois dernier",
+  "thisYear": "Cette année",
+  "loading": "Chargement des compteurs…",
+  "loaded": "Compteurs chargés.",
+  "partial": "Certains compteurs sont temporairement indisponibles.",
+  "failed": "Les compteurs ne peuvent pas être chargés pour le moment.",
+  "refreshing": "Actualisation des compteurs…",
+  "updated": "Dernière mise à jour :",
+  "refresh": "Actualiser",
+  "unavailable": "Indisponible"
+}

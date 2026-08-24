@@ -17,7 +17,7 @@ const renderFaqLinks = (links = []) => {
     }).join('')
 }
 
-const renderFaqImage = (image, creditLabel = 'Photo:') => {
+const renderFaqImage = (image, creditLabel = '') => {
     if (!image?.src) {
         return ''
     }
@@ -31,7 +31,7 @@ const renderFaqImage = (image, creditLabel = 'Photo:') => {
         </figure>`
 }
 
-export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = 'Photo:' }) => `
+export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = '' }) => `
 <section class="content-section faq-page">
     <div class="section-heading">
         <p class="section-kicker">${escapeHtml(kicker)}</p>

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-24 — [`cb3c6b3`](https://github.com/lgs1920/site/commit/cb3c6b3) — Move localized copy to JSON
+
+- Moved shared page, guide, navigation, and interface copy from JavaScript modules into localized JSON files.
+- Added a shared content loader and documented the JSON/Markdown separation rule.
+
 ## 2026-08-18 — [`d6fec46`](https://github.com/lgs1920/site/commit/d6fec46) — Enable and style search clear buttons
 
 - Enabled Web Awesome's native clear button on the global, guide, and error-page search fields.

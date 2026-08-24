@@ -1,0 +1,97 @@
+{
+  "title": "FAQ",
+  "description": "Common questions about Studio and the public site.",
+  "hero": {
+    "video": false,
+    "badge": "Help",
+    "kicker": "FAQ",
+    "title": "Answers to common questions about Studio.",
+    "lead": "This page keeps the public-site and product questions in one place, with short answers that are easy to update.",
+    "highlights": [
+      {
+        "label": "Local-first workflow",
+        "icon": "database",
+        "variant": "regular"
+      },
+      {
+        "label": "Exports and reports",
+        "icon": "file-pdf",
+        "variant": "regular"
+      },
+      {
+        "label": "Cesium when needed",
+        "icon": "key",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionTitle": "Common questions",
+  "intro": "Short answers to the questions people usually ask before opening Studio or reading the documentation.",
+  "items": [
+    {
+      "id": "why-lgs1920",
+      "summary": "Why LGS1920? What does it mean?",
+      "body": "LGS1920 stands for La Grande Sure, a 1,920-metre summit in the Chartreuse massif, in the French Alps, at GPS coordinates 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).",
+      "bodyAfter": "It is a mountain that means a great deal to me: it is part of my family roots, and I was barely twelve when I climbed it for the first time with my family. At the time, it was my Mont Blanc — better still, my Everest.",
+      "bodyFinal": "One of Studio’s journey samples is, appropriately, named LGS1920. It is one of my favourite hikes, and I still hike it once a year, 54 years later.",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sangle_Hurti%C3%A8res_Voironnais.jpg/1280px-Sangle_Hurti%C3%A8res_Voironnais.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Sangle_Hurti%C3%A8res_Voironnais.jpg",
+        "author": "Hélène Rival",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": "The Hurtières cirque and the Voironnais seen from the trail to the Hurtières Gullet"
+      }
+    },
+    {
+      "id": "who-is-studio-for",
+      "summary": "Who is Studio for?",
+      "body": "People who need to review, present, and export map scenes, reports, screenshots, or video."
+    },
+    {
+      "id": "what-can-it-export",
+      "summary": "What can Studio export?",
+      "body": "Snapshots, video, PDF reports, and ZIP-packaged HTML reports."
+    },
+    {
+      "id": "why-cant-load-downloads-mobile",
+      "summary": "Why can’t I load a file from the Downloads folder on my mobile or tablet?",
+      "body": "On Android and iOS, files in the dedicated Downloads directory cannot be read directly by a browser.",
+      "bodyAfter": "LGS1920 follows a privacy-first approach: your files remain on your device and are read locally by the browser. To work around this restriction, we would have to send the file contents unencrypted to our backend so it could download the file on your behalf. We refuse to do that."
+    },
+    {
+      "id": "how-private-is-it",
+      "summary": "How private is it?",
+      "body": "Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data."
+    }
+  ],
+  "pageCta": {
+    "eyebrow": "Next steps",
+    "title": "Open Studio or get in touch.",
+    "body": "Use Studio for editing, or contact LGS1920 if you need a different licensing or integration path.",
+    "actions": [
+      {
+        "label": "Open Studio",
+        "href": "https://studio.lgs1920.fr",
+        "appearance": "filled",
+        "variant": "brand",
+        "external": true,
+        "icon": {
+          "name": "clapperboard-play",
+          "variant": "regular"
+        }
+      },
+      {
+        "label": "Contact",
+        "href": "/contact",
+        "appearance": "outlined",
+        "variant": "brand",
+        "icon": {
+          "name": "envelope",
+          "variant": "regular"
+        }
+      }
+    ]
+  },
+  "creditLabel": "Photo:"
+}

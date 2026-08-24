@@ -1,0 +1,19 @@
+{
+  "title": "Recherche du site",
+  "description": "Utiliser la recherche du site pour retrouver une page du guide, une réponse de FAQ ou une entrée d'historique.",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Référence",
+    "kicker": "Recherche",
+    "title": "Retrouver rapidement une page.",
+    "lead": "Utilisez le bouton de recherche ou les raccourcis clavier pour interroger le guide et les autres contenus indexés."
+  },
+  "sectionNav": [
+    {
+      "id": "recherche",
+      "label": "Recherche",
+      "summary": "Recherche dans le guide et le site"
+    }
+  ]
+}
