@@ -4672,6 +4672,10 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
     background-color: transparent !important;
 }
 
+wa-card.page-cta-card {
+    width: 100%;
+}
+
 wa-card.page-cta-card::part(body) {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) auto;

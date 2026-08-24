@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-24 — [`27413e1`](https://github.com/lgs1920/site/commit/27413e1) — Stretch main footer cards
+
+- Made main-footer cards fill the complete width available between the responsive site margins.
+
 ## 2026-08-24 — [`7ee36ef`](https://github.com/lgs1920/site/commit/7ee36ef) — Stabilize Eleventy HMR
 
 - Fixed the development server on port 8080 with a dedicated HMR port and disabled automatic port reassignment.
