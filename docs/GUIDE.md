@@ -101,9 +101,9 @@ For a legal page, use this map:
 | Licensing source | `../studio/LICENSES.md` |
 | Full license source | `../studio/LICENSE.md` |
 | Contributor agreement source | `../studio/CONTRIBUTOR_LICENSE_AGREEMENT.md` |
-| Dependency inventory source | `../studio/tech-doc/specs/README_DEPENDENCIES.md` |
+| Dependency inventory source | `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` |
 
-Legal documents are read from the Studio repository at build time. The dependency document uses the `1.0.0-beta.3` Studio reference. If a legal page fails during the build, check the source path and Git reference before changing the Eleventy controller.
+Legal documents are read from the Studio repository at build time. The dependency document uses the pinned `09ec8294` Studio revision. If a legal page fails during the build, check the source path and Git reference before changing the Eleventy controller.
 
 ## 3. Guide-page structure
 
@@ -244,7 +244,7 @@ bun run dev
 | Shared page-data helpers | `src/_lib/page-data.js` |
 | Public page definitions | `src/_data/pages/<page>.js` |
 | Legal page controller | `src/<page>.11ty.js` or `src/fr/<page>.11ty.js` |
-| Legal source documents | `../studio/*.md` and `../studio/tech-doc/specs/README_DEPENDENCIES.md` |
+| Legal source documents | `../studio/*.md` and `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` |
 | Shared page structure | `src/_includes/layouts/page.html` |
 | Global appearance | `src/assets/site.css` |
 | Translation status and revision data | `src/_data/translation-status.js` |

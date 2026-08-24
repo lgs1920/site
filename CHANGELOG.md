@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-24 — [`5efc71a`](https://github.com/lgs1920/site/commit/5efc71a) — Synchronize Studio documentation source
+
+- Updated the dependency-document path and pinned Studio revision used by the site.
+- Synchronized maintenance and release documentation with the reorganized Studio technical docs.
+
 ## 2026-08-24 — [`27413e1`](https://github.com/lgs1920/site/commit/27413e1) — Stretch main footer cards
 
 - Made main-footer cards fill the complete width available between the responsive site margins.

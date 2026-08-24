@@ -31,7 +31,7 @@ Work from `/home/christian/devs/assets/lgs1920/site` and inspect the existing da
 
 ## Build dependency
 
-Legal and dependency pages read source files from the sibling Studio repository. The dependency source is `../studio/tech-doc/README_DEPENDENCIES.md` at Git ref `1.0.0-beta.3`. If the build fails there, verify path and ref before changing application code.
+Legal and dependency pages read source files from the sibling Studio repository. The dependency source is `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` at the pinned Studio ref used by `src/_lib/legal-docs.js`. If the build fails there, verify path and ref before changing application code.
 
 ## Safety
 

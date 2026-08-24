@@ -94,7 +94,7 @@ Le modèle ne semble pas distinguer une traduction publiée, en cours, obsolète
 
 ### 4.7 Validation insuffisamment spécialisée — priorité haute
 
-Le build global est le contrôle principal, mais il ne vérifie pas nécessairement la cohérence éditoriale entre langues. Lors de l’analyse, `bun run build` échoue avant la génération des pages car la source externe `../studio/tech-doc/README_DEPENDENCIES.md` est absente. Ce blocage est distinct du multilingue, mais il empêche de valider le rendu complet dans cet environnement.
+Le build global est le contrôle principal, mais il ne vérifie pas nécessairement la cohérence éditoriale entre langues. Lors de l’analyse, `bun run build` échoue avant la génération des pages car la source externe `../studio/tech-doc/README_DEPENDENCIES.md` était absente. Ce blocage est distinct du multilingue, mais il empêchait de valider le rendu complet dans cet environnement.
 
 **Recommandation :** séparer les contrôles :
 
@@ -262,6 +262,6 @@ Les phases 1 à 3 ont été amorcées dans le dépôt :
 - `src/_data/translation-status.js` calcule le statut, la révision SHA courte de la source anglaise et la date de modification de chaque traduction ;
 - `guideTranslationReport` est disponible dans les données Eleventy des pages du guide ;
 - le build lance le contrôle éditorial avant Eleventy ;
-- la source de dépendances légales pointe désormais vers `studio/tech-doc/specs/README_DEPENDENCIES.md` et la référence `1.0.0-beta.3`.
+- la source de dépendances légales pointe désormais vers `studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` et une révision Studio épinglée.
 
 Le contrôle signale encore quelques différences de nombre de titres entre anglais et français. Elles sont actuellement des avertissements, car certaines pages utilisent des includes et ne possèdent pas une structure Markdown strictement identique. Après correction de la source technique externe, le build complet passe et génère 94 fichiers.

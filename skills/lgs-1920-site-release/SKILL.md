@@ -38,7 +38,7 @@ Use `/home/christian/devs/assets/lgs1920/site` and inspect both the site and sib
 
 ## External Studio source
 
-Legal, dependency, and public changelog content is read from the sibling repository. The dependency document is `../studio/tech-doc/README_DEPENDENCIES.md` at ref `1.0.0-beta.3`, and the public `/changelog/` page is generated from Studio release notes. Confirm the dependency ref exists before release; do not silently switch to working-tree files for a reproducible release. The local `CHANGELOG.md` records site commits separately and must not replace the public Studio changelog.
+Legal, dependency, and public changelog content is read from the sibling repository. The dependency document is `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` at the pinned ref in `src/_lib/legal-docs.js`, and the public `/changelog/` page is generated from Studio release notes. Confirm the dependency ref exists before release; do not silently switch to working-tree files for a reproducible release. The local `CHANGELOG.md` records site commits separately and must not replace the public Studio changelog.
 
 ## Safety
 
