@@ -2664,6 +2664,15 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     color: var(--page-muted);
 }
 
+#studio-overview wa-card.studio-presentation-privacy-card,
+#studio-overview wa-card.studio-presentation-privacy-card:hover {
+    transform: none;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+}
+
 .hero-panel-note-trigger {
     display: inline-flex;
     vertical-align: middle;

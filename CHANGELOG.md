@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-24 — [`TBD`](https://github.com/lgs1920/site/commit/TBD) — Flatten Studio privacy card
+
+- Removed the hover lift, border, background, and shadow from the Studio privacy card.
+
 ## 2026-08-24 — [`5efc71a`](https://github.com/lgs1920/site/commit/5efc71a) — Synchronize Studio documentation source
 
 - Updated the dependency-document path and pinned Studio revision used by the site.
