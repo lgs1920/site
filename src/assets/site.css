@@ -3429,27 +3429,37 @@ wa-card.registration-hero-details-card::part(body) {
     color: var(--lgs-accent-color);
 }
 
-.registration-revoke-hero,
-.registration-confirm-hero {
-    min-height: 76svh;
+.registration-action-section {
+    display: grid;
+    gap: var(--wa-space-l);
 }
 
-.registration-revoke-hero .hero-shell,
-.registration-confirm-hero .hero-shell {
-    align-items: center;
-}
-
+.registration-action-panel,
 .registration-revoke-panel,
 .registration-confirm-panel {
     position: relative;
     display: grid;
     gap: var(--wa-space-l);
-    align-self: center;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
     min-width: 0;
     overflow: hidden;
-    background: color-mix(in oklab, var(--surface-soft) 76%, transparent);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    color: var(--page-ink);
+    border-color: var(--panel-stroke);
+    background: var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.registration-action-panel .hero-panel-header,
+.registration-action-panel .hero-panel-title {
+    color: var(--page-ink);
+}
+
+.registration-action-panel .panel-eyebrow,
+.registration-action-panel .registration-revoke-loading p,
+.registration-action-panel .registration-confirm-loading p {
+    color: var(--page-muted);
 }
 
 .registration-revoke-panel > *,
@@ -3475,6 +3485,7 @@ wa-card.registration-hero-details-card::part(body) {
     display: grid;
     gap: var(--wa-space-m);
     width: 100%;
+    max-width: none;
 }
 
 .registration-revoke-state[hidden],
@@ -3496,6 +3507,7 @@ wa-card.registration-hero-details-card::part(body) {
 .registration-revoke-state wa-callout,
 .registration-confirm-state wa-callout {
     width: 100%;
+    max-width: none;
     padding: var(--wa-space-l);
     text-align: start;
 }

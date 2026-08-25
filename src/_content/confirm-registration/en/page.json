@@ -5,11 +5,9 @@
     "video": false,
     "badge": "Registration",
     "kicker": "Launch registration",
-    "title": "Confirm your registration",
-    "lead": "Use the link from your confirmation email to complete your LGS1920 Studio launch registration."
+    "title": "Registration confirmation"
   },
   "panel": {
-    "eyebrow": "Registration status",
     "title": "Confirmation"
   },
   "loading": "Checking your confirmation link…",

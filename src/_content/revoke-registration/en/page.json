@@ -5,11 +5,9 @@
     "video": false,
     "badge": "Registration",
     "kicker": "Launch registration",
-    "title": "Cancel your registration",
-    "lead": "You have requested cancellation of your LGS1920 Studio launch registration."
+    "title": "Registration revocation"
   },
   "panel": {
-    "eyebrow": "Registration status",
     "title": "Cancellation"
   },
   "loading": "Checking your cancellation link…",

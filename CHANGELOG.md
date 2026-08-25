@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-25 — [`ac18aad`](https://github.com/lgs1920/site/commit/ac18aad) — Simplify registration confirmation pages
+
+- Removed the duplicate no-video hero from the confirmation and revocation pages, moved their status titles into normal content sections, and kept the status cards full width in English and French.
+- Removed repeated registration-status labels and body leads while clarifying the localized hero titles.
+
 ## 2026-08-25 — [`45a2827`](https://github.com/lgs1920/site/commit/45a2827) — Align homepage and Studio presentation content
 
 - Synchronized the English and French homepage, launch-registration, and Studio messaging around local privacy, free access, optional providers, and sharing workflows.

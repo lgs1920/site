@@ -5,11 +5,9 @@
     "video": false,
     "badge": "Inscription",
     "kicker": "Lancement du Studio",
-    "title": "Confirmer votre inscription",
-    "lead": "Utilisez le lien reçu par e-mail pour finaliser votre inscription au lancement de LGS1920 Studio."
+    "title": "Confirmation de l’inscription"
   },
   "panel": {
-    "eyebrow": "État de l’inscription",
     "title": "Confirmation"
   },
   "loading": "Vérification de votre lien de confirmation…",

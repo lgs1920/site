@@ -5,11 +5,9 @@
     "video": false,
     "badge": "Inscription",
     "kicker": "Lancement du Studio",
-    "title": "Annuler votre inscription",
-    "lead": "Vous avez demandé l’annulation de votre inscription au lancement de LGS1920 Studio."
+    "title": "Révocation de l’inscription"
   },
   "panel": {
-    "eyebrow": "État de l’inscription",
     "title": "Annulation"
   },
   "loading": "Vérification de votre lien d’annulation…",
