@@ -3,7 +3,7 @@
   "description": "Édition de parcours orientée local pour trajets, traces, POI, vues caméra, widgets, rapports et captures média.",
   "hero": {
     "className": "intro-hero",
-    "title": "Vivez vos aventures outdoor, partagez vos histoires.",
+    "title": "Vivez vos aventures outdoor. Partagez vos histoires.",
     "lead": "Marchez, courez ou roulez, puis importez, éditez, rejouez et partagez les vidéos de vos parcours sans quitter votre navigateur.",
     "routeAnimation": {
       "ariaLabel": "Trace animée en pointillés avec trois points d’intérêt équidistants.",
@@ -59,6 +59,11 @@
       "summary": "Parcours et exports dans le navigateur"
     },
     {
+      "id": "access",
+      "label": "Accès et coût",
+      "summary": "Ce qui reste gratuit et quels fournisseurs externes sont facultatifs"
+    },
+    {
       "id": "quick-access",
       "label": "Commencer",
       "summary": "Guides et accès direct à Studio"
@@ -71,17 +76,12 @@
     {
       "id": "workflow",
       "label": "Workflow",
-      "summary": "De la donnée source à la sortie finale"
+      "summary": "De la donnée source à la vidéo finale"
     },
     {
       "id": "roadmap",
       "label": "Roadmap",
       "summary": "Les prochaines étapes de Studio"
-    },
-    {
-      "id": "access",
-      "label": "Accès et coût",
-      "summary": "Ce qui reste gratuit et quand Cesium est nécessaire"
     },
     {
       "id": "faq",
@@ -92,7 +92,7 @@
   "content": {
     "overview": {
       "kicker": "Vue d'ensemble",
-      "title": "Un espace de travail dans le navigateur pour un parcours que vous avez déjà.",
+      "title": "Organisez et enrichissez vos aventures outdoor dans un espace de travail du navigateur.",
       "intro": [
         "Importez un parcours, inspectez la scène, ajustez la caméra et préparez une vidéo à partager sur les réseaux sociaux, sans quitter le navigateur."
       ],
@@ -101,17 +101,22 @@
         {
           "icon": "route",
           "title": "Importer et revoir les parcours",
-          "body": "Charger des parcours et traces tout en gardant l’état de travail dans le navigateur."
+          "body": "Importez des parcours et des traces, tout en conservant l’état de travail dans le navigateur."
         },
         {
           "icon": "camera",
-          "title": "Diriger la scène",
-          "body": "Passer en 2D ou 3D puis centrer la caméra sur le bon contexte de parcours."
+          "title": "Explorer la scène 3D",
+          "body": "Passez d’une couche cartographique à l’autre et centrez la caméra sur le contexte pertinent du parcours."
         },
         {
-          "icon": "file-pdf",
-          "title": "Préparer et partager une vidéo",
-          "body": "Rejouer le parcours et exporter une vidéo pour Instagram, TikTok, YouTube ou un autre réseau social. Les captures et les rapports restent disponibles."
+          "icon": "file-mp4",
+          "title": "Préparer une vidéo",
+          "body": "Ajoutez des POI, modifiez les couches cartographiques, ajoutez des couleurs et choisissez différents widgets. Tout reste modifiable selon vos envies."
+        },
+        {
+          "icon": "share-nodes",
+          "title": "Exporter et partager",
+          "body": "Les vidéos finales peuvent être partagées directement sur vos réseaux sociaux ou enregistrées où bon vous semble."
         }
       ],
       "card": {
@@ -134,6 +139,11 @@
             "text": "Vidéo, captures, rapports"
           }
         ]
+      },
+      "privacy": {
+        "title": "Votre confidentialité passe avant tout.",
+        "lead": "Pour l’instant, toutes les données traitées par Studio restent dans votre navigateur, y compris les vidéos en cours de traitement. Vos données peuvent déjà être synchronisées localement entre vos appareils. Dans une version ultérieure, Studio pourra également vous permettre de synchroniser vos données avec votre propre espace cloud, si vous choisissez de le faire.",
+        "quote": "Avec Studio, vous n’avez pas besoin de créer un compte en ligne pour accéder à vos données. Nous ne vous traçons pas : utilisez l’application comme bon vous semble.<br><br><strong>La seule règle : faites-vous plaisir en l’utilisant — et, s’il vous plaît, laissez les crédits visibles. Merci.</strong>"
       }
     },
     "quickAccess": {
@@ -205,8 +215,8 @@
         },
         {
           "icon": "globe-pointer",
-          "title": "Contrôle de scène Cesium",
-          "body": "Passer de la 2D à la 3D, suivre la cible caméra active et garder une navigation claire."
+          "title": "Contrôle de la scène 3D",
+          "body": "Passez dans la scène 3D, suivez la cible active de la caméra et gardez une navigation claire."
         },
         {
           "icon": "box",
@@ -216,18 +226,18 @@
         {
           "icon": "clapperboard-play",
           "title": "Export média",
-          "body": "Capturer des images, définir des zones de crop et enregistrer des vidéos avec les mêmes overlays que dans l'éditeur."
+          "body": "Capturez des images, enregistrez des vidéos et partagez-les avec les mêmes overlays visibles que dans l’éditeur."
         },
         {
-          "icon": "file-pdf",
+          "icon": "file-lines",
           "title": "Rapports de parcours",
-          "body": "Générer des rapports PDF ou HTML ZIP avec métadonnées, statistiques, POI, coordonnées, altitudes et captures de carte."
+          "body": "Générer des rapports PDF ou des rapports HTML empaquetés en ZIP avec métadonnées, statistiques, POI, coordonnées, altitudes et captures de carte."
         }
       ]
     },
     "workflow": {
       "kicker": "Workflow",
-      "title": "De la donnée source à la sortie finale.",
+      "title": "De la donnée source à la vidéo finale.",
       "steps": [
         {
           "index": "1",
@@ -241,8 +251,8 @@
         },
         {
           "index": "3",
-          "title": "Exporter et partager",
-          "body": "Produire une vidéo pour Instagram, TikTok, YouTube ou un autre réseau social, avec des captures et des rapports si nécessaire."
+          "title": "Partager le résultat",
+          "body": "Produisez une vidéo pour vos réseaux sociaux ; les captures et les rapports restent disponibles si nécessaire."
         }
       ]
     },
@@ -253,17 +263,17 @@
         {
           "index": "0",
           "title": "1.0 : Studio actuel",
-          "body": "Un éditeur géospatial privacy-first et local-first pour les parcours, traces, POI, scènes Cesium 2D/3D, contrôles caméra, widgets, replay, captures, vidéo et rapports de parcours PDF ou HTML."
+          "body": "Un éditeur géospatial axé sur la confidentialité et local par défaut pour les parcours, traces, POI, scènes 2D/3D, contrôles de caméra, widgets, relecture, captures, vidéo et rapports de parcours PDF ou HTML."
         },
         {
           "index": "1",
           "title": "1.1 : Imports d’activités étendus",
-          "body": "Ajouter les imports FIT et TCX depuis Garmin et Strava en conservant les données d’activité et de capteurs, avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés."
+          "body": "Ajouter les imports FIT et TCX depuis Garmin et Strava en conservant les données d’activité et de capteurs, avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés.<br>Enrichir les POI avec plusieurs styles pour les adapter à vos créations."
         },
         {
           "index": "2",
           "title": "1.2 : Éditeur vidéo sur timeline",
-          "body": "Remplacer les contrôles Replay séparés de début, replay et fin par une timeline basée sur des pistes, réunissant replay du parcours, clips et widgets."
+          "body": "Remplacer les contrôles Replay distincts de démarrage, de relecture et d’arrêt par une timeline basée sur des pistes, réunissant replay du parcours, clips et widgets."
         },
         {
           "index": "3",
@@ -275,22 +285,17 @@
     "access": {
       "kicker": "Accès",
       "title": "Studio est gratuit à l’usage.",
-      "note": "Studio a été conçu pour vous permettre de partager vos aventures sous forme de vidéos enrichies sans rien payer. Studio est et restera totalement gratuit à l’usage. Pendant la période d’essai, l’accès à Cesium est partagé et peut être soumis à certaines limitations. Après l’essai, un compte Cesium Ion gratuit est nécessaire pour utiliser vos propres ressources Cesium ou accéder à des fonds de carte supplémentaires. Les fonds de carte payants sont pris en charge, mais ils ne sont jamais obligatoires.",
+      "note": "Éditez vos aventures outdoor, rejouez vos scènes et exportez des vidéos ou des rapports sans abonnement payant.",
       "cards": [
         {
           "icon": "circle-check",
-          "title": "Accès Studio gratuit",
-          "body": "Ouvrez Studio hébergé, éditez vos parcours et exportez vos livrables sans abonnement payant. Par défaut, Studio utilise des couches SIG gratuites. Vous pouvez aussi choisir des couches freemium ou payantes, mais leur utilisation n’est jamais obligatoire."
+          "title": "Gratuit aujourd’hui comme demain",
+          "body": "Studio est gratuit aujourd’hui et le restera. Il n’y a ni formule payante, ni abonnement, ni frais d’activation. Studio vous permet d’accéder à plus de 30 fonds de carte gratuits.<br>Contrairement à beaucoup d’autres applications, la création vidéo est totalement gratuite, sans aucune limite autre que celles de votre appareil."
         },
         {
-          "icon": "key",
-          "title": "Accès Cesium gratuit",
-          "body": "Pendant la période d’essai, Studio fournit un accès Cesium partagé et limité. Après l’essai, créez un compte Cesium Ion gratuit pour utiliser vos propres ressources, Google Photorealistic 3D Tiles et les fonds de carte Google ou Azure."
-        },
-        {
-          "icon": "circle-info",
-          "title": "Relation uniquement technique",
-          "body": "LGS1920 n’a aucun lien commercial avec Cesium ni avec les fournisseurs de couches SIG. Cesium est un moteur 3D globe open source.<br>Studio l’utilise uniquement pour rendre la scène et ses couches optionnelles."
+          "icon": "money-bill-1-wave",
+          "title": "Ressources freemium ou payantes facultatives",
+          "body": "Vous pouvez aussi utiliser des ressources cartographiques et de données externes proposées par des fournisseurs freemium ou payants, comme Cesium (Google 3D, Google Maps, etc.), MapTiler et bien d’autres.<br>Ces services sont facultatifs et facturés par leurs propres fournisseurs. Studio vous les propose pour enrichir vos vidéos, mais n’a aucun lien commercial, quel qu’il soit, avec ces fournisseurs."
         }
       ]
     },
@@ -303,7 +308,7 @@
           "summary": "Pourquoi LGS1920 ? Que signifie ce nom ?",
           "body": "LGS1920 signifie La Grande Sure, un sommet de 1 920 mètres dans le massif de la Chartreuse, dans les Alpes françaises, aux coordonnées GPS 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).",
           "bodyAfter": "C’est une montagne qui m’est chère : elle fait partie de mes racines familiales et j’avais à peine douze ans lorsque je l’ai gravie pour la première fois en famille. À l’époque, c’était mon Mont Blanc — mieux encore, mon Everest.",
-          "bodyFinal": "L’un des journey samples de Studio porte, comme il se doit, le nom de LGS1920. C’est l’une de mes randonnées préférées, que je refais toujours, 54 ans après, une fois par an.",
+          "bodyFinal": "L’un des parcours d’exemple de Studio porte, comme il se doit, le nom de LGS1920. C’est l’une de mes randonnées préférées, que je refais toujours, 54 ans après, une fois par an.",
           "image": {
             "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sangle_Hurti%C3%A8res_Voironnais.jpg/1280px-Sangle_Hurti%C3%A8res_Voironnais.jpg",
             "pageUrl": "https://commons.wikimedia.org/wiki/File:Sangle_Hurti%C3%A8res_Voironnais.jpg",
@@ -322,11 +327,6 @@
           "id": "quexporte-studio",
           "summary": "Qu’exporte Studio ?",
           "body": "Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP."
-        },
-        {
-          "id": "quel-niveau-de-vie-privee",
-          "summary": "Quel niveau de vie privée ?",
-          "body": "Les données de travail restent dans le navigateur par défaut. Cesium Ion n’est nécessaire que pour les données dépendantes de Cesium."
         }
       ],
       "actions": [

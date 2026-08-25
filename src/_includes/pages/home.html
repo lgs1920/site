@@ -41,6 +41,52 @@
             </div>
         </wa-card>
     </div>
+
+    <div class="overview-privacy">
+        <p class="section-intro overview-privacy-lead">
+            <strong>{{ home_content.overview.privacy.title }}</strong><br>
+            {{ home_content.overview.privacy.lead }}
+        </p>
+        <blockquote class="overview-privacy-quote">
+            <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
+            <p>{{ home_content.overview.privacy.quote }}</p>
+            <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
+        </blockquote>
+    </div>
+</section>
+
+<section id="access" class="content-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.access.kicker }}</p>
+        <h2>{{ home_content.access.title }}</h2>
+    </div>
+
+    <p class="section-intro">{{ home_content.access.note }}</p>
+
+    <div class="feature-grid access-grid">
+        {% for card in home_content.access.cards %}
+            <wa-card class="feature-card">
+                <div class="card-heading">
+                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
+                    <h3>{{ card.title }}</h3>
+                </div>
+                <p>{{ card.body }}</p>
+            </wa-card>
+        {% endfor %}
+    </div>
+
+    {% if home_content.access.actions and home_content.access.actions.size > 0 %}
+        <div class="page-cta-actions stack-actions">
+            {% for action in home_content.access.actions %}
+                <wa-button href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
+                    {% if action.icon %}
+                        <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
+                    {% endif %}
+                    {{ action.label }}
+                </wa-button>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>
 
 <section id="quick-access" class="content-section quick-access-section">
@@ -148,40 +194,6 @@
             {% endfor %}
         </ol>
     </div>
-</section>
-
-<section id="access" class="content-section">
-    <div class="section-heading">
-        <p class="section-kicker">{{ home_content.access.kicker }}</p>
-        <h2>{{ home_content.access.title }}</h2>
-    </div>
-
-    <p class="section-intro">{{ home_content.access.note }}</p>
-
-    <div class="feature-grid">
-        {% for card in home_content.access.cards %}
-            <wa-card class="feature-card">
-                <div class="card-heading">
-                    <wa-icon variant="regular" name="{{ card.icon }}"></wa-icon>
-                    <h3>{{ card.title }}</h3>
-                </div>
-                <p>{{ card.body }}</p>
-            </wa-card>
-        {% endfor %}
-    </div>
-
-    {% if home_content.access.actions and home_content.access.actions.size > 0 %}
-        <div class="page-cta-actions stack-actions">
-            {% for action in home_content.access.actions %}
-                <wa-button href="{{ action.href }}"{% if action.appearance %} appearance="{{ action.appearance }}"{% endif %}{% if action.variant %} variant="{{ action.variant }}"{% endif %}{% if action.external %} target="_blank" rel="noreferrer"{% endif %}>
-                    {% if action.icon %}
-                        <wa-icon slot="start"{% if action.icon.family %} family="{{ action.icon.family }}"{% endif %}{% if action.icon.variant %} variant="{{ action.icon.variant }}"{% else %} variant="regular"{% endif %} name="{{ action.icon.name }}"></wa-icon>
-                    {% endif %}
-                    {{ action.label }}
-                </wa-button>
-            {% endfor %}
-        </div>
-    {% endif %}
 </section>
 
 <section id="faq" class="content-section faq-section">

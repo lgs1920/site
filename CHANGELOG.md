@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-25 — [`24a5600`](https://github.com/lgs1920/site/commit/24a5600) — Align homepage and Studio presentation content
+
+- Synchronized the English and French homepage, launch-registration, and Studio messaging around local privacy, free access, optional providers, and sharing workflows.
+- Added the privacy quote to the Studio and registration presentations, refreshed their responsive card layouts, and restored branding and language controls on the standalone registration presentation.
+- Removed obsolete Cesium registration wording and kept the generated search import compatible with the production build.
+- Reused the homepage's free-access and optional-assets cards in the Studio presentation, including localized line breaks.
+
 ## 2026-08-24 — [`db02c4e`](https://github.com/lgs1920/site/commit/db02c4e) — Order releases by publication date
 
 - Displayed the public Studio releases from newest to oldest by publication date.

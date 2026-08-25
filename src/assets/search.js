@@ -145,7 +145,8 @@ const initSearch = async ({documentObject = globalThis.document, windowObject = 
 
     let pagefind
     try {
-        pagefind = await import(/* @vite-ignore */ '/pagefind/pagefind.js')
+        const pagefindUrl = new URL('/pagefind/pagefind.js', window.location.origin).href
+        pagefind = await import(/* @vite-ignore */ pagefindUrl)
         await pagefind.init?.()
     }
     catch {
