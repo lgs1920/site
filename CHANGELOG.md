@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-25 — [`3e5ae34`](https://github.com/lgs1920/site/commit/3e5ae34) — Keep minimal registration pages self-contained
+
+- Applied the simple minimal-chrome theme consistently to registration, confirmation, revocation, and Studio registration pages.
+- Kept language and brand/season theme selectors available on localized confirmation and revocation heroes, and documented the requirement in the project rules.
+
 ## 2026-08-25 — [`ac18aad`](https://github.com/lgs1920/site/commit/ac18aad) — Simplify registration confirmation pages
 
 - Removed the duplicate no-video hero from the confirmation and revocation pages, moved their status titles into normal content sections, and kept the status cards full width in English and French.

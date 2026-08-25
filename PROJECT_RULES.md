@@ -32,6 +32,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Shared page data lives in `src/_data/`.
 - Reusable templates and includes live in `src/_includes/`.
 - Generated output lives in `_site/` and must never be edited directly.
+- **Minimal chrome pages:** Any page with `minimalChrome: true` must expose the language and brand/season theme selectors through a registration-style hero (`registration-hero` with `localeSwitcher: true`), because the global header is hidden.
 - Pages that use the backend must declare `requiresBackend: true` in their shared page data. The connection check and retry dialog are opt-in for those pages and must not be attached globally from the base layout.
 - **Site-owned launch-registration mail:** The Site owns and renders every localized launch-registration mail catalog, including the initial confirmation, resend confirmation, post-confirmation acknowledgement, and Studio notification. The backend has no launch-registration mail templates or fallback; every mail-triggering API request must carry fresh rendered Site content.
 - Launch-registration rendered mail bodies are transient request data. Do not ask the backend to persist `renderedMessage` or `supportRenderedMessage`; render them again when the visitor resends or confirms.

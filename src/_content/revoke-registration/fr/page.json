@@ -3,6 +3,8 @@
   "description": "Confirmez l’annulation de votre inscription au lancement de LGS1920 Studio.",
   "hero": {
     "video": false,
+    "className": "intro-hero registration-hero",
+    "localeSwitcher": true,
     "badge": "Inscription",
     "kicker": "Lancement du Studio",
     "title": "Révocation de l’inscription"

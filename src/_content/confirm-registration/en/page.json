@@ -3,6 +3,8 @@
   "description": "Confirm your email address to complete your LGS1920 Studio launch registration.",
   "hero": {
     "video": false,
+    "className": "intro-hero registration-hero",
+    "localeSwitcher": true,
     "badge": "Registration",
     "kicker": "Launch registration",
     "title": "Registration confirmation"
