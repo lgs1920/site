@@ -58,11 +58,6 @@
       "summary": "Why can’t I load a file from the Downloads folder on my mobile or tablet?",
       "body": "On Android and iOS, files in the dedicated Downloads directory cannot be read directly by a browser.",
       "bodyAfter": "LGS1920 follows a privacy-first approach: your files remain on your device and are read locally by the browser. To work around this restriction, we would have to send the file contents unencrypted to our backend so it could download the file on your behalf. We refuse to do that."
-    },
-    {
-      "id": "how-private-is-it",
-      "summary": "How private is it?",
-      "body": "Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data."
     }
   ],
   "pageCta": {

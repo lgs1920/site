@@ -6,7 +6,7 @@ const createRegistrationPresentation = (presentation) => ({
         ...presentation.hero,
         actions:        [],
         className:      'intro-hero registration-hero studio-presentation-minimal-hero',
-        localeSwitcher:false,
+        localeSwitcher:true,
     },
     pageCta: {
         ...presentation.pageCta,

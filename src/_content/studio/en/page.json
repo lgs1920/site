@@ -7,7 +7,7 @@
     "badge": "Studio",
     "kicker": "Simple introduction",
     "title": "What is Studio, and what can you do with it?",
-    "lead": "Studio is a privacy-first browser application for turning an outdoor route into a map presentation and a video you can share on social network, enriched with dynamic points of interest, cinematic camera angles, and synchronized multimedia data to create an immersive narrative of your outdoor adventures.",
+    "lead": "Studio is a privacy-first browser workspace for turning an existing outdoor route into a clear map presentation and a shareable video. Add POIs, choose camera views, adjust map layers and widgets, and keep your work local in your browser by default.",
     "actions": [
       {
         "label": "Open Studio",
@@ -57,13 +57,13 @@
   "presentation": {
     "overview": {
       "kicker": "What Studio is",
-      "title": "A workspace for an outdoor route you already have.",
+      "title": "Your route, organized and enriched in one browser workspace.",
       "intro": [
-        "Studio is a web application that opens directly in a browser. You load an existing route file, view it on a 2D or 3D map, and prepare a clear presentation of the journey.",
-        "You can adjust the route, add points of interest and useful information, choose what the camera shows, and prepare a replay for a shareable video. Snapshots and reports remain available when you prefer a still or documentary format. Studio is used after or around an outing; it does not record the activity while you are outdoors."
+        "Studio opens directly in your browser. Import an existing route file, view it on a 2D or 3D map, and prepare a clear presentation of the journey without a paid subscription.",
+        "Adjust the route, add points of interest and useful information, choose what the camera shows, and prepare a replay for a shareable video. Snapshots and reports remain available when you prefer a still or documentary format. Studio is used after or around an outing; it does not record the activity while you are outdoors."
       ],
       "simpleTitle": "The basic idea",
-      "simpleIntro": "Default settings allow you to start and create your first video very easily, but you have access to many other settings to go much further."
+      "simpleIntro": "Start with the defaults, then refine the map, camera, POIs, colors and widgets as far as your story requires."
     },
     "basics": [
       {
@@ -73,13 +73,13 @@
       },
       {
         "icon": "street-view",
-        "title": "Explore a global, 3D playground in the browser!",
-        "body": "Inspect the route on the map, change its appearance, add context, and prepare the view without installing a traditional desktop editor."
+        "title": "Explore and prepare the 3D scene",
+        "body": "Inspect the route on the map, switch layers, change its appearance, add context, and prepare the view without installing a traditional desktop editor."
       },
       {
         "icon": "file-export",
         "title": "Prepare and share a video",
-        "body": "Prepare a replay, record a video, and export it for Instagram, TikTok, YouTube, or another social network. Snapshots and PDF or HTML reports remain available when you need them."
+        "body": "Add POIs, change map layers, add colors, and choose different widgets. Everything remains editable to suit your needs. Record and share the result on your social networks."
       },
       {
         "icon": "lock",
@@ -87,17 +87,17 @@
         "items": [
           {
             "icon": "location-pin-lock",
-            "title": "Privacy first",
-            "body": "Your data stays with you: browser, device, or cloud.",
-            "note": "Cloud access will be available in a future version.",
+            "title": "Private by default",
+            "body": "Your work stays in your browser by default.",
+            "note": "Local synchronization across devices is already possible. A future version may also support your own cloud storage.",
             "noteLabel": "More about cloud access",
             "noteId": "studio-presentation-privacy-note-en-0"
           },
           {
             "icon": "circle-check",
-            "title": "Studio is free",
-            "body": "Studio is completely free and will remain so.",
-            "note": "Some external services accessible through Studio may be paid services from their providers. Studio has no affiliation with any of the providers concerned.",
+            "title": "Free today and tomorrow",
+            "body": "Studio is free to use today and will remain free.",
+            "note": "Some external map or data services may be paid by their own providers. Studio offers them to enrich your videos but has no commercial relationship of any kind with those providers.",
             "noteLabel": "More about external services",
             "noteId": "studio-presentation-privacy-note-en-1"
           }
@@ -122,29 +122,24 @@
         {
           "index": "3",
           "title": "Prepare the presentation",
-          "body": "Choose the map, colors, camera view, replay, and any text or statistics you want to show."
+          "body": "Choose the map layers, colors, camera view, POIs, replay, widgets, and any text or statistics you want to show."
         },
         {
           "index": "4",
           "title": "Record and share",
-          "body": "Replay the journey, record the video, then export it on social network or download it."
+          "body": "Replay the journey, record the video, then share it on your social networks or download it. Snapshots and reports remain available when needed."
         }
       ]
     },
     "outputs": {
       "kicker": "What Studio creates",
       "title": "The main result: a video you can share.",
-      "intro": "The video workflow is the main way to present a journey. Snapshots and reports remain available as alternatives when a still image or document is more useful.",
+      "intro": "The video workflow is the main way to present a journey. Reports remain available when a document is more useful.",
       "items": [
         {
           "icon": "video",
           "title": "Video for social networks",
           "body": "Replay the journey and record the map scene, camera movement, and visible widgets. Export the result for Instagram, TikTok, YouTube, or another social network."
-        },
-        {
-          "icon": "image",
-          "title": "Snapshots",
-          "body": "Create a still image of the current map, route, camera view, and visible information."
         },
         {
           "icon": "file-pdf",
@@ -169,16 +164,21 @@
           "body": "The map needs WebGL. Video work can use more memory, so closing unused tabs may make recording smoother."
         },
         {
-          "icon": "key",
-          "title": "Cesium engine and free access",
-          "body": "Studio uses Cesium, an open-source 3D globe engine, for its 2D and 3D scenes. During the trial, Studio provides shared Cesium access that may have some limitations. After the trial, a free Cesium Ion account and token are needed for Cesium-backed data and provide access to additional basemaps and 3D layers."
+          "icon": "circle-check",
+          "title": "Free today and tomorrow",
+          "body": "Studio is free to use today and will remain free to use. There is no paid plan, subscription, or activation fee. Studio gives you access to more than 30 free basemaps.<br>Unlike many other apps, video creation is completely free, with no limits other than those of your device."
         },
         {
-          "icon": "circle-info",
-          "title": "Optional paid providers",
-          "body": "Studio can also give you access to paid map or data providers. These services are optional and billed by their own providers; LGS1920 has no commercial relationship with them."
+          "icon": "money-bill-1-wave",
+          "title": "Optional freemium or paid assets",
+          "body": "You can also use external map and data assets from freemium or paid providers, such as Cesium (Google 3D, Google Maps, etc.), MapTiler, and more.<br>These services are optional and billed by their own providers. Studio offers them to enrich your videos but has no commercial relationship of any kind with these providers."
         }
       ]
+    },
+    "privacyQuote": {
+      "title": "Your privacy comes first.",
+      "text": "With Studio, you don’t need to create an online account to access your data. We don’t track you, so use the app however you like.",
+      "rule": "The only rule is: have fun using it—and please keep the credits visible. Thank you."
     },
     "basic": {
       "kicker": "Discover Studio",

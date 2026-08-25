@@ -3,7 +3,7 @@
   "description": "Local-first route editing for journeys, tracks, POIs, camera views, widgets, reports, and media capture.",
   "hero": {
     "className": "intro-hero",
-    "title": "Live outdoor adventures, share the stories.",
+    "title": "Live outdoor adventures. Share the stories.",
     "lead": "Walk, run or ride, then import, edit, replay and share videos of your journeys without leaving your browser.",
     "routeAnimation": {
       "ariaLabel": "Animated dotted route with three equally spaced points of interest.",
@@ -59,6 +59,11 @@
       "summary": "Browser-local journeys and exports"
     },
     {
+      "id": "access",
+      "label": "Access & cost",
+      "summary": "What stays free and which external providers are optional"
+    },
+    {
       "id": "quick-access",
       "label": "Start here",
       "summary": "Guides and direct access to Studio"
@@ -79,11 +84,6 @@
       "summary": "The next Studio milestones"
     },
     {
-      "id": "access",
-      "label": "Access & cost",
-      "summary": "What stays free and when Cesium is needed"
-    },
-    {
       "id": "faq",
       "label": "FAQ",
       "summary": "Common questions and answers"
@@ -92,7 +92,7 @@
   "content": {
     "overview": {
       "kicker": "Overview",
-      "title": "A browser workspace for an outdoor route you already have.",
+      "title": "Your outdoor adventures, organized and enriched in one browser workspace",
       "intro": [
         "Import a route, inspect the scene, adjust the camera, and prepare a video you can share on social networks — without leaving the browser."
       ],
@@ -101,17 +101,22 @@
         {
           "icon": "route",
           "title": "Import and review journeys",
-          "body": "Bring in journeys and tracks, then keep the working state in the browser."
+          "body": "Import journeys and tracks, then keep the working state in the browser."
         },
         {
           "icon": "camera",
-          "title": "Direct the scene",
-          "body": "Switch between 2D and 3D, then focus the camera on the right route context."
+          "title": "Global 3D scene",
+          "body": "Switch between map layers and center the camera on the relevant route context."
         },
         {
-          "icon": "file-pdf",
-          "title": "Prepare and share a video",
-          "body": "Replay the journey and export a video for Instagram, TikTok, YouTube, or another social network. Snapshots and reports remain available."
+          "icon": "file-mp4",
+          "title": "Prepare a video",
+          "body": "Add POIs, change map layers, add colors, and choose different widgets. Everything remains editable to suit your needs."
+        },
+        {
+          "icon": "share-nodes",
+          "title": "Export and share",
+          "body": "Final videos can be shared directly on your social networks or saved wherever you like."
         }
       ],
       "card": {
@@ -134,6 +139,11 @@
             "text": "Video, snapshots, reports"
           }
         ]
+      },
+      "privacy": {
+        "title": "Your privacy comes first.",
+        "lead": "For now, all data handled by Studio stays in your browser, including videos while they are being processed. Your data can already be synchronized locally across your devices. In a future version, Studio may also allow you to synchronize your data with your own cloud storage, if you choose to do so.",
+        "quote": "With Studio, you don’t need to create an online account to access your data. We don’t track you, so use the app however you like.<br><br><strong>The only rule is: have fun using it—and please keep the credits visible. Thank you.</strong>"
       }
     },
     "quickAccess": {
@@ -191,7 +201,7 @@
     },
     "features": {
       "kicker": "Features",
-      "title": "The main workflows the Studio already covers.",
+      "title": "The main workflows Studio already covers.",
       "cards": [
         {
           "icon": "route",
@@ -205,8 +215,8 @@
         },
         {
           "icon": "globe-pointer",
-          "title": "Cesium scene control",
-          "body": "Move between 2D and 3D, track the active camera target, and keep navigation clear."
+          "title": "3D scene control",
+          "body": "Move into the 3D scene, track the active camera target, and keep navigation clear."
         },
         {
           "icon": "box",
@@ -216,10 +226,10 @@
         {
           "icon": "clapperboard-play",
           "title": "Media export",
-          "body": "Capture screenshots, define crop zones, and record video with the same visible overlays used in the editor."
+          "body": "Capture screenshots, record videos, and share them with the same visible overlays used in the editor."
         },
         {
-          "icon": "file-pdf",
+          "icon": "file-lines",
           "title": "Journey reports",
           "body": "Generate PDF reports or ZIP-packaged HTML reports with metadata, statistics, POIs, coordinates, altitude data, and map captures."
         }
@@ -227,7 +237,7 @@
     },
     "workflow": {
       "kicker": "Workflow",
-      "title": "From source data to final output.",
+      "title": "From source data to final video.",
       "steps": [
         {
           "index": "1",
@@ -241,8 +251,8 @@
         },
         {
           "index": "3",
-          "title": "Export and share",
-          "body": "Produce a video for Instagram, TikTok, YouTube, or another social network, with snapshots and reports available when needed."
+          "title": "Share the result",
+          "body": "Produce a video for your social networks; snapshots and reports are available when needed."
         }
       ]
     },
@@ -253,17 +263,17 @@
         {
           "index": "0",
           "title": "1.0: Current Studio",
-          "body": "A privacy-first, local-first geospatial editor for journeys, tracks, POIs, Cesium 2D/3D scenes, camera controls, widgets, replay, snapshots, video, and PDF or HTML journey reports."
+          "body": "A privacy-first, local-first geospatial editor for journeys, tracks, POIs, 2D/3D scenes, camera controls, widgets, replay, snapshots, video, and PDF or HTML journey reports."
         },
         {
           "index": "1",
           "title": "1.1: Extended activity imports",
-          "body": "Add FIT and TCX imports from Garmin and Strava while preserving activity and sensor data, with optional authenticated Strava access and connected-provider project files."
+          "body": "Add FIT and TCX imports from Garmin and Strava while preserving activity and sensor data, with optional authenticated Strava access and connected-provider project files.<br>Enrich POIs with several looks to fit your designs."
         },
         {
           "index": "2",
           "title": "1.2: Timeline video editor",
-          "body": "Replace the separate Replay start, replay, and stop clip controls with a track-based timeline combining journey replay, clips, and widgets."
+          "body": "Replace the separate Replay start, replay, and stop controls with a track-based timeline that combines journey replay, clips, and widgets."
         },
         {
           "index": "3",
@@ -275,22 +285,17 @@
     "access": {
       "kicker": "Access",
       "title": "Studio is free to use.",
-      "note": "Studio was designed so you can share your adventures as enriched videos without paying anything. Studio is and will remain completely free to use. During the trial period, Cesium access is shared and may have some limitations. After the trial, a completely free Cesium Ion account is needed to use your own Cesium resources or access additional basemaps. Paid basemaps are supported, but they are never required.",
+      "note": "Edit your outdoor adventures, replay scenes, and export videos or reports without a paid subscription.",
       "cards": [
         {
           "icon": "circle-check",
-          "title": "Free Studio access",
-          "body": "Open Studio, edit journeys, and export outputs without a paid subscription. By default, Studio uses free GIS layers. You can also choose freemium or paid layers, but using them is never mandatory."
+          "title": "Free today and tomorrow",
+          "body": "Studio is free to use today and will remain free to use. There is no paid plan, subscription, or activation fee. Studio gives you access to more than 30 free basemaps.<br>Unlike many other apps, video creation is completely free, with no limits other than those of your device."
         },
         {
-          "icon": "key",
-          "title": "Free Cesium access",
-          "body": "During the trial period, Studio provides shared Cesium access with limitations. After the trial, create a free Cesium Ion account to use your own resources, Google Photorealistic 3D Tiles, and Google or Azure basemaps."
-        },
-        {
-          "icon": "circle-info",
-          "title": "Technical relationship only",
-          "body": "LGS1920 has no commercial relationship with Cesium or the GIS layer providers. Cesium is an open-source 3D globe engine.<br>Studio uses it solely to render the scene and its optional layers."
+          "icon": "money-bill-1-wave",
+          "title": "Optional freemium or paid assets",
+          "body": "You can also use external map and data assets from freemium or paid providers, such as Cesium (Google 3D, Google Maps, etc.), MapTiler, and more.<br>These services are optional and billed by their own providers. Studio offers them to enrich your videos but has no commercial relationship of any kind with these providers."
         }
       ]
     },
@@ -322,11 +327,6 @@
           "id": "what-can-it-export",
           "summary": "What can Studio export?",
           "body": "Snapshots, video, PDF reports, and ZIP-packaged HTML reports."
-        },
-        {
-          "id": "how-private-is-it",
-          "summary": "How private is it?",
-          "body": "Working data stays in the browser by default. Cesium Ion is only needed for Cesium-backed data."
         }
       ],
       "actions": [

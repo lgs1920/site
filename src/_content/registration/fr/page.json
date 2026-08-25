@@ -5,11 +5,11 @@
   "hero": {
     "className": "intro-hero registration-hero",
     "localeSwitcher": true,
-    "title": "Vivez vos aventures outdoor, partagez vos histoires.",
-    "lead": "Marchez, courez ou roulez, puis importez, éditez, rejouez et exportez les vidéos de vos parcours pour Instagram, TikTok, YouTube ou d’autres réseaux sociaux sans quitter votre navigateur.",
+    "title": "Vivez vos aventures outdoor. Partagez vos histoires.",
+    "lead": "Marchez, courez ou roulez, puis importez votre parcours dans Studio pour l’éditer, le rejouer et partager vos vidéos sans quitter votre navigateur.",
     "panel": {
       "eyebrow": "LGS1920 Studio",
-      "title": "Quelque chose de sympa arrive.",
+      "title": "Votre prochain parcours mérite son histoire.",
       "action": {
         "label": "S’inscrire aux infos du lancement",
         "appearance": "filled",
@@ -20,43 +20,40 @@
           "animation": "swing"
         }
       },
-      "lead": "Restez informé et inscrivez-vous pour être parmi les premiers à découvrir ce que Studio vous réserve.",
+      "lead": "Inscrivez-vous aux informations du lancement et soyez parmi les premiers à découvrir un espace de travail axé sur la confidentialité pour vos parcours, scènes, vidéos et rapports.",
       "items": [
         {
           "icon": "route",
-          "title": "Importez et relisez vos parcours, sorties et randonnées.",
+          "title": "Importez et relisez vos parcours.",
           "text": "GeoJSON, GPX et KML"
         },
         {
           "icon": "camera",
-          "title": "Explorez un terrain de jeu mondial en 3D !",
-          "text": "Couches mondiales et widgets dynamiques (profils, données en direct, boussole, textes et bien plus à venir)."
+          "title": "Préparez la scène.",
+          "text": "Couches cartographiques, vues caméra, POI, couleurs et widgets."
         },
         {
           "icon": "file-pdf",
-          "title": "Exportez et partagez",
-          "text": "Partagez les vidéos de vos aventures sur les réseaux sociaux et exportez des rapports HTML ou PDF."
+          "title": "Exportez et partagez.",
+          "text": "Vidéos, images et rapports HTML ou PDF."
         }
       ],
       "promise": {
         "icon": "lock",
-        "text": "Confidentialité et accès pour tous.",
+        "text": "Confidentialité d’abord. Gratuit à l’usage.",
         "items": [
           {
             "icon": "location-pin-lock",
-            "title": "Confidentialité",
-            "textLines": [
-              "Vos données restent chez vous : navigateur, appareil",
-              "ou cloud."
-            ],
-            "note": "L’accès cloud sera possible dans une prochaine version.",
+            "title": "Privé par défaut",
+            "text": "Votre travail reste dans votre navigateur par défaut.",
+            "note": "La synchronisation locale entre appareils est déjà possible. Une prochaine version pourra aussi prendre en charge votre propre espace cloud.",
             "noteLabel": "En savoir plus sur l’accès cloud"
           },
           {
             "icon": "gift",
-            "title": "Studio gratuit",
-            "text": "Studio est entièrement gratuit et le restera.",
-            "note": "Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.",
+            "title": "Gratuit aujourd’hui comme demain",
+            "text": "Studio est gratuit aujourd’hui et le restera.",
+            "note": "Certains services cartographiques ou de données facultatifs peuvent être payants auprès de leurs propres fournisseurs. Studio n’a aucun lien commercial, quel qu’il soit, avec eux.",
             "noteLabel": "En savoir plus sur les services externes"
           }
         ]
@@ -101,6 +98,11 @@
     "errorMessage": "L’inscription n’a pas pu être enregistrée. Veuillez réessayer plus tard."
   },
   "privacy": "Vos coordonnées servent uniquement à vous recontacter lors du lancement du Studio. Elles ne sont ni revendues ni transmises à des fins publicitaires. Vous pouvez retirer votre consentement ou demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à studio@lgs1920.fr. Nous conservons vos données d’inscription uniquement pendant la période d’information sur le lancement, puis nous les réévaluons.",
+  "privacyQuote": {
+    "title": "Votre confidentialité passe avant tout.",
+    "text": "Avec Studio, vous n’avez pas besoin de créer un compte en ligne pour accéder à vos données. Nous ne vous traçons pas : utilisez l’application comme bon vous semble.",
+    "rule": "La seule règle : faites-vous plaisir en l’utilisant — et, s’il vous plaît, laissez les crédits visibles. Merci."
+  },
   "standalonePresentationLabel": "Plus d’informations sur Studio",
   "registrationSlogan": "Replay Your World Outdoors.",
   "privacyKicker": "Confidentialité",

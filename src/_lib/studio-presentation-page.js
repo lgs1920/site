@@ -5,6 +5,8 @@ const escapeHtml = (value = '') => String(value)
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
 
+const renderCardBody = (value = '') => escapeHtml(value).replace(/&lt;br&gt;/g, '<br>')
+
 const renderIntro = (paragraphs = []) => paragraphs
     .map((paragraph) => `<p class="section-intro">${escapeHtml(paragraph)}</p>`)
     .join('\n')
@@ -32,7 +34,7 @@ const renderCards = (items = []) => `
                             </span>
                         </div>
                     </article>`).join('')}
-                </div>` : `<p>${escapeHtml(item.body)}</p>`}
+                    </div>` : `<p>${renderCardBody(item.body)}</p>`}
             </wa-card>`).join('')}
     </div>`
 
@@ -43,10 +45,22 @@ const renderPracticalCards = (items = []) => `
                 <wa-icon variant="regular" name="${escapeHtml(item.icon)}" aria-hidden="true"></wa-icon>
                 <div>
                     <h3>${escapeHtml(item.title)}</h3>
-                    <p>${escapeHtml(item.body)}</p>
+                    <p>${renderCardBody(item.body)}</p>
                 </div>
             </wa-card>`).join('')}
     </div>`
+
+const renderPrivacyQuote = (privacyQuote) => privacyQuote ? `
+<div class="overview-privacy studio-presentation-privacy-quote-wrap">
+    <p class="section-intro overview-privacy-lead">
+        <strong>${escapeHtml(privacyQuote.title)}</strong>
+    </p>
+    <blockquote class="overview-privacy-quote studio-presentation-privacy-quote">
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
+        <p>${escapeHtml(privacyQuote.text)}<br><br><strong>${escapeHtml(privacyQuote.rule)}</strong></p>
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
+    </blockquote>
+</div>` : ''
 
 const renderBasicPresentation = (presentation, {showAction = true, action = null} = {}) => {
     const basicAction = action ?? presentation.basic.action
@@ -86,6 +100,8 @@ const renderFullPresentation = (presentation) => `
     <p class="section-intro">${escapeHtml(presentation.overview.simpleIntro)}</p>
 
     ${renderCards(presentation.basics)}
+
+    ${renderPrivacyQuote(presentation.privacyQuote)}
 </section>
 
 <section id="studio-workflow" class="content-section workflow-section" aria-labelledby="studio-workflow-title">

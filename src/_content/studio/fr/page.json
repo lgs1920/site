@@ -7,7 +7,7 @@
     "badge": "Studio",
     "kicker": "Présentation simple",
     "title": "Qu’est-ce que Studio et que peut-on en faire ?",
-    "lead": "Studio est une application dans le navigateur, pensée pour préserver votre confidentialité, qui transforme un parcours outdoor en présentation cartographique et en vidéo à partager sur Instagram, TikTok, YouTube ou un autre réseau social. Les images et les rapports restent disponibles lorsque vous préférez un format fixe.",
+    "lead": "Studio est un espace de travail dans le navigateur, pensé pour préserver votre confidentialité, qui transforme un parcours outdoor existant en présentation cartographique claire et en vidéo à partager. Ajoutez des POI, choisissez les vues caméra, ajustez les couches cartographiques et les widgets, tout en conservant votre travail localement par défaut.",
     "actions": [
       {
         "label": "Ouvrir Studio",
@@ -57,13 +57,13 @@
   "presentation": {
     "overview": {
       "kicker": "Ce qu’est Studio",
-      "title": "Un espace de travail pour un parcours que vous possédez déjà.",
+      "title": "Votre parcours, organisé et enrichi dans un espace de travail du navigateur.",
       "intro": [
-        "Studio est une application web qui s’ouvre directement dans un navigateur. Vous chargez un fichier de parcours existant, vous l’affichez sur une carte en 2D ou en 3D, puis vous préparez une présentation claire de votre sortie.",
+        "Studio s’ouvre directement dans votre navigateur. Importez un fichier de parcours existant, affichez-le sur une carte en 2D ou en 3D et préparez une présentation claire de votre sortie, sans abonnement payant.",
         "Vous pouvez ajuster le parcours, ajouter des points d’intérêt et des informations utiles, choisir ce que montre la caméra et préparer une relecture pour créer une vidéo à partager. Les images et les rapports restent disponibles lorsque vous préférez un format fixe ou documentaire. Studio s’utilise après ou autour d’une sortie : il n’enregistre pas votre activité pendant que vous êtes sur le terrain."
       ],
       "simpleTitle": "L’idée en trois points",
-      "simpleIntro": "Le même fonctionnement s’applique, que vous vouliez seulement vérifier un parcours ou préparer une présentation complète."
+      "simpleIntro": "Commencez avec les réglages par défaut, puis affinez la carte, la caméra, les POI, les couleurs et les widgets selon votre histoire."
     },
     "basics": [
       {
@@ -73,13 +73,13 @@
       },
       {
         "icon": "map-location-dot",
-        "title": "Travailler dans le navigateur",
-        "body": "Examinez le parcours sur la carte, changez son apparence, ajoutez du contexte et préparez la vue sans installer un éditeur classique sur votre ordinateur."
+        "title": "Explorer et préparer la scène 3D",
+        "body": "Examinez le parcours sur la carte, changez de couche, modifiez son apparence, ajoutez du contexte et préparez la vue sans installer un éditeur classique sur votre ordinateur."
       },
       {
         "icon": "file-export",
         "title": "Préparer et partager une vidéo",
-        "body": "Préparez une relecture, enregistrez une vidéo et exportez-la pour Instagram, TikTok, YouTube ou un autre réseau social. Les images et les rapports restent disponibles si vous en avez besoin."
+        "body": "Ajoutez des POI, modifiez les couches cartographiques, ajoutez des couleurs et choisissez différents widgets. Tout reste modifiable selon vos envies. Enregistrez ensuite la vidéo et partagez-la sur vos réseaux sociaux."
       },
       {
         "icon": "lock",
@@ -87,17 +87,17 @@
         "items": [
           {
             "icon": "location-pin-lock",
-            "title": "Confidentialité",
-            "body": "Vos données restent chez vous : navigateur, appareil ou cloud.",
-            "note": "L’accès cloud sera possible dans une prochaine version.",
+            "title": "Privé par défaut",
+            "body": "Votre travail reste dans votre navigateur par défaut.",
+            "note": "La synchronisation locale entre appareils est déjà possible. Une prochaine version pourra aussi prendre en charge votre propre espace cloud.",
             "noteLabel": "En savoir plus sur l’accès cloud",
             "noteId": "studio-presentation-privacy-note-fr-0"
           },
           {
             "icon": "gift",
-            "title": "Studio gratuit",
-            "body": "Studio est entièrement gratuit et le restera.",
-            "note": "Certains services externes accessibles depuis Studio peuvent être payants auprès de leurs fournisseurs. Studio n’a aucune affiliation avec les fournisseurs concernés.",
+            "title": "Gratuit aujourd’hui comme demain",
+            "body": "Studio est gratuit aujourd’hui et le restera.",
+            "note": "Certains services cartographiques ou de données externes peuvent être payants auprès de leurs propres fournisseurs. Studio vous les propose pour enrichir vos vidéos, mais n’a aucun lien commercial, quel qu’il soit, avec ces fournisseurs.",
             "noteLabel": "En savoir plus sur les services externes",
             "noteId": "studio-presentation-privacy-note-fr-1"
           }
@@ -122,29 +122,24 @@
         {
           "index": "3",
           "title": "Préparer la présentation",
-          "body": "Choisissez la carte, les couleurs, la vue de la caméra, la relecture et les textes ou statistiques à afficher."
+          "body": "Choisissez les couches cartographiques, les couleurs, la vue de la caméra, les POI, la relecture, les widgets et les textes ou statistiques à afficher."
         },
         {
           "index": "4",
           "title": "Enregistrer et partager",
-          "body": "Relisez le parcours, enregistrez la vidéo puis exportez-la pour Instagram, TikTok, YouTube ou un autre réseau social."
+          "body": "Relisez le parcours, enregistrez la vidéo puis partagez-la sur vos réseaux sociaux ou téléchargez-la. Les images et les rapports restent disponibles si nécessaire."
         }
       ]
     },
     "outputs": {
       "kicker": "Ce que Studio crée",
       "title": "Le résultat principal : une vidéo à partager.",
-      "intro": "La vidéo est le moyen principal de présenter un parcours. Les images et les rapports restent disponibles lorsqu’un format fixe ou documentaire est plus adapté.",
+      "intro": "La vidéo est le moyen principal de présenter un parcours. Les rapports restent disponibles lorsqu’un document est plus adapté.",
       "items": [
         {
           "icon": "video",
           "title": "Vidéo pour les réseaux sociaux",
           "body": "Relisez le parcours et enregistrez la scène cartographique, les mouvements de caméra et les widgets visibles. Exportez le résultat pour Instagram, TikTok, YouTube ou un autre réseau social."
-        },
-        {
-          "icon": "image",
-          "title": "Images",
-          "body": "Créez une image fixe de la carte, du parcours, de la vue de la caméra et des informations visibles."
         },
         {
           "icon": "file-pdf",
@@ -169,16 +164,21 @@
           "body": "La carte a besoin de WebGL. La vidéo peut utiliser davantage de mémoire : fermer les onglets inutiles peut rendre l’enregistrement plus fluide."
         },
         {
-          "icon": "key",
-          "title": "Moteur Cesium et accès gratuit",
-          "body": "Studio utilise Cesium, un moteur de globe 3D open source, pour ses scènes 2D et 3D. Pendant la période d’essai, Studio fournit un accès Cesium partagé qui peut être limité. Après l’essai, un compte Cesium Ion gratuit et un jeton sont nécessaires pour les données dépendantes de Cesium et donnent accès à des fonds de carte et couches 3D supplémentaires."
+          "icon": "circle-check",
+          "title": "Gratuit aujourd’hui comme demain",
+          "body": "Studio est gratuit aujourd’hui et le restera. Il n’y a ni formule payante, ni abonnement, ni frais d’activation. Studio vous permet d’accéder à plus de 30 fonds de carte gratuits.<br>Contrairement à beaucoup d’autres applications, la création vidéo est totalement gratuite, sans aucune limite autre que celles de votre appareil."
         },
         {
-          "icon": "circle-info",
-          "title": "Des fournisseurs payants facultatifs",
-          "body": "Studio peut aussi donner accès à des fournisseurs de cartes ou de données payants. Ces services sont facultatifs et facturés par leurs propres fournisseurs ; LGS1920 n’a aucun lien commercial avec eux."
+          "icon": "money-bill-1-wave",
+          "title": "Ressources freemium ou payantes facultatives",
+          "body": "Vous pouvez aussi utiliser des ressources cartographiques et de données externes proposées par des fournisseurs freemium ou payants, comme Cesium (Google 3D, Google Maps, etc.), MapTiler et bien d’autres.<br>Ces services sont facultatifs et facturés par leurs propres fournisseurs. Studio vous les propose pour enrichir vos vidéos, mais n’a aucun lien commercial, quel qu’il soit, avec ces fournisseurs."
         }
       ]
+    },
+    "privacyQuote": {
+      "title": "Votre confidentialité passe avant tout.",
+      "text": "Avec Studio, vous n’avez pas besoin de créer un compte en ligne pour accéder à vos données. Nous ne vous traçons pas : utilisez l’application comme bon vous semble.",
+      "rule": "La seule règle : faites-vous plaisir en l’utilisant — et, s’il vous plaît, laissez les crédits visibles. Merci."
     },
     "basic": {
       "kicker": "Découvrir Studio",

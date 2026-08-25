@@ -198,6 +198,16 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         <h2>${escapeHtml(pageContent.privacyTitle)}</h2>
     </div>
     <p class="section-intro">${linkifyContactEmail(pageContent.privacy)}</p>
+    ${pageContent.privacyQuote ? `<div class="overview-privacy registration-privacy-quote-wrap">
+        <p class="section-intro overview-privacy-lead">
+            <strong>${escapeHtml(pageContent.privacyQuote.title)}</strong>
+        </p>
+        <blockquote class="overview-privacy-quote registration-privacy-quote">
+            <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
+            <p>${escapeHtml(pageContent.privacyQuote.text)}<br><br><strong>${escapeHtml(pageContent.privacyQuote.rule)}</strong></p>
+            <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
+        </blockquote>
+    </div>` : ''}
 </section>
 `
 }

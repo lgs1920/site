@@ -119,6 +119,10 @@ html.wa-dark body {
         );
 }
 
+html.wa-dark wa-card {
+    --page-muted: color-mix(in oklab, var(--wa-color-neutral-80) 66%, var(--theme-dark-tint) 34%);
+}
+
 html.wa-light body {
     --page-bg: color-mix(in oklab, white 76%, var(--wa-color-brand-95) 24%);
     --page-ink: var(--wa-color-neutral-10);
@@ -135,7 +139,7 @@ html.wa-light body {
     --surface-strong: color-mix(in oklab, white 94%, var(--wa-color-brand-95) 6%);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-brand-30) 14%, transparent);
-    --header-bg: rgb(255 255 255 / 0.64);
+    --header-bg: linear-gradient(var(--surface-soft), var(--surface-soft)), var(--page-bg);
     --header-stroke: color-mix(in oklab, var(--wa-color-brand-60) 20%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 88%, var(--wa-color-brand-20) 12%);
     --hero-card-bg: color-mix(in oklab, white 96%, var(--wa-color-brand-95) 4%);
@@ -159,7 +163,7 @@ html.wa-light[data-season-theme='spring'] body {
     --surface-strong: color-mix(in oklab, rgb(175, 218, 188) 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-green-30) 14%, transparent);
-    --header-bg: color-mix(in oklab, white 46%, rgb(175, 218, 188) 54%);
+    --header-bg: linear-gradient(var(--surface-soft), var(--surface-soft)), var(--page-bg);
     --header-stroke: color-mix(in oklab, rgb(175, 218, 188) 38%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-green-20) 16%);
     --hero-card-bg: color-mix(in oklab, white 54%, rgb(175, 218, 188) 46%);
@@ -211,7 +215,7 @@ html.wa-light[data-season-theme='summer'] body {
     --surface-strong: color-mix(in oklab, var(--wa-color-green-70) 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-green-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-green-30) 14%, transparent);
-    --header-bg: color-mix(in oklab, white 44%, var(--wa-color-green-60) 56%);
+    --header-bg: linear-gradient(var(--surface-soft), var(--surface-soft)), var(--page-bg);
     --header-stroke: color-mix(in oklab, var(--wa-color-green-60) 36%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-green-20) 16%);
     --hero-card-bg: color-mix(in oklab, white 52%, var(--wa-color-green-60) 48%);
@@ -263,7 +267,7 @@ html.wa-light[data-season-theme='fall'] body {
     --surface-strong: color-mix(in oklab, #c56e12 30%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-orange-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-orange-30) 14%, transparent);
-    --header-bg: color-mix(in oklab, white 44%, #c56e12 56%);
+    --header-bg: linear-gradient(var(--surface-soft), var(--surface-soft)), var(--page-bg);
     --header-stroke: color-mix(in oklab, #c56e12 36%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-orange-20) 16%);
     --hero-card-bg: color-mix(in oklab, white 52%, #c56e12 48%);
@@ -315,7 +319,7 @@ html.wa-light[data-season-theme='winter'] body {
     --surface-strong: color-mix(in oklab, #dbeafe 28%, transparent);
     --shadow-soft: 0 1px 3px color-mix(in oklab, var(--wa-color-blue-30) 10%, transparent);
     --shadow-lift: 0 3px 10px color-mix(in oklab, var(--wa-color-blue-30) 14%, transparent);
-    --header-bg: color-mix(in oklab, white 46%, #dbeafe 54%);
+    --header-bg: linear-gradient(var(--surface-soft), var(--surface-soft)), var(--page-bg);
     --header-stroke: color-mix(in oklab, #dbeafe 40%, transparent);
     --header-ink: color-mix(in oklab, var(--wa-color-neutral-10) 84%, var(--wa-color-blue-20) 16%);
     --hero-card-bg: color-mix(in oklab, white 54%, #dbeafe 46%);
@@ -895,10 +899,14 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
     border-radius: 0;
     color: var(--header-ink);
     background: var(--header-bg) !important;
-    background-color: var(--header-bg) !important;
+    background-color: var(--page-bg) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+}
+
+html.wa-dark .topbar {
+    background-color: var(--header-bg) !important;
 }
 
 .brand-lockup {
@@ -2664,6 +2672,18 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     color: var(--page-muted);
 }
 
+.studio-presentation-basic wa-card.studio-presentation-privacy-card {
+    border: 1px solid var(--panel-stroke);
+    background: var(--surface-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.studio-presentation-basic wa-card.studio-presentation-privacy-card:hover {
+    border-color: var(--panel-stroke-hover);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow-card-lift);
+}
+
 #studio-overview wa-card.studio-presentation-privacy-card,
 #studio-overview wa-card.studio-presentation-privacy-card:hover {
     transform: none;
@@ -2920,7 +2940,7 @@ wa-dialog::part(footer) {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: 0.95rem;
-    align-items: center;
+    align-items: start;
     height: 100%;
     padding: 1.15rem;
 }
@@ -2942,6 +2962,75 @@ wa-dialog::part(footer) {
     margin: 0;
     color: var(--page-muted);
     line-height: 1.65;
+}
+
+.overview-privacy {
+    width: 100%;
+    margin-top: var(--wa-space-l);
+}
+
+.overview-privacy-lead {
+    max-width: 58rem;
+    margin-bottom: 0;
+}
+
+.overview-privacy-lead strong {
+    color: var(--wa-color-text-normal);
+}
+
+.overview-privacy-quote {
+    position: relative;
+    max-width: 54rem;
+    margin: var(--wa-space-l) auto 0;
+    padding: 1.35rem clamp(1.25rem, 5vw, 4rem);
+    border: var(--wa-border-width-s) solid var(--panel-stroke);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--surface-soft);
+    color: var(--page-muted);
+    box-shadow: var(--shadow-lift);
+    font-family: var(--wa-font-family-body);
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    line-height: 1.65;
+    overflow: visible;
+    transform: rotate(-0.8deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.overview-privacy-quote-mark {
+    position: absolute;
+    z-index: 1;
+    color: var(--lgs-accent-color);
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1;
+}
+
+.overview-privacy-quote-mark-open {
+    inset-inline-start: -1.4rem;
+    inset-block-start: -1.55rem;
+}
+
+.overview-privacy-quote-mark-close {
+    inset-inline-end: -1.4rem;
+    inset-block-end: -1.55rem;
+}
+
+.overview-privacy-quote p {
+    margin: 0;
+}
+
+.overview-privacy-quote strong {
+    color: var(--lgs-accent-color);
+    font-weight: 700;
+}
+
+.overview-privacy-quote:hover {
+    box-shadow: var(--shadow-lift);
+    transform: rotate(-0.8deg) translateY(-1px);
+}
+
+.studio-presentation-privacy-quote-wrap,
+.registration-privacy-quote-wrap {
+    padding-bottom: var(--wa-space-l);
 }
 
 .legal-section {
@@ -3262,6 +3351,10 @@ wa-dialog::part(footer) {
 
 .feature-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.access-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .registration-layout {
@@ -3595,6 +3688,32 @@ wa-card.page-cta-card::part(body) {
     height: 100%;
     padding: 1.45rem;
     border-radius: calc(var(--wa-border-radius-m) - 1px);
+}
+
+#overview wa-card.workflow-card,
+#overview wa-card.workflow-card:hover {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    color: var(--wa-color-text-normal);
+}
+
+#overview wa-card.workflow-card h3,
+#overview wa-card.workflow-card .hero-metric-list strong {
+    color: var(--wa-color-text-normal);
+}
+
+#overview wa-card.workflow-card .panel-eyebrow {
+    color: var(--wa-color-text-normal);
+}
+
+#overview wa-card.workflow-card .hero-metric-list span {
+    color: var(--page-muted);
+}
+
+#overview wa-card.workflow-card .hero-metric-list article {
+    border-top-color: var(--panel-stroke);
 }
 
 .logo-active-band,
@@ -4858,6 +4977,11 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    #studio-outputs .feature-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .feature-grid > *:nth-child(3n + 2),
     .logo-option-grid > *:nth-child(3n + 2),
     .logo-note-grid > *:nth-child(3n + 2) {
@@ -5079,6 +5203,11 @@ wa-card.page-cta-card::part(body) {
     .vision-grid,
     .feature-grid,
     .intro-indication-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #studio-outputs .feature-grid {
+        width: 100%;
         grid-template-columns: 1fr;
     }
 

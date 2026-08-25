@@ -58,11 +58,6 @@
       "summary": "Pourquoi ne puis-je pas charger un fichier depuis le dossier « Téléchargements » sur mon mobile ou ma tablette ?",
       "body": "Sur Android comme sur iOS, les fichiers du répertoire dédié aux téléchargements ne peuvent pas être lus directement par un navigateur.",
       "bodyAfter": "LGS1920 respecte une approche privacy-first : vos fichiers restent sur votre appareil et sont lus localement par le navigateur. Pour contourner cette restriction, nous devrions envoyer le contenu du fichier en clair à notre backend afin qu’il puisse effectuer le téléchargement à votre place. Nous refusons de procéder ainsi."
-    },
-    {
-      "id": "quel-niveau-de-vie-privee",
-      "summary": "Quel niveau de vie privée ?",
-      "body": "Les données de travail restent dans le navigateur par défaut. Cesium Ion n’est nécessaire que pour les données dépendantes de Cesium."
     }
   ],
   "pageCta": {

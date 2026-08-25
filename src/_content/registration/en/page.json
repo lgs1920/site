@@ -5,11 +5,11 @@
   "hero": {
     "className": "intro-hero registration-hero",
     "localeSwitcher": true,
-    "title": "Live outdoor adventures, share the stories.",
-    "lead": "Walk, run or ride, then import, edit, replay and export videos of your journeys for Instagram, TikTok, YouTube, or other social networks without leaving your browser.",
+    "title": "Live outdoor adventures. Share the stories.",
+    "lead": "Walk, run or ride, then bring your route into Studio to edit, replay and share videos without leaving your browser.",
     "panel": {
       "eyebrow": "LGS1920 Studio",
-      "title": "Something amazing is on the way.",
+      "title": "Your next route deserves a story.",
       "action": {
         "label": "Register for launch updates",
         "appearance": "filled",
@@ -20,40 +20,40 @@
           "animation": "swing"
         }
       },
-      "lead": "Stay tuned and register for launch updates to be among the first to discover what Studio has in store.",
+      "lead": "Register for launch updates and be among the first to discover a private-by-default workspace for routes, scenes, videos, and reports.",
       "items": [
         {
           "icon": "route",
-          "title": "Import your trail, ride or trek and review it.",
+          "title": "Import and review journeys.",
           "text": "GeoJSON, GPX, and KML"
         },
         {
           "icon": "camera",
-          "title": "Explore a global, 3D playground!",
-          "text": "Worldwide layers and dynamic widgets (profiles, live data, compass, text, and more to come)."
+          "title": "Prepare the scene.",
+          "text": "Map layers, camera views, POIs, colors, and widgets."
         },
         {
           "icon": "file-pdf",
-          "title": "Export and share",
-          "text": "Share videos of your adventures on social networks and export HTML or PDF reports."
+          "title": "Export and share.",
+          "text": "Videos, snapshots, and HTML or PDF reports."
         }
       ],
       "promise": {
         "icon": "lock",
-        "text": "Privacy and access for everyone.",
+        "text": "Privacy first. Free to use.",
         "items": [
           {
             "icon": "location-pin-lock",
-            "title": "Privacy first",
-            "text": "Your data stays with you: browser, device, or cloud.",
-            "note": "Cloud access will be available in a future version.",
+            "title": "Private by default",
+            "text": "Your work stays in your browser by default.",
+            "note": "Local synchronization across devices is already possible. A future version may also support your own cloud storage.",
             "noteLabel": "More about cloud access"
           },
           {
             "icon": "circle-check",
-            "title": "Studio is free",
-            "text": "Studio is completely free and will remain so.",
-            "note": "Some external services accessible through Studio may be paid services from their providers. Studio has no affiliation with any of the providers concerned.",
+            "title": "Free today and tomorrow",
+            "text": "Studio is free to use today and will remain free.",
+            "note": "Optional map or data services may be paid by their own providers. Studio has no commercial relationship of any kind with them.",
             "noteLabel": "More about external services"
           }
         ]
@@ -98,6 +98,11 @@
     "errorMessage": "The registration could not be saved. Please try again later."
   },
   "privacy": "Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to studio@lgs1920.fr. We keep your registration data only for the launch information period, then review it.",
+  "privacyQuote": {
+    "title": "Your privacy comes first.",
+    "text": "With Studio, you don’t need to create an online account to access your data. We don’t track you, so use the app however you like.",
+    "rule": "The only rule is: have fun using it—and please keep the credits visible. Thank you."
+  },
   "standalonePresentationLabel": "More info on Studio",
   "registrationSlogan": "Replay Your World Outdoors.",
   "privacyKicker": "Privacy",
