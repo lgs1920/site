@@ -94,7 +94,7 @@ Le modèle ne semble pas distinguer une traduction publiée, en cours, obsolète
 
 ### 4.7 Validation insuffisamment spécialisée — priorité haute
 
-Le build global est le contrôle principal, mais il ne vérifie pas nécessairement la cohérence éditoriale entre langues. Lors de l’analyse, `bun run build` échoue avant la génération des pages car la source externe `../studio/tech-doc/README_DEPENDENCIES.md` était absente. Ce blocage est distinct du multilingue, mais il empêchait de valider le rendu complet dans cet environnement.
+Le build global est le contrôle principal, mais il ne vérifie pas nécessairement la cohérence éditoriale entre langues. Lors de l’analyse, `bun run build` échouait avant la génération des pages car la source externe de l’inventaire des dépendances était absente. Ce blocage est distinct du multilingue, mais il empêchait de valider le rendu complet dans cet environnement. La source actuelle est `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md`.
 
 **Recommandation :** séparer les contrôles :
 
