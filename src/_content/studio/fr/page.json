@@ -177,8 +177,13 @@
     },
     "privacyQuote": {
       "title": "Votre confidentialité passe avant tout.",
-      "text": "Avec Studio, vous n’avez pas besoin de créer un compte en ligne pour accéder à vos données. Nous ne vous traçons pas : utilisez l’application comme bon vous semble.",
-      "rule": "La seule règle : faites-vous plaisir en l’utilisant — et, s’il vous plaît, laissez les crédits visibles. Merci."
+      "text": "Avec Studio, vous n’avez pas à créer de compte en ligne pour accéder à vos données. Elles restent dans vos espaces personnels : votre navigateur, votre appareil ou votre propre espace cloud. Nous ne vous pisterons jamais ; nous n’utilisons pas de cookies, et vous pouvez utiliser l’application comme bon vous semble.",
+      "rulesTitle": "Les deux seules règles imposées :",
+      "rules": [
+        "Faites-vous plaisir en l’utilisant.",
+        "Laissez les crédits visibles."
+      ],
+      "closing": "Merci et bonne utilisation !"
     },
     "basic": {
       "kicker": "Découvrir Studio",

@@ -57,7 +57,7 @@ const renderPrivacyQuote = (privacyQuote) => privacyQuote ? `
     </p>
     <blockquote class="overview-privacy-quote studio-presentation-privacy-quote">
         <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
-        <p>${escapeHtml(privacyQuote.text)}<br><br><strong>${escapeHtml(privacyQuote.rule)}</strong></p>
+        <p>${escapeHtml(privacyQuote.text)}<br><br><strong>${escapeHtml(privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${privacyQuote.rules.map((rule) => escapeHtml(rule)).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(privacyQuote.closing)}</span></p>
         <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
     </blockquote>
 </div>` : ''

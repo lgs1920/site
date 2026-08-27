@@ -100,8 +100,13 @@
   "privacy": "Your details are used only to contact you about the Studio launch. They are not sold or shared for advertising. You can withdraw your consent or request access, correction, or deletion at any time by writing to studio@lgs1920.fr. We keep your registration data only for the launch information period, then review it.",
   "privacyQuote": {
     "title": "Your privacy comes first.",
-    "text": "With Studio, you don’t need to create an online account to access your data. We don’t track you, so use the app however you like.",
-    "rule": "The only rule is: have fun using it—and please keep the credits visible. Thank you."
+    "text": "With Studio, you don’t need to create an online account to access your data. Your data stays in your personal spaces: your browser, your device, or your own cloud storage. We will never track what you do; we are cookie-free, so use the app however you like.",
+    "rulesTitle": "The only two rules we impose:",
+    "rules": [
+      "Have fun using it.",
+      "Keep the credits visible."
+    ],
+    "closing": "Thank you, and enjoy!"
   },
   "standalonePresentationLabel": "More info on Studio",
   "registrationSlogan": "Replay Your World Outdoors.",

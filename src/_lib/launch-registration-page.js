@@ -204,7 +204,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         </p>
         <blockquote class="overview-privacy-quote registration-privacy-quote">
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
-            <p>${escapeHtml(pageContent.privacyQuote.text)}<br><br><strong>${escapeHtml(pageContent.privacyQuote.rule)}</strong></p>
+            <p>${escapeHtml(pageContent.privacyQuote.text)}<br><br><strong>${escapeHtml(pageContent.privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${pageContent.privacyQuote.rules.map((rule) => escapeHtml(rule)).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(pageContent.privacyQuote.closing)}</span></p>
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
         </blockquote>
     </div>` : ''}

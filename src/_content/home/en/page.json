@@ -143,7 +143,15 @@
       "privacy": {
         "title": "Your privacy comes first.",
         "lead": "For now, all data handled by Studio stays in your browser, including videos while they are being processed. Your data can already be synchronized locally across your devices. In a future version, Studio may also allow you to synchronize your data with your own cloud storage, if you choose to do so.",
-        "quote": "With Studio, you don’t need to create an online account to access your data. We don’t track you, so use the app however you like.<br><br><strong>The only rule is: have fun using it—and please keep the credits visible. Thank you.</strong>"
+        "quote": {
+          "text": "With Studio, you don’t need to create an online account to access your data. Your data stays in your personal spaces: your browser, your device, or your own cloud storage. We will never track what you do; we are cookie-free, so use the app however you like.",
+          "rulesTitle": "The only two rules we impose:",
+          "rules": [
+            "Have fun using it.",
+            "Keep the credits visible."
+          ],
+          "closing": "Thank you, and enjoy!"
+        }
       }
     },
     "quickAccess": {

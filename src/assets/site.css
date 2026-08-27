@@ -3023,6 +3023,19 @@ wa-dialog::part(footer) {
     font-weight: 700;
 }
 
+.overview-privacy-quote-rules,
+.overview-privacy-quote-closing {
+    display: block;
+}
+
+.overview-privacy-quote-rules {
+    margin-inline-start: var(--wa-space-xl);
+}
+
+.overview-privacy-quote-closing {
+    margin-block-start: var(--wa-space-m);
+}
+
 .overview-privacy-quote:hover {
     box-shadow: var(--shadow-lift);
     transform: rotate(-0.8deg) translateY(-1px);

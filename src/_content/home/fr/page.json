@@ -143,7 +143,15 @@
       "privacy": {
         "title": "Votre confidentialité passe avant tout.",
         "lead": "Pour l’instant, toutes les données traitées par Studio restent dans votre navigateur, y compris les vidéos en cours de traitement. Vos données peuvent déjà être synchronisées localement entre vos appareils. Dans une version ultérieure, Studio pourra également vous permettre de synchroniser vos données avec votre propre espace cloud, si vous choisissez de le faire.",
-        "quote": "Avec Studio, vous n’avez pas besoin de créer un compte en ligne pour accéder à vos données. Nous ne vous traçons pas : utilisez l’application comme bon vous semble.<br><br><strong>La seule règle : faites-vous plaisir en l’utilisant — et, s’il vous plaît, laissez les crédits visibles. Merci.</strong>"
+        "quote": {
+          "text": "Avec Studio, vous n’avez pas à créer de compte en ligne pour accéder à vos données. Elles restent dans vos espaces personnels : votre navigateur, votre appareil ou votre propre espace cloud. Nous ne vous pisterons jamais ; nous n’utilisons pas de cookies, et vous pouvez utiliser l’application comme bon vous semble.",
+          "rulesTitle": "Les deux seules règles imposées :",
+          "rules": [
+            "Faites-vous plaisir en l’utilisant.",
+            "Laissez les crédits visibles."
+          ],
+          "closing": "Merci et bonne utilisation !"
+        }
       }
     },
     "quickAccess": {

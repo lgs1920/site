@@ -49,7 +49,18 @@
         </p>
         <blockquote class="overview-privacy-quote">
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
-            <p>{{ home_content.overview.privacy.quote }}</p>
+            <p>
+                {{ home_content.overview.privacy.quote.text }}<br><br>
+                <strong>
+                    {{ home_content.overview.privacy.quote.rulesTitle }}<br>
+                    <span class="overview-privacy-quote-rules">
+                        {% for rule in home_content.overview.privacy.quote.rules %}
+                            {{ rule }}{% unless forloop.last %}<br>{% endunless %}
+                        {% endfor %}
+                    </span>
+                </strong>
+                <span class="overview-privacy-quote-closing">{{ home_content.overview.privacy.quote.closing }}</span>
+            </p>
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
         </blockquote>
     </div>

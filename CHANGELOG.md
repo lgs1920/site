@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-27 — [`1bd6ace`](https://github.com/lgs1920/site/commit/1bd6ace) — Refresh privacy quote presentation
+
+- Updated the localized privacy quote on Home, Registration, and Studio with the personal-storage, cookie-free message and separated the two imposed rules from the normal closing text.
+
 ## 2026-08-27 — [`582c06a`](https://github.com/lgs1920/site/commit/582c06a) — Update Studio dependency reference
 
 - Updated the pinned Studio dependency revision and the related maintenance documentation.
