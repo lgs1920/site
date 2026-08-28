@@ -147,8 +147,14 @@
           "text": "Avec Studio, vous n’avez pas à créer de compte en ligne pour accéder à vos données. Elles restent dans vos espaces personnels : votre navigateur, votre appareil ou votre propre espace cloud. Nous ne vous pisterons jamais ; nous n’utilisons pas de cookies, et vous pouvez utiliser l’application comme bon vous semble.",
           "rulesTitle": "Les deux seules règles imposées :",
           "rules": [
-            "Faites-vous plaisir en l’utilisant.",
-            "Laissez les crédits visibles."
+            {
+              "icon": "party-horn",
+              "text": "Faites-vous plaisir en l’utilisant."
+            },
+            {
+              "icon": "scale-unbalanced",
+              "text": "Laissez les crédits visibles."
+            }
           ],
           "closing": "Merci et bonne utilisation !"
         }

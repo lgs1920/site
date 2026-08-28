@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-28 — [`56a0afd`](https://github.com/lgs1920/site/commit/56a0afd) — Add icons to privacy quote rules
+
+- Added `party-horn` and `scale-unbalanced` icons before the two privacy quote rules across the localized Home, Studio, and registration pages.
+
 ## 2026-08-27 — [`1bd6ace`](https://github.com/lgs1920/site/commit/1bd6ace) — Refresh privacy quote presentation
 
 - Updated the localized privacy quote on Home, Registration, and Studio with the personal-storage, cookie-free message and separated the two imposed rules from the normal closing text.

@@ -55,7 +55,10 @@
                     {{ home_content.overview.privacy.quote.rulesTitle }}<br>
                     <span class="overview-privacy-quote-rules">
                         {% for rule in home_content.overview.privacy.quote.rules %}
-                            {{ rule }}{% unless forloop.last %}<br>{% endunless %}
+                            <span class="overview-privacy-quote-rule">
+                                <wa-icon variant="regular" name="{{ rule.icon }}" aria-hidden="true"></wa-icon>
+                                {{ rule.text }}
+                            </span>{% unless forloop.last %}<br>{% endunless %}
                         {% endfor %}
                     </span>
                 </strong>

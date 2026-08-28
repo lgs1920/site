@@ -180,8 +180,14 @@
       "text": "With Studio, you don’t need to create an online account to access your data. Your data stays in your personal spaces: your browser, your device, or your own cloud storage. We will never track what you do; we are cookie-free, so use the app however you like.",
       "rulesTitle": "The only two rules we impose:",
       "rules": [
-        "Have fun using it.",
-        "Keep the credits visible."
+        {
+          "icon": "party-horn",
+          "text": "Have fun using it."
+        },
+        {
+          "icon": "scale-unbalanced",
+          "text": "Keep the credits visible."
+        }
       ],
       "closing": "Thank you, and enjoy!"
     },
