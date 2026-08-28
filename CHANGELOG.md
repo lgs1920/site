@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-08-28 — [`ba0ec98`](https://github.com/lgs1920/site/commit/ba0ec98) — Clarify Studio purpose and boundaries
+## 2026-08-28 — [`59f7f93`](https://github.com/lgs1920/site/commit/59f7f93) — Clarify Studio purpose and boundaries
 
 - Added localized FAQ guidance explaining what Studio does not do, including live tracking, user-to-user exchange, and catalogue features.
 - Clarified that Studio starts from an existing route file and streamlined the localized Studio introduction around the 3D workspace.
