@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-28 — [`ba0ec98`](https://github.com/lgs1920/site/commit/ba0ec98) — Clarify Studio purpose and boundaries
+
+- Added localized FAQ guidance explaining what Studio does not do, including live tracking, user-to-user exchange, and catalogue features.
+- Clarified that Studio starts from an existing route file and streamlined the localized Studio introduction around the 3D workspace.
+- Added safe rendering for intentional line breaks in FAQ answers.
+
 ## 2026-08-28 — [`ae55a01`](https://github.com/lgs1920/site/commit/ae55a01) — Pluralize the registration route message
 
 - Updated the English and French registration panel copy for multiple routes.

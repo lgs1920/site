@@ -49,6 +49,16 @@
       "body": "People who need to review, present, and export map scenes, reports, screenshots, or video."
     },
     {
+      "id": "what-studio-is-not",
+      "summary": "What is Studio not?",
+      "body": "Studio is not a live route-tracking application, a navigation app, or a GPS recorder. It does not provide any way for app users to exchange messages or content with one another. It is neither a video catalogue nor a journey catalogue, and it will never be any of those things.<br>Studio starts with an existing route file and helps you review, enrich, replay, and share the story of a journey wherever you want and with whoever you want."
+    },
+    {
+      "id": "when-to-use-studio",
+      "summary": "When should I use Studio?",
+      "body": "Studio is used after or around an outing; it does not record the activity while you are outdoors."
+    },
+    {
       "id": "what-can-it-export",
       "summary": "What can Studio export?",
       "body": "Snapshots, video, PDF reports, and ZIP-packaged HTML reports."

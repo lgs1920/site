@@ -49,6 +49,16 @@
       "body": "Aux personnes qui doivent relire, présenter et exporter des scènes cartographiques, des rapports, des captures ou de la vidéo."
     },
     {
+      "id": "ce-que-studio-nest-pas",
+      "summary": "Qu’est-ce que Studio n’est pas ?",
+      "body": "Studio n’est pas une application de suivi de parcours en direct, une application de navigation ou un enregistreur GPS. Il ne permet pas non plus aux utilisateurs de l’application d’échanger des messages ou des contenus entre eux. Ce n’est ni un catalogue de vidéos ni un catalogue de parcours, et il ne sera jamais rien de tout cela.<br>Studio part d’un fichier de parcours existant et vous aide à relire, enrichir, rejouer et partager l’histoire d’une sortie où et avec qui vous le souhaitez."
+    },
+    {
+      "id": "quand-utiliser-studio",
+      "summary": "Quand utiliser Studio ?",
+      "body": "Studio s’utilise après ou autour d’une sortie ; il n’enregistre pas l’activité pendant que vous êtes dehors."
+    },
+    {
       "id": "quexporte-studio",
       "summary": "Qu’exporte Studio ?",
       "body": "Des captures, de la vidéo, des rapports PDF et des rapports HTML empaquetés en ZIP."

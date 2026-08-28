@@ -5,6 +5,9 @@ const escapeHtml = (value = '') => String(value)
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
 
+const renderFaqBody = (value = '') => escapeHtml(value)
+    .replace(/&lt;br&gt;/g, '<br>')
+
 const renderFaqLinks = (links = []) => {
     if (!links || links.length === 0) {
         return ''
@@ -45,9 +48,9 @@ export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = 
             <wa-details id="${escapeHtml(item.id || `faq-item-${index + 1}`)}" summary="${escapeHtml(item.summary)}">
                 <div class="faq-answer${item.image ? ' faq-answer-with-media' : ''}">
                     <div class="faq-answer-copy">
-                        <p>${escapeHtml(item.body)}</p>
-                        ${item.bodyAfter ? `<p>${escapeHtml(item.bodyAfter)}</p>` : ''}
-                        ${item.bodyFinal ? `<p>${escapeHtml(item.bodyFinal)}</p>` : ''}
+                        <p>${renderFaqBody(item.body)}</p>
+                        ${item.bodyAfter ? `<p>${renderFaqBody(item.bodyAfter)}</p>` : ''}
+                        ${item.bodyFinal ? `<p>${renderFaqBody(item.bodyFinal)}</p>` : ''}
                         ${item.links ? `<p>${renderFaqLinks(item.links)}</p>` : ''}
                     </div>
                     ${renderFaqImage(item.image, creditLabel)}
