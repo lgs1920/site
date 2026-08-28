@@ -77,10 +77,30 @@ const PRODUCTION_REDIRECT_EXEMPT_PATHS = new Set([
     '/registration/studio/',
     '/fr/registration/studio/',
 ])
+const PRODUCTION_PUBLIC_HELP_PATH_PREFIXES = [
+    '/faq/',
+    '/fr/faq/',
+    '/user-guide/',
+    '/fr/user-guide/',
+    '/changelog/',
+    '/fr/changelog/',
+    '/contact/',
+    '/fr/contact/',
+    '/credits/',
+    '/dependencies/',
+    '/fr/dependencies/',
+    '/licensing/',
+    '/fr/licensing/',
+    '/license/',
+    '/fr/license/',
+    '/contributor-license-agreement/',
+    '/fr/contributor-license-agreement/',
+]
 
 export const getProductionRedirectUrl = (pageUrl) => {
     const normalizedPageUrl = pageUrl.endsWith('/') ? pageUrl : `${pageUrl}/`
-    if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(normalizedPageUrl)) {
+    if (PRODUCTION_REDIRECT_EXEMPT_PATHS.has(normalizedPageUrl)
+        || PRODUCTION_PUBLIC_HELP_PATH_PREFIXES.some(prefix => normalizedPageUrl.startsWith(prefix))) {
         return null
     }
 

@@ -6,10 +6,10 @@
     "badge": "Attribution",
     "kicker": "Credits",
     "title": "Meet the projects and data providers behind Studio.",
-    "lead": "These credits are assembled at build time from the Markdown files maintained in the main Studio repository.",
+    "lead": "These credits are assembled at build time from the Markdown files maintained in the Studio 1.0.0 release.",
     "highlights": [
       {
-        "label": "3 source documents",
+        "label": "4 source documents",
         "icon": "file-lines",
         "variant": "regular"
       },
@@ -25,7 +25,7 @@
       }
     ]
   },
-  "intro": "The sections below acknowledge the map engine, data providers, and geocoding services used by LGS1920 Studio.",
+  "intro": "The sections below acknowledge the map engine, data providers, geocoding services, media assets, and sample journeys used by LGS1920 Studio.",
   "pageCta": {
     "eyebrow": "Keep exploring",
     "title": "Want the code dependency list too?",

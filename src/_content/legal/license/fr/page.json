@@ -6,7 +6,7 @@
     "badge": "Légal",
     "kicker": "Licence",
     "title": "Lire le texte complet de l'AGPL.",
-    "lead": "Cette page reflète le texte complet maintenu dans la branche Studio 1.0.0-beta.3."
+    "lead": "Cette page reflète le texte complet maintenu dans la version Studio 1.0.0."
   },
-  "intro": "Le texte de licence ci-dessous est rendu directement depuis le Markdown canonique conservé dans la branche Studio 1.0.0-beta.3."
+  "intro": "Le texte de licence ci-dessous est rendu directement depuis le Markdown canonique conservé dans la version Studio 1.0.0."
 }

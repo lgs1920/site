@@ -103,7 +103,7 @@ For a legal page, use this map:
 | Contributor agreement source | `../studio/CONTRIBUTOR_LICENSE_AGREEMENT.md` |
 | Dependency inventory source | `../studio/tech-doc/specs/delivery/README_DEPENDENCIES.md` |
 
-Legal documents are read from the Studio repository at build time. The dependency document uses the pinned `f14742dada6e760f598cade5b480c522454abed3` Studio revision. If a legal page fails during the build, check the source path and Git reference before changing the Eleventy controller.
+Legal documents are read from the Studio repository at build time. The licensing, contributor agreement, and dependency documents use the pinned `e6cb129432d15d8ecc48c17314c48804f9933a44` Studio revision. If a legal page fails during the build, check the source path and Git reference before changing the Eleventy controller.
 
 ## 3. Guide-page structure
 

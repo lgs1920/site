@@ -5,7 +5,7 @@ import MarkdownIt from 'markdown-it'
 import i18n from '../_data/i18n.js'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const studioLicenseRef = 'f14742dada6e760f598cade5b480c522454abed3'
+const studioLicenseRef = 'e6cb129432d15d8ecc48c17314c48804f9933a44'
 const studioRepoBaseUrl = `https://github.com/lgs1920/studio/blob/${studioLicenseRef}`
 const markdown = new MarkdownIt({
     html:      true,
@@ -37,6 +37,7 @@ const sourceConfig = {
         maxNavLevel: 2,
         sourceFile:  'CONTRIBUTOR_LICENSE_AGREEMENT.md',
         sourceLabel: 'studio/CONTRIBUTOR_LICENSE_AGREEMENT.md',
+        sourceRef:   studioLicenseRef,
     },
 }
 

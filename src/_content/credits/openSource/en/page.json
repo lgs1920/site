@@ -6,7 +6,7 @@
     "badge": "Open source",
     "kicker": "Open Source Credits",
     "title": "Explore the open source projects powering Studio.",
-    "lead": "This page mirrors the dedicated open source credit document maintained in the main Studio repository.",
+    "lead": "This page mirrors the dedicated open source credit document maintained in the Studio 1.0.0 release.",
     "highlights": [
       {
         "label": "Map and 3D",

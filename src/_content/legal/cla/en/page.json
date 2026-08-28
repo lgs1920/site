@@ -8,5 +8,5 @@
     "title": "Review the Contributor License Agreement.",
     "lead": "Contributors must accept these terms before their changes can be merged into the main Studio repository."
   },
-  "intro": "The CLA below is sourced at build time from the main studio repository to keep contribution terms in sync."
+  "intro": "The CLA below is sourced at build time from the Studio 1.0.0 release to keep contribution terms in sync."
 }

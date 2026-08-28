@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process'
 import MarkdownIt from 'markdown-it'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const studioCreditRef = 'main'
+const studioCreditRef = 'e6cb129432d15d8ecc48c17314c48804f9933a44'
 const studioCreditsPath = 'src/assets/credits'
 const studioCreditsUrl = `https://github.com/lgs1920/studio/tree/${studioCreditRef}/${studioCreditsPath}`
 const markdown = new MarkdownIt({
@@ -17,6 +17,7 @@ const creditFiles = {
     engine:    'credits-engine.md',
     providers: 'credits-map-providers.md',
     geocoding: 'credits-geocoding.md',
+    media:     'credits-media-assets.md',
     openSource:'credits-open-source-code.md',
 }
 
@@ -102,6 +103,7 @@ export const creditsDocs = {
         {fileName: creditFiles.engine, sectionKey:'engine'},
         {fileName: creditFiles.providers, sectionKey:'providers'},
         {fileName: creditFiles.geocoding, sectionKey:'geocoding'},
+        {fileName: creditFiles.media, sectionKey:'media'},
     ]),
     openSource: createCreditsDocument([
         {fileName: creditFiles.openSource, sectionKey:'open-source'},

@@ -6,7 +6,7 @@
     "badge": "Stack",
     "kicker": "Dépendances",
     "title": "Parcourir l'inventaire courant des dépendances de LGS1920 Studio.",
-    "lead": "Cette page reflète l'instantané des dépendances maintenu dans le dépôt principal Studio et généré au build.",
+    "lead": "Cette page reflète l'instantané des dépendances maintenu dans la version Studio 1.0.0 et généré au build.",
     "highlights": [
       {
         "label": "Packages runtime",
@@ -25,10 +25,10 @@
       }
     ]
   },
-  "intro": "L'inventaire des dépendances ci-dessous est récupéré au build depuis le dépôt principal Studio afin que le site public reflète le même instantané.",
+  "intro": "L'inventaire des dépendances ci-dessous est récupéré au build depuis la version Studio 1.0.0 afin que le site public reflète le même instantané.",
   "pageCta": {
     "eyebrow": "Source de vérité",
-    "title": "L'inventaire des dépendances est généré depuis le dépôt principal Studio.",
+    "title": "L'inventaire des dépendances est généré depuis la version Studio 1.0.0.",
     "body": "Cette page reste lisible, mais la source de vérité demeure le manifest du package Studio et son document de dépendances compagnon.",
     "actions": [
       {

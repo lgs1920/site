@@ -1,12 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import {execFileSync} from 'node:child_process'
 import MarkdownIt from 'markdown-it'
 import i18n from '../_data/i18n.js'
 
 const studioRoot = path.resolve(process.cwd(), '..', 'studio')
-const changelogDirectory = path.join(studioRoot, 'public', 'assets', 'changelog')
-const studioRepoBaseUrl = 'https://github.com/lgs1920/studio/blob/main/public/assets/changelog'
-const studioRepoTreeUrl = 'https://github.com/lgs1920/studio/tree/main/public/assets/changelog'
+const studioChangelogRef = 'e6cb129432d15d8ecc48c17314c48804f9933a44'
+const studioRepoBaseUrl = `https://github.com/lgs1920/studio/blob/${studioChangelogRef}/public/assets/changelog`
+const studioRepoTreeUrl = `https://github.com/lgs1920/studio/tree/${studioChangelogRef}/public/assets/changelog`
 export const CHANGELOG_PAGE_SIZE = 10
 const markdown = new MarkdownIt({
     html:      true,
@@ -119,12 +120,27 @@ const renderMarkdownDocument = ({ rawMarkdown, headingIdPrefix = '', maxNavLevel
 }
 
 const getChangelogFiles = () => {
-    if (!fs.existsSync(changelogDirectory)) {
-        throw new Error(`Missing changelog directory: ${changelogDirectory}`)
+    if (!fs.existsSync(path.join(studioRoot, '.git'))) {
+        throw new Error(`Missing studio git repository: ${studioRoot}`)
     }
 
-    return fs.readdirSync(changelogDirectory)
-        .filter(fileName => fileName.endsWith('.md'))
+    return execFileSync('git', ['-C', studioRoot, 'ls-tree', '-r', '--name-only', studioChangelogRef, 'public/assets/changelog'], {
+        encoding:'utf8',
+    })
+        .trim()
+        .split('\n')
+        .filter(filePath => filePath.endsWith('.md'))
+        .map(filePath => path.basename(filePath))
+}
+
+const readChangelogFile = (fileName) => {
+    if (!fs.existsSync(path.join(studioRoot, '.git'))) {
+        throw new Error(`Missing studio git repository: ${studioRoot}`)
+    }
+
+    return execFileSync('git', ['-C', studioRoot, 'show', `${studioChangelogRef}:public/assets/changelog/${fileName}`], {
+        encoding:'utf8',
+    })
 }
 
 const compareReleaseEntries = (left, right) => {
@@ -181,8 +197,7 @@ const buildEntries = (locale = 'en') => getChangelogFiles().map((fileName) => {
     const anchorId = `release-${slugify(slug)}`
     const isoDate = `${dateKey.slice(0, 4)}-${dateKey.slice(4, 6)}-${dateKey.slice(6, 8)}`
     const dateLabel = formatReleaseDate(dateKey, locale)
-    const sourcePath = path.join(changelogDirectory, fileName)
-    const rawMarkdown = fs.readFileSync(sourcePath, 'utf8')
+    const rawMarkdown = readChangelogFile(fileName)
     const document = renderMarkdownDocument({
         headingIdPrefix: anchorId,
         maxNavLevel:      0,

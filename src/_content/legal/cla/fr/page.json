@@ -8,5 +8,5 @@
     "title": "Relire le Contributor License Agreement.",
     "lead": "Les contributeurs doivent accepter ces conditions avant que leurs changements puissent être fusionnés dans le dépôt principal Studio."
   },
-  "intro": "Le CLA ci-dessous est récupéré au build depuis le dépôt principal Studio afin de garder les conditions de contribution synchronisées."
+  "intro": "Le CLA ci-dessous est récupéré au build depuis la version Studio 1.0.0 afin de garder les conditions de contribution synchronisées."
 }

@@ -6,7 +6,7 @@
     "badge": "Legal",
     "kicker": "Licensing",
     "title": "Read the public AGPL terms.",
-    "lead": "This page mirrors the licensing summary maintained in the 1.0.0-beta.3 Studio branch.",
+    "lead": "This page mirrors the licensing summary maintained in the Studio 1.0.0 release.",
     "highlights": [
       {
         "label": "AGPL v3 or later",
@@ -25,7 +25,7 @@
       }
     ]
   },
-  "intro": "The legal summary below is pulled at build time from the 1.0.0-beta.3 Studio branch so the public site stays aligned with the source documentation.",
+  "intro": "The legal summary below is pulled at build time from the Studio 1.0.0 release so the public site stays aligned with the source documentation.",
   "pageCta": {
     "eyebrow": "Usage terms",
     "title": "Need other usage terms?",

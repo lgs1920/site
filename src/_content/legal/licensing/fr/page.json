@@ -6,7 +6,7 @@
     "badge": "Légal",
     "kicker": "Licences",
     "title": "Lire les conditions publiques de l'AGPL.",
-    "lead": "Cette page reflète le résumé de licence maintenu dans la branche Studio 1.0.0-beta.3.",
+    "lead": "Cette page reflète le résumé de licence maintenu dans la version Studio 1.0.0.",
     "highlights": [
       {
         "label": "AGPL v3 ou ultérieure",
@@ -25,7 +25,7 @@
       }
     ]
   },
-  "intro": "Le résumé légal ci-dessous est récupéré au build depuis la branche Studio 1.0.0-beta.3 afin que le site public reste aligné sur la documentation source.",
+  "intro": "Le résumé légal ci-dessous est récupéré au build depuis la version Studio 1.0.0 afin que le site public reste aligné sur la documentation source.",
   "pageCta": {
     "eyebrow": "Conditions d'usage",
     "title": "Besoin d'autres conditions d'usage ?",

@@ -1,6 +1,12 @@
 # Changelog
 
-## 2026-08-28 — [`f3cb383`](https://github.com/lgs1920/site/commit/f3cb383) — Expand and categorize FAQ
+## 2026-08-28 — [`4cfcad3`](https://github.com/lgs1920/site/commit/4cfcad3) — Synchronize Studio 1.0.0 sources
+
+- Pinned the changelog, legal documents, dependencies, and credits to the Studio 1.0.0 release.
+- Added media and sample-journey credits and aligned the localized source descriptions.
+- Made the FAQ, guide, changelog, contact, credits, and legal help routes public while keeping Studio and statistics restricted.
+
+## 2026-08-28 — [`a79adc4`](https://github.com/lgs1920/site/commit/a79adc4) — Expand and categorize FAQ
 
 - Added bilingual FAQ answers covering supported imports from devices and URLs, mobile and tablet use, accounts, local data, free access, optional external providers, and Cesium ion.
 - Grouped the FAQ into four ordered categories in the rendered English and French pages.

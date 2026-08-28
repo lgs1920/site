@@ -1,12 +1,12 @@
 {
   "title": "Dependency Inventory",
-  "description": "Readable dependency snapshot generated from the main LGS1920 Studio repository.",
+  "description": "Readable dependency snapshot generated from the LGS1920 Studio 1.0.0 release.",
   "hero": {
     "video": false,
     "badge": "Stack",
     "kicker": "Dependencies",
     "title": "Browse the current dependency inventory of LGS1920 Studio.",
-    "lead": "This page mirrors the dependency snapshot maintained in the main Studio repository and generated at build time.",
+    "lead": "This page mirrors the dependency snapshot maintained in the Studio 1.0.0 release and generated at build time.",
     "highlights": [
       {
         "label": "Runtime packages",
@@ -25,10 +25,10 @@
       }
     ]
   },
-  "intro": "The dependency inventory below is pulled at build time from the main Studio repository so the public site reflects the same dependency snapshot.",
+  "intro": "The dependency inventory below is pulled at build time from the Studio 1.0.0 release so the public site reflects the same dependency snapshot.",
   "pageCta": {
     "eyebrow": "Source of truth",
-    "title": "The dependency inventory is generated from the main Studio repository.",
+    "title": "The dependency inventory is generated from the Studio 1.0.0 release.",
     "body": "This site page stays readable, but the source of truth remains the Studio package manifest and its companion dependency document.",
     "actions": [
       {

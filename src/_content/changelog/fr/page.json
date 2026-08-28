@@ -1,13 +1,13 @@
 {
   "title": "Historique",
-  "description": "Historique des versions de LGS1920 Studio, généré à partir des fichiers de changelog du dépôt principal.",
-  "intro": "Les notes de version ci-dessous sont concaténées au build à partir des fichiers Markdown de changelog maintenus dans le dépôt principal Studio.",
+  "description": "Historique complet des versions de LGS1920 Studio, généré à partir des fichiers de changelog de la version Studio 1.0.0.",
+  "intro": "Les notes de version ci-dessous sont concaténées au build à partir des fichiers Markdown de changelog maintenus dans la version Studio 1.0.0.",
   "hero": {
     "video": false,
     "badge": "Notes de version",
     "kicker": "Historique",
     "title": "Parcourir l'historique des versions de LGS1920 Studio.",
-    "lead": "Cette page concatène les fichiers Markdown de changelog publiés dans le dépôt principal Studio en une chronologie lisible.",
+    "lead": "Cette page concatène les fichiers Markdown de changelog publiés dans la version Studio 1.0.0 en une chronologie lisible.",
     "highlights": [
       {
         "icon": "file-lines",

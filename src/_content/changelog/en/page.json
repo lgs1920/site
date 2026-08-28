@@ -1,13 +1,13 @@
 {
   "title": "Changelog",
-  "description": "Full release history of LGS1920 Studio, generated from the main Studio changelog files.",
-  "intro": "The release notes below are concatenated at build time from the changelog Markdown files maintained in the main Studio repository.",
+  "description": "Full release history of LGS1920 Studio, generated from the Studio 1.0.0 release changelog files.",
+  "intro": "The release notes below are concatenated at build time from the changelog Markdown files maintained in the Studio 1.0.0 release.",
   "hero": {
     "video": false,
     "badge": "Release notes",
     "kicker": "Changelog",
     "title": "Browse the release history of LGS1920 Studio.",
-    "lead": "This page concatenates the Markdown changelog files published in the main Studio repository into one readable timeline.",
+    "lead": "This page concatenates the Markdown changelog files published in the Studio 1.0.0 release into one readable timeline.",
     "highlights": [
       {
         "icon": "file-lines",
