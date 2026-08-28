@@ -4048,6 +4048,22 @@ wa-card.accent-c::part(base) {
     background: var(--surface-soft);
 }
 
+.faq-categories {
+    display: grid;
+    gap: var(--wa-space-xl);
+}
+
+.faq-category {
+    display: grid;
+    gap: var(--wa-space-m);
+}
+
+.faq-category-title {
+    margin: 0;
+    line-height: 1;
+    font-family: var(--wa-font-family-heading);
+}
+
 .faq-list {
     display: grid;
     gap: 0.85rem;

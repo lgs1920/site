@@ -20,6 +20,7 @@ export default class {
             kicker: pageContent.hero.kicker,
             title:  pageContent.sectionTitle,
             intro:  pageContent.intro,
+            categories: pageContent.categories,
             items:  pageContent.items,
             creditLabel:pageContent.creditLabel,
         })

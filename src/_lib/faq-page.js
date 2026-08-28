@@ -34,17 +34,32 @@ const renderFaqImage = (image, creditLabel = '') => {
         </figure>`
 }
 
-export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = '' }) => `
-<section class="content-section faq-page">
-    <div class="section-heading">
-        <p class="section-kicker">${escapeHtml(kicker)}</p>
-        <h2>${escapeHtml(title)}</h2>
-    </div>
+const groupFaqItems = (categories = [], items = []) => {
+    if (categories.length === 0) {
+        return [{ id: 'all', label: '', items }]
+    }
 
-    <p class="section-intro">${escapeHtml(intro)}</p>
+    const groupedItems = categories
+        .map((category) => ({
+            ...category,
+            items: items.filter((item) => item.category === category.id),
+        }))
+        .filter((category) => category.items.length > 0)
+    const categorizedItems = new Set(groupedItems.flatMap((category) => category.items))
+    const uncategorizedItems = items.filter((item) => !categorizedItems.has(item))
 
-    <div class="faq-list">
-        ${items.map((item, index) => `
+    if (uncategorizedItems.length > 0) {
+        groupedItems.push({
+            id: 'other',
+            label: '',
+            items: uncategorizedItems,
+        })
+    }
+
+    return groupedItems
+}
+
+const renderFaqItems = (items = [], creditLabel = '') => items.map((item, index) => `
             <wa-details id="${escapeHtml(item.id || `faq-item-${index + 1}`)}" summary="${escapeHtml(item.summary)}">
                 <div class="faq-answer${item.image ? ' faq-answer-with-media' : ''}">
                     <div class="faq-answer-copy">
@@ -56,6 +71,25 @@ export const renderFaqPage = ({ kicker, title, intro, items = [], creditLabel = 
                     ${renderFaqImage(item.image, creditLabel)}
                 </div>
             </wa-details>
+        `).join('')
+
+export const renderFaqPage = ({ kicker, title, intro, categories = [], items = [], creditLabel = '' }) => `
+<section class="content-section faq-page">
+    <div class="section-heading">
+        <p class="section-kicker">${escapeHtml(kicker)}</p>
+        <h2>${escapeHtml(title)}</h2>
+    </div>
+
+    <p class="section-intro">${escapeHtml(intro)}</p>
+
+    <div class="faq-categories">
+        ${groupFaqItems(categories, items).map((category) => `
+            <section class="faq-category"${category.label ? ` aria-labelledby="faq-category-${escapeHtml(category.id)}"` : ''}>
+                ${category.label ? `<h3 id="faq-category-${escapeHtml(category.id)}" class="faq-category-title">${escapeHtml(category.label)}</h3>` : ''}
+                <div class="faq-list">
+                    ${renderFaqItems(category.items, creditLabel)}
+                </div>
+            </section>
         `).join('')}
     </div>
 </section>

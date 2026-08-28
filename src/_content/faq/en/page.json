@@ -27,9 +27,28 @@
   },
   "sectionTitle": "Common questions",
   "intro": "Short answers to the questions people usually ask before opening Studio or reading the documentation.",
+  "categories": [
+    {
+      "id": "about-studio",
+      "label": "About Studio"
+    },
+    {
+      "id": "using-studio",
+      "label": "Using Studio"
+    },
+    {
+      "id": "privacy-and-data",
+      "label": "Privacy and data"
+    },
+    {
+      "id": "costs-and-external-services",
+      "label": "Costs and external services"
+    }
+  ],
   "items": [
     {
       "id": "why-lgs1920",
+      "category": "about-studio",
       "summary": "Why LGS1920? What does it mean?",
       "body": "LGS1920 stands for La Grande Sure, a 1,920-metre summit in the Chartreuse massif, in the French Alps, at GPS coordinates 45°20′07″ N, 5°42′11″ E (45.3353, 5.7031).",
       "bodyAfter": "It is a mountain that means a great deal to me: it is part of my family roots, and I was barely twelve when I climbed it for the first time with my family. At the time, it was my Mont Blanc — better still, my Everest.",
@@ -45,29 +64,77 @@
     },
     {
       "id": "who-is-studio-for",
+      "category": "about-studio",
       "summary": "Who is Studio for?",
       "body": "People who need to review, present, and export map scenes, reports, screenshots, or video."
     },
     {
       "id": "what-studio-is-not",
+      "category": "about-studio",
       "summary": "What is Studio not?",
       "body": "Studio is not a live route-tracking application, a navigation app, or a GPS recorder. It does not provide any way for app users to exchange messages or content with one another. It is neither a video catalogue nor a journey catalogue, and it will never be any of those things.<br>Studio starts with an existing route file and helps you review, enrich, replay, and share the story of a journey wherever you want and with whoever you want."
     },
     {
       "id": "when-to-use-studio",
+      "category": "about-studio",
       "summary": "When should I use Studio?",
       "body": "Studio is used after or around an outing; it does not record the activity while you are outdoors."
     },
     {
+      "id": "which-file-formats",
+      "category": "using-studio",
+      "summary": "Which file formats can Studio import?",
+      "body": "Studio can import GeoJSON, GPX, and KML files. You can also start with one of the sample journeys included with Studio."
+    },
+    {
+      "id": "how-to-import-route",
+      "category": "using-studio",
+      "summary": "How can I import a route into Studio?",
+      "body": "Studio can import a file from your device or from a URL, as long as the URL points to a supported file format. In a future version, you will also be able to import files from your own cloud storage."
+    },
+    {
       "id": "what-can-it-export",
+      "category": "using-studio",
       "summary": "What can Studio export?",
       "body": "Snapshots, video, PDF reports, and ZIP-packaged HTML reports."
     },
     {
+      "id": "studio-on-mobile",
+      "category": "using-studio",
+      "summary": "Can I use Studio on a phone or tablet?",
+      "body": "Yes. Studio is fully functional on phones and tablets when used with a recent browser and WebGL support. The interface may be less comfortable on a smaller screen, but all features remain available. Video creation may also require more memory."
+    },
+    {
+      "id": "do-i-need-an-account",
+      "category": "privacy-and-data",
+      "summary": "Do I need an account to use Studio?",
+      "body": "No. Studio does not require an online account. You can open and use it directly in your browser."
+    },
+    {
+      "id": "where-are-files-stored",
+      "category": "privacy-and-data",
+      "summary": "Where are my files and projects stored?",
+      "body": "Your route files and current project remain on your device by default. Local synchronization on your device is only enabled if you explicitly choose it. In a future version, you will also be able to choose your own cloud storage for this synchronization."
+    },
+    {
       "id": "why-cant-load-downloads-mobile",
+      "category": "privacy-and-data",
       "summary": "Why can’t I load a file from the Downloads folder on my mobile or tablet?",
       "body": "On Android and iOS, files in the dedicated Downloads directory cannot be read directly by a browser.",
       "bodyAfter": "LGS1920 follows a privacy-first approach: your files remain on your device and are read locally by the browser. To work around this restriction, we would have to send the file contents unencrypted to our backend so it could download the file on your behalf. We refuse to do that."
+    },
+    {
+      "id": "is-studio-free",
+      "category": "costs-and-external-services",
+      "summary": "Is Studio free?",
+      "body": "Studio is free to use today and will remain free. There is no paid plan, subscription, or activation fee. Unlike many other apps, video creation is completely free, with no limits other than those of your device.",
+      "bodyAfter": "You can also use external map and data assets from freemium or paid providers, such as Cesium, Google, MapTiler, and others. These services are optional and billed by their own providers. Studio offers them to enrich your videos but has no commercial relationship of any kind with those providers."
+    },
+    {
+      "id": "cesium-ion-account",
+      "category": "costs-and-external-services",
+      "summary": "Since Cesium is the rendering engine, do I need a Cesium ion account?",
+      "body": "No. CesiumJS is the rendering engine and does not itself require a Cesium ion account. By default, Studio does not use any assets provided by Cesium ion. A Cesium ion account and token are only needed if you choose assets that require them, such as Google 3D or Google Maps content. Other external providers may have their own account, token, or pricing requirements."
     }
   ],
   "pageCta": {

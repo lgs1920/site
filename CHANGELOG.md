@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-28 — [`f3cb383`](https://github.com/lgs1920/site/commit/f3cb383) — Expand and categorize FAQ
+
+- Added bilingual FAQ answers covering supported imports from devices and URLs, mobile and tablet use, accounts, local data, free access, optional external providers, and Cesium ion.
+- Grouped the FAQ into four ordered categories in the rendered English and French pages.
+
 ## 2026-08-28 — [`59f7f93`](https://github.com/lgs1920/site/commit/59f7f93) — Clarify Studio purpose and boundaries
 
 - Added localized FAQ guidance explaining what Studio does not do, including live tracking, user-to-user exchange, and catalogue features.
