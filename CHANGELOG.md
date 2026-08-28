@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-28 — [`ae55a01`](https://github.com/lgs1920/site/commit/ae55a01) — Pluralize the registration route message
+
+- Updated the English and French registration panel copy for multiple routes.
+
+## 2026-08-28 — [`dda526d`](https://github.com/lgs1920/site/commit/dda526d) — Validate production redirects before packaging
+
+- Refused production packages when the localized registration redirects are missing.
+- Added regression tests and documented the deployment validation.
+
 ## 2026-08-28 — [`6b1afdd`](https://github.com/lgs1920/site/commit/6b1afdd) — Refine workflow route marker animation
 
 - Refined workflow route markers with a centered, branded marker, circular halo, slower motion, and theme-aware numbered-point glow.
