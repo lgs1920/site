@@ -24,6 +24,7 @@ bun run deploy -s --dry-run
 - la release distante est déployée dans `staging/site` ou `production/site`
 - le lien `current` est mis à jour vers la nouvelle release
 - le build de production redirige toutes les pages vers `/registration/` ou `/fr/registration/`, sauf les pages d’inscription elles-mêmes
+- le packaging de production vérifie la présence de ces redirections et refuse une release incomplète
 - les pages générées restent accessibles sans slash final, par exemple `/registration` et `/fr/registration`
 - les builds locaux, test et staging conservent la page d’accueil
 

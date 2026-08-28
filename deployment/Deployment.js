@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
+import {getProductionRedirectUrl} from '../eleventy.config.js'
 import config from './config.js'
 
 const COLORS = {
@@ -40,6 +41,64 @@ const readCommand = ({ args, command, cwd, label }) => {
     }
 
     return result.stdout.trim()
+}
+
+const pageUrlFromOutputPath = (outputPath) => {
+    const normalizedPath = outputPath.split(path.sep).join('/')
+
+    if (normalizedPath === 'index.html') {
+        return '/'
+    }
+
+    if (normalizedPath.endsWith('/index.html')) {
+        return `/${normalizedPath.slice(0, -'index.html'.length)}`
+    }
+
+    return `/${normalizedPath}`
+}
+
+const listHtmlFiles = (directory, relativeDirectory = '') => fs.readdirSync(directory, {withFileTypes: true}).flatMap((entry) => {
+    const relativePath = path.join(relativeDirectory, entry.name)
+    const absolutePath = path.join(directory, entry.name)
+
+    if (entry.isDirectory()) {
+        return listHtmlFiles(absolutePath, relativePath)
+    }
+
+    return entry.isFile() && entry.name.endsWith('.html') ? [relativePath] : []
+})
+
+export const validateProductionRedirects = (buildOutput) => {
+    const missingRedirects = []
+    let expectedRedirectCount = 0
+
+    for (const relativePath of listHtmlFiles(buildOutput)) {
+        const pageUrl = pageUrlFromOutputPath(relativePath)
+        const redirectUrl = getProductionRedirectUrl(pageUrl)
+
+        if (!redirectUrl) {
+            continue
+        }
+
+        expectedRedirectCount += 1
+        const content = fs.readFileSync(path.join(buildOutput, relativePath), 'utf8')
+        const hasMetaRedirect = content.includes(`http-equiv="refresh"`) && content.includes(`url=${redirectUrl}`)
+        const hasScriptRedirect = content.includes(`window.location.replace('${redirectUrl}')`)
+
+        if (!hasMetaRedirect || !hasScriptRedirect) {
+            missingRedirects.push(pageUrl)
+        }
+    }
+
+    if (expectedRedirectCount === 0 || missingRedirects.length > 0) {
+        const details = missingRedirects.length > 0
+            ? ` Missing redirects: ${missingRedirects.join(', ')}.`
+            : ' No redirectable HTML page was found.'
+
+        throw new Error(`${COLORS.red}Production redirect validation failed.${details} The release was not packaged.${COLORS.reset}`)
+    }
+
+    return expectedRedirectCount
 }
 
 export class Deployment {
@@ -115,6 +174,11 @@ export class Deployment {
 
         if (!fs.existsSync(this.buildOutput)) {
             throw new Error(`${COLORS.red}Build output not found: ${this.buildOutput}${COLORS.reset}`)
+        }
+
+        if (this.platform === 'production') {
+            const redirectCount = validateProductionRedirects(this.buildOutput)
+            console.log(`    > ${COLORS.green}Validated ${redirectCount} production redirects${COLORS.reset}`)
         }
 
         fs.cpSync(this.buildOutput, this.localReleasePath, { force: true, recursive: true })
