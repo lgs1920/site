@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-08-28 — [`eb78206`](https://github.com/lgs1920/site/commit/eb78206) — Refine workflow route marker animation
+## 2026-08-28 — [`6b1afdd`](https://github.com/lgs1920/site/commit/6b1afdd) — Refine workflow route marker animation
 
 - Refined workflow route markers with a centered, branded marker, circular halo, slower motion, and theme-aware numbered-point glow.
 
