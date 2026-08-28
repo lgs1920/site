@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-28 — [`eb78206`](https://github.com/lgs1920/site/commit/eb78206) — Refine workflow route marker animation
+
+- Refined workflow route markers with a centered, branded marker, circular halo, slower motion, and theme-aware numbered-point glow.
+
 ## 2026-08-28 — [`56a0afd`](https://github.com/lgs1920/site/commit/56a0afd) — Add icons to privacy quote rules
 
 - Added `party-horn` and `scale-unbalanced` icons before the two privacy quote rules across the localized Home, Studio, and registration pages.

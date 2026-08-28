@@ -115,6 +115,9 @@ const renderFullPresentation = (presentation) => `
     <div class="workflow-list-wrap">
         <svg class="workflow-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <path d="M 50 -2 C 34 1, 66 4, 50 7 C 34 9.5, 66 11, 50 12.5 C 34 16, 66 21, 50 25 C 34 29, 66 33, 50 37.5 C 34 41, 66 46, 50 50 C 34 54, 66 59, 50 62.5 C 34 66, 66 71, 50 75 C 34 79, 66 84, 50 87.5 C 34 92, 66 98, 50 102"></path>
+            <ellipse class="workflow-route-marker-halo" data-workflow-route-marker-halo cx="50" cy="-2" rx="2.6" ry="2.6"></ellipse>
+            <ellipse class="workflow-route-marker" data-workflow-route-marker cx="50" cy="-2" rx="0.95" ry="0.95"></ellipse>
+            <ellipse class="workflow-route-marker-core" data-workflow-route-marker-core cx="50" cy="-2" rx="0.38" ry="0.38"></ellipse>
         </svg>
         <ol class="workflow-list">
             ${presentation.workflow.steps.map((step) => `

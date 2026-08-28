@@ -563,10 +563,15 @@ const setupHeroRoute = async () => {
             let isVisible = true
             let animationFrame = null
 
+            const syncVisibilityClass = () => {
+                layer.classList.toggle('is-visible', isVisible && !document.hidden)
+            }
+
             const draw = (timestamp) => {
                 animationFrame = null
 
                 if (!isVisible || document.hidden) {
+                    syncVisibilityClass()
                     return
                 }
 
@@ -578,6 +583,12 @@ const setupHeroRoute = async () => {
             }
 
             const restart = () => {
+                syncVisibilityClass()
+
+                if (!isVisible || document.hidden) {
+                    return
+                }
+
                 if (reducedMotionQuery.matches) {
                     render(0)
                     return
@@ -590,6 +601,7 @@ const setupHeroRoute = async () => {
 
             const intersectionObserver = new IntersectionObserver(([entry]) => {
                 isVisible = entry.isIntersecting
+                syncVisibilityClass()
 
                 if (isVisible) {
                     restart()
@@ -599,6 +611,7 @@ const setupHeroRoute = async () => {
             intersectionObserver.observe(layer)
             document.addEventListener('visibilitychange', restart)
             reducedMotionQuery.addEventListener('change', restart)
+            layer.classList.add('is-observed')
             restart()
         }
 

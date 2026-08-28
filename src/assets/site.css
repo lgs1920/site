@@ -2035,7 +2035,16 @@ html.wa-dark .topbar {
     transform-box: fill-box;
     transform-origin: center;
     animation: hero-route-fallback-breathe 7.2s ease-in-out infinite;
+    animation-play-state: running;
     transition: opacity 0.65s ease;
+}
+
+.hero-route-layer.is-observed .hero-route-fallback {
+    animation-play-state: paused;
+}
+
+.hero-route-layer.is-observed.is-visible .hero-route-fallback {
+    animation-play-state: running;
 }
 
 .hero-route-layer.is-ready .hero-route-fallback {
@@ -3886,12 +3895,64 @@ wa-card.accent-c::part(base) {
     stroke-dasharray: 1.5 5;
     stroke-linecap: round;
     vector-effect: non-scaling-stroke;
-    animation: workflow-route-flow 7s linear infinite;
+    filter: drop-shadow(0 0 0.16rem color-mix(in oklab, var(--wa-color-brand-60) 48%, transparent)) drop-shadow(0 0 0.34rem color-mix(in oklab, var(--wa-color-brand-60) 24%, transparent));
 }
 
-@keyframes workflow-route-flow {
-    to {
-        stroke-dashoffset: -26;
+.workflow-route-marker-halo {
+    fill: color-mix(in oklab, var(--page-ink) 46%, var(--wa-color-brand-60) 54%);
+    fill-opacity: 0.18;
+    stroke: var(--wa-color-brand-60);
+    stroke-opacity: 0.18;
+    stroke-width: 0.5;
+    pointer-events: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: workflow-route-marker-halo-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes workflow-route-marker-halo-pulse {
+    0%,
+    100% {
+        opacity: 0.14;
+        transform: scale(0.88);
+    }
+
+    50% {
+        opacity: 0.26;
+        transform: scale(1.08);
+    }
+}
+
+.workflow-route-marker {
+    fill: var(--wa-color-brand-60);
+    fill-opacity: 1;
+    stroke: var(--wa-color-brand-90);
+    stroke-opacity: 1;
+    stroke-width: 0.7;
+    paint-order: stroke fill;
+    vector-effect: non-scaling-stroke;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: workflow-route-marker-pulse 2.8s ease-in-out infinite;
+}
+
+.workflow-route-marker-core {
+    fill: var(--wa-color-brand-90);
+    fill-opacity: 1;
+    pointer-events: none;
+    vector-effect: non-scaling-stroke;
+}
+
+@keyframes workflow-route-marker-pulse {
+    0%,
+    100% {
+        opacity: 0.92;
+        transform: scale(0.88);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
     }
 }
 
@@ -3914,7 +3975,7 @@ wa-card.accent-c::part(base) {
     height: 3rem;
     z-index: 1;
     color: var(--wa-color-brand);
-    filter: drop-shadow(0 8px 14px color-mix(in oklab, var(--wa-color-brand) 28%, transparent));
+    filter: drop-shadow(0 0 0.14rem color-mix(in oklab, var(--wa-color-brand-60) 44%, transparent)) drop-shadow(0 0 0.32rem color-mix(in oklab, var(--wa-color-brand-60) 22%, transparent));
 }
 
 .workflow-poi-icon {
@@ -3954,11 +4015,21 @@ wa-card.accent-c::part(base) {
     line-height: 1;
     text-align: center;
     transform: translateY(-0.46rem);
+    box-shadow: inset 0 0 0.1rem color-mix(in oklab, var(--page-ink) 28%, var(--wa-color-brand-60) 72%), inset 0 0 0.26rem color-mix(in oklab, var(--page-ink) 18%, var(--wa-color-brand-60) 82%);
+    text-shadow: 0 0 0 transparent;
+    transition: text-shadow 0.45s ease;
+}
+
+.workflow-poi.is-route-active b {
+    text-shadow: 0 0 0.28rem color-mix(in oklab, var(--page-ink) 74%, var(--wa-color-brand-60) 26%), 0 0 0.62rem color-mix(in oklab, var(--page-ink) 48%, var(--wa-color-brand-60) 52%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .workflow-route path {
+    .workflow-route-marker-halo,
+    .workflow-route-marker,
+    .workflow-poi b {
         animation: none;
+        transition: none;
     }
 }
 
