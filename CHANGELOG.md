@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-31 — [`6704612`](https://github.com/lgs1920/site/commit/6704612) — Align site project rules with Studio
+
+- Synchronized the applicable Studio guidance for documentation status, analysis, validation, issue management, and Project workflow.
+- Clarified that technical documentation describes implemented behavior, with historical behavior identified explicitly.
+
 ## 2026-08-28 — [`4cfcad3`](https://github.com/lgs1920/site/commit/4cfcad3) — Synchronize Studio 1.0.0 sources
 
 - Pinned the changelog, legal documents, dependencies, and credits to the Studio 1.0.0 release.

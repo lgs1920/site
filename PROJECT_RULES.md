@@ -6,16 +6,22 @@ conventions from the Studio project while preserving the site's Eleventy archite
 ## 1. Core directives
 
 - **Language:** Conversational responses must be in French.
-- **Documentation:** JSDoc blocks, inline code comments, and technical code documentation must be in English.
+- **Documentation and issues:** JSDoc blocks, inline code comments, technical code documentation, project documentation, and issue content must be in professional English.
 - **User-facing content:** Public site content must be written in the appropriate locale and kept synchronized between English and French when both versions exist.
-- **Autonomy:** Preserve unrelated user changes and ask before taking an action that would materially expand the requested scope.
+- **Autonomy:** Preserve unrelated user changes and ask before taking an action that would materially expand the requested scope. Never extrapolate beyond the user's request; final decisions belong to the user.
+- **Nuance and analytical rigor:** Avoid unwarranted certainty. Simplistic or overly categorical analyses can omit relevant context and lead to incorrect conclusions.
+- **Depth of analysis:** Explore relevant subtleties, cross-check perspectives, and identify potential blind spots and biases before reaching a conclusion.
+- **Technical verification:** Be especially vigilant with calculations, logic, and overall consistency. If data or reasoning appears anomalous or uncertain, explicitly identify the issue and re-check it step by step.
+- **Direct logging:** When direct logging is explicitly requested, use the appropriate built-in console method in the function body (`console.log`, `console.error`, or `console.table`) and do not route it through helper methods or wrappers.
 - **Public output security:** Generated releases must not expose directory listings or deployment metadata. Keep deployment metadata outside the web-served release and preserve the public `.htaccess` protection when changing the build or deployment flow.
 
 ## 2. Code and content style
 
 - Do not use semicolons.
-- Prefer arrow functions for new JavaScript functions.
+- Use arrow functions for new or modified JavaScript functions, except for class constructors.
 - Keep the existing Eleventy data and template conventions. Default exports are allowed where the site already uses them.
+- Keep files focused. Split a file when it becomes difficult to review or exceeds 1500 lines.
+- Provide the full file content in every code response.
 - Do not apply Studio-only constraints such as Valtio, React, Elysia, or Studio component rules to site code.
 - Keep internal links localized: English routes have no locale prefix; French routes use `/fr/`.
 - **JSON/Markdown separation:** Keep short page copy (a few words, labels, or up to two sentences) directly in `src/_content/<page>/<locale>/page.json`. Use a Markdown file in that same locale directory only for genuinely multi-line editorial content such as headings, lists, tables, or longer composed text, and reference it from JSON with `@md:`. Do not create one-line Markdown files for short copy.
@@ -39,6 +45,13 @@ conventions from the Studio project while preserving the site's Eleventy archite
 
 ## 4. Validation
 
+### Documentation status
+
+- Documentation must describe implemented behavior and must not cover behavior that is no longer taken into account, unless it is explicitly presented as historical.
+- Every new or modified function or method requires a professional English JSDoc block.
+- Add production-oriented English comments for critical logic.
+- Add any introduced UI shortcut to the dedicated shortcuts documentation.
+- Every feature or fix must be accompanied by relevant tests or, for content-only changes, the appropriate content validation.
 - Run `bun run content:check` after content or translation changes.
 - Run `bun run build` when a change affects generated pages, templates, styles, or site data.
 - Treat content-check errors as blockers. Existing heading-count warnings between locales should be reported but do not by themselves block the work.
@@ -46,12 +59,38 @@ conventions from the Studio project while preserving the site's Eleventy archite
 
 ## 5. Issue and release workflow
 
+### Issue management
+
+- Before creating an issue, ask for any missing explanations or clarifications needed to understand and scope the request. Then present the complete proposed issue content for explicit user validation. Do not create the issue until the user has validated the proposal.
+- For every issue, propose a solution and an implementation plan for explicit user validation. Do not create or implement the issue until the proposed solution and plan have been validated.
+- Fill every known and applicable issue field, including title, description, assignee, labels, type, priority, repository, Project status, and `Target release`. Do not invent a release, label, priority, or other value when it is not known.
+- Assign an issue to the user requesting its creation unless the user explicitly specifies another assignee.
+- Use the Project-level `Target release` field as the source of truth for release planning. Use `Unplanned` when no approved release has been selected, and add a new target-release option only after the release has been approved.
+- When migrating an existing milestone, copy its exact title to the matching `Target release` option when one exists. Keep the milestone until the result and dependent reporting have been reviewed; do not clear or delete it automatically.
+- Use the Project `Status` value `Backlog` for accepted work that is not ready to start. Do not encode versions in labels or statuses when `Target release` already provides that information.
+- Write every issue body with a short context, requested behavior, acceptance criteria, and optional notes or questions. Keep one request per issue and prefer bullet lists for requirements.
+
 ### Cross-repository issue ownership
 
 - The managed repositories are `studio`, `site`, and `backend`. Create an issue in the repository that owns the site content, template, or operational change.
 - Never mirror a `site` or `backend` issue into `studio`. Record cross-repository dependencies with direct links to the owning issue; do not create duplicate issues.
 - During the mirror-removal migration, inventory confirmed `studio` mirrors of `site` issues, transfer missing information to the owning issue, remove links to the mirror from the original issue and related documentation, and delete only unambiguous mirror issues.
 - Do not delete an issue with independent scope or unclear ownership. Report ambiguous cases for explicit user decision and verify that no active issue links to a deleted mirror.
+
+### Project workflow statuses
+
+Use the shared organization Project and keep its `Status` field limited to the delivery workflow:
+
+- `Triage`: new work that needs clarification, ownership, or prioritization.
+- `Backlog`: accepted work that is not ready to start.
+- `Ready`: scoped work with acceptance criteria and a target release.
+- `In Progress`: active implementation.
+- `Review`: a linked pull request is open.
+- `QA`: review is approved and validation is in progress.
+- `Blocked`: an explicit dependency or decision prevents progress.
+- `Done`: the linked pull request is merged and the work is complete.
+
+New issues start in `Triage` unless their validated scope already justifies a different workflow state. Move an issue to `Review` when its pull request opens, to `QA` after review approval, and to `Done` only after merge. Add every implementation issue to the Project and link it to its pull request.
 
 ### Release and changelog workflow
 
