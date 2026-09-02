@@ -24,3 +24,10 @@ test('renders the resend action inside the pending registration callout', () => 
     assert.match(html, /appearance="filled" variant="brand"/)
     assert.match(html, /More info on Studio/)
 })
+
+test('configures the registration hero countdown for both locales', () => {
+    assert.equal(launchRegistration.en.hero.panel.countdownTargetDate, '2026-10-15T15:00:00+02:00')
+    assert.equal(launchRegistration.fr.hero.panel.countdownTargetDate, '2026-10-15T15:00:00+02:00')
+    assert.equal(launchRegistration.en.hero.panel.countdownMessage, "We're working on something amazing. We'll be launching it in a few days.")
+    assert.equal(launchRegistration.fr.hero.panel.countdownMessage, 'Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours.')
+})

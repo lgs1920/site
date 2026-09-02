@@ -506,6 +506,17 @@ layout: layouts/base.html
                                     {% if page_hero.panel.title %}
                                         <h2 class="hero-panel-title">{{ page_hero.panel.title }}</h2>
                                     {% endif %}
+                                    {% if page_hero.panel.countdownMessage %}
+                                        <p class="registration-hero-countdown-message">{{ page_hero.panel.countdownMessage }}</p>
+                                    {% endif %}
+                                    {% if page_hero.panel.countdownTargetDate %}
+                                        <lgs1920-countdown
+                                            class="registration-hero-countdown"
+                                            lang="{{ locale | default: 'en' }}"
+                                            appearance="filled-outlined"
+                                            target-date="{{ page_hero.panel.countdownTargetDate | escape }}"
+                                        ></lgs1920-countdown>
+                                    {% endif %}
                                     {% if page_hero.panel.lead %}
                                         <p class="hero-panel-description">{{ page_hero.panel.lead }}</p>
                                     {% endif %}

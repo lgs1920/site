@@ -10,6 +10,8 @@
     "panel": {
       "eyebrow": "LGS1920 Studio",
       "title": "Vos prochains parcours méritent une histoire.",
+      "countdownMessage": "Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours.",
+      "countdownTargetDate": "2026-10-15T15:00:00+02:00",
       "action": {
         "label": "S’inscrire aux infos du lancement",
         "appearance": "filled",

@@ -2609,6 +2609,22 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
+.registration-hero-countdown-message {
+    margin-block: var(--wa-space-xs) 0;
+    color: var(--hero-ink);
+    font-family: var(--wa-font-family-body);
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.registration-hero-countdown {
+    width: 100%;
+    margin-block: var(--wa-space-s);
+    --lgs-countdown-card-surface: color-mix(in oklab, var(--hero-route-path-color) 72%, var(--wa-color-neutral-10) 28%);
+    --lgs-countdown-brand-color: var(--wa-color-brand);
+    --lgs-countdown-legend-color: var(--hero-ink);
+}
+
 .registration-hero .hero-metric-list,
 .registration-hero .hero-panel-promise-items {
     width: 100%;
