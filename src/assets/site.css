@@ -2022,8 +2022,8 @@ html.wa-dark .topbar {
 }
 
 .hero-route-fallback {
-    left: 29%;
-    width: 71%;
+    left: 0;
+    width: 100%;
     fill: none;
     stroke: var(--hero-route-path-color);
     stroke-dasharray: 0.35 0.55;
@@ -2314,7 +2314,10 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     }
 
     .registration-hero.intro-hero .hero-panel {
-        transform: translateY(16.666svh);
+        align-self: end;
+        margin-block-end: 75px;
+        position: relative;
+        inset-block-start: clamp(4.5rem, 8vh, 6rem);
     }
 }
 
@@ -5267,7 +5270,15 @@ wa-card.page-cta-card::part(body) {
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
+    .hero-route-layer {
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        height: 48%;
+    }
+
     .hero-route-canvas {
         opacity: 0.86;
     }
@@ -5277,8 +5288,8 @@ wa-card.page-cta-card::part(body) {
     }
 
     .hero-route-fallback {
-        left: 8%;
-        width: 92%;
+        left: 0;
+        width: 100%;
     }
 
     .hero-route-poi[data-route-poi-index='0'] {

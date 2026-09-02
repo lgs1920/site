@@ -15,6 +15,7 @@ const ROUTE_HEAD_MIN_OPACITY = 0.24
 const ROUTE_SHAPE_STRETCH = 0.16
 const ROUTE_SHAPE_SQUEEZE = 0.09
 const ROUTE_SHAPE_CYCLE = 5_800
+const HERO_ROUTE_MOBILE_BREAKPOINT = 960
 
 const GLOW_VERTEX_SHADER = `
     attribute float aAlpha;
@@ -178,7 +179,6 @@ const setupHeroRoute = async () => {
         })
         const sceneRoot = new THREE.Group()
         const randomBetween = (minimum, maximum) => minimum + Math.random() * (maximum - minimum)
-        const routeEdges = ['left', 'right', 'top', 'bottom']
         let routeState = null
         let animationStartedAt = null
 
@@ -186,35 +186,22 @@ const setupHeroRoute = async () => {
             const routeColor = readThemeColor('--hero-route-path-color', {r:0.25, g:0.38, b:0.07})
             const glowColor = readThemeColor('--hero-route-glow-color', {r:0.4, g:0.65, b:0.05})
             const routeGroup = new THREE.Group()
-            const entryEdge = routeEdges[Math.floor(Math.random() * routeEdges.length)]
-            let exitEdge = routeEdges[Math.floor(Math.random() * routeEdges.length)]
-
-            while (exitEdge === entryEdge) {
-                exitEdge = routeEdges[Math.floor(Math.random() * routeEdges.length)]
-            }
-
-            const createEdgePoint = (edge, depth) => {
+            const diagonalDirection = Math.random() < 0.5 ? 1 : -1
+            const diagonalHeight = randomBetween(2.35, 2.75)
+            const createDiagonalPoint = (side, depth) => {
                 const z = depth === 'entry'
                     ? randomBetween(2.25, 3.25)
                     : randomBetween(-4.2, -2.65)
 
-                if (edge === 'left') {
-                    return new THREE.Vector3(-4.45, randomBetween(-2.35, 2.35), z)
-                }
-
-                if (edge === 'right') {
-                    return new THREE.Vector3(4.45, randomBetween(-2.35, 2.35), z)
-                }
-
-                if (edge === 'top') {
-                    return new THREE.Vector3(randomBetween(-3.25, 3.25), 2.95, z)
-                }
-
-                return new THREE.Vector3(randomBetween(-3.25, 3.25), -2.95, z)
+                return new THREE.Vector3(
+                    side === 'entry' ? -4.45 : 4.45,
+                    (side === 'entry' ? diagonalDirection : -diagonalDirection) * diagonalHeight,
+                    z,
+                )
             }
 
-            const entryPoint = createEdgePoint(entryEdge, 'entry')
-            const exitPoint = createEdgePoint(exitEdge, 'exit')
+            const entryPoint = createDiagonalPoint('entry', 'entry')
+            const exitPoint = createDiagonalPoint('exit', 'exit')
             const spiralCenter = new THREE.Vector3(
                 randomBetween(-0.45, 0.45),
                 randomBetween(-0.25, 0.35),
@@ -474,14 +461,14 @@ const setupHeroRoute = async () => {
             camera.updateProjectionMatrix()
 
             const aspect = bounds.width / bounds.height
-            const isMobile = bounds.width < 720
+            const isMobile = bounds.width < HERO_ROUTE_MOBILE_BREAKPOINT
             const routeScale = isMobile
                 ? Math.max(0.36, Math.min(0.5, aspect * 0.58))
                 : Math.max(0.54, Math.min(0.72, aspect * 0.46))
             const routeHeightScale = routeScale
             sceneRoot.scale.set(routeScale, routeHeightScale, routeScale)
-            sceneRoot.position.x = isMobile ? 0 : 1.35
-            sceneRoot.position.y = isMobile ? -1.5 : 0.05
+            sceneRoot.position.x = 0
+            sceneRoot.position.y = isMobile ? 2 : 0
             sceneRoot.updateMatrixWorld(true)
         }
 
@@ -508,11 +495,11 @@ const setupHeroRoute = async () => {
                 ? 1.55
                 : 1.55 + Math.sin(timestamp * 0.008) * 0.1
             sceneRoot.rotation.x = reducedMotionQuery.matches
-                ? 0.42
-                : 0.46 + Math.sin(timestamp * 0.00025) * 0.18
+                ? 0.18
+                : 0.2 + Math.sin(timestamp * 0.00025) * 0.08
             sceneRoot.rotation.y = reducedMotionQuery.matches
-                ? -0.62
-                : Math.sin(timestamp * 0.00032) * 0.68
+                ? 0
+                : Math.sin(timestamp * 0.00032) * 0.18
             sceneRoot.rotation.z = reducedMotionQuery.matches
                 ? 0.06
                 : Math.sin(timestamp * 0.00023) * 0.1
