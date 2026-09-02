@@ -1,14 +1,27 @@
 import {spawn} from 'node:child_process'
-import {watch} from 'node:fs'
+import {rmSync, watch} from 'node:fs'
+import path from 'node:path'
 
 const eleventyCommand = 'node_modules/.bin/eleventy'
 const eleventyArguments = ['--serve']
 const watchedPaths = ['src', 'eleventy.config.js']
+const generatedPaths = ['_site', '.11ty-vite']
 
 let eleventyProcess
 let restartTimer
 let isStopping = false
 let isRestarting = false
+
+/**
+ * Removes stale Eleventy and Vite development output before starting the server.
+ *
+ * @returns {void}
+ */
+const cleanGeneratedOutput = () => {
+    generatedPaths.forEach((generatedPath) => {
+        rmSync(path.resolve(generatedPath), {force: true, recursive: true})
+    })
+}
 
 const startEleventy = () => {
     eleventyProcess = spawn(process.execPath, [eleventyCommand, ...eleventyArguments], {
@@ -73,4 +86,5 @@ const watchers = watchedPaths.map((watchedPath) => watch(watchedPath, {recursive
 process.on('SIGINT', stop)
 process.on('SIGTERM', stop)
 
+cleanGeneratedOutput()
 startEleventy()
