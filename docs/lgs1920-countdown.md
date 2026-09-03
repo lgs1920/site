@@ -119,9 +119,10 @@ The following component properties can be overridden by the host application:
 | `--lgs-countdown-card-radius` | Digit card and leaf radius | `--wa-panel-border-radius` |
 | `--lgs-countdown-digit-gap` | Gap between digits in one unit | `--wa-space-3xs` (`2px`) |
 | `--lgs-countdown-unit-gap` | Gap between Days, Hours, Minutes, and Seconds | `--wa-space-xs` |
-| `--lgs-countdown-card-gap` | Width calculation spacing budget | `--wa-space-s` |
 
 The visible gap between digits in one unit is controlled by `--lgs-countdown-digit-gap` and defaults to Web Awesome's `--wa-space-3xs` token (`2px`). The unit gap is independent from that digit gap. A host application can apply its own spacing, seasonal, or brand values without coupling that data to the component:
+
+The four units always remain on one line. Card widths scale from the available inline size using the three-digit Days maximum, while the small-screen label token keeps unit names readable on narrow devices.
 
 ```css
 .launch-countdown {

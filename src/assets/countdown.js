@@ -40,10 +40,9 @@ const COUNTDOWN_COPY = {
 const COUNTDOWN_STYLES = `
     :host {
         --lgs-countdown-height-width-ratio: 1.618033988749895;
-        --lgs-countdown-card-gap: var(--wa-space-s, 0.75rem);
         --lgs-countdown-unit-gap: var(--wa-space-xs, 0.5rem);
         --lgs-countdown-digit-gap: var(--wa-space-3xs, 2px);
-        --lgs-countdown-card-width: clamp(2rem, min(10cqi, calc((100cqi - 3 * var(--lgs-countdown-unit-gap) - 4 * var(--lgs-countdown-card-gap)) / 8)), 5.8rem);
+        --lgs-countdown-card-width: clamp(1rem, calc((100cqi - 3 * var(--lgs-countdown-unit-gap) - 5 * var(--lgs-countdown-digit-gap)) / 9), 5.8rem);
         --lgs-countdown-card-surface: color-mix(in oklab, var(--wa-color-brand-fill-quiet, var(--wa-color-neutral-fill-quiet)) 72%, var(--wa-color-neutral-10) 28%);
         --lgs-countdown-card-border: var(--wa-color-neutral-border-normal, var(--wa-color-surface-border));
         --lgs-countdown-card-radius: var(--wa-panel-border-radius, var(--wa-border-radius-m, 0.375rem));
@@ -63,8 +62,9 @@ const COUNTDOWN_STYLES = `
 
     .countdown-units {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(4, max-content);
         gap: var(--lgs-countdown-unit-gap);
+        justify-content: space-between;
         min-inline-size: 0;
     }
 
@@ -78,6 +78,7 @@ const COUNTDOWN_STYLES = `
 
     .countdown-digits {
         display: flex;
+        flex-wrap: nowrap;
         justify-content: center;
         gap: var(--lgs-countdown-digit-gap);
         min-inline-size: 0;
@@ -85,6 +86,7 @@ const COUNTDOWN_STYLES = `
 
     wa-animation {
         display: block;
+        flex: 0 0 var(--lgs-countdown-card-width);
         inline-size: var(--lgs-countdown-card-width);
         min-inline-size: 0;
     }
@@ -95,7 +97,7 @@ const COUNTDOWN_STYLES = `
         --lgs-countdown-rotor-surface: var(--lgs-countdown-card-surface);
         display: block;
         inline-size: 100%;
-        min-inline-size: 2rem;
+        min-inline-size: 0;
         margin: 0;
         aspect-ratio: 1 / var(--lgs-countdown-height-width-ratio);
         overflow: hidden;
@@ -302,19 +304,7 @@ const COUNTDOWN_STYLES = `
         margin: 0;
     }
 
-    @container (max-width: 25rem) {
-        .countdown-units {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
     @container (max-width: 22rem) {
-        :host {
-            --lgs-countdown-card-gap: var(--wa-space-s, 0.75rem);
-            --lgs-countdown-unit-gap: var(--wa-space-xs, 0.5rem);
-            --lgs-countdown-card-width: clamp(2rem, min(14cqi, calc((100cqi - var(--lgs-countdown-card-gap)) / 4)), 5.8rem);
-        }
-
         .countdown-label {
             font-size: var(--wa-font-size-2xs, 0.6875rem);
         }
