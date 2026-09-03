@@ -147,8 +147,21 @@ const COUNTDOWN_STYLES = `
         font-variant-numeric: tabular-nums;
         font-weight: 750;
         line-height: 1;
+        background: var(--lgs-countdown-rotor-surface);
         opacity: 1;
         transition: opacity ${COUNTDOWN_FADE_DURATION / 2}ms ease-in-out;
+    }
+
+    /* Hide the fractional raster seam between the two clipped rotor planes. */
+    .rotor::after {
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: calc(50% - 0.5px);
+        block-size: 1px;
+        z-index: 3;
+        content: '';
+        pointer-events: none;
+        background: var(--lgs-countdown-rotor-surface);
     }
 
     .rotor.is-fading-out {
@@ -209,7 +222,7 @@ const COUNTDOWN_STYLES = `
     }
 
     .rotor-leaf.flipped {
-        transform: translateZ(0.02px) rotateX(-180deg);
+        transform: rotateX(-180deg);
         transition: transform 0.65s ease-in-out;
     }
 
@@ -223,6 +236,7 @@ const COUNTDOWN_STYLES = `
         padding: var(--wa-space-xs, 0.5rem);
         overflow: hidden;
         margin: 0;
+        z-index: 1;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         box-sizing: border-box;
@@ -231,6 +245,7 @@ const COUNTDOWN_STYLES = `
     }
 
     .rotor-leaf-front {
+        transform: rotateX(0deg);
         color: inherit;
         border-radius: var(--lgs-countdown-card-radius) var(--lgs-countdown-card-radius) 0 0;
     }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-03 — [`abc7db7`](https://github.com/lgs1920/site/commit/abc7db7) — Remove Firefox countdown rotor seam
+
+- Removed the fractional seam and depth-rasterization flash visible between countdown rotor halves in Firefox.
+- Kept the FlipDown rotation axis and themed rotor surface unchanged.
+
 ## 2026-08-31 — [`6704612`](https://github.com/lgs1920/site/commit/6704612) — Align site project rules with Studio
 
 - Synchronized the applicable Studio guidance for documentation status, analysis, validation, issue management, and Project workflow.
