@@ -50,8 +50,9 @@
             const seasonTheme = localStorage.getItem('seasonTheme')
             const storedBrandColor = localStorage.getItem('brandColor') || 'yellow'
             const allowedBrandColors = new Set(['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray'])
+            const brandShades = ['95', '90', '80', '70', '60', '50', '40', '30', '20', '10', '05']
             const allowedThemes = new Set(['light', 'dark', 'system'])
-            const allowedSeasonThemes = new Set(['spring', 'summer', 'fall', 'winter'])
+            const allowedSeasonThemes = new Set(['spring', 'summer', 'fall', 'winter', 'winter-light', 'winter-dark'])
             const brandColor = allowedBrandColors.has(storedBrandColor) ? storedBrandColor : 'yellow'
             const selectedTheme = allowedThemes.has(theme)
                 ? theme
@@ -59,9 +60,12 @@
             const selectedSeasonTheme = allowedSeasonThemes.has(seasonTheme)
                 ? seasonTheme
                 : (allowedSeasonThemes.has(theme) ? theme : 'summer')
-            const effectiveMode = selectedTheme === 'system'
+            const standardSeasonMode = selectedSeasonTheme === 'winter-dark'
+                ? 'dark'
+                : (selectedSeasonTheme === 'winter-light' ? 'light' : null)
+            const effectiveMode = standardSeasonMode || (selectedTheme === 'system'
                 ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-                : (selectedTheme === 'dark' ? 'dark' : 'light')
+                : (selectedTheme === 'dark' ? 'dark' : 'light'))
             const prefixesToReset = ['sl-theme-', 'wa-brand-', 'wa-palette-', 'wa-neutral-', 'wa-success-', 'wa-warning-', 'wa-danger-']
             const classesToRemove = Array.from(root.classList).filter((className) => {
                 if (className === 'wa-theme-premium') {
@@ -79,7 +83,17 @@
                 root.classList.remove(...classesToRemove)
             }
 
-            root.classList.add('wa-theme-lgs1920', `wa-brand-${brandColor}`)
+            const usesStandardTheme = standardSeasonMode !== null
+            root.classList.toggle('wa-theme-lgs1920', !usesStandardTheme)
+            root.classList.toggle('wa-theme-default', usesStandardTheme)
+            root.classList.add(`wa-brand-${brandColor}`)
+            if (usesStandardTheme && brandColor !== 'brown') {
+                brandShades.forEach((shade) => {
+                    root.style.setProperty(`--wa-color-brand-${shade}`, `var(--wa-color-${brandColor}-${shade})`)
+                })
+                root.style.setProperty('--wa-color-brand', `var(--wa-color-${brandColor})`)
+                root.style.setProperty('--wa-color-brand-on', `var(--wa-color-${brandColor}-on)`)
+            }
             root.classList.toggle('wa-dark', effectiveMode === 'dark')
             root.classList.toggle('wa-light', effectiveMode !== 'dark')
             root.dataset.themeMode = effectiveMode

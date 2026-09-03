@@ -85,6 +85,16 @@
       "value": "winter",
       "label": "Winter",
       "swatch": "#dbeafe"
+    },
+    {
+      "value": "winter-light",
+      "label": "Winter Light",
+      "swatch": "var(--wa-color-surface-default)"
+    },
+    {
+      "value": "winter-dark",
+      "label": "Winter Dark",
+      "swatch": "var(--wa-color-neutral-20)"
     }
   ],
   "modeOptions": [

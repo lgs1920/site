@@ -16,9 +16,11 @@ const BRAND_COLOR_STORAGE_KEY = 'brandColor'
 const NAVIGATION_STORAGE_KEY = 'pageNavigationState'
 const GUIDE_ASIDE_PLACEMENT_STORAGE_KEY = 'guideAsidePlacement'
 const ROOT_THEME_CLASS = 'wa-theme-lgs1920'
+const STANDARD_THEME_CLASS = 'wa-theme-default'
 const DEFAULT_BRAND_COLOR = 'yellow'
 const DEFAULT_THEME = 'dark'
 const DEFAULT_SEASON = 'summer'
+const STANDARD_SEASONS = new Set(['winter-light', 'winter-dark'])
 const DEFAULT_GUIDE_ASIDE_PLACEMENT = 'right'
 const HERO_VIDEO_PLAYBACK_RATE = 0.75
 const HERO_VIDEO_CROSSFADE_DURATION = 3000
@@ -26,8 +28,9 @@ const HERO_VIDEO_CROSSFADE_LEAD = 3
 const HERO_ACTION_ICON_ANIMATION_INTERVAL = 10000
 const BRAND_COLORS = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'green', 'brown', 'gray']
 const THEME_OPTIONS = ['light', 'dark', 'system']
-const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter']
+const SEASON_OPTIONS = ['spring', 'summer', 'fall', 'winter', 'winter-light', 'winter-dark']
 const GUIDE_ASIDE_PLACEMENTS = ['left', 'right']
+const BRAND_SHADES = ['95', '90', '80', '70', '60', '50', '40', '30', '20', '10', '05']
 const BRAND_SWATCHES = {
     yellow:'var(--wa-color-yellow)',
     orange:'var(--wa-color-orange)',
@@ -44,6 +47,8 @@ const SEASON_SWATCHES = {
     summer:'var(--wa-color-green-60)',
     fall:  '#c56e12',
     winter:'#dbeafe',
+    'winter-light':'var(--wa-color-surface-default)',
+    'winter-dark': 'var(--wa-color-neutral-20)',
 }
 const BROWN_BRAND_SCALE = {
     '--wa-color-brand':             'color-mix(in oklab, var(--wa-color-orange) 62%, var(--wa-color-red) 38%)',
@@ -167,9 +172,14 @@ const syncThemeOptions = (theme) => {
     })
 }
 
-const syncSeasonOptions = (season) => {
+const syncSeasonOptions = (season, themeMode) => {
     document.querySelectorAll('[data-season-option]').forEach((item) => {
-        item.toggleAttribute('selected', item.getAttribute('value') === season)
+        const value = item.getAttribute('value')
+        const isModeSpecific = value === 'winter-light' || value === 'winter-dark'
+        const isVisible = !isModeSpecific || value === `winter-${themeMode}`
+
+        item.hidden = !isVisible
+        item.toggleAttribute('selected', value === season)
     })
 }
 
@@ -187,8 +197,11 @@ const syncBrandSwatches = (brandColor) => {
     })
 }
 
-const syncSeasonSwatches = (season) => {
-    const swatchColor = SEASON_SWATCHES[season] || SEASON_SWATCHES[DEFAULT_SEASON]
+const syncSeasonSwatches = (season, themeMode) => {
+    const seasonSwatch = SEASON_SWATCHES[season] || SEASON_SWATCHES[DEFAULT_SEASON]
+    const swatchColor = typeof seasonSwatch === 'object'
+        ? seasonSwatch[themeMode] || seasonSwatch.light
+        : seasonSwatch
 
     document.querySelectorAll('[data-season-swatch]').forEach((swatch) => {
         swatch.style.setProperty('--swatch-color', swatchColor)
@@ -207,6 +220,22 @@ const clearBrownBrandScale = (target) => {
     })
 }
 
+const setStandardBrandScale = (target, brandColor) => {
+    BRAND_SHADES.forEach((shade) => {
+        target.style.setProperty(`--wa-color-brand-${shade}`, `var(--wa-color-${brandColor}-${shade})`)
+    })
+    target.style.setProperty('--wa-color-brand', `var(--wa-color-${brandColor})`)
+    target.style.setProperty('--wa-color-brand-on', `var(--wa-color-${brandColor}-on)`)
+}
+
+const clearStandardBrandScale = (target) => {
+    BRAND_SHADES.forEach((shade) => {
+        target.style.removeProperty(`--wa-color-brand-${shade}`)
+    })
+    target.style.removeProperty('--wa-color-brand')
+    target.style.removeProperty('--wa-color-brand-on')
+}
+
 const resolveEffectiveThemeMode = (themeMode) => {
     if (themeMode === 'system') {
         return media.matches ? 'dark' : 'light'
@@ -215,15 +244,36 @@ const resolveEffectiveThemeMode = (themeMode) => {
     return themeMode === 'dark' ? 'dark' : 'light'
 }
 
+const resolveStandardThemeMode = (seasonTheme) => {
+    if (seasonTheme === 'winter-dark') {
+        return 'dark'
+    }
+
+    if (seasonTheme === 'winter-light') {
+        return 'light'
+    }
+
+    return null
+}
+
 const applyTheme = (themeMode, seasonTheme, brandColor = null) => {
     const resolvedTheme = resolveTheme(themeMode)
     const resolvedSeason = resolveSeasonTheme(seasonTheme)
-    const effectiveMode = resolveEffectiveThemeMode(resolvedTheme)
+    const effectiveMode = resolveStandardThemeMode(resolvedSeason) || resolveEffectiveThemeMode(resolvedTheme)
     const resolvedBrandColor = resolveBrandColor(brandColor)
+    const usesStandardTheme = STANDARD_SEASONS.has(resolvedSeason)
 
     normalizeDocumentThemeClasses(root)
-    root.classList.add(ROOT_THEME_CLASS, `wa-brand-${resolvedBrandColor}`)
-    if (resolvedBrandColor === 'brown') {
+    root.classList.toggle(ROOT_THEME_CLASS, !usesStandardTheme)
+    root.classList.toggle(STANDARD_THEME_CLASS, usesStandardTheme)
+    root.classList.add(`wa-brand-${resolvedBrandColor}`)
+    if (usesStandardTheme && resolvedBrandColor !== 'brown') {
+        setStandardBrandScale(root, resolvedBrandColor)
+    }
+    else {
+        clearStandardBrandScale(root)
+    }
+    if (!usesStandardTheme && resolvedBrandColor === 'brown') {
         setBrownBrandScale(root)
     }
     else {
@@ -237,10 +287,10 @@ const applyTheme = (themeMode, seasonTheme, brandColor = null) => {
     root.dataset.brandColor = resolvedBrandColor
     syncThemeIcons(resolvedTheme)
     syncThemeOptions(resolvedTheme)
-    syncSeasonOptions(resolvedSeason)
+    syncSeasonOptions(resolvedSeason, effectiveMode)
     syncBrandOptions(resolvedBrandColor)
     syncBrandSwatches(resolvedBrandColor)
-    syncSeasonSwatches(resolvedSeason)
+    syncSeasonSwatches(resolvedSeason, effectiveMode)
 }
 
 const getInitialTheme = () => {
@@ -926,9 +976,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const brandColor = resolveBrandColor(root.dataset.brandColor)
         const seasonTheme = resolveSeasonTheme(root.dataset.seasonTheme || getInitialSeasonTheme())
+        const nextSeasonTheme = STANDARD_SEASONS.has(seasonTheme)
+            ? (theme === 'dark' ? 'winter-dark' : 'winter-light')
+            : seasonTheme
 
         localStorage.setItem(THEME_STORAGE_KEY, theme)
-        applyTheme(theme, seasonTheme, brandColor)
+        localStorage.setItem(SEASON_STORAGE_KEY, nextSeasonTheme)
+        applyTheme(theme, nextSeasonTheme, brandColor)
     })
 
     document.querySelectorAll('[data-theme-palette-dropdown]').forEach((themePaletteDropdown) => {
@@ -955,9 +1009,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (group === 'season') {
                 const resolvedSeasonTheme = resolveSeasonTheme(value)
+                const standardThemeMode = resolveStandardThemeMode(resolvedSeasonTheme)
+                const nextTheme = standardThemeMode || theme
 
                 localStorage.setItem(SEASON_STORAGE_KEY, resolvedSeasonTheme)
-                applyTheme(theme, resolvedSeasonTheme, brandColor)
+                localStorage.setItem(THEME_STORAGE_KEY, nextTheme)
+                applyTheme(nextTheme, resolvedSeasonTheme, brandColor)
             }
         })
     })

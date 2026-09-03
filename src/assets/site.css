@@ -23,21 +23,24 @@
     --lgs-button-plain-color: var(--wa-color-brand);
     --lgs-button-plain-hover-color: var(--wa-color-brand);
     --lgs-button-plain-bg-hover-color: var(--wa-color-brand-fill-quiet);
-    --wa-color-brand-fill-normal: var(--lgs-button-bg-color);
-    --wa-color-brand-border-normal: var(--lgs-button-border-color);
-    --wa-color-brand-on-normal: var(--lgs-button-color);
     --lgs-accent-color: var(--wa-color-brand-60);
     --lgs-accent-strong-color: var(--wa-color-brand-70);
     --lgs-accent-border-color: var(--wa-color-brand-50);
     --shadow-card-lift: 0 2px 6px color-mix(in oklab, var(--wa-color-brand-30) 10%, transparent);
-    --wa-border-radius-pill: var(--wa-border-radius-m);
-    --wa-form-control-border-radius: var(--wa-border-radius-m);
-    --wa-panel-border-radius: var(--wa-border-radius-m);
     --hero-ink: #fff;
     --hero-muted: #fff;
     --hero-route-path-color: rgb(63, 98, 18);
     --hero-route-glow-color: rgb(103, 165, 13);
     --hero-route-poi-color: var(--wa-color-brand-60);
+}
+
+html.wa-theme-lgs1920 {
+    --wa-color-brand-fill-normal: var(--lgs-button-bg-color);
+    --wa-color-brand-border-normal: var(--lgs-button-border-color);
+    --wa-color-brand-on-normal: var(--lgs-button-color);
+    --wa-border-radius-pill: var(--wa-border-radius-m);
+    --wa-form-control-border-radius: var(--wa-border-radius-m);
+    --wa-panel-border-radius: var(--wa-border-radius-m);
 }
 
 html[data-season-theme='spring'] {
@@ -58,6 +61,11 @@ html[data-season-theme='fall'] {
 html[data-season-theme='winter'] {
     --hero-route-path-color: rgb(49, 90, 130);
     --hero-route-glow-color: rgb(219, 234, 254);
+}
+
+html[data-season-theme='winter-light'] {
+    --hero-route-path-color: var(--wa-color-blue-40);
+    --hero-route-glow-color: var(--wa-color-blue-60);
 }
 
 html.wa-brand-brown {
@@ -359,6 +367,70 @@ html.wa-dark[data-season-theme='winter'] body {
         radial-gradient(circle at 10% 10%, var(--theme-dark-glow), transparent 24rem),
         radial-gradient(circle at 90% 10%, var(--theme-dark-glow-soft), transparent 26rem),
         linear-gradient(180deg, color-mix(in oklab, var(--theme-dark-tint) 34%, var(--wa-color-neutral-20) 66%) 0%, color-mix(in oklab, var(--theme-dark-tint) 24%, var(--wa-color-neutral-10) 76%) 100%);
+}
+
+html.wa-theme-default {
+    --hero-glow-a: transparent;
+    --hero-glow-b: transparent;
+    --hero-glow-c: transparent;
+    --grid-line-color: transparent;
+    --theme-dark-tint: var(--wa-color-surface-default);
+    --theme-dark-tint-strong: var(--wa-color-surface-raised);
+    --theme-dark-glow: transparent;
+    --theme-dark-glow-soft: transparent;
+    --lgs-button-border-color: var(--wa-color-brand-border-normal);
+    --lgs-button-color: var(--wa-color-brand-on-loud);
+    --lgs-button-bg-color: var(--wa-color-brand-fill-loud);
+    --lgs-button-border-hover-color: var(--wa-color-brand-border-loud);
+    --lgs-button-hover-color: var(--wa-color-brand-on-loud);
+    --lgs-button-bg-hover-color: var(--wa-color-brand-fill-loud);
+    --lgs-button-plain-color: var(--wa-color-text-link);
+    --lgs-button-plain-hover-color: var(--wa-color-text-link);
+    --lgs-button-plain-bg-hover-color: var(--wa-color-neutral-fill-quiet);
+    --lgs-accent-color: var(--wa-color-text-link);
+    --lgs-accent-strong-color: var(--wa-color-brand-fill-loud);
+    --lgs-accent-border-color: var(--wa-color-brand-border-normal);
+    --shadow-card-lift: var(--wa-shadow-s);
+}
+
+html.wa-theme-default body {
+    --page-bg: var(--wa-color-surface-default);
+    --page-ink: var(--wa-color-text-normal);
+    --page-muted: var(--wa-color-text-quiet);
+    --hero-ink: #fff;
+    --hero-muted: #fff;
+    --panel-bg: var(--wa-color-surface-raised);
+    --panel-stroke: var(--wa-color-surface-border);
+    --panel-stroke-hover: var(--wa-color-neutral-border-normal);
+    --surface-soft: var(--wa-color-neutral-fill-quiet);
+    --surface-strong: var(--wa-color-neutral-fill-normal);
+    --shadow-soft: var(--wa-shadow-s);
+    --shadow-lift: var(--wa-shadow-m);
+    --header-bg: var(--wa-color-surface-raised);
+    --header-stroke: var(--wa-color-surface-border);
+    --header-ink: var(--wa-color-text-normal);
+    --hero-card-bg: var(--wa-color-surface-raised);
+    background: var(--wa-color-surface-default);
+}
+
+html.wa-theme-default body::before {
+    display: none;
+}
+
+html.wa-theme-default a {
+    color: var(--wa-color-text-link);
+}
+
+html.wa-theme-default[data-season-theme='winter-light'] body {
+    --panel-bg: color-mix(in oklab, var(--wa-color-blue-95) 72%, var(--wa-color-surface-default) 28%);
+    --panel-stroke: color-mix(in oklab, var(--wa-color-blue-70) 24%, var(--wa-color-surface-border) 76%);
+    --surface-soft: color-mix(in oklab, var(--wa-color-blue-95) 84%, var(--wa-color-surface-default) 16%);
+    --surface-strong: color-mix(in oklab, var(--wa-color-blue-90) 66%, var(--wa-color-surface-default) 34%);
+}
+
+html.wa-theme-default[data-season-theme='winter-light'] wa-card {
+    border-color: var(--panel-stroke);
+    background: var(--surface-soft);
 }
 
 * {
@@ -1367,7 +1439,7 @@ html.wa-dark .topbar {
     flex: 0 0 auto;
     width: 0.8rem;
     height: 0.8rem;
-    border: 1px solid color-mix(in oklab, var(--swatch-color) 65%, white 35%);
+    border: 1px solid var(--wa-color-neutral-border-normal);
     border-radius: 0.24rem;
     background: var(--swatch-color);
 }
@@ -1391,7 +1463,7 @@ html.wa-dark .topbar {
     flex: 0 0 auto;
     width: 0.8rem;
     height: 0.8rem;
-    border: 1px solid color-mix(in oklab, var(--swatch-color) 65%, white 35%);
+    border: 1px solid var(--wa-color-neutral-border-normal);
     border-radius: 0.24rem;
     background: var(--swatch-color);
 }
@@ -2333,6 +2405,10 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     margin: 0;
     line-height: 0.96;
     font-family: var(--wa-font-family-heading);
+}
+
+.page-hero :is(h1, h2, h3, h4, h5, h6, .hero-panel-title) {
+    color: #fff;
 }
 
 .page-hero h1 {
