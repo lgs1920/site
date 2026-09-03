@@ -45,6 +45,7 @@ const COUNTDOWN_STYLES = `
         --lgs-countdown-digit-gap: var(--wa-space-3xs, 2px);
         --lgs-countdown-card-width: clamp(2rem, min(10cqi, calc((100cqi - 3 * var(--lgs-countdown-unit-gap) - 4 * var(--lgs-countdown-card-gap)) / 8)), 5.8rem);
         --lgs-countdown-card-surface: color-mix(in oklab, var(--wa-color-brand-fill-quiet, var(--wa-color-neutral-fill-quiet)) 72%, var(--wa-color-neutral-10) 28%);
+        --lgs-countdown-card-border: var(--wa-color-neutral-border-normal, var(--wa-color-surface-border));
         --lgs-countdown-card-radius: var(--wa-panel-border-radius, var(--wa-border-radius-m, 0.375rem));
         --lgs-countdown-brand-color: var(--wa-color-brand, var(--wa-color-text-normal));
         --lgs-countdown-legend-color: var(--wa-color-text-normal);
@@ -113,7 +114,7 @@ const COUNTDOWN_STYLES = `
 
     wa-card.countdown-digit-card[appearance='outlined'],
     wa-card.countdown-digit-card[appearance='filled-outlined'] {
-        border: var(--wa-panel-border-width) var(--wa-panel-border-style) var(--wa-color-neutral-border-normal, var(--wa-color-surface-border));
+        border: var(--wa-panel-border-width) var(--wa-panel-border-style) var(--lgs-countdown-card-border);
     }
 
     wa-card.countdown-digit-card[appearance='filled'] {

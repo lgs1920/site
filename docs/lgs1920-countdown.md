@@ -113,6 +113,7 @@ The following component properties can be overridden by the host application:
 | Custom property | Purpose | Default |
 | --- | --- | --- |
 | `--lgs-countdown-card-surface` | Filled card and rotor background | A mix of `--wa-color-brand-fill-quiet` and `--wa-color-neutral-10` |
+| `--lgs-countdown-card-border` | Outlined card border | `--wa-color-neutral-border-normal` |
 | `--lgs-countdown-brand-color` | Digit color | `--wa-color-brand` |
 | `--lgs-countdown-legend-color` | Unit label color | `--wa-color-text-normal` |
 | `--lgs-countdown-card-radius` | Digit card and leaf radius | `--wa-panel-border-radius` |
@@ -125,6 +126,7 @@ The visible gap between digits in one unit is controlled by `--lgs-countdown-dig
 ```css
 .launch-countdown {
     --lgs-countdown-card-surface: color-mix(in oklab, var(--wa-color-brand-fill-quiet) 72%, var(--wa-color-neutral-10) 28%);
+    --lgs-countdown-card-border: var(--wa-color-surface-border);
     --lgs-countdown-brand-color: var(--wa-color-brand);
     --lgs-countdown-legend-color: var(--wa-color-text-normal);
     --lgs-countdown-card-radius: var(--wa-panel-border-radius);
