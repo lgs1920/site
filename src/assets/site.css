@@ -2699,7 +2699,7 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 .registration-hero-countdown {
     width: 100%;
     margin-block: var(--wa-space-s);
-    --lgs-countdown-card-surface: color-mix(in oklab, var(--hero-route-path-color) 72%, var(--wa-color-neutral-10) 28%);
+    --lgs-countdown-card-surface: var(--surface-soft);
     --lgs-countdown-brand-color: var(--wa-color-brand);
     --lgs-countdown-legend-color: var(--hero-ink);
 }
