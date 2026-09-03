@@ -2711,6 +2711,7 @@ html.wa-light.wa-brand-pink .hero-backdrop {
     margin-block: var(--wa-space-s);
     --lgs-countdown-card-surface: color-mix(in oklab, var(--wa-color-surface-raised) 72%, var(--countdown-card-tint) 28%);
     --lgs-countdown-card-border: var(--panel-stroke);
+    --lgs-countdown-card-radius: var(--wa-panel-border-radius);
     --lgs-countdown-brand-color: var(--wa-color-brand);
     --lgs-countdown-legend-color: var(--hero-ink);
 }

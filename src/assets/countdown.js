@@ -91,6 +91,7 @@ const COUNTDOWN_STYLES = `
 
     wa-card.countdown-digit-card {
         --spacing: 0;
+        --wa-panel-border-radius: var(--lgs-countdown-card-radius);
         --lgs-countdown-rotor-surface: var(--lgs-countdown-card-surface);
         display: block;
         inline-size: 100%;
