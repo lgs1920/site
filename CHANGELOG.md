@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-03 — [`ec901a5`](https://github.com/lgs1920/site/commit/ec901a5) — Use the published countdown package
+
+- Replaced the site-local countdown implementation with the published `@lgs1920/countdown` package.
+- Kept the site countdown tests against the package entry point and locked the npm dependency.
+
 ## 2026-09-03 — [`a629116`](https://github.com/lgs1920/site/commit/a629116) — Keep countdown units on one line
 
 - Kept Days, Hours, Minutes, and Seconds on a single row at every viewport size.
