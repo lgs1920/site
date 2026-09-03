@@ -137,7 +137,7 @@ The visible gap between digits in one unit is controlled by `--lgs-countdown-dig
 The LGS1920 registration page uses the component as a normal host application would. The page selects the recommended `filled-outlined` appearance and supplies its own localized copy and seasonal surface override. The Web Component itself remains independent from this page:
 
 ```html
-<p>We're working on something amazing. We'll be launching it in a few days.</p>
+<p>We're working on something amazing. We'll be launching it in a few days. Stay tuned !</p>
 <lgs1920-countdown
     class="launch-countdown"
     lang="en"
@@ -150,7 +150,7 @@ The LGS1920 registration page uses the component as a normal host application wo
 The French page uses the same component contract with `lang="fr"` and the localized message:
 
 ```html
-<p>Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours.</p>
+<p>Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours. Restez à l’écoute !</p>
 <lgs1920-countdown
     class="launch-countdown"
     lang="fr"

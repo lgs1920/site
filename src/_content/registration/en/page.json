@@ -10,7 +10,7 @@
     "panel": {
       "eyebrow": "LGS1920 Studio",
       "title": "Your next routes deserve a story.",
-      "countdownMessage": "We're working on something amazing. We'll be launching it in a few days.",
+      "countdownMessage": "We're working on something amazing. We'll be launching it in a few days. Stay tuned !",
       "countdownTargetDate": "2026-10-15T15:00:00+02:00",
       "action": {
         "label": "Register for launch updates",
@@ -22,7 +22,7 @@
           "animation": "swing"
         }
       },
-      "lead": "Register for launch updates and be among the first to discover a private-by-default workspace for routes, scenes, videos, and reports.",
+      "lead": "Register for launch updates and be among the first to discover a private-by-default workspace for routes, 3D scenes, and videos.",
       "items": [
         {
           "icon": "route",

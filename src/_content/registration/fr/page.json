@@ -10,7 +10,7 @@
     "panel": {
       "eyebrow": "LGS1920 Studio",
       "title": "Vos prochains parcours méritent une histoire.",
-      "countdownMessage": "Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours.",
+      "countdownMessage": "Nous travaillons sur un truc sympa. Nous le lancerons dans quelques jours. Restez à l’écoute !",
       "countdownTargetDate": "2026-10-15T15:00:00+02:00",
       "action": {
         "label": "S’inscrire aux infos du lancement",
@@ -22,7 +22,7 @@
           "animation": "swing"
         }
       },
-      "lead": "Inscrivez-vous aux informations du lancement et soyez parmi les premiers à découvrir un espace de travail axé sur la confidentialité pour vos parcours, scènes, vidéos et rapports.",
+      "lead": "Inscrivez-vous pour le lancement et soyez parmi les premiers à découvrir un espace de travail confidentiel pour vos parcours, scènes 3D et vidéos.",
       "items": [
         {
           "icon": "route",
