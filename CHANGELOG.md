@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-03 — [`a629116`](https://github.com/lgs1920/site/commit/a629116) — Keep countdown units on one line
+
+- Kept Days, Hours, Minutes, and Seconds on a single row at every viewport size.
+- Scaled the digit cards from the available inline space while preserving the configured spacing tokens.
+
 ## 2026-09-03 — [`abc7db7`](https://github.com/lgs1920/site/commit/abc7db7) — Remove Firefox countdown rotor seam
 
 - Removed the fractional seam and depth-rasterization flash visible between countdown rotor halves in Firefox.
