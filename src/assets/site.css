@@ -32,6 +32,7 @@
     --hero-route-path-color: rgb(63, 98, 18);
     --hero-route-glow-color: rgb(103, 165, 13);
     --hero-route-poi-color: var(--wa-color-brand-60);
+    --countdown-card-tint: var(--wa-color-surface-raised);
 }
 
 html.wa-theme-lgs1920 {
@@ -46,26 +47,35 @@ html.wa-theme-lgs1920 {
 html[data-season-theme='spring'] {
     --hero-route-path-color: rgb(62, 109, 77);
     --hero-route-glow-color: rgb(175, 218, 188);
+    --countdown-card-tint: rgb(175, 218, 188);
 }
 
 html[data-season-theme='summer'] {
     --hero-route-path-color: rgb(63, 98, 18);
     --hero-route-glow-color: rgb(103, 165, 13);
+    --countdown-card-tint: var(--wa-color-green-60);
 }
 
 html[data-season-theme='fall'] {
     --hero-route-path-color: rgb(113, 63, 18);
     --hero-route-glow-color: rgb(197, 110, 18);
+    --countdown-card-tint: #c56e12;
 }
 
 html[data-season-theme='winter'] {
     --hero-route-path-color: rgb(49, 90, 130);
     --hero-route-glow-color: rgb(219, 234, 254);
+    --countdown-card-tint: #dbeafe;
 }
 
 html[data-season-theme='winter-light'] {
     --hero-route-path-color: var(--wa-color-blue-40);
     --hero-route-glow-color: var(--wa-color-blue-60);
+    --countdown-card-tint: var(--wa-color-blue-95);
+}
+
+html[data-season-theme='winter-dark'] {
+    --countdown-card-tint: var(--wa-color-neutral-20);
 }
 
 html.wa-brand-brown {
@@ -2699,7 +2709,7 @@ html.wa-light.wa-brand-pink .hero-backdrop {
 .registration-hero-countdown {
     width: 100%;
     margin-block: var(--wa-space-s);
-    --lgs-countdown-card-surface: var(--surface-soft);
+    --lgs-countdown-card-surface: color-mix(in oklab, var(--wa-color-surface-raised) 72%, var(--countdown-card-tint) 28%);
     --lgs-countdown-brand-color: var(--wa-color-brand);
     --lgs-countdown-legend-color: var(--hero-ink);
 }
