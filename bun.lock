@@ -10,6 +10,7 @@
         "@fortawesome/free-brands-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/free-brands-svg-icons",
         "@fortawesome/pro-regular-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-regular-svg-icons",
         "@fortawesome/pro-solid-svg-icons": "/home/christian/devs/assets/lgs1920/studio/node_modules/@fortawesome/pro-solid-svg-icons",
+        "@lgs1920/countdown": "^1.0.4",
         "js-yaml": "^5.4.1",
         "three": "^0.185.1",
       },
@@ -67,6 +68,8 @@
     "@fortawesome/pro-solid-svg-icons": ["@fortawesome/pro-solid-svg-icons@file:../studio/node_modules/@fortawesome/pro-solid-svg-icons", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.3.1" } }],
 
     "@konnorr/qr-creator": ["@konnorr/qr-creator@1.1.0", "", {}, "sha512-6Ae3AfG45MOqF9Qde+1YxIxKf/GUsRmcriV7iCb/HaR+Mk1YDFYP3RINDRMI8z8YMWW3BnSthOujX9RoOex/Kw=="],
+
+    "@lgs1920/countdown": ["@lgs1920/countdown@1.0.4", "", { "dependencies": { "@awesome.me/webawesome": "^3.12.0" } }, "sha512-kxIxM1ISjv9H30pWJsadOdOMQCe8V3cIXvAy3Kdf3xCQXwuXK9PTeLKP3BFq6DYCZkIKOKle2GKYV4fYL8fX/A=="],
 
     "@lit-labs/ssr": ["@lit-labs/ssr@4.1.0", "", { "dependencies": { "@lit-labs/ssr-client": "^1.1.7", "@lit-labs/ssr-dom-shim": "^1.6.0", "@lit/reactive-element": "^2.0.4", "@parse5/tools": "^0.3.0", "enhanced-resolve": "^5.10.0", "lit": "^3.1.2", "lit-element": "^4.0.4", "lit-html": "^3.1.2", "node-fetch": "^3.2.8", "parse5": "^7.1.1" }, "peerDependencies": { "@types/node": ">=20.0.0 <25.0.0" }, "optionalPeers": ["@types/node"] }, "sha512-m0zymVVlHB1ddJQ1lastsV8ROW3whFOiHJhVPQWd04MnGTkTlUUVLQctux1QlyD9BtLXNN6iASxv388vhgKMFg=="],
 

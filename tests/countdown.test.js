@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import {GOLDEN_RATIO, getCountdownAnimation, getCountdownAppearance, getCountdownParts, getCountdownRatio, getCountdownState, Lgs1920Countdown, MAX_COUNTDOWN_DAYS} from '../src/assets/countdown.js'
+import {GOLDEN_RATIO, getCountdownAnimation, getCountdownAppearance, getCountdownParts, getCountdownRatio, getCountdownState, Lgs1920Countdown, MAX_COUNTDOWN_DAYS} from '@lgs1920/countdown/countdown'
 
 test('exposes custom element lifecycle callbacks on its prototype', () => {
     assert.equal(typeof Lgs1920Countdown.prototype.connectedCallback, 'function')
