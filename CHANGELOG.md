@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-04 — [`ee9c2ba`](https://github.com/lgs1920/site/commit/ee9c2ba) — Localize countdown legends
+
+- Applied the published countdown package's legend property to the localized site countdown.
+- Added regression coverage for French and English countdown labels.
+
 ## 2026-09-03 — [`ec901a5`](https://github.com/lgs1920/site/commit/ec901a5) — Use the published countdown package
 
 - Replaced the site-local countdown implementation with the published `@lgs1920/countdown` package.
