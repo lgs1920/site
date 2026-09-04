@@ -3,6 +3,13 @@ import test from 'node:test'
 
 import {GOLDEN_RATIO, getCountdownAnimation, getCountdownAppearance, getCountdownParts, getCountdownRatio, getCountdownState, Lgs1920Countdown, MAX_COUNTDOWN_DAYS} from '@lgs1920/countdown/countdown'
 
+test('exposes the legend property used for localized labels', () => {
+    const legendProperty = Object.getOwnPropertyDescriptor(Lgs1920Countdown.prototype, 'legend')
+
+    assert.equal(typeof legendProperty?.get, 'function')
+    assert.equal(typeof legendProperty?.set, 'function')
+})
+
 test('exposes custom element lifecycle callbacks on its prototype', () => {
     assert.equal(typeof Lgs1920Countdown.prototype.connectedCallback, 'function')
     assert.equal(typeof Lgs1920Countdown.prototype.disconnectedCallback, 'function')

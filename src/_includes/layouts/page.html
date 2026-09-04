@@ -513,6 +513,7 @@ layout: layouts/base.html
                                         <lgs1920-countdown
                                             class="registration-hero-countdown"
                                             lang="{{ locale | default: 'en' }}"
+                                            data-countdown-locale="{{ locale | default: 'en' }}"
                                             appearance="filled-outlined"
                                             target-date="{{ page_hero.panel.countdownTargetDate | escape }}"
                                         ></lgs1920-countdown>
