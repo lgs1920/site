@@ -20,15 +20,15 @@ conventions from the Studio project while preserving the site's Eleventy archite
 - Do not use semicolons.
 - Use arrow functions for new or modified JavaScript functions, except for class constructors.
 - Keep the existing Eleventy data and template conventions. Default exports are allowed where the site already uses them.
-- Keep files focused. Split a file when it becomes difficult to review or exceeds 1500 lines.
-- Provide the full file content in every code response.
+- Keep new files focused and below 1500 lines. For an existing file above 1500 lines, split it when necessary for the requested change; otherwise make the targeted correction and report the refactoring opportunity separately.
+- Summarize changes, validation, and remaining work with file links. Provide full file contents only when explicitly requested.
 - Do not apply Studio-only constraints such as Valtio, React, Elysia, or Studio component rules to site code.
 - Keep internal links localized: English routes have no locale prefix; French routes use `/fr/`.
 - **JSON/Markdown separation:** Keep short page copy (a few words, labels, or up to two sentences) directly in `src/_content/<page>/<locale>/page.json`. Use a Markdown file in that same locale directory only for genuinely multi-line editorial content such as headings, lists, tables, or longer composed text, and reference it from JSON with `@md:`. Do not create one-line Markdown files for short copy.
 - Keep the English and French JSON structures aligned. Page JavaScript may assemble dynamic values and rendering data, but must not become the source of ordinary page copy.
 - Every banner video must have a matching WebP fallback image. Register both assets in the banner media catalog, preload the WebP, render it below the video layer, and fade it out only after the video can play.
 - Banner videos must keep their full duration while being optimized for web delivery: maximum 1920px width, maximum 30 fps, no audio when unused, H.264 encoding with `faststart`, and a matching WebP fallback.
-- Any change to the video catalog, video effects, or hero animation must also be reported in the Studio repository before handoff, using the appropriate Studio issue or documentation entry.
+- For changes to the video catalog, video effects, or hero animation, prepare the required Studio report alongside the site change. Reference the owning site issue when one exists and describe the Studio impact without creating a mirror issue. Publish the report only within existing authorization; otherwise present the completed report for the required approval after local implementation and validation. Report publication as pending until completed.
 
 ## 3. Site architecture
 
@@ -63,6 +63,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 
 - Before creating an issue, ask for any missing explanations or clarifications needed to understand and scope the request. Then present the complete proposed issue content for explicit user validation. Do not create the issue until the user has validated the proposal.
 - For every issue, propose a solution and an implementation plan for explicit user validation. Do not create or implement the issue until the proposed solution and plan have been validated.
+- Present the complete issue content, proposed solution, and implementation plan together for explicit validation. Reuse validation already given for the same proposal. Request renewed validation only for material changes to the approved scope, solution, or plan. A request to create an issue does not by itself validate an unseen proposal.
 - Fill every known and applicable issue field, including title, description, assignee, labels, type, priority, repository, Project status, and `Target release`. Do not invent a release, label, priority, or other value when it is not known.
 - Assign an issue to the user requesting its creation unless the user explicitly specifies another assignee.
 - Use the Project-level `Target release` field as the source of truth for release planning. Use `Unplanned` when no approved release has been selected, and add a new target-release option only after the release has been approved.
@@ -98,12 +99,12 @@ New issues start in `Triage` unless their validated scope already justifies a di
 - Use a concise conventional commit message with a key such as `feat`, `fix`, `docs`, `style`, `test`, or `chore`.
 - Keep unrelated dirty files out of targeted commits.
 - Do not reset, checkout, or delete user changes without explicit approval.
-- The site changelog is maintained locally in `CHANGELOG.md` and records the date, commit identifier, title, and summary.
-- Every site commit must have a corresponding `CHANGELOG.md` entry.
-- A changelog entry must be added before committing and must use the final commit identifier. If the identifier is not known yet, create the commit, then update the entry and amend the commit.
+- The site changelog is maintained locally in `CHANGELOG.md` and records the date, title, and summary.
+- Every site change commit must include a corresponding `CHANGELOG.md` entry before committing.
+- Do not require a commit to contain its own final identifier. Resolve commit identifiers from Git history when generating reports. Do not amend a commit solely to insert its own hash.
 - The public `/changelog/` page remains sourced from the Studio changelog and must not be switched to the local site log.
 - Do not update the Studio changelog for a site-only commit.
 - The shared public release changelog uses `../studio/public/assets/changelog/YYYYMMDD-<version>.md`. If the target file does not exist, create it automatically in the Studio repository using today's date and the nearest existing changelog's filename and header conventions.
-- Group closed issues and remaining open bugs/features by owning repository (`studio`, `site`, or `backend`). Omit repository headings when they have no entries, and omit a category heading when it has no entries at all.
+- For the shared public changelog, follow [Studio PROJECT_RULES.md §7](../studio/PROJECT_RULES.md#7-release-changelog-workflow) for sections, ordering, repository headings, and issue links. Historical formatting is not authoritative where it conflicts.
 - Link every issue to its owning repository. Never include mirror issue links or duplicate issue numbers.
 - Do not invent issue numbers, versions, dates, release membership, or user-facing outcomes.
