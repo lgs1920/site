@@ -40,12 +40,12 @@ The demo is part of the component's public contract. It should explain what the 
 
 Every standalone demo and generated component reference uses the shared banner pattern:
 
-- left: the LGS1920 logo linked to `https://lgs1920.fr/`, followed by `DEMO` and `README` links;
+- left: the LGS1920 logo linked to `https://lgs1920.fr/`, followed by `DEMO`, `README`, and `CHANGELOG` links;
 - right: `GitHub` and `npm` links for the owning component;
 - the active page is marked with `aria-current="page"`;
 - the home page has no separate duplicate logo or `Made by` block, and the old footer reference link is removed when the banner provides the README link.
 
-For a static demo, use the project build command to generate the deployable page. If a project renders a reference page from its README, the generated README page must be rebuilt on every demo build and deployment. Update the README source and verify that the generated HTML includes:
+For a static demo, use the project build command to generate the deployable page. If a project renders a reference page from its README, the generated README page must be rebuilt on every demo build and deployment. When the project has published version tags, generate a matching HTML changelog during the same build. Update the README source and verify that the generated HTML includes:
 
 - the active theme, palette, color mode, typography, and code block styling;
 - syntax coloring for the languages used by its examples, including readable HTML tag, attribute, string, and punctuation colors;
@@ -53,6 +53,8 @@ For a static demo, use the project build command to generate the deployable page
 - accessible navigation, including a breadcrumb that returns to the demo home where applicable;
 - links that resolve from the deployed base path;
 - examples that match the currently implemented API.
+
+The changelog must be generated from the repository's version tags rather than edited in `dist/`. Each release entry should include its version, publication date, available release summary or change list, and comparison link when the tag provides one. The Pages checkout must fetch the tag history required by the build.
 
 Do not claim a standalone demo or a Pages URL for a component whose repository does not define one. Use the repository README and package checks as the public fallback until a demo workflow exists.
 
@@ -67,7 +69,7 @@ bun test
 bun run build
 ```
 
-Use `bun run dev` for the local development server or `bun run demo:serve` to serve the generated `dist/` directory. The `countdown` build generates both `dist/index.html` and `dist/readme.html` from the source files. The Pages workflow deploys both pages on pushes to `main`. Before invoking `bun run publish`, prepare its `--preview` output and present the proposed release text for explicit user validation. After validation, the `v*` tag workflow runs the tests and build, publishes `@lgs1920/countdown` to npm, and creates the GitHub release from the validated annotated tag notes.
+Use `bun run dev` for the local development server or `bun run demo:serve` to serve the generated `dist/` directory. The `countdown` build generates `dist/index.html`, `dist/readme.html`, and `dist/changelog.html` from the source files and version tags. The Pages workflow deploys these pages on pushes to `main`. Before invoking `bun run publish`, prepare its `--preview` output and present the proposed release text for explicit user validation. After validation, the `v*` tag workflow runs the tests and build, publishes `@lgs1920/countdown` to npm, and creates the GitHub release from the validated annotated tag notes.
 
 The repository's `bun run publish [--patch|--minor|--major]` script changes the version, commits the release, creates the tag, and pushes it. A commit request alone must never invoke this script. Run it only after the user has explicitly requested publication, the release text has been previewed and approved in the conversation, and the working tree is ready for that operation.
 
