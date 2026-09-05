@@ -25,7 +25,7 @@ The local links are useful when working in the shared LGS1920 workspace. The pub
 3. Update the demo when the component behavior or public API changes. Keep the demo usable at its documented URL or local server, and keep its theme, typography, colors, navigation, and examples consistent with the component's host UI library.
 4. Build from source files and inspect the generated output. Never edit ignored or generated `dist/` output as the source of a fix.
 5. Run the owning project's verification commands before preparing delivery. Check package contents and generated assets when the project provides a package check.
-6. Review the final diff, validate links and deployment configuration, then commit or publish only when the user explicitly requests that external action.
+6. Review the final diff and validate links and deployment configuration. Treat committing and publishing as separate actions: a request to commit authorizes the commit only; never infer a push, tag, npm publication, GitHub release, or deployment from it.
 7. After an authorized push, inspect the relevant GitHub Actions runs and report the release reference, demo deployment, package publication, and any remaining queued or failed work.
 
 ## Source and code changes
@@ -69,7 +69,7 @@ bun run build
 
 Use `bun run dev` for the local development server or `bun run demo:serve` to serve the generated `dist/` directory. The `countdown` build generates both `dist/index.html` and `dist/readme.html` from the source files. The Pages workflow deploys both pages on pushes to `main`. Before invoking `bun run publish`, prepare its `--preview` output and present the proposed release text for explicit user validation. After validation, the `v*` tag workflow runs the tests and build, publishes `@lgs1920/countdown` to npm, and creates the GitHub release from the validated annotated tag notes.
 
-The repository's `bun run publish [--patch|--minor|--major]` script changes the version, commits the release, creates the tag, and pushes it. Run it only after the user has explicitly requested publication and the working tree is ready for that operation.
+The repository's `bun run publish [--patch|--minor|--major]` script changes the version, commits the release, creates the tag, and pushes it. A commit request alone must never invoke this script. Run it only after the user has explicitly requested publication, the release text has been previewed and approved in the conversation, and the working tree is ready for that operation.
 
 ### `timeline`
 
@@ -97,6 +97,6 @@ After publication, use the repository's GitHub Actions runs as evidence for CI, 
 
 ## Safety and handoff
 
-Do not reset, checkout, delete, overwrite unrelated files, commit, push, tag, deploy, publish packages, or close issues unless the user has authorized that action. A request to edit or validate a component authorizes local implementation and read-only checks, but it does not by itself authorize a release.
+Do not reset, checkout, delete, overwrite unrelated files, commit, push, tag, deploy, publish packages, or close issues unless the user has authorized that specific action. A request to commit authorizes only a commit. A request to publish requires a separate explicit publication instruction after the release text has been proposed and approved; editing or validating a component never authorizes a release.
 
 Use a concise conventional commit message. Keep commits scoped to one component or one shared delivery change. Before handoff, run `git diff --check`, report the changed files and validation commands, and identify uncommitted changes, queued workflows, missing demos, or other release limits.

@@ -5,6 +5,7 @@
 - Added a project-level skill for coordinating LGS1920 component source, documentation, demos, validation, GitHub Pages, and npm delivery.
 - Linked the countdown and timeline component projects from the skill catalog.
 - Documented release-note preview and explicit validation before component publication.
+- Clarified that commit and publication are separate authorized actions.
 
 ## 2026-09-04 — [`ee9c2ba`](https://github.com/lgs1920/site/commit/ee9c2ba) — Localize countdown legends
 
