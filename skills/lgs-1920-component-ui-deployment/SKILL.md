@@ -67,7 +67,7 @@ bun test
 bun run build
 ```
 
-Use `bun run dev` for the local development server or `bun run demo:serve` to serve the generated `dist/` directory. The `countdown` build generates both `dist/index.html` and `dist/readme.html` from the source files. The Pages workflow deploys both pages on pushes to `main`. The publish workflow also runs the build for every `v*` tag before publishing `@lgs1920/countdown` to npm and creating the GitHub release.
+Use `bun run dev` for the local development server or `bun run demo:serve` to serve the generated `dist/` directory. The `countdown` build generates both `dist/index.html` and `dist/readme.html` from the source files. The Pages workflow deploys both pages on pushes to `main`. Before invoking `bun run publish`, prepare its `--preview` output and present the proposed release text for explicit user validation. After validation, the `v*` tag workflow runs the tests and build, publishes `@lgs1920/countdown` to npm, and creates the GitHub release from the validated annotated tag notes.
 
 The repository's `bun run publish [--patch|--minor|--major]` script changes the version, commits the release, creates the tag, and pushes it. Run it only after the user has explicitly requested publication and the working tree is ready for that operation.
 
