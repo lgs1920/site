@@ -1,0 +1,4 @@
+interface:
+  display_name: "LGS1920 Component UI Deployment"
+  short_description: "Build, demo, validate, and publish UI components"
+  default_prompt: "Use $lgs-1920-component-ui-deployment for LGS1920 component source, demo, documentation, testing, and deployment work."

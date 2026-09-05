@@ -17,6 +17,7 @@ Site changes are recorded in the local [CHANGELOG.md](CHANGELOG.md) with their d
 
 This repository includes project skills for maintaining the public site and its documentation:
 
+- [Component UI deployment](skills/lgs-1920-component-ui-deployment/SKILL.md)
 - [Content maintenance](skills/lgs-1920-site-content-maintenance/SKILL.md)
 - [Content review](skills/lgs-1920-site-content-review/SKILL.md)
 - [Documentation authoring](skills/lgs-1920-site-documentation-authoring/SKILL.md)
