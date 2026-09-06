@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-06 — Add public event partner note
+
+- Added a small bilingual note inviting public event organizers to list LGS1920 Studio as a partner.
+- Reused the note in the privacy quote on the homepage, Studio page, and launch registration page.
+
 ## 2026-09-06 — Add homepage promise to Studio and registration
 
 - Copied the bilingual homepage promise to the beginning of the Studio and launch registration pages.

@@ -170,7 +170,8 @@
               "text": "Laissez les crédits visibles."
             }
           ],
-          "closing": "Merci et bonne utilisation !"
+          "closing": "Merci et bonne utilisation !",
+          "partnerNote": "Vous utilisez Studio pour un événement public ? Vous pouvez nous ajouter comme partenaire. Ce serait sympa et cela nous aiderait à nous faire connaître."
         }
       }
     },

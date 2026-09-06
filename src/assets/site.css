@@ -3162,6 +3162,14 @@ wa-dialog::part(footer) {
     margin-block-start: var(--wa-space-m);
 }
 
+.overview-privacy-quote-note {
+    display: block;
+    margin-block-start: var(--wa-space-m);
+    color: var(--page-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
 .overview-privacy-quote:hover {
     box-shadow: var(--shadow-lift);
     transform: rotate(-0.8deg) translateY(-1px);

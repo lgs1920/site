@@ -80,6 +80,7 @@
                     </span>
                 </strong>
                 <span class="overview-privacy-quote-closing">{{ home_content.overview.privacy.quote.closing }}</span>
+                {% if home_content.overview.privacy.quote.partnerNote %}<small class="overview-privacy-quote-note">{{ home_content.overview.privacy.quote.partnerNote }}</small>{% endif %}
             </p>
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
         </blockquote>

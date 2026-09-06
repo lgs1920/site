@@ -77,7 +77,7 @@ const renderPrivacyQuote = (privacyQuote) => privacyQuote ? `
     </p>
     <blockquote class="overview-privacy-quote studio-presentation-privacy-quote">
         <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
-        <p>${escapeHtml(privacyQuote.text)}<br><br><strong>${escapeHtml(privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${privacyQuote.rules.map((rule) => `<span class="overview-privacy-quote-rule"><wa-icon variant="regular" name="${escapeHtml(rule.icon)}" aria-hidden="true"></wa-icon>${escapeHtml(rule.text)}</span>`).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(privacyQuote.closing)}</span></p>
+        <p>${escapeHtml(privacyQuote.text)}<br><br><strong>${escapeHtml(privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${privacyQuote.rules.map((rule) => `<span class="overview-privacy-quote-rule"><wa-icon variant="regular" name="${escapeHtml(rule.icon)}" aria-hidden="true"></wa-icon>${escapeHtml(rule.text)}</span>`).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(privacyQuote.closing)}</span>${privacyQuote.partnerNote ? `<small class="overview-privacy-quote-note">${escapeHtml(privacyQuote.partnerNote)}</small>` : ''}</p>
         <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
     </blockquote>
 </div>` : ''

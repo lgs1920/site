@@ -204,7 +204,7 @@ export const renderLaunchRegistrationPage = (pageContent) => {
         </p>
         <blockquote class="overview-privacy-quote registration-privacy-quote">
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
-            <p>${escapeHtml(pageContent.privacyQuote.text)}<br><br><strong>${escapeHtml(pageContent.privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${pageContent.privacyQuote.rules.map((rule) => `<span class="overview-privacy-quote-rule"><wa-icon variant="regular" name="${escapeHtml(rule.icon)}" aria-hidden="true"></wa-icon>${escapeHtml(rule.text)}</span>`).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(pageContent.privacyQuote.closing)}</span></p>
+            <p>${escapeHtml(pageContent.privacyQuote.text)}<br><br><strong>${escapeHtml(pageContent.privacyQuote.rulesTitle)}<br><span class="overview-privacy-quote-rules">${pageContent.privacyQuote.rules.map((rule) => `<span class="overview-privacy-quote-rule"><wa-icon variant="regular" name="${escapeHtml(rule.icon)}" aria-hidden="true"></wa-icon>${escapeHtml(rule.text)}</span>`).join('<br>')}</span></strong><span class="overview-privacy-quote-closing">${escapeHtml(pageContent.privacyQuote.closing)}</span>${pageContent.privacyQuote.partnerNote ? `<small class="overview-privacy-quote-note">${escapeHtml(pageContent.privacyQuote.partnerNote)}</small>` : ''}</p>
             <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
         </blockquote>
     </div>` : ''}
