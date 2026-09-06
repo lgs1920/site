@@ -1,18 +1,26 @@
 <footer slot="footer" class="minimal-page-footer">
-    <span class="minimal-page-footer-copyright">
-        <wa-icon variant="regular" name="copyright" aria-hidden="true"></wa-icon>
-        <span>{{ site.name }} {{ site.copyrightYears }}</span>
-    </span>
-    <span class="minimal-page-footer-separator" aria-hidden="true"></span>
-    <a href="{{ site.licenseUrl }}" target="_blank" rel="noreferrer">
-        <wa-icon variant="regular" name="scale-balanced" aria-hidden="true"></wa-icon>
-        <span>{{ site.licenseName }}</span>
-    </a>
-    {% unless hideMinimalFooterHomeLink %}
+    <div class="minimal-page-footer-primary">
+        <span class="minimal-page-footer-copyright">
+            <wa-icon variant="regular" name="copyright" aria-hidden="true"></wa-icon>
+            <span>{{ site.name }} {{ site.copyrightYears }}</span>
+        </span>
         <span class="minimal-page-footer-separator" aria-hidden="true"></span>
-        <a href="{{ localizedHomeUrl | default: '/' }}">
-            <wa-icon variant="regular" name="house" aria-hidden="true"></wa-icon>
-            <span>{{ uiLabels.home | default: 'Home' }}</span>
+        <a href="{{ site.licenseUrl }}" target="_blank" rel="noreferrer">
+            <wa-icon variant="regular" name="scale-balanced" aria-hidden="true"></wa-icon>
+            <span>{{ site.licenseName }}</span>
         </a>
-    {% endunless %}
+        {% unless hideMinimalFooterHomeLink %}
+            <span class="minimal-page-footer-separator" aria-hidden="true"></span>
+            <a href="{{ localizedHomeUrl | default: '/' }}">
+                <wa-icon variant="regular" name="house" aria-hidden="true"></wa-icon>
+                <span>{{ uiLabels.home | default: 'Home' }}</span>
+            </a>
+        {% endunless %}
+    </div>
+    <div class="minimal-page-footer-social-row">
+        {% include "components/social-links.html", social_instance: "minimal-footer", social_class: "site-social-minimal-footer" %}
+        <wa-button class="site-social-link minimal-page-footer-contact" href="mailto:{{ site.contactEmail }}" variant="brand" appearance="plain" size="small" aria-label="{{ uiLabels.contact | default: 'Contact' }}">
+            <wa-icon variant="regular" name="envelope" aria-hidden="true"></wa-icon>
+        </wa-button>
+    </div>
 </footer>

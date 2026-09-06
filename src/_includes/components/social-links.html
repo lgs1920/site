@@ -1,0 +1,48 @@
+{% assign social_instance_value = social_instance | default: 'default' %}
+{% assign social_dialog_id = 'site-social-dialog-' | append: social_instance_value %}
+{% assign social_trigger_id = 'site-social-trigger-' | append: social_instance_value %}
+<div class="site-social-links{% if social_compact %} site-social-links-compact{% endif %}{% if social_class %} {{ social_class }}{% endif %}">
+    <nav class="site-social-links-desktop" aria-label="{{ uiLabels.socialNetworks }}">
+        {% for link in site.socialLinks %}
+            <wa-button class="site-social-link" href="{{ link.url }}" target="_blank" rel="noreferrer" variant="brand" appearance="plain" size="small" aria-label="{{ link.label }}"{% if link.appUrl %} data-social-app-link data-app-url="{{ link.appUrl }}"{% endif %}>
+                <wa-icon family="brands" name="{{ link.icon }}" aria-hidden="true"></wa-icon>
+            </wa-button>
+        {% endfor %}
+    </nav>
+
+    <wa-button
+        id="{{ social_trigger_id }}"
+        class="site-social-trigger"
+        variant="brand"
+        appearance="plain"
+        size="small"
+        aria-label="{{ uiLabels.openSocialNetworks }}"
+        aria-controls="{{ social_dialog_id }}"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+    >
+        <wa-icon variant="regular" name="share-nodes" aria-hidden="true"></wa-icon>
+    </wa-button>
+
+    <wa-popup
+        id="{{ social_dialog_id }}"
+        class="site-social-popup"
+        anchor="{{ social_trigger_id }}"
+        placement="bottom-start"
+        distance="4"
+        arrow
+        flip
+        shift
+        shift-padding="8"
+    >
+        <div class="site-social-popup-panel" role="dialog" aria-label="{{ uiLabels.socialNetworks }}">
+        <nav class="site-social-links-mobile" aria-label="{{ uiLabels.socialNetworks }}">
+            {% for link in site.socialLinks %}
+                <wa-button class="site-social-link" href="{{ link.url }}" target="_blank" rel="noreferrer" variant="brand" appearance="plain" size="small" aria-label="{{ link.label }}"{% if link.appUrl %} data-social-app-link data-app-url="{{ link.appUrl }}"{% endif %}>
+                    <wa-icon family="brands" name="{{ link.icon }}" aria-hidden="true"></wa-icon>
+                </wa-button>
+            {% endfor %}
+        </nav>
+        </div>
+    </wa-popup>
+</div>

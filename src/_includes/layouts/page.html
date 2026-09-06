@@ -66,6 +66,8 @@ layout: layouts/base.html
         </div>
         <wa-tooltip class="control-tooltip" for="site-home-link" placement="bottom">{{ labels.home }}</wa-tooltip>
 
+        {% include "components/social-links.html", social_instance: "normal-header", social_class: "site-social-header" %}
+
         <div class="topbar-actions">
             <div class="site-search-trigger-wrap" data-search-trigger-wrap hidden>
                 <wa-button id="site-search-trigger" class="icon-link-button site-search-trigger" data-search-trigger hidden appearance="plain" aria-label="{{ labels.openSearch }}" aria-controls="site-search-dialog" aria-haspopup="dialog">
@@ -405,6 +407,7 @@ layout: layouts/base.html
                 {% endif %}
             {% endfor %}
             <div class="registration-hero-locale">
+                {% include "components/social-links.html", social_instance: "registration-hero", social_class: "site-social-registration-hero", social_compact: true %}
                 <wa-dropdown class="theme-palette-menu registration-hero-theme-palette" placement="bottom-end" data-theme-palette-dropdown>
                     <wa-button id="registration-hero-theme-palette-trigger" slot="trigger" class="theme-palette-trigger" appearance="plain" size="small" aria-label="{{ labels.chooseBrandAndSeason }}">
                         <span class="theme-palette-trigger-swatches">
@@ -820,11 +823,12 @@ layout: layouts/base.html
                     <wa-tooltip class="control-tooltip" for="site-build-link">{{ site.buildLink.label }}</wa-tooltip>
                 {% endif %}
             </p>
+            {% include "components/social-links.html", social_instance: "normal-footer", social_class: "site-social-footer" %}
             <div class="site-footer-contact">
-                <a id="site-contact-link" href="{{ localizedContactUrl | default: '/contact' }}">
-                    <wa-icon variant="regular" name="envelope" aria-hidden="true"></wa-icon>
-                    <span>{{ labels.contact }}</span>
-                </a>
+                <wa-button id="site-contact-link" class="site-footer-contact-button" href="{{ localizedContactUrl | default: '/contact' }}" variant="brand" appearance="plain" size="small" aria-label="{{ labels.contact }}">
+                    <wa-icon slot="start" variant="regular" name="envelope" aria-hidden="true"></wa-icon>
+                    {{ labels.contact }}
+                </wa-button>
                 <wa-tooltip class="control-tooltip" for="site-contact-link">{{ labels.contact }}</wa-tooltip>
             </div>
         </div>

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-06 — Add reusable social network navigation
+
+- Added reusable Twitter/X, Instagram, Bluesky, and YouTube controls with app deep links and web fallbacks.
+- Added responsive placements for the normal and registration themes, including mobile `wa-popup` menus and branded contact controls.
+
 ## 2026-09-06 — Refine promise video wording
 
 - Added POIs and the 3D video wording to the localized homepage and Studio promise copy.

@@ -559,6 +559,21 @@ wa-page.minimal-page-layout::part(footer) {
     text-align: center;
 }
 
+.minimal-page-footer-primary,
+.minimal-page-footer-social-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--wa-space-s) var(--wa-space-m);
+    width: 100%;
+}
+
+.minimal-page-footer-social-row {
+    padding-top: var(--wa-space-s);
+    border-top: 1px solid var(--panel-stroke);
+}
+
 .minimal-page-footer a {
     display: inline-flex;
     align-items: center;
@@ -972,6 +987,7 @@ wa-button[variant='brand'][appearance='outlined']::part(base) {
 }
 
 .topbar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1061,6 +1077,26 @@ html.wa-dark .topbar {
     align-items: center;
     min-width: 0;
     gap: 0.45rem;
+}
+
+.site-social-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.site-social-header .site-social-link::part(base),
+.site-social-header .site-social-trigger::part(base) {
+    color: var(--lgs-button-plain-color);
+    border-color: transparent;
+    background: transparent !important;
+}
+
+.site-social-header .site-social-link:hover::part(base),
+.site-social-header .site-social-trigger:hover::part(base) {
+    color: var(--lgs-button-plain-hover-color);
+    background: var(--lgs-button-plain-bg-hover-color) !important;
 }
 
 .locale-dropdown {
@@ -5113,7 +5149,7 @@ wa-card.page-cta-card::part(body) {
 
 .site-footer-main {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     align-items: center;
     gap: 2rem;
 }
@@ -5214,6 +5250,121 @@ wa-card.page-cta-card::part(body) {
     background: transparent;
     color: var(--lgs-accent-color);
     opacity: 1;
+}
+
+.site-footer-contact-button::part(base) {
+    min-height: 2rem;
+    padding: 0.35rem 0.5rem;
+    border-color: transparent;
+    color: var(--lgs-accent-color);
+    background: transparent !important;
+}
+
+.site-footer-contact-button:hover::part(base) {
+    color: var(--lgs-accent-strong-color);
+    border-color: transparent;
+    background: var(--lgs-button-plain-bg-hover-color) !important;
+}
+
+.site-social-links {
+    min-width: 0;
+}
+
+.site-social-links-desktop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.site-social-link {
+    display: inline-flex;
+}
+
+.site-social-link::part(base) {
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0;
+    color: var(--lgs-accent-color);
+}
+
+.site-social-link wa-icon {
+    font-size: 1rem;
+}
+
+.site-social-link:hover::part(base) {
+    color: var(--lgs-accent-strong-color);
+    background: var(--lgs-button-plain-bg-hover-color);
+}
+
+.site-social-trigger {
+    display: none;
+}
+
+.site-social-links-compact .site-social-links-desktop {
+    display: inline-flex;
+}
+
+.site-social-links-compact .site-social-trigger {
+    display: none;
+}
+
+.site-social-registration-hero > .site-social-links-desktop .site-social-link::part(base) {
+    color: var(--hero-ink);
+    border-color: transparent;
+    background: transparent !important;
+}
+
+.site-social-registration-hero > .site-social-links-desktop .site-social-link:hover::part(base) {
+    color: var(--hero-ink);
+    background: color-mix(in oklab, var(--hero-ink) 12%, transparent) !important;
+}
+
+.site-social-registration-hero .site-social-trigger::part(base) {
+    color: var(--hero-ink);
+    background: transparent !important;
+}
+
+.site-social-registration-hero .site-social-trigger:hover::part(base) {
+    color: var(--hero-ink);
+    background: color-mix(in oklab, var(--hero-ink) 12%, transparent) !important;
+}
+
+.site-social-trigger::part(base) {
+    color: var(--lgs-accent-color);
+}
+
+.site-social-trigger:hover::part(base) {
+    color: var(--lgs-accent-strong-color);
+    background: var(--lgs-button-plain-bg-hover-color);
+}
+
+.site-social-popup {
+    --arrow-color: var(--wa-color-brand-60);
+    --popup-border-width: var(--wa-border-width-s);
+}
+
+.site-social-popup-panel {
+    display: inline-flex;
+    width: max-content;
+    max-width: calc(100vw - (2 * var(--wa-space-s)));
+    padding: var(--wa-space-xs);
+    border: var(--wa-border-width-s) solid var(--wa-color-brand-60);
+    border-radius: var(--wa-border-radius-m);
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-lift), 0 0 0 1px color-mix(in oklab, var(--wa-color-brand-60) 16%, transparent);
+}
+
+.site-social-links-mobile {
+    display: grid;
+    gap: 0.45rem;
+    justify-items: center;
+    width: max-content;
+    min-width: 0;
+}
+
+.site-social-links-mobile .site-social-link {
+    justify-self: center;
 }
 
 .site-footer-privacy {
@@ -5455,6 +5606,31 @@ wa-card.page-cta-card::part(body) {
         justify-content: flex-end;
     }
 
+    .site-social-header .site-social-links-desktop {
+        display: none;
+    }
+
+    .site-social-header .site-social-trigger {
+        display: inline-flex;
+    }
+
+    .site-social-header {
+        position: static;
+        top: auto;
+        left: auto;
+        flex: none;
+        margin-left: auto;
+        transform: none;
+    }
+
+    .site-social-links-compact .site-social-links-desktop {
+        display: none;
+    }
+
+    .site-social-links-compact .site-social-trigger {
+        display: inline-flex;
+    }
+
     .nav-toggle-mobile {
         margin-left: 0.35rem;
     }
@@ -5495,7 +5671,15 @@ wa-card.page-cta-card::part(body) {
         grid-template-columns: minmax(0, 1fr) auto;
     }
 
+    .site-footer-main > .site-social-footer {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+    }
+
     .site-footer-contact {
+        grid-column: 2;
+        grid-row: 1 / span 2;
         margin-top: 0;
     }
 
@@ -5551,6 +5735,14 @@ wa-card.page-cta-card::part(body) {
 }
 
 @media (max-width: 640px) {
+    .site-social-links-desktop {
+        display: none;
+    }
+
+    .site-social-trigger {
+        display: inline-flex;
+    }
+
     .error-page {
         min-height: calc(100vh - 8rem);
         padding-block: 0 3rem;

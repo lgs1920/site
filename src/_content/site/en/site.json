@@ -8,6 +8,32 @@
   "repoUrl": "https://github.com/lgs1920/studio",
   "contactEmail": "studio@lgs1920.fr",
   "footerNoteTemplate": "LGS1920 {{copyrightYears}} - GNU AGPL v3 or later",
+  "socialLinks": [
+    {
+      "label": "Twitter",
+      "url": "https://x.com/LGS1920Studio",
+      "appUrl": "twitter://user?screen_name=LGS1920Studio",
+      "icon": "x-twitter"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/lgs1920studio/",
+      "appUrl": "instagram://user?username=lgs1920studio",
+      "icon": "instagram"
+    },
+    {
+      "label": "Bluesky",
+      "url": "https://bsky.app/profile/lgs1920studio.bsky.social",
+      "appUrl": "bluesky://profile/lgs1920studio.bsky.social",
+      "icon": "bluesky"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@LGS1920Studio",
+      "appUrl": "youtube://www.youtube.com/@LGS1920Studio",
+      "icon": "youtube"
+    }
+  ],
   "licenseName": "GNU AGPL v3 or later",
   "licenseUrl": "https://www.gnu.org/licenses/agpl-3.0.html",
   "buildLink": {
