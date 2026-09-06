@@ -20,8 +20,8 @@ test('redirects regular pages to their localized registration page in production
     assert.equal(getProductionRedirectUrl('/fr/stats/'), 'https://lgs1920.fr/fr/registration/')
 })
 
-test('keeps localized help routes available in production', () => {
-    const publicHelpPaths = [
+test('redirects localized help routes to the matching registration page', () => {
+    const localizedHelpPaths = [
         '/faq/',
         '/fr/faq/',
         '/user-guide/getting-started/first-steps/',
@@ -37,7 +37,11 @@ test('keeps localized help routes available in production', () => {
         '/fr/contributor-license-agreement/',
     ]
 
-    for (const path of publicHelpPaths) {
-        assert.equal(getProductionRedirectUrl(path), null, path)
+    for (const path of localizedHelpPaths) {
+        const expectedUrl = path.startsWith('/fr/')
+            ? 'https://lgs1920.fr/fr/registration/'
+            : 'https://lgs1920.fr/registration/'
+
+        assert.equal(getProductionRedirectUrl(path), expectedUrl, path)
     }
 })

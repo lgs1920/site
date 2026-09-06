@@ -142,6 +142,29 @@ export const legalDocs = Object.fromEntries(
     Object.entries(sourceConfig).map(([key, config]) => [key, renderDocument(config)])
 )
 
+/**
+ * Localize links between legal pages when the rendered document belongs to the French site.
+ *
+ * @param {string} html Rendered legal document HTML.
+ * @param {'en'|'fr'} locale Current page locale.
+ * @returns {string} Legal document HTML with locale-aware internal links.
+ */
+const localizeLegalDocumentLinks = (html, locale) => locale === 'fr'
+    ? html.replaceAll('href="/licensing"', 'href="/fr/licensing"')
+        .replaceAll('href="/license"', 'href="/fr/license"')
+        .replaceAll('href="/contributor-license-agreement"', 'href="/fr/contributor-license-agreement"')
+        .replaceAll('href="/dependencies"', 'href="/fr/dependencies"')
+    : html
+
+/**
+ * Render the localized legal document section and its source information.
+ *
+ * @param {object} options Legal section rendering options.
+ * @param {object} options.document Rendered legal document.
+ * @param {string} options.intro Localized introduction text.
+ * @param {'en'|'fr'} options.locale Current page locale.
+ * @returns {string} Rendered legal section HTML.
+ */
 export const renderLegalSection = ({ document, intro, locale }) => `
 <section class="content-section legal-section">
     <div class="legal-meta">
@@ -153,7 +176,7 @@ export const renderLegalSection = ({ document, intro, locale }) => `
     </div>
 
     <div class="legal-doc">
-        ${document.html}
+        ${localizeLegalDocumentLinks(document.html, locale)}
     </div>
 </section>
 `

@@ -176,7 +176,7 @@ export default {
                         },
                         {
                             label:     'Contact',
-                            href:      '/contact',
+                            href:      '/fr/contact',
                             appearance:'outlined',
                             variant:   'brand',
                             icon:      {

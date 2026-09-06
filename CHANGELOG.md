@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-06 — Restore production registration redirects
+
+- Redirected all non-registration production pages to the matching English or French registration route.
+- Localized French guide and legal links in generated page content.
+- Updated production redirect regression coverage.
+
 ## 2026-09-05 — Add component UI deployment skill
 
 - Added a project-level skill for coordinating LGS1920 component source, documentation, demos, validation, GitHub Pages, and npm delivery.
