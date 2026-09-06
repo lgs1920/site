@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-06 — Add homepage promise section
+
+- Added a bilingual homepage promise section describing the supported import formats, POIs, live stats, local privacy, and browser-only workflow.
+- Linked the homepage Discover action and section navigation to the new promise section, with a compact quote presentation and emphasized privacy messaging.
+
 ## 2026-09-06 — Restore production registration redirects
 
 - Redirected all non-registration production pages to the matching English or French registration route.

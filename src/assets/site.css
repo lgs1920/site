@@ -3167,6 +3167,24 @@ wa-dialog::part(footer) {
     transform: rotate(-0.8deg) translateY(-1px);
 }
 
+.home-promise-quote {
+    max-width: 58rem;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: var(--page-ink);
+    transform: none;
+}
+
+.home-promise-quote:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.home-promise-section .section-heading h2 {
+    color: var(--page-ink);
+}
+
 .studio-presentation-privacy-quote-wrap,
 .registration-privacy-quote-wrap {
     padding-bottom: var(--wa-space-l);

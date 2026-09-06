@@ -1,6 +1,23 @@
 {% assign home = localizedPage %}
 {% assign home_content = home.content %}
 
+<section id="promise" class="content-section home-promise-section">
+    <div class="section-heading">
+        <p class="section-kicker">{{ home_content.promise.kicker }}</p>
+        <h2>{{ home_content.promise.title }}</h2>
+    </div>
+
+    <blockquote class="overview-privacy-quote home-promise-quote">
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
+        <div>
+            {% for paragraph in home_content.promise.body %}
+                <p>{{ paragraph }}</p>{% unless forloop.last %}<br>{% endunless %}
+            {% endfor %}
+        </div>
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
+    </blockquote>
+</section>
+
 <section id="overview" class="content-section intro-details-section">
     <div class="section-heading">
         <p class="section-kicker">{{ home_content.overview.kicker }}</p>

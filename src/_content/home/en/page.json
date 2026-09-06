@@ -41,7 +41,7 @@
       },
       {
         "label": "Discover",
-        "href": "#overview",
+        "href": "#promise",
         "appearance": "filled",
         "variant": "brand",
         "className": "hero-button-discover",
@@ -53,6 +53,11 @@
     ]
   },
   "sectionNav": [
+    {
+      "id": "promise",
+      "label": "Our promise",
+      "summary": "A share-ready video in just a few steps"
+    },
     {
       "id": "overview",
       "label": "Overview",
@@ -90,6 +95,15 @@
     }
   ],
   "content": {
+    "promise": {
+      "kicker": "Our promise",
+      "title": "Your outings, your stories, your video.",
+      "body": [
+        "Wherever you are, close to home or on the other side of the world, whether you are contemplative, hiking solo, into sport a little or a lot, sometimes a bit wild, or simply with family or friends, LGS1920 Studio is made for you.",
+        "Import your GPX, GeoJSON, or KML files, add some text, revisit your POIs, adjust two or three settings, and bam: your video is ready to share your outings.",
+        "All for <strong>free</strong>, without switching between four different apps, while keeping your <strong>data protected</strong> and staying in the <strong>same browser</strong>."
+      ]
+    },
     "overview": {
       "kicker": "Overview",
       "title": "Your outdoor adventures, organized and enriched in one browser workspace",
