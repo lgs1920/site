@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-06 — Refine promise video wording
+
+- Added POIs and the 3D video wording to the localized homepage and Studio promise copy.
+- Tightened the French and English closing phrase around sharing the video.
+
 ## 2026-09-06 — Add public event partner note
 
 - Added a small bilingual note inviting public event organizers to list LGS1920 Studio as a partner.
