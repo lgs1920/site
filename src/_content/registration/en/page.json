@@ -64,6 +64,11 @@
   },
   "sectionNav": [
     {
+      "id": "promise",
+      "label": "Our promise",
+      "summary": "A share-ready video in just a few steps"
+    },
+    {
       "id": "studio-presentation",
       "label": "What Studio is",
       "summary": "A simple introduction to Studio"

@@ -34,6 +34,11 @@
   },
   "sectionNav": [
     {
+      "id": "promise",
+      "label": "Notre promesse",
+      "summary": "Une vidéo prête à partager en quelques étapes"
+    },
+    {
       "id": "studio-overview",
       "label": "Ce qu’est Studio",
       "summary": "Le rôle de l’application"
@@ -55,6 +60,15 @@
     }
   ],
   "presentation": {
+    "promise": {
+      "kicker": "Notre promesse",
+      "title": "Vos sorties, vos histoires, votre vidéo.",
+      "body": [
+        "Quel que soit l'endroit où vous vous trouvez, à côté de chez vous ou à l'autre bout du monde, que vous soyez contemplatif, en rando solo, un peu ou très sportif, parfois un peu déglingo ou simplement en famille ou entre potes, LGS1920 Studio est fait pour vous.",
+        "Importez vos fichiers GPX, GeoJSON ou KML, ajoutez des textes, vos stats en live et un peu de fun, ajustez deux ou trois paramètres, et bam : votre vidéo est prête à partager vos sorties.",
+        "Le tout <strong>gratuitement</strong>, sans passer par quatre applications différentes, tout en gardant vos <strong>données protégées</strong> et en restant dans le <strong>même navigateur</strong>."
+      ]
+    },
     "overview": {
       "kicker": "Ce qu’est Studio",
       "title": "Votre parcours, organisé et enrichi dans un espace de travail du navigateur.",

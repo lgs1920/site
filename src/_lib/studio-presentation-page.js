@@ -7,6 +7,26 @@ const escapeHtml = (value = '') => String(value)
 
 const renderCardBody = (value = '') => escapeHtml(value).replace(/&lt;br&gt;/g, '<br>')
 
+const renderPromiseBody = (value = '') => escapeHtml(value)
+    .replace(/&lt;strong&gt;/g, '<strong>')
+    .replace(/&lt;\/strong&gt;/g, '</strong>')
+
+const renderPromiseSection = (promise) => promise ? `
+<section id="promise" class="content-section home-promise-section">
+    <div class="section-heading">
+        <p class="section-kicker">${escapeHtml(promise.kicker)}</p>
+        <h2>${escapeHtml(promise.title)}</h2>
+    </div>
+
+    <blockquote class="overview-privacy-quote home-promise-quote">
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-open" variant="solid" name="quote-left" aria-hidden="true"></wa-icon>
+        <div>
+            ${promise.body.map((paragraph) => `<p>${renderPromiseBody(paragraph)}</p>`).join('<br>')}
+        </div>
+        <wa-icon class="overview-privacy-quote-mark overview-privacy-quote-mark-close" variant="solid" name="quote-right" aria-hidden="true"></wa-icon>
+    </blockquote>
+</section>` : ''
+
 const renderIntro = (paragraphs = []) => paragraphs
     .map((paragraph) => `<p class="section-intro">${escapeHtml(paragraph)}</p>`)
     .join('\n')
@@ -66,6 +86,7 @@ const renderBasicPresentation = (presentation, {showAction = true, action = null
     const basicAction = action ?? presentation.basic.action
 
     return `
+${renderPromiseSection(presentation.promise)}
 <section id="studio-presentation" class="content-section studio-presentation-section studio-presentation-basic" aria-labelledby="studio-presentation-title">
     <div class="section-heading">
         <p class="section-kicker">${escapeHtml(presentation.basic.kicker)}</p>
@@ -86,6 +107,7 @@ const renderBasicPresentation = (presentation, {showAction = true, action = null
 }
 
 const renderFullPresentation = (presentation) => `
+${renderPromiseSection(presentation.promise)}
 <section id="studio-overview" class="content-section intro-details-section" aria-labelledby="studio-overview-title">
     <div class="section-heading">
         <p class="section-kicker">${escapeHtml(presentation.overview.kicker)}</p>

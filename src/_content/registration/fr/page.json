@@ -64,6 +64,11 @@
   },
   "sectionNav": [
     {
+      "id": "promise",
+      "label": "Notre promesse",
+      "summary": "Une vidéo prête à partager en quelques étapes"
+    },
+    {
       "id": "studio-presentation",
       "label": "Ce qu’est Studio",
       "summary": "Une présentation simple de Studio"

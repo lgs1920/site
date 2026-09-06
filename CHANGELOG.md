@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-06 — Add homepage promise to Studio and registration
+
+- Copied the bilingual homepage promise to the beginning of the Studio and launch registration pages.
+- Added the promise section to their localized section navigation.
+
 ## 2026-09-06 — Add homepage promise section
 
 - Added a bilingual homepage promise section describing the supported import formats, POIs, live stats, local privacy, and browser-only workflow.
