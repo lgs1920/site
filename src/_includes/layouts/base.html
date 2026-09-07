@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ locale | default: site.lang | default: 'en' }}" data-pagefind-filter="locale[lang]" class="wa-theme-lgs1920 wa-brand-yellow" data-fa-kit-code="eb5c406148">
+<html lang="{{ locale | default: site.lang | default: 'en' }}" data-pagefind-filter="locale[lang]" class="wa-theme-lgs1920 wa-brand-yellow wa-cloak" data-fa-kit-code="eb5c406148">
 <head>
     {% assign page_title = pageMeta.title | default: title | default: site.name %}
     {% if page_title == site.name %}
@@ -11,6 +11,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/assets/logo/logo.png">
+    <style>
+        html.wa-cloak {
+            background: #141a16;
+        }
+
+        html.wa-cloak.wa-light {
+            background: #f6faf4;
+        }
+
+        html.wa-cloak body {
+            visibility: hidden;
+        }
+    </style>
     <title>{{ meta_title | escape }}</title>
     <meta name="description" content="{{ meta_description | escape }}">
     {% if errorPage %}

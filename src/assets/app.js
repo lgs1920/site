@@ -1,6 +1,7 @@
 import '@awesome.me/webawesome/dist/styles/webawesome.css'
 import '@studio-wa-theme/wa-color-vogue.css'
 import '@studio-wa-theme/wa-theme-lgs1920-base.css'
+import {allDefined} from '@awesome.me/webawesome/dist/utilities/defined.js'
 import '@awesome.me/webawesome/dist/components/badge/badge.js'
 import '@awesome.me/webawesome/dist/components/breadcrumb/breadcrumb.js'
 import '@awesome.me/webawesome/dist/components/breadcrumb-item/breadcrumb-item.js'
@@ -36,3 +37,10 @@ import './workflow-route.js'
 import './search.js'
 import './social-links.js'
 import './theme.js'
+
+// Release the page after Web Awesome has upgraded every component that is present in the document.
+allDefined({root: document}).then(() => {
+    requestAnimationFrame(() => {
+        document.documentElement.classList.remove('wa-cloak')
+    })
+})

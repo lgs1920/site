@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-07 — Polish initial loading and promise messaging
+
+- Prevented the initial flash of an unstyled page while Web Awesome components are being registered.
+- Matched the mobile social network popup surface, border, arrow, and shadow with the theme menu.
+- Updated the localized promise and public event partner note with the social sharing hashtag and closing thanks.
+
 ## 2026-09-06 — Add reusable social network navigation
 
 - Added reusable Twitter/X, Instagram, Bluesky, and YouTube controls with app deep links and web fallbacks.

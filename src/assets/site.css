@@ -5340,7 +5340,7 @@ wa-card.page-cta-card::part(body) {
 }
 
 .site-social-popup {
-    --arrow-color: var(--wa-color-brand-60);
+    --arrow-color: var(--wa-color-surface-raised);
     --popup-border-width: var(--wa-border-width-s);
 }
 
@@ -5349,10 +5349,10 @@ wa-card.page-cta-card::part(body) {
     width: max-content;
     max-width: calc(100vw - (2 * var(--wa-space-s)));
     padding: var(--wa-space-xs);
-    border: var(--wa-border-width-s) solid var(--wa-color-brand-60);
+    border: var(--wa-border-style) var(--wa-border-width-s) var(--wa-color-surface-border);
     border-radius: var(--wa-border-radius-m);
-    background: var(--panel-bg);
-    box-shadow: var(--shadow-lift), 0 0 0 1px color-mix(in oklab, var(--wa-color-brand-60) 16%, transparent);
+    background-color: var(--wa-color-surface-raised);
+    box-shadow: var(--wa-shadow-m);
 }
 
 .site-social-links-mobile {
