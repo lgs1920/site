@@ -19,6 +19,7 @@ conventions from the Studio project while preserving the site's Eleventy archite
 
 - Do not use semicolons.
 - Use arrow functions for new or modified JavaScript functions, except for class constructors.
+- **UI colors:** Whenever a frontend UI color is requested or introduced, use the corresponding color from the Web Awesome palette or design tokens. Do not invent arbitrary color values outside that palette.
 - Keep the existing Eleventy data and template conventions. Default exports are allowed where the site already uses them.
 - Keep new files focused and below 1500 lines. For an existing file above 1500 lines, split it when necessary for the requested change; otherwise make the targeted correction and report the refactoring opportunity separately.
 - Summarize changes, validation, and remaining work with file links. Provide full file contents only when explicitly requested.
