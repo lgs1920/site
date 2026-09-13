@@ -1,0 +1,187 @@
+name: Deploy Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Deployment target
+        required: true
+        type: choice
+        options:
+          - test
+          - staging
+      ref:
+        description: Branch or commit to deploy
+        required: true
+        default: main
+        type: string
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-deploy-${{ github.event_name == 'release' && 'production' || inputs.target }}
+  cancel-in-progress: false
+
+jobs:
+  quality:
+    name: Validate Site
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.release.prerelease == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out Site
+        uses: actions/checkout@v5
+        with:
+          path: site
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.ref }}
+
+      - name: Check out pinned Studio sources
+        uses: actions/checkout@v5
+        with:
+          repository: lgs1920/studio
+          path: studio
+          ref: e6cb129432d15d8ecc48c17314c48804f9933a44
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Configure private package registries
+        env:
+          FONTAWESOME_NPM_TOKEN: ${{ secrets.FONTAWESOME_NPM_TOKEN }}
+          WEBAWESOME_NPM_TOKEN: ${{ secrets.WEBAWESOME_NPM_TOKEN }}
+        run: |
+          node <<'NODE'
+          const {writeFileSync} = require('node:fs')
+          const {env} = process
+
+          if (!env.FONTAWESOME_NPM_TOKEN || !env.WEBAWESOME_NPM_TOKEN) {
+              console.error('Missing private package registry secrets')
+              process.exit(1)
+          }
+
+          const quote = value => JSON.stringify(value)
+          const config = `[install.scopes]\n` +
+              `"@fortawesome" = { token = ${quote(env.FONTAWESOME_NPM_TOKEN)}, url = "https://npm.fontawesome.com/" }\n` +
+              `"@awesome.me" = { token = ${quote(env.FONTAWESOME_NPM_TOKEN)}, url = "https://npm.fontawesome.com/" }\n` +
+              `"@web.awesome.me" = { token = ${quote(env.WEBAWESOME_NPM_TOKEN)}, url = "https://npm.cloudsmith.io/fortawesome/webawesome-pro/" }\n`
+
+          writeFileSync(`${env.RUNNER_TEMP}/bunfig.toml`, config)
+          NODE
+
+      - name: Install Studio dependencies
+        working-directory: studio
+        run: bun install --config="$RUNNER_TEMP/bunfig.toml" --frozen-lockfile
+
+      - name: Install Site dependencies
+        working-directory: site
+        run: bun install --config="$RUNNER_TEMP/bunfig.toml" --frozen-lockfile
+
+      - name: Run content checks
+        working-directory: site
+        run: bun run content:check
+
+      - name: Run tests
+        working-directory: site
+        run: bun run test
+
+      - name: Build Site
+        working-directory: site
+        env:
+          LGS1920_DEPLOY_PLATFORM: ${{ github.event_name == 'release' && 'production' || inputs.target }}
+        run: bun run build
+
+  deploy:
+    name: Deploy Site to target
+    needs: quality
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.release.prerelease == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: ${{ github.event_name == 'release' && 'production' || inputs.target }}
+      url: https://lgs1920.fr
+
+    steps:
+      - name: Check out Site
+        uses: actions/checkout@v5
+        with:
+          path: site
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.ref }}
+
+      - name: Check out pinned Studio sources
+        uses: actions/checkout@v5
+        with:
+          repository: lgs1920/studio
+          path: studio
+          ref: e6cb129432d15d8ecc48c17314c48804f9933a44
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Configure private package registries
+        env:
+          FONTAWESOME_NPM_TOKEN: ${{ secrets.FONTAWESOME_NPM_TOKEN }}
+          WEBAWESOME_NPM_TOKEN: ${{ secrets.WEBAWESOME_NPM_TOKEN }}
+        run: |
+          node <<'NODE'
+          const {writeFileSync} = require('node:fs')
+          const {env} = process
+
+          if (!env.FONTAWESOME_NPM_TOKEN || !env.WEBAWESOME_NPM_TOKEN) {
+              console.error('Missing private package registry secrets')
+              process.exit(1)
+          }
+
+          const quote = value => JSON.stringify(value)
+          const config = `[install.scopes]\n` +
+              `"@fortawesome" = { token = ${quote(env.FONTAWESOME_NPM_TOKEN)}, url = "https://npm.fontawesome.com/" }\n` +
+              `"@awesome.me" = { token = ${quote(env.FONTAWESOME_NPM_TOKEN)}, url = "https://npm.fontawesome.com/" }\n` +
+              `"@web.awesome.me" = { token = ${quote(env.WEBAWESOME_NPM_TOKEN)}, url = "https://npm.cloudsmith.io/fortawesome/webawesome-pro/" }\n`
+
+          writeFileSync(`${env.RUNNER_TEMP}/bunfig.toml`, config)
+          NODE
+
+      - name: Install Studio dependencies
+        working-directory: studio
+        run: bun install --config="$RUNNER_TEMP/bunfig.toml" --frozen-lockfile
+
+      - name: Install Site dependencies
+        working-directory: site
+        run: bun install --config="$RUNNER_TEMP/bunfig.toml" --frozen-lockfile
+
+      - name: Install deployment tools
+        run: sudo apt-get update && sudo apt-get install --yes sshpass
+
+      - name: Deploy selected target
+        working-directory: site
+        env:
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+          DEPLOY_PLATFORM: ${{ github.event_name == 'release' && 'production' || inputs.target }}
+          RELEASE_TAG: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$DEPLOY_PASSWORD" ]; then
+              echo "DEPLOY_PASSWORD is missing from the $DEPLOY_PLATFORM environment"
+              exit 1
+          fi
+
+          export "LGS1920_PASSWORD_${DEPLOY_PLATFORM^^}=$DEPLOY_PASSWORD"
+          if [ "$DEPLOY_PLATFORM" = 'production' ]; then
+              export LGS_RELEASE_VERSION="${RELEASE_TAG#v}"
+              bun run deploy -- --prod
+          elif [ "$DEPLOY_PLATFORM" = 'staging' ]; then
+              bun run deploy -- --staging
+          elif [ "$DEPLOY_PLATFORM" = 'test' ]; then
+              bun run deploy -- --test
+          else
+              echo "Unsupported deployment target: $DEPLOY_PLATFORM"
+              exit 1
+          fi
+
+      - name: Verify deployed Site
+        run: curl --fail --silent --show-error --location --retry 5 --retry-delay 3 --max-time 20 https://lgs1920.fr/
