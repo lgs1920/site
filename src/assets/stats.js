@@ -1,5 +1,5 @@
-import englishStatsLabels from '../_content/stats/en/labels.json'
-import frenchStatsLabels from '../_content/stats/fr/labels.json'
+import englishStatsLabels from '../_content/stats/en/labels.json' with {type: 'json'}
+import frenchStatsLabels from '../_content/stats/fr/labels.json' with {type: 'json'}
 
 const statsLabels = {
     en: englishStatsLabels,
