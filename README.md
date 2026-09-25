@@ -31,6 +31,7 @@ This repository includes project skills for maintaining the public site and its 
 
 - [LGS1920 Site](https://lgs1920.fr)
 - [LGS1920 Studio](https://studio.lgs1920.fr)
+- [Timeline component reference](docs/lgs1920-timeline.md)
 
 ## Statistics API in development
 

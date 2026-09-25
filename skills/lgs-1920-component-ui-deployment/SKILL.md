@@ -14,7 +14,7 @@ Use the project row that matches the requested component before choosing command
 | Component | Local project | Repository | Demo or public documentation | Delivery configuration |
 | --- | --- | --- | --- | --- |
 | `countdown` | [workspace README](../../../countdown/README.md) | [GitHub](https://github.com/lgs1920/countdown) | [GitHub Pages demo](https://lgs1920.github.io/countdown/) · [npm](https://www.npmjs.com/package/@lgs1920/countdown) | [`ci.yml`](../../../countdown/.github/workflows/ci.yml) · [`pages.yml`](../../../countdown/.github/workflows/pages.yml) · [`publish.yml`](../../../countdown/.github/workflows/publish.yml) |
-| `timeline` | [workspace README](../../../timeline/README.md) | [GitHub](https://github.com/lgs1920/timeline) | [Repository README](https://github.com/lgs1920/timeline#readme) · no standalone demo is defined in the current repository | [`package.json`](../../../timeline/package.json) · no GitHub Pages workflow is defined in the current repository |
+| `timeline` | [workspace README](../../../timeline/README.md) | [GitHub](https://github.com/lgs1920/timeline) | [GitHub Pages demo](https://lgs1920.github.io/timeline/) · [site component reference](../../../site/docs/lgs1920-timeline.md) · [npm](https://www.npmjs.com/package/@lgs1920/timeline) | [`package.json`](../../../timeline/package.json) · [`ci.yml`](../../../timeline/.github/workflows/ci.yml) · [`pages.yml`](../../../timeline/.github/workflows/pages.yml) · [`publish.yml`](../../../timeline/.github/workflows/publish.yml) |
 
 The local links are useful when working in the shared LGS1920 workspace. The public links are the source of truth for repository, demo, and package handoff. Add a new component row when a new reusable component project becomes part of this delivery scope.
 
@@ -82,7 +82,7 @@ bun run verify
 bun run pack:check
 ```
 
-The package contains the Web Component and optional React adapter, but the current repository has no standalone demo page or GitHub Pages workflow. Use its README examples and package payload as the delivery checks. The package README documents `bun run publish:npm`; follow its versioning and registry requirements instead of applying the `countdown` release script.
+The package contains the Web Component and optional React adapter, with a standalone demo and generated README and changelog pages in `demo/dist/`. The package README documents `bun run publish`; preview the release text before using the release script, then let the tag workflow publish the package and create the GitHub release.
 
 ## Deployment and release checks
 

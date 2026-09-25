@@ -4,6 +4,12 @@
 
 - Replaced Draft and HQ video counters with total exports and the Expert subset.
 
+## 2026-09-14 — Document and publish the timeline component
+
+- Added the complete `@lgs1920/timeline` API reference to `docs/lgs1920-timeline.md`.
+- Linked the component reference from the site README and updated the component delivery skill with its demo, package, CI, Pages, and publication links.
+- Documented the timeline package under the MIT license.
+
 ## 2026-09-07 — Polish initial loading and promise messaging
 
 - Prevented the initial flash of an unstyled page while Web Awesome components are being registered.
