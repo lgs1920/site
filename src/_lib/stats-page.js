@@ -10,8 +10,8 @@ const escapeHtml = (value = '') => String(value)
 const statColumns = [
     {key:'visits', labelKey:'visits'},
     {key:'journeys', labelKey:'journeys'},
-    {key:'video-draft', labelKey:'videoDraft'},
-    {key:'video-hq', labelKey:'videoHq'},
+    {key:'video-total', labelKey:'videoTotal'},
+    {key:'video-expert', labelKey:'videoExpert'},
 ]
 
 const statRows = [

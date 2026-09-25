@@ -10,10 +10,19 @@ const response = (payload, status = 200) => ({
     json:   async () => payload,
 })
 
-const counter = (visits, journeys, draft, hq) => ({
+/**
+ * Build a statistics fixture using the public counter response shape.
+ *
+ * @param {number} visits Visit count.
+ * @param {number} journeys Journey count.
+ * @param {number} total Total video count.
+ * @param {number} expert Expert video count.
+ * @returns {object} Counter row fixture.
+ */
+const counter = (visits, journeys, total, expert) => ({
     visits,
     journeys,
-    videos: {draft, hq},
+    videos: {total, expert},
 })
 
 test('builds current and historical count requests in the viewer time zone', () => {
@@ -47,7 +56,7 @@ test('loads total and current or historical rows without recalculating counters'
     const payloads = new Map([
         [requests.total, {updatedAt:'2026-07-29T12:30:00.000Z', total:counter(120, 40, 8, 3)}],
         [requests.today, counter(5, 2, 1, 0)],
-        [requests.yesterday, counter(4, 1, 0, 1)],
+        [requests.yesterday, counter(4, 1, 1, 0)],
         [requests.thisWeek, counter(20, 7, 3, 2)],
         [requests.thisMonth, counter(70, 22, 6, 2)],
         [requests.previousMonth, counter(60, 18, 4, 1)],
@@ -62,9 +71,9 @@ test('loads total and current or historical rows without recalculating counters'
     const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now, timeZone:'Europe/Paris'})
 
     assert.deepEqual(result.failed, [])
-    assert.deepEqual(result.rows.total, {visits:120, journeys:40, videoDraft:8, videoHq:3})
-    assert.deepEqual(result.rows.yesterday, {visits:4, journeys:1, videoDraft:0, videoHq:1})
-    assert.deepEqual(result.rows['previous-month'], {visits:60, journeys:18, videoDraft:4, videoHq:1})
+    assert.deepEqual(result.rows.total, {visits:120, journeys:40, videoTotal:8, videoExpert:3})
+    assert.deepEqual(result.rows.yesterday, {visits:4, journeys:1, videoTotal:1, videoExpert:0})
+    assert.deepEqual(result.rows['previous-month'], {visits:60, journeys:18, videoTotal:4, videoExpert:1})
     assert.equal(seenUrls.length, 7)
     assert.equal(result.updatedAt, '2026-07-29T12:30:00.000Z')
 })
@@ -84,8 +93,8 @@ test('keeps failed API rows unavailable while preserving successful rows', async
 
     const result = await loadStats({apiUrl:'https://api.lgs1920.fr', fetchImpl, now, timeZone:'Europe/Paris'})
 
-    assert.deepEqual(result.rows.total, {visits:10, journeys:2, videoDraft:1, videoHq:0})
-    assert.deepEqual(result.rows.today, {visits:3, journeys:1, videoDraft:1, videoHq:0})
+    assert.deepEqual(result.rows.total, {visits:10, journeys:2, videoTotal:1, videoExpert:0})
+    assert.deepEqual(result.rows.today, {visits:3, journeys:1, videoTotal:1, videoExpert:0})
     assert.equal(result.rows.yesterday, null)
     assert.equal(result.rows['this-week'], null)
     assert.equal(result.failed.length, 5)
@@ -105,8 +114,8 @@ test('renders an accessible localized stats table shell', () => {
     assert.match(html, /<caption>Compteurs d’utilisation de LGS1920 Studio selon la période locale du visiteur<\/caption>/)
     assert.match(html, /<th scope="col">Visites<\/th>/)
     assert.match(html, /<th scope="row">Aujourd’hui<\/th>/)
-    assert.match(html, /data-stats-cell="video-draft"/)
-    assert.match(html, /data-stats-cell="video-hq"/)
+    assert.match(html, /data-stats-cell="video-total"/)
+    assert.match(html, /data-stats-cell="video-expert"/)
     assert.match(html, /data-stats-refresh/)
     assert.match(html, /class="stats-meta"/)
     assert.match(html, /<wa-callout class="stats-status" data-stats-status role="status" aria-live="polite" variant="warning" appearance="filled-outlined">/)

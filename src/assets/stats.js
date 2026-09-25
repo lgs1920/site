@@ -14,8 +14,8 @@ export const STATS_REFRESH_INTERVAL_MS = 60 * 1000
 const statKeys = {
     visits:     'visits',
     journeys:   'journeys',
-    videoDraft: 'video-draft',
-    videoHq:    'video-hq',
+    videoTotal:  'video-total',
+    videoExpert: 'video-expert',
 }
 
 const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -120,6 +120,12 @@ export const buildCountRequests = (apiUrl, now = new Date(), timeZone = getClien
 
 const normalizeCount = (value) => Number.isSafeInteger(value) && value >= 0 ? value : 0
 
+/**
+ * Normalize one backend aggregate row for display in the statistics table.
+ *
+ * @param {*} value Candidate aggregate row.
+ * @returns {{visits: number, journeys: number, videoTotal: number, videoExpert: number}|null} Normalized row or null.
+ */
 export const normalizeCounterRow = (value) => {
     if (!isObject(value)) {
         return null
@@ -130,8 +136,8 @@ export const normalizeCounterRow = (value) => {
     return {
         visits:     normalizeCount(value.visits),
         journeys:   normalizeCount(value.journeys),
-        videoDraft: normalizeCount(videos.draft),
-        videoHq:    normalizeCount(videos.hq),
+        videoTotal:  normalizeCount(videos.total),
+        videoExpert: normalizeCount(videos.expert),
     }
 }
 

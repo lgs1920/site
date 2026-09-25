@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-25 — Update video usage statistics
+
+- Replaced Draft and HQ video counters with total exports and the Expert subset.
+
 ## 2026-09-07 — Polish initial loading and promise messaging
 
 - Prevented the initial flash of an unstyled page while Web Awesome components are being registered.
