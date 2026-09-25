@@ -14,6 +14,21 @@ const COLORS = {
 const SUPPORTED_PLATFORMS = new Set(['production', 'staging', 'test'])
 const SUPPORTED_PRODUCTS = new Set(['site'])
 
+/**
+ * Normalize a semantic release version supplied by a GitHub release event.
+ *
+ * @param {string} value Candidate release version.
+ * @returns {string} Normalized version without a leading v.
+ */
+const normalizeReleaseVersion = (value) => {
+    const normalized = String(value ?? '').trim().replace(/^v/, '')
+    if (!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(normalized)) {
+        throw new TypeError(`Invalid release version: ${value}`)
+    }
+
+    return normalized
+}
+
 const shellEscape = (value) => `'${String(value).replace(/'/g, `'\\''`)}'`
 
 const runCommand = ({ args, command, cwd, env = process.env, label }) => {
@@ -141,7 +156,10 @@ export class Deployment {
         })
 
         this.timestamp = new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14)
-        this.release = `${this.timestamp}-${this.commit}`
+        this.version = process.env.LGS_RELEASE_VERSION
+            ? normalizeReleaseVersion(process.env.LGS_RELEASE_VERSION)
+            : null
+        this.release = this.version || `${this.timestamp}-${this.commit}`
         this.localReleasePath = path.join(this.distRoot, this.release)
         this.localArchivePath = `${this.localReleasePath}.zip`
         this.localMetadataPath = path.join(this.distRoot, `${this.release}.json`)
@@ -168,6 +186,8 @@ export class Deployment {
             env:     {
                 ...process.env,
                 LGS1920_DEPLOY_PLATFORM: this.platform,
+                LGS1920_SITE_VERSION:    this.version || this.release,
+                LGS1920_BUILD_DATE:       new Date().toISOString(),
             },
             label:   'Site build',
         })
