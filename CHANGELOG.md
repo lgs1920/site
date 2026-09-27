@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-27 — Move Studio launch to November 1
+
+- Moved the English and French launch countdown to November 1, 2026 at noon in Paris time.
+- Updated the countdown documentation and registration-page regression expectations.
+
 ## 2026-09-25 — Update video usage statistics
 
 - Replaced Draft and HQ video counters with total exports and the Expert subset.

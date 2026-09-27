@@ -146,7 +146,7 @@ The LGS1920 registration page uses the component as a normal host application wo
     lang="en"
     appearance="filled-outlined"
     animation="flip"
-    target-date="2026-10-15T15:00:00+02:00"
+    target-date="2026-11-01T12:00:00+01:00"
 ></lgs1920-countdown>
 ```
 
@@ -159,6 +159,6 @@ The French page uses the same component contract with `lang="fr"` and the locali
     lang="fr"
     appearance="filled-outlined"
     animation="flip"
-    target-date="2026-10-15T15:00:00+02:00"
+    target-date="2026-11-01T12:00:00+01:00"
 ></lgs1920-countdown>
 ```
