@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-22 — Enable manual production deployments
+
+- Added an explicit production target to the GitHub deployment workflow without creating a release version or changing the pre-launch registration redirects.
+
 ## 2026-10-22 — Add bilingual Fix Path guide
 
 - Added the English and French Fix Path guide, including selection tools, marker states, section editing, widget contents, and keyboard shortcuts.

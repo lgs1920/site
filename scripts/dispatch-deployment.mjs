@@ -10,15 +10,16 @@ const args = process.argv.slice(2)
  */
 const hasFlag = (...flags) => flags.some((flag) => args.includes(flag))
 
-const target = hasFlag('--test', '-t')
-    ? 'test'
-    : hasFlag('--staging', '-s')
-        ? 'staging'
-        : null
+const targets = [
+    hasFlag('--test', '-t') ? 'test' : null,
+    hasFlag('--staging', '-s') ? 'staging' : null,
+    hasFlag('--production', '--prod', '-p') ? 'production' : null,
+].filter(Boolean)
 
-if (!target || hasFlag('--prod', '-p')) {
-    throw new Error('Use --test/-t or --staging/-s to dispatch a GitHub Site deployment')
+if (targets.length !== 1) {
+    throw new Error('Use exactly one of --test/-t, --staging/-s, or --production/--prod/-p to dispatch a GitHub Site deployment')
 }
+const [target] = targets
 
 const currentRef = execFileSync('git', ['branch', '--show-current'], {encoding: 'utf8'}).trim()
 const sourceRef = currentRef || execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim()

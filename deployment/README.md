@@ -14,10 +14,14 @@ GitHub Actions deployments are dispatched with:
 ```bash
 bun run deploy:github -- --test
 bun run deploy:github -- --staging
+bun run deploy:github -- --production
 ```
 
-Production uses a GitHub pre-release. Because the site has no dedicated
-version source, provide the release tag explicitly:
+Production can be deployed manually from the GitHub Actions workflow or by
+publishing a GitHub pre-release. A manual deployment uses a timestamp and
+commit hash as its deployment identifier, so it does not create or change a
+site release version. To create a versioned pre-release instead, provide the
+release tag explicitly:
 
 ```bash
 bun run deploy -- --prod --release --release-tag v1.0.0 --auto

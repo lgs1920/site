@@ -10,6 +10,7 @@ on:
         options:
           - test
           - staging
+          - production
       ref:
         description: Branch or commit to deploy
         required: true
