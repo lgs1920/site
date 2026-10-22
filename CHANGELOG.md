@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-22 — Add bilingual Fix Path guide
+
+- Added the English and French Fix Path guide, including selection tools, marker states, section editing, widget contents, and keyboard shortcuts.
+
 ## 2026-10-14 — Move Studio launch to November 15
 
 - Moved the English and French launch countdown to November 15, 2026 at 15:00 in Paris time.

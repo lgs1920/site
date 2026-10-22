@@ -1,0 +1,62 @@
+{
+  "title": "Fix a track with Fix Path",
+  "description": "Open Fix Path, correct a track with the lasso or rectangle, and understand its markers and shortcuts.",
+  "pageClass": "guide-page fix-path-guide",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Track editing",
+    "kicker": "Fix Path",
+    "title": "Fix a track, point by point.",
+    "lead": "Create a correction section, move its control points, and read their state from color and shape.",
+    "highlights": [
+      {
+        "icon": "draw-polygon",
+        "label": "Local sections",
+        "variant": "regular"
+      },
+      {
+        "icon": "diamond",
+        "label": "Clear markers",
+        "variant": "regular"
+      },
+      {
+        "icon": "keyboard",
+        "label": "Keyboard shortcuts",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "open-fix-path",
+      "label": "Open Fix Path",
+      "summary": "Open the active journey editor"
+    },
+    {
+      "id": "understand-the-fix-path-widget",
+      "label": "Fix Path widget",
+      "summary": "Find its controls and point list"
+    },
+    {
+      "id": "create-and-edit-a-correction-section",
+      "label": "Create and edit a section",
+      "summary": "Select and move correction points"
+    },
+    {
+      "id": "read-colors-and-shapes",
+      "label": "Colors and shapes",
+      "summary": "Recognize marker states"
+    },
+    {
+      "id": "lasso-or-rectangle",
+      "label": "Lasso or rectangle",
+      "summary": "Choose a selection area"
+    },
+    {
+      "id": "keyboard-shortcuts",
+      "label": "Keyboard shortcuts",
+      "summary": "Select and manage points"
+    }
+  ]
+}

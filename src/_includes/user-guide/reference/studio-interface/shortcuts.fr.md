@@ -18,6 +18,29 @@ Le Studio utilise des raccourcis clavier pour les actions globales, l'édition d
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Basculer le widget Panorama | `Alt+P` | Mode Panorama | Affiche ou masque le widget Panorama pendant le panorama. |
 | <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Fermer le panneau actif | `Escape` | Application | Ferme le drawer, le popup ou le [dialog](/fr/user-guide/reference/studio-interface#dialogs) actif quand la vue le permet. |
 
+## Fix Path
+
+<kbd>Mod</kbd> désigne <kbd>Ctrl</kbd> sous Windows et Linux, et <kbd>Cmd</kbd> sous macOS. Les gestes de sélection s'appliquent sur la carte quand Fix Path est ouvert.
+
+Consultez [Corriger une trace avec Fix Path](/fr/user-guide/workflows/fix-path/) pour le détail des couleurs, des formes et des outils de sélection.
+
+| Action | Raccourci | Résultat |
+| --- | --- | --- |
+| Ouvrir Fix Path | <kbd>F</kbd> | Ouvre l'éditeur pour le parcours courant s'il contient des traces. |
+| Sélectionner ou désélectionner un point | <kbd>Maj</kbd> + <kbd>clic</kbd> | Ajoute ou retire le point de la sélection. |
+| Sélectionner un seul point | <kbd>Clic</kbd> ou <kbd>Cmd</kbd> + <kbd>clic</kbd> | Sélectionne uniquement le point visé. |
+| Tracer un lasso | <kbd>Maj</kbd> + <kbd>glisser</kbd> ou <kbd>Alt</kbd> + <kbd>glisser</kbd> | Sélectionne les points de trace ou les points de correction selon le point de départ. |
+| Tracer un rectangle | <kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>glisser</kbd> ou <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>glisser</kbd> | Sélectionne dans une zone rectangulaire alignée sur l'écran. |
+| Sélectionner tous les points de la section | <kbd>Mod</kbd> + <kbd>A</kbd> | Sélectionne tous les points non supprimés de la section active. |
+| Parcourir les points ou un menu | <kbd>↑</kbd>, <kbd>↓</kbd> | Déplace le focus dans la liste des points ou parcourt un menu contextuel ouvert. |
+| Atteindre le début ou la fin de la liste | <kbd>Page Up</kbd>, <kbd>Page Down</kbd> | Place le focus sur le premier ou le dernier point. |
+| Activer le point ou l'action focalisée | <kbd>Entrée</kbd>, <kbd>Espace</kbd> | Sélectionne un point focalisé ou active l'action focalisée dans un menu contextuel. |
+| Réinitialiser ou restaurer un point | <kbd>Backspace</kbd> ou <kbd>Mod</kbd> + <kbd>R</kbd> | Rétablit l'état initial du point ou restaure un point marqué comme supprimé. |
+| Marquer un point comme supprimé | <kbd>Delete</kbd> | Exclut le point de la correction tout en gardant sa ligne dans la liste. |
+| Annuler un lasso commencé par clics | <kbd>Escape</kbd> | Annule le tracé sans appliquer la sélection. |
+
+Les commandes **Annuler** et **Rétablir** sont dans la barre d'outils Fix Path. Elles n'ont pas de raccourci clavier dédié.
+
 ## Raccourcis Du Widget Sélectionné
 
 | Icône | Action | Raccourci | Portée | Résultat |

@@ -16,6 +16,11 @@
       "summary": "Commandes globales"
     },
     {
+      "id": "fix-path",
+      "label": "Fix Path",
+      "summary": "Sélection et correction des points"
+    },
+    {
       "id": "raccourcis-du-widget-selectionne",
       "label": "Widget sélectionné",
       "summary": "Widget actif"

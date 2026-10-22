@@ -33,6 +33,11 @@
       "summary": "Global commands"
     },
     {
+      "id": "fix-path",
+      "label": "Fix Path",
+      "summary": "Select and correct points"
+    },
+    {
       "id": "selected-widget-shortcuts",
       "label": "Widget shortcuts",
       "summary": "Selected widget"

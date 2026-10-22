@@ -1,0 +1,62 @@
+{
+  "title": "Corriger une trace avec Fix Path",
+  "description": "Ouvrir Fix Path, corriger une trace avec le lasso ou le rectangle et comprendre les marqueurs et raccourcis.",
+  "pageClass": "guide-page fix-path-guide",
+  "hero": {
+    "video": false,
+    "className": "guide-hero",
+    "badge": "Édition de trace",
+    "kicker": "Fix Path",
+    "title": "Corriger la trace, point par point.",
+    "lead": "Créez une section de correction, déplacez ses points et repérez leur état grâce aux couleurs et aux formes.",
+    "highlights": [
+      {
+        "icon": "draw-polygon",
+        "label": "Sections locales",
+        "variant": "regular"
+      },
+      {
+        "icon": "diamond",
+        "label": "Marqueurs lisibles",
+        "variant": "regular"
+      },
+      {
+        "icon": "keyboard",
+        "label": "Raccourcis dédiés",
+        "variant": "regular"
+      }
+    ]
+  },
+  "sectionNav": [
+    {
+      "id": "lancer-fix-path",
+      "label": "Lancer Fix Path",
+      "summary": "Ouvrir l'éditeur du parcours actif"
+    },
+    {
+      "id": "comprendre-le-widget-fix-path",
+      "label": "Widget Fix Path",
+      "summary": "Repérer ses commandes et sa liste de points"
+    },
+    {
+      "id": "creer-et-modifier-une-section",
+      "label": "Créer et modifier une section",
+      "summary": "Sélectionner puis déplacer les points"
+    },
+    {
+      "id": "lire-les-couleurs-et-les-formes",
+      "label": "Couleurs et formes",
+      "summary": "Reconnaître l'état des marqueurs"
+    },
+    {
+      "id": "lasso-ou-rectangle",
+      "label": "Lasso ou rectangle",
+      "summary": "Choisir une zone de sélection"
+    },
+    {
+      "id": "raccourcis-clavier",
+      "label": "Raccourcis clavier",
+      "summary": "Sélectionner et gérer les points"
+    }
+  ]
+}

@@ -41,6 +41,11 @@ Follow the steps in the same order as a normal Studio session.
         <strong>Edit journeys and tracks</strong>
         <span>Change title, description, route line color, thickness, and visibility.</span>
     </a>
+    <a class="guide-link-card" href="/user-guide/workflows/fix-path#open-fix-path">
+        <wa-icon variant="regular" name="draw-polygon"></wa-icon>
+        <strong>Fix a track with Fix Path</strong>
+        <span>Create correction sections, move control points, and understand their markers.</span>
+    </a>
     <a class="guide-link-card" href="/user-guide/workflows/points-of-interest#when-to-use-pois">
         <wa-icon variant="regular" name="map-location-dot"></wa-icon>
         <strong>Use POIs</strong>

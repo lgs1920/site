@@ -4823,6 +4823,74 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
     margin: 0 !important;
 }
 
+.fix-path-guide .guide-icon-chip {
+    inline-size: 1.55rem;
+    block-size: 1.55rem;
+    margin-right: 0;
+    border-radius: var(--wa-border-radius-s);
+}
+
+.fix-path-guide .guide-icon-chip wa-icon {
+    font-size: 0.72rem;
+}
+
+.fix-path-guide .fix-path-inline-action-icon {
+    margin: 0;
+    color: var(--wa-color-brand);
+    font-size: 1.5em;
+}
+
+.fix-path-guide .fix-path-marker-examples,
+.fix-path-guide .fix-path-cursor-examples {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    vertical-align: middle;
+}
+
+.fix-path-guide .fix-path-marker-sample {
+    display: block;
+    inline-size: 16px;
+    block-size: 16px;
+    overflow: visible;
+    stroke-width: 2px;
+    vector-effect: non-scaling-stroke;
+}
+
+.fix-path-guide .fix-path-marker-sample.is-unmodified {
+    fill: var(--wa-color-orange-60);
+    stroke: #000;
+}
+
+.fix-path-guide .fix-path-marker-sample.is-moved {
+    fill: #ff3d91;
+    stroke: #fff;
+}
+
+.fix-path-guide .fix-path-marker-sample.is-selected {
+    fill: #7fff00;
+    stroke: #000;
+}
+
+.fix-path-guide .fix-path-marker-sample.is-inactive {
+    fill: #9299a3;
+    stroke: #fff;
+}
+
+.fix-path-guide .fix-path-cursor-examples wa-icon {
+    margin: 0;
+    font-size: 1.35rem;
+    filter: drop-shadow(0 1px 1px var(--wa-color-neutral-10));
+}
+
+.fix-path-guide .fix-path-cursor-examples .is-journey-selection {
+    color: var(--wa-color-orange-60);
+}
+
+.fix-path-guide .fix-path-cursor-examples .is-section-selection {
+    color: chartreuse;
+}
+
 .guide-page th {
     color: var(--page-ink);
     font-weight: 700;
@@ -4842,6 +4910,26 @@ wa-page.site-layout.guide-layout[data-guide-aside-placement='left'] .guide-aside
     padding: 0.12rem 0.35rem;
     border-radius: var(--wa-border-radius-s);
     background: var(--surface-soft);
+}
+
+.guide-page kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-inline-size: 1.55rem;
+    min-block-size: 1.55rem;
+    padding: 0 0.35rem;
+    border: 1px solid var(--lgs-button-border-color);
+    border-radius: var(--wa-border-radius-s);
+    color: var(--lgs-button-color);
+    background: var(--lgs-button-bg-color);
+    font: inherit;
+    font-size: 0.9em;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .guide-page pre {

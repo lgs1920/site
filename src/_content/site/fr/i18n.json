@@ -144,6 +144,15 @@
           "subcategory": "Flux de travail"
         },
         {
+          "key": "fix-path",
+          "label": "Corriger une trace avec Fix Path",
+          "url": "/fr/user-guide/workflows/fix-path",
+          "summary": "Créer des sections et déplacer des points de correction",
+          "icon": "draw-polygon",
+          "category": "Guide utilisateur",
+          "subcategory": "Flux de travail"
+        },
+        {
           "key": "points-of-interest",
           "label": "Utiliser les POI",
           "url": "/fr/user-guide/workflows/points-of-interest",

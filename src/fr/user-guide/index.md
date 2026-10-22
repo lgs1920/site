@@ -35,6 +35,11 @@ Suivez les étapes dans l'ordre normal d'une session Studio.
         <strong>Modifier les parcours et traces</strong>
         <span>Changer le titre, la description, la couleur de la ligne, l'épaisseur et la visibilité.</span>
     </a>
+    <a class="guide-link-card" href="/fr/user-guide/workflows/fix-path#lancer-fix-path">
+        <wa-icon variant="regular" name="draw-polygon"></wa-icon>
+        <strong>Corriger une trace avec Fix Path</strong>
+        <span>Créer une section de correction, déplacer des points et lire leurs marqueurs.</span>
+    </a>
     <a class="guide-link-card" href="/fr/user-guide/workflows/points-of-interest#quand-utiliser-les-poi">
         <wa-icon variant="regular" name="map-location-dot"></wa-icon>
         <strong>Utiliser les POI</strong>

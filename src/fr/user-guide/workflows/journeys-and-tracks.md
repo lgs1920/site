@@ -31,3 +31,5 @@ Il n'y a pas de bouton Track Editor indépendant au premier niveau. Le flux part
 3. Activez ou désactivez la visibilité.
 4. Vérifiez les points de trace si le chemin paraît incorrect.
 5. Focalisez la trace pour valider son emprise.
+
+Pour déplacer des points et corriger localement la géométrie, consultez la page [Corriger une trace avec Fix Path](/fr/user-guide/workflows/fix-path/).

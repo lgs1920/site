@@ -18,6 +18,29 @@ The Studio uses keyboard shortcuts for app-wide actions, widget editing, map int
 | <span class="guide-icon-chip"><wa-icon name="panorama" variant="regular"></wa-icon></span> | Toggle Panorama widget | `Alt+P` | Panorama mode | Shows or hides the Panorama widget while Panorama is active. |
 | <span class="guide-icon-chip"><wa-icon name="xmark" variant="regular"></wa-icon></span> | Close active panel | `Escape` | App | Closes the active drawer, popup, or [dialog](/user-guide/reference/studio-interface#dialogs) when supported by the current view. |
 
+## Fix Path
+
+<kbd>Mod</kbd> means <kbd>Ctrl</kbd> on Windows and Linux, and <kbd>Cmd</kbd> on macOS. Selection gestures apply on the map while Fix Path is open.
+
+See [Fix a track with Fix Path](/user-guide/workflows/fix-path/) for marker colors and shapes, and for details about the selection tools.
+
+| Action | Shortcut | Result |
+| --- | --- | --- |
+| Open Fix Path | <kbd>F</kbd> | Opens the editor for the current journey if it contains tracks. |
+| Select or deselect a point | <kbd>Shift</kbd> + <kbd>click</kbd> | Adds the point to the selection or removes it. |
+| Select one point only | <kbd>Click</kbd> or <kbd>Cmd</kbd> + <kbd>click</kbd> | Selects only the point you click. |
+| Draw a lasso | <kbd>Shift</kbd> + <kbd>drag</kbd> or <kbd>Alt</kbd> + <kbd>drag</kbd> | Selects track vertices or correction points, depending on where the gesture starts. |
+| Draw a rectangle | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>drag</kbd> or <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>drag</kbd> | Selects points within a screen-aligned rectangle. |
+| Select all points in the section | <kbd>Mod</kbd> + <kbd>A</kbd> | Selects every point in the active section that has not been removed. |
+| Move through the points or a menu | <kbd>↑</kbd>, <kbd>↓</kbd> | Moves focus through the point list or an open context menu. |
+| Go to the start or end of the list | <kbd>Page Up</kbd>, <kbd>Page Down</kbd> | Focuses the first or last point. |
+| Activate the focused point or action | <kbd>Enter</kbd>, <kbd>Space</kbd> | Selects the focused point or activates the focused action in a context menu. |
+| Reset or restore a point | <kbd>Backspace</kbd> or <kbd>Mod</kbd> + <kbd>R</kbd> | Resets the point or restores one marked as removed. |
+| Mark a point as removed | <kbd>Delete</kbd> | Excludes the point from the correction while keeping its row in the list. |
+| Cancel a lasso started with clicks | <kbd>Escape</kbd> | Cancels the in-progress outline without applying the selection. |
+
+The **Undo** and **Redo** commands are in the Fix Path toolbar. They do not have dedicated keyboard shortcuts.
+
 ## Selected Widget Shortcuts
 
 | Icon | Action | Shortcut | Scope | Result |

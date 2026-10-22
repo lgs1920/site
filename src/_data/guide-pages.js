@@ -35,6 +35,7 @@ const guidePageSlugs = {
     "/user-guide/workflows/appearance/": "workflows/appearance",
     "/user-guide/workflows/common-problems/": "workflows/common-problems",
     "/user-guide/workflows/export/": "workflows/export",
+    "/user-guide/workflows/fix-path/": "workflows/fix-path",
     "/user-guide/workflows/journey-reports/": "workflows/journey-reports",
     "/user-guide/workflows/journeys-and-tracks/": "workflows/journeys-and-tracks",
     "/user-guide/workflows/points-of-interest/": "workflows/points-of-interest",

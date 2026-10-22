@@ -144,6 +144,15 @@
           "subcategory": "Workflows"
         },
         {
+          "key": "fix-path",
+          "label": "Fix a track with Fix Path",
+          "url": "/user-guide/workflows/fix-path",
+          "summary": "Create correction sections and move control points",
+          "icon": "draw-polygon",
+          "category": "User guide",
+          "subcategory": "Workflows"
+        },
+        {
           "key": "points-of-interest",
           "label": "Use POIs",
           "url": "/user-guide/workflows/points-of-interest",
