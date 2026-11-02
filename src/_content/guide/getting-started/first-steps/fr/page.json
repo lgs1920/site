@@ -1,13 +1,13 @@
 {
   "title": "Guide rapide",
-  "description": "Les premières étapes dans LGS1920 Studio : ouvrir l'espace de travail et repérer les contrôles principaux.",
+  "description": "Importez votre première sortie GPS, retrouvez sa trace sur la carte et cadrez votre première capture.",
   "hero": {
     "video": false,
     "className": "guide-hero",
     "badge": "Guide rapide",
     "kicker": "Guide utilisateur",
     "title": "Démarrer avec LGS1920 Studio.",
-    "lead": "Ouvrir Studio, identifier les zones principales et préparer la première session d'édition.",
+    "lead": "Importez votre première sortie GPS, retrouvez sa trace sur la carte et cadrez votre première capture.",
     "highlights": [
       {
         "icon": "book-open-lines",
@@ -40,7 +40,7 @@
     {
       "id": "premiers-controles",
       "label": "Premiers contrôles",
-      "summary": "Avant l'import"
+      "summary": "De l’import à la capture"
     }
   ]
 }
