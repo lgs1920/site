@@ -28,7 +28,7 @@
     "mediaCatalog": "outdoor",
     "actions": [
       {
-        "label": "Studio",
+        "label": "Ouvrir Studio",
         "href": "https://studio.lgs1920.fr",
         "appearance": "outlined",
         "variant": "brand",
@@ -106,9 +106,9 @@
     },
     "overview": {
       "kicker": "Vue d'ensemble",
-      "title": "Organisez et enrichissez vos aventures outdoor dans un espace de travail du navigateur.",
+      "title": "Qu’est-ce que LGS1920 Studio ?",
       "intro": [
-        "Importez un parcours, inspectez la scène, ajustez la caméra et préparez une vidéo à partager sur les réseaux sociaux, sans quitter le navigateur."
+        "LGS1920 Studio vous permet de revivre une sortie à partir de sa trace GPS. Dans votre navigateur, explorez le relief, marquez les lieux qui comptent et choisissez comment raconter le parcours en vidéo, en images ou dans un rapport."
       ],
       "highlightsLabel": "Ce que couvre Studio",
       "highlights": [
