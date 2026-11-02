@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-02 — Restore the full homepage promise
+
+- Restored the original three-paragraph promise in English and French.
+
 ## 2026-11-02 — Move Studio launch to November 25
 
 - Moved the English and French launch countdown to November 25, 2026 at 15:00 in Paris time.
