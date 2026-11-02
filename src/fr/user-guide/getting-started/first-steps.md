@@ -1,19 +1,14 @@
 ## Ouvrir Studio
 
-Utilisez le bouton de lancement dans le header du site ou ouvrez directement l'URL de Studio. L'application fonctionne dans le navigateur, garde l'état local par défaut et peut aussi synchroniser selon votre configuration navigateur.
+Ouvrez [Studio](https://studio.lgs1920.fr) dans votre navigateur. Munissez-vous d’un fichier GPX, GeoJSON ou KML de l’une de vos sorties.
 
-## Repérer Les Zones
+## Repérer les zones
 
-La scène cartographique est la zone centrale. Elle affiche les parcours, les traces, les POI, les mouvements de caméra et les overlays visibles. Les outils du header ouvrent les actions fréquentes comme la navigation, le thème, Studio hébergé et le guide.
+La carte occupe la scène centrale. Les panneaux latéraux servent à modifier le parcours, ses traces et les points d’intérêt.
 
-Les panneaux latéraux servent à inspecter et modifier le contenu sélectionné. C'est là que vous gérez en général les parcours, les traces, les POI, les widgets et les contrôles de capture.
+## Premiers contrôles
 
-## Premiers Contrôles
-
-Avant d'importer un fichier:
-
-1. Vérifiez que la scène cartographique est visible.
-2. Vérifiez que WebGL est actif dans le navigateur.
-3. Gardez seulement les onglets nécessaires pendant un enregistrement vidéo.
-4. Décidez où les captures et exports seront enregistrés.
-5. Gardez le guide ouvert dans un autre onglet si vous le suivez pas à pas.
+1. Une fois la carte visible, ouvrez l’import et choisissez votre fichier. Votre parcours doit apparaître dans la liste. S’il manque, consultez les [vérifications d’import](/fr/user-guide/getting-started/import-source-data/).
+2. Le **parcours** (*Journey*) représente la sortie entière. Il possède un titre et peut contenir plusieurs **traces**, les lignes dessinées sur la carte. Le bouton **Journey** ouvre les actions du parcours. Pour changer la couleur d’une seule ligne, sélectionnez sa trace dans l’éditeur. [Comprendre les parcours et les traces](/fr/user-guide/workflows/journeys-and-tracks/).
+3. Sélectionnez le parcours et centrez la caméra dessus. Si le parcours figure dans la liste mais que la ligne reste invisible, vérifiez la visibilité de la trace dans l’éditeur, puis [ajustez le cadrage](/fr/user-guide/workflows/scene-and-camera/).
+4. Quand la trace tient dans le cadre, suivez les étapes pour [exporter une capture](/fr/user-guide/workflows/export/). Ouvrez l’image enregistrée et vérifiez que le départ et l’arrivée sont visibles. Pour raconter la sortie en mouvement, poursuivez avec l’export vidéo sur la même page.
