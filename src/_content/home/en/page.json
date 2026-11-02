@@ -28,7 +28,7 @@
     "mediaCatalog": "outdoor",
     "actions": [
       {
-        "label": "Studio",
+        "label": "Open Studio",
         "href": "https://studio.lgs1920.fr",
         "appearance": "outlined",
         "variant": "brand",
@@ -106,9 +106,9 @@
     },
     "overview": {
       "kicker": "Overview",
-      "title": "Your outdoor adventures, organized and enriched in one browser workspace",
+      "title": "What is LGS1920 Studio?",
       "intro": [
-        "Import a route, inspect the scene, adjust the camera, and prepare a video you can share on social networks — without leaving the browser."
+        "LGS1920 Studio lets you revisit an outing from its GPS track. Explore the terrain in your browser, mark the places that mattered, and tell the story in a video, a snapshot or a report."
       ],
       "highlightsLabel": "What Studio covers",
       "highlights": [
