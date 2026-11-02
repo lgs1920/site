@@ -171,13 +171,13 @@
     },
     "quickAccess": {
       "kicker": "Commencer",
-      "title": "Essayez avec votre propre sortie",
-      "intro": "Ouvrez Studio avec votre fichier GPS, suivez le guide pour créer une première capture ou retrouvez une procédure précise.",
+      "title": "Avec quel parcours voulez-vous essayer Studio ?",
+      "intro": "Revivez l’une de vos sorties avec votre fichier GPS. Pour découvrir Studio, vous pouvez aussi explorer La Grande Sure avec le parcours d’exemple LGS1920.",
       "cards": [
         {
           "icon": "book-open-lines",
           "title": "Guide rapide",
-          "body": "Importez une sortie, retrouvez sa trace sur la carte et créez votre première image.",
+          "body": "Avec votre trace ou l’exemple LGS1920, suivez le guide jusqu’à votre première capture.",
           "action": {
             "label": "Lire le guide rapide",
             "href": "/fr/user-guide/getting-started/first-steps/",
@@ -207,7 +207,7 @@
         {
           "icon": "clapperboard-play",
           "title": "Studio",
-          "body": "Vous savez déjà ce que vous voulez faire ? Ouvrez Studio directement dans votre navigateur.",
+          "body": "Ouvrez Studio et choisissez votre fichier dans la fenêtre d’import, ou sélectionnez un parcours dans « Load a Sample ».",
           "action": {
             "label": "Ouvrir Studio",
             "href": "https://studio.lgs1920.fr",

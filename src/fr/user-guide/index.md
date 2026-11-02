@@ -8,7 +8,7 @@ Studio permet d’explorer une sortie GPS dans le navigateur, d’en modifier la
 
 ## Créer ma première capture
 
-Prenez le fichier GPS d’une sortie que vous connaissez. Le guide rapide vous accompagne pour l’importer, retrouver la trace, cadrer la carte et enregistrer une image.
+Utilisez le fichier GPS de votre sortie ou choisissez le parcours d’exemple **LGS1920** pour découvrir La Grande Sure. Le guide rapide vous accompagne ensuite pour retrouver la trace, cadrer la carte et enregistrer votre première image.
 
 **[Suivre le guide rapide](/fr/user-guide/getting-started/first-steps/)**
 

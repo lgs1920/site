@@ -8,7 +8,7 @@ Use Studio to explore a GPS outing in your browser, edit its appearance on the m
 
 ## Create my first snapshot
 
-Start with a GPS file from an outing you know. The quick guide takes you through importing it, finding the track, framing the map and saving a snapshot.
+Use a GPS file from your own outing, or choose the **LGS1920** sample journey to explore La Grande Sure. The quick guide then takes you through finding the track, framing the map and saving your first snapshot.
 
 **[Follow the quick guide](/user-guide/getting-started/first-steps/)**
 

@@ -171,13 +171,13 @@
     },
     "quickAccess": {
       "kicker": "Start here",
-      "title": "Try it with your own outing",
-      "intro": "Open Studio with your GPS file, follow the guide to make a first snapshot or look up a specific task.",
+      "title": "Which journey would you like to try?",
+      "intro": "Relive one of your outings with your own GPS file, or explore La Grande Sure with the built-in LGS1920 sample journey.",
       "cards": [
         {
           "icon": "book-open-lines",
           "title": "Quick guide",
-          "body": "Import an outing, find its track on the map and make your first image.",
+          "body": "Follow the guide to your first snapshot using your own track or the LGS1920 sample.",
           "action": {
             "label": "Quick guide",
             "href": "/user-guide/getting-started/first-steps/",
@@ -207,7 +207,7 @@
         {
           "icon": "clapperboard-play",
           "title": "Studio",
-          "body": "Already know what you want to do? Open Studio directly in your browser.",
+          "body": "Open Studio and choose your file in the import window, or pick a journey under “Load a Sample”.",
           "action": {
             "label": "Open Studio",
             "href": "https://studio.lgs1920.fr",
