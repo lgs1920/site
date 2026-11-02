@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-02 — Move Studio launch to November 25
+
+- Moved the English and French launch countdown to November 25, 2026 at 15:00 in Paris time.
+- Updated the countdown documentation and registration-page regression expectations.
+
 ## 2026-10-22 — Enable manual production deployments
 
 - Added an explicit production target to the GitHub deployment workflow without creating a release version or changing the pre-launch registration redirects.
