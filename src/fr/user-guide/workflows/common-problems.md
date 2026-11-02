@@ -1,11 +1,13 @@
 
 ## Problèmes D'import
 
-Si un parcours ne s'importe pas:
+**Le parcours manque dans la liste après l’import.**
 
 1. Vérifiez que le fichier est en GeoJSON, GPX ou KML.
 2. Réessayez depuis [Importer un parcours](/fr/user-guide/getting-started/import-source-data/).
 3. Si un message d'erreur s'affiche, gardez-le visible jusqu'à avoir identifié la cause.
+
+**Le parcours est dans la liste, mais sa trace est invisible.** Sélectionnez la trace dans l’éditeur et vérifiez sa [visibilité](../journeys-and-tracks/). Centrez ensuite la [caméra](../scene-and-camera/) sur le parcours pour retrouver la ligne sur la carte.
 
 ## Problèmes De Jetons
 

@@ -34,23 +34,23 @@
   "sectionNav": [
     {
       "id": "general-presentation",
-      "label": "General presentation",
-      "summary": "What the Studio is for"
-    },
-    {
-      "id": "main-steps",
-      "label": "Main steps",
-      "summary": "What to do next"
+      "label": "Discover Studio",
+      "summary": "Journeys and tracks"
     },
     {
       "id": "typical-session",
-      "label": "Typical session",
-      "summary": "The expected user flow"
+      "label": "Create my first snapshot",
+      "summary": "From file to image"
+    },
+    {
+      "id": "main-steps",
+      "label": "Choose a task",
+      "summary": "Procedures by goal"
     },
     {
       "id": "screenshots",
-      "label": "Screenshots",
-      "summary": "Reserved areas for visuals"
+      "label": "Solve a problem",
+      "summary": "Import, tokens and export"
     },
     {
       "id": "reference-pages",

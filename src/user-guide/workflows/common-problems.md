@@ -1,11 +1,13 @@
 
 ## Import Problems
 
-If a route does not import:
+**The journey is missing from the list after import.**
 
 1. Check that the file is GeoJSON, GPX, or KML.
 2. Try importing the file again from [Import a route](/user-guide/getting-started/import-source-data/).
 3. If the import dialog shows an error, keep the message visible until you know what failed.
+
+**The journey is listed but the track is invisible.** Select the track in the editor and check its [visibility](../journeys-and-tracks/). Then [focus the camera](../scene-and-camera/) on the journey to bring the line into view.
 
 ## Token Problems
 

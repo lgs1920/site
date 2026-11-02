@@ -34,23 +34,23 @@
   "sectionNav": [
     {
       "id": "presentation-generale",
-      "label": "Présentation générale",
-      "summary": "À quoi sert Studio"
-    },
-    {
-      "id": "etapes-principales",
-      "label": "Étapes principales",
-      "summary": "Quoi faire ensuite"
+      "label": "Découvrir Studio",
+      "summary": "Parcours et traces"
     },
     {
       "id": "session-type",
-      "label": "Session type",
-      "summary": "Le flux utilisateur attendu"
+      "label": "Créer ma première capture",
+      "summary": "De l’import à l’image"
+    },
+    {
+      "id": "etapes-principales",
+      "label": "Choisir une tâche",
+      "summary": "Procédures par objectif"
     },
     {
       "id": "captures",
-      "label": "Captures",
-      "summary": "Emplacements réservés aux visuels"
+      "label": "Résoudre un problème",
+      "summary": "Import, jetons et export"
     },
     {
       "id": "pages-de-reference",

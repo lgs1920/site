@@ -40,8 +40,8 @@
         }
       },
       {
-        "label": "Découvrir",
-        "href": "#promise",
+        "label": "Voir un exemple",
+        "href": "#workflow",
         "appearance": "filled",
         "variant": "brand",
         "className": "hero-button-discover",
@@ -59,6 +59,16 @@
       "summary": "Une vidéo prête à partager en quelques étapes"
     },
     {
+      "id": "workflow",
+      "label": "Exemple de randonnée",
+      "summary": "Retrouvez votre itinéraire"
+    },
+    {
+      "id": "quick-access",
+      "label": "Commencer",
+      "summary": "Guides et accès direct à Studio"
+    },
+    {
       "id": "overview",
       "label": "Vue d'ensemble",
       "summary": "Parcours et exports dans le navigateur"
@@ -69,19 +79,9 @@
       "summary": "Ce qui reste gratuit et quels fournisseurs externes sont facultatifs"
     },
     {
-      "id": "quick-access",
-      "label": "Commencer",
-      "summary": "Guides et accès direct à Studio"
-    },
-    {
       "id": "features",
       "label": "Fonctionnalités",
       "summary": "Les workflows principaux couverts par Studio"
-    },
-    {
-      "id": "workflow",
-      "label": "Workflow",
-      "summary": "De la donnée source à la vidéo finale"
     },
     {
       "id": "roadmap",
@@ -99,9 +99,7 @@
       "kicker": "Notre promesse",
       "title": "Vos sorties, vos histoires, votre vidéo.",
       "body": [
-        "Quel que soit l'endroit où vous vous trouvez, à côté de chez vous ou à l'autre bout du monde, que vous soyez contemplatif, en rando solo, un peu ou très sportif, parfois un peu déglingo ou simplement en famille ou entre potes, LGS1920 Studio est fait pour vous.",
-        "Importez vos fichiers GPX, GeoJSON ou KML, ajoutez des textes, vos POIs, vos stats en live et un peu de fun, ajustez deux ou trois paramètres, et bam : votre <strong>vidéo 3D</strong> est prête à partager.",
-        "Le tout <strong>gratuitement</strong>, sans passer par quatre applications différentes, tout en gardant vos <strong>données protégées</strong> et en restant dans le <strong>même navigateur</strong>."
+        "Quel que soit l'endroit où vous vous trouvez, à côté de chez vous ou à l'autre bout du monde, que vous soyez contemplatif, en rando solo, un peu ou très sportif, parfois un peu déglingo ou simplement en famille ou entre potes, LGS1920 Studio est fait pour vous."
       ]
     },
     "overview": {
@@ -139,7 +137,7 @@
         "items": [
           {
             "icon": "map-location-dot",
-            "title": "Stockage",
+            "title": "Formats d’entrée",
             "text": "GeoJSON, GPX et KML"
           },
           {
@@ -158,32 +156,28 @@
         "title": "Votre confidentialité passe avant tout.",
         "lead": "Pour l’instant, toutes les données traitées par Studio restent dans votre navigateur, y compris les vidéos en cours de traitement. Vos données peuvent déjà être synchronisées localement entre vos appareils. Dans une version ultérieure, Studio pourra également vous permettre de synchroniser vos données avec votre propre espace cloud, si vous choisissez de le faire.",
         "quote": {
-          "text": "Avec Studio, vous n’avez pas à créer de compte en ligne pour accéder à vos données. Elles restent dans vos espaces personnels : votre navigateur, votre appareil ou votre propre espace cloud. Nous ne vous pisterons jamais ; nous n’utilisons pas de cookies, et vous pouvez utiliser l’application comme bon vous semble.",
-          "rulesTitle": "Les deux seules règles imposées :",
+          "text": "Vous pouvez accéder à vos parcours sans créer de compte en ligne. Studio ne suit pas votre activité et n’utilise pas de cookies.",
+          "rulesTitle": "Quand vous publiez une vidéo",
           "rules": [
-            {
-              "icon": "party-horn",
-              "text": "Faites-vous plaisir et, de temps en temps, partagez votre vidéo sur vos réseaux sociaux avec le hashtag #LGS1920Studio."
-            },
             {
               "icon": "scale-unbalanced",
               "text": "Laissez les crédits visibles."
             }
           ],
-          "closing": "Merci et bonne utilisation !",
+          "closing": "Si vous avez envie de nous montrer votre sortie, partagez-la avec le hashtag #LGS1920Studio.",
           "partnerNote": "Vous utilisez Studio pour un événement public ? Vous pouvez nous ajouter comme partenaire. Ce serait sympa et cela nous aiderait à nous faire connaître. Merci."
         }
       }
     },
     "quickAccess": {
       "kicker": "Commencer",
-      "title": "Trop pressé ?",
-      "intro": "Choisissez le chemin le plus court : comprendre Studio, suivre un premier parcours guidé, consulter le guide complet ou ouvrir Studio directement.",
+      "title": "Essayez avec votre propre sortie",
+      "intro": "Ouvrez Studio avec votre fichier GPS, suivez le guide pour créer une première capture ou retrouvez une procédure précise.",
       "cards": [
         {
           "icon": "book-open-lines",
           "title": "Guide rapide",
-          "body": "Suivez les premières étapes pour ouvrir Studio, importer un parcours et prendre en main le workflow principal.",
+          "body": "Importez une sortie, retrouvez sa trace sur la carte et créez votre première image.",
           "action": {
             "label": "Lire le guide rapide",
             "href": "/fr/user-guide/getting-started/first-steps/",
@@ -265,23 +259,23 @@
       ]
     },
     "workflow": {
-      "kicker": "Workflow",
-      "title": "De la donnée source à la vidéo finale.",
+      "kicker": "Exemple de randonnée",
+      "title": "Du sentier au sommet, racontez votre randonnée en vidéo.",
       "steps": [
         {
           "index": "1",
-          "title": "Charger les données source",
-          "body": "Importer des fichiers GeoJSON, GPX ou KML et reconstruire un contexte de parcours exploitable dans le navigateur."
+          "title": "Retrouvez votre itinéraire",
+          "body": "Importez le GPX de votre randonnée. Centrez la carte sur la trace pour voir où le sentier quitte la vallée et rejoint la crête."
         },
         {
           "index": "2",
-          "title": "Façonner la scène",
-          "body": "Régler la visibilité, le focus, les widgets, les cibles caméra et les réglages de panorama."
+          "title": "Faites ressortir le sommet",
+          "body": "Placez un point d’intérêt au sommet et donnez-lui son nom. Affichez le profil d’altitude pour que la montée se lise en même temps que le relief."
         },
         {
           "index": "3",
-          "title": "Partager le résultat",
-          "body": "Produisez une vidéo pour vos réseaux sociaux ; les captures et les rapports restent disponibles si nécessaire."
+          "title": "Préparez le souvenir à partager",
+          "body": "Cadrez la crête, lancez la relecture et vérifiez que le sommet reste visible. Enregistrez la vidéo ou gardez une capture de votre point de vue préféré."
         }
       ]
     },

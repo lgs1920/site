@@ -40,8 +40,8 @@
         }
       },
       {
-        "label": "Discover",
-        "href": "#promise",
+        "label": "See an example",
+        "href": "#workflow",
         "appearance": "filled",
         "variant": "brand",
         "className": "hero-button-discover",
@@ -59,6 +59,16 @@
       "summary": "A share-ready video in just a few steps"
     },
     {
+      "id": "workflow",
+      "label": "Hiking example",
+      "summary": "Find your route"
+    },
+    {
+      "id": "quick-access",
+      "label": "Start here",
+      "summary": "Guides and direct access to Studio"
+    },
+    {
       "id": "overview",
       "label": "Overview",
       "summary": "Browser-local journeys and exports"
@@ -69,19 +79,9 @@
       "summary": "What stays free and which external providers are optional"
     },
     {
-      "id": "quick-access",
-      "label": "Start here",
-      "summary": "Guides and direct access to Studio"
-    },
-    {
       "id": "features",
       "label": "Features",
       "summary": "The main workflows the Studio covers"
-    },
-    {
-      "id": "workflow",
-      "label": "Workflow",
-      "summary": "From source data to final output"
     },
     {
       "id": "roadmap",
@@ -99,9 +99,7 @@
       "kicker": "Our promise",
       "title": "Your outings, your stories, your video.",
       "body": [
-        "Wherever you are, close to home or on the other side of the world, whether you are contemplative, hiking solo, into sport a little or a lot, sometimes a bit wild, or simply with family or friends, LGS1920 Studio is made for you.",
-        "Import your GPX, GeoJSON, or KML files, add some text, revisit your POIs, adjust two or three settings, and bam: your <strong>3D video</strong> is ready to share.",
-        "All for <strong>free</strong>, without switching between four different apps, while keeping your <strong>data protected</strong> and staying in the <strong>same browser</strong>."
+        "Wherever you are, close to home or on the other side of the world, whether you are contemplative, hiking solo, into sport a little or a lot, sometimes a bit wild, or simply with family or friends, LGS1920 Studio is made for you."
       ]
     },
     "overview": {
@@ -139,7 +137,7 @@
         "items": [
           {
             "icon": "map-location-dot",
-            "title": "Storage",
+            "title": "Input formats",
             "text": "GeoJSON, GPX, and KML"
           },
           {
@@ -158,32 +156,28 @@
         "title": "Your privacy comes first.",
         "lead": "For now, all data handled by Studio stays in your browser, including videos while they are being processed. Your data can already be synchronized locally across your devices. In a future version, Studio may also allow you to synchronize your data with your own cloud storage, if you choose to do so.",
         "quote": {
-          "text": "With Studio, you don’t need to create an online account to access your data. Your data stays in your personal spaces: your browser, your device, or your own cloud storage. We will never track what you do; we are cookie-free, so use the app however you like.",
-          "rulesTitle": "The only two rules we impose:",
+          "text": "You can access your journeys without creating an online account. Studio does not track your activity or use cookies.",
+          "rulesTitle": "When you publish a video",
           "rules": [
-            {
-              "icon": "party-horn",
-              "text": "Have fun using it and, from time to time, share your video on your social networks with the hashtag #LGS1920Studio."
-            },
             {
               "icon": "scale-unbalanced",
               "text": "Keep the credits visible."
             }
           ],
-          "closing": "Thank you, and enjoy!",
+          "closing": "If you’d like to show us your outing, share it with #LGS1920Studio.",
           "partnerNote": "Using Studio for a public event? You can add us as a partner. It would be great for us and help more people discover LGS1920 Studio. Thank you."
         }
       }
     },
     "quickAccess": {
       "kicker": "Start here",
-      "title": "In a hurry?",
-      "intro": "Choose the shortest path to what you need: understand Studio, follow a guided first step, read the full User guide, or open Studio itself.",
+      "title": "Try it with your own outing",
+      "intro": "Open Studio with your GPS file, follow the guide to make a first snapshot or look up a specific task.",
       "cards": [
         {
           "icon": "book-open-lines",
           "title": "Quick guide",
-          "body": "Follow the first steps to open Studio, import a journey, and get familiar with the main workflow.",
+          "body": "Import an outing, find its track on the map and make your first image.",
           "action": {
             "label": "Quick guide",
             "href": "/user-guide/getting-started/first-steps/",
@@ -265,23 +259,23 @@
       ]
     },
     "workflow": {
-      "kicker": "Workflow",
-      "title": "From source data to final video.",
+      "kicker": "Hiking example",
+      "title": "Tell the story of a hike from trailhead to summit.",
       "steps": [
         {
           "index": "1",
-          "title": "Load source data",
-          "body": "Bring in GeoJSON, GPX, or KML files and rebuild a working journey context in the browser."
+          "title": "Find your route",
+          "body": "Import the GPX from your hike. Centre the map on the track to see where the trail leaves the valley and reaches the ridge."
         },
         {
           "index": "2",
-          "title": "Shape the scene",
-          "body": "Refine visibility, focus behavior, widgets, camera targets, and panorama settings."
+          "title": "Mark the summit",
+          "body": "Add a point of interest at the summit and give it a name. Show the elevation profile so viewers can follow the climb as they watch the terrain."
         },
         {
           "index": "3",
-          "title": "Share the result",
-          "body": "Produce a video for your social networks; snapshots and reports are available when needed."
+          "title": "Save the view",
+          "body": "Frame the ridge and replay the track to check that the summit stays in view. Record a video or keep a snapshot of your favourite viewpoint."
         }
       ]
     },
