@@ -1,13 +1,13 @@
 {
   "title": "Quick guide",
-  "description": "The essential first steps in LGS1920 Studio: open the workspace, identify the main controls, and prepare a session.",
+  "description": "Import your first GPS outing, find its track on the map and frame your first snapshot.",
   "hero": {
     "video": false,
     "className": "guide-hero",
     "badge": "Quick guide",
     "kicker": "User guide",
     "title": "Get started with LGS1920 Studio.",
-    "lead": "Open the Studio, identify the main areas, and prepare the first editing session with browser-local data.",
+    "lead": "Import your first GPS outing, find its track on the map and frame your first snapshot.",
     "highlights": [
       {
         "icon": "book-open-lines",
@@ -40,7 +40,7 @@
     {
       "id": "first-checks",
       "label": "First checks",
-      "summary": "Before importing data"
+      "summary": "From import to snapshot"
     }
   ]
 }
