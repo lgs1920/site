@@ -1,25 +1,14 @@
-## Open The Studio
+## Open the Studio
 
-Use the launch button from the site header or open the hosted Studio URL directly. The Studio runs in the browser, keeps working state local by default, and can sync in real time when your browser setup supports it.
+Open [Studio](https://studio.lgs1920.fr) in your browser. Have a GPX, GeoJSON or KML file from one of your outings ready.
 
-## Identify The Workspace
+## Identify the workspace
 
-The map scene is the central area. It displays journeys, tracks, points of interest, camera movement, and visible overlays. The header tools open common actions such as navigation, theme selection, the hosted Studio, and the guide.
+The map occupies the central scene. Use the side panels to edit your journey, its tracks and points of interest.
 
-Side panels are used to inspect or edit the selected content. They are where you usually manage journeys, track settings, POIs, widgets, and capture controls.
+## First checks
 
-<div class="guide-screenshot-placeholder" role="img" aria-label="Screenshot placeholder for the Studio workspace overview">
-    <wa-icon variant="regular" name="image"></wa-icon>
-    <strong>Screenshot placeholder</strong>
-    <span>Workspace overview with the map scene, toolbar, side panel, and an empty or loaded project state.</span>
-</div>
-
-## First Checks
-
-Before importing a route file:
-
-1. Confirm that the map scene is visible.
-2. Check that browser WebGL support is enabled.
-3. Keep only the browser tabs you need while recording video.
-4. Decide where screenshots and exports should be saved on your machine.
-5. Keep the guide open in another tab if you are following it step by step.
+1. Once the map is visible, open the import control and choose your file. Your journey should appear in the list. If it is missing, see the [import checks](/user-guide/getting-started/import-source-data/).
+2. A **journey** represents the whole outing. It has a title and can contain several **tracks**, the lines drawn on the map. The **Journey** button opens actions for the journey. To change the colour of one line, select its track in the editor. [Learn about journeys and tracks](/user-guide/workflows/journeys-and-tracks/).
+3. Select the journey and focus the camera on it. If the journey is listed but the line is missing, check track visibility in the editor, then [adjust the framing](/user-guide/workflows/scene-and-camera/).
+4. Once the track fits in the frame, follow the steps to [export a snapshot](/user-guide/workflows/export/). Open the saved image and check that the start and finish are visible. To share the outing in motion, continue with video export on the same page.
