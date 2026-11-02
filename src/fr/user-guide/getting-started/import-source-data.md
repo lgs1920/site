@@ -1,7 +1,7 @@
 
 ## Fichiers Pris En Charge
 
-Commencez depuis le bouton d'import ou le prompt de première session. Studio prend en charge les sources GeoJSON, GPX et KML. Le contenu importé devient modifiable dans la session courante.
+Commencez depuis le bouton d'import ou le prompt de première session. Studio prend en charge les sources GPX, GeoJSON, KML, FIT et TCX. Le contenu importé devient modifiable dans la session courante.
 
 ## Checklist D'import
 

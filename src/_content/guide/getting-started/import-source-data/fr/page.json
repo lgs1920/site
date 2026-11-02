@@ -1,13 +1,13 @@
 {
   "title": "Importer Un Parcours",
-  "description": "Charger des données GeoJSON, GPX ou KML dans LGS1920 Studio et vérifier le résultat.",
+  "description": "Charger des données GPX, GeoJSON, KML, FIT ou TCX dans LGS1920 Studio et vérifier le résultat.",
   "hero": {
     "video": false,
     "className": "guide-hero",
     "badge": "Étape principale",
     "kicker": "Import",
     "title": "Importer un parcours dans Studio.",
-    "lead": "Chargez des fichiers GeoJSON, GPX ou KML et confirmez que le parcours est prêt à être modifié."
+    "lead": "Chargez des fichiers GPX, GeoJSON, KML, FIT ou TCX et confirmez que le parcours est prêt à être modifié."
   },
   "sectionNav": [
     {

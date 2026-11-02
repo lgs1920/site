@@ -18,7 +18,7 @@ Use a GPS file from your own outing, or choose the **LGS1920** sample journey to
 
 ### Prepare the journey
 
-- [Import a GPX, GeoJSON or KML file](/user-guide/getting-started/import-source-data/)
+- [Import a GPX, GeoJSON, KML, FIT or TCX file](/user-guide/getting-started/import-source-data/)
 - [Change a track’s colour or width](/user-guide/workflows/journeys-and-tracks/)
 - [Correct track geometry with Fix Path](/user-guide/workflows/fix-path/)
 - [Mark a place on the journey](/user-guide/workflows/points-of-interest/)

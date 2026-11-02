@@ -120,7 +120,7 @@
           "key": "import-source-data",
           "label": "Import a route",
           "url": "/user-guide/getting-started/import-source-data",
-          "summary": "Load GeoJSON, GPX, or KML",
+          "summary": "Load GPX, GeoJSON, KML, FIT, or TCX",
           "icon": "file-import",
           "category": "User guide",
           "subcategory": "Getting started"

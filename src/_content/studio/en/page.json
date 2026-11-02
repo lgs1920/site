@@ -65,7 +65,7 @@
       "title": "Your outings, your stories, your video.",
       "body": [
         "Wherever you are, close to home or on the other side of the world, whether you are contemplative, hiking solo, into sport a little or a lot, sometimes a bit wild, or simply with family or friends, LGS1920 Studio is made for you.",
-        "Import your GPX, GeoJSON, or KML files, add some text, revisit your POIs, adjust two or three settings, and bam: your <strong>3D video</strong> is ready to share.",
+        "Import your GPX, GeoJSON, KML, FIT, or TCX files, add some text, revisit your POIs, adjust two or three settings, and bam: your <strong>3D video</strong> is ready to share.",
         "All for <strong>free</strong>, without switching between four different apps, while keeping your <strong>data protected</strong> and staying in the <strong>same browser</strong>."
       ]
     },
@@ -83,7 +83,7 @@
       {
         "icon": "route",
         "title": "Start with a route file",
-        "body": "Load a GeoJSON, GPX, or KML file created by a GPS device, a mobile application, another mapping tool, or one of the Studio samples."
+        "body": "Load a GPX, GeoJSON, KML, FIT, or TCX file created by a GPS device, a mobile application, another mapping tool, or one of the Studio samples."
       },
       {
         "icon": "street-view",
@@ -126,7 +126,7 @@
         {
           "index": "1",
           "title": "Open or import a route",
-          "body": "Choose a sample or load a GeoJSON, GPX, or KML file from your device."
+          "body": "Choose a sample or load a GPX, GeoJSON, KML, FIT, or TCX file from your device."
         },
         {
           "index": "2",

@@ -2,7 +2,7 @@
 
 Open [Studio](https://studio.lgs1920.fr) in your browser. Choose how to start in the import window.
 
-- **Use my own outing.** Choose a GPX, GeoJSON or KML file from your GPS device or hiking app.
+- **Use my own outing.** Choose a GPX, GeoJSON, KML, FIT or TCX file from your GPS device or hiking app.
 - **Try a sample.** Open **Load a Sample** and choose the **LGS1920** journey to explore La Grande Sure in the Chartreuse mountains.
 
 ## Identify the workspace

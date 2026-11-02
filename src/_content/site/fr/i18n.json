@@ -120,7 +120,7 @@
           "key": "import-source-data",
           "label": "Importer un parcours",
           "url": "/fr/user-guide/getting-started/import-source-data",
-          "summary": "Charger du GeoJSON, GPX ou KML",
+          "summary": "Charger du GPX, GeoJSON, KML, FIT ou TCX",
           "icon": "file-import",
           "category": "Guide utilisateur",
           "subcategory": "Démarrage"

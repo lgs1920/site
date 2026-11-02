@@ -18,7 +18,7 @@ Utilisez le fichier GPS de votre sortie ou choisissez le parcours d’exemple **
 
 ### Préparer le parcours
 
-- [Importer un fichier GPX, GeoJSON ou KML](/fr/user-guide/getting-started/import-source-data/)
+- [Importer un fichier GPX, GeoJSON, KML, FIT ou TCX](/fr/user-guide/getting-started/import-source-data/)
 - [Changer la couleur ou l’épaisseur d’une trace](/fr/user-guide/workflows/journeys-and-tracks/)
 - [Corriger la géométrie d’une trace avec Fix Path](/fr/user-guide/workflows/fix-path/)
 - [Marquer un lieu sur le parcours](/fr/user-guide/workflows/points-of-interest/)

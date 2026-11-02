@@ -138,7 +138,7 @@
           {
             "icon": "map-location-dot",
             "title": "Input formats",
-            "text": "GeoJSON, GPX, and KML"
+            "text": "GPX, GeoJSON, KML, FIT, and TCX"
           },
           {
             "icon": "arrows-rotate",
@@ -291,7 +291,7 @@
         {
           "index": "1",
           "title": "1.1: Extended activity imports",
-          "body": "Add FIT and TCX imports from Garmin and Strava while preserving activity and sensor data, with optional authenticated Strava access and connected-provider project files.<br>Enrich POIs with several looks to fit your designs."
+          "body": "Extend activity import with optional authenticated Strava access and project files from connected providers.<br>Enrich POIs with several looks to fit your designs."
         },
         {
           "index": "2",

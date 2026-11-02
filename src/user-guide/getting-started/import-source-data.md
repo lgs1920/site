@@ -1,7 +1,7 @@
 
 ## Supported Files
 
-Start from the import button or first-session import prompt. The Studio supports GeoJSON, GPX, and KML sources. Imported content becomes editable in the current browser session and can be combined with camera state, POIs, widgets, and capture settings.
+Start from the import button or first-session import prompt. The Studio supports GPX, GeoJSON, KML, FIT, and TCX sources. Imported content becomes editable in the current browser session and can be combined with camera state, POIs, widgets, and capture settings.
 
 ## Import Checklist
 

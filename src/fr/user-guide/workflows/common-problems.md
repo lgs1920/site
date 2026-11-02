@@ -3,7 +3,7 @@
 
 **Le parcours manque dans la liste après l’import.**
 
-1. Vérifiez que le fichier est en GeoJSON, GPX ou KML.
+1. Vérifiez que le fichier est en GPX, GeoJSON, KML, FIT ou TCX.
 2. Réessayez depuis [Importer un parcours](/fr/user-guide/getting-started/import-source-data/).
 3. Si un message d'erreur s'affiche, gardez-le visible jusqu'à avoir identifié la cause.
 

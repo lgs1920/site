@@ -84,7 +84,7 @@
       "id": "formats-fichiers-studio",
       "category": "using-studio",
       "summary": "Quels formats de fichiers Studio peut-il importer ?",
-      "body": "Studio peut importer des fichiers GeoJSON, GPX et KML. Vous pouvez également commencer avec l’un des parcours d’exemple fournis avec Studio."
+      "body": "Studio peut importer des fichiers GPX, GeoJSON, KML, FIT et TCX. Vous pouvez également commencer avec l’un des parcours d’exemple fournis avec Studio."
     },
     {
       "id": "comment-importer-parcours",

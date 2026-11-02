@@ -27,7 +27,7 @@
         {
           "icon": "route",
           "title": "Importez et relisez vos parcours.",
-          "text": "GeoJSON, GPX et KML"
+          "text": "GPX, GeoJSON, KML, FIT et TCX"
         },
         {
           "icon": "camera",

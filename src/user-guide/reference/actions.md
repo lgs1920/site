@@ -4,7 +4,7 @@
 | Action | Icon Example | Result |
 | --- | --- | --- |
 | Launch Studio | <wa-icon variant="regular" name="clapperboard-play"></wa-icon> | Opens the hosted editor application. |
-| Import | <wa-icon variant="regular" name="file-import"></wa-icon> | Loads GeoJSON, GPX, or KML source files. |
+| Import | <wa-icon variant="regular" name="file-import"></wa-icon> | Loads GPX, GeoJSON, KML, FIT, or TCX source files. |
 | Focus | <wa-icon variant="regular" name="bullseye"></wa-icon> | Moves the camera to the selected object or coordinate. |
 | Rotate | <wa-icon variant="regular" name="arrows-rotate"></wa-icon> | Starts or adjusts orbit movement around the target. |
 | Panorama | <wa-icon variant="regular" name="panorama"></wa-icon> | Starts or adjusts panorama movement. |

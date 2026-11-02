@@ -2,7 +2,7 @@
 
 Ouvrez [Studio](https://studio.lgs1920.fr) dans votre navigateur. Dans la fenêtre d’import, choisissez comment commencer.
 
-- **Avec ma sortie.** Choisissez un fichier GPX, GeoJSON ou KML de votre GPS ou de votre application de randonnée.
+- **Avec ma sortie.** Choisissez un fichier GPX, GeoJSON, KML, FIT ou TCX de votre GPS ou de votre application de randonnée.
 - **Avec un exemple.** Ouvrez **Load a Sample** et choisissez le parcours **LGS1920** pour explorer La Grande Sure en Chartreuse.
 
 ## Repérer les zones

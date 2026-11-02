@@ -4,7 +4,7 @@
 | Action | Exemple d'icône | Résultat |
 | --- | --- | --- |
 | Lancer Studio | <wa-icon variant="regular" name="clapperboard-play"></wa-icon> | Ouvre l'application d'édition hébergée. |
-| Importer | <wa-icon variant="regular" name="file-import"></wa-icon> | Charge des fichiers source GeoJSON, GPX ou KML. |
+| Importer | <wa-icon variant="regular" name="file-import"></wa-icon> | Charge des fichiers source GPX, GeoJSON, KML, FIT ou TCX. |
 | Focaliser | <wa-icon variant="regular" name="bullseye"></wa-icon> | Déplace la caméra vers l'objet ou la coordonnée sélectionnée. |
 | Rotation | <wa-icon variant="regular" name="arrows-rotate"></wa-icon> | Démarre ou ajuste l'orbite autour de la cible. |
 | Panorama | <wa-icon variant="regular" name="panorama"></wa-icon> | Démarre ou ajuste le mouvement de panorama. |

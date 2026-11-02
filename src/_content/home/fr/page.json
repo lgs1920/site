@@ -138,7 +138,7 @@
           {
             "icon": "map-location-dot",
             "title": "Formats d’entrée",
-            "text": "GeoJSON, GPX et KML"
+            "text": "GPX, GeoJSON, KML, FIT et TCX"
           },
           {
             "icon": "arrows-rotate",
@@ -291,7 +291,7 @@
         {
           "index": "1",
           "title": "1.1 : Imports d’activités étendus",
-          "body": "Ajouter les imports FIT et TCX depuis Garmin et Strava en conservant les données d’activité et de capteurs, avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés.<br>Enrichir les POI avec plusieurs styles pour les adapter à vos créations."
+          "body": "Étendre l’import des activités avec un accès Strava authentifié optionnel et des fichiers projet via des fournisseurs connectés.<br>Enrichir les POI avec plusieurs styles pour les adapter à vos créations."
         },
         {
           "index": "2",

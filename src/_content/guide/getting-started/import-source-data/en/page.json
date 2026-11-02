@@ -1,17 +1,17 @@
 {
   "title": "Import A Route",
-  "description": "Load GeoJSON, GPX, or KML route data into LGS1920 Studio and verify the imported journey.",
+  "description": "Load GPX, GeoJSON, KML, FIT, or TCX route data into LGS1920 Studio and verify the imported journey.",
   "hero": {
     "video": false,
     "className": "guide-hero",
     "badge": "Main step",
     "kicker": "Import",
     "title": "Import a route into the Studio.",
-    "lead": "Load GeoJSON, GPX, or KML files and confirm that the journey is ready to edit.",
+    "lead": "Load GPX, GeoJSON, KML, FIT, or TCX files and confirm that the journey is ready to edit.",
     "highlights": [
       {
         "icon": "file-import",
-        "label": "GeoJSON, GPX, KML",
+        "label": "GPX, GeoJSON, KML, FIT, TCX",
         "variant": "regular"
       },
       {

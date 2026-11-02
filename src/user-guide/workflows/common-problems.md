@@ -3,7 +3,7 @@
 
 **The journey is missing from the list after import.**
 
-1. Check that the file is GeoJSON, GPX, or KML.
+1. Check that the file is GPX, GeoJSON, KML, FIT, or TCX.
 2. Try importing the file again from [Import a route](/user-guide/getting-started/import-source-data/).
 3. If the import dialog shows an error, keep the message visible until you know what failed.
 

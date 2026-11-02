@@ -27,7 +27,7 @@
         {
           "icon": "route",
           "title": "Import and review journeys.",
-          "text": "GeoJSON, GPX, and KML"
+          "text": "GPX, GeoJSON, KML, FIT, and TCX"
         },
         {
           "icon": "camera",

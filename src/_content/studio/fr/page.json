@@ -65,7 +65,7 @@
       "title": "Vos sorties, vos histoires, votre vidéo.",
       "body": [
         "Quel que soit l'endroit où vous vous trouvez, à côté de chez vous ou à l'autre bout du monde, que vous soyez contemplatif, en rando solo, un peu ou très sportif, parfois un peu déglingo ou simplement en famille ou entre potes, LGS1920 Studio est fait pour vous.",
-        "Importez vos fichiers GPX, GeoJSON ou KML, ajoutez des textes, vos POIs, vos stats en live et un peu de fun, ajustez deux ou trois paramètres, et bam : votre <strong>vidéo 3D</strong> est prête à partager.",
+        "Importez vos fichiers GPX, GeoJSON, KML, FIT ou TCX, ajoutez des textes, vos POIs, vos stats en live et un peu de fun, ajustez deux ou trois paramètres, et bam : votre <strong>vidéo 3D</strong> est prête à partager.",
         "Le tout <strong>gratuitement</strong>, sans passer par quatre applications différentes, tout en gardant vos <strong>données protégées</strong> et en restant dans le <strong>même navigateur</strong>."
       ]
     },
@@ -83,7 +83,7 @@
       {
         "icon": "file-import",
         "title": "Partir d’un fichier de parcours",
-        "body": "Chargez un fichier GeoJSON, GPX ou KML créé par un GPS, une application mobile, un autre outil cartographique ou fourni comme exemple dans Studio."
+        "body": "Chargez un fichier GPX, GeoJSON, KML, FIT ou TCX créé par un GPS, une application mobile, un autre outil cartographique ou fourni comme exemple dans Studio."
       },
       {
         "icon": "map-location-dot",
@@ -126,7 +126,7 @@
         {
           "index": "1",
           "title": "Ouvrir ou importer un parcours",
-          "body": "Choisissez un exemple ou chargez un fichier GeoJSON, GPX ou KML depuis votre appareil."
+          "body": "Choisissez un exemple ou chargez un fichier GPX, GeoJSON, KML, FIT ou TCX depuis votre appareil."
         },
         {
           "index": "2",
